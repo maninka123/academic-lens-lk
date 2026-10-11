@@ -76,7 +76,7 @@ type Group = {
   plotted: number[];
   zeros: number;
 };
-type Unit = Group & { id: string; country: string; qs: string };
+type Unit = Group & { id: string; country: string; qs: string; attempted?: number };
 
 export { isMatched };
 
@@ -178,6 +178,7 @@ export function Global() {
           id: u.id,
           country: "Sri Lanka",
           qs: b.metadata.sriLankaQs[u.id] || "not ranked",
+          attempted: rows.filter(a => b.slOpenAlex.has(a.id)).length,
         };
       }),
     ];
@@ -672,7 +673,7 @@ export function Global() {
           <details className="benchmark-missing">
             <summary>{hiddenSl.length} Sri Lankan universities need more usable metric values</summary>
             <p>Each median needs {minN} valid values for the selected filters and provider. Missing values are not zero.</p>
-            <ul>{hiddenSl.map(u => <li key={u.id}><strong>{u.label}</strong><span>{u.values.length} usable values / {u.eligible} matching profiles</span></li>)}</ul>
+            <ul>{hiddenSl.map(u => <li key={u.id}><strong>{u.label}</strong><span>{mode === "likeForLike" && u.attempted === 0 ? `OpenAlex lookup pending · ${u.eligible} matching profiles` : `${u.values.length} usable values / ${u.eligible} matching profiles`}</span></li>)}</ul>
           </details>
         )}
         <div className="benchmark-ladder-window">

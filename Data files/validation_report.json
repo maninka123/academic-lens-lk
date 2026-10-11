@@ -29,7 +29,7 @@
   "logged_moves": 490,
   "permanent_employment_supported": 262,
   "employment_not_confirmed_permanent": 1135,
-  "employment_review_records": 214,
+  "employment_review_records": 209,
   "verified_officially_linked_research_identities": 455,
   "verified_officially_linked_scholar_identities": 440,
   "live_scholar_metric_profiles": 241,
@@ -46,12 +46,10 @@
   "pending_identity_cases": 0,
   "pending_publication_identifier_date_cases": 2,
   "pending_unit_cases": 0,
-  "source_retrieval_observations": 1336,
+  "source_retrieval_observations": 1337,
   "inventory_entries": 690,
   "checked_unit_checkpoints": 58,
-  "errors": [
-    "Main/review ID overlap"
-  ],
+  "errors": [],
   "warnings": [],
   "exhaustive_census_complete": false,
   "target_distinct_academics": 5000,

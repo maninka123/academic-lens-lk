@@ -6,7 +6,7 @@ Sri Lankan directory names are often initials + surname ("H.L. De Silva"). A
 candidate must share the full surname and agree with every published initial;
 ambiguous matches are left blank, as in the baseline build.
 """
-import csv, glob, re
+import csv, glob, re, sys, shutil
 from collections import defaultdict
 from pathlib import Path
 
@@ -79,17 +79,46 @@ def main():
     for uid, r, p in people:
         by_uni[uid].append((r, p))
 
-    out = []
+    path = DATA / "international" / "sri_lanka_openalex_metrics.csv"
+    existing = list(csv.DictReader(path.open(encoding="utf-8-sig"))) if path.exists() else []
+    out = {r["academic_id"]: r for r in existing}
+    cache_only = "--cache-only" in sys.argv
+    if path.exists():
+        archive = DATA / "_archive" / "openalex-before-resume-2026-10-12.csv"
+        archive.parent.mkdir(parents=True, exist_ok=True)
+        if not archive.exists(): shutil.copy2(path, archive)
+    original_get = oa._get
+    if cache_only:
+        import hashlib, json
+        def cached_get(endpoint, params):
+            key = hashlib.sha1((endpoint + json.dumps(params, sort_keys=True)).encode()).hexdigest()
+            f = oa.CACHE / f"{key}.json"
+            if not f.exists(): raise oa.BudgetExhausted("Uncached request; offline mode")
+            return json.loads(f.read_text())
+        oa._get = cached_get
+
+    def checkpoint():
+        if not out: return
+        with path.open("w", newline="", encoding="utf-8-sig") as f:
+            w = csv.DictWriter(f, fieldnames=list(next(iter(out.values())).keys()))
+            w.writeheader(); w.writerows(out.values())
+
     for uid, items in by_uni.items():
         surnames = sorted({p["query"] for _, p in items})
         cands = []
-        try:
-            for i in range(0, len(surnames), 25):
-                cands += oa.authors(SL_INST[uid], surnames[i:i + 25])
-        except oa.BudgetExhausted:
-            print("OpenAlex budget exhausted at", uid, "- rerun later; cached results are kept.")
-            break
+        completed_queries = set()
+        for i in range(0, len(surnames), 25):
+            batch = surnames[i:i + 25]
+            try:
+                cands += oa.authors(SL_INST[uid], batch)
+                completed_queries.update(batch)
+            except oa.BudgetExhausted:
+                if cache_only: continue
+                print("OpenAlex budget exhausted at", uid, "- completed work is preserved. Rerun later.")
+                break
         for r, p in items:
+            if p["query"] not in completed_queries or r["academic_id"] in out:
+                continue
             hits = [a for a in cands if any(compatible(p, n) for n in [a["display_name"]] + (a.get("display_name_alternatives") or []))]
             hits = list({a["id"]: a for a in hits}.values())
             hits.sort(key=lambda a: a["works_count"], reverse=True)
@@ -97,7 +126,7 @@ def main():
             if hits:
                 top = hits[0]
                 sec = hits[1]["works_count"] if len(hits) > 1 else 0
-                if (sec >= 10 and sec >= 0.35 * top["works_count"]) or (len(hits) >= 3 and sec >= 10 and sec >= 0.1 * top["works_count"]):
+                if len(hits) > 1:
                     status = "openalex_multiple_candidates_requires_review"
                 elif top["works_count"] > 1500:
                     status = "openalex_implausible_merged_profile_requires_review"
@@ -108,15 +137,12 @@ def main():
                    "status": status, "candidates": len(hits)}
             row.update({k: (v if a else "") for k, v in (metrics(a) if a else {
                 "total_publications": "", "total_citations": "", "h_index": "", "citations_2021_2025": ""}).items()})
-            out.append(row)
-        print(f"{uid:<16}{len(items):>4} academics, {len(cands):>5} candidates, "
-              f"{sum(1 for o in out if o['university_id'] == uid and o['openalex_id'])} matched")
-    path = DATA / "international" / "sri_lanka_openalex_metrics.csv"
-    with path.open("w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=list(out[0].keys()))
-        w.writeheader()
-        w.writerows(out)
-    print("wrote", path, len(out))
+            out[row["academic_id"]] = row
+        checkpoint()
+        print(f"{uid:<16} {len(completed_queries)} surnames covered; "
+              f"{sum(1 for o in out.values() if o['university_id'] == uid and o['openalex_id'])} matched")
+    checkpoint()
+    print("wrote", path, len(out), "rows; prior matches preserved")
 
 
 if __name__ == "__main__":
