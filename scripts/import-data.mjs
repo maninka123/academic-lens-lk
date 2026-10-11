@@ -193,6 +193,7 @@ const metadata = {
     "identity_aliases.csv",
     "academic_affiliations.csv",
     "field_evidence.csv",
+    "missing_field_resolutions.csv",
     "profile_verification.csv",
     "collection_report.md",
     "APPLICATION_HANDOFF.md",

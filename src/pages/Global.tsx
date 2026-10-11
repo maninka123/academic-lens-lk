@@ -188,9 +188,9 @@ export function Global() {
       type: "category",
       data: view.tierGroups.map(
         (g) =>
-          `${g.key === "sl" ? "Sri Lanka" : tierShort[g.key as Tier]}\n(n=${g.values.length})`,
+          `${g.key === "sl" ? "Sri Lanka" : tierShort[g.key as Tier].replace(" tier", "")}\nn=${g.values.length}`,
       ),
-      axisLabel: { fontSize: 13, interval: 0 },
+      axisLabel: { fontSize: 12, interval: 0 },
     },
     yAxis: {
       type: log ? "log" : "value",
@@ -266,11 +266,8 @@ export function Global() {
             markLine: {
               symbol: "none",
               lineStyle: { color: col.sl, type: "dashed", width: 2 },
-              label: {
-                formatter: `Sri Lanka median ${fmt(slMedian, 1)}`,
-                position: "insideEndTop",
-                color: "inherit",
-              },
+              label: { show: false },
+              tooltip: { formatter: `Sri Lanka median ${fmt(slMedian, 1)}` },
               data: [{ yAxis: slMedian }],
             },
           }
@@ -325,10 +322,10 @@ export function Global() {
   const scatter = {
     tooltip: { trigger: "item", confine: true },
     legend: { top: 0 },
-    grid: { left: 60, right: 30, top: 45, bottom: 55, containLabel: true },
+    grid: { left: 60, right: 30, top: 75, bottom: 55, containLabel: true },
     xAxis: {
       type: "log",
-      name: "QS World University Rankings 2027 position (log scale; bands at midpoint)",
+      name: "QS 2027 rank (log scale)",
       nameLocation: "middle",
       nameGap: 32,
       inverse: true,
@@ -347,7 +344,7 @@ export function Global() {
     },
     series: (["elite", "middle", "lower", "sl"] as const).map((t) => ({
       type: "scatter",
-      name: t === "sl" ? "Sri Lanka" : tierLabels[t],
+      name: t === "sl" ? "Sri Lanka" : tierShort[t],
       symbolSize: t === "sl" ? 14 : 11,
       itemStyle: {
         color: colorOf(t),
@@ -514,7 +511,7 @@ export function Global() {
         </Card>
         <Card
           title="Tier medians by country"
-          subtitle="Dashed line marks the Sri Lankan median for the same selection."
+          subtitle={`Orange dashed line: Sri Lankan median${slMedian === null ? "" : ` (${fmt(slMedian, 1)})`} for the same selection.`}
         >
           <Chart
             option={byCountry}

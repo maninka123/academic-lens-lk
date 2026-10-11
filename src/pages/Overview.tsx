@@ -54,7 +54,11 @@ export function Overview() {
   const barOption = {
     tooltip: { trigger: "axis", renderMode: "richText" },
     grid: { left: 135, right: 45, top: 15, bottom: 35 },
-    xAxis: { type: "value", axisLabel: { fontSize: 14 } },
+    xAxis: {
+      type: "value",
+      minInterval: 1,
+      axisLabel: { fontSize: 14, formatter: (v: number) => fmt(v) },
+    },
     yAxis: {
       type: "category",
       inverse: true,
@@ -73,7 +77,12 @@ export function Overview() {
             borderRadius: [0, 4, 4, 0],
           },
         })),
-        label: { show: true, position: "right", fontSize: 14 },
+        label: {
+          show: true,
+          position: "right",
+          fontSize: 14,
+          formatter: (p: any) => fmt(p.value),
+        },
       },
     ],
   };
@@ -238,7 +247,7 @@ export function Overview() {
           </div>
         </div>
       </div>
-      <div className="two-columns">
+      <div className="two-columns align-start">
         <Card
           title="Academic positions"
           subtitle="Original titles are retained in each profile"
@@ -294,23 +303,40 @@ export function Overview() {
           subtitle="Median citations · valid records only; collected coverage varies"
         >
           <Chart
-            height={320}
+            height={560}
+            label="Median citations by institution"
             option={{
               tooltip: { trigger: "axis", renderMode: "richText" },
-              grid: { left: 65, right: 20, top: 20, bottom: 80 },
-              xAxis: {
-                type: "category",
-                data: groups.map((g) => g.short),
-                axisLabel: { rotate: 35, fontSize: 14 },
+              grid: {
+                left: 10,
+                right: 60,
+                top: 10,
+                bottom: 30,
+                containLabel: true,
               },
-              yAxis: { type: "value", axisLabel: { fontSize: 14 } },
+              yAxis: {
+                type: "category",
+                inverse: true,
+                data: groups.map((g) => g.short),
+                axisLabel: { fontSize: 14 },
+              },
+              xAxis: {
+                type: "value",
+                name: "Median citations",
+                nameLocation: "middle",
+                nameGap: 28,
+                axisLabel: { fontSize: 13 },
+              },
               series: [
                 {
                   type: "bar",
+                  barMaxWidth: 18,
+                  label: { show: true, position: "right", fontSize: 13 },
                   data: groups.map((g) => ({
                     value: aggregate(g.rows, "citations", "median").value,
                     itemStyle: {
                       color: g.type === "Public" ? "#2675b9" : "#169688",
+                      borderRadius: [0, 4, 4, 0],
                     },
                   })),
                 },

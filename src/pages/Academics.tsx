@@ -71,13 +71,32 @@ export function Academics() {
     </>
   );
 }
+const evidenceLabel = (value: string | number | null) => {
+  if (value === null || value === "" || value === "Unknown")
+    return "Not yet documented";
+  const labels: Record<string, string> = {
+    listed_completed: "Completed — listed in qualifications",
+    completed: "Completed",
+    in_progress: "In progress",
+    not_published_or_not_extracted: "Not yet documented",
+    not_explicitly_verified: "Appointment type not confirmed",
+    permanent_officially_listed: "Permanent — officially listed",
+    emeritus_officially_listed: "Emeritus — officially listed",
+    former_institution_appointment_current_other_institution:
+      "Former appointment — now at another institution",
+    overlapping_institution_appointments_review_required:
+      "Multiple affiliations — review needed",
+    Unmapped: "Not yet classified",
+  };
+  return typeof value === "string" ? labels[value] || value : value;
+};
 function Info({ items }: { items: [string, string | number | null][] }) {
   return (
     <dl className="info-list">
       {items.map(([k, v]) => (
         <div key={k}>
           <dt>{k}</dt>
-          <dd>{v === null || v === "" ? "Not available" : v}</dd>
+          <dd>{evidenceLabel(v)}</dd>
         </div>
       ))}
     </dl>
@@ -486,7 +505,15 @@ export function Institution() {
           (m) => (
             <Stat
               key={m}
-              label={"Median " + m}
+              label={
+                "Median " +
+                {
+                  citations: "citations",
+                  publications: "publications",
+                  experience: "experience",
+                  hIndex: "h-index",
+                }[m]
+              }
               value={fmt(aggregate(rows, m, "median").value, 1)}
               detail={`${aggregate(rows, m, "median").n} valid profiles`}
             />
@@ -531,7 +558,10 @@ export function Institution() {
                       ? g.rows[0]?.department || "Department unavailable"
                       : g.rows[0]?.faculty || "Faculty unavailable"}
                   </strong>
-                  <small>{g.rows.length} collected profiles</small>
+                  <small>
+                    {g.rows.length} collected{" "}
+                    {g.rows.length === 1 ? "profile" : "profiles"}
+                  </small>
                 </div>
               </Link>
             ))}

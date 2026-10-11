@@ -394,10 +394,10 @@ export function comparisonChart(
   return {
     ...base,
     legend: { show: false },
-    grid: { left: 15, right: 80, top: 15, bottom: 65, containLabel: true },
+    grid: { left: 15, right: 70, top: 15, bottom: 65, containLabel: true },
     xAxis: { type: c.log ? "log" : "value", name: metricLabels[c.metric], nameLocation: "middle", nameGap: 35, axisLabel: { fontSize: 14 } },
-    yAxis: { type: "category", inverse: true, data: labels, axisLabel: { fontSize: 14, width: 180, overflow: "break" } },
-    dataZoom: labels.length > 12 ? [{ type: "slider", yAxisIndex: 0, right: 5, width: 15, startValue: 0, endValue: 11 }] : [],
+    yAxis: { type: "category", inverse: true, data: labels, axisLabel: { fontSize: 14, lineHeight: 20, width: 210, overflow: "truncate", formatter: (value: string) => { const [unit, ...parents] = value.split(" · "); return parents.length ? unit.replace(/^Faculty of /, "") + "\n" + short(parents.join(" · ")) : value; } } },
+    dataZoom: labels.length > 8 ? [{ type: "slider", yAxisIndex: 0, right: 5, width: 20, startValue: 0, endValue: 7, minValueSpan: 7, maxValueSpan: 7, zoomLock: true, showDataShadow: false, showDetail: false, brushSelect: false }] : [],
     series: [
       {
         name:
@@ -405,11 +405,11 @@ export function comparisonChart(
             ? "Mean of university statistics"
             : c.aggregation,
         type: "bar",
-        barMaxWidth: 52,
+        barMaxWidth: 28,
         itemStyle: { borderRadius: [0, 5, 5, 0] },
         label: { show: c.labels, position: "right", fontSize: 14 },
         data: groups.map((g, i) => ({
-          name: labels[i],
+          name: g.label,
           value: g.value,
           groupId: g.id,
           itemStyle: {
@@ -418,7 +418,7 @@ export function comparisonChart(
                 ? g.id === "Public"
                   ? "#2675b9"
                   : "#169688"
-                : colors[i % colors.length],
+                : "#2675b9",
           },
           n: g.n,
         })),
