@@ -20,6 +20,7 @@ import {
   GeoComponent,
   TitleComponent,
   MarkLineComponent,
+  MarkPointComponent,
   AriaComponent,
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
@@ -46,6 +47,7 @@ echarts.use([
   GeoComponent,
   TitleComponent,
   MarkLineComponent,
+  MarkPointComponent,
   AriaComponent,
   CanvasRenderer,
 ]);

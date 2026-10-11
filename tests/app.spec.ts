@@ -13,7 +13,7 @@ test("real collection, comparison controls, profiles, exports, and screenshots",
   await page.goto("./");
   await expect(
     page.getByRole("heading", {
-      name: "A clearer view of our academic landscape.",
+      name: "Sri Lanka’s academic landscape.",
     }),
   ).toBeVisible();
   await expect(page.getByText(records, { exact: true }).first()).toBeVisible();
@@ -128,7 +128,7 @@ test("responsive layout, readable text, and appearance", async ({ page }) => {
   await page.goto("./");
   await expect(
     page.getByRole("heading", {
-      name: "A clearer view of our academic landscape.",
+      name: "Sri Lanka’s academic landscape.",
     }),
   ).toBeVisible();
   expect(
@@ -190,7 +190,8 @@ test("people search, hierarchy, qualification and position comparisons on deskto
   await page
     .getByLabel("Profile measurement", { exact: true })
     .selectOption("hIndex");
-  await expect(page.getByRole("table").first().locator("tbody tr")).toHaveCount(
+  await page.getByText("Detailed statistics", { exact: true }).click();
+  await expect(page.locator(".peer-statistics table tbody tr")).toHaveCount(
     8,
   );
   await page.getByLabel("Compare with", { exact: true }).selectOption("both");

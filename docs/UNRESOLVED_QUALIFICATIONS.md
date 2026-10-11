@@ -1,0 +1,585 @@
+# Qualifications awaiting confirmation
+
+Current dataset: **543 profiles have no classified completed qualification**. This is a follow-up queue, not a claim that all 543 have been individually researched or that they hold no degree.
+
+Edit [qualification_followup.csv](../Data%20files/qualification_followup.csv). Each row includes the person, university, faculty, current text and official profile link. Fill the confirmation and evidence columns; keep the ID unchanged.
+
+Categories: **PhD**, **Masters / MPhil**, **Bachelors**, **Other documented**, or **Unknown**. Count completed qualifications only; a Dr/Prof title or an ongoing PhD is not completion evidence.
+
+The earlier 35-person review left **Ms. M.AS. Fathima — University of Moratuwa, Faculty of Business** unresolved. She is included below.
+
+## CINEC Campus (15)
+
+- [A. D. Ravindra Lalith Wickramarathne](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Marine Engineering · Department of Industrial Engineering
+- [A. S. S. Hemathunga Ranaweera](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Marine Engineering · Department of Marine Electrical Engineering
+- [D. C. Viduranga](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Marine Engineering · Department of Industrial Engineering
+- [D. N. Priyantha Rathnayake](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Marine Engineering · Department of Industrial Engineering
+- [E. A. Saman Bandula](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Humanities and Education · Department of Safety & Survival Training
+- [I. K. Ravindu Sachinthana Sehara Ilesinghe](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Health Sciences
+- [J. A. D. N. Ananda Jayasinghe](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Humanities and Education · Department of Safety & Survival Training
+- [Jagath Wijeyasekera](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Marine Engineering · Department of Industrial Engineering
+- [Lawrence Roger Arnolda](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Maritime Sciences · Department of Navigation
+- [N. M. Sanjeewaka](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Humanities and Education · Department of Safety & Survival Training
+- [Naazir Nizam](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Humanities and Education · Department of Aviation
+- [Niksan Bandara Gunawardena](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Humanities and Education · Department of Safety & Survival Training
+- [R. G. Hashan Dharmarathna](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Marine Engineering · Department of Industrial Engineering
+- [R. M. Harsha Prasad Ranathunga](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Maritime Sciences · Department of Navigation
+- [RANSI SULAKKHANA DISSANAYAKE](https://www.cinec.edu/about-cinec/staff/academic-staff.html) — Faculty of Humanities and Education · Department of Aviation
+
+## General Sir John Kotelawala Defence University (41)
+
+- [Dr Pradeep Kalansooriya](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Dr. (Mrs.) DU Vidanagama](https://foc.kdu.ac.lk/dcm/academic-staff/) — Faculty of Computing
+- [Dr. (Mrs.) N Wedasinghe](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Dr. ADAI Gunasekara](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Dr. AH Lakmal](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Dr. ASM Mendis](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Dr. DDTK Kulathunga](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Dr. HRWP Gunathilake](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Dr. Kaneeka Vidanage](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Dr. NK Gunasekara](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Dr. NS Miguntanna](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Dr. TMWRMB Samarakoon](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Dr. TWK ISHANI M DIAS](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Mr. Daminda Herath](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Mr. Dinuka Heshan Mudalige](https://foc.kdu.ac.lk/dce/academic-staff/) — Faculty of Computing
+- [Mr. DMR Kulasekara](https://foc.kdu.ac.lk/dce/academic-staff/) — Faculty of Computing
+- [Mr. MON Lochana](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Mr. WAAM Wanniarachchi](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Mr. WMSRB Wijayarathna](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Mrs. DV Dharani Abeysinghe](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Mrs. MKP Madushanka](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Mrs. PRD Wijesinghe](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Mrs. Sandali Thamalka Goonatilleke](https://foc.kdu.ac.lk/dce/academic-staff/) — Faculty of Computing
+- [Mrs. SCM De S Sirisuriya](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Mrs. WJ Samaraweera](https://foc.kdu.ac.lk/dce/academic-staff/) — Faculty of Computing
+- [Ms. AGR Sandeepa](https://foc.kdu.ac.lk/dce/academic-staff/) — Faculty of Computing
+- [Ms. ERC Sandamali](https://foc.kdu.ac.lk/dcm/academic-staff/) — Faculty of Computing
+- [Ms. GAD Ganepola](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Ms. GAI Uwanthika](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Ms. K. Deshani Madhubhashani](https://foc.kdu.ac.lk/dcm/academic-staff/) — Faculty of Computing
+- [Ms. KAID Karunanayake](https://foc.kdu.ac.lk/dcm/academic-staff/) — Faculty of Computing
+- [Ms. KG Kaushalya Abeywardhane](https://foc.kdu.ac.lk/computer_science/academic-staff/) — Faculty of Computing
+- [Ms. Lathika Yashodani Hitige](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Ms. LDTT De Silva](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Ms. Malshi Madhuhansi Edirisinghe](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Ms. MVT Kawya](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Ms. RGUI Meththananda](https://foc.kdu.ac.lk/dcm/academic-staff/) — Faculty of Computing
+- [Ms. Senuri Pathmila Muthukuda Arachchi](https://foc.kdu.ac.lk/dit/academic-staff/) — Faculty of Computing
+- [Ms. Vyshnave Jukeerthan](https://foc.kdu.ac.lk/dce/academic-staff/) — Faculty of Computing
+- [Prof. RP Kumanayake](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+- [Prof. WCDK Fernando](https://foe.kdu.ac.lk/department-of-civil-engineering/people/academic-staff) — Faculty of Engineering
+
+## Horizon Campus (6)
+
+- [Mr. Isuru Samarappulige](https://www.horizoncampus.edu.lk/f_o_it) — Faculty of Information Technology
+- [Mr.Dayal K. Baduraliya](https://www.horizoncampus.edu.lk/f_o_eltu) — Faculty not recorded · English Language Teaching Unit
+- [Mr.Terance Kahapola Arachchi](https://www.horizoncampus.edu.lk/f_o_management) — Faculty of Management
+- [Mr.Tharindu Sampath](https://www.horizoncampus.edu.lk/f_o_it) — Faculty of Information Technology
+- [Ms. Chamika Siriwardana](https://www.horizoncampus.edu.lk/f_o_science) — Faculty of Science
+- [Ms. Lakshika Wanninayake](https://www.horizoncampus.edu.lk/f_o_it) — Faculty of Information Technology
+
+## NSBM Green University (38)
+
+- [Dr. Isuru Lakmal](https://www.nsbm.ac.lk/staff/mr-isuru-lakmal/) — Faculty of Engineering · Department of Mechatronic and Industrial Engineering
+- [Dr. Madhavi Hewadikaram](https://www.nsbm.ac.lk/staff/dr-madhavi-hewadikaram/) — Faculty of Science · Department of Health Sciences
+- [Dr. Udeshika Yapa Bandara](https://www.nsbm.ac.lk/staff/dr-udeshika-yapa-bandara/) — Faculty of Science · Department of Life Sciences
+- [Mr. Chamara Disanayake](https://www.nsbm.ac.lk/staff/mr-chamara-disanayake/) — Faculty of Computing · Department of Sofware Engineering and Computer Security
+- [Mr. Chamindra Attanayake](https://www.nsbm.ac.lk/staff/mr-chamindra-attanayake/) — Faculty of Computing · Department of Sofware Engineering and Computer Security
+- [Mr. Krishantha Ranaweera](https://www.nsbm.ac.lk/staff/mr-krishantha-ranaweera/) — Faculty of Computing · Department of Computer Security and Network Systems
+- [Mr. Madusanka Mithrananda](https://www.nsbm.ac.lk/staff/mr-madusanka-mithrananda/) — Faculty of Computing · Department of Sofware Engineering and Computer Security
+- [Mr. Oshan N. Piumantha](https://www.nsbm.ac.lk/staff/mr-oshan-piumantha/) — Faculty of Business · Department of Marketing and Tourism Management
+- [Mr. Prabhath Buddhika](https://www.nsbm.ac.lk/staff/mr-prabhath-buddhika/) — Faculty of Engineering · Department of Electrical, Electronic and Systems Engineering
+- [Mr. Shaja Musthaffa](https://www.nsbm.ac.lk/staff/mr-shaja-musthaffa/) — Faculty of Business · Department of Operations and Logistics
+- [Mr. Venura Colombage](https://www.nsbm.ac.lk/staff/mr-venura-colombage/) — Faculty of Business · Department of Marketing and Tourism Management
+- [Mr. Vihanga Senevirathne](https://www.nsbm.ac.lk/staff/mr-vihanga-senevirathne/) — Faculty of Engineering · Department of Mechatronic and Industry Engineering
+- [Ms. Demini Rajapaksha](https://www.nsbm.ac.lk/staff/ms-demini-rajapaksha/) — Faculty of Engineering · Department of Design Studies
+- [Ms. Dilki Hansika](https://www.nsbm.ac.lk/staff/ms-dilki-hansika/) — Faculty of Business · Department of Management
+- [Ms. Gayani Weerasinghe](https://www.nsbm.ac.lk/staff/ms-gayani-weerasinghe-2/) — Faculty of Business · Department of Management
+- [Ms. Gimhani Rangalla](https://www.nsbm.ac.lk/staff/ms-gimhani-rangalla/) — Faculty of Business · Department of Accounting and Finance
+- [Ms. Githmi Charundi Perera](https://www.nsbm.ac.lk/staff/ms-githmi-charundi-perera/) — Faculty of Engineering · Department of Electrical, Electronic and Systems Engineering
+- [Ms. Hasali Rajakaruna](https://www.nsbm.ac.lk/staff/ms-hasali-rajakaruna/) — Faculty of Business · Department of Management
+- [Ms. Imasha Adihetti](https://www.nsbm.ac.lk/staff/ms-imasha-adihetti/) — Faculty of Business · Department of English & Modern Languages
+- [Ms. Isuri Caldera](https://www.nsbm.ac.lk/staff/ms-isuri-caldera/) — Faculty of Business · Department of English and Modern Languages
+- [Ms. Jinandi Chathurya](https://www.nsbm.ac.lk/staff/ms-jinandi-chathurya/) — Faculty of Business · Department of English and Modern Languages
+- [Ms. Kavindinie Dias](https://www.nsbm.ac.lk/staff/ms-kavindinie-dias/) — Faculty of Science · Department of Biomedical Science
+- [Ms. Kushani Perera](https://www.nsbm.ac.lk/staff/ms-kushani-prabodhi-perera/) — Faculty not recorded
+- [Ms. Mayumi Kashmika](https://www.nsbm.ac.lk/staff/ms-mayumi-kashmika/) — Faculty of Business · Department of Management
+- [Ms. Nivedha Uthayarajan](https://www.nsbm.ac.lk/staff/ms-nivedha-uthayarajan/) — Faculty not recorded
+- [Ms. Prabha Silva](https://www.nsbm.ac.lk/staff/ms-prabha-silva/) — Faculty of Business · Department of Management
+- [Ms. Romasha Guruge](https://www.nsbm.ac.lk/staff/ms-romasha-guruge/) — Faculty of Engineering · Department of Design Studies
+- [Ms. Shashini Gayanika](https://www.nsbm.ac.lk/staff/ms-shashini-gayanika/) — Faculty of Business · Department of Economics and Decision Sciences
+- [Ms. Shehani Joseph](https://www.nsbm.ac.lk/staff/ms-shehani-joseph/) — Faculty of Business · Department of Management
+- [Ms. Thahira Reza](https://www.nsbm.ac.lk/staff/ms-thahira-reza/) — Faculty of Engineering · Department of Design Studies
+- [Ms. Tharushi Piyumalee](https://www.nsbm.ac.lk/staff/ms-tharushi-piyumalee/) — Faculty of Business · Department of Accounting and Finance
+- [Ms. Thilini Bakmeedeniya](https://www.nsbm.ac.lk/staff/ms-thilini-bakmeedeniya/) — Faculty of Computing · Department of Computer and Data Science
+- [Ms. Thisali Chandranath](https://www.nsbm.ac.lk/staff/ms-thisali-chandranath/) — Faculty of Computing · Department of English & Modern Languages
+- [Ms. Thisarani Wickramasinghe](https://www.nsbm.ac.lk/staff/ms-thisarani-wickramasinghe/) — Faculty of Computing · Department of Sofware Engineering and Computer Security
+- [Ms. Yasanthika Mathotaarachchi](https://www.nsbm.ac.lk/staff/ms-yasanthika-mathotaarachchi/) — Faculty of Computing · Department of Sofware Engineering and Computer Security
+- [Prof. Chaminda Wijesinghe](https://www.nsbm.ac.lk/staff/dr-chaminda-wijesinghe/) — Faculty of Computing · Department of Data Science
+- [Prof. Shanthi Segarajasingham](https://www.nsbm.ac.lk/staff/prof-shanthi-segarajasingham/) — Faculty not recorded
+- [Prof. Sudath Amarasena](https://www.nsbm.ac.lk/staff/prof-sudath-amarasena/) — Faculty not recorded
+
+## Sri Lanka Institute of Information Technology (18)
+
+- [Dr. Harsha Wijesekera](http://www.sliit.lk/academic/academic-staff/harsha.wi?page=2) — Faculty not recorded
+- [Dr. Iresha Ratnayake](https://www.sliit.lk/academic/academic-staff/iresha.r) — Faculty not recorded
+- [Dr. Kalpani Abeysinghe](https://www.sliit.lk/academic/academic-staff/kalpani.a) — School of Nursing
+- [Dr. Kasun Karunanayaka](https://www.sliit.lk/academic/faculty-of-computing/people/industry-consultative-board) — Faculty not recorded
+- [Dr. Lakmini Abeywardhana](https://www.sliit.lk/academic/academic-staff/lakmini.d) — Faculty not recorded
+- [Dr. Nimal Ratnayake](https://www.sliit.lk/academic/academic-staff/nimal.r) — Faculty of Computing · Department of Computer Systems Engineering
+- [Dr. Praneeth Ratnayake](https://www.sliit.lk/academic/academic-staff/praneeth.r) — Faculty not recorded
+- [Dr. Ruwan Chandrasena](https://www.sliit.lk/academic/academic-staff/ruwan.c) — Faculty of Engineering · Department of Electrical & Electronic Engineering
+- [Dr. Virajith Gamage](https://www.sliit.lk/academic/academic-staff/virajith.g) — Faculty not recorded
+- [Mr Janaka Kumarasinghe](https://www.sliit.lk/academic/faculty-of-humanities-sciences/people/industry-advisory-board) — Faculty not recorded
+- [Prof. Ayantha Gomes](http://www.sliit.lk/academic/academic-staff/ayantha.g?page=2) — Faculty not recorded
+- [Prof. Davinia Hernandez-Leo](https://www.sliit.lk/academic/faculty-of-computing/people/industry-advisory-board) — Faculty not recorded
+- [Prof. Jagath Kasturiarachchi](https://www.sliit.lk/academic/academic-staff/jagath.k) — Faculty of Humanities & Sciences · Department of Applied Sciences
+- [Prof. Lakshman Ratnayake](https://www.sliit.lk/academic/academic-staff/lakshman.r) — Faculty not recorded
+- [Prof. Lalith De Silva](https://www.sliit.lk/academic/academic-staff/lalith.d) — School of Architecture · Department of Architecture
+- [Prof. Lalith Gamage](http://www.sliit.lk/academic/academic-staff/gamage?page=2) — Faculty not recorded
+- [Prof. Renuka Herath](https://www.sliit.lk/academic/academic-staff/renuka.h) — SLIIT Business School · Department of Information Management
+- [Prof. Suresh Mel](https://www.sliit.lk/academic/academic-staff/suresh.de) — Faculty of Humanities & Sciences · Department of Mathematics and Statistics
+
+## University of Colombo (211)
+
+- [Dr Amila Vayanganie](https://www.res.cmb.ac.lk/physics/amila-vayanganie/) — Faculty of Science · Department of Physics
+- [Dr Chethika Gunasiri](https://www.res.cmb.ac.lk/zoology/chethika-gunasiri/) — Faculty of Science · Department of Zoology and Environment Sciences
+- [Dr Chulantha Prasanga Diyes](https://www.res.cmb.ac.lk/statistics/chulantha-prasanga/) — Faculty of Science · Department of Zoology and Environment Sciences
+- [Dr Dayal B Dharmasena](https://www.res.cmb.ac.lk/mathematics/db-dharmasena/) — Faculty of Science · Department of Mathematics
+- [Dr Dilruk Gallage](https://www.res.cmb.ac.lk/mathematics/dilruk-gallage/) — Faculty of Science · Department of Mathematics
+- [Dr Dilusha Fernando](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Dr Dimanthi Uduwela](https://www.res.cmb.ac.lk/chemistry/dimanthi-uduwela/) — Faculty of Science · Department of Chemistry
+- [Dr H.W. Dilanthi](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Dr M H M J Suranimalee](https://www.res.cmb.ac.lk/mathematics/mhmj-suranimalee/) — Faculty of Science · Department of Mathematics
+- [Dr Manupa Pabasara Wickramasinghe](https://www.res.cmb.ac.lk/zoology/manupa-pabasara/) — Faculty of Science · Department of Zoology and Environment Sciences
+- [Dr Melanka Saroad Wediga](https://www.res.cmb.ac.lk/mathematics/melanka-saroad/) — Faculty of Science · Department of Mathematics
+- [Dr Pasan Fernando](https://www.res.cmb.ac.lk/plant.sciences/pasan-fernando/) — Faculty of Science · Department of Plant Sciences
+- [Dr Prabhath Liyanage](https://www.res.cmb.ac.lk/mathematics/prabhath-liyanage/) — Faculty of Science · Department of Mathematics
+- [Dr Prasad Chathurangana](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Dr Prasadi De Silva](https://www.res.cmb.ac.lk/chemistry/prasadi-de-silva/) — Faculty of Science · Department of Chemistry
+- [Dr R D N Thilakarathna](https://www.res.cmb.ac.lk/mathematics/damith-thilakarathna/) — Faculty of Science · Department of Mathematics
+- [Dr R V Coorey](https://www.res.cmb.ac.lk/physics/ramal-coorey/) — Faculty of Science · Department of Physics
+- [Dr Rasadi Munasinghe](https://www.res.cmb.ac.lk/physics/rasadi-munasinghe/) — Faculty of Science · Department of Physics
+- [Dr Romaine Jayewardene](https://www.res.cmb.ac.lk/mathematics/romaine-jayewardene/) — Faculty of Science · Department of Mathematics
+- [Dr Ruwani Mayakaduwa](https://www.res.cmb.ac.lk/plant.sciences/ruwani-mayakaduwa/) — Faculty of Science · Department of Plant Sciences
+- [Dr Sanjeewa Rodrigo](https://www.res.cmb.ac.lk/chemistry/sanjeewa-rodrigo/) — Faculty of Science · Department of Chemistry
+- [Dr Savini Bandaranayake](https://www.res.cmb.ac.lk/chemistry/savini-bandaranayake/) — Faculty of Science · Department of Chemistry
+- [Dr Tharindra Weerakoon](https://www.res.cmb.ac.lk/chemistry/tharindra-weerakoon/) — Faculty of Science · Department of Chemistry
+- [Dr Thilini Perera](https://www.res.cmb.ac.lk/plant.sciences/thilini-perera/) — Faculty of Science · Department of Plant Sciences
+- [Dr. A. Sivashangar](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Dr. Akalanka De Silva](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Dr. Akhila Nilaweera](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Dr. Anula Rathnayake](https://med.cmb.ac.lk/psychiatry/staff/) — Faculty of Medicine
+- [Dr. Anuprabha Wickramasinghe](https://med.cmb.ac.lk/psychiatry/staff/) — Faculty of Medicine
+- [Dr. Anuradha Herath](https://med.cmb.ac.lk/psychiatry/staff/) — Faculty of Medicine
+- [Dr. Anuradha Kodippli](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Dr. Aruni O. P. Gallage](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Dr. Asha Wettasinghe](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Dr. Ashwini de Abrew](https://med.cmb.ac.lk/mededu/staff/) — Faculty of Medicine
+- [Dr. C.M. Asela Anthony](https://med.cmb.ac.lk/family-medicine/staff/) — Faculty of Medicine
+- [Dr. Chamali Baranasuriya](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Dr. Chathuri Gunasekara](https://med.cmb.ac.lk/microbiology/microbiology-staff/) — Faculty of Medicine
+- [Dr. Chiranthi Kongala Liyanage](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Dr. D. B. I. A. Jayawardene](https://med.cmb.ac.lk/obg/staff/) — Faculty of Medicine
+- [Dr. D. Rangana Karunaratne](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Dr. Dilushi Wijayaratne](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Dr. Dineshani Hettiarachchi](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Dr. Dushyanthi M.S. Jayawardene](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Dr. E. P. Meran Keshawa](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Dr. Gayani Ranaweera](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Dr. Harsha Dissanayake](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Dr. Harshima Wijesinghe](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Dr. Hasitha Liyanaarachchi](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Dr. Janidu Gunarathna](https://med.cmb.ac.lk/forensic/staff/) — Faculty of Medicine
+- [Dr. K.A.A.N. Thilakarathna](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Dr. K.P.C. Dalpatadu](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Dr. K.W. Wanshika Dilshani](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Dr. Kapila Jayratne](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Dr. KRM Chandrathilaka](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Dr. Kumarangie K. Vithanage](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Dr. Leonard Wanninayake](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Dr. M.A.M.Hakeem](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Dr. Maduka de Lanerolle Dias](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Dr. Manu Wimalachandra](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Dr. Marianne Nishani Lucas](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Dr. Mythily Aravinthan](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Dr. N. Hermali Silva](https://med.cmb.ac.lk/parasitology/staff/) — Faculty of Medicine
+- [Dr. Nadeeka Chandraratne](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Dr. Nadeema Dharmasiri](https://www.res.cmb.ac.lk/plant.sciences/nadeema-dharmasiri/) — Faculty of Science · Department of Plant Sciences
+- [Dr. Nilanka Anjalee Wickramasinghe](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Dr. P. Mahanamahewa](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Dr. Pamodh Yasawardene](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Dr. Praveen Nilendra Weeratunga](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Dr. Rachini Kishara Withanage](https://med.cmb.ac.lk/anaesthesiology-critical-care/staff/) — Faculty of Medicine
+- [Dr. Randuala Ranawaka](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Dr. Ravindra Samaranayake](https://med.cmb.ac.lk/forensic/staff/) — Faculty of Medicine
+- [Dr. Ruwangi Dissanayake](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Dr. S. R. Ilangakoon](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Dr. S. Rajadurai (on Sabbatical Leave)](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Dr. S. Susarithaa](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Dr. Sahan Guruge](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Dr. Sanath Senanayake](https://med.cmb.ac.lk/parasitology/staff/) — Faculty of Medicine
+- [Dr. Santhushya Fernando](https://med.cmb.ac.lk/medical-humanities/staff/) — Faculty of Medicine
+- [Dr. Santushi Amarasuriya](https://med.cmb.ac.lk/medical-humanities/staff/) — Faculty of Medicine
+- [Dr. Thevarajah Rameshkumar](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Dr. U.A.T. Udayanganie](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Dr. Ushani Wariyapperuma](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Dr. Uthpali Mannapperuma](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Dr. Vihara Erangika Dassanayake](https://med.cmb.ac.lk/anaesthesiology-critical-care/staff/) — Faculty of Medicine
+- [Dr. Vipula Rasanga Bataduwaarachchi](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Dr. W.D.Yasaswi N.Walpita](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Dr. Wathsala Hathagoda](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Dr. Yamuna N. Rajapakse](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Dr.(Ms.) S. M. Thenabadu](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Dr.I.D.L. Pathirana](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Dr.R.E.Ediriweera de Silva](https://med.cmb.ac.lk/family-medicine/staff/) — Faculty of Medicine
+- [Mr Janaka Sampath](https://www.res.cmb.ac.lk/chemistry/janaka-sampath) — Faculty of Science · Department of Chemistry
+- [Mr Shashika Ruwankumara](https://www.res.cmb.ac.lk/statistics/shashika-ruwankumara/) — Faculty of Science · Department of Statistics
+- [Mr Supun Madhumadhawa Pawuluwage](https://www.res.cmb.ac.lk/plant.sciences/supun-madhumadhawa/) — Faculty of Science · Department of Plant Sciences
+- [Mr. A. S. R. Peiris](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Mr. D.M.R.A. Dissanayake](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Mr. H. A. M. Harankaha](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Mr. K. G. J. Ravindran](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Mr. K. K. G. Randula](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Mr. K.A.I.L.K. Arachchi](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Mr. Kaveera Senanayake](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Mr. L.A.R.R.Perera](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Mr. M.A.K.K. Amarasinghe](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Mr. P.K. Manawa Nanayakkara](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Mr. T.K.L. Hewa Geeganage](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Mr. W. M. S. P. K. Wanasinghe](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Mr.G.I.M Liyanage](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Mrs. Hansika Kethumali](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Ms Pavithra Perera](https://www.res.cmb.ac.lk/chemistry/pavithra-perera/) — Faculty of Science · Department of Chemistry
+- [Ms Wathmini De Silva](https://www.res.cmb.ac.lk/zoology/) — Faculty of Science · Department of Zoology and Environment Sciences
+- [Ms. A. G. N. D. Gunarathna](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. C. L. Akurugoda](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Ms. D. Suthakar](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Ms. D. Y. S. Diwakara](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. G. U. K. Wijekoon](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. Heshani Hasintha](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Ms. J. A. D. U. N. Jayasuriya](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. Jithmi Samarakoon](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Ms. K. K. S. G. Sylva](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. M. C. N. Perera](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. M. G. N. S. Mahagamasekera](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. N. R. B. Perera](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. N. T. S. Abeyratne](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. P. G. Satharasinghe](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. R. T. Surenthiraraj](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. Ranuli Senaratne](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Ms. Ruvini Buddhasinghe](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Ms. S. N. Prananda](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. S. Puvanitha](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Ms. S.B.I. Perera](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Ms. Senuri Wijayathunga](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Ms. T.H.R. Samanmalee](https://med.cmb.ac.lk/psychiatry/staff/) — Faculty of Medicine
+- [Ms. T.R. Galappaththige](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Ms. Thameesha Harini](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Ms. U.P.A.T. Shashindri](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Ms. Upani Omalka](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Ms. W. N. M. Wickramasekera](https://arts.cmb.ac.lk/delt/index.php/academic-staff/) — Faculty of Arts
+- [Ms. W.R. Samaranayake](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Ms. Wageesha Wijesiriwardana](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Ms. Yashodha Hettiarachchi](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Ms.P.S.P.G. Vithanage](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Prof Hashendra Kathriarachchi](https://www.res.cmb.ac.lk/plant.sciences/hashendra-kathriarachchi/) — Faculty of Science · Department of Plant Sciences
+- [Prof Siyath Gunawardene](https://www.res.cmb.ac.lk/physics/siyath-gunewardene/) — Faculty of Science · Department of Physics
+- [Prof Sudheera Ranwala](https://www.res.cmb.ac.lk/plant.sciences/sudheera-ranwala/) — Faculty of Science · Department of Plant Sciences
+- [Prof. Asela Mendis](https://med.cmb.ac.lk/forensic/staff/) — Faculty of Medicine
+- [Prof. Dulani B.L. Samaranayake](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Prof. Hemali WW Goonasekare](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Prof. Jithangi Wanigasinghe](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Prof. K. Konasinghe](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Prof. M.A.D.S.J.S. Niriella](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Prof. N. Sampath Punchihewa](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Prof. Shreenika De Silva Weliange](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Prof. Sumudu Nimali Seneviratne](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Prof. T Kalum Weththasinghe](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Prof. Udari A. Liyanage](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Prof. W. Seneviratne](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Prof. W.V.A.D.Samararatne](https://law.cmb.ac.lk/department-public-international-law-academic-staff) — Faculty of Law
+- [Professor Anuja Abaydeera](https://med.cmb.ac.lk/anaesthesiology-critical-care/staff/) — Faculty of Medicine
+- [Professor Athula Kaluarachchi](https://med.cmb.ac.lk/obg/staff/) — Faculty of Medicine
+- [Professor Carukshi Arambepola](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Professor Chamari Weeraratne](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Professor Chandu de Silva](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Professor Chathuranga Ranasinghe](https://med.cmb.ac.lk/allied-health/staff/) — Faculty of Medicine
+- [Professor Chathurie Suraweera](https://med.cmb.ac.lk/psychiatry/staff/) — Faculty of Medicine
+- [Professor Deepika Fernando](https://med.cmb.ac.lk/parasitology/staff/) — Faculty of Medicine
+- [Professor DMCS Jayasundara](https://med.cmb.ac.lk/obg/staff/) — Faculty of Medicine
+- [Professor Eranga S. Wijewickrama](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Professor Godwin R. Constantine](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Professor Gominda Ponnamperuma](https://med.cmb.ac.lk/mededu/staff/) — Faculty of Medicine
+- [Professor Hemantha Dodampahala](https://med.cmb.ac.lk/obg/staff/) — Faculty of Medicine
+- [Professor In Reproductive Medicine](https://med.cmb.ac.lk/obg/staff/) — Faculty of Medicine
+- [Professor Indika Karunathilake](https://med.cmb.ac.lk/mededu/staff/) — Faculty of Medicine
+- [Professor Indu Waidyatilaka](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Professor Inoshi Atukorala](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Professor Kithmini Siridewa](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Professor Lakmali Amarasiri](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Professor Lallindra V. Gooneratne](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Professor M. Gunatilake](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Professor Madhuwanthi Dissanayake](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Professor MRM Rishard](https://med.cmb.ac.lk/obg/staff/) — Faculty of Medicine
+- [Professor Nadira Karunaweera](https://med.cmb.ac.lk/parasitology/staff/) — Faculty of Medicine
+- [Professor Nilakshi Samaranayake](https://med.cmb.ac.lk/parasitology/staff/) — Faculty of Medicine
+- [Professor P.M. Atapattu](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Professor Panduka Karunanayake](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Professor Prasad Katulanda](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Professor Priyadarshani Galappatthy](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Professor Priyanga Ranasinghe](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Professor Priyani Amarathunga](https://med.cmb.ac.lk/pathology/staff/) — Faculty of Medicine
+- [Professor Probhodana Ranaweera](https://med.cmb.ac.lk/obg/staff/) — Faculty of Medicine
+- [Professor Pujitha Wickramasinghe](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Professor Pulani Lanerolle](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Professor Ranil Jayawardena](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Professor S. Wasalathanthri](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Professor S.M. Wijeyaratne](https://med.cmb.ac.lk/surgery/staff/) — Faculty of Medicine
+- [Professor Senaka Rajapakse](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Professor Shalini Sri Ranganathan](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Professor Shaman Rajindrajith](https://med.cmb.ac.lk/department-of-paediatrics/staff/) — Faculty of Medicine
+- [Professor Sharmila Jayasena](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Professor Sharmini Gunawardena](https://med.cmb.ac.lk/parasitology/staff/) — Faculty of Medicine
+- [Professor T.M. Dhanusha Thambavita](https://med.cmb.ac.lk/pharmac/staff/) — Faculty of Medicine
+- [Professor Tharanga Thoradeniya](https://med.cmb.ac.lk/biochemistry/staff/) — Faculty of Medicine
+- [Professor Thashi Chang](https://med.cmb.ac.lk/department-of-clinical-medicine/staff/) — Faculty of Medicine
+- [Professor Upul Senarath](https://med.cmb.ac.lk/commed/staff/) — Faculty of Medicine
+- [Professor W.I. Nanayakkara](https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff) — Faculty of Law
+- [Professor Yamuna Siriwardana](https://med.cmb.ac.lk/parasitology/staff/) — Faculty of Medicine
+- [Professor. A.D.A. Fernando](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Professor. Ajith P. Malalasekera](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Professor. D J Anthony](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Professor. Nirmala Sirisena](https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/) — Faculty of Medicine
+- [Professor. W.D.N. Dissanayake](https://med.cmb.ac.lk/physiology/staff/) — Faculty of Medicine
+- [Senior Professor Piyanjali Thamesha de Zoysa](https://med.cmb.ac.lk/psychiatry/staff/) — Faculty of Medicine
+
+## University of Jaffna (42)
+
+- [Dr. (Mrs.) Anpuchelvy Sritharan](https://siddha.jfn.ac.lk/teams/anpu/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) Kalaichelvi Sounthararajan](https://siddha.jfn.ac.lk/teams/kalai/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) M. Nushrath Roshana](https://siddha.jfn.ac.lk/teams/dr-mrs-m-nushrath-roshana/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) Navaluxmy Nithiyakumar](https://siddha.jfn.ac.lk/teams/dr-mrs-navaluxmy-nithiyakumar/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) Nithyapriya Sivaram](https://siddha.jfn.ac.lk/teams/dr-mrs-nithyapriya-sivaram/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) Rajeetha Miraaj](https://siddha.jfn.ac.lk/teams/dr-mrs-rajeetha-miraaj/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) Rakulini Sugeevan](https://siddha.jfn.ac.lk/teams/dr-ms-rakulini-raveendran/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) Sujeethasai Krishna](https://siddha.jfn.ac.lk/teams/dr-mrs-sujeethasai-krishna/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) Vidhya Milano Prasad](https://siddha.jfn.ac.lk/teams/dr-mrs-vidhya-milano-prasad/) — Faculty of Siddha Medicine
+- [Dr. (Mrs.) Viviyan Sathiyaseelan](https://siddha.jfn.ac.lk/teams/vivian/) — Faculty of Siddha Medicine
+- [Dr. (Ms.) Sivarangini Sivagnanam](https://siddha.jfn.ac.lk/teams/dr-ms-sivarangini-sivagnanam/) — Faculty of Siddha Medicine
+- [Dr. (Ms.) Vinotha Sanmugarajah](https://siddha.jfn.ac.lk/teams/vinotha/) — Faculty of Siddha Medicine
+- [Dr. Sivesan Sivanandamoorthy](https://www.mkt.jfn.ac.lk/index.php/staff-list/) — Faculty not recorded
+- [Dr. Thulasi Tharmalingam](https://med.jfn.ac.lk/personnel/dr-thulasi-tharmalingam/) — Faculty of Medicine · Department of Surgery
+- [Dr.(Mrs.) Sailajah Sivarajah](https://siddha.jfn.ac.lk/teams/dr-mrs-sailajah-sivarajah/) — Faculty of Siddha Medicine
+- [Mr. B.Prahalathan](http://www.com.jfn.ac.lk/index.php/academic-staff/) — Faculty not recorded
+- [Mr. E. Cumaran](https://www.tam.jfn.ac.lk/academic-staff/) — Faculty not recorded · Department of Tamil
+- [Mr. K. Arundaharan](https://www.tam.jfn.ac.lk/academic-staff/) — Faculty not recorded · Department of Tamil
+- [Mr. K. L. Ramanan](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Mr. Paramanathan Kalki](https://ahs.jfn.ac.lk/mr-paramanathan-kalki-2) — Faculty of Allied Health Sciences · Department of Pharmacy
+- [Mr. Pasan Bhanuka Athapaththu](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Mr. S. Seransan](https://www.tam.jfn.ac.lk/academic-staff/) — Faculty not recorded · Department of Tamil
+- [Mr. Sanjayan Rajasingham](https://www.law.jfn.ac.lk/index.php/staffs-2/) — Faculty not recorded · Department of Law
+- [Mr. T. Ajanthakumar](https://www.tam.jfn.ac.lk/academic-staff/) — Faculty not recorded · Department of Tamil
+- [Mrs Nirogini Thambaiya](https://www.law.jfn.ac.lk/index.php/staffs-2/) — Faculty not recorded · Department of Law
+- [Mrs Purathani Mathanaranjan](https://www.law.jfn.ac.lk/index.php/staffs-2/) — Faculty not recorded · Department of Law
+- [Mrs Supasini Rumanan](https://www.law.jfn.ac.lk/index.php/staffs-2/) — Faculty not recorded · Department of Law
+- [Mrs. Aarabee Sivakugan](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Mrs. Kosalai Mathan](https://www.law.jfn.ac.lk/index.php/staffs-2/) — Faculty not recorded · Department of Law
+- [Mrs. N. Selva Ambigai](https://www.tam.jfn.ac.lk/academic-staff/) — Faculty not recorded · Department of Tamil
+- [Mrs.Thushani Shayanthan](https://www.law.jfn.ac.lk/index.php/staffs-2/) — Faculty not recorded · Department of Law
+- [Ms Sujatha Samaradiwakara](https://www.law.jfn.ac.lk/index.php/staffs-2/) — Faculty not recorded · Department of Law
+- [Ms. C. A. Hensman](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Ms. C. T. Joe Inparaj](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Ms. Luxika Raguram](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Ms. Poongulaly Srisangeerthanan](https://www.mst.jfn.ac.lk/present-staff/) — Faculty of Arts · Department of Media Studies
+- [Ms. R.F.Luckson](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Ms. S. Janarththan](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Ms. T. Kirushanthan](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Ms. V. Rajaram](https://www.elt.jfn.ac.lk/index.php/staff-2/) — Faculty not recorded
+- [Prof. K. Velauthamurty](https://che.jfn.ac.lk/staff-3/) — Faculty of Science · Department of Chemistry
+- [Prof. K. Visakaruban](https://www.tam.jfn.ac.lk/academic-staff/) — Faculty not recorded · Department of Tamil
+
+## University of Kelaniya (20)
+
+- [Mr. A. Lahiru Sameera](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mr. Chathuranga Srimal Hettiarachchi](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mr. M. A. Asoka Perera](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mr. R. H. Dinesa Sampath Perera](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mr. W. A. Lesli](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. G. H. Inoka Dilhani](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. J. K. P. Dhammika Priyadarshani](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. Kajenthini Tharminth](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. M. A. J. Dhanushka Perera](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. M. C. Kaushalya Cooray](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. M.K.D. Lakmali](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. P. P. Kalani Chanoda Patabandige](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. V. V. Kumari](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Mrs. W. Monori Priyangika](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Ms. B. Prarthana Bawadharini](https://units.kln.ac.lk/pgiar/index.php/staff/branch-unit) — Faculty not recorded
+- [Ms. Randika Ranasinghe](https://philosophy.kln.ac.lk/profile/support-staff) — Faculty of Social Sciences
+- [Prof. Gamini Hapuarachchi](https://philosophy.kln.ac.lk/profile/academic-staff) — Faculty of Social Sciences
+- [Prof. Gamini Hpuaarachi](https://philosophy.kln.ac.lk/profile/staff-details_1/prof-gamini-hpuaarachi) — Faculty of Social Sciences · Department of Philosophy
+- [Prof. L.R. Jayasekara](https://science.kln.ac.lk/depts/bota/index.php/prof-l-r-jayasekara) — Faculty of Science
+- [Prof. Mala Damayanthi Amarasinghe](https://science.kln.ac.lk/depts/bota/index.php/prof-mala-damayanthi-amarasinghe) — Faculty of Science
+
+## University of Moratuwa (20)
+
+- [Dr. Charith Kodithuwakku](https://uom.lk/people/dr-charith-kodithuwakku) — Faculty of Medicine · Department of Medicine and Mental Health
+- [Dr. D.M.M.B. Dissanayake](https://uom.lk/people/dr-dmmb-dissanayake) — Faculty of Engineering · Department of Chemical and Process Engineering
+- [Dr. Indrika Rajapaksha](https://uom.lk/faru/staff-student-research) — Faculty not recorded
+- [Dr. Julian Nanayakkara](https://uom.lk/staff/dr-julian-nanayakkara) — Faculty not recorded
+- [Dr. K.P.H. Perera](https://uom.lk/people/dr-kph-perera) — Faculty of Engineering
+- [Dr. M.A.R.V. Fernando](https://uom.lk/staff/dr-marv-fernando) — Faculty not recorded
+- [Dr. Malsha Mendis](https://uom.lk/people/dr-malsha-mendis) — Faculty not recorded
+- [Dr. Mrs. N.H. Salgado](https://uom.lk/staffs/dr-mrs-nh-salgado) — Faculty not recorded
+- [Dr. Nanda Munasinghe](https://uom.lk/staff/dr-nanda-munasinghe) — Faculty not recorded
+- [Dr. P.B. Henadeera](https://uom.lk/people/dr-pb-henadeera) — Faculty of Engineering
+- [Dr. R.J.M.K. Jayasundara](https://uom.lk/people/dr-rjmk-jayasundara) — Faculty of Medicine
+- [Mrs. K.A.D.T. Kulawansa](https://uom.lk/staff/mrs-kadt-kulawansa) — Faculty not recorded
+- [Ms. G.N. Pushpa Mallika](https://uom.lk/staffs/ms-gn-pushpa-mallika) — Faculty not recorded
+- [Ms. M.AS. Fathima](https://uom.lk/people/ms-mas-fathima) — Faculty of Business · Department of Decision Sciences
+- [Prof. Lal Balasuriya](https://uom.lk/people/prof-lal-balasuriya) — Faculty of Architecture
+- [Prof. Nimal De Silva](https://uom.lk/people/prof-nimal-de-silva) — Faculty of Architecture
+- [Prof. P.A. De Silva](https://uom.lk/staffs/prof-pa-de-silva) — Faculty of Engineering
+- [Prof. S. Karunaratne](https://uom.lk/people/prof-s-karunaratne) — Faculty not recorded
+- [Prof. S.R.D.E.S. Chandrakeerthy](https://uom.lk/civil/people/prof-srdes-chandrakeerthy) — Faculty of Engineering · Department of Civil Engineering
+- [Prof. Tharaka Samarasinghe](https://ranga.staff.uom.lk/) — Faculty not recorded
+
+## University of Peradeniya (128)
+
+- [Abayasekara, Dr. C.R.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Abeyratne, Dr. R.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Abhayarathne, Prof. A.S.P.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Alikhan, Mr. M.M](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Amarasekara, Prof. Daya](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Athukorala, Prof. P.P.A.W.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Bandara, Dr. C.S.H.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Barie, Mr. M.S.A.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Arabic & Islamic Civilization
+- [Baskaran, Dr. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Political Science
+- [Chandraratne, Dr. R.M.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Archaeology
+- [Chandrika, Ms. A.M.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Chithra, Ms. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Dasanayaka, Prof. K.M.R.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [de Mel, Dr. S.J.S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Dharmarathne, Dr. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Dickwella, Mr. W.K.R.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Political Science
+- [Dissanayaka, Dr. D.M.L.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Dorabawila, Dr. S.S.K.B.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Dr.  Niranjan Fernando](https://eng.pdn.ac.lk/chemical/dr_niranjan_fernando/) — Faculty of Engineering · Department of Chemical and Process Engineering
+- [Dr. Asitha Bandaranayake](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Dr. Damayanthi Herath](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Dr. Isuru Nawinne](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Dr. Sampath Deegalla](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Dr. Suneth Namal Karunarathna](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Dr. Suresh Jayawardhana](https://eng.pdn.ac.lk/chemical/dr-suresh-indika/) — Faculty of Engineering · Department of Chemical and Process Engineering
+- [Dr. Swarnalatha Radhakrishnan](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Dr. Upul Jayasinghe](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Duraisamy, Ms. D.K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Ekanayake, Dr. P.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Education
+- [Feroziya, Ms. S.A.C.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Gnaneswaran, Mr. K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Gunarathne, Dr. M.S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Gunathilaka, Dr. S.K.M.D.D.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sinhala
+- [Gunewardena, Prof. D.N.B.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Guruge, Dr. C.K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sinhala
+- [Haniffa, Mr. M.L.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Arabic & Islamic Civilization
+- [Herath,Prof. D.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Hettiarachchi, Dr. R.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Hewawasam, Ms. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Hewawasam, Prof. T.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Ihjas, Mr. M.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Political Science
+- [Isthikar Ariff, Mr. M.A.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Jayakumara, Mr. M.A.S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Jayaneththi, Ms. R.D.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Jayaratne, Dr. D.K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Archaeology
+- [Jayaseelan, Mr.M.M](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Tamil
+- [Jayathilaka, Ms. A.W.G.N.K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Jayawardena, Prof. R.G.D.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Pali & Buddhist Studies
+- [Jayawickreme, Dr. J.M.A.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Kalugampitiya, Dr. N.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · English
+- [Kamalrathna, Mr. Thushara](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Kankanamge, Dr. A.D.H.K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Kariyawasam, Mr. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sinhala
+- [Karunarathna, Dr. K.M.R.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Kithsiri, Ms. T.N.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Kularathna, Prof. G.G.S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sinhala
+- [Kumarihamy, Dr. R.M.K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Liyanage, Prof. W.A.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sinhala
+- [Madhavie, Ms. A.V.K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Maheswaran, Prof. V.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Tamil
+- [Mantillake, Dr. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Fine Arts
+- [Manurathna, Dr. M.G.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Mr. Biswajith Dissanayake](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Mr. Hirantha Imesh De Silva](https://arts.pdn.ac.lk/law/academic-staff.php) — Faculty of Arts · Department of Law
+- [Mr. Thilina Gunarathne](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Mrs. Mathiyalagan Mathusha](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Ms. Apsara Vidanapathirana](https://sci.pdn.ac.lk/celtusci/staff/Apsara-Vidanapathirana) — Faculty of Science · English Language Teaching Unit
+- [Ms. Eranga Disanayaka](https://arts.pdn.ac.lk/law/staff/Eranga.pdf) — Faculty of Arts · Department of Law
+- [Ms. Yasodha Vimukthi](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering - University of Peradeniya
+- [Ms.Sanjeewani Ranasinghe](https://arts.pdn.ac.lk/staff/ad_staff.php) — Faculty of Arts
+- [Nigel, Dr. J.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Nimal Wijesiri, Mr. W.N.D.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sinhala
+- [Nugapitiya, Dr. E.M.M.P.R.L.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sinhala
+- [Perera, Dr. M.P.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Perera, Prof. S.W.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · English
+- [Pinnawala, Prof. Mallika](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Premarathne, Ms. H.D.P.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Priyatharsini, Ms. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Prof. C.S. Kalpage](https://eng.pdn.ac.lk/chemical/prof-c-s-kalpage/) — Faculty of Engineering · Department of Chemical and Process Engineering
+- [Prof. D.G.G.P. Karunaratna](https://eng.pdn.ac.lk/chemical/prof_parakrama_karunaratna/) — Faculty of Engineering · Department of Chemical and Process Engineering
+- [Prof. Kamalanath Samarakoon](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Prof. Manjula Sandirigama](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Prof. Nadeesh M. Adassooriya](https://eng.pdn.ac.lk/chemical/prof-nadeesh-m-adassooriya/) — Faculty of Engineering · Department of Chemical and Process Engineering
+- [Prof. Roshan G. Ragel](https://people.ce.pdn.ac.lk/staff/academic/) — Faculty of Engineering · Department of Computer Engineering
+- [Rajapakse, Mr. A.S.T.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Archaeology
+- [Rajapaksha, Mr. R.K.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Rajarathnam, Ms.Mallika](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Philosphy
+- [Rajendran, Ms. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Rajeswaran, Mr. T.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Ramesh, Dr. R.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Political Science
+- [Ranathilaka, Prof. M.B.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Rasnayake, Mr. Susantha](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Razik, Mr. M.S.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Rekha Nianthi, Prof. K.W.G.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Saleem, Dr. M.S.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Arabic & Islamic Civilization
+- [Saman Kumara,Dr.A.K.J.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Political Science
+- [Samarakoon Banda, Dr. H.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Education
+- [Sarawanakumar, Mr. P.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Tamil
+- [Sarjoon, Dr. Athambawa](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Political Science
+- [Satheeswaran, Ms.A.Y](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Tamil
+- [Senanayake, Dr. A. M. P.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Archaeology
+- [Senevirathna, Ms. R.M.S.N.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sinhala
+- [Senevirathne, Dr. W.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Education
+- [Seneviratne, Prof. R.P.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Classical Languages
+- [Seneviratne, Prof. S.D.S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Archaeology
+- [Sethunga, Prof. S.M.P.W.K.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Education
+- [Sivamohan, Prof. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · English
+- [Sivarajasingham, Prof. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Somathilaka, Prof. M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Subasinghe, Dr. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Sutharsan, Dr.S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Tamil
+- [Thameem,Mr. S.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Arabic & Islamic Civilization
+- [Thattill, Mr. N.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Thevar, Dr. S.R.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Tamil
+- [Thowfeek, Dr.Ramila Usoof](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Psychology
+- [Vijesandiran, Prof. S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Vinayagathasan, Dr. T.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Vithanage, Ms. T.N.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Wanninayake, Dr. H.M.K.S.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Weerakoon, Dr. U.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Weragoda, Ms. L.C.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Economics & Statistics
+- [Wickramagamage, Prof. C.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · English
+- [Wickramasooriya, Mr. A.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Geography
+- [Wijesinghe, Prof. W.A.S.N.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Sociology
+- [Wijesundara, Dr. S.D.K](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Education
+- [Wimalasena, Prof. N.A.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · History
+- [Withanawasam, Dr. Athula](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Political Science
+- [Yaseer, Mr.M.A.M.](https://arts.pdn.ac.lk/staff/ac_staff.php) — Faculty of Arts · Arabic & Islamic Civilization
+
+## University of Sri Jayewardenepura (4)
+
+- [Mr. L D P S Jayasekara](https://computing.sjp.ac.lk/index.php/staff/) — Faculty of Computing
+- [Ms. M. M. V. Senanayake](https://computing.sjp.ac.lk/index.php/staff/) — Faculty of Computing
+- [Ms. R.J.P.K. Rajakaruna](https://computing.sjp.ac.lk/index.php/staff/) — Faculty of Computing
+- [Prof. Dushan Jayawickrama,](https://mgt.sjp.ac.lk/about-us/people/dean-of-the-faculty/) — Faculty of Management Studies and Commerce

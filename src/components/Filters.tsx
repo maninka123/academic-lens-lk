@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Filter, RotateCcw } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
@@ -17,8 +17,26 @@ export function Multi({
   onChange: (v: string[]) => void;
 }) {
   const [search, setSearch] = useState("");
+  const menu = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const dismiss = (event: PointerEvent) => {
+      if (menu.current?.open && !menu.current.contains(event.target as Node)) menu.current.open = false;
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && menu.current?.open) {
+        menu.current.open = false;
+        menu.current.querySelector("summary")?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", escape);
+    };
+  }, []);
   return (
-    <details className="multi">
+    <details className="multi" ref={menu}>
       <summary>
         {label}
         <span>{selected.length ? `${selected.length} selected` : "All"}</span>

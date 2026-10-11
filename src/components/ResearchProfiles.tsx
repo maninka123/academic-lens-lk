@@ -43,12 +43,18 @@ export function researchProfileLinks(academic: Academic) {
 
 export function ResearchProfiles({ academic }: { academic: Academic }) {
   return (
-    <Card title="Research profiles">
-      <p className="muted">
-        Open the recorded profiles to check affiliation, publications and
-        metrics. Each platform may report different counts.
-      </p>
+    <Card title="Sources">
       <div className="research-profile-links">
+        {academic.sourceUrl && (
+          <a
+            className="text-link"
+            href={academic.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Official academic source <ExternalLink size={18} />
+          </a>
+        )}
         {researchProfileLinks(academic).map(({ label, url, status }) => (
           <div key={label}>
             <div>

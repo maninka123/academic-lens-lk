@@ -66,7 +66,7 @@ test("faculty-only membership, correct routes and reference fallback", async ({
     .getByRole("link", { name: "Faculty of Engineering", exact: true })
     .click();
   await expect(
-    page.getByRole("heading", { name: "Faculty-level academics", exact: true }),
+    page.getByRole("heading", { name: "All academics in this faculty", exact: true }),
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Department unavailable", exact: true }),
@@ -166,7 +166,7 @@ test("the data source is fixed, including stale browser preferences and old demo
   await page.goto("./#/compare?view=" + encodeURIComponent(view));
   await expect(page.getByRole("alert")).toContainText("could not be loaded");
   await expect(
-    page.getByText("Partial real collection", { exact: true }),
+    page.getByText(/Data updated/),
   ).toBeVisible();
   await expect(
     page.getByRole("combobox", { name: "Dataset", exact: true }),

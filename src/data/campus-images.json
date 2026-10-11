@@ -1,0 +1,86 @@
+{
+  "colombo": {
+    "image": "images/campuses/colombo.jpg",
+    "source": "https://www.srilankabusiness.com/exporters-directory/company-profiles/university-of-colombo/",
+    "credit": "University of Colombo / EDB Sri Lanka",
+    "original": "https://www.srilankabusiness.com/emarketplace/media/sellerAdditionalInfo/uoc-2.jpg"
+  },
+  "peradeniya": {
+    "image": "images/campuses/peradeniya.jpg",
+    "source": "https://ces.pdn.ac.lk/EM.php",
+    "credit": "University of Peradeniya",
+    "original": "https://ces.pdn.ac.lk/EM/1.jpg"
+  },
+  "jayewardenepura": {
+    "image": "images/campuses/jayewardenepura.jpg",
+    "source": "https://economynext.com/sri-lanka-to-sign-mous-with-foreign-universities-to-improve-local-unis-global-ranking-82774/",
+    "credit": "EconomyNext \u00b7 Sri Jayewardenepura",
+    "original": "https://economynext.com/wp-content/uploads/2020/03/New-Entrance-Opening-35-Japura-resized.jpg"
+  },
+  "kelaniya": {
+    "image": "images/campuses/kelaniya.jpg",
+    "source": "https://conf.kln.ac.lk/ayurex/index.php/about/about-uok",
+    "credit": "University of Kelaniya",
+    "original": "https://conf.kln.ac.lk/ayurex/images/2024/02/08/thalweta.jpg"
+  },
+  "moratuwa": {
+    "image": "images/campuses/moratuwa.jpg",
+    "source": "https://uom.lk/gallery/through-prestigious-history-sumanadasa-building",
+    "credit": "University of Moratuwa",
+    "original": "https://uom.lk/sites/default/files/textile/gallery/fashion_show/2016/unnamed%20%287%29.jpg"
+  },
+  "jaffna": {
+    "image": "images/campuses/jaffna.jpg",
+    "source": "https://www.jfn.ac.lk/",
+    "credit": "University of Jaffna",
+    "original": "https://jfn.ac.lk/wp-content/uploads/Front-View-UOJ-1090x400.jpg"
+  },
+  "ruhuna": {
+    "image": "images/campuses/ruhuna.jpg",
+    "source": "https://www.dceu.ruh.ac.lk/iqac/",
+    "credit": "University of Ruhuna",
+    "original": "https://www.dceu.ruh.ac.lk/iqac/iqac.jpg"
+  },
+  "kdu": {
+    "image": "images/campuses/kdu.jpg",
+    "source": "https://www.cesl.lk/projects.php?id=7&page=projects&project=Completed",
+    "credit": "CESL \u00b7 KDU Graduate Studies building",
+    "original": "https://cesl.lk/images/projects/completed/Faculty%20of%20Graduate%20Studies%20Building%20at%20General%20Sir%20John%20Kotelawala%20Defence%20University_63_cesl.jpg"
+  },
+  "sliit": {
+    "image": "images/campuses/sliit.jpg",
+    "source": "https://www.sliit.lk/study/new-students",
+    "credit": "SLIIT",
+    "original": "https://webasset.sliit.lk/web/malabe_1752055565.jpg"
+  },
+  "nsbm": {
+    "image": "images/campuses/nsbm.jpg",
+    "source": "https://www.nsbm.ac.lk/",
+    "credit": "NSBM Green University",
+    "original": "https://d3c539pel8wzjz.cloudfront.net/wp-content/uploads/2025/06/uni2.jpg"
+  },
+  "cinec": {
+    "image": "images/campuses/cinec.jpg",
+    "source": "https://www.srilankabusiness.com/exporters-directory/company-profiles/cinec-campus/",
+    "credit": "CINEC / EDB Sri Lanka",
+    "original": "https://www.srilankabusiness.com/emarketplace/media/sellerAdditionalInfo/cinec-compinfo_optimized.jpg"
+  },
+  "horizon": {
+    "image": "images/campuses/horizon.webp",
+    "source": "https://horizoncampus.edu.lk/",
+    "credit": "Horizon Campus",
+    "original": "https://horizoncampus.edu.lk/assets/images/campus_exploration_gallery/campus1.webp"
+  },
+  "kiu": {
+    "image": "images/campuses/kiu.jpg",
+    "source": "https://www.ft.lk/youthcareershigher-education/KIU-Higher-education-opportunities-beyond-traditional-boundaries/30-642295",
+    "credit": "Daily FT \u00b7 KIU",
+    "original": "https://bmkltsly13vb.compat.objectstorage.ap-mumbai-1.oraclecloud.com/cdn.ft.lk/assets/uploads/image_8f02770ed6.jpg"
+  },
+  "icbt": {
+    "image": "images/campuses/icbt.jpg",
+    "source": "https://www.nagroup.lk/projects/icbt-colombo-campus/",
+    "credit": "NA Group \u00b7 ICBT Colombo",
+    "original": "https://www.nagroup.lk/wp-content/uploads/2018/05/YDXJ0041-1024x768.jpg"
+  }
+}

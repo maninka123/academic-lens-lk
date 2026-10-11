@@ -1,3 +1,4 @@
+import { Select } from "./ui/select";
 import { useState } from "react";
 import { Pin, Search, X, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -81,7 +82,7 @@ export function Pinned() {
       )}
       <label className="field">
         Compare each person against
-        <select
+        <Select
           aria-label="Peer group"
           value={config.peer}
           onChange={(e) => configure({ peer: e.target.value })}
@@ -102,7 +103,7 @@ export function Pinned() {
               {l}
             </option>
           ))}
-        </select>
+        </Select>
       </label>
       <p className="caption">
         Peer groups respect global filters and selected comparison groups.

@@ -1,3 +1,4 @@
+import { Select } from "../components/ui/select";
 import { useEffect, useMemo, useState } from "react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
@@ -76,7 +77,7 @@ export function Origins() {
       })
       .catch((e) => setError(String(e)));
   }, []);
-  const base = filterAcademics(d.academics, filters);
+  const base = d.academics;
   const selection = base.filter(
     (a) =>
       (!uni || a.universityId === uni) &&
@@ -160,20 +161,18 @@ export function Origins() {
         return `${s.label} (${s.total} documented PhDs${s.total < minN ? ", small sample" : ""})<br/>Sri Lanka: ${s.lk} (${pct(s.lk, s.total)})<br/>Overseas: ${s.overseas} (${pct(s.overseas, s.total)})<br/>Country not recorded: ${s.unknown}`;
       },
     },
-    legend: { top: 0 },
-    grid: { left: 10, right: 30, top: 35, bottom: 20, containLabel: true },
+    legend: { show: false },
+    grid: { left: 10, right: 18, top: 8, bottom: 22, containLabel: true },
     xAxis: {
       type: "value",
       max: 100,
-      axisLabel: { formatter: (v: number) => v + "%" },
+      axisLabel: { formatter: (v: number) => v.toFixed(1) + "%" },
     },
     yAxis: {
       type: "category",
       inverse: true,
-      data: splits.map(
-        (s) => `${s.label} (n=${s.total}${s.total < minN ? " ⚠" : ""})`,
-      ),
-      axisLabel: { fontSize: 12, width: 220, overflow: "truncate" },
+      data: splits.map((s) => s.label),
+      axisLabel: { fontSize: 14, width: 180, overflow: "truncate" },
     },
     aria: { enabled: true, description: label },
     series: (
@@ -196,7 +195,35 @@ export function Origins() {
     })),
   });
   const byUniversity = splitBy(documented, (a) => short(a.university));
-  const byPosition = splitBy(documented, (a) => a.rank);
+  const positionOrder = [
+    "Senior Professor",
+    "Professor",
+    "Associate Professor",
+    "Assistant Professor",
+    "Senior Lecturer",
+    "Lecturer",
+    "Assistant Lecturer",
+    "Instructor",
+    "Other",
+    "Unknown",
+  ];
+  const byPosition = splitBy(documented, (a) => a.rank).sort(
+    (a, b) => positionOrder.indexOf(a.label) - positionOrder.indexOf(b.label),
+  );
+  const originLegend = (
+    <div className="origin-composition-key">
+      {[
+        ["Sri Lanka", col.lk],
+        ["Overseas", col.overseas],
+        ["Country not recorded", col.unknown],
+      ].map(([label, color]) => (
+        <span key={label}>
+          <i style={{ background: color }} />
+          {label}
+        </span>
+      ))}
+    </div>
+  );
   const byDiscipline = splitBy(documented, broadDiscipline);
   const bySector = splitBy(documented, (a) => a.type);
   const topInstitutions = [
@@ -242,7 +269,7 @@ export function Origins() {
       <div className="global-controls" aria-label="PhD origins selection">
         <label className="field">
           Institution
-          <select
+          <Select
             aria-label="Institution"
             value={uni}
             onChange={(e) => {
@@ -257,11 +284,11 @@ export function Origins() {
                 {u.short}
               </option>
             ))}
-          </select>
+          </Select>
         </label>
         <label className="field">
           Faculty
-          <select
+          <Select
             aria-label="Faculty"
             value={faculty}
             onChange={(e) => {
@@ -275,11 +302,11 @@ export function Origins() {
                 {f.label}
               </option>
             ))}
-          </select>
+          </Select>
         </label>
         <label className="field">
           Department
-          <select
+          <Select
             aria-label="Department"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
@@ -290,11 +317,11 @@ export function Origins() {
                 {f.label}
               </option>
             ))}
-          </select>
+          </Select>
         </label>
         <label className="field">
           Academic position
-          <select
+          <Select
             aria-label="Academic position"
             value={position}
             onChange={(e) => setPosition(e.target.value)}
@@ -305,7 +332,7 @@ export function Origins() {
                 {g.label}
               </option>
             ))}
-          </select>
+          </Select>
         </label>
       </div>
       <div className="stats-grid four">
@@ -356,72 +383,136 @@ export function Origins() {
         }
       >
         <div className="origins-map-surface">
-        {ready ? (
-          <Chart
-            height={420}
-            label="World map of PhD awarding countries"
-            option={{
-              tooltip: {
-                renderMode: "richText",
-                confine: true,
-                formatter: (p: { name: string; value: unknown }) => {
-                  const n = typeof p.value === "number" && Number.isFinite(p.value) ? p.value : 0;
-                  return `${mapCountry(p.name)}\n${n > 0 ? `${fmt(n)} recorded doctorates · ${pct(n, known.length)} of mapped profiles` : "No recorded profiles in this selection"}`;
-                },
-              },
-              visualMap: {
-                type: "piecewise", show: false,
-                pieces: [
-                  { min: 1, max: 5, color: "#a9d5dc" },
-                  { min: 6, max: 20, color: "#55a8b8" },
-                  { min: 21, max: 50, color: "#237e96" },
-                  { min: 51, color: "#13516f" },
-                ],
-                outOfRange: { color: theme === "dark" ? "#363636" : "#e3e9ee" },
-              },
-              series: [
-                {
-                  type: "map",
-                  map: "world",
-                  roam: false,
-                  left: 12,
-                  right: 12,
-                  top: 15,
-                  bottom: 15,
-                  boundingCoords: [
-                    [-180, 85],
-                    [180, -58],
-                  ],
-                  selectedMode: false,
-                  itemStyle: {
-                    areaColor: theme === "dark" ? "#363636" : "#e3e9ee",
-                    borderColor: theme === "dark" ? "#1b1b1b" : "#fff",
-                    borderWidth: 0.5,
+          {ready ? (
+            <Chart
+              height={420}
+              label="World map of PhD awarding countries"
+              option={{
+                tooltip: {
+                  renderMode: "richText",
+                  confine: true,
+                  formatter: (p: { name: string; value: unknown }) => {
+                    const n =
+                      typeof p.value === "number" && Number.isFinite(p.value)
+                        ? p.value
+                        : 0;
+                    return `${mapCountry(p.name)}\n${n > 0 ? `${fmt(n)} recorded doctorates · ${pct(n, known.length)} of mapped profiles` : "No recorded profiles in this selection"}`;
                   },
-                  label: { show: false },
-                  emphasis: { label: { show: false }, itemStyle: { borderColor: "#f29a38", borderWidth: 2 } },
-                  data: groups.map((g) => ({
-                    name: mapName(g.id),
-                    value: g.rows.length,
-                    itemStyle: g.id === country ? { areaColor: "#d68129", borderColor: "#a95a13", borderWidth: 2 } : undefined,
-                  })),
                 },
-              ],
-            }}
-            onClick={(p) => { const next = mapCountry(p.name); if (groups.some((g) => g.id === next)) setCountry(country === next ? "" : next); }}
-          />
-        ) : error ? (
-          <Empty>{error}</Empty>
-        ) : (
-          <div className="skeleton" style={{ height: 420 }} />
-        )}
-        <div className="origins-map-key" aria-label="Map colour key: recorded doctorates">
-          <span>Recorded doctorates</span>
-          {[["#a9d5dc", "1–5"], ["#55a8b8", "6–20"], ["#237e96", "21–50"], ["#13516f", "51+"], [theme === "dark" ? "#363636" : "#e3e9ee", "No records"]].map(([color, label]) => <span key={label}><i style={{ background: color }} />{label}</span>)}
-          {country && <span><i style={{ background: "#d68129" }} />Selected</span>}
+                visualMap: {
+                  type: "piecewise",
+                  show: false,
+                  pieces: [
+                    { min: 1, max: 5, color: "#a9d5dc" },
+                    { min: 6, max: 20, color: "#55a8b8" },
+                    { min: 21, max: 50, color: "#237e96" },
+                    { min: 51, color: "#13516f" },
+                  ],
+                  outOfRange: {
+                    color: theme === "dark" ? "#363636" : "#e3e9ee",
+                  },
+                },
+                series: [
+                  {
+                    type: "map",
+                    map: "world",
+                    roam: false,
+                    left: 12,
+                    right: 12,
+                    top: 15,
+                    bottom: 65,
+                    boundingCoords: [
+                      [-180, 85],
+                      [180, -58],
+                    ],
+                    selectedMode: false,
+                    markPoint: {
+                      symbol: "circle",
+                      symbolSize: 11,
+                      itemStyle: {
+                        color: "#e47a30",
+                        borderColor: "#fff",
+                        borderWidth: 2,
+                      },
+                      label: {
+                        show: true,
+                        formatter: "Sri Lanka",
+                        position: "bottom",
+                        distance: 6,
+                        color: theme === "dark" ? "#f5f5f7" : "#1d1d1f",
+                        fontSize: 14,
+                        fontWeight: 600,
+                      },
+                      tooltip: {
+                        formatter: `Sri Lanka\n${groups.find((g) => g.id === "Sri Lanka")?.rows.length || 0} recorded doctorates`,
+                      },
+                      data: [{ name: "Sri Lanka", coord: [80.77, 7.87] }],
+                    },
+                    itemStyle: {
+                      areaColor: theme === "dark" ? "#363636" : "#e3e9ee",
+                      borderColor: theme === "dark" ? "#1b1b1b" : "#fff",
+                      borderWidth: 0.5,
+                    },
+                    label: { show: false },
+                    emphasis: {
+                      label: { show: false },
+                      itemStyle: {
+                        borderColor: theme === "dark" ? "#f5f5f7" : "#607b83",
+                        borderWidth: 1,
+                      },
+                    },
+                    data: groups.map((g) => ({
+                      name: mapName(g.id),
+                      value: g.rows.length,
+                      itemStyle:
+                        g.id === country
+                          ? {
+                              areaColor: "#d68129",
+                              borderColor: "#a95a13",
+                              borderWidth: 2,
+                            }
+                          : undefined,
+                    })),
+                  },
+                ],
+              }}
+              onClick={(p) => {
+                const next = mapCountry(p.name);
+                if (groups.some((g) => g.id === next))
+                  setCountry(country === next ? "" : next);
+              }}
+            />
+          ) : error ? (
+            <Empty>{error}</Empty>
+          ) : (
+            <div className="skeleton" style={{ height: 420 }} />
+          )}
+          <div
+            className="origins-map-scale"
+            aria-label="Recorded doctorate count colour scale: 1 to 5, 6 to 20, 21 to 50, 51 or more; grey means no records"
+          >
+            <span>Recorded doctorates</span>
+            <div>
+              <i />
+              <div className="map-scale-ticks">
+                <span>1</span>
+                <span>5</span>
+                <span>20</span>
+                <span>50+</span>
+              </div>
+            </div>
+            <span className="map-no-records">
+              <i />
+              No records
+            </span>
+          </div>
         </div>
-        </div>
-        <p className="muted">Colour shows collected profiles, not a country's total PhD output. {documented.length > known.length ? `${fmt(documented.length - known.length)} additional doctorates have no recorded country.` : ""}</p>
+        <p className="muted">
+          Colour shows collected profiles, not a country's total PhD output.{" "}
+          {documented.length > known.length
+            ? `${fmt(documented.length - known.length)} additional doctorates have no recorded country.`
+            : ""}
+        </p>
         <div className="country-pills origins-top-countries">
           {groups.slice(0, 6).map((g) => (
             <Button
@@ -434,10 +525,23 @@ export function Origins() {
             </Button>
           ))}
         </div>
-        {groups.length > 6 && <details className="origins-more-countries">
-          <summary>More countries ({groups.length - 6})</summary>
-          <div className="country-pills">{groups.slice(6).map((g) => <Button key={g.id} variant={country === g.id ? "default" : "outline"} onClick={() => setCountry(country === g.id ? "" : g.id)}>{g.id}<span>{g.rows.length}</span></Button>)}</div>
-        </details>}
+        {groups.length > 6 && (
+          <details className="origins-more-countries">
+            <summary>More countries ({groups.length - 6})</summary>
+            <div className="country-pills">
+              {groups.slice(6).map((g) => (
+                <Button
+                  key={g.id}
+                  variant={country === g.id ? "default" : "outline"}
+                  onClick={() => setCountry(country === g.id ? "" : g.id)}
+                >
+                  {g.id}
+                  <span>{g.rows.length}</span>
+                </Button>
+              ))}
+            </div>
+          </details>
+        )}
       </Card>
       {documented.length === 0 ? (
         <Empty title="No documented doctorates in this selection" />
@@ -445,9 +549,10 @@ export function Origins() {
         <>
           <div className="two-columns align-start">
             <Card
-              title="Sri Lankan and overseas doctorates by institution"
-              subtitle={`Share of documented doctorates. ⚠ marks fewer than ${minN} doctorates.`}
+              title="Doctorate origins by institution"
+              subtitle="Share of documented doctorates"
             >
+              {originLegend}
               <Chart
                 option={composition(byUniversity, "PhD origin by institution")}
                 height={compHeight(byUniversity.length)}
@@ -456,8 +561,9 @@ export function Origins() {
             </Card>
             <Card
               title="By academic position"
-              subtitle="Normalised positions; original titles stay on each profile."
+              subtitle="Highest positions first"
             >
+              {originLegend}
               <Chart
                 option={composition(byPosition, "PhD origin by position")}
                 height={compHeight(byPosition.length)}
@@ -470,6 +576,7 @@ export function Origins() {
               title="By discipline"
               subtitle="Discipline inferred from faculty/department names — a descriptive grouping, not a verified classification."
             >
+              {originLegend}
               <Chart
                 option={composition(byDiscipline, "PhD origin by discipline")}
                 height={compHeight(byDiscipline.length)}
@@ -480,6 +587,7 @@ export function Origins() {
               title="Public and non-state institutions"
               subtitle="Documented doctorates in each sector."
             >
+              {originLegend}
               <Chart
                 option={composition(bySector, "PhD origin by sector")}
                 height={compHeight(bySector.length)}
@@ -604,14 +712,14 @@ export function Origins() {
             : "PhD country → current institution")
         }
         action={
-          <select
+          <Select
             aria-label="Sankey detail"
             value={mode}
             onChange={(e) => setMode(e.target.value)}
           >
             <option value="simple">Country → current institution</option>
             <option value="full">Include PhD university</option>
-          </select>
+          </Select>
         }
       >
         {rows.length ? (

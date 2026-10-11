@@ -37,11 +37,12 @@ export const defaultConfig: Config = {
 };
 type State = {
   theme: "light" | "dark";
+  themeMode: "light" | "dark" | "system";
   filters: Filters;
   config: Config;
   pinned: string[];
   custom: CustomGroup[];
-  setTheme: () => void;
+  setTheme: (mode?: "light" | "dark" | "system") => void;
   setFilters: (f: Partial<Filters>) => void;
   clear: () => void;
   configure: (c: Partial<Config>) => void;
@@ -55,12 +56,24 @@ export const useAtlas = create<State>()(
   persist(
     (set) => ({
       theme: "light",
+      themeMode: "light",
       filters: emptyFilters(),
       config: defaultConfig,
       pinned: [],
       custom: [],
-      setTheme: () =>
-        set((s) => ({ theme: s.theme === "light" ? "dark" : "light" })),
+      setTheme: (mode) =>
+        set((s) => {
+          const themeMode = mode ?? (s.theme === "light" ? "dark" : "light");
+          return {
+            themeMode,
+            theme:
+              themeMode === "system"
+                ? window.matchMedia("(prefers-color-scheme: dark)").matches
+                  ? "dark"
+                  : "light"
+                : themeMode,
+          };
+        }),
       setFilters: (f) =>
         set((s) => ({
           filters: { ...s.filters, ...f },
@@ -169,6 +182,11 @@ export const useAtlas = create<State>()(
         return {
           ...current,
           theme: p.theme === "dark" ? "dark" : "light",
+          themeMode: ["light", "dark", "system"].includes(p.themeMode || "")
+            ? p.themeMode!
+            : p.theme === "dark"
+              ? "dark"
+              : "light",
           filters: f,
           config: {
             ...defaultConfig,
@@ -281,7 +299,9 @@ export function restoreFromUrl() {
     c.labels = Boolean(c.labels);
     c.benchmarks = Boolean(c.benchmarks);
     if (c.providerMode !== "mixed") c.providerMode = "single";
-    if (!["Google Scholar", "ResearchGate", "OpenAlex"].includes(c.provider || ""))
+    if (
+      !["Google Scholar", "ResearchGate", "OpenAlex"].includes(c.provider || "")
+    )
       c.provider = "Google Scholar";
     useAtlas.getState().restore({
       filters: f,

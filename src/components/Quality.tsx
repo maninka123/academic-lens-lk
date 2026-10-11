@@ -71,7 +71,7 @@ export function MeasurementNote({
         <strong>{metricLabel}:</strong> {fmt(q.valid)} valid of{" "}
         {fmt(q.eligible)} eligible records (
         {q.completeness === null ? "—" : fmt(q.completeness, 1) + "%"}) ·
-        Source: {providers || "none"} · Measured: {dates}
+        Source: {providers || "none"}
       </span>
       {q.lowN && (
         <span className="warn-text">
@@ -183,20 +183,17 @@ export function MetricSummaryTable({
 }) {
   return (
     <div className="table-scroll">
-      <table>
+      <table className="metric-summary-table">
         <caption className="caption">
-          Medians use one provider per metric; missing values are excluded, not
-          treated as zero.
+          One provider per metric · Missing values excluded
         </caption>
         <thead>
           <tr>
             <th>Metric</th>
             <th>Median</th>
-            <th>Valid / eligible</th>
-            <th>Completeness</th>
+            <th>Coverage</th>
             <th>Source</th>
-            <th>Measured</th>
-            <th>Flag</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -214,10 +211,22 @@ export function MetricSummaryTable({
                 <td>{metricNames[m] || m}</td>
                 <td className="numeric">{q.lowN ? "—" : fmt(median(v), 1)}</td>
                 <td>
-                  {q.valid} / {q.eligible}
-                </td>
-                <td>
-                  {q.completeness === null ? "—" : fmt(q.completeness, 1) + "%"}
+                  <div
+                    className="metric-coverage"
+                    title={`${q.valid} valid values of ${q.eligible} eligible profiles`}
+                  >
+                    <strong>
+                      {q.completeness === null
+                        ? "—"
+                        : q.completeness.toFixed(1) + "%"}
+                    </strong>
+                    <span>
+                      {q.valid} / {q.eligible} profiles
+                    </span>
+                    <span className="coverage-track" aria-hidden="true">
+                      <i style={{ width: `${q.completeness ?? 0}%` }} />
+                    </span>
+                  </div>
                 </td>
                 <td>
                   {provider ||
@@ -225,19 +234,35 @@ export function MetricSummaryTable({
                       ? "None"
                       : "Official profile")}
                   {excluded > 0 && (
-                    <small className="caption">
-                      {" "}
-                      ({excluded} from other providers excluded)
-                    </small>
+                    <details className="metric-source-detail">
+                      <summary>+{excluded} excluded</summary>
+                      <span>
+                        Values from other providers are excluded to keep the
+                        median comparable.
+                      </span>
+                    </details>
                   )}
                 </td>
-                <td className="nowrap">{q.dates.join(", ") || "—"}</td>
-                <td className={q.lowN || q.weak ? "flag-cell" : ""}>
-                  {q.lowN
-                    ? `n < ${minN}: not reported`
-                    : q.weak
-                      ? "Weak coverage"
-                      : ""}
+                <td>
+                  <span
+                    className={
+                      "metric-status " +
+                      (q.lowN || q.weak ? "is-warning" : "is-ready")
+                    }
+                    title={
+                      q.lowN
+                        ? `Fewer than ${minN} valid profiles; median not reported.`
+                        : q.weak
+                          ? "Valid values cover only a small share of the collected profiles."
+                          : "Minimum sample and coverage requirements met."
+                    }
+                  >
+                    {q.lowN
+                      ? `n < ${minN}`
+                      : q.weak
+                        ? "Low coverage"
+                        : "Available"}
+                  </span>
                 </td>
               </tr>
             );

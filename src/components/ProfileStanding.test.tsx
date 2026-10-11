@@ -46,19 +46,22 @@ const rows = [
   make("other-institution", 900, { universityId: "v" }),
   make("missing", null),
 ];
-const cells = () =>
-  within(screen.getByRole("row", { name: /^Department / }))
+const cells = () => {
+  const toggle = screen.getByText("Detailed statistics");
+  if (!toggle.parentElement?.hasAttribute("open")) fireEvent.click(toggle);
+  return within(screen.getByRole("row", { name: /^Department / }))
     .getAllByRole("cell")
     .map((c) => c.textContent);
+};
 describe("individual hierarchical standing", () => {
   it("keeps position peers inside the institution and applies qualification cohorts at every level", () => {
     render(<ProfileStanding academic={target} rows={rows} />);
-    expect(cells().slice(0, 5)).toEqual(["8", "7", "4", "6", "7.1"]);
+    expect(cells().slice(0, 5)).toEqual(["8", "7", "4", "—", "—"]);
     fireEvent.change(screen.getByLabelText("Compare with"), {
       target: { value: "both" },
     });
-    expect(cells().slice(0, 5)).toEqual(["7", "6", "4", "5", "5"]);
-    expect(cells().at(-1)).toBe("41.7%");
+    expect(cells().slice(0, 5)).toEqual(["7", "6", "4", "—", "—"]);
+    expect(cells().at(-1)).toBe("—");
     fireEvent.change(screen.getByLabelText("Compare with"), {
       target: { value: "phd" },
     });
@@ -77,11 +80,12 @@ describe("individual hierarchical standing", () => {
     expect(
       screen.queryByRole("option", { name: /^Department$/ }),
     ).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText("Detailed statistics"));
     expect(
       within(screen.getByRole("row", { name: /^Faculty/ }))
         .getAllByRole("cell")
         .at(-1)?.textContent,
-    ).toBe("Not available");
+    ).toBe("—");
     expect(screen.getByText(/No citations value is recorded/)).toBeVisible();
   });
 });
