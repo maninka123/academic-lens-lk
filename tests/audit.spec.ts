@@ -195,7 +195,8 @@ test("real-data screenshots for the published README", async ({ page }) => {
   await page.setViewportSize({ width: 1680, height: 1050 });
   await page.screenshot({ path: "docs/screenshots/comparison-studio.png" });
   await page.getByRole("link", { name: "PhD Origins", exact: true }).click();
-  await page.screenshot({ path: "docs/screenshots/phd-origins.png" });
+  await expect(page.getByRole("img", { name: "World map of PhD awarding countries" })).toBeVisible();
+  await page.locator(".card").filter({ has: page.getByRole("heading", { name: "A world of academic pathways" }) }).screenshot({ path: "docs/screenshots/phd-origins.png" });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("./#/academics/SL-ec237eee4737");
   await page.screenshot({ path: "docs/screenshots/person-mobile.png" });
