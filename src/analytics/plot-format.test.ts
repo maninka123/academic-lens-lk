@@ -10,3 +10,8 @@ it("formats displayed plot values to one decimal without changing source values"
   expect(plotNumber(12)).toBe("12.0");
   expect(plotNumber(null)).toBe("Not available");
 });
+it("never renders non-finite or invalid numeric values as NaN", () => {
+  for (const value of [NaN, Infinity, -Infinity, "NaN", "invalid"])
+    expect(plotNumber(value)).toBe("Not available");
+  expect(plotNumber(0)).toBe("0.0");
+});

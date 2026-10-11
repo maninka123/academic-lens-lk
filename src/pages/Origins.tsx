@@ -346,7 +346,7 @@ export function Origins() {
       </div>
       <Card
         title="A world of academic pathways"
-        subtitle="Click a country to inspect its profiles. Map boundaries are bundled locally."
+        subtitle={`${fmt(known.length)} documented doctorates across ${groups.length} countries. Select a highlighted country or a country below to explore its academics.`}
         action={
           country && (
             <Button variant="outline" onClick={() => setCountry("")}>
@@ -355,59 +355,75 @@ export function Origins() {
           )
         }
       >
+        <div className="origins-map-surface">
         {ready ? (
           <Chart
-            height={350}
+            height={420}
             label="World map of PhD awarding countries"
             option={{
-              tooltip: { renderMode: "richText" },
+              tooltip: {
+                renderMode: "richText",
+                confine: true,
+                formatter: (p: { name: string; value: unknown }) => {
+                  const n = typeof p.value === "number" && Number.isFinite(p.value) ? p.value : 0;
+                  return `${mapCountry(p.name)}\n${n > 0 ? `${fmt(n)} recorded doctorates · ${pct(n, known.length)} of mapped profiles` : "No recorded profiles in this selection"}`;
+                },
+              },
               visualMap: {
-                min: 0,
-                max: Math.max(1, ...groups.map((g) => g.rows.length)),
-                text: ["More profiles", "Fewer"],
-                left: 20,
-                bottom: 20,
-                inRange: { color: ["#e4edf3", "#156f94"] },
-                textStyle: { fontSize: 14 },
+                type: "piecewise", show: false,
+                pieces: [
+                  { min: 1, max: 5, color: "#a9d5dc" },
+                  { min: 6, max: 20, color: "#55a8b8" },
+                  { min: 21, max: 50, color: "#237e96" },
+                  { min: 51, color: "#13516f" },
+                ],
+                outOfRange: { color: theme === "dark" ? "#304657" : "#e3e9ee" },
               },
               series: [
                 {
                   type: "map",
                   map: "world",
-                  roam: true,
-                  left: 65,
-                  right: 10,
-                  top: 0,
-                  bottom: 25,
+                  roam: false,
+                  left: 12,
+                  right: 12,
+                  top: 15,
+                  bottom: 15,
                   boundingCoords: [
                     [-180, 85],
                     [180, -58],
                   ],
-                  selectedMode: "single",
+                  selectedMode: false,
                   itemStyle: {
-                    areaColor: "#ecf1f5",
-                    borderColor: "#fff",
+                    areaColor: theme === "dark" ? "#304657" : "#e3e9ee",
+                    borderColor: theme === "dark" ? "#172c3c" : "#fff",
                     borderWidth: 0.5,
                   },
-                  emphasis: { itemStyle: { areaColor: "#70bdab" } },
-                  select: { itemStyle: { areaColor: "#ce9550" } },
+                  label: { show: false },
+                  emphasis: { label: { show: false }, itemStyle: { borderColor: "#f29a38", borderWidth: 2 } },
                   data: groups.map((g) => ({
                     name: mapName(g.id),
                     value: g.rows.length,
-                    selected: g.id === country,
+                    itemStyle: g.id === country ? { areaColor: "#d68129", borderColor: "#a95a13", borderWidth: 2 } : undefined,
                   })),
                 },
               ],
             }}
-            onClick={(p) => setCountry(mapCountry(p.name))}
+            onClick={(p) => { const next = mapCountry(p.name); if (groups.some((g) => g.id === next)) setCountry(country === next ? "" : next); }}
           />
         ) : error ? (
           <Empty>{error}</Empty>
         ) : (
-          <div className="skeleton" style={{ height: 350 }} />
+          <div className="skeleton" style={{ height: 420 }} />
         )}
-        <div className="country-pills">
-          {groups.map((g) => (
+        <div className="origins-map-key" aria-label="Map colour key: recorded doctorates">
+          <span>Recorded doctorates</span>
+          {[["#a9d5dc", "1–5"], ["#55a8b8", "6–20"], ["#237e96", "21–50"], ["#13516f", "51+"], [theme === "dark" ? "#304657" : "#e3e9ee", "No records"]].map(([color, label]) => <span key={label}><i style={{ background: color }} />{label}</span>)}
+          {country && <span><i style={{ background: "#d68129" }} />Selected</span>}
+        </div>
+        </div>
+        <p className="muted">Colour shows collected profiles, not a country's total PhD output. {documented.length > known.length ? `${fmt(documented.length - known.length)} additional doctorates have no recorded country.` : ""}</p>
+        <div className="country-pills origins-top-countries">
+          {groups.slice(0, 6).map((g) => (
             <Button
               variant={country === g.id ? "default" : "outline"}
               key={g.id}
@@ -418,6 +434,10 @@ export function Origins() {
             </Button>
           ))}
         </div>
+        {groups.length > 6 && <details className="origins-more-countries">
+          <summary>More countries ({groups.length - 6})</summary>
+          <div className="country-pills">{groups.slice(6).map((g) => <Button key={g.id} variant={country === g.id ? "default" : "outline"} onClick={() => setCountry(country === g.id ? "" : g.id)}>{g.id}<span>{g.rows.length}</span></Button>)}</div>
+        </details>}
       </Card>
       {documented.length === 0 ? (
         <Empty title="No documented doctorates in this selection" />
