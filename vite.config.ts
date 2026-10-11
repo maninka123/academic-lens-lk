@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "/academic-lens-lk/",
+  define: { "import.meta.env.VITE_DATA_REVISION": JSON.stringify(String(Date.now())) },
   plugins: [react(), tailwindcss()],
   server: {
     watch: {

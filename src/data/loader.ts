@@ -21,7 +21,7 @@ const numeric = [
 export async function loadDataset(): Promise<Dataset> {
   const dir = import.meta.env.BASE_URL + "data/";
   const fetchText = async (name: string) => {
-    const r = await fetch(dir + name);
+    const r = await fetch(dir + name + "?v=" + import.meta.env.VITE_DATA_REVISION);
     if (!r.ok) throw Error(`Cannot load ${name} (${r.status}).`);
     return r.text();
   };
