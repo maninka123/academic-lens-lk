@@ -22,7 +22,7 @@ import {
 import type { Academic } from "../types";
 import { useAtlas } from "../store";
 import { Button } from "./ui/button";
-import { fmt, short, exportCsv } from "./common";
+import { fmt, short, exportCsv, NumericValue } from "./common";
 export function AcademicTable({
   rows,
   columnFilters = false,
@@ -147,13 +147,11 @@ export function AcademicTable({
           recentQ1: "5-year Q1",
         }[key],
         cell: ({ getValue }: any) => (
-          <span className="numeric">
-            {getValue() === null ? "—" : fmt(getValue())}
-          </span>
+          <NumericValue value={getValue()} maximum={Math.max(0, ...rows.map(r => r[key] ?? 0))} digits={key === "experience" ? 1 : 0} />
         ),
       })),
     ],
-    [pinned, pin, unpin],
+    [pinned, pin, unpin, rows],
   );
   const table = useReactTable({
     data: rows,

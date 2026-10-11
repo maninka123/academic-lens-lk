@@ -354,12 +354,20 @@ export function comparisonChart(
             : a.rank,
         ),
       ),
-    ];
+    ].sort((a, b) => {
+      const order = c.level === "rank" || c.level === "qualification"
+        ? ["PhD", "Masters / MPhil", "Bachelors", "Other documented", "Unknown"]
+        : ["Senior Professor", "Professor", "Associate Professor", "Assistant Professor", "Senior Lecturer", "Lecturer", "Assistant Lecturer", "Instructor", "Librarian", "Other", "Unknown"];
+      const index = (value: string) => { const i = order.indexOf(value); return i < 0 ? order.length - 1 : i; };
+      return index(a) - index(b) || a.localeCompare(b);
+    });
     return {
       ...base,
+      legend: { ...base.legend, data: categories },
       yAxis: {
         ...base.yAxis,
         type: "value",
+        max: c.chart === "percentStacked" ? 100 : undefined,
         name:
           c.chart === "percentStacked"
             ? "Percent of group"

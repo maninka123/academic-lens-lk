@@ -2786,3 +2786,31 @@ select { width: 100%; white-space: nowrap; }
   [data-theme="dark"] select { background-color: var(--control-bg); }
 }
 [data-theme="dark"] .data-badge { background: transparent; color: var(--muted); }
+
+/* Quiet, comparable numeric columns and touch-friendly role bars. */
+table { border-collapse: separate; border-spacing: 0; }
+thead th { font-size: .9375rem; color: var(--muted); letter-spacing: .01em; }
+tbody td { font-size: 1rem; line-height: 1.45; padding-top: 14px; padding-bottom: 14px; vertical-align: middle; }
+tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--soft) 45%, var(--surface)); }
+tbody tr:hover td { background: color-mix(in srgb, var(--blue) 6%, var(--surface)); }
+td:first-child { font-weight: 500; }
+.table-number { display: inline-flex; flex-direction: column; gap: 6px; min-width: 72px; font-variant-numeric: tabular-nums; }
+.table-number strong { font-weight: 600; }
+.table-number-track { height: 4px; border-radius: 3px; background: color-mix(in srgb, var(--blue) 10%, var(--surface)); overflow: hidden; }
+.table-number-track > span { display: block; height: 100%; background: var(--blue); border-radius: inherit; opacity: .7; }
+.missing-value { color: var(--muted); }
+.position-bars { list-style: none; padding: 0; margin: 4px 0 0; }
+.position-bars button { display: grid; grid-template-columns: minmax(0,1fr) auto 64px; gap: 6px 12px; width: 100%; padding: 11px 8px; border: 0; border-radius: 10px; background: transparent; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.position-bars button:hover, .position-bars button:focus-visible { background: var(--soft); }
+.position-bars strong, .position-share { text-align: right; font-variant-numeric: tabular-nums; }
+.position-share { color: var(--muted); }
+.position-track { grid-column: 1 / -1; height: 7px; border-radius: 5px; background: var(--soft); overflow: hidden; }
+.position-track > span { display: block; height: 100%; border-radius: inherit; }
+.benchmark-reference { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; padding: 12px 16px; background: color-mix(in srgb, #f28155 9%, var(--surface)); border-radius: 12px; margin-bottom: 12px; }
+.benchmark-reference small { width: 100%; color: var(--muted); font-size: .875rem; }
+.reference-dot { width: 10px; height: 10px; border-radius: 50%; background: #f28155; }
+
+.benchmark-missing { margin-bottom: 16px; color: var(--muted); font-size: .9375rem; }
+.benchmark-missing summary { cursor: pointer; padding: 10px 0; }
+.benchmark-missing ul { padding: 0; list-style: none; display: grid; gap: 8px; }
+.benchmark-missing li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 8px 12px; background: var(--soft); border-radius: 8px; }

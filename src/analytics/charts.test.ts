@@ -35,6 +35,13 @@ describe("hierarchy and chart edge cases", () => {
       custom: [],
     }),
   );
+  it("keeps composition legends in seniority order regardless of source order", () => {
+    const rows = [make("other", 1, { rank: "Other" }), make("lecturer", 2), make("professor", 3, { rank: "Professor" }), make("senior", 4, { rank: "Senior Professor" })];
+    const option = comparisonChart(rows, { ...defaultConfig, chart: "percentStacked" }, [], []);
+    expect(option.legend.data).toEqual(["Senior Professor", "Professor", "Lecturer", "Other"]);
+    expect(option.series.map((s: any) => s.name)).toEqual(option.legend.data);
+    expect(option.yAxis.max).toBe(100);
+  });
   it("keeps a department-less person at faculty level only", () => {
     const rows = [
       make("named", 10),

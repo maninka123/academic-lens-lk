@@ -1,3 +1,4 @@
+import { NumericValue } from "../components/common";
 import { Select } from "../components/ui/select";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -161,7 +162,7 @@ export function Global() {
         return {
           ...build(
             u.tier,
-            u.short,
+            u.name,
             rows.map((a) => a[metric]),
             rows.length,
           ),
@@ -173,7 +174,7 @@ export function Global() {
       ...d.universities.map((u) => {
         const rows = sl.filter((a) => a.universityId === u.id);
         return {
-          ...build("sl", u.short, rows.map(slValue), rows.length),
+          ...build("sl", u.name, rows.map(slValue), rows.length),
           id: u.id,
           country: "Sri Lanka",
           qs: b.metadata.sriLankaQs[u.id] || "not ranked",
@@ -335,8 +336,8 @@ export function Global() {
 
   // 3 · University ladder (median), only universities with an adequate sample.
   const allLadderUnits = view.units
-    .filter((u) => enough(u) && median(u.plotted) !== null)
-    .map((u) => ({ ...u, med: median(u.plotted)! }))
+    .filter((u) => enough(u) && median(u.values) !== null && (!log || median(u.values)! > 0))
+    .map((u) => ({ ...u, med: median(u.values)! }))
     .sort((a, b) => b.med - a.med);
   const ladderUnits = showAllUniversities
     ? allLadderUnits
@@ -359,7 +360,7 @@ export function Global() {
       type: "category",
       inverse: true,
       data: ladderUnits.map((u) => u.label),
-      axisLabel: { fontSize: 14 },
+      axisLabel: { fontSize: 14, width: 230, overflow: "break", lineHeight: 18 },
     },
     series: [
       {
@@ -390,7 +391,7 @@ export function Global() {
   const scatter = {
     tooltip: { trigger: "item", confine: true },
     legend: { show: false },
-    grid: { left: 60, right: 30, top: 75, bottom: 55, containLabel: true },
+    grid: { left: 60, right: 30, top: 25, bottom: 55, containLabel: true },
     xAxis: {
       type: "log",
       name: "QS 2027 rank (log scale)",
@@ -404,7 +405,7 @@ export function Global() {
     },
     yAxis: {
       type: log ? "log" : "value",
-      min: log ? undefined : 0,
+      min: log ? Math.pow(10, Math.floor(Math.log10(Math.min(...scatterUnits.map(u => u.med), ...(slMedian !== null && slMedian > 0 ? [slMedian] : []))))) : 0,
       name: `Median ${metricNames[metric]}`,
       nameLocation: "middle",
       nameGap: 50,
@@ -413,6 +414,7 @@ export function Global() {
     series: (["elite", "middle", "lower", "sl"] as const).map((t) => ({
       type: "scatter",
       name: t === "sl" ? "Sri Lanka" : tierShort[t],
+      markLine: t === "sl" && slMedian !== null && (!log || slMedian > 0) ? { silent: true, symbol: "none", lineStyle: { color: col.sl, type: "dashed", width: 2 }, label: { show: false }, data: [{ yAxis: slMedian }] } : undefined,
       symbolSize: t === "sl" ? 14 : 11,
       itemStyle: {
         color: colorOf(t),
@@ -667,18 +669,16 @@ export function Global() {
         }
       >
         {hiddenSl.length > 0 && (
-          <p className="caption">
-            Not shown (insufficient Sri Lankan sample):{" "}
-            {hiddenSl
-              .map((u) => `${u.label} (${u.values.length} of ${u.eligible})`)
-              .join(", ")}
-            .
-          </p>
+          <details className="benchmark-missing">
+            <summary>{hiddenSl.length} Sri Lankan universities need more usable metric values</summary>
+            <p>Each median needs {minN} valid values for the selected filters and provider. Missing values are not zero.</p>
+            <ul>{hiddenSl.map(u => <li key={u.id}><strong>{u.label}</strong><span>{u.values.length} usable values / {u.eligible} matching profiles</span></li>)}</ul>
+          </details>
         )}
         <div className="benchmark-ladder-window">
           <Chart
             option={ladder}
-            height={Math.max(300, ladderUnits.length * 30 + 65)}
+            height={Math.max(300, ladderUnits.length * 48 + 65)}
             label="Ranked bar chart of university medians"
             exportStats={exportTable}
           />
@@ -688,6 +688,10 @@ export function Global() {
         title="QS position and research metric"
         subtitle="Better QS rank → · Each dot is a university median"
       >
+        <div className="benchmark-reference"><span className="reference-dot" />
+          <strong>Sri Lanka</strong><span>{slMedian !== null ? `Median ${fmt(slMedian, 1)} · ${sl.values.length} valid records` : `Insufficient sample: ${sl.values.length} valid records`}</span>
+          <small>Pooled sample · dashed line; dots require a QS rank and {minN}+ valid records.</small>
+        </div>
         <Chart
           option={scatter}
           height={430}
@@ -721,7 +725,7 @@ export function Global() {
                   <td>{u.eligible}</td>
                   <td>{u.values.length}</td>
                   <td className={enough(u) && !weak(u) ? "" : "flag-cell"}>
-                    {enough(u) ? fmt(median(u.values), 1) : `n < ${minN}`}
+                    {enough(u) ? <NumericValue value={median(u.values)} maximum={Math.max(0, ...tableRows.filter(enough).map(x => median(x.values) ?? 0))} /> : `n < ${minN}`}
                     {enough(u) && weak(u) && (
                       <small className="warn-text"> · weak coverage</small>
                     )}

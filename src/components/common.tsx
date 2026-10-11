@@ -147,3 +147,10 @@ export const colors = [
   "#2d8cbe",
   "#934863",
 ];
+
+/** A relative bar within one column; missing values never become zero. */
+export function NumericValue({ value, maximum, digits = 1, suffix = "" }: { value: number | null | undefined; maximum: number; digits?: number; suffix?: string }) {
+  if (value === null || value === undefined || !Number.isFinite(value)) return <span className="missing-value">—</span>;
+  const width = maximum > 0 ? Math.max(0, Math.min(100, value / maximum * 100)) : 0;
+  return <span className="table-number"><strong>{fmt(value, digits)}{suffix}</strong><span className="table-number-track" aria-hidden="true"><span style={{ width: `${width}%` }} /></span></span>;
+}
