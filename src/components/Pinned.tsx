@@ -163,7 +163,11 @@ export function Pinned() {
             </span>
             {numeric ? (
               <>
-                <div className="person-value">
+                <div
+                  className={
+                    "person-value" + (v === null ? " unavailable" : "")
+                  }
+                >
                   <strong>{fmt(v, 1)}</strong>
                   <span>{metricLabels[metric]}</span>
                 </div>
@@ -179,7 +183,9 @@ export function Pinned() {
                   <div>
                     <dt>25th / 75th</dt>
                     <dd>
-                      {fmt(stats.q1, 1)} / {fmt(stats.q3, 1)}
+                      {stats.n
+                        ? `${fmt(stats.q1, 1)} / ${fmt(stats.q3, 1)}`
+                        : "Not available"}
                     </dd>
                   </div>
                   <div>

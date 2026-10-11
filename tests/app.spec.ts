@@ -1,3 +1,4 @@
+import { useSyntheticFixture } from "./fixtures-helper";
 import { test, expect } from "@playwright/test";
 test("real collection, comparison controls, profiles, exports, and screenshots", async ({
   page,
@@ -50,7 +51,7 @@ test("real collection, comparison controls, profiles, exports, and screenshots",
   await expect(page.locator(".pinned-card")).toHaveCount(1);
   expect(errors).toEqual([]);
 });
-test("demo comparisons, ten pins, custom groups, share state and chart exports", async ({
+test("fixture comparisons, custom groups, share state and chart exports", async ({
   page,
   context,
 }) => {
@@ -58,7 +59,8 @@ test("demo comparisons, ten pins, custom groups, share state and chart exports",
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("./#/compare");
-  await page.getByLabel("Dataset", { exact: true }).selectOption("demo");
+  await useSyntheticFixture(page);
+  await page.reload();
   await expect(
     page.getByRole("heading", { name: "Comparison Studio" }),
   ).toBeVisible();
@@ -78,7 +80,7 @@ test("demo comparisons, ten pins, custom groups, share state and chart exports",
   await page.getByLabel("Chart type").selectOption("scatter");
   await expect(page.locator(".studio-main canvas")).toBeVisible();
   await page.getByLabel("Peer group").selectOption("rank");
-  await page.screenshot({ path: "docs/screenshots/comparison-studio.png" });
+  await page.screenshot({ path: "output/playwright/fixture-comparison.png" });
   const dl = page.waitForEvent("download");
   await page
     .getByRole("button", { name: "Export chart as PNG" })
@@ -110,7 +112,7 @@ test("demo comparisons, ten pins, custom groups, share state and chart exports",
       name: "Academics with a PhD institution in Australia",
     }),
   ).toBeVisible();
-  await page.screenshot({ path: "docs/screenshots/phd-origins.png" });
+  await page.screenshot({ path: "output/playwright/fixture-origins.png" });
   expect(errors).toEqual([]);
 });
 test("responsive layout, readable text, and appearance", async ({ page }) => {
@@ -157,7 +159,8 @@ test("people search, hierarchy, qualification and position comparisons on deskto
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("./#/academics");
-  await page.getByLabel("Dataset", { exact: true }).selectOption("demo");
+  await useSyntheticFixture(page);
+  await page.reload();
   await page.getByLabel("Search people by name").fill("Demo Academic 01002");
   await expect(page.locator("tbody .academic-name")).toHaveCount(1);
   await page.locator("tbody .academic-name").click();
@@ -185,7 +188,7 @@ test("people search, hierarchy, qualification and position comparisons on deskto
   await page.getByLabel("Compare with", { exact: true }).selectOption("both");
   await page.getByLabel("Illustration style").selectOption("long");
   await page.screenshot({
-    path: "docs/screenshots/person-profile.png",
+    path: "output/playwright/fixture-profile.png",
     fullPage: false,
   });
   const download = page.waitForEvent("download");
@@ -204,7 +207,7 @@ test("people search, hierarchy, qualification and position comparisons on deskto
     .selectOption("qualification");
   await expect(page.getByLabel("Peer context", { exact: true })).toBeVisible();
   await page.screenshot({
-    path: "docs/screenshots/person-mobile.png",
+    path: "output/playwright/fixture-profile-mobile.png",
     fullPage: false,
   });
   expect(errors).toEqual([]);

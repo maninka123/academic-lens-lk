@@ -6,18 +6,20 @@ export function Dialog({
   onOpenChange,
   title,
   children,
+  className = "",
 }: {
   open: boolean;
   onOpenChange: (v: boolean) => void;
   title: string;
   children: ReactNode;
+  className?: string;
 }) {
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="dialog-overlay" />
         <DialogPrimitive.Content
-          className="dialog-content"
+          className={"dialog-content " + className}
           aria-describedby={undefined}
         >
           <div className="section-heading">

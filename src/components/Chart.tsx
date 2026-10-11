@@ -26,6 +26,7 @@ import { CanvasRenderer } from "echarts/renderers";
 import { Download, Maximize2, Minimize2 } from "lucide-react";
 import { useAtlas } from "../store";
 import { Button } from "./ui/button";
+import { Dialog } from "./ui/dialog";
 echarts.use([
   BarChart,
   ScatterChart,
@@ -48,20 +49,25 @@ echarts.use([
   CanvasRenderer,
 ]);
 export { echarts };
-export function Chart({
+function ChartCanvas({
   option,
   height = 380,
   onClick,
-  label = "Interactive chart",
+  label = "Chart. Use the nearby heading and supporting values for context.",
+  minWidth,
+  full,
+  setFull,
 }: {
   option: any;
   height?: number;
   onClick?: (p: any) => void;
   label?: string;
+  minWidth?: number;
+  full: boolean;
+  setFull: (v: boolean) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null),
     instance = useRef<echarts.ECharts | null>(null);
-  const [full, setFull] = useState(false);
   const theme = useAtlas((s) => s.theme);
   useEffect(() => {
     if (!ref.current) return;
@@ -77,7 +83,7 @@ export function Chart({
       chart.dispose();
       instance.current = null;
     };
-  }, [theme]);
+  }, [theme, full]);
   useEffect(() => {
     const chart = instance.current;
     if (!chart) return;
@@ -89,14 +95,14 @@ export function Chart({
           fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
           fontSize: 15,
         },
-        aria: { enabled: true },
+        aria: { enabled: true, description: label },
         ...option,
       },
       true,
     );
     chart.off("click");
     if (onClick) chart.on("click", onClick);
-  }, [option, onClick, theme]);
+  }, [option, onClick, theme, full, label]);
   useEffect(() => {
     instance.current?.resize();
   }, [full]);
@@ -113,8 +119,8 @@ export function Chart({
       a.click();
     }
   }
-  return (
-    <div className={full ? "chart-wrap expanded" : "chart-wrap"}>
+  const content = (
+    <div className="chart-body">
       <div className="chart-actions">
         <Button
           variant="ghost"
@@ -137,8 +143,50 @@ export function Chart({
         ref={ref}
         role="img"
         aria-label={label}
-        style={{ height: full ? "80vh" : height, width: "100%" }}
+        style={{
+          height: full ? "70vh" : height,
+          width: "100%",
+          minWidth:
+            minWidth ??
+            (option.series?.some((s: any) => s.type === "heatmap") ? 850 : 0),
+        }}
       />
+    </div>
+  );
+  return content;
+}
+export function Chart(props: {
+  option: any;
+  height?: number;
+  onClick?: (p: any) => void;
+  label?: string;
+  minWidth?: number;
+}) {
+  const [full, setFull] = useState(false);
+  const wrap = useRef<HTMLDivElement>(null);
+  const wasFull = useRef(false);
+  useEffect(() => {
+    if (wasFull.current && !full)
+      wrap.current
+        ?.querySelector<HTMLButtonElement>('[aria-label="Expand chart"]')
+        ?.focus();
+    wasFull.current = full;
+  }, [full]);
+  const canvas = <ChartCanvas {...props} full={full} setFull={setFull} />;
+  return (
+    <div className="chart-wrap" ref={wrap}>
+      {full ? (
+        <Dialog
+          className="chart-dialog"
+          open={full}
+          onOpenChange={setFull}
+          title={props.label || "Expanded chart"}
+        >
+          {canvas}
+        </Dialog>
+      ) : (
+        canvas
+      )}
     </div>
   );
 }

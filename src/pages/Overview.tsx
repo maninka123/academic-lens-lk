@@ -89,8 +89,7 @@ export function Overview() {
       />
       <div className="overview-band">
         <div>
-          <span className="status-dot" />{" "}
-          {metadata.mode === "demo" ? "Demo dataset" : "Partial collection"} ·{" "}
+          <span className="status-dot" /> Partial collection ·{" "}
           {metadata.collectionDate}
         </div>
         <Link to="/methodology">

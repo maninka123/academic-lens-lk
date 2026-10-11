@@ -56,7 +56,10 @@ export function ProfileStanding({
         r.qualification === a.qualification) ||
       (cohort === "phd" && r.qualification === "PhD"),
   );
-  const groups = contexts.map(([key, label]) => {
+  const availableContexts = contexts
+    .filter(([key]) => key !== "department" || Boolean(a.departmentId))
+    .filter(([key]) => key !== "faculty" || Boolean(a.facultyId));
+  const groups = availableContexts.map(([key, label]) => {
     const members =
       key === "qualification"
         ? a.qualification === "Unknown"
@@ -77,7 +80,9 @@ export function ProfileStanding({
       percentile: percentile(v, a[metric]),
     };
   });
-  const active = groups.find((g) => g.key === context)!;
+  const active =
+    groups.find((g) => g.key === context) ||
+    groups.find((g) => g.key === "university")!;
   const transform = (v: number | null) =>
     v === null ? null : log ? Math.log10(v + 1) : v;
   return (
@@ -122,10 +127,10 @@ export function ProfileStanding({
           Peer context
           <select
             aria-label="Peer context"
-            value={context}
+            value={active.key}
             onChange={(e) => setContext(e.target.value)}
           >
-            {contexts.map(([key, label]) => (
+            {availableContexts.map(([key, label]) => (
               <option key={key} value={key}>
                 {label}
               </option>
@@ -152,7 +157,15 @@ export function ProfileStanding({
                 enabled: true,
                 description: `${a.name}: ${metricLabels[metric]} ${fmt(a[metric], 1)}. ${active.label} has ${active.n} valid values; median ${fmt(active.median, 1)}, mean ${fmt(active.mean, 1)}. The comparison table contains all values.`,
               },
-              tooltip: { trigger: "axis" },
+              tooltip: {
+                trigger: "axis",
+                renderMode: "richText",
+                confine: true,
+                valueFormatter: (v: number | null) =>
+                  v === null
+                    ? "Not available"
+                    : fmt(log ? Math.pow(10, v) - 1 : v, 1),
+              },
               grid: { left: 100, right: 30, bottom: 55, top: 25 },
               xAxis: {
                 type: "value",
@@ -188,11 +201,11 @@ export function ProfileStanding({
           <h3>Standing in each peer group</h3>
           <Chart
             label="Percentile by peer context; suppressed when fewer than five valid values"
-            height={340}
+            height={groups.length * 34 + 70}
             option={{
               aria: {
                 enabled: true,
-                description: `Midrank percentiles for ${a.name}. ${groups.map(g => `${g.label}: ${g.percentile === null ? "unavailable" : fmt(g.percentile, 1) + "%"}, ${g.n} valid values`).join(". ")}. Percentiles require five valid values.`,
+                description: `Midrank percentiles for ${a.name}. ${groups.map((g) => `${g.label}: ${g.percentile === null ? "unavailable" : fmt(g.percentile, 1) + "%"}, ${g.n} valid values`).join(". ")}. Percentiles require five valid values.`,
               },
               tooltip: {
                 trigger: "axis",
@@ -210,16 +223,19 @@ export function ProfileStanding({
               },
               yAxis: {
                 type: "category",
-                data: [
-                  "Department",
-                  "Faculty",
-                  "University",
-                  "Same field",
-                  "Same position",
-                  "Qualification",
-                  "Same type",
-                  "All profiles",
-                ],
+                data: groups.map(
+                  (g) =>
+                    ({
+                      department: "Department",
+                      faculty: "Faculty",
+                      university: "University",
+                      field: "Same field",
+                      rank: "Same position",
+                      qualification: "Qualification",
+                      sector: "Same type",
+                      all: "All profiles",
+                    })[g.key],
+                ),
               },
               series: [
                 {
@@ -235,9 +251,9 @@ export function ProfileStanding({
       </div>
       {a[metric] === null && (
         <p className="profile-notice">
-          This person's {metricLabels[metric].toLowerCase()} is unrecorded.
-          Their bar and percentiles are unavailable; peer benchmarks remain
-          visible.
+          No {metricLabels[metric].toLowerCase()} value is recorded for this
+          person. Their bar and percentiles are unavailable; available peer
+          benchmarks remain visible.
         </p>
       )}
       <div className="table-scroll">

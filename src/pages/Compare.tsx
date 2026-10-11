@@ -57,10 +57,10 @@ export function Compare() {
     deleteGroup,
   } = useAtlas();
   const [mobile, setMobile] = useState(
-    () => window.matchMedia("(max-width:760px)").matches,
+    () => window.matchMedia("(max-width:1100px)").matches,
   );
   useEffect(() => {
-    const query = window.matchMedia("(max-width:760px)");
+    const query = window.matchMedia("(max-width:1100px)");
     const handler = () => {
       setMobile(query.matches);
       setLeft(!query.matches);
@@ -70,10 +70,10 @@ export function Compare() {
     return () => query.removeEventListener("change", handler);
   }, []);
   const [left, setLeft] = useState(
-      () => !window.matchMedia("(max-width:760px)").matches,
+      () => !window.matchMedia("(max-width:1100px)").matches,
     ),
     [right, setRight] = useState(
-      () => !window.matchMedia("(max-width:760px)").matches,
+      () => !window.matchMedia("(max-width:1100px)").matches,
     ),
     [notice, setNotice] = useState(""),
     [groupName, setGroupName] = useState("");
@@ -87,17 +87,38 @@ export function Compare() {
   const selectedRows = [
     ...new Map(groups.flatMap((g) => g.rows).map((a) => [a.id, a])).values(),
   ];
-  const has = groups.some((g) => g.value !== null);
+  const chartOption = comparisonChart(rows, c, selected, custom);
+  const has =
+    c.chart === "grouped" ||
+    c.chart === "stacked" ||
+    c.chart === "percentStacked"
+      ? selectedRows.length > 0
+      : chartOption.series?.some((s: any) =>
+          s.data?.some((p: any) => {
+            const v = p?.value ?? p;
+            return Array.isArray(v)
+              ? v.some((x) => typeof x === "number" && Number.isFinite(x))
+              : typeof v === "number" && Number.isFinite(v);
+          }),
+        );
+  const omitted = rows.length - selectedRows.length;
   const numeric = !["count", "phd", "overseas"].includes(c.metric);
   const composition = ["grouped", "stacked", "percentStacked"].includes(
     c.chart,
   );
   async function share() {
+    const state = encodeState();
+    if (state.length > 40000) {
+      setNotice(
+        "This comparison is too large to share in a URL. Export the records or reduce the custom groups.",
+      );
+      return;
+    }
     const link =
       location.origin +
       location.pathname +
       "#/compare?view=" +
-      encodeURIComponent(encodeState()) +
+      encodeURIComponent(state) +
       "&dataset=" +
       encodeURIComponent(d.metadata.version);
     try {
@@ -212,6 +233,7 @@ export function Compare() {
         <label className="field">
           Horizontal axis
           <select
+            aria-label="Horizontal axis"
             value={c.xMetric}
             onChange={(e) =>
               configure({ xMetric: e.target.value as NumericMetric })
@@ -248,7 +270,7 @@ export function Compare() {
         />
         Show data labels
       </label>
-      {!["box", "histogram", "heatmap", "treemap"].includes(c.chart) && (
+      {numeric && ["bar", "scatter", "bubble"].includes(c.chart) && (
         <label className="check">
           <input
             type="checkbox"
@@ -366,10 +388,25 @@ export function Compare() {
               · {d.metadata.window.join("–")} recent window
             </p>
           </div>
+          {c.chart === "bubble" && (
+            <div className="inline-note">
+              Bubbles require recorded horizontal, vertical, and h-index values.
+              Missing h-index values have no bubble; pinned markers remain
+              reference points.
+            </div>
+          )}
           {c.chart === "heatmap" && (
             <div className="inline-note">
               Colours are normalised separately within each metric column.
-              Labels show actual values; no overall score is calculated.
+              Labels show actual values; no overall score is calculated. h-index
+              uses the median when the selected aggregation is total or per 10.
+              Equal university weighting also applies to these cells.
+            </div>
+          )}
+          {omitted > 0 && ["faculty", "department"].includes(c.level) && (
+            <div className="inline-note">
+              {omitted} filtered profiles have no recorded {c.level} and remain
+              at their parent level. They are excluded from this level’s groups.
             </div>
           )}
           {c.log && (
@@ -391,9 +428,9 @@ export function Compare() {
               weighting applies to aggregate statistics in the table.
             </div>
           )}
-          {has || composition ? (
+          {has ? (
             <Chart
-              option={comparisonChart(rows, c, selected, custom)}
+              option={chartOption}
               height={450}
               onClick={(p) => {
                 if (p.data?.academicId)
@@ -408,7 +445,11 @@ export function Compare() {
                       departments: [],
                     });
                     configure({ level: "faculty", groups: [] });
-                  } else if (a && c.level === "faculty") {
+                  } else if (
+                    a &&
+                    c.level === "faculty" &&
+                    g?.rows.some((r) => r.departmentId)
+                  ) {
                     setFilters({
                       universities: [a.universityId],
                       faculties: a.facultyId ? [a.facultyId] : [],
@@ -424,7 +465,7 @@ export function Compare() {
             <Empty>
               {c.level === "custom"
                 ? "Create a group from pinned academics to start a comparison."
-                : `No valid ${metricLabels[c.metric].toLowerCase()} in these groups. Try another metric or switch to Demo Data.`}
+                : `No valid ${metricLabels[c.metric].toLowerCase()} in these groups. Try another metric.`}
             </Empty>
           )}
           {c.metric === "hIndex" && (
@@ -466,7 +507,12 @@ export function Compare() {
               <thead>
                 <tr>
                   <th>Comparison group</th>
-                  <th>Value</th>
+                  <th>
+                    {metricLabels[c.metric]} ·{" "}
+                    {c.aggregation === "distribution"
+                      ? "median"
+                      : c.aggregation}
+                  </th>
                   <th>Valid / records</th>
                   <th>Completeness</th>
                   {c.level === "type" && c.weight === "equal" && (

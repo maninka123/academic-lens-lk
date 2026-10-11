@@ -6,6 +6,7 @@ import type {
   NumericMetric,
 } from "../types";
 import { aggregate, compare, groupKey, summary, values } from "./engine";
+import { metricLabels } from "../types";
 import { colors, short } from "../components/common";
 export function comparisonChart(
   rows: Academic[],
@@ -47,7 +48,7 @@ export function comparisonChart(
   };
   const pinSeries = (kind: "scatter" | "box") =>
     pinned
-      .filter((a) => a[metric] !== null)
+      .filter((a) => a[metric] !== null && (!c.log || a[metric]! > 0))
       .map((a) => {
         const i = pinned.findIndex((p) => p.id === a.id);
         const groupIndex = groups.findIndex((g) =>
@@ -70,9 +71,15 @@ export function comparisonChart(
           z: 10,
           data:
             kind === "scatter"
-              ? a[c.xMetric] === null
+              ? a[c.xMetric] === null || (c.log && a[c.xMetric]! <= 0)
                 ? []
-                : [[a[c.xMetric], a[metric]]]
+                : [
+                    {
+                      name: a.name,
+                      value: [a[c.xMetric], a[metric]],
+                      academicId: a.id,
+                    },
+                  ]
               : idx < 0
                 ? []
                 : [[idx, a[metric]]],
@@ -83,12 +90,12 @@ export function comparisonChart(
       ...base,
       xAxis: {
         type: c.log ? "log" : "value",
-        name: c.xMetric,
+        name: metricLabels[c.xMetric],
         nameLocation: "middle",
         nameGap: 35,
         axisLabel: { fontSize: 14 },
       },
-      yAxis: { ...base.yAxis, name: metric },
+      yAxis: { ...base.yAxis, name: metricLabels[metric] },
       series: [
         ...groups.map((g, i) => ({
           name: short(g.label),
@@ -104,6 +111,7 @@ export function comparisonChart(
               (a) =>
                 a[c.xMetric] !== null &&
                 a[metric] !== null &&
+                (c.chart !== "bubble" || a.hIndex !== null) &&
                 (!c.log || (a[c.xMetric]! > 0 && a[metric]! > 0)),
             )
             .map((a) => ({
@@ -143,50 +151,58 @@ export function comparisonChart(
   }
   if (c.chart === "histogram" && numeric) {
     const all = values(groups.flatMap((g) => g.distribution));
+    if (!all.length) return { ...base, series: [] };
     const min = all.length ? Math.min(...all) : 0,
       max = all.length ? Math.max(...all) : 0,
       width = Math.max(1, (max - min) / 12);
     const bins = Array.from({ length: 12 }, (_, i) => min + width * i);
     return {
       ...base,
-      xAxis: { type: "value", name: metric, axisLabel: { fontSize: 14 } },
+      xAxis: {
+        type: "value",
+        name: metricLabels[metric],
+        axisLabel: { fontSize: 14 },
+      },
       yAxis: {
         type: "value",
         name: "Valid profiles",
         axisLabel: { fontSize: 14 },
       },
-      series: groups.map((g, i) => ({
-        name: short(g.label),
-        type: "bar",
-        barWidth: "85%",
-        itemStyle: { color: colors[i % colors.length], opacity: 0.65 },
-        data: bins.map((lo, j) => [
-          lo + width / 2,
-          g.distribution.filter(
-            (v) => v >= lo && (j === 11 ? v <= lo + width : v < lo + width),
-          ).length,
-        ]),
-        markLine:
-          i === 0
-            ? {
-                symbol: "none",
-                data: pinned
-                  .filter((a) => a[metric] !== null)
-                  .map((a) => ({
-                    name: a.name,
-                    xAxis: a[metric],
-                    lineStyle: {
-                      color:
-                        colors[
-                          pinned.findIndex((p) => p.id === a.id) % colors.length
-                        ],
-                      width: 2,
-                    },
-                    label: { formatter: a.name, fontSize: 14, rotate: 90 },
-                  })),
-              }
-            : undefined,
-      })),
+      series: groups
+        .filter((g) => g.distribution.length)
+        .map((g, i) => ({
+          name: short(g.label),
+          type: "bar",
+          barWidth: "85%",
+          itemStyle: { color: colors[i % colors.length], opacity: 0.65 },
+          data: bins.map((lo, j) => [
+            lo + width / 2,
+            g.distribution.filter(
+              (v) => v >= lo && (j === 11 ? true : v < lo + width),
+            ).length,
+          ]),
+          markLine:
+            i === 0
+              ? {
+                  symbol: "none",
+                  data: pinned
+                    .filter((a) => a[metric] !== null)
+                    .map((a) => ({
+                      name: a.name,
+                      xAxis: a[metric],
+                      lineStyle: {
+                        color:
+                          colors[
+                            pinned.findIndex((p) => p.id === a.id) %
+                              colors.length
+                          ],
+                        width: 2,
+                      },
+                      label: { formatter: a.name, fontSize: 14, rotate: 90 },
+                    })),
+                }
+              : undefined,
+        })),
       dataZoom: [],
     };
   }
@@ -202,16 +218,20 @@ export function comparisonChart(
         ]
       : ["count", "phd", "overseas"];
     const cells = metrics.flatMap((m, x) => {
-      const vals = groups.map(
-        (g) =>
-          aggregate(
-            g.rows,
-            m,
-            m === "hIndex" && ["total", "per10"].includes(c.aggregation)
-              ? "median"
-              : c.aggregation,
-          ).value,
+      const mode = ["count", "phd", "overseas"].includes(m)
+        ? m === "count"
+          ? "total"
+          : "percentage"
+        : m === "hIndex" && ["total", "per10"].includes(c.aggregation)
+          ? "median"
+          : c.aggregation;
+      const calculated = compare(
+        rows,
+        { ...c, metric: m, aggregation: mode },
+        custom,
       );
+      const stats = groups.map((g) => calculated.find((s) => s.id === g.id));
+      const vals = stats.map((s) => s?.value ?? null);
       const finite = values(vals),
         max = Math.max(1, ...finite);
       return vals.flatMap((v, y) =>
@@ -221,7 +241,7 @@ export function comparisonChart(
               {
                 value: [x, y, (v / max) * 100],
                 actual: v,
-                n: aggregate(groups[y].rows, m, c.aggregation).n,
+                n: stats[y]?.n ?? 0,
               },
             ],
       );
@@ -231,7 +251,7 @@ export function comparisonChart(
       grid: { left: 150, right: 70, top: 40, bottom: 100 },
       xAxis: {
         type: "category",
-        data: metrics,
+        data: metrics.map((m) => metricLabels[m]),
         axisLabel: { fontSize: 14, rotate: 25 },
       },
       yAxis: {
@@ -259,7 +279,7 @@ export function comparisonChart(
           },
           tooltip: {
             formatter: (p: any) =>
-              `${labels[p.value[1]]}\n${metrics[p.value[0]]}: ${p.data.actual.toFixed(1)}\nValid n = ${p.data.n}\nColour normalised within each metric`,
+              `${labels[p.value[1]]}\n${metricLabels[metrics[p.value[0]]]}: ${p.data.actual.toFixed(1)}\nValid n = ${p.data.n}\nColour normalised within each metric`,
           },
         },
       ],

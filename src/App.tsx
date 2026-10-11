@@ -32,13 +32,23 @@ import { Methodology } from "./pages/Methodology";
 import { Filters } from "./components/Filters";
 import { Button } from "./components/ui/button";
 import { Empty } from "./components/common";
+useAtlas.getState().configure({});
 restoreFromUrl();
 function Shell() {
-  const { mode, setMode, theme, setTheme, pinned } = useAtlas();
+  const { theme, setTheme, pinned } = useAtlas();
   const [data, setData] = useState<Dataset | null>(null),
     [error, setError] = useState(""),
     [menu, setMenu] = useState(false);
   const location = useLocation();
+  const [shareError, setShareError] = useState(
+    () => sessionStorage.getItem("atlas-share-error") || "",
+  );
+  useEffect(() => {
+    if (location.search.includes("view=")) {
+      restoreFromUrl();
+      setShareError(sessionStorage.getItem("atlas-share-error") || "");
+    }
+  }, [location.search]);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
@@ -46,7 +56,7 @@ function Shell() {
     let active = true;
     setData(null);
     setError("");
-    loadDataset(mode)
+    loadDataset()
       .then((d) => {
         if (active) setData(d);
       })
@@ -56,7 +66,7 @@ function Shell() {
     return () => {
       active = false;
     };
-  }, [mode]);
+  }, []);
   useEffect(() => {
     setMenu(false);
     window.scrollTo(0, 0);
@@ -107,19 +117,11 @@ function Shell() {
         <div className="sidebar-bottom">
           <div className="dataset-card">
             <span className="status-dot" />
-            <strong>{mode === "demo" ? "Demo Data" : "Partial dataset"}</strong>
-            <p>{data?.metadata.version || "Loading collection…"}</p>
-            <label className="field">
-              Data source
-              <select
-                aria-label="Dataset"
-                value={mode}
-                onChange={(e) => setMode(e.target.value as "real" | "demo")}
-              >
-                <option value="real">Real collected data</option>
-                <option value="demo">Demo Data (fictional)</option>
-              </select>
-            </label>
+            <strong>Collected dataset</strong>
+            <p>{data?.metadata.collectionDate || "Loading collection…"}</p>
+            <small>
+              Collected academic profiles · updated from project data files
+            </small>
           </div>
           <Button variant="ghost" onClick={setTheme}>
             {theme === "light" ? <Moon size={19} /> : <Sun size={19} />}{" "}
@@ -151,6 +153,7 @@ function Shell() {
               variant="ghost"
               size="icon"
               aria-label="Toggle navigation"
+              aria-expanded={menu}
               onClick={() => setMenu(!menu)}
             >
               <Menu size={22} />
@@ -159,14 +162,15 @@ function Shell() {
               Academic Atlas <span>/</span>{" "}
               {routes.find(
                 ([p]) => p !== "/" && location.pathname.startsWith(p),
-              )?.[1] || "Overview"}
+              )?.[1] ||
+                (location.pathname.startsWith("/university/")
+                  ? "Institutions"
+                  : "Overview")}
             </span>
           </div>
-          <span className={"data-badge " + (mode === "demo" ? "demo" : "")}>
+          <span className="data-badge">
             <span className="status-dot" />
-            {mode === "demo"
-              ? "Demo Data · fictional"
-              : "Partial real collection"}
+            Partial real collection
           </span>
         </div>
         <main id="main-content" className="main-content">
@@ -184,25 +188,30 @@ function Shell() {
             </div>
           ) : (
             <DataContext.Provider value={data}>
+              {shareError && (
+                <div className="notice" role="alert">
+                  {shareError}
+                  <Button
+                    variant="ghost"
+                    onClick={() => {
+                      sessionStorage.removeItem("atlas-share-error");
+                      setShareError("");
+                    }}
+                  >
+                    Dismiss
+                  </Button>
+                </div>
+              )}
               {sharedDataset && sharedDataset !== data.metadata.version && (
                 <div className="notice">
                   This link was created with dataset {sharedDataset}. The loaded
                   version is {data.metadata.version}; results may differ.
                 </div>
               )}
-              {mode === "demo" && (
-                <div className="demo-banner">
-                  Demo Data · All names and metrics are fictional. Switch to
-                  real collected data in the sidebar.
-                </div>
-              )}
-              {mode === "real" && (
-                <div className="collection-banner">
-                  Partial collection · Extracted profiles require factual
-                  review.{" "}
-                  <Link to="/methodology">View coverage and limitations</Link>
-                </div>
-              )}
+              <div className="collection-banner">
+                Partial collection · Extracted profiles require factual review.{" "}
+                <Link to="/methodology">View coverage and limitations</Link>
+              </div>
               {location.pathname !== "/compare" && <Filters />}
               <Routes>
                 <Route path="/" element={<Overview />} />
