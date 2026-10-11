@@ -111,3 +111,82 @@ export function normaliseRank(position) {
     (position ? "Other" : "Unknown")
   );
 }
+
+// ---------------------------------------------------------------------------
+// Doctorate interpretation. A completed doctorate needs explicit evidence: a
+// documented completion status or qualification text naming a doctorate. A
+// university name, an academic title ("Dr", "Professor") or ambiguous text is
+// never treated as proof of completion.
+const DOCTORATE =
+  /\b(ph\.?\s?d|d\.?\s?phil|doctor of philosophy|dr\.?\s?rer\.?\s?nat|doctorat(?:e)?|d\.?\s?eng)\b/i;
+const ONGOING = new RegExp(
+  String.raw`(?:ph\.?\s?d|d\.?\s?phil|doctora\w*)[^;,]{0,40}?\b(?:reading|candidate|candidature|pursuing|ongoing|registered|in progress|submitted|undergoing|following|student|scholar)\b` +
+    String.raw`|\b(?:reading|candidate|pursuing|ongoing|registered|following|reading for|studying for)\b[^;,]{0,30}?(?:ph\.?\s?d|d\.?\s?phil|doctora\w*)`,
+  "i",
+);
+const HONORARY = /\bhonor(?:ary|is causa)\b|\bh\.?\s?c\.?\b/i;
+/**
+ * @returns {"completed_documented"|"in_progress"|"contradictory"|"unknown"}
+ */
+export function doctorateStatus({ phd_status = "", qualifications = "" }) {
+  const q = String(qualifications || "");
+  const ongoing = ONGOING.test(q);
+  // A doctorate named outside the ongoing phrase (e.g. "PhD (Colombo); reading DSc").
+  const withoutOngoing = q.replace(new RegExp(ONGOING.source, "gi"), " ");
+  const completedText = DOCTORATE.test(withoutOngoing) && !HONORARY.test(q);
+  const status = String(phd_status || "");
+  if (status === "in_progress")
+    return completedText ? "contradictory" : "in_progress";
+  if (status === "listed_completed" || status === "completed")
+    return ongoing && !completedText ? "contradictory" : "completed_documented";
+  if (completedText) return "completed_documented";
+  if (ongoing) return "in_progress";
+  return "unknown";
+}
+export const doctorateReview = {
+  contradictory:
+    "Qualification evidence contradicts the recorded doctorate status (e.g. completion recorded while the text describes an ongoing doctorate). It is not counted as a completed PhD until reviewed.",
+};
+
+// ---------------------------------------------------------------------------
+// Published URLs keep only what identifies the page. Signed tokens, session
+// and tracking parameters are removed before anything reaches public assets.
+const DROP_PARAM =
+  /^(utm_\w+|hl|oi|authuser|gmla|fbclid|gclid|mc_eid|pli|sessionid|session|sid|token|access_token|auth|key|api_key|apikey|sig|signature|password|pass|ved|ei|usg|sa|source|ref|_hs\w+)$/i;
+export function sanitizeUrl(value = "") {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  let u;
+  try {
+    u = new URL(raw);
+  } catch {
+    return raw;
+  }
+  if (!["http:", "https:"].includes(u.protocol)) return "";
+  u.username = "";
+  u.password = "";
+  if (/^scholar\.google\./i.test(u.hostname)) {
+    const user = u.searchParams.get("user");
+    u.search = user ? "?user=" + encodeURIComponent(user) : "";
+  } else {
+    for (const k of [...u.searchParams.keys()])
+      if (DROP_PARAM.test(k)) u.searchParams.delete(k);
+  }
+  u.hash = "";
+  return u.href;
+}
+/** Sanitise every http(s) URL embedded in free text. */
+export const sanitizeText = (text = "") =>
+  String(text || "").replace(/https?:\/\/[^\s,;"')]+/g, (m) => sanitizeUrl(m));
+
+// ---------------------------------------------------------------------------
+// Bibliometric provider of an individual metric value.
+export function providerOf(source = "") {
+  const s = String(source || "");
+  if (/scholar/i.test(s) && /researchgate/i.test(s)) return "Mixed";
+  if (/scholar/i.test(s)) return "Google Scholar";
+  if (/researchgate/i.test(s)) return "ResearchGate";
+  if (/openalex/i.test(s)) return "OpenAlex";
+  if (/scopus/i.test(s)) return "Scopus";
+  return s ? "Other" : "Not recorded";
+}

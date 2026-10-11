@@ -25,6 +25,7 @@ import {
   validModes,
 } from "../analytics/engine";
 import { comparisonChart } from "../analytics/charts";
+import { metricDefinitions } from "../analytics/exports";
 import { Chart } from "../components/Chart";
 import { Filters, Multi } from "../components/Filters";
 import { Pinned } from "../components/Pinned";
@@ -32,8 +33,23 @@ import { AcademicTable } from "../components/AcademicTable";
 import { Header, fmt, exportCsv, Empty } from "../components/common";
 import { Button } from "../components/ui/button";
 import { Dialog } from "../components/ui/dialog";
-import { loadBenchmarks, tierLabels } from "../data/international";
-import type { Academic } from "../types";
+import {
+  loadBenchmarks,
+  matchedField,
+  tierLabels,
+  type SlOpenAlex,
+} from "../data/international";
+import {
+  withProvider,
+  providerCounts,
+  quality,
+  logSplit,
+  PROVIDER_METRICS,
+  MIN_SAMPLE,
+} from "../analytics/quality";
+import { MeasurementNote } from "../components/Quality";
+import { exportStatistics } from "../analytics/exports";
+import type { Academic, Provider } from "../types";
 const charts: Record<ChartType, string> = {
   bar: "Bar",
   grouped: "Grouped composition",
@@ -81,43 +97,82 @@ export function Compare() {
     [notice, setNotice] = useState(""),
     [groupName, setGroupName] = useState("");
   const [bench, setBench] = useState<Academic[]>([]);
+  const [openAlex, setOpenAlex] = useState<Map<string, SlOpenAlex> | null>(
+    null,
+  );
+  const [discipline, setDiscipline] = useState<
+    "all" | "Computer Science" | "Physics"
+  >("all");
   const benchOn =
     Boolean(c.benchmarks) && (c.level === "type" || c.level === "university");
+  const providerMetric = PROVIDER_METRICS.includes(c.metric as NumericMetric);
+  const single = c.providerMode !== "mixed";
+  // Providers that actually supply this metric in the collection. A saved
+  // choice with no values for the metric falls back to the dominant provider.
+  const available = providerMetric
+    ? providerCounts(d.academics, c.metric as NumericMetric).filter(
+        ([p]) => p !== "Not recorded" && p !== "Mixed",
+      )
+    : [];
+  const chosen: Provider =
+    c.provider === "OpenAlex" || available.some(([p]) => p === c.provider)
+      ? (c.provider as Provider)
+      : available[0]?.[0] || "OpenAlex";
+  // Benchmarks only exist in OpenAlex, so a single-provider comparison that
+  // includes them must use OpenAlex for Sri Lanka too.
+  const provider: Provider = benchOn ? "OpenAlex" : chosen;
+  const needsOpenAlex = benchOn || provider === "OpenAlex";
+  useEffect(() => {
+    if (!needsOpenAlex || openAlex) return;
+    loadBenchmarks()
+      .then((b) => setOpenAlex(b.slOpenAlex))
+      .catch(() => setOpenAlex(new Map()));
+  }, [needsOpenAlex, openAlex]);
   useEffect(() => {
     if (!benchOn || bench.length) return;
     loadBenchmarks()
       .then((b) =>
         setBench(
-          b.academics.map(
-            (a) =>
-              ({
-                ...a,
-                universityId: "intl-" + a.universityId,
-                university: `${a.universityShort} · ${a.country} (${a.tier})`,
-                type: `International · ${tierLabels[a.tier]}`,
-                facultyId: "",
-                departmentId: "",
-                qualifications: "",
-                phdYear: null,
-                phdStatus: "",
-                experience: null,
-                interests: "",
-                q1: null,
-                recentQ1: null,
-                scholarUrl: "",
-                snapshotDate: "",
-                status: "international_benchmark",
-                employmentStatus: "",
-                notes: "International benchmark (OpenAlex metrics)",
-              }) as unknown as Academic,
-          ),
+          b.academics
+            .filter((a) => a.unitType !== "proxy")
+            .map(
+              (a) =>
+                ({
+                  ...a,
+                  universityId: "intl-" + a.universityId,
+                  university: `${a.universityShort} · ${a.country} (${a.tier})`,
+                  type: `International · ${tierLabels[a.tier]}`,
+                  facultyId: "",
+                  departmentId: "",
+                  qualifications: "",
+                  phdYear: null,
+                  phdStatus: "",
+                  experience: null,
+                  interests: "",
+                  q1: null,
+                  recentQ1: null,
+                  scholarUrl: "",
+                  snapshotDate: "",
+                  status: "international_benchmark",
+                  employmentStatus: "",
+                  notes: "International benchmark (OpenAlex metrics)",
+                }) as unknown as Academic,
+            ),
         ),
       )
       .catch(() => setNotice("International benchmarks could not be loaded."));
   }, [benchOn, bench.length]);
+  const filtered = filterAcademics(d.academics, filters).filter(
+    (a) => !benchOn || discipline === "all" || matchedField(a) === discipline,
+  );
+  const provided = single
+    ? withProvider(filtered, provider, openAlex || undefined)
+    : { rows: filtered, excluded: 0 };
   const rows = [
-      ...filterAcademics(d.academics, filters),
-      ...(benchOn ? bench : []),
+      ...provided.rows,
+      ...(benchOn
+        ? bench.filter((a) => discipline === "all" || a.field === discipline)
+        : []),
     ],
     groups = compare(rows, c, custom),
     selected = pinned.flatMap((id) => {
@@ -128,6 +183,10 @@ export function Compare() {
   const selectedRows = [
     ...new Map(groups.flatMap((g) => g.rows).map((a) => [a.id, a])).values(),
   ];
+  const minN = d.metadata.minimumSample || MIN_SAMPLE;
+  const logExcluded = ["count", "phd", "overseas"].includes(c.metric)
+    ? 0
+    : logSplit(selectedRows.map((a) => a[c.metric as NumericMetric])).excluded;
   const chartOption = comparisonChart(rows, c, selected, custom);
   const has =
     c.chart === "grouped" ||
@@ -147,6 +206,58 @@ export function Compare() {
   const composition = ["grouped", "stacked", "percentStacked"].includes(
     c.chart,
   );
+  function exportStats() {
+    exportStatistics(
+      {
+        title: `${metricLabels[c.metric]} by ${levelLabels[c.level]}`,
+        population: `${selectedRows.length} records (${benchOn ? "Sri Lanka + international benchmark samples" : "Sri Lankan collected profiles"})`,
+        filters: {
+          universities: filters.universities.join("; "),
+          faculties: filters.faculties.join("; "),
+          departments: filters.departments.join("; "),
+          positions: filters.ranks.join("; "),
+          qualifications: filters.qualifications.join("; "),
+          "PhD countries": filters.countries.join("; "),
+          fields: filters.fields.join("; "),
+          "equivalent discipline": benchOn ? discipline : "",
+          groups: c.groups.join("; "),
+          search: filters.query,
+        },
+        metric: metricLabels[c.metric],
+        metricDefinition: metricDefinitions[c.metric] || "",
+        provider: !providerMetric
+          ? "not applicable"
+          : single
+            ? (benchOn ? "OpenAlex" : provider) + " only"
+            : "mixed providers (exploratory)",
+        aggregation:
+          c.level === "type" && c.weight === "equal"
+            ? c.aggregation + " (equal university weight)"
+            : c.aggregation,
+        datasetVersion: d.metadata.version,
+        window: d.metadata.window.join("–"),
+        minimumSample: minN,
+        notes: [
+          "Missing values are excluded from denominators, never treated as zero.",
+          "Collected profiles are not the total academic population.",
+        ],
+      },
+      groups.map((g) => {
+        const q = numeric
+          ? quality(g.rows, c.metric as NumericMetric, minN)
+          : null;
+        return {
+          group: g.label,
+          value: g.value,
+          valid: g.n,
+          eligible: g.total,
+          providers: q?.providers.map(([p, n]) => `${p} (${n})`).join("; "),
+          measured: q?.dates.join("; "),
+          flag: g.lowN ? `n < ${minN}: not ranked` : "",
+        };
+      }),
+    );
+  }
   async function share() {
     const state = encodeState();
     if (state.length > 40000) {
@@ -206,6 +317,24 @@ export function Compare() {
           )}
         </span>
       </label>
+      {benchOn && (
+        <label className="field">
+          Equivalent discipline
+          <select
+            aria-label="Equivalent discipline"
+            value={discipline}
+            onChange={(e) => setDiscipline(e.target.value as typeof discipline)}
+          >
+            <option value="all">All sampled disciplines</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Physics">Physics</option>
+          </select>
+          <small className="caption">
+            Benchmarks sample Computer Science and Physics only; proxy units are
+            excluded. Sri Lankan academics are matched by department name.
+          </small>
+        </label>
+      )}
       <Multi
         label="Comparison groups"
         options={options.map((g) => ({ value: g.id, label: g.label }))}
@@ -252,6 +381,43 @@ export function Compare() {
           ))}
         </select>
       </label>
+      {providerMetric && (
+        <label className="field">
+          Bibliometric provider
+          <select
+            aria-label="Bibliometric provider"
+            value={single ? (benchOn ? "OpenAlex" : provider) : "mixed"}
+            onChange={(e) =>
+              e.target.value === "mixed"
+                ? configure({ providerMode: "mixed" })
+                : configure({
+                    providerMode: "single",
+                    provider: e.target.value as Provider,
+                  })
+            }
+          >
+            {benchOn ? (
+              <option value="OpenAlex">
+                OpenAlex only (same source as benchmarks)
+              </option>
+            ) : (
+              <>
+                {available
+                  .filter(([p]) => p !== "OpenAlex")
+                  .map(([p, n]) => (
+                    <option key={p} value={p}>
+                      {p} only ({fmt(n)} values)
+                    </option>
+                  ))}
+                <option value="OpenAlex">
+                  OpenAlex only (matched researchers)
+                </option>
+              </>
+            )}
+            <option value="mixed">Mixed providers (exploratory)</option>
+          </select>
+        </label>
+      )}
       {c.level === "type" && (
         <label className="field">
           University weighting
@@ -505,6 +671,30 @@ export function Compare() {
               · {d.metadata.window.join("–")} recent window
             </p>
           </div>
+          {providerMetric &&
+            (single ? (
+              <div className="inline-note">
+                Single provider:{" "}
+                <strong>{benchOn ? "OpenAlex" : provider}</strong>.{" "}
+                {provided.excluded} values from other providers are treated as
+                missing, not zero.
+                {(benchOn || provider === "OpenAlex") &&
+                  " Sri Lankan OpenAlex values come only from successfully matched researchers; attempted lookups are not matches."}
+              </div>
+            ) : (
+              <div className="notice" role="note">
+                Exploratory mode: values from different providers are combined.
+                Google Scholar, ResearchGate and OpenAlex report different
+                counts, so group differences may reflect the provider rather
+                than the academics. Do not use for conclusions.
+              </div>
+            ))}
+          {numeric && (
+            <MeasurementNote
+              q={quality(selectedRows, c.metric as NumericMetric, minN)}
+              metricLabel={metricLabels[c.metric]}
+            />
+          )}
           {c.chart === "bubble" && (
             <div className="inline-note">
               Bubbles require recorded horizontal, vertical, and h-index values.
@@ -526,10 +716,12 @@ export function Compare() {
               at their parent level. They are excluded from this level’s groups.
             </div>
           )}
-          {c.log && (
+          {c.log && numeric && (
             <div className="inline-note">
-              Logarithmic axes display positive values only. Zeros remain in the
-              statistics and data table.
+              Logarithmic axes show positive values only.{" "}
+              {logExcluded
+                ? `${logExcluded} zero value${logExcluded === 1 ? " is" : "s are"} left out of the chart (not changed to 1); they remain in the statistics table.`
+                : "No zero values are excluded."}
             </div>
           )}
           {composition && (
@@ -546,7 +738,10 @@ export function Compare() {
             </div>
           )}
           {has && c.chart === "bar" && groups.length > 8 && (
-            <p className="muted">Eight groups per view · drag the scrollbar to see all {groups.length} groups. Hover or tap a bar for its full name.</p>
+            <p className="muted">
+              Eight groups per view · drag the scrollbar to see all{" "}
+              {groups.length} groups. Hover or tap a bar for its full name.
+            </p>
           )}
           {has ? (
             <Chart
@@ -589,6 +784,7 @@ export function Compare() {
                 }
               }}
               label={`${metricLabels[c.metric]} comparison`}
+              exportStats={exportStats}
             />
           ) : (
             <Empty>
@@ -626,10 +822,16 @@ export function Compare() {
           )}
           <div className="section-heading">
             <h3>Supporting statistics</h3>
-            <Button variant="ghost" onClick={() => exportCsv(selectedRows)}>
-              <Download size={17} />
-              Export records
-            </Button>
+            <div className="inline">
+              <Button variant="ghost" onClick={exportStats}>
+                <Download size={17} />
+                Export statistics
+              </Button>
+              <Button variant="ghost" onClick={() => exportCsv(selectedRows)}>
+                <Download size={17} />
+                Export records
+              </Button>
+            </div>
           </div>
           <div className="table-scroll">
             <table>
@@ -644,6 +846,8 @@ export function Compare() {
                   </th>
                   <th>Valid / records</th>
                   <th>Completeness</th>
+                  {numeric && <th>Provider</th>}
+                  <th>Flag</th>
                   {c.level === "type" && c.weight === "equal" && (
                     <th>Valid universities</th>
                   )}
@@ -659,6 +863,20 @@ export function Compare() {
                     </td>
                     <td>
                       {g.total ? fmt((g.n / g.total) * 100, 1) + "%" : "—"}
+                    </td>
+                    {numeric && (
+                      <td>
+                        {quality(g.rows, c.metric as NumericMetric)
+                          .providers.map(([p, n]) => `${p} (${n})`)
+                          .join(", ") || "—"}
+                      </td>
+                    )}
+                    <td className={g.lowN ? "flag-cell" : ""}>
+                      {g.lowN
+                        ? `n < ${minN}: not ranked`
+                        : g.total && g.n / g.total < 0.3 && numeric
+                          ? "Weak coverage"
+                          : ""}
                     </td>
                     {c.level === "type" && c.weight === "equal" && (
                       <td>{g.universityN}</td>

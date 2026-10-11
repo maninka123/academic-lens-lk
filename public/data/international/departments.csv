@@ -1,0 +1,80 @@
+universityId,country,tier,faculty,department,field,unitType,rosterEligible,sampled,source
+mit,United States,elite,School of Engineering,Department of Electrical Engineering and Computer Science (CS faculty),Computer Science,department,84,25,https://www.eecs.mit.edu/role/faculty-cs/
+mit,United States,elite,School of Science,Department of Physics,Physics,department,80,25,https://physics.mit.edu/faculty/
+stanford,United States,elite,School of Engineering,Department of Computer Science,Computer Science,department,58,25,https://www.cs.stanford.edu/people/faculty
+stanford,United States,elite,School of Humanities and Sciences,Department of Physics,Physics,department,47,25,https://physics.stanford.edu/people/faculty
+iastate,United States,middle,College of Liberal Arts and Sciences,Department of Computer Science,Computer Science,department,44,25,https://www.cs.iastate.edu/people/faculty
+iastate,United States,middle,College of Liberal Arts and Sciences,Department of Physics and Astronomy,Physics,department,27,25,https://www.physastro.iastate.edu/people/faculty
+kstate,United States,lower,Carl R. Ice College of Engineering,Department of Computer Science,Computer Science,department,21,21,https://www.cs.ksu.edu/people/faculty/
+kstate,United States,lower,College of Arts and Sciences,Department of Physics,Physics,department,28,25,https://www.phys.ksu.edu/about/people/faculty/
+unsw,Australia,elite,Faculty of Engineering,School of Computer Science and Engineering,Computer Science,department,78,25,https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/about-us/find-a-researcher
+unsw,Australia,elite,Faculty of Science,School of Physics,Physics,department,34,25,https://www.unsw.edu.au/science/our-schools/physics/about-us/directory
+anu,Australia,elite,College of Systems and Society,School of Computing,Computer Science,department,28,25,https://comp.anu.edu.au/people/
+anu,Australia,elite,College of Science,Research School of Physics,Physics,department,24,24,https://physics.anu.edu.au/people/
+murdoch,Australia,middle,"College of Science, Technology, Engineering and Mathematics",School of Information Technology,Computer Science,department,8,8,https://www.murdoch.edu.au/schools/information-technology/about/our-people
+murdoch,Australia,middle,"College of Science, Technology, Engineering and Mathematics","School of Mathematics, Statistics, Chemistry and Physics",Physics,department,3,3,https://www.murdoch.edu.au/schools/mathematics-statistics-chemistry-and-physics/about/our-people
+unisc,Australia,lower,"School of Science, Technology and Engineering",Information and Communication Technology,Computer Science,department,11,11,https://www.unisc.edu.au/about/structure/schools/school-of-science-technology-and-engineering/school-of-science-technology-and-engineering-staff
+unisc,Australia,lower,"School of Science, Technology and Engineering",Engineering (physical sciences substitute),Physics,proxy,19,19,
+pku,China,elite,School of Computer Science,School of Computer Science,Computer Science,department,25,25,https://cs.pku.edu.cn/szdw/jyxl/amz/ALL.htm
+pku,China,elite,School of Physics,School of Physics,Physics,department,34,25,https://www.phy.pku.edu.cn/jsfcjy.jsp?urltype=tree.TreeTempUrl&wbtreeid=1658
+tsinghua,China,elite,Department of Computer Science and Technology,Department of Computer Science and Technology,Computer Science,department,37,25,https://www.cs.tsinghua.edu.cn/szzk/jzgml.htm
+tsinghua,China,elite,Department of Physics,Department of Physics,Physics,department,28,25,https://www.phys.tsinghua.edu.cn/ry/jsfc/apysx.htm
+jilin,China,middle,College of Computer Science and Technology,College of Computer Science and Technology,Computer Science,department,45,25,"https://ccst.jlu.edu.cn/szdw/js.htm,"
+jilin,China,middle,College of Physics,College of Physics,Physics,department,20,20,https://phy.jlu.edu.cn/szdw/jyry1/
+ningbo,China,lower,Faculty of Electrical Engineering and Computer Science,Department of Computer Science and Technology,Computer Science,department,14,14,https://eecs.nbu.edu.cn/szdw/jsml.htm
+ningbo,China,lower,School of Physical Science and Technology,School of Physical Science and Technology,Physics,department,37,25,http://phys.nbu.edu.cn/szdw/qtjs/qb.htm
+iitd,India,elite,Indian Institute of Technology Delhi,Department of Computer Science and Engineering,Computer Science,department,20,20,https://homecse.iitd.ac.in/faculty/
+iitd,India,elite,Indian Institute of Technology Delhi,Department of Physics,Physics,department,24,24,https://physics.iitd.ac.in/faculty
+iitb,India,elite,Indian Institute of Technology Bombay,Department of Computer Science and Engineering,Computer Science,department,26,25,https://www.cse.iitb.ac.in/~internal-live/api/faculty/?format=json
+iitb,India,elite,Indian Institute of Technology Bombay,Department of Physics,Physics,department,24,24,https://www.phy.iitb.ac.in/people
+iitbhu,India,middle,Indian Institute of Technology (BHU) Varanasi,Department of Computer Science and Engineering,Computer Science,department,12,12,https://iitbhu.ac.in/dept/cse/faculty
+iitbhu,India,middle,Indian Institute of Technology (BHU) Varanasi,Department of Physics,Physics,department,16,16,https://iitbhu.ac.in/dept/phy/faculty
+panjab,India,lower,Faculty of Science,Department of Computer Science and Applications,Computer Science,department,10,10,https://dcsa.puchd.ac.in/show-faculty.php
+panjab,India,lower,Faculty of Science,Department of Physics,Physics,department,22,22,https://physics.puchd.ac.in/faculty.php
+mcgill,Canada,elite,Faculty of Science,School of Computer Science,Computer Science,department,22,22,https://www.cs.mcgill.ca/people/faculty/
+mcgill,Canada,elite,Faculty of Science,Department of Physics,Physics,department,19,19,https://www.physics.mcgill.ca/people/faculty-a.html
+toronto,Canada,elite,Faculty of Arts and Science,Department of Computer Science,Computer Science,department,28,25,https://web.cs.toronto.edu/people/faculty-directory
+toronto,Canada,elite,Faculty of Arts and Science,Department of Physics,Physics,department,20,20,https://www.physics.utoronto.ca/members/member_types/faculty-tenure-stream/
+concordia,Canada,middle,Gina Cody School of Engineering and Computer Science,Department of Computer Science and Software Engineering,Computer Science,department,25,25,https://www.concordia.ca/ginacody/computer-science-software-eng/about/faculty-members.html
+concordia,Canada,middle,Faculty of Arts and Science,Department of Physics,Physics,department,20,20,https://www.concordia.ca/artsci/physics/about/faculty.html
+regina,Canada,lower,Faculty of Science,Department of Computer Science,Computer Science,department,22,22,https://www.uregina.ca/science/computer-science/directory/index.json
+regina,Canada,lower,Faculty of Science,Department of Physics,Physics,department,9,9,https://www.uregina.ca/science/physics/directory/index.json
+psl,France,elite,École normale supérieure – PSL,Département d'informatique (DI ENS),Computer Science,department,23,23,https://www.di.ens.fr/directory
+psl,France,elite,École normale supérieure – PSL,Département de physique de l'ENS,Physics,department,32,25,https://www.phys.ens.psl.eu/fr/annuaire?f[0]=fonction:15
+ippar,France,elite,École polytechnique,Département d'informatique,Computer Science,department,34,25,https://www.polytechnique.edu/education/departements-denseignement-et-de-recherche/departement-dinformatique-et-de-recherche-de-lecole-polytechnique/membres-du-corps-enseignant
+ippar,France,elite,École polytechnique,Département de physique,Physics,department,23,23,https://www.polytechnique.edu/sites/default/files/content/2025%202026%20-%20Annuaire%20du%20Corps%20Enseignant%20PHY_2.pdf
+bordeaux,France,middle,Collège Sciences et Technologies,LaBRI (Laboratoire Bordelais de Recherche en Informatique),Computer Science,research-lab,31,25,https://www.labri.fr/presentation/annuaire
+bordeaux,France,middle,Collège Sciences et Technologies,LOMA (Laboratoire Ondes et Matière d'Aquitaine),Physics,research-lab,25,25,https://www.loma.cnrs.fr/annuaire/
+ubo,France,lower,UFR Sciences et Techniques,Lab-STICC computing teams,Computer Science,research-lab,21,21,https://labsticc.fr/fr/lab-sticc/annuaire
+ubo,France,lower,UFR Sciences et Techniques,OPTIMAG (Optics and Magnetism Laboratory),Physics,research-lab,11,11,https://www.univ-brest.fr/optimag/fr/page/chercheurs
+tum,Germany,elite,"School of Computation, Information and Technology",Department of Computer Science,Computer Science,department,19,19,https://www.cs.cit.tum.de/en/cs/people/professors/
+tum,Germany,elite,School of Natural Sciences,Department of Physics,Physics,department,14,14,https://www.ph.nat.tum.de/en/ph/about/profs/
+lmu,Germany,elite,"Faculty of Mathematics, Informatics and Statistics",Institute of Informatics,Computer Science,department,21,21,https://www.ifi.lmu.de/institut/index.html
+lmu,Germany,elite,Faculty of Physics,Faculty of Physics,Physics,department,32,25,https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/
+bayreuth,Germany,middle,"Faculty of Mathematics, Physics and Computer Science",Department of Computer Science,Computer Science,department,13,13,https://www.ai.uni-bayreuth.de/en/professors/index.html
+bayreuth,Germany,middle,"Faculty of Mathematics, Physics and Computer Science",Institute of Physics,Physics,department,18,18,https://www.physik.uni-bayreuth.de/en/groups/index.html
+chemnitz,Germany,lower,Faculty of Computer Science,Faculty of Computer Science,Computer Science,department,11,11,https://www.tu-chemnitz.de/informatik/professuren.php.en
+chemnitz,Germany,lower,Faculty of Natural Sciences,Institute of Physics,Physics,department,14,14,https://www.tu-chemnitz.de/physik/professuren.html.en
+stonybrook,United States,middle,College of Engineering and Applied Sciences,Department of Computer Science,Computer Science,department,26,25,https://www.cs.stonybrook.edu/people/index.html
+stonybrook,United States,middle,College of Arts and Sciences,Department of Physics and Astronomy,Physics,department,26,25,https://www.stonybrook.edu/physics/people/faculty.html
+binghamton,United States,lower,Thomas J. Watson College of Engineering and Applied Science,School of Computing,Computer Science,department,25,25,https://www.binghamton.edu/computer-science/people/
+binghamton,United States,lower,Harpur College of Arts and Sciences,"Department of Physics, Applied Physics and Astronomy",Physics,department,20,20,https://www.binghamton.edu/physics/faculty/
+cdu,Australia,middle,Faculty of Science and Technology,Information Technology,Computer Science,department,13,13,https://www.cdu.edu.au/engineering-it-environment/it/staff
+uestc,China,middle,School of Computer Science and Engineering,School of Computer Science and Engineering,Computer Science,department,29,25,https://faculty.uestc.edu.cn/xylb.jsp?urltype=tsites.CollegeTeacherList&id=2031
+uestc,China,middle,School of Physics,School of Physics,Physics,department,33,25,https://faculty.uestc.edu.cn/xylb.jsp?urltype=tsites.CollegeTeacherList&id=2027
+nwu,China,lower,School of Information Science and Technology,School of Computer Science (Software),Computer Science,department,29,25,https://faculty.nwu.edu.cn/xyjslb.jsp?urltype=tsites.CollegeTeacherList&id=1124
+nwu,China,lower,School of Physics,School of Physics,Physics,department,25,25,https://faculty.nwu.edu.cn/xyjslb.jsp?urltype=tsites.CollegeTeacherList&id=1052
+iiti,India,middle,Indian Institute of Technology Indore,Department of Computer Science and Engineering,Computer Science,department,25,25,https://cse.iiti.ac.in/people/faculty
+iitbbs,India,lower,School of Electrical and Computer Sciences,Computer Science and Engineering,Computer Science,department,14,14,https://secs.iitbbs.ac.in/index.php/faculty-members/
+iitbbs,India,lower,School of Basic Sciences,Physics,Physics,department,20,20,https://sbs.iitbbs.ac.in/index.php/physics/physics-faculty-members/
+windsor,Canada,middle,Faculty of Science,School of Computer Science,Computer Science,department,13,13,https://www.uwindsor.ca/science/computerscience/1046/faculty
+windsor,Canada,middle,Faculty of Science,Department of Physics,Physics,department,8,8,https://www.uwindsor.ca/science/physics/434/faculty
+sherbrooke,Canada,lower,Faculté des sciences,Département d'informatique,Computer Science,department,25,25,https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral
+sherbrooke,Canada,lower,Faculté des sciences,Département de physique,Physics,department,16,16,https://www.usherbrooke.ca/physique/nous-joindre/corps-enseignant
+strasbourg,France,middle,ICube laboratory,ICube computer-science teams,Computer Science,research-lab,37,25,https://intranet.icube.unistra.fr/fr/directory/
+strasbourg,France,middle,Faculté de physique et ingénierie,Faculté de physique et ingénierie,Physics,research-lab,24,24,https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/
+cyu,France,lower,ETIS laboratory,ETIS (Information Processing and Systems),Computer Science,research-lab,23,23,https://www.etis-lab.fr/people/
+wuerzburg,Germany,middle,Faculty of Mathematics and Computer Science,Institute of Computer Science,Computer Science,department,29,25,https://www.informatik.uni-wuerzburg.de/lehrstuehle-professuren/
+wuerzburg,Germany,middle,Faculty of Physics and Astronomy,Faculty of Physics and Astronomy,Physics,department,37,25,https://www.physik.uni-wuerzburg.de/ueber-uns/lehrstuehle-arbeitsgruppen/
+wuppertal,Germany,lower,School of Mathematics and Natural Sciences,Computer Science,Computer Science,department,11,11,https://cs.uni-wuppertal.de/de/team/
+wuppertal,Germany,lower,School of Mathematics and Natural Sciences,Physics,Physics,department,20,20,https://physik.uni-wuppertal.de/de/personen-1/

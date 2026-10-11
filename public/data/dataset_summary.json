@@ -1,0 +1,39 @@
+{
+  "version": "partial-3dc1b1eb7d",
+  "collectionDate": "2026-10-11",
+  "country": "Sri Lanka",
+  "institutionsInScope": 14,
+  "institutionsWithProfiles": 12,
+  "facultiesRepresented": 59,
+  "departmentsRepresented": 155,
+  "academicRecords": 1393,
+  "verifiedIdentity": 311,
+  "verifiedEmployment": 264,
+  "withAnyMetric": 297,
+  "withQualifications": 850,
+  "doctorateDocumented": 465,
+  "doctorateInProgress": 16,
+  "doctorateContradictory": 5,
+  "needsReview": 16,
+  "metricAvailability": {
+    "publications": 90,
+    "citations": 294,
+    "recentCitations": 131,
+    "hIndex": 241,
+    "q1": 0,
+    "recentQ1": 0
+  },
+  "careerStages": {
+    "Teaching / other": 86,
+    "Mid-career": 460,
+    "Early-career": 318,
+    "Professor": 206,
+    "Unknown": 323
+  },
+  "identityAliases": 13,
+  "internationalBenchmarks": {
+    "universities": 41,
+    "academics": 1630,
+    "countries": 7
+  }
+}

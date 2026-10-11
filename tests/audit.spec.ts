@@ -13,6 +13,8 @@ test("desktop, tablet and narrow mobile route audit", async ({ page }) => {
       "compare",
       "origins",
       "methodology",
+      "global",
+      "university/colombo",
     ]) {
       await page.goto("./#/" + route);
       await expect(page.locator("h1")).toBeVisible();

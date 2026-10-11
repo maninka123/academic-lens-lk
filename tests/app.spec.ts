@@ -1,5 +1,10 @@
 import { useSyntheticFixture } from "./fixtures-helper";
 import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const snapshot = JSON.parse(
+  readFileSync("public/data/dataset_summary.json", "utf8"),
+);
+const records = Number(snapshot.academicRecords).toLocaleString("en");
 test("real collection, comparison controls, profiles, exports, and screenshots", async ({
   page,
 }) => {
@@ -11,7 +16,10 @@ test("real collection, comparison controls, profiles, exports, and screenshots",
       name: "A clearer view of our academic landscape.",
     }),
   ).toBeVisible();
-  await expect(page.getByText("1,393", { exact: true }).first()).toBeVisible();
+  await expect(page.getByText(records, { exact: true }).first()).toBeVisible();
+  await expect(
+    page.getByText("Published profiles — not the total academic population"),
+  ).toBeVisible();
   await page.screenshot({ path: "docs/screenshots/overview.png" });
   await page.getByRole("link", { name: "Academics", exact: true }).click();
   await expect(
@@ -27,9 +35,7 @@ test("real collection, comparison controls, profiles, exports, and screenshots",
     page.getByRole("heading", { name: "Comparison Studio" }),
   ).toBeVisible();
   await expect(page.locator(".pinned-card")).toHaveCount(1);
-  await page
-    .getByLabel("Measurement", { exact: true })
-    .selectOption("q1");
+  await page.getByLabel("Measurement", { exact: true }).selectOption("q1");
   await expect(
     page.getByRole("heading", { name: "No available values" }),
   ).toBeVisible();
@@ -72,7 +78,8 @@ test("fixture comparisons, custom groups, share state and chart exports", async 
     await expect(page.locator(".studio-main tbody tr")).toHaveCount(15);
   }
   for (const i of [1, 2, 3]) {
-    if (i === 1) await page.getByRole("button", { name: "Show pinned academics" }).click();
+    if (i === 1)
+      await page.getByRole("button", { name: "Show pinned academics" }).click();
     const name = "Demo Academic " + String(i).padStart(2, "0") + "002";
     await page.getByLabel("Add Academic").fill(name);
     await page.locator(".search-results button").first().click();
@@ -110,7 +117,7 @@ test("fixture comparisons, custom groups, share state and chart exports", async 
   ).toBeVisible();
   await expect(
     page.getByRole("heading", {
-      name: "Academics with a PhD institution in Australia",
+      name: "Academics with a documented PhD from Australia",
     }),
   ).toBeVisible();
   await page.screenshot({ path: "output/playwright/fixture-origins.png" });
@@ -211,5 +218,67 @@ test("people search, hierarchy, qualification and position comparisons on deskto
     path: "output/playwright/fixture-profile-mobile.png",
     fullPage: false,
   });
+  expect(errors).toEqual([]);
+});
+
+test("coverage, single-provider rules, international benchmarks and statistics export", async ({
+  page,
+}) => {
+  test.setTimeout(90000);
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  // Institution: three kinds of completeness instead of a staff total.
+  await page.goto("./#/university/colombo");
+  await expect(
+    page.getByText("Verified research identity").first(),
+  ).toBeVisible();
+  await expect(page.getByText(/not a staff census/i).first()).toBeVisible();
+  // Compare: one provider by default, mixed only as a labelled mode.
+  await page.goto("./#/compare");
+  await expect(page.getByLabel("Bibliometric provider")).toHaveValue(
+    "Google Scholar",
+  );
+  await expect(page.getByText(/Single provider/i).first()).toBeVisible();
+  const dl = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export statistics" }).click();
+  const file = await dl;
+  const text = readFileSync(await file.path(), "utf8");
+  expect(text).toContain("# Dataset version: " + snapshot.version);
+  expect(text).toContain("# Metric provider: Google Scholar");
+  expect(text).toMatch(
+    /valid_observations,missing_observations,eligible_records/,
+  );
+  await page.getByLabel("Bibliometric provider").selectOption("mixed");
+  await expect(page.getByText(/Exploratory mode/).first()).toBeVisible();
+  // Global: like-for-like by default, matched counts and suppression shown.
+  await page
+    .getByRole("link", { name: "Global Benchmarks", exact: true })
+    .first()
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "How does Sri Lanka compare?" }),
+  ).toBeVisible();
+  await expect(page.getByLabel("Comparison provider")).toHaveValue(
+    "likeForLike",
+  );
+  await expect(page.getByText(/matched/i).first()).toBeVisible();
+  await page.screenshot({ path: "output/playwright/global.png" });
+  // PhD Origins: only documented doctorates, with the association caveat.
+  await page.getByRole("link", { name: "PhD Origins", exact: true }).click();
+  await expect(page.getByText(/documented/i).first()).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      name: "Sri Lankan and overseas doctorates by institution",
+    }),
+  ).toBeVisible();
+  // Methodology: research methodology and correction process are published.
+  await page
+    .getByRole("link", { name: "Data & Methodology", exact: true })
+    .first()
+    .click();
+  await expect(page.getByText("Three kinds of completeness")).toBeVisible();
+  await expect(
+    page.getByText("Updates, corrections and removal requests"),
+  ).toBeVisible();
   expect(errors).toEqual([]);
 });

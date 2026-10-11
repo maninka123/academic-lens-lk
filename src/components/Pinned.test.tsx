@@ -46,6 +46,8 @@ const rows = Array.from({ length: 16 }, (_, i) => ({
 const d = {
   academics: rows,
   universities: [],
+  coverage: [],
+  summary: null,
   metadata: {
     version: "test",
     mode: "demo",

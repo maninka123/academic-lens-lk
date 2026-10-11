@@ -32,6 +32,8 @@ export const defaultConfig: Config = {
   labels: false,
   sort: "name",
   benchmarks: false,
+  providerMode: "single",
+  provider: "Google Scholar",
 };
 type State = {
   theme: "light" | "dark";
@@ -278,6 +280,9 @@ export function restoreFromUrl() {
     c.log = Boolean(c.log);
     c.labels = Boolean(c.labels);
     c.benchmarks = Boolean(c.benchmarks);
+    if (c.providerMode !== "mixed") c.providerMode = "single";
+    if (!["Google Scholar", "ResearchGate", "OpenAlex"].includes(c.provider || ""))
+      c.provider = "Google Scholar";
     useAtlas.getState().restore({
       filters: f,
       config: c,

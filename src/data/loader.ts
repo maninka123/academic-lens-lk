@@ -1,5 +1,12 @@
 import Papa from "papaparse";
-import type { Academic, Dataset, University, Metadata } from "../types";
+import type {
+  Academic,
+  Coverage,
+  Dataset,
+  DatasetSummary,
+  University,
+  Metadata,
+} from "../types";
 import { academicDisplayName } from "./names";
 const numeric = [
   "phdYear",
@@ -18,10 +25,12 @@ export async function loadDataset(): Promise<Dataset> {
     if (!r.ok) throw Error(`Cannot load ${name} (${r.status}).`);
     return r.text();
   };
-  const [a, u, m] = await Promise.all([
+  const [a, u, m, cov, sum] = await Promise.all([
     fetchText("academics.csv"),
     fetchText("universities.csv"),
     fetchText("metadata.json"),
+    fetchText("coverage_summary.csv").catch(() => ""),
+    fetchText("dataset_summary.json").catch(() => ""),
   ]);
   const parse = (s: string) => {
     const result = Papa.parse<Record<string, string>>(s, {
@@ -34,11 +43,17 @@ export async function loadDataset(): Promise<Dataset> {
   const academics = parse(a).map((r) => {
     const row: Record<string, unknown> = { ...r };
     row.sourceName = r.name;
+    // Files without a doctorate status column (older snapshots, test fixtures):
+    // the importer only ever assigns "PhD" to documented completed doctorates.
+    if (!r.doctorateStatus)
+      row.doctorateStatus =
+        r.qualification === "PhD" ? "completed_documented" : "unknown";
     row.name = academicDisplayName({
       name: r.name,
       qualification: r.qualification,
       phdStatus: r.phdStatus,
       qualifications: r.qualifications,
+      doctorateStatus: row.doctorateStatus as Academic["doctorateStatus"],
     });
     if (r.metricEvidence) {
       const evidence = JSON.parse(r.metricEvidence);
@@ -104,5 +119,18 @@ export async function loadDataset(): Promise<Dataset> {
         mapping.faculties[a.facultyId] ||
         "Unmapped";
   }
-  return { academics, universities, metadata };
+  const coverage = (cov ? parse(cov) : []).map((r) => {
+    const row: Record<string, unknown> = { ...r };
+    for (const [k, v] of Object.entries(r))
+      if (
+        k !== "university" &&
+        k !== "university_id" &&
+        k !== "type" &&
+        k !== "roster_status"
+      )
+        row[k] = Number(v);
+    return row as Coverage;
+  });
+  const summary = sum ? (JSON.parse(sum) as DatasetSummary) : null;
+  return { academics, universities, metadata, coverage, summary };
 }

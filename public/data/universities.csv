@@ -1,15 +1,15 @@
-id,name,short,type
-colombo,University of Colombo,Colombo,Public
-peradeniya,University of Peradeniya,Peradeniya,Public
-jayewardenepura,University of Sri Jayewardenepura,Jayewardenepura,Public
-kelaniya,University of Kelaniya,Kelaniya,Public
-moratuwa,University of Moratuwa,Moratuwa,Public
-jaffna,University of Jaffna,Jaffna,Public
-ruhuna,University of Ruhuna,Ruhuna,Public
-kdu,General Sir John Kotelawala Defence University,KDU,Public
-sliit,Sri Lanka Institute of Information Technology,SLIIT,Non-state
-nsbm,NSBM Green University,NSBM,Non-state
-cinec,CINEC Campus,CINEC,Non-state
-horizon,Horizon Campus,Horizon,Non-state
-kiu,KIU,KIU,Non-state
-icbt,ICBT Campus,ICBT,Non-state
+id,name,short,type,country
+colombo,University of Colombo,Colombo,Public,Sri Lanka
+peradeniya,University of Peradeniya,Peradeniya,Public,Sri Lanka
+jayewardenepura,University of Sri Jayewardenepura,Jayewardenepura,Public,Sri Lanka
+kelaniya,University of Kelaniya,Kelaniya,Public,Sri Lanka
+moratuwa,University of Moratuwa,Moratuwa,Public,Sri Lanka
+jaffna,University of Jaffna,Jaffna,Public,Sri Lanka
+ruhuna,University of Ruhuna,Ruhuna,Public,Sri Lanka
+kdu,General Sir John Kotelawala Defence University,KDU,Public,Sri Lanka
+sliit,Sri Lanka Institute of Information Technology,SLIIT,Non-state,Sri Lanka
+nsbm,NSBM Green University,NSBM,Non-state,Sri Lanka
+cinec,CINEC Campus,CINEC,Non-state,Sri Lanka
+horizon,Horizon Campus,Horizon,Non-state,Sri Lanka
+kiu,KIU,KIU,Non-state,Sri Lanka
+icbt,ICBT Campus,ICBT,Non-state,Sri Lanka

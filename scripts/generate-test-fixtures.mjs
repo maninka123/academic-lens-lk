@@ -97,4 +97,6 @@ fs.writeFileSync(
     2,
   ),
 );
-console.log("Generated 720 reproducible test fixtures (excluded from the website).");
+console.log(
+  "Generated 720 reproducible test fixtures (excluded from the website).",
+);

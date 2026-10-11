@@ -17,5 +17,15 @@
     "kiu": "not ranked",
     "icbt": "not ranked"
   },
-  "metricSource": "OpenAlex (name + institution matched; ambiguous names left blank)"
+  "metricSource": "OpenAlex (name + institution matched; ambiguous names left blank)",
+  "measurementDate": "2026-10-11",
+  "benchmarkMatches": {
+    "attempted": 1630,
+    "matched": 1133
+  },
+  "sriLankaOpenAlex": {
+    "attempted": 212,
+    "matched": 119,
+    "note": "Attempted lookups are not matches. Only matched researchers carry OpenAlex values."
+  }
 }

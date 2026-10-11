@@ -80,3 +80,72 @@ test("mixed-platform metrics retain independent sources and dates", () => {
   assert.equal(normaliseRank("Assistant Professor"), "Assistant Professor");
   assert.equal(normaliseRank(""), "Unknown");
 });
+
+import {
+  doctorateStatus,
+  sanitizeUrl,
+  sanitizeText,
+  providerOf,
+} from "./evidence.mjs";
+import { rankFor, careerStage } from "./countries.mjs";
+
+test("a completed doctorate needs explicit evidence", () => {
+  const s = (phd_status, qualifications) =>
+    doctorateStatus({ phd_status, qualifications });
+  assert.equal(s("listed_completed", "PhD (Colombo)"), "completed_documented");
+  assert.equal(s("", "Ph.D. University of Freiburg"), "completed_documented");
+  assert.equal(s("", "BSc, MSc"), "unknown");
+  assert.equal(s("", ""), "unknown");
+  // A university name or title alone is not completion evidence.
+  assert.equal(
+    doctorateStatus({ phd_status: "", qualifications: "", phd_university: "University of Leeds" }),
+    "unknown",
+  );
+  assert.equal(s("", "Hon. DSc"), "unknown");
+  assert.equal(s("in_progress", "PhD (Reading)"), "in_progress");
+  assert.equal(s("", "MSc; Reading for PhD"), "in_progress");
+});
+test("contradictory doctorate records are flagged, not counted", () => {
+  assert.equal(
+    doctorateStatus({ phd_status: "listed_completed", qualifications: "PhD (Reading), MSc" }),
+    "contradictory",
+  );
+  assert.equal(
+    doctorateStatus({ phd_status: "in_progress", qualifications: "PhD (Moratuwa), MPhil" }),
+    "contradictory",
+  );
+  // A completed PhD alongside a different ongoing degree is not contradictory.
+  assert.equal(
+    doctorateStatus({ phd_status: "listed_completed", qualifications: "PhD (Kelaniya); reading for DSc" }),
+    "completed_documented",
+  );
+});
+test("published URLs lose tokens, sessions and tracking parameters", () => {
+  assert.equal(
+    sanitizeUrl("https://scholar.google.com/citations?user=ab_CD&hl=en&gmla=AHoSzlX&oi=ao"),
+    "https://scholar.google.com/citations?user=ab_CD",
+  );
+  assert.equal(
+    sanitizeUrl("https://x.org/p?token=abc&id=3&utm_source=t#frag"),
+    "https://x.org/p?id=3",
+  );
+  assert.equal(sanitizeUrl("https://user:pass@x.org/a"), "https://x.org/a");
+  assert.equal(sanitizeUrl("javascript:alert(1)"), "");
+  assert.equal(
+    sanitizeText("See https://a.org/x?access_token=1 now"),
+    "See https://a.org/x now",
+  );
+});
+test("providers are recognised per value", () => {
+  assert.equal(providerOf("Google Scholar"), "Google Scholar");
+  assert.equal(providerOf("ResearchGate (search-indexed snapshot)"), "ResearchGate");
+  assert.equal(providerOf("Mixed: ResearchGate publications; Google Scholar citations"), "Mixed");
+  assert.equal(providerOf(""), "Not recorded");
+});
+test("country rules map titles without discarding the original", () => {
+  assert.equal(rankFor("副教授", "International"), "Associate Professor");
+  assert.equal(rankFor("Maître de conférences", "International"), "Lecturer");
+  assert.equal(rankFor("Senior Lecturer Grade I"), "Senior Lecturer");
+  assert.equal(careerStage("Senior Lecturer"), "Mid-career");
+  assert.equal(careerStage("Unknown"), "Unknown");
+});
