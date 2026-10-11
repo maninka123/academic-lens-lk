@@ -1,3 +1,5 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
-school-of-engineering,School of Engineering,1,25
+graduate-school-of-business,Graduate School of Business,2,35
+school-of-engineering,School of Engineering,2,50
 school-of-humanities-and-sciences,School of Humanities and Sciences,1,25
+school-of-medicine,School of Medicine,1,25

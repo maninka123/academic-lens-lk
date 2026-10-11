@@ -1,0 +1,16 @@
+# source: https://www.gsb.stanford.edu/faculty-research/faculty/academic-areas/organizational-behavior
+Amir Goldberg | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/amir-goldberg
+Ashley Martin | Associate Professor | https://www.gsb.stanford.edu/faculty-research/faculty/ashley-martin
+Brian S. Lowery | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/brian-lowery
+Dale T. Miller | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/dale-t-miller
+David Melnikoff | Assistant Professor | https://www.gsb.stanford.edu/faculty-research/faculty/david-melnikoff
+Deborah H. Gruenfeld | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/deborah-h-gruenfeld
+Douglas R. Guilbeault | Associate Professor | https://www.gsb.stanford.edu/faculty-research/faculty/douglas-r-guilbeault
+Francis J. Flynn | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/francis-j-flynn
+Glenn R. Carroll | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/glenn-r-carroll
+Jennifer Eberhardt | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/jennifer-eberhardt
+Julien Clement | Assistant Professor | https://www.gsb.stanford.edu/faculty-research/faculty/julien-clement
+Michele J. Gelfand | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/michele-j-gelfand
+Nir Halevy | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/nir-halevy
+Robert A. Burgelman | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/robert-burgelman
+William P. Barnett | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/william-barnett

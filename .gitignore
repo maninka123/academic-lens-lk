@@ -9,3 +9,6 @@ output/playwright/
 scripts/baselines/_cache/
 __pycache__/
 Data files/_exports/*.zip
+
+# Local secrets (never commit)
+openalex-api-key.txt

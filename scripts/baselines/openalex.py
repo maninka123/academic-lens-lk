@@ -17,6 +17,17 @@ class BudgetExhausted(RuntimeError):
     pass
 
 
+# Key from the environment, or from the git-ignored openalex-api-key.txt at the project root.
+_KEY_FILE = Path(__file__).resolve().parents[2] / "openalex-api-key.txt"
+if not os.environ.get("OPENALEX_API_KEY") and _KEY_FILE.exists():
+    os.environ["OPENALEX_API_KEY"] = _KEY_FILE.read_text().strip()
+
+
+def _redact(text):
+    k = os.environ.get("OPENALEX_API_KEY")
+    return text.replace(k, "[redacted]") if k else text
+
+
 def _get(path, params):
     CACHE.mkdir(parents=True, exist_ok=True)
     key = hashlib.sha1((path + json.dumps(params, sort_keys=True)).encode()).hexdigest()
@@ -32,11 +43,13 @@ def _get(path, params):
             time.sleep(5 * (attempt + 1))
             continue
         if r.status_code == 429:
-            raise BudgetExhausted(r.text[:200])
+            raise BudgetExhausted(_redact(r.text[:200]))
         if r.status_code >= 500:
             time.sleep(3 * (attempt + 1))
             continue
-        r.raise_for_status()
+        if not r.ok:
+            # Never echo the request URL: it carries the API key.
+            raise RuntimeError(f"OpenAlex HTTP {r.status_code} for {path}: {_redact(r.text[:200])}")
         data = r.json()
         f.write_text(json.dumps(data))
         time.sleep(0.2)

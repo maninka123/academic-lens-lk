@@ -49,6 +49,8 @@ const unitNote = (d) =>
 const unitOf = new Map(
   departments.map((d) => [d.university_id + "|" + d.department, unitNote(d)]),
 );
+const researchDetails = fs.existsSync(source + "/research_profiles.csv") ? csvRead(source + "/research_profiles.csv") : [];
+const detailsById = new Map(researchDetails.map((r) => [r.academic_id, r]));
 const n = (v) => {
   if (v == null || String(v).trim() === "") return null;
   const x = Number(v);
@@ -60,6 +62,7 @@ const rows = walk(source)
   .map((r) => {
     const u = byName.get(r.university);
     if (!u) throw Error("Unknown international university: " + r.university);
+    const detail = detailsById.get(r.academic_id);
     const doctorate = doctorateStatus(r);
     const phd = doctorate === "completed_documented";
     return {
@@ -81,7 +84,16 @@ const rows = walk(source)
       position: r.academic_position,
       rank: rankOf(r.academic_position),
       careerStage: careerStage(rankOf(r.academic_position)),
-      qualification: phd ? "PhD" : "Unknown",
+      qualification: phd ? (/\b(?:ph\.?\s?d|d\.?\s?phil)\b/i.test(r.qualifications) ? "PhD" : "Doctorate") : "Unknown",
+      qualifications: r.qualifications,
+      interests: r.research_interests,
+      scholarUrl: sanitizeUrl(r.google_scholar_url),
+      researchgateUrl: sanitizeUrl(r.researchgate_url),
+      researchProfileUrl: sanitizeUrl(detail?.research_profile_url || ""),
+      orcidUrl: sanitizeUrl(detail?.orcid_url || ""),
+      listedPublicationCount: n(detail?.listed_publication_count),
+      publicationScope: detail?.publication_scope || "not_collected",
+      profileCheckedAt: detail?.profile_checked_at || "",
       doctorateStatus: doctorate,
       phdUniversity: r.phd_university,
       phdCountry: r.phd_country,
@@ -130,6 +142,19 @@ csvWrite(
     source: sanitizeUrl((d.source_note.match(/https?:\/\/\S+/) || [""])[0]),
   })),
 );
+const bibliography = fs.existsSync(source + "/publications.csv") ? csvRead(source + "/publications.csv") : [];
+csvWrite(out + "/publications.csv", bibliography.map((r) => ({
+  academicId: r.academic_id,
+  title: r.title,
+  year: r.year,
+  authors: r.authors,
+  venue: r.venue,
+  url: sanitizeUrl(r.url),
+  sourceUrl: sanitizeUrl(r.source_url),
+  scope: r.scope,
+  citation: r.citation,
+  collectionDate: r.collected_at,
+})));
 const slOpenAlex = fs.existsSync(source + "/sri_lanka_openalex_metrics.csv")
   ? csvRead(source + "/sri_lanka_openalex_metrics.csv")
   : [];
@@ -164,8 +189,15 @@ fs.writeFileSync(
         .map((r) => r.collectionDate)
         .sort()
         .at(-1),
+      fields: [...new Set(departments.map((d) => d.field))],
+      fieldCoverage: Object.fromEntries([...new Set(departments.map((d) => d.field))].map((field) => [field, {
+        records: rows.filter((r) => r.field === field).length,
+        universities: new Set(rows.filter((r) => r.field === field).map((r) => r.universityId)).size,
+        measured: rows.filter((r) => r.field === field && r.hIndex != null).length,
+      }])),
+      samplingNote: "Up to 25 academics per unit; newer disciplines cover selected universities only. Unverified metrics remain blank.",
       benchmarkMatches: {
-        attempted: rows.length,
+        attempted: rows.filter((r) => r.lookupStatus !== "not_yet_verified").length,
         matched: rows.filter((r) => /(^|_)matched(_|$)/.test(r.lookupStatus)).length,
       },
       sriLankaOpenAlex: {

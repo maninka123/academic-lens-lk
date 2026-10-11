@@ -1,0 +1,21 @@
+# source: https://www.gsb.stanford.edu/faculty-research/faculty/academic-areas/finance
+Amit Seru | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/amit-seru
+Anat R. Admati | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/anat-r-admati
+Arvind Krishnamurthy | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/arvind-krishnamurthy
+Benjamin Hébert | Associate Professor | https://www.gsb.stanford.edu/faculty-research/faculty/benjamin-hebert
+Greg Buchak | Associate Professor | https://www.gsb.stanford.edu/faculty-research/faculty/greg-buchak
+Hanno Lustig | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/hanno-lustig
+Ilya A. Strebulaev | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/ilya-strebulaev
+James D. Paron | Assistant Professor | https://www.gsb.stanford.edu/faculty-research/faculty/james-d-paron
+Jeffrey Zwiebel | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/jeffrey-zwiebel
+Jonathan B. Berk | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/jonathan-b-berk
+Joshua D. Rauh | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/joshua-d-rauh
+Juliane Begenau | Associate Professor | https://www.gsb.stanford.edu/faculty-research/faculty/juliane-begenau
+Matteo Maggiori | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/matteo-maggiori
+Michael Blank | Assistant Professor | https://www.gsb.stanford.edu/faculty-research/faculty/michael-blank
+Naz Koont | Assistant Professor | https://www.gsb.stanford.edu/faculty-research/faculty/naz-koont
+Peter M. DeMarzo | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/peter-m-demarzo
+Steven Grenadier | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/steven-grenadier
+Tim de Silva | Assistant Professor | https://www.gsb.stanford.edu/faculty-research/faculty/tim-de-silva
+Vikrant Vig | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/vikrant-vig
+Zhiguo He | Professor | https://www.gsb.stanford.edu/faculty-research/faculty/zhiguo-he

@@ -1,6 +1,6 @@
 ﻿id,name,short,country,type,qs_rank_2027,tier,academic_records,openalex_institution_ids,substitution_note
 mit,Massachusetts Institute of Technology,MIT,United States,Private,1,elite,50,I63966007,
-stanford,Stanford University,Stanford,United States,Private,=2,elite,50,I97018004,
+stanford,Stanford University,Stanford,United States,Private,=2,elite,135,I97018004,
 iastate,Iowa State University,Iowa State,United States,Public,=540,middle,50,I173911158,
 kstate,Kansas State University,K-State,United States,Public,1001-1200,lower,46,I189590672,
 unsw,UNSW Sydney,UNSW,Australia,Public,19,elite,50,I31746571,
@@ -15,7 +15,7 @@ iitd,Indian Institute of Technology Delhi,IIT Delhi,India,Public,118,elite,44,I6
 iitb,Indian Institute of Technology Bombay,IIT Bombay,India,Public,134,elite,49,I162827531,
 iitbhu,Indian Institute of Technology (BHU) Varanasi,IIT BHU,India,Public,=510,middle,28,I56404289,"Anna University (QS 470) department sites unreachable (DNS/TLS failures); IIT BHU (same band, public) used"
 panjab,Panjab University,Panjab,India,Public,1001-1200,lower,32,I51452335,
-mcgill,McGill University,McGill,Canada,Public,30,elite,41,I5023651,
+mcgill,McGill University,McGill,Canada,Public,30,elite,66,I5023651,
 toronto,University of Toronto,Toronto,Canada,Public,32,elite,45,I185261750,
 concordia,Concordia University,Concordia,Canada,Public,=497,middle,45,I60158472,
 regina,University of Regina,Regina,Canada,Public,1001-1200,lower,31,I194028371,

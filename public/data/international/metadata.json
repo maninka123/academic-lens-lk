@@ -1,6 +1,6 @@
 {
   "qsEdition": "QS World University Rankings 2027 (published 18 June 2026)",
-  "collectionDate": "2026-10-11",
+  "collectionDate": "2026-10-12",
   "sriLankaQs": {
     "colombo": "1001-1200",
     "peradeniya": "1201-1400",
@@ -18,14 +18,61 @@
     "icbt": "not ranked"
   },
   "metricSource": "OpenAlex (name + institution matched; ambiguous names left blank)",
-  "measurementDate": "2026-10-11",
+  "measurementDate": "2026-10-12",
+  "fields": [
+    "Computer Science",
+    "Physics",
+    "Business",
+    "Management",
+    "Engineering",
+    "Medicine",
+    "Law"
+  ],
+  "fieldCoverage": {
+    "Computer Science": {
+      "records": 847,
+      "universities": 41,
+      "measured": 625
+    },
+    "Physics": {
+      "records": 783,
+      "universities": 38,
+      "measured": 508
+    },
+    "Business": {
+      "records": 20,
+      "universities": 1,
+      "measured": 0
+    },
+    "Management": {
+      "records": 15,
+      "universities": 1,
+      "measured": 0
+    },
+    "Engineering": {
+      "records": 25,
+      "universities": 1,
+      "measured": 0
+    },
+    "Medicine": {
+      "records": 25,
+      "universities": 1,
+      "measured": 0
+    },
+    "Law": {
+      "records": 25,
+      "universities": 1,
+      "measured": 0
+    }
+  },
+  "samplingNote": "Up to 25 academics per unit; newer disciplines cover selected universities only. Unverified metrics remain blank.",
   "benchmarkMatches": {
     "attempted": 1630,
     "matched": 1133
   },
   "sriLankaOpenAlex": {
-    "attempted": 243,
-    "matched": 124,
+    "attempted": 1346,
+    "matched": 416,
     "note": "Attempted lookups are not matches. Only matched researchers carry OpenAlex values."
   }
 }

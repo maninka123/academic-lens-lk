@@ -20,6 +20,8 @@ const PUBLIC_DOWNLOADS = [
   ["international/academics.csv", "International benchmark samples"],
   ["international/universities.csv", "Benchmark universities"],
   ["international/departments.csv", "Benchmark departments and proxy flags"],
+  ["international/publications.csv", "Source-listed international bibliographies"],
+  ["international/sri_lanka_openalex.csv", "Sri Lankan OpenAlex lookup results"],
 ];
 
 function Section({
@@ -200,7 +202,7 @@ export function Methodology() {
           <Section title="Sources & benchmarks">
             <ul>
               <li>Google Scholar, ResearchGate and OpenAlex. Primary comparisons use one provider at a time.</li>
-              <li>International sample: seven countries, three QS 2027 tiers, Computer Science and Physics; up to 25 people per department.</li>
+              <li>International sample: seven countries, three QS 2027 tiers, Computer Science, Physics, Medicine, Engineering, Law, Management and Business; up to 25 people per department. The five newer disciplines currently cover selected Stanford and McGill units, with uneven country and tier coverage and citation metrics pending verification.</li>
               <li>Substitute disciplines are flagged and excluded by default.</li>
             </ul>
           </Section>

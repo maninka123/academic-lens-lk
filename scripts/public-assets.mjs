@@ -21,6 +21,7 @@ export const PUBLIC_FILES = [
   "data_dictionary.csv",
   "datasets.json",
   "international/academics.csv",
+  "international/publications.csv",
   "international/universities.csv",
   "international/departments.csv",
   "international/metadata.json",

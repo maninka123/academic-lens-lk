@@ -1,6 +1,10 @@
 import Papa from "papaparse";
 import type { Academic } from "../types";
 
+export const benchmarkFields = ["Computer Science", "Physics", "Medicine", "Engineering", "Law", "Management", "Business"] as const;
+export const defaultBenchmarkFields: readonly string[] = ["Computer Science", "Physics"];
+export type BenchmarkField = (typeof benchmarkFields)[number];
+
 export type Tier = "elite" | "middle" | "lower";
 export const tierLabels: Record<Tier, string> = {
   elite: "Elite (top 2 in country)",
@@ -33,6 +37,18 @@ export type BenchmarkAcademic = {
   careerStage: string;
   doctorateStatus: string;
   qualification: string;
+  qualifications: string;
+  interests: string;
+  scholarUrl: string;
+  researchgateUrl: string;
+  researchProfileUrl: string;
+  orcidUrl: string;
+  listedPublicationCount: number | null;
+  publicationScope: string;
+  profileCheckedAt: string;
+  phdYear: number | null;
+  phdStatus: string;
+  collectionDate: string;
   phdUniversity: string;
   phdCountry: string;
   publications: number | null;
@@ -99,6 +115,8 @@ export function loadBenchmarks(): Promise<Benchmarks> {
     return {
       academics: parse(a).map((r) => ({
         ...(r as any),
+        listedPublicationCount: num(r.listedPublicationCount),
+        phdYear: num(r.phdYear),
         publications: num(r.publications),
         citations: num(r.citations),
         recentCitations: num(r.recentCitations),
@@ -147,5 +165,18 @@ export function matchedField(a: Pick<Academic, "department" | "faculty">) {
     )
   )
     return "Computer Science";
+  if (/medicine|medical|clinical|surgery|paediatric|pediatric|pathology|anatomy|physiology|pharmacology|public health/i.test(unit)) return "Medicine";
+  if (/\blaw\b|legal|jurisprudence/i.test(unit)) return "Law";
+  if (/engineering/i.test(unit)) return "Engineering";
+  if (/management|organizational behavio|organisational behavio|human resource/i.test(a.department || "")) return "Management";
+  if (/business|commerce|accounting|finance|marketing|economics/i.test(unit)) return "Business";
+  if (/management/i.test(unit)) return "Management";
   return "";
+}
+
+/** Load the source-listed bibliography separately from metric benchmarks. */
+export async function loadBenchmarkPublications(academicId: string) {
+  const response = await fetch(import.meta.env.BASE_URL + "data/international/publications.csv?v=" + import.meta.env.VITE_DATA_REVISION);
+  if (!response.ok) throw Error(`Cannot load international bibliography (${response.status}).`);
+  return Papa.parse<Record<string, string>>(await response.text(), { header: true, skipEmptyLines: true }).data.filter((publication) => publication.academicId === academicId);
 }

@@ -67,3 +67,18 @@ test("international metrics come only from matched researchers", opts, () => {
   const proxies = intl.filter((r) => r.unitType === "proxy");
   for (const p of proxies) assert.match(p.department, /substitute/i);
 });
+
+test("OpenAlex lookups and international bibliographies join to unique academic records", opts, () => {
+  const localIds = new Set(csvRead("public/data/academics.csv").map(r => r.id));
+  const lookup = csvRead("public/data/international/sri_lanka_openalex.csv");
+  assert.equal(new Set(lookup.map(r => r.id)).size, lookup.length);
+  for (const r of lookup) assert.ok(localIds.has(r.id), `orphan lookup ${r.id}`);
+  const intl = csvRead("public/data/international/academics.csv");
+  const intlIds = new Set(intl.map(r => r.id));
+  assert.equal(intlIds.size, intl.length);
+  for (const r of csvRead("public/data/international/publications.csv"))
+    assert.ok(intlIds.has(r.academicId), `orphan bibliography ${r.academicId}`);
+  for (const r of intl.filter(r => r.lookupStatus === "not_yet_verified"))
+    for (const metric of ["publications", "citations", "recentCitations", "hIndex"])
+      assert.equal(r[metric], "", `unverified ${metric} for ${r.id}`);
+});
