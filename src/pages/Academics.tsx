@@ -14,6 +14,7 @@ import { AcademicTable } from "../components/AcademicTable";
 import { Button } from "../components/ui/button";
 import { AcademicPortrait } from "../components/AcademicPortrait";
 import { ProfileStanding } from "../components/ProfileStanding";
+import { ResearchProfiles } from "../components/ResearchProfiles";
 import { exportCsv } from "../components/common";
 export function Academics() {
   const { academics } = useData();
@@ -161,6 +162,7 @@ export function Profile() {
         It does not represent appearance, age, or gender; gender is not recorded
         in this dataset.
       </p>
+      <ResearchProfiles academic={a} />
       <ProfileStanding academic={a} rows={d.academics} />
       <div className="profile-layout">
         <div>

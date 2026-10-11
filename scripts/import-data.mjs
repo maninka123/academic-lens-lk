@@ -89,6 +89,7 @@ const rows = sourceRows.map((r) => {
     recentQ1: n(r.q1_publications_2021_2025),
     sourceUrl: r.staff_profile_url,
     scholarUrl: r.google_scholar_url,
+    researchgateUrl: r.researchgate_url || r.research_gate_url || "",
     metricsUrl: r.metrics_source_url,
     metricsSource: r.research_metrics_source,
     collectionDate: r.collected_at,
