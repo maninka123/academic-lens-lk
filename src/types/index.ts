@@ -41,6 +41,7 @@ export type Academic = {
   recentQ1: number | null;
   sourceUrl: string;
   scholarUrl: string;
+  researchgateUrl?: string;
   metricsUrl: string;
   metricsSource: string;
   collectionDate: string;

@@ -1972,3 +1972,20 @@ footer {
     visibility: visible;
   }
 }
+.research-profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  font-size: 1rem;
+}
+.research-profile-links > div {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.research-profile-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 8px;
+}
