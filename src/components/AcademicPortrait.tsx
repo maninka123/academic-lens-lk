@@ -25,16 +25,18 @@ export function AcademicPortrait({ academic }: { academic: Academic }) {
         role="img"
         aria-label="Illustrated academic placeholder"
       >
+        <defs><clipPath id={`portrait-${academic.id}`}><circle cx="80" cy="80" r="76" /></clipPath></defs>
         <circle cx="80" cy="80" r="76" className="portrait-disc" />
+        <g clipPath={`url(#portrait-${academic.id})`}><g transform="translate(-16 -27) scale(1.2)">
         {longHair && (
           <path
             d="M43 70c0-31 15-44 37-44s37 13 37 44l7 51H36z"
             fill="#343235"
           />
         )}
-        <path d="M26 144c2-29 16-43 40-46h28c24 3 38 17 40 46" fill={coat} />
+        <path d="M20 166c2-45 22-65 46-68h28c24 3 44 23 46 68" fill={coat} />
         <path d="M67 97h26l-3 16H70z" fill="#e8b999" />
-        <path d="m66 106 14 10 14-10-4 38H70z" fill="#fcfcfd" />
+        <path d="m66 106 14 10 14-10-4 60H70z" fill="#fcfcfd" />
         <path
           d="m60 103 20 13-14 15-10-19zm40 0-20 13 14 15 10-19z"
           fill={coat}
@@ -71,6 +73,7 @@ export function AcademicPortrait({ academic }: { academic: Academic }) {
           strokeWidth="3"
           strokeLinecap="round"
         />
+        </g></g>
       </svg>
     </div>
   );

@@ -2,12 +2,12 @@
 
 The editable hierarchy is structurally validated for import review. This is an expanded, evidence-preserving **partial collection**, not a completed census of all 14 institutions.
 
-Starting population: 1,173 unique academic IDs across 12 populated institutions. Current population: **1,393 authoritative academic records**, with 233 newly added academics and 13 confirmed duplicate source identities preserved outside the authoritative leaves. All 1173 original IDs remain either authoritative or traceably retained as aliases. The 5,000-distinct-academic target has **not** been reached; rows/fields/publications/review candidates are never added to that academic count. Unresolved cross-institution or name aliases mean this is an operational distinct-record count, not proof of a complete person census.
+Starting population: 1,173 unique academic IDs across 12 populated institutions. Current population: **1,392 authoritative academic records**, with 232 newly added academics and 13 confirmed duplicate source identities preserved outside the authoritative leaves. All 1173 original IDs remain either authoritative or traceably retained as aliases. The 5,000-distinct-academic target has **not** been reached; rows/fields/publications/review candidates are never added to that academic count. Unresolved cross-institution or name aliases mean this is an operational distinct-record count, not proof of a complete person census.
 
 | Institution | Authoritative records |
 |---|---:|
 | CINEC Campus | 71 |
-| University of Colombo | 342 |
+| University of Colombo | 341 |
 | Horizon Campus | 46 |
 | ICBT Campus | 0 |
 | University of Jaffna | 133 |
@@ -21,11 +21,11 @@ Starting population: 1,173 unique academic IDs across 12 populated institutions.
 | University of Ruhuna | 59 |
 | Sri Lanka Institute of Information Technology | 48 |
 
-862 currently authoritative records have documented field corrections; 4969 field changes and 490 moves have traceable entries in change_log.csv. Stronger affiliation evidence was used for Moratuwa, Peradeniya Arts, Jaffna, Ruhuna and SLIIT. Four incomplete Horizon faculty strings were moved to the published English Language Teaching Unit under unassigned-faculty. Faculty/address punctuation, awarding-university prefixes and confirmed aliases were checked again. Existing uncertain employment records remain visible with status flags.
+872 currently authoritative records have documented field corrections; 5491 field changes and 490 moves have traceable entries in change_log.csv. Stronger affiliation evidence was used for Moratuwa, Peradeniya Arts, Jaffna, Ruhuna and SLIIT. Four incomplete Horizon faculty strings were moved to the published English Language Teaching Unit under unassigned-faculty. Faculty/address punctuation, awarding-university prefixes and confirmed aliases were checked again. Existing uncertain employment records remain visible with status flags.
 
-Employment: 263 authoritative records have explicit permanent-staff evidence; 1130 do not have a confirmed permanent appointment. 214 candidates remain in employment_review.csv. KIU and ICBT current faculty sources and available named academic/committee sources were checked; their authoritative academic leaves remain header-only because explicit appointment evidence was insufficient. Empty leaves do not mean no staff.
+Employment: 262 authoritative records have explicit permanent-staff evidence; 1130 do not have a confirmed permanent appointment. 214 candidates remain in employment_review.csv. KIU and ICBT current faculty sources and available named academic/committee sources were checked; their authoritative academic leaves remain header-only because explicit appointment evidence was insufficient. Empty leaves do not mean no staff.
 
-Research: 312 active records have a verified official researcher link, including 297 with Scholar links. 241 active records have live Scholar metrics with a displayed-name cross-check. Wrong official links are retained with conflict flags, not accepted as identities. Legacy indexed ResearchGate snapshots remain separate and may be stale. Mixed core provenance is explicitly labelled and field-level evidence is retained.
+Research: 429 active records have a verified official researcher link, including 414 with Scholar links. 241 active records have live Scholar metrics with a displayed-name cross-check. Wrong official links are retained with conflict flags, not accepted as identities. Legacy indexed ResearchGate snapshots remain separate and may be stale. Mixed core provenance is explicitly labelled and field-level evidence is retained.
 
 - total_publications: 90 populated authoritative values
 - total_citations: 294 populated authoritative values
@@ -36,7 +36,7 @@ Research: 312 active records have a verified official researcher link, including
 
 There are 919 publication-to-academic links, with 11 independently matched publication metadata records. These are partial profile lists; coauthor links remain valid and person-level DOI/title/year deduplication is applied. Historical journal quartiles have not been established, so complete Q1 totals and percentages remain unknown. q1_methodology.md declares the consistent future classification policy; q1_partial_counts.csv and publication_coverage.csv show incomplete coverage.
 
-Source discovery includes all 14 institutional homepages, previously unvisited inventory URLs, 84 Peradeniya central department links, SJP faculty and management departmental staff pages, Colombo Science's published permanent sections, Ruhuna Engineering current directories plus its 2025/2026 handbook, and SLIIT pagination/profile checks. There are 55 recorded unit/check checkpoints and 1318 source retrieval observations. A retrieved page is not equivalent to a completed unit review. KDU access denials, CINEC retrieval failures, DNS/server failures and platform/registry restrictions are retained in access_issues.csv. No CAPTCHA/authentication/rate-limit bypass was used.
+Source discovery includes all 14 institutional homepages, previously unvisited inventory URLs, 84 Peradeniya central department links, SJP faculty and management departmental staff pages, Colombo Science's published permanent sections, Ruhuna Engineering current directories plus its 2025/2026 handbook, and SLIIT pagination/profile checks. There are 57 recorded unit/check checkpoints and 1329 source retrieval observations. A retrieved page is not equivalent to a completed unit review. KDU access denials, CINEC retrieval failures, DNS/server failures and platform/registry restrictions are retained in access_issues.csv. No CAPTCHA/authentication/rate-limit bypass was used.
 
 Validation: exact 32-column leaves; unique nonempty IDs/names; institution/affiliation placement; original-ID preservation and correction logs; nonnegative numeric fields and plausible years; ongoing PhDs without completion years; metric provenance; publication deduplication; fresh independent CSV count; faculty/manifest/coverage reconciliation. A cross-person repeated-field audit corrected 19 Ruhuna Civil/Environmental profiles using their own educational sections; prior shared-panel values remain traceable in field_quality_review.csv and change_log.csv. Indexed official-page reads after direct access failures are separately documented in web_source_checks.csv. See validation_report.json. 0 warnings require review.
 

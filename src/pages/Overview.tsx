@@ -213,55 +213,18 @@ export function Overview() {
         </Card>
         <Card
           title="Academic positions"
-          subtitle="Senior to junior academic roles. Other roles and unrecorded positions follow."
+          subtitle="Senior to junior · collected profiles"
         >
-          <Chart
-            height={210}
-            label="Academic positions in the collected profiles"
-            option={{
-              tooltip: { renderMode: "richText" },
-              legend: { show: false },
-              series: [
-                {
-                  type: "pie",
-                  radius: ["53%", "83%"],
-                  center: ["50%", "50%"],
-                  label: { show: false },
-                  data: ranks.map((g) => ({
-                    name: g.label,
-                    value: g.rows.length,
-                    itemStyle: { color: rankColor(g.id) },
-                  })),
-                },
-              ],
-            }}
-            onClick={(p) => {
-              preset({ level: "rank", groups: [p.name] });
-            }}
-          />
-          <div className="position-legend-heading"><span>Position</span><span>Profiles · share</span></div>
-          <ul className="position-legend" aria-label="Academic position legend">
-            {ranks.map((g, i) => (
-              <li key={g.id}>
-                <button
-                  aria-label={`${g.label}: ${g.rows.length} profiles, ${rows.length ? ((100 * g.rows.length) / rows.length).toFixed(1) : "0.0"} percent. Compare this position`}
-                  onClick={() => preset({ level: "rank", groups: [g.id] })}
-                >
-                  <span
-                    className="legend-swatch"
-                    style={{ backgroundColor: rankColor(g.id) }}
-                  />
-                  <span>{g.label}</span>
-                  <strong>{g.rows.length.toLocaleString()}</strong>
-                  <span>
-                    {rows.length
-                      ? ((100 * g.rows.length) / rows.length).toFixed(1)
-                      : "0.0"}
-                    %
-                  </span>
-                </button>
-              </li>
-            ))}
+          <ul className="position-bars" aria-label="Academic positions, senior to junior">
+            {ranks.map((g) => {
+              const share = rows.length ? 100 * g.rows.length / rows.length : 0;
+              const largest = Math.max(1, ...ranks.map(r => r.rows.length));
+              return <li key={g.id}><button onClick={() => preset({ level: "rank", groups: [g.id] })}>
+                <span className="position-bar-label">{g.label}</span>
+                <strong>{g.rows.length.toLocaleString()}</strong><span className="position-share">{share.toFixed(1)}%</span>
+                <span className="position-track"><span style={{ width: `${100 * g.rows.length / largest}%`, background: rankColor(g.id) }} /></span>
+              </button></li>;
+            })}
           </ul>
         </Card>
       </div>

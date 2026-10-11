@@ -1,3 +1,5 @@
+> Update 12 October: five current academic listings are now included with permanent employment unverified. See [verification report](../docs/KIU_ICBT_VERIFICATION.md). The checkpoint below describes the earlier permanent-staff search.
+
 # KIU and ICBT collection checkpoint
 
 Checked 12 October 2026 (Australia/Sydney). Target: 5,000 accepted academic records across the existing 14 institutions.

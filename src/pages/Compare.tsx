@@ -1,3 +1,4 @@
+import { NumericValue } from "../components/common";
 import { Select } from "../components/ui/select";
 import { useState, useEffect } from "react";
 import {
@@ -858,12 +859,12 @@ export function Compare() {
                 {groups.map((g) => (
                   <tr key={g.id}>
                     <td>{g.label}</td>
-                    <td className="numeric">{fmt(g.value, 1)}</td>
+                    <td className="numeric"><NumericValue value={g.value} maximum={Math.max(0, ...groups.map(x => x.value ?? 0))} /></td>
                     <td>
                       {g.n} / {g.total}
                     </td>
                     <td>
-                      {g.total ? fmt((g.n / g.total) * 100, 1) + "%" : "—"}
+                      <NumericValue value={g.total ? g.n / g.total * 100 : null} maximum={100} suffix="%" />
                     </td>
                     {numeric && (
                       <td>
