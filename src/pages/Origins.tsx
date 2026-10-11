@@ -46,7 +46,7 @@ export function Origins() {
       { source: string; target: string; value: number }
     >(),
     nodes = new Set<string>();
-  for (const a of known) {
+  for (const a of rows) {
     const c = "Country: " + a.phdCountry,
       u = "Current: " + short(a.university),
       p = "PhD: " + (a.phdUniversity || "Institution unavailable");
@@ -79,11 +79,11 @@ export function Origins() {
         <Stat label="Known PhD countries" value={groups.length} />
         <Stat label="PhDs with recorded country" value={known.length} />
         <Stat
-          label="Domestic awarding institutions"
+          label="PhDs awarded in Sri Lanka"
           value={known.filter((a) => a.phdCountry === "Sri Lanka").length}
         />
         <Stat
-          label="Overseas awarding institutions"
+          label="PhDs awarded overseas"
           value={known.filter((a) => a.phdCountry !== "Sri Lanka").length}
         />
       </div>
@@ -236,7 +236,13 @@ export function Origins() {
       </div>
       <Card
         title="From doctorate to current institution"
-        subtitle="PhD country → awarding university → current Sri Lankan institution"
+        subtitle={
+          country
+            ? `${country} · ${mode === "full" ? "PhD country → awarding university → current institution" : "PhD country → current institution"}`
+            : mode === "full"
+              ? "PhD country → awarding university → current institution"
+              : "PhD country → current institution"
+        }
         action={
           <select
             aria-label="Sankey detail"
@@ -248,9 +254,10 @@ export function Origins() {
           </select>
         }
       >
-        {known.length ? (
+        {rows.length ? (
           <Chart
-            height={500}
+            height={Math.max(440, nodes.size * 20)}
+            minWidth={800}
             option={{
               tooltip: { renderMode: "richText" },
               series: [

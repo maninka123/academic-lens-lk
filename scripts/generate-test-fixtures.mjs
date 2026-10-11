@@ -77,13 +77,13 @@ const rows = universities.flatMap((u, i) =>
     };
   }),
 );
-hierarchy(rows, "public/data/demo", universities);
+hierarchy(rows, "tests/fixtures", universities);
 fs.writeFileSync(
-  "public/data/demo/metadata.json",
+  "tests/fixtures/metadata.json",
   JSON.stringify(
     {
       version: "demo-2026-10-11",
-      mode: "demo",
+      mode: "real",
       collectionDate: "2026-10-11",
       window: [2021, 2025],
       description:
@@ -97,4 +97,4 @@ fs.writeFileSync(
     2,
   ),
 );
-console.log("Generated 720 reproducible demo records.");
+console.log("Generated 720 reproducible test fixtures (excluded from the website).");

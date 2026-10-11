@@ -15,11 +15,14 @@ Explore Sri Lankan academic profiles, compare peer groups, and keep research dat
 - Search every person by name, open their full profile, and follow their university → faculty → department hierarchy. Profile charts compare the same position, qualification, both, or PhD holders at every level.
 - Explore a locally bundled world map and PhD Sankey. Illustrated profile placeholders reflect documented qualifications and positions; appearance styles are user selected, with no gender inference.
 - Save custom groups in your browser, share configurations by URL, and export charts as PNG or records as CSV.
-- Use light/dark appearance and responsive layouts with readable 16px body text.
+- Keep people without a documented department at faculty level, with no invented department groups.
+- Use light/dark appearance, keyboard-accessible fullscreen charts, and readable desktop, tablet and mobile layouts.
 
-![Comparison Studio with fictional demonstration data](docs/screenshots/comparison-studio.png)
+![Comparison Studio](docs/screenshots/comparison-studio.png)
 
-![Individual profile and peer comparisons (fictional demo)](docs/screenshots/person-profile.png)
+![Individual profile and peer comparisons](docs/screenshots/person-profile.png)
+
+[Interface audit and edge-case coverage](docs/AUDIT.md)
 
 ## Run locally
 
@@ -58,7 +61,7 @@ The importer discovers new academic CSVs recursively and regenerates `public/dat
 
 The initial real snapshot has **1,173 records from 12 institutions**, with **14 institutions in scope**. Saegis is excluded by the supplied collection notes; KIU and ICBT have no collected profiles yet. Coverage is partial, employment is not individually verified, and extracted facts require review. ResearchGate indexed snapshots are not Scholar totals. Missing h-index, five-year citation and Q1 values remain unavailable.
 
-Select **Demo Data** in the sidebar to explore 720 fictional profiles across all 15 institutions in the original brief. Regenerate them with `npm run data:demo`. Demo profiles and metrics are explicitly labelled and never merged with the real collection.
+The website always uses the collected dataset. Visitors cannot switch datasets, and shared links cannot change the data source. Synthetic records live only in `tests/fixtures/` for browser testing and are excluded from production.
 
 ## GitHub Pages
 
@@ -72,4 +75,4 @@ Missing values are excluded from metric denominators. Percentiles use midrank ti
 
 Combined career publication/citation totals are **not** a university's historical output and may repeat coauthored work. h-index values are never summed. Five-year citations refer to citations received in 2021–2025; five-year Q1 refers to qualifying papers published in that period. Citation position does not measure overall academic or teaching quality. Full definitions and completeness tables are on **Data & Methodology**.
 
-World boundaries: Natural Earth via [world-atlas](https://github.com/topojson/world-atlas), bundled locally. Screenshots show the application; the Comparison Studio screenshot uses fictional demo data.
+World boundaries: Natural Earth via [world-atlas](https://github.com/topojson/world-atlas), bundled locally. Screenshots show the real collected dataset.

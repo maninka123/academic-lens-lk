@@ -33,13 +33,11 @@ export const defaultConfig: Config = {
   sort: "name",
 };
 type State = {
-  mode: "real" | "demo";
   theme: "light" | "dark";
   filters: Filters;
   config: Config;
   pinned: string[];
   custom: CustomGroup[];
-  setMode: (m: "real" | "demo") => void;
   setTheme: () => void;
   setFilters: (f: Partial<Filters>) => void;
   clear: () => void;
@@ -53,20 +51,11 @@ type State = {
 export const useAtlas = create<State>()(
   persist(
     (set) => ({
-      mode: "real",
       theme: "light",
       filters: emptyFilters(),
       config: defaultConfig,
       pinned: [],
       custom: [],
-      setMode: (mode) =>
-        set({
-          mode,
-          filters: emptyFilters(),
-          pinned: [],
-          custom: [],
-          config: defaultConfig,
-        }),
       setTheme: () =>
         set((s) => ({ theme: s.theme === "light" ? "dark" : "light" })),
       setFilters: (f) =>
@@ -78,6 +67,36 @@ export const useAtlas = create<State>()(
       configure: (c) =>
         set((s) => {
           const config = { ...s.config, ...c };
+          if (!Object.hasOwn(metricLabels, config.metric))
+            config.metric = defaultConfig.metric;
+          if (!Object.hasOwn(levelLabels, config.level))
+            config.level = defaultConfig.level;
+          if (
+            ![
+              "bar",
+              "grouped",
+              "stacked",
+              "percentStacked",
+              "scatter",
+              "bubble",
+              "box",
+              "histogram",
+              "heatmap",
+              "treemap",
+            ].includes(config.chart)
+          )
+            config.chart = "bar";
+          if (
+            !Object.hasOwn(metricLabels, config.xMetric) ||
+            ["count", "phd", "overseas"].includes(config.xMetric)
+          )
+            config.xMetric = "publications";
+          if (!["pooled", "equal"].includes(config.weight))
+            config.weight = "pooled";
+          if (!["name", "value"].includes(config.sort)) config.sort = "name";
+          config.groups = Array.isArray(config.groups)
+            ? config.groups.filter((g) => typeof g === "string")
+            : [];
           if (!validModes(config.metric).includes(config.aggregation))
             config.aggregation = validModes(config.metric)[0];
           if (c.aggregation === "distribution") config.chart = "box";
@@ -88,6 +107,16 @@ export const useAtlas = create<State>()(
             ["scatter", "bubble", "box", "histogram"].includes(config.chart)
           )
             config.chart = "bar";
+          if (
+            !["bar", "scatter", "bubble"].includes(config.chart) ||
+            ["count", "phd", "overseas"].includes(config.metric)
+          )
+            config.log = false;
+          if (
+            config.aggregation === "distribution" &&
+            !["box", "histogram", "scatter", "bubble"].includes(config.chart)
+          )
+            config.aggregation = "median";
           return { config };
         }),
       pin: (id) =>
@@ -98,17 +127,73 @@ export const useAtlas = create<State>()(
       saveGroup: (g) =>
         set((s) => ({ custom: [...s.custom.filter((x) => x.id !== g.id), g] })),
       deleteGroup: (id) =>
-        set((s) => ({ custom: s.custom.filter((g) => g.id !== id) })),
+        set((s) => ({
+          custom: s.custom.filter((g) => g.id !== id),
+          config: {
+            ...s.config,
+            groups: s.config.groups.filter((g) => g !== id),
+          },
+        })),
       restore: (s) => set(s),
     }),
-    { name: "academic-atlas-v1" },
+    {
+      name: "academic-atlas-v1",
+      merge: (persisted, current) => {
+        const p = (
+          persisted && typeof persisted === "object" ? persisted : {}
+        ) as Partial<State>;
+        const f = emptyFilters();
+        for (const k of Object.keys(f) as (keyof Filters)[]) {
+          const v = p.filters?.[k];
+          if (["query", "interest"].includes(k)) {
+            if (typeof v === "string") (f as any)[k] = v;
+          } else if (
+            ["experience", "phdYear", "citations", "publications"].includes(k)
+          ) {
+            if (
+              Array.isArray(v) &&
+              v.length === 2 &&
+              v.every(
+                (n) =>
+                  n === null ||
+                  (typeof n === "number" && Number.isFinite(n) && n >= 0),
+              )
+            )
+              (f as any)[k] = v;
+          } else if (Array.isArray(v))
+            (f as any)[k] = v.filter((x) => typeof x === "string");
+        }
+        return {
+          ...current,
+          theme: p.theme === "dark" ? "dark" : "light",
+          filters: f,
+          config: {
+            ...defaultConfig,
+            ...(p.config && typeof p.config === "object" ? p.config : {}),
+          },
+          pinned: Array.isArray(p.pinned)
+            ? [...new Set(p.pinned.filter((x) => typeof x === "string"))]
+            : [],
+          custom: Array.isArray(p.custom)
+            ? p.custom.filter(
+                (g) =>
+                  g &&
+                  typeof g.id === "string" &&
+                  typeof g.name === "string" &&
+                  Array.isArray(g.ids) &&
+                  g.ids.every((id) => typeof id === "string"),
+              )
+            : [],
+        };
+      },
+    },
   ),
 );
 export function encodeState() {
   const s = useAtlas.getState();
   return JSON.stringify({
     v: 1,
-    mode: s.mode,
+    mode: "real",
     filters: s.filters,
     config: s.config,
     pinned: s.pinned,
@@ -124,7 +209,7 @@ export function restoreFromUrl() {
     const s = JSON.parse(raw);
     if (
       s.v !== 1 ||
-      !["real", "demo"].includes(s.mode) ||
+      s.mode !== "real" ||
       !Array.isArray(s.pinned) ||
       !Array.isArray(s.custom) ||
       !s.config ||
@@ -173,26 +258,45 @@ export function restoreFromUrl() {
         f[key].length !== 2 ||
         !f[key].every(
           (v: unknown) =>
-            v === null || (typeof v === "number" && Number.isFinite(v)),
+            v === null ||
+            (typeof v === "number" && Number.isFinite(v) && v >= 0),
         )
       )
         throw Error("Invalid range");
     const c = { ...defaultConfig, ...s.config };
     if (!validModes(c.metric).includes(c.aggregation))
       c.aggregation = validModes(c.metric)[0];
+    if (
+      !Object.hasOwn(metricLabels, c.xMetric) ||
+      ["count", "phd", "overseas"].includes(c.xMetric)
+    )
+      c.xMetric = defaultConfig.xMetric;
+    if (!["pooled", "equal"].includes(c.weight)) c.weight = "pooled";
+    if (!["name", "value"].includes(c.sort)) c.sort = "name";
+    c.groups = c.groups.filter((g: unknown) => typeof g === "string");
+    c.log = Boolean(c.log);
+    c.labels = Boolean(c.labels);
     useAtlas.getState().restore({
-      mode: s.mode,
       filters: f,
       config: c,
-      pinned: s.pinned.filter((x: unknown) => typeof x === "string"),
+      pinned: [
+        ...new Set(s.pinned.filter((x: unknown) => typeof x === "string")),
+      ] as string[],
       custom: s.custom.filter(
-        (g: CustomGroup) => typeof g.name === "string" && Array.isArray(g.ids),
+        (g: CustomGroup) =>
+          g &&
+          typeof g.id === "string" &&
+          typeof g.name === "string" &&
+          Array.isArray(g.ids) &&
+          g.ids.every((id) => typeof id === "string"),
       ),
     });
+    useAtlas.getState().configure({});
+    sessionStorage.removeItem("atlas-share-error");
   } catch {
     sessionStorage.setItem(
       "atlas-share-error",
-      "The shared configuration could not be loaded. Default controls are available.",
+      "The shared configuration could not be loaded. Your existing controls remain available.",
     );
   }
 }

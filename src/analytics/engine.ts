@@ -181,6 +181,11 @@ export function groupRows(
       rows: rows.filter((a) => g.ids.includes(a.id)),
     }));
   for (const a of rows) {
+    if (
+      (level === "department" && !a.departmentId) ||
+      (level === "faculty" && !a.facultyId)
+    )
+      continue;
     const key = groupKey(a, level);
     if (!map.has(key))
       map.set(key, { id: key, label: groupLabel(a, level), rows: [] });
@@ -249,8 +254,10 @@ export function peers(rows: Academic[], a: Academic, kind: string) {
         ? []
         : rows.filter((r) => r.field === a.field);
     case "country":
-      return a.phdCountry
-        ? rows.filter((r) => r.phdCountry === a.phdCountry)
+      return a.phdCountry && a.qualification === "PhD"
+        ? rows.filter(
+            (r) => r.qualification === "PhD" && r.phdCountry === a.phdCountry,
+          )
         : [];
     case "experience":
       return a.experience === null

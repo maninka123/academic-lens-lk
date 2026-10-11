@@ -35,11 +35,7 @@ export function Methodology() {
       />
       <Card title="Collection status" subtitle={d.metadata.version}>
         <div className="methodology-intro">
-          <strong>
-            {d.metadata.mode === "demo"
-              ? "Demo Data — fictional profiles"
-              : "Partial real collection — factual review required"}
-          </strong>
+          <strong>Partial real collection — factual review required</strong>
           <p>{d.metadata.description}</p>
           <p>{d.metadata.scopeNote}</p>
           <p>
@@ -255,9 +251,9 @@ export function Methodology() {
             "faculties.csv",
             "departments.csv",
             "metadata.json",
-            "field-mapping.json",
             ...(d.metadata.mode === "real"
               ? [
+                  "field-mapping.json",
                   "coverage.csv",
                   "faculty_department_inventory.csv",
                   "research_metrics_snapshots.csv",
@@ -269,12 +265,7 @@ export function Methodology() {
             <a
               className="text-link"
               key={f}
-              href={
-                import.meta.env.BASE_URL +
-                "data/" +
-                (d.metadata.mode === "demo" ? "demo/" : "") +
-                f
-              }
+              href={import.meta.env.BASE_URL + "data/" + f}
               download
             >
               {f}

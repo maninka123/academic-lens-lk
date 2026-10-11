@@ -105,22 +105,22 @@ export function Profile() {
         ) : (
           <span>Faculty unavailable</span>
         )}
-        <span>›</span>
-        {a.departmentId && a.facultyId ? (
-          <Link
-            to={
-              "/university/" +
-              a.universityId +
-              "/faculty/" +
-              a.facultyId +
-              "/department/" +
-              a.departmentId
-            }
-          >
-            {a.department}
-          </Link>
-        ) : (
-          <span>Department unavailable</span>
+        {a.departmentId && a.facultyId && (
+          <>
+            <span>›</span>
+            <Link
+              to={
+                "/university/" +
+                a.universityId +
+                "/faculty/" +
+                a.facultyId +
+                "/department/" +
+                a.departmentId
+              }
+            >
+              {a.department}
+            </Link>
+          </>
         )}
       </nav>
       <div className="person-hero">
@@ -134,7 +134,19 @@ export function Profile() {
               onClick={() => {
                 pin(a.id);
                 clear();
-                configure({ metric: "citations", peer: "department" });
+                configure({
+                  metric: "citations",
+                  aggregation: "median",
+                  chart: "bar",
+                  level: "university",
+                  groups: [],
+                  log: false,
+                  peer: a.departmentId
+                    ? "department"
+                    : a.facultyId
+                      ? "faculty"
+                      : "university",
+                });
                 nav("/compare");
               }}
             >
@@ -245,23 +257,35 @@ export function Profile() {
               Open this person's data in the Studio and select a peer
               definition.
             </p>
-            {["department", "faculty", "university", "rank", "field"].map(
-              (peer) => (
-                <Button
-                  className="peer-button"
-                  variant="outline"
-                  key={peer}
-                  onClick={() => {
-                    pin(a.id);
-                    clear();
-                    configure({ peer, groups: [] });
-                    nav("/compare");
-                  }}
-                >
-                  Same {peer}
-                </Button>
-              ),
-            )}
+            {[
+              ...(a.departmentId ? ["department"] : []),
+              ...(a.facultyId ? ["faculty"] : []),
+              "university",
+              "rank",
+              ...(a.field !== "Unmapped" ? ["field"] : []),
+            ].map((peer) => (
+              <Button
+                className="peer-button"
+                variant="outline"
+                key={peer}
+                onClick={() => {
+                  pin(a.id);
+                  clear();
+                  configure({
+                    peer,
+                    groups: [],
+                    level: "university",
+                    chart: "bar",
+                    aggregation: "median",
+                    metric: "citations",
+                    log: false,
+                  });
+                  nav("/compare");
+                }}
+              >
+                Same {peer}
+              </Button>
+            ))}
           </div>
         </div>
       </div>
@@ -283,20 +307,37 @@ export function Institution() {
   );
   const raw = d.academics.filter((a) => a.universityId === id);
   const units = groupRows(rows, faculty ? "department" : "faculty");
+  const directRows = rows.filter((a) =>
+    faculty ? !a.departmentId : !a.facultyId,
+  );
+  if (
+    (faculty && !raw.some((a) => a.facultyId === faculty)) ||
+    (department &&
+      !raw.some(
+        (a) => a.facultyId === faculty && a.departmentId === department,
+      ))
+  )
+    return (
+      <Empty title="Unit not found">
+        This unit is not recorded in the selected institution.
+      </Empty>
+    );
   const label = department
     ? raw.find((a) => a.departmentId === department)?.department
     : faculty
       ? raw.find((a) => a.facultyId === faculty)?.faculty
       : u.name;
   const openCompare = (equivalent = false) => {
-    const field = rows.find((a) => a.field !== "Unmapped")?.field;
+    const fields = [
+      ...new Set(rows.map((a) => a.field).filter((f) => f && f !== "Unmapped")),
+    ];
     setFilters(
       equivalent
         ? {
             universities: [],
             faculties: [],
             departments: [],
-            fields: field ? [field] : [],
+            fields,
           }
         : {
             universities: [u.id],
@@ -306,14 +347,17 @@ export function Institution() {
     );
     configure({
       level: equivalent
-        ? "field"
+        ? "university"
         : department
           ? "department"
-          : faculty
+          : faculty && units.length
             ? "department"
             : "faculty",
       groups: [],
       metric: "citations",
+      aggregation: "median",
+      chart: "bar",
+      log: false,
     });
     nav("/compare");
   };
@@ -366,7 +410,11 @@ export function Institution() {
         />
         <Stat
           label="Citation completeness"
-          value={fmt(completeness(rows, "citations"), 1) + "%"}
+          value={
+            rows.length
+              ? fmt(completeness(rows, "citations"), 1) + "%"
+              : "Not available"
+          }
           detail={`${rows.filter((a) => a.citations !== null).length} valid records`}
         />
       </div>
@@ -382,7 +430,7 @@ export function Institution() {
           ),
         )}
       </div>
-      {faculty && (
+      {faculty && rows.some((a) => a.field && a.field !== "Unmapped") && (
         <Button variant="outline" onClick={() => openCompare(true)}>
           Compare equivalent fields across institutions
         </Button>
@@ -393,10 +441,10 @@ export function Institution() {
           This does not imply it has no academic staff.
         </Empty>
       )}
-      {!department && (
+      {!department && units.length > 0 && (
         <Card
           title={faculty ? "Departments" : "Faculties / schools"}
-          subtitle="Unavailable organisational units are shown without assuming membership."
+          subtitle="Only recorded organisational units are shown. Profiles without a named department stay at faculty level."
         >
           <div className="institution-grid">
             {units.map((g) => (
@@ -427,7 +475,29 @@ export function Institution() {
           </div>
         </Card>
       )}
-      <Card title="Academic profiles">
+      {!department && directRows.length > 0 && (
+        <Card
+          title={
+            faculty ? "Faculty-level academics" : "Institution-level academics"
+          }
+          subtitle={
+            faculty
+              ? "No department is recorded for these people. They belong to this faculty only."
+              : "No faculty is recorded for these people."
+          }
+        >
+          <AcademicTable rows={directRows} />
+        </Card>
+      )}
+      <Card
+        title={
+          department
+            ? "Department academics"
+            : faculty
+              ? "All academics in this faculty"
+              : "All academics in this institution"
+        }
+      >
         <AcademicTable rows={rows} />
       </Card>
     </>

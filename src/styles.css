@@ -1866,3 +1866,101 @@ footer {
   width: 100%;
   font-size: 0.875rem;
 }
+
+/* Consistent chart tools, safe wrapping, and tablet comparison panels. */
+.chart-actions {
+  position: static;
+  justify-content: flex-end;
+  margin: 0 0 0.5rem;
+  background: transparent;
+}
+.chart-actions .button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.chart-body {
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+.chart-dialog {
+  width: min(1500px, calc(100vw - 2rem));
+  max-width: calc(100vw - 2rem);
+}
+.person-value.unavailable strong {
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+.pinned-card .section-heading {
+  align-items: flex-start;
+}
+.pinned-card .section-heading a {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.info-list dd,
+.institution-card strong,
+.person-hero h1,
+.source-links a,
+.notice {
+  overflow-wrap: anywhere;
+}
+.section-heading > div {
+  min-width: 0;
+}
+.section-heading > .button,
+.section-heading > select {
+  flex-shrink: 0;
+}
+.source-links {
+  flex-wrap: wrap;
+}
+.profile-hierarchy a {
+  color: var(--blue);
+}
+.profile-layout .card > h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+[data-theme="dark"] {
+  --blue: #75b6ee;
+  --teal: #60cabb;
+}
+@media (max-width: 1100px) {
+  .studio,
+  .studio.no-left,
+  .studio.no-right,
+  .studio.no-left.no-right {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .section-heading {
+    flex-wrap: wrap;
+  }
+  .section-heading > select {
+    flex-shrink: 1;
+    width: 100%;
+  }
+  .topbar {
+    height: auto;
+    min-height: 64px;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .topbar .inline {
+    min-width: 0;
+  }
+  .breadcrumb {
+    overflow-wrap: anywhere;
+  }
+  .stat strong {
+    overflow-wrap: anywhere;
+  }
+  .studio-toolbar > .inline {
+    flex-wrap: wrap;
+  }
+}

@@ -74,7 +74,15 @@ export function Filters({ compact = false }: { compact?: boolean }) {
           .filter((a) => a[k])
           .map((a) => [
             String(a[k]),
-            { value: String(a[k]), label: String(a[labelKey || k]) },
+            {
+              value: String(a[k]),
+              label:
+                labelKey === "faculty"
+                  ? `${a.faculty} · ${a.university}`
+                  : labelKey === "department"
+                    ? `${a.department} · ${a.faculty || "Faculty unrecorded"} · ${a.university}`
+                    : String(a[labelKey || k]),
+            },
           ]),
       ).values(),
     ].sort((a, b) => a.label.localeCompare(b.label));
@@ -90,7 +98,11 @@ export function Filters({ compact = false }: { compact?: boolean }) {
   return (
     <div className={"filters " + (compact ? "compact" : "")}>
       <div className="filter-heading">
-        <Button variant="ghost" onClick={() => setOpen(!open)}>
+        <Button
+          variant="ghost"
+          aria-expanded={open || compact}
+          onClick={() => setOpen(!open)}
+        >
           <Filter size={18} />
           Global filters{" "}
           <span className="pill">
@@ -219,6 +231,13 @@ export function Filters({ compact = false }: { compact?: boolean }) {
                     }
                   />
                 </div>
+                {f[k][0] !== null &&
+                  f[k][1] !== null &&
+                  f[k][0]! > f[k][1]! && (
+                    <span role="alert" className="range-error">
+                      Minimum exceeds maximum. No records can match this range.
+                    </span>
+                  )}
               </label>
             ))}
           </details>

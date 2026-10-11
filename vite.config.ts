@@ -4,6 +4,17 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "/academic-lens-lk/",
   plugins: [react(), tailwindcss()],
+  server: {
+    watch: {
+      ignored: [
+        "**/Data files/**",
+        "**/docs/**",
+        "**/output/**",
+        "**/test-results/**",
+        "**/tests/**",
+      ],
+    },
+  },
   test: {
     include: ["src/**/*.test.{ts,tsx}"],
     environment: "jsdom",

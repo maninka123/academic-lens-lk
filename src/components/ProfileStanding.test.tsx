@@ -1,5 +1,11 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { render, screen, fireEvent, within, cleanup } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  within,
+  cleanup,
+} from "@testing-library/react";
 import type { Academic } from "../types";
 import { ProfileStanding } from "./ProfileStanding";
 vi.mock("./Chart", () => ({
@@ -65,15 +71,17 @@ describe("individual hierarchical standing", () => {
         rows={rows}
       />,
     );
-    expect(cells().slice(0, 4)).toEqual([
-      "0",
-      "0",
-      "Not available",
-      "Not available",
-    ]);
-    expect(cells().at(-1)).toBe("Not available");
     expect(
-      screen.getByText(/This person's citations is unrecorded/),
-    ).toBeVisible();
+      screen.queryByRole("row", { name: /^Department / }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("option", { name: /^Department$/ }),
+    ).not.toBeInTheDocument();
+    expect(
+      within(screen.getByRole("row", { name: /^Faculty/ }))
+        .getAllByRole("cell")
+        .at(-1)?.textContent,
+    ).toBe("Not available");
+    expect(screen.getByText(/No citations value is recorded/)).toBeVisible();
   });
 });
