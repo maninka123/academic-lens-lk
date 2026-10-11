@@ -69,23 +69,12 @@ export function Methodology() {
         title="Data & Methodology"
         description="How the collection was built, how statistics are calculated, and where evidence is missing."
       />
-      <Card
-        title="Collection status"
-        subtitle={`Dataset version ${d.metadata.version} · collected ${d.metadata.collectionDate}`}
-      >
-        <div className="methodology-intro">
-          <strong>
-            Partial collection of published profiles — not a census of
-            academic staff
-          </strong>
-          <p>{d.metadata.description}</p>
-          <p>{d.metadata.scopeNote}</p>
-          <p>
-            Active filtered records: {fmt(rows.length)}. All counts on this
-            site are calculated from the loaded records; the README and the
-            validation report are regenerated from the same snapshot at import.
-          </p>
-        </div>
+      <Card title="Collection status" subtitle="Partial collection of public profiles—not a staff census.">
+        <dl className="collection-facts">
+          <div><dt>Profiles in view</dt><dd>{fmt(rows.length)}</dd></div>
+          <div><dt>Institutions covered</dt><dd>{d.universities.filter((u) => d.academics.some((a) => a.universityId === u.id)).length} / {d.universities.length}</dd></div>
+          <div><dt>Collected</dt><dd>{d.metadata.collectionDate}</dd></div>
+        </dl>
       </Card>
       <Card
         title="Three kinds of completeness"
@@ -193,169 +182,62 @@ export function Methodology() {
         />
       </Card>
       <Card title="Research methodology">
-        <div className="method-sections">
-          <Section title="Institutional selection">
-            <p>
-              Fourteen Sri Lankan universities and campuses were selected for
-              the collection (Saegis Campus excluded). Public and non-state
-              institutions are labelled separately. International benchmark
-              universities were selected from the QS World University Rankings
-              2027 (see Global Benchmarks).
-            </p>
-          </Section>
-          <Section title="Staff inclusion and exclusion">
-            <p>
-              Included: people listed as academic staff in official
-              university directories or profiles. A listing is not proof of
-              current permanent employment; employment is marked verified only
-              when an official source states a permanent or emeritus
-              appointment. Confirmed duplicate identities are merged through
-              documented aliases; existing academic IDs never change.
-            </p>
-          </Section>
-          <Section title="Data collection process">
-            <p>
-              Official directories and individual profile pages were read and
-              recorded with source URLs and dates. Published names, titles and
-              qualifications are kept as source text. Units that could not be
-              reached are recorded privately; an empty unit does not mean it has
-              no staff.
-            </p>
-          </Section>
-          <Section title="Researcher identity matching">
-            <p>
-              A research profile counts as a verified identity only when it is
-              linked from an official university page. Other recorded links are
-              shown as unverified; rejected matches are never used. For
-              OpenAlex, researchers are matched by name within their
-              institution; ambiguous or merged profiles are left blank, and an
-              attempted lookup is never counted as a match.
-            </p>
-          </Section>
-          <Section title="Academic qualification verification">
-            <p>
-              A completed doctorate is counted only with explicit evidence: a
-              documented completion status or qualification text naming the
-              doctorate. Titles such as Dr or Professor, a recorded doctoral
-              institution, or ambiguous text are not treated as completion.
-              Contradictory records (for example, completion recorded while the
-              text describes an ongoing PhD) are flagged for review and not
-              counted. Display names show Dr* only with documented evidence and
-              otherwise use the source's own honorific, never an inferred one.
-            </p>
-          </Section>
-          <Section title="Bibliometric sources">
-            <p>
-              Sri Lankan metrics come mainly from Google Scholar (citations,
-              h-index) and ResearchGate snapshots (publications, some
-              citations); international benchmarks use OpenAlex. Providers
-              report different counts and are never combined in a primary
-              comparison: statistics use one provider at a time, and
-              mixed-provider views are labelled exploratory. Each value keeps
-              its provider and retrieval date.
-            </p>
-          </Section>
-          <Section title="International sampling">
-            <p>
-              Two universities per QS tier (elite, middle, lower) in seven
-              countries, with Computer Science and Physics rosters sampled
-              systematically (up to 25 per department). Samples are not
-              national censuses. Proxy units that stand in for a missing
-              discipline are flagged and excluded by default.
-            </p>
-          </Section>
-          <Section title="Data completeness and bias">
-            <p>
-              Coverage varies strongly between institutions and fields. Research
-              metrics are more often available for staff with public research
-              profiles, so metric summaries may over-represent research-active
-              academics. Comparisons show eligible records, valid values and
-              completeness beside each result; coverage below {WEAK_COVERAGE}%
-              is flagged as weak.
-            </p>
-          </Section>
-          <Section title="Statistical methods">
-            <dl className="info-list">
-              <div>
-                <dt>Valid sample size</dt>
-                <dd>
-                  Only finite, available numeric values contribute. Missing is
-                  null, never zero; an explicit zero is included. Groups with
-                  fewer than {minN} valid values are flagged and never ranked.
-                </dd>
-              </div>
-              <div>
-                <dt>Mean, median and quartiles</dt>
-                <dd>
-                  Mean is sum ÷ valid count. Quantiles use linear interpolation
-                  at position (n − 1) × p. Box whiskers show observed minimum and
-                  maximum.
-                </dd>
-              </div>
-              <div>
-                <dt>Logarithmic scales</dt>
-                <dd>
-                  Zero values cannot be drawn on a log axis; they are left out of
-                  the chart (never shifted to 1), counted beside the chart, and
-                  kept in all statistics.
-                </dd>
-              </div>
-              <div>
-                <dt>Percentiles</dt>
-                <dd>
-                  100 × (values below + half of tied values) ÷ valid peers;
-                  suppressed below 5 valid peers.
-                </dd>
-              </div>
-              <div>
-                <dt>PhD percentages</dt>
-                <dd>
-                  Documented completed doctorates ÷ records with documented
-                  qualifications; overseas share uses documented doctorates
-                  with a known awarding country.
-                </dd>
-              </div>
-              <div>
-                <dt>Equal university weight</dt>
-                <dd>
-                  The mean of available university statistics; universities
-                  without valid data are excluded and counted.
-                </dd>
-              </div>
-              <div>
-                <dt>No composite scores</dt>
-                <dd>
-                  No overall academic performance score is calculated.
-                  h-index values are never summed.
-                </dd>
-              </div>
-            </dl>
-          </Section>
-          <Section title="Limitations">
-            <ul className="limitations">
-              {d.metadata.limitations.map((l) => (
-                <li key={l}>{l}</li>
-              ))}
-              <li>
-                Research fields have different citation patterns; citation
-                counts are not an assessment of academic or teaching quality.
-              </li>
-              <li>Q1 policy: {d.metadata.q1Methodology.split("\n")[0]}</li>
+        <div className="method-sections concise-methods">
+          <Section title="Scope & collection">
+            <ul>
+              <li>14 Sri Lankan institutions in scope; public and non-state shown separately.</li>
+              <li>Official staff directories and profiles, with source links and dates. Coverage is partial.</li>
+              <li>Published names and qualifications are retained; confirmed duplicates use stable ID aliases.</li>
             </ul>
           </Section>
-          <Section title="Updates, corrections and removal requests">
-            <p>
-              Records are corrected when better official evidence is found;
-              every correction keeps its previous value and source privately.
-              Academics may ask for a factual correction or for their profile to
-              be removed from the published site.
-              {d.metadata.correctionContact
-                ? ` Contact: ${d.metadata.correctionContact}.`
-                : " Contact the project maintainer through the project repository."}{" "}
-              See <code>docs/DATA_POLICY.md</code> for attribution, reuse
-              conditions and the correction process.
-            </p>
+          <Section title="Verification">
+            <ul>
+              <li>Research identity: linked from an official university page. Ambiguous OpenAlex matches stay blank.</li>
+              <li>Employment: an official source must state a permanent or emeritus appointment.</li>
+              <li>Completed PhDs need explicit evidence. Titles alone do not count; conflicting records need review.</li>
+            </ul>
           </Section>
+          <Section title="Sources & benchmarks">
+            <ul>
+              <li>Google Scholar, ResearchGate and OpenAlex. Primary comparisons use one provider at a time.</li>
+              <li>International sample: seven countries, three QS 2027 tiers, Computer Science and Physics; up to 25 people per department.</li>
+              <li>Substitute disciplines are flagged and excluded by default.</li>
+            </ul>
+          </Section>
+          <Section title="Read results with care">
+            <ul>
+              <li>Missing values are not zero. Coverage below {WEAK_COVERAGE}% is flagged.</li>
+              <li>Public research profiles may over-represent research-active staff.</li>
+              <li>Citations do not measure overall academic or teaching quality. No composite score is calculated.</li>
+            </ul>
+          </Section>
+        </div>
+        <section className="statistical-methods" aria-labelledby="statistical-methods-title">
+          <h3 id="statistical-methods-title">Statistical methods</h3>
+          <div className="table-scroll">
+            <table className="methods-table">
+              <thead><tr><th scope="col">Method</th><th scope="col">Calculation / rule</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Valid sample</th><td>Available finite values, including recorded zeros. Fewer than {minN}: flagged, never ranked.</td></tr>
+                <tr><th scope="row">Mean & quartiles</th><td>Mean = sum ÷ valid count. Quantiles interpolate at (n − 1) × p; whiskers show min–max.</td></tr>
+                <tr><th scope="row">Log scale</th><td>Zeros are omitted and counted beside the plot; statistics still include them.</td></tr>
+                <tr><th scope="row">Percentiles</th><td>100 × (values below + ½ ties) ÷ valid peers. Hidden below five peers.</td></tr>
+                <tr><th scope="row">PhD share</th><td>Completed doctorates ÷ documented qualifications. Overseas share uses doctorates with a known country.</td></tr>
+                <tr><th scope="row">University weighting</th><td>Equal weight = mean of available university statistics; missing universities are excluded and counted.</td></tr>
+                <tr><th scope="row">h-index</th><td>Never summed across academics.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <details className="method-details">
+          <summary>Collection limitations & Q1 policy</summary>
+          <ul>{d.metadata.limitations.map((l) => <li key={l}>{l}</li>)}</ul>
+          <p>Awarding country identifies the institution, not necessarily where the person studied.</p>
+          <p className="method-policy">{d.metadata.q1Methodology.replace(/^#+\s*/gm, "")}</p>
+        </details>
+        <div className="method-corrections">
+          <strong>Corrections or removal</strong>
+          <p>Contact {d.metadata.correctionContact || "the project maintainer through the repository"}. Changes retain their source and history privately. <a href="https://github.com/maninka123/academic-lens-lk/blob/main/docs/DATA_POLICY.md" target="_blank" rel="noreferrer">Data policy</a></p>
         </div>
       </Card>
       <Card title="Published files">

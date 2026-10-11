@@ -18,18 +18,18 @@ import type { Config } from "../types";
 import { GlobalTeaser } from "./Global";
 
 export function Overview() {
-  const { academics, universities, metadata, summary } = useData();
+  const { academics, universities, summary } = useData();
   const { filters, configure, setFilters } = useAtlas();
   const nav = useNavigate(),
     rows = filterAcademics(academics, filters);
-  const filtered = rows.length !== academics.length;
   const groups = universities.map((u) => ({
     ...u,
     rows: rows.filter((a) => a.universityId === u.id),
   }));
-  const ranks = groupRows(rows, "rank").sort(
-    (a, b) => b.rows.length - a.rows.length,
-  );
+  const positionOrder = ["Senior Professor", "Professor", "Associate Professor", "Assistant Professor", "Senior Lecturer", "Lecturer", "Assistant Lecturer", "Instructor", "Librarian", "Other", "Unknown"];
+  const positionIndex = (rank: string) => { const index = positionOrder.indexOf(rank); return index < 0 ? positionOrder.length - 2 : index; };
+  const ranks = groupRows(rows, "rank").sort((a, b) => positionIndex(a.id) - positionIndex(b.id));
+  const rankColor = (rank: string) => rank === "Unknown" ? "#9aa8b5" : rank === "Other" ? "#768591" : colors[positionIndex(rank) % colors.length];
   const cov = coverageOf(rows);
   const pct = (n: number) =>
     rows.length ? fmt((100 * n) / rows.length, 1) + "%" : "—";
@@ -83,8 +83,8 @@ export function Overview() {
   const questions = [
     {
       icon: GraduationCap,
-      q: "How do academic qualifications differ between institutions?",
-      sub: "Share of documented doctorates among records with documented qualifications.",
+      q: "Qualifications",
+      sub: "Compare documented PhD shares.",
       go: () =>
         preset({
           level: "university",
@@ -96,14 +96,14 @@ export function Overview() {
     },
     {
       icon: Globe2,
-      q: "Where did Sri Lankan academics obtain their PhDs?",
-      sub: "Awarding countries and institutions, by institution, position and discipline.",
+      q: "PhD origins",
+      sub: "Explore countries and universities.",
       go: () => nav("/origins"),
     },
     {
       icon: Layers,
-      q: "How do fields and academic ranks differ?",
-      sub: "Position and qualification composition of each institution.",
+      q: "Academic positions",
+      sub: "Compare roles across institutions.",
       go: () =>
         preset({
           level: "university",
@@ -114,8 +114,8 @@ export function Overview() {
     },
     {
       icon: Scale,
-      q: "How does Sri Lanka compare internationally using equivalent metrics?",
-      sub: "QS 2027 tier samples, OpenAlex on both sides, equivalent disciplines.",
+      q: "Global benchmarks",
+      sub: "Compare equivalent fields worldwide.",
       go: () => nav("/global"),
     },
   ];
@@ -133,12 +133,6 @@ export function Overview() {
         }
       />
       <div className="overview-band">
-        <div>
-          <span className="status-dot" /> Snapshot{" "}
-          {summary?.version || metadata.version} · collected{" "}
-          {metadata.collectionDate}
-          {filtered && " · global filters applied"}
-        </div>
         <Link to="/methodology">
           How the data were collected <ArrowRight size={16} />
         </Link>
@@ -180,12 +174,12 @@ export function Overview() {
         />
       </div>
       <section aria-label="Research questions" className="research-questions">
-        <h2>Start with a research question</h2>
+        <h2>Explore the atlas</h2>
         <div className="question-grid">
           {questions.map(({ icon: Icon, q, sub, go }) => (
             <button key={q} className="question-card" onClick={go}>
               <span className="preset-icon">
-                <Icon size={22} />
+                <Icon size={28} strokeWidth={1.8} />
               </span>
               <span>
                 <strong>{q}</strong>
@@ -196,12 +190,12 @@ export function Overview() {
           ))}
         </div>
       </section>
-      <div className="two-columns align-start">
+      <div className="two-columns overview-distributions">
         <Card
           title="Collected profiles by institution"
-          subtitle="Number of collected records — directory coverage differs between institutions, so these are not staff totals. Click an institution to explore."
+          subtitle="Collected records, not total staff. Select an institution to explore."
           action={
-            <span className="legend-inline">
+            <span className="legend-inline institution-key">
               <i className="blue" />
               Public <i className="teal" />
               Non-state
@@ -210,7 +204,7 @@ export function Overview() {
         >
           <Chart
             option={barOption}
-            height={480}
+            height={520}
             label="Collected academic profiles by institution"
             onClick={(p) =>
               p.data?.universityId && nav("/university/" + p.data.universityId)
@@ -219,10 +213,10 @@ export function Overview() {
         </Card>
         <Card
           title="Academic positions"
-          subtitle="Normalised positions; original titles are retained in each profile."
+          subtitle="Senior to junior academic roles. Other roles and unrecorded positions follow."
         >
           <Chart
-            height={260}
+            height={210}
             label="Academic positions in the collected profiles"
             option={{
               tooltip: { renderMode: "richText" },
@@ -230,13 +224,13 @@ export function Overview() {
               series: [
                 {
                   type: "pie",
-                  radius: ["45%", "72%"],
+                  radius: ["53%", "83%"],
                   center: ["50%", "50%"],
                   label: { show: false },
-                  data: ranks.map((g, i) => ({
+                  data: ranks.map((g) => ({
                     name: g.label,
                     value: g.rows.length,
-                    itemStyle: { color: colors[i % colors.length] },
+                    itemStyle: { color: rankColor(g.id) },
                   })),
                 },
               ],
@@ -245,15 +239,17 @@ export function Overview() {
               preset({ level: "rank", groups: [p.name] });
             }}
           />
+          <div className="position-legend-heading"><span>Position</span><span>Profiles · share</span></div>
           <ul className="position-legend" aria-label="Academic position legend">
             {ranks.map((g, i) => (
               <li key={g.id}>
                 <button
+                  aria-label={`${g.label}: ${g.rows.length} profiles, ${rows.length ? ((100 * g.rows.length) / rows.length).toFixed(1) : "0.0"} percent. Compare this position`}
                   onClick={() => preset({ level: "rank", groups: [g.id] })}
                 >
                   <span
                     className="legend-swatch"
-                    style={{ backgroundColor: colors[i % colors.length] }}
+                    style={{ backgroundColor: rankColor(g.id) }}
                   />
                   <span>{g.label}</span>
                   <strong>{g.rows.length.toLocaleString()}</strong>

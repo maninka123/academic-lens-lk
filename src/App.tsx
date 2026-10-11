@@ -177,13 +177,9 @@ function Shell() {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="dataset-card">
+          <div className="dataset-status">
             <span className="status-dot" />
             <strong>Collected dataset</strong>
-            <p>{data?.metadata.collectionDate || "Loading collection…"}</p>
-            <small>
-              Collected academic profiles · updated from project data files
-            </small>
           </div>
           <Button variant="ghost" onClick={setTheme}>
             {theme === "light" ? <Moon size={19} /> : <Sun size={19} />}{" "}

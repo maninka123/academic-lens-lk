@@ -189,7 +189,7 @@ export function Origins() {
       barMaxWidth: 18,
       itemStyle: {
         color,
-        borderColor: theme === "dark" ? "#14283a" : "#fff",
+        borderColor: theme === "dark" ? "#161616" : "#fff",
         borderWidth: 1,
       },
       data: splits.map((s) => (s.total ? (100 * s[k]) / s.total : null)),
@@ -377,7 +377,7 @@ export function Origins() {
                   { min: 21, max: 50, color: "#237e96" },
                   { min: 51, color: "#13516f" },
                 ],
-                outOfRange: { color: theme === "dark" ? "#304657" : "#e3e9ee" },
+                outOfRange: { color: theme === "dark" ? "#363636" : "#e3e9ee" },
               },
               series: [
                 {
@@ -394,8 +394,8 @@ export function Origins() {
                   ],
                   selectedMode: false,
                   itemStyle: {
-                    areaColor: theme === "dark" ? "#304657" : "#e3e9ee",
-                    borderColor: theme === "dark" ? "#172c3c" : "#fff",
+                    areaColor: theme === "dark" ? "#363636" : "#e3e9ee",
+                    borderColor: theme === "dark" ? "#1b1b1b" : "#fff",
                     borderWidth: 0.5,
                   },
                   label: { show: false },
@@ -417,7 +417,7 @@ export function Origins() {
         )}
         <div className="origins-map-key" aria-label="Map colour key: recorded doctorates">
           <span>Recorded doctorates</span>
-          {[["#a9d5dc", "1–5"], ["#55a8b8", "6–20"], ["#237e96", "21–50"], ["#13516f", "51+"], [theme === "dark" ? "#304657" : "#e3e9ee", "No records"]].map(([color, label]) => <span key={label}><i style={{ background: color }} />{label}</span>)}
+          {[["#a9d5dc", "1–5"], ["#55a8b8", "6–20"], ["#237e96", "21–50"], ["#13516f", "51+"], [theme === "dark" ? "#363636" : "#e3e9ee", "No records"]].map(([color, label]) => <span key={label}><i style={{ background: color }} />{label}</span>)}
           {country && <span><i style={{ background: "#d68129" }} />Selected</span>}
         </div>
         </div>

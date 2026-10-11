@@ -113,7 +113,7 @@ function ChartCanvas({
     const url = instance.current?.getDataURL({
       type: "png",
       pixelRatio: 2,
-      backgroundColor: theme === "dark" ? "#14283a" : "#fff",
+      backgroundColor: theme === "dark" ? "#161616" : "#fff",
     });
     if (url) {
       const a = document.createElement("a");
