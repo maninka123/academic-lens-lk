@@ -2150,24 +2150,68 @@ select[multiple] {
     padding-top: 8px;
   }
 }
-.section-heading > div { flex: 1; min-width: 0; }
-.section-heading > select { width: auto; flex: 0 1 340px; min-width: 0; max-width: 100%; }
-.origin-details .detail-line { padding: 7px 0; margin: 0; }
-.page-heading { margin-top: 24px; margin-bottom: 22px; }
-@media (max-width: 760px) {
-  .section-heading > select { width: 100%; flex-basis: auto; }
+.section-heading > div {
+  flex: 1;
+  min-width: 0;
 }
-.page-heading { margin: 0; padding: 22px 0 20px; }
-.page-heading p { margin-top: 10px; }
-.page-heading > .button { margin-top: 24px; }
-.comparison-refinements { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 10px; }
-.comparison-refinements > summary { min-height: 44px; cursor: pointer; font-weight: 600; }
+.section-heading > select {
+  width: auto;
+  flex: 0 1 340px;
+  min-width: 0;
+  max-width: 100%;
+}
+.origin-details .detail-line {
+  padding: 7px 0;
+  margin: 0;
+}
+.page-heading {
+  margin-top: 24px;
+  margin-bottom: 22px;
+}
+@media (max-width: 760px) {
+  .section-heading > select {
+    width: 100%;
+    flex-basis: auto;
+  }
+}
+.page-heading {
+  margin: 0;
+  padding: 22px 0 20px;
+}
+.page-heading p {
+  margin-top: 10px;
+}
+.page-heading > .button {
+  margin-top: 24px;
+}
+.comparison-refinements {
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+.comparison-refinements > summary {
+  min-height: 44px;
+  cursor: pointer;
+  font-weight: 600;
+}
 @media (min-width: 1101px) and (max-width: 1600px) {
-  .studio { grid-template-columns: 240px minmax(0, 1fr); }
-  .studio.no-left { grid-template-columns: minmax(0, 1fr); }
-  .studio.no-right { grid-template-columns: 240px minmax(0, 1fr); }
-  .studio.no-left.no-right { grid-template-columns: minmax(0, 1fr); }
-  .pinned-panel { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--border); }
+  .studio {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+  .studio.no-left {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .studio.no-right {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+  .studio.no-left.no-right {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pinned-panel {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
 }
 
 .global-controls {
@@ -2188,4 +2232,20 @@ select[multiple] {
 }
 .method-list li {
   margin-bottom: 8px;
+}
+
+/* Column filters sit below their heading instead of beside it. */
+th {
+  vertical-align: top;
+}
+th > button {
+  display: block;
+}
+th > .column-filter {
+  display: block;
+  width: 100%;
+}
+
+.two-columns.align-start {
+  align-items: start;
 }

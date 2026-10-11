@@ -545,13 +545,18 @@ export function Compare() {
               weighting applies to aggregate statistics in the table.
             </div>
           )}
+          {has && c.chart === "bar" && groups.length > 8 && (
+            <p className="muted">Eight groups per view · drag the scrollbar to see all {groups.length} groups. Hover or tap a bar for its full name.</p>
+          )}
           {has ? (
             <Chart
               option={chartOption}
               height={
                 c.chart === "heatmap"
                   ? Math.max(480, Math.min(900, groups.length * 48 + 150))
-                  : 500
+                  : c.chart === "bar"
+                    ? Math.max(320, Math.min(8, groups.length) * 64 + 100)
+                    : 500
               }
               minWidth={
                 c.chart === "heatmap" ? 950 : c.chart === "bar" ? 520 : 680
