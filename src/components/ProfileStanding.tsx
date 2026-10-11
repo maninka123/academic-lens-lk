@@ -148,6 +148,10 @@ export function ProfileStanding({
             label={`${a.name}: ${metricLabels[metric]} against ${active.label} mean and median`}
             height={280}
             option={{
+              aria: {
+                enabled: true,
+                description: `${a.name}: ${metricLabels[metric]} ${fmt(a[metric], 1)}. ${active.label} has ${active.n} valid values; median ${fmt(active.median, 1)}, mean ${fmt(active.mean, 1)}. The comparison table contains all values.`,
+              },
               tooltip: { trigger: "axis" },
               grid: { left: 100, right: 30, bottom: 55, top: 25 },
               xAxis: {
@@ -186,6 +190,10 @@ export function ProfileStanding({
             label="Percentile by peer context; suppressed when fewer than five valid values"
             height={340}
             option={{
+              aria: {
+                enabled: true,
+                description: `Midrank percentiles for ${a.name}. ${groups.map(g => `${g.label}: ${g.percentile === null ? "unavailable" : fmt(g.percentile, 1) + "%"}, ${g.n} valid values`).join(". ")}. Percentiles require five valid values.`,
+              },
               tooltip: {
                 trigger: "axis",
                 valueFormatter: (v: number) =>
