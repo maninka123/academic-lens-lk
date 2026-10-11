@@ -257,7 +257,7 @@ test("coverage, single-provider rules, international benchmarks and statistics e
     .first()
     .click();
   await expect(
-    page.getByRole("heading", { name: "How does Sri Lanka compare?" }),
+    page.getByRole("heading", { name: "Global benchmarks" }),
   ).toBeVisible();
   await expect(page.getByLabel("Comparison provider")).toHaveValue(
     "likeForLike",

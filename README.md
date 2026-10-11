@@ -6,7 +6,7 @@ Explore academics, compare peer groups, and discover where their PhDs were award
 
 <!-- dataset-summary:start -->
 <!-- Snapshot partial-c1e36f2a24 -->
-**1,397 Sri Lankan profiles · 14 institutions · 1,630 international benchmark profiles.** Partial collection, updated 2026-10-12. [Coverage report](reports/validation-report.md).
+**1,397 Sri Lankan profiles · 14 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-12. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
 - Search people and inspect qualifications, research links and peer comparisons.
@@ -56,7 +56,7 @@ GitHub Pages releases: **Actions → Build, check and deploy GitHub Pages → Ru
 
 ## Global benchmark method
 
-Official Computer Science and Physics samples, grouped by QS 2027 tier. Research metrics use matched OpenAlex profiles on both sides.
+Research comparisons use matched OpenAlex profiles on both sides, with Computer Science and Physics selected by default. Selected Medicine, Engineering, Law, Management and Business profiles are also included; their unverified metrics stay blank. [Dataset details](Data%20files/international/README.md).
 
 <details>
 <summary>Method, sampling and substitutions</summary>

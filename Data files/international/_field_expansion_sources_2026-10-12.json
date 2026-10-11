@@ -1,0 +1,50 @@
+[
+  {
+    "url": "https://www.gsb.stanford.edu/faculty-research/faculty/academic-areas/finance",
+    "retrieved_at": "2026-10-12",
+    "content_sha256": "c3a1f0dd97f8d171a1e717bd6240f666eae1325f3c924cde78723014f62741fe",
+    "field": "Business"
+  },
+  {
+    "url": "https://www.gsb.stanford.edu/faculty-research/faculty/academic-areas/finance?page=1",
+    "retrieved_at": "2026-10-12",
+    "content_sha256": "5ee2a3365531b94468679284d0723bc9b8da6916b70e72d5def9292f871edd2b",
+    "field": "Business"
+  },
+  {
+    "url": "https://www.gsb.stanford.edu/faculty-research/faculty/academic-areas/organizational-behavior",
+    "retrieved_at": "2026-10-12",
+    "content_sha256": "af966a7c3f01a3b29a2853cc339c7c9a498a8bb12904850eeb7487fa2f424cf8",
+    "field": "Management"
+  },
+  {
+    "url": "https://cee.stanford.edu/people/faculty",
+    "retrieved_at": "2026-10-12",
+    "content_sha256": "c31f4b01d104fae685b60d3f389f5d61cf02fc71833ae01e043c28c7430a164e",
+    "field": "Engineering"
+  },
+  {
+    "url": "https://med.stanford.edu/genetics/people/Faculty1.html",
+    "retrieved_at": "2026-10-12",
+    "content_sha256": "ffecad9661b02590d216f9983bb5d3a319600eafbcd24f13e3ebfdb0b55cbfd1",
+    "field": "Medicine"
+  },
+  {
+    "url": "https://med.stanford.edu/genetics/people/Faculty1/genetics-faculty-f---l.html",
+    "retrieved_at": "2026-10-12",
+    "content_sha256": "99decc0347690c0fa7511c98fffc687d4bfa497a68e373ff241f74ca92321871",
+    "field": "Medicine"
+  },
+  {
+    "url": "https://med.stanford.edu/genetics/people/Faculty1/genetics-faculty-m-z.html",
+    "retrieved_at": "2026-10-12",
+    "content_sha256": "9c02c4adbcecc86828aa15d19ac8911463dd685808bf7d461620f6cc2531f9b3",
+    "field": "Medicine"
+  },
+  {
+    "url": "https://www.mcgill.ca/law/profs",
+    "retrieved_at": "2026-10-12",
+    "content_sha256": "e57e61d5941b1b811816a2d44bb119400efc1b8a3b18e537e0392b1eb28a40d8",
+    "field": "Law"
+  }
+]

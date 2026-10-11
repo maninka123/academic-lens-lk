@@ -6,6 +6,9 @@ import { AlertTriangle } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import {
+  benchmarkFields,
+  defaultBenchmarkFields,
+  type BenchmarkField,
   loadBenchmarks,
   matchedField,
   qsNumeric,
@@ -88,7 +91,7 @@ export function Global() {
   const [b, setB] = useState<Benchmarks | null>(null),
     [error, setError] = useState(""),
     [metric, setMetric] = useState<GMetric>("hIndex"),
-    [field, setField] = useState<"matched" | "Computer Science" | "Physics">(
+    [field, setField] = useState<"matched" | BenchmarkField>(
       "matched",
     ),
     [stage, setStage] = useState<"all" | (typeof STAGES)[number]>("all"),
@@ -102,7 +105,7 @@ export function Global() {
 
   const view = useMemo(() => {
     if (!b) return null;
-    const fieldOk = (f: string) => field === "matched" || f === field;
+    const fieldOk = (f: string) => field === "matched" ? defaultBenchmarkFields.includes(f) : f === field;
     const stageOk = (rank: string) =>
       stage === "all" || careerStageOf(rank) === stage;
     const intl = b.academics.filter(
@@ -452,10 +455,10 @@ export function Global() {
       {
         title: `Global benchmarks · ${metricNames[metric]}`,
         population:
-          "Sri Lankan collected profiles in matched disciplines and international QS-tier samples (Computer Science, Physics)",
+          "Sri Lankan collected profiles in matched disciplines and international QS-tier samples (seven covered disciplines)",
         filters: {
           discipline:
-            field === "matched" ? "Computer Science + Physics" : field,
+            field === "matched" ? "Computer Science & Physics" : field,
           "career stage": stage,
           "proxy units": includeProxy ? "included" : "excluded",
         },
@@ -572,9 +575,10 @@ export function Global() {
             value={field}
             onChange={(e) => setField(e.target.value as typeof field)}
           >
-            <option value="matched">Computer Science + Physics</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Physics">Physics</option>
+            <option value="matched">Computer Science & Physics</option>
+            {benchmarkFields.map((discipline) => (
+              <option key={discipline} value={discipline}>{discipline}</option>
+            ))}
           </Select>
         </label>
         <label className="field">
@@ -755,7 +759,7 @@ export function GlobalTeaser() {
     loadBenchmarks().then(setB, () => setB(null));
   }, []);
   if (!b) return null;
-  const eligible = d.academics.filter((a) => matchedField(a));
+  const eligible = d.academics.filter((a) => defaultBenchmarkFields.includes(matchedField(a)));
   const sl = eligible
     .map((a) => {
       const o = b.slOpenAlex.get(a.id);
@@ -783,7 +787,7 @@ export function GlobalTeaser() {
             : "QS ~800–1200",
       key: t,
       v: b.academics
-        .filter((a) => a.tier === t && a.unitType !== "proxy")
+        .filter((a) => a.tier === t && a.unitType !== "proxy" && defaultBenchmarkFields.includes(a.field))
         .map((a) => a.hIndex)
         .filter((x): x is number => x !== null && Number.isFinite(x)),
     })),
@@ -796,7 +800,7 @@ export function GlobalTeaser() {
     <Card
       className="global-preview"
       title="Sri Lanka & global benchmarks"
-      subtitle="Median h-index · Computer Science & Physics"
+      subtitle="Median h-index · selected disciplines"
       action={
         <Link className="text-link" to="/global">
           Explore benchmarks →

@@ -1,0 +1,45 @@
+{
+  "before": 1630,
+  "after": 1740,
+  "groups": [
+    {
+      "university": "stanford",
+      "field": "Business",
+      "eligible": 20,
+      "added": 20,
+      "source": "https://www.gsb.stanford.edu/faculty-research/faculty/academic-areas/finance"
+    },
+    {
+      "university": "stanford",
+      "field": "Management",
+      "eligible": 15,
+      "added": 15,
+      "source": "https://www.gsb.stanford.edu/faculty-research/faculty/academic-areas/organizational-behavior"
+    },
+    {
+      "university": "stanford",
+      "field": "Engineering",
+      "eligible": 29,
+      "added": 25,
+      "source": "https://cee.stanford.edu/people/faculty"
+    },
+    {
+      "university": "stanford",
+      "field": "Medicine",
+      "eligible": 42,
+      "added": 25,
+      "source": "https://med.stanford.edu/genetics/people/Faculty1.html",
+      "additional_sources": [
+        "https://med.stanford.edu/genetics/people/Faculty1/genetics-faculty-f---l.html",
+        "https://med.stanford.edu/genetics/people/Faculty1/genetics-faculty-m-z.html"
+      ]
+    },
+    {
+      "university": "mcgill",
+      "field": "Law",
+      "eligible": 49,
+      "added": 25,
+      "source": "https://www.mcgill.ca/law/profs"
+    }
+  ]
+}

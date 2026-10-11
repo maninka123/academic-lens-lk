@@ -1,0 +1,940 @@
+[
+  {
+    "requested_url": "https://med.stanford.edu/profiles/ami-bhatt",
+    "canonical_url": "https://med.stanford.edu/profiles/ami-bhatt",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "4060a1fd6c06f57c123858e8853e4d576cbc67f76b3081ed7b7bbca9654e0d96"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/anne-brunet",
+    "canonical_url": "https://med.stanford.edu/profiles/anne-brunet",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "14a817b0d2eef451e09d0a6c0a50bd0326fddaba38cf0269aa680d1328ca234d"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/christina-curtis",
+    "canonical_url": "https://med.stanford.edu/profiles/christina-curtis",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "332b663d4bf6114ba1f222f9e0cca1fb3beb79634c4c6531efb1d88f27d2796c"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/jesse-engreitz",
+    "canonical_url": "https://med.stanford.edu/profiles/jesse-engreitz",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "5bf8ada4880eaf150d66115a115f8b2772dc619f80f418f629ab156c94b50722"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/julie-baker",
+    "canonical_url": "https://med.stanford.edu/profiles/julie-baker",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b6a9e3f7552d16188061a1cb1c04fd4e52e35fbc4f08eecfe564e451b6f6ee34"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/laura-attardi",
+    "canonical_url": "https://med.stanford.edu/profiles/laura-attardi",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "ca4b74674a4772a3f22528fb11878dd58ad0faa7d82edf07ac6a26fa0cede29f"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/186687",
+    "canonical_url": "https://med.stanford.edu/profiles/186687",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b46a42ada74b2a661e08165cb53f533e37c02f8ad758e2dd60911322ff405f52"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/maria-barna",
+    "canonical_url": "https://med.stanford.edu/profiles/maria-barna",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "49f5184a310e58aad01f9a89d4676f6a7aad5976b2491d88a9fe1c554107ec93"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/maryann-campion",
+    "canonical_url": "https://med.stanford.edu/profiles/maryann-campion",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "9f1af65fabc7139db02f45441c05c18f46c2e31641c1314c8eb58d94e6d60491"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/michael-bassik",
+    "canonical_url": "https://med.stanford.edu/profiles/michael-bassik",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "8d5622daad575a0d3499e26b86ce0cabe81f4cca5715cd69478fd0d4b21c1d85"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/monther-abu-remaileh",
+    "canonical_url": "https://med.stanford.edu/profiles/monther-abu-remaileh",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "2de5fca6b27b91b57c39faed7aa9509af2c87b095540711d6515064b655f6f96"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/altemose",
+    "canonical_url": "https://med.stanford.edu/profiles/altemose",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b2162ea46913b08fc14cf4c2f97c133d74c39a2842c4bc5122d1a9e4df7c117b"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/ronald-davis",
+    "canonical_url": "https://med.stanford.edu/profiles/ronald-davis",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "8d4b276dc3810fc57707c774dac3c3048d3aef816d179ce670ee5075e90dd212"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/stanley-cohen",
+    "canonical_url": "https://med.stanford.edu/profiles/stanley-cohen",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "3442962341b61e153a87333a7566cc7d65f3e1448a3b9cd6c55ac42c6d0187c8"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/andrew-fire",
+    "canonical_url": "https://med.stanford.edu/profiles/andrew-fire",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "47a5f99e620da3198c13ac260d30f4a60200170f5d41564bafd3abe4b3e45d33"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/margaret-fuller",
+    "canonical_url": "https://med.stanford.edu/profiles/margaret-fuller",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "e55d65c54f124b2371861f9f02fa4b3c1e880f522d42cc3791ddc9c90470f973"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/aaron-gitler",
+    "canonical_url": "https://med.stanford.edu/profiles/aaron-gitler",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "acf24016fdf481a417aeaaf33ffa0b3e3f8b90596b999e0ef622a51ad78a3252"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/andrea-kwan",
+    "canonical_url": "https://med.stanford.edu/profiles/andrea-kwan",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "0ce2a91899d4fbaf5a37b38a978e90b55eb2d70ea2b322bf5ef0789433fff10f"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/livnat-jerby",
+    "canonical_url": "https://med.stanford.edu/profiles/livnat-jerby",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "2f58a67851a9356dfbe89db7ecc08485addb5cb31643372fafa3ae845c641cc4"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/anshul-kundaje",
+    "canonical_url": "https://med.stanford.edu/profiles/anshul-kundaje",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "7caf360fb6152aff72cc86e1c3a4a9fc19a90ea3090f10ae0d0e2fbf45559b5b"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/joseph-lipsick",
+    "canonical_url": "https://med.stanford.edu/profiles/joseph-lipsick",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "75b1c1d82dba790319b211e8ecab901dbdd9fef18c633b35c3c258d35732a24e"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/julien-sage",
+    "canonical_url": "https://med.stanford.edu/profiles/julien-sage",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "ecff8ad077d517a8789cddb4820044600c3afb7072ca70e59d426d3963024941"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/arend-sidow",
+    "canonical_url": "https://med.stanford.edu/profiles/arend-sidow",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "812ad9aa79e2968cfb0d7093e5cfdfb2becf188b86f874e7f3c64320c7ea8625"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/lars-steinmetz",
+    "canonical_url": "https://med.stanford.edu/profiles/lars-steinmetz",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "72115216e8dbd60cb2c79a68b25d149a56e7afb6c667948b0834b0b0105857e4"
+  },
+  {
+    "requested_url": "https://med.stanford.edu/profiles/monte-winslow",
+    "canonical_url": "https://med.stanford.edu/profiles/monte-winslow",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "9d3a0163163cfa4a7f379ca31aadf6d12513505184a00cd545967c842cfd1f33"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/adam-nayak",
+    "canonical_url": "https://cee.stanford.edu/people/adam-nayak",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "79c8ab68a92de2cb93e994c91058a9e9b7b26bb1b9d22925eaa04b84f367fd17"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/alexandria-boehm",
+    "canonical_url": "https://cee.stanford.edu/people/alexandria-boehm",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "f392f320a4c23efc9edce67efb8de7c140a826ef33a5c71831bec2835ee7e900"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/barbara-simpson",
+    "canonical_url": "https://cee.stanford.edu/people/barbara-simpson",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "d151dcb9de48c980b6f91f05954b0ecf8afa3432181c12423217a407e47f5610"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/eduardo-miranda",
+    "canonical_url": "https://cee.stanford.edu/people/eduardo-miranda",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "e5c492f4c9cff2cfc24400e00f2d7319b324bc5d6559ba62b5eb77eecf87894b"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/erica-plambeck",
+    "canonical_url": "https://cee.stanford.edu/people/erica-plambeck",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "ca0b47a762e8cb4cf3a7bcf0ba77ef3166fbe4e89ce46f3602ccb5c454cccda7"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/gregory-deierlein",
+    "canonical_url": "https://cee.stanford.edu/people/gregory-deierlein",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "c4e3947f6d6326029f9f1a95166795b283862f917b3af0a4bd14b38653f97d18"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/haeyoung-noh",
+    "canonical_url": "https://cee.stanford.edu/people/haeyoung-noh",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "6211f5dcbc6edf730c70dbadb85cf3b311ce2c056688b29915b11ef62539a5a7"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/nina-zhao",
+    "canonical_url": "https://cee.stanford.edu/people/nina-zhao",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "7e7c1bc2b8ed13e15bdf085d927244c1397cd7842b8e19b40301b45846ed1e23"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/iro-armeni",
+    "canonical_url": "https://cee.stanford.edu/people/iro-armeni",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "160aa8ed1d0a3da45820243679672c40e08dda9793e05f183e61bc8852368efc"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/jack-baker",
+    "canonical_url": "https://cee.stanford.edu/people/jack-baker",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "d3c749758a7694e16517a9333a7215d0ebeec6e051a390f52b5a6e80383166ea"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/kincho-law",
+    "canonical_url": "https://cee.stanford.edu/people/kincho-law",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "e5609686c366a560e9cec86d2c95343d9ec8084aba3cdb234d6d3cb83f9aa006"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/lynn-hildemann",
+    "canonical_url": "https://cee.stanford.edu/people/lynn-hildemann",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "5ae593d797a830cc373fecf8101d452802b91bb21ecafcc4dd33f09e0be75a4b"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/mark-jacobson",
+    "canonical_url": "https://cee.stanford.edu/people/mark-jacobson",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b8a6c3f043e61a4341c6e0a0c478c2e93fa2e2a49cbfb9975f942c6b6d3c53b4"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/martin-fischer",
+    "canonical_url": "https://cee.stanford.edu/people/martin-fischer",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "968541bb00191d9087c442a0bd08b41f990a5f65b01b87baef38c2da3ad8b3ab"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/michael-lepech",
+    "canonical_url": "https://cee.stanford.edu/people/michael-lepech",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "27b803fe090d7060fcacdb7355b0f63d5f4870267d494e1a872a69541ec7c798"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/nicholas-ouellette",
+    "canonical_url": "https://cee.stanford.edu/people/nicholas-ouellette",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "9c71cb1f7608b6bfe47437906fe9925d3de5aeb8e8bd9570b92134bd73ba2833"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/oliver-fringer",
+    "canonical_url": "https://cee.stanford.edu/people/oliver-fringer",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "f1c55d8d1ae2c63a9ff2617083c9c00906ebfd705ce52ece19547c32c9ed74fb"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/peter-kitanidis",
+    "canonical_url": "https://cee.stanford.edu/people/peter-kitanidis",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "a72aa64509091308100a9c31cf13446aaa9a58a0e548e6e84943230e0ca6c194"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/ram-rajagopal",
+    "canonical_url": "https://cee.stanford.edu/people/ram-rajagopal",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b47e07d7b10ee0e4674807c8bbf00c9e783b5e83b51024ddae18947f28ec05ce"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/rishee-jain",
+    "canonical_url": "https://cee.stanford.edu/people/rishee-jain",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "e4f13ef16e7438b0fc114dd2f3f37bf59829731aef7c8c41c238b11db19da7e6"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/ronaldo-borja",
+    "canonical_url": "https://cee.stanford.edu/people/ronaldo-borja",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "5afbfb391a5110b7e94b020f769d15afa19813ae88bfdd940f04bbfa9dfae4a1"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/sarah-billington",
+    "canonical_url": "https://cee.stanford.edu/people/sarah-billington",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "861c59c726eaaf9436a541fd72e177863474e7833933cda0cf95a587a5d930d1"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/stephen-monismith",
+    "canonical_url": "https://cee.stanford.edu/people/stephen-monismith",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "2389f2ed68938bd8ea136096a210ffea0607dff3c482886112a2db695369fb74"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/william-mitch",
+    "canonical_url": "https://cee.stanford.edu/people/william-mitch",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "993b67f6fc9ea4355b268f3f593551838b33097b62b2b4feb4cc938a10338b55"
+  },
+  {
+    "requested_url": "https://cee.stanford.edu/people/yaochun-yu",
+    "canonical_url": "https://cee.stanford.edu/people/yaochun-yu",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "262df8219ff0dc5971a9a92cf64096a28b09325996a8cbf57ae8b387ce46de0c"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/amit-seru",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/amit-seru",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "5daee887b48bba98320261687ce02eecd001f6c6099a2113acb00db9b6b85b6f"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/anat-r-admati",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/anat-r-admati",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "daef77d8067baa468efdcf6a47814e81d63950052a6b4fc2f97239fa786e6d0c"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/arvind-krishnamurthy",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/arvind-krishnamurthy",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "17143ad92b03cc0937464f85e09f8aef54764acf5c101e7fed0ea1735e106b6e"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/benjamin-hebert",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/benjamin-hebert",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "ac17643a1ca718110314a743759c9379cf49c4fb95f82b276649e91e67d21669"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/greg-buchak",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/greg-buchak",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "09732d2b0a5059888604105f1c180b380e8b034a0f1f708d2c3859daf064d6cf"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/hanno-lustig",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/hanno-lustig",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "d0baf22fb1d9342c4189afb142c9d99006c458f31983e13436cbad76de47bda0"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/ilya-strebulaev",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/ilya-strebulaev",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "16f5ea30ad419df86cdaa478f5257cc08d107fef968540952d27717ff851e834"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/james-d-paron",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/james-d-paron",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "7e92af2d4a624c5b27ae600f0d40a044cba4156dd1977c0e0fe39e6f01556c57"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/jeffrey-zwiebel",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/jeffrey-zwiebel",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "c364f9b6f1e0d7587c84966831ce2f9f660d2422ed9e117e9a61c9faf46e1056"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/jonathan-b-berk",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/jonathan-b-berk",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "8680ff6999a50c9a3670daacb4e26936855fc8987eeb1bff46aa175ffdecce48"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/joshua-d-rauh",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/joshua-d-rauh",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "e6416d4be20cfd58ae61699c02f70705680d8d5172db3bc9701a8e8a8e68397e"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/juliane-begenau",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/juliane-begenau",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "5acf5f7a99ce667ec5b75c2aeea676d66c16012ac314e33ed87dcb62ac580102"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/matteo-maggiori",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/matteo-maggiori",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "ec5f84bbb8af7e88b67ffe6b07a8be81e36429ed3e3592c08cbda976fac77891"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/michael-blank",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/michael-blank",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "c1831b2cd719ddc5f063329ccbea91794dff601cd0068c8091ea824b4c24b995"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/naz-koont",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/naz-koont",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "c35b85eb450e7390d013703cf4a7a3f480450b0163d0513dac71e1c9bc03163c"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/peter-m-demarzo",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/peter-m-demarzo",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "2c56b577543b40903095558a953e786e1581e3e21b60705877a4cb41d791d18f"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/steven-grenadier",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/steven-grenadier",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "e05662d3c6117010175e0c128e656eb5ed7586032b6690f4860a89b286089651"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/tim-de-silva",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/tim-de-silva",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "a238f622848f1d24729563fd9d963509ad09dfb662a9008de7b5195e6e602a8e"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/vikrant-vig",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/vikrant-vig",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "69bc63d839238c52ec277f06ba29d1399f01ee1c4fb34236fb09dffa0388c34a"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/zhiguo-he",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/zhiguo-he",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "22deb5d4c5f79dbaa9996dbbf74a4aabcc5990ff1f437069dcda15ef2616fea4"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/amir-goldberg",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/amir-goldberg",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "dddde0fa900b321710df9b84a217883102de09274b71a2e3b1527d82cf82b168"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/ashley-martin",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/ashley-martin",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "f8833f133b1d0f6714b9d1dce4aa030d3257cf7162dceb255bc24f8229ad0556"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/brian-lowery",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/brian-lowery",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "684cf1539fd25a351149f13f719d506467afefb39d38593791e98049e4529a38"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/dale-t-miller",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/dale-t-miller",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "481114a08211f7b318d014a446c974cb7367a29457b258f031827afb194cce0e"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/david-melnikoff",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/david-melnikoff",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "7453dd8da0a989cd81d222ebcbb224508225383b814447b2812dfb917c737621"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/deborah-h-gruenfeld",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/deborah-h-gruenfeld",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "950f783232a56c4a31a06843b7990ed14b9f48c2a537cd6ef12ca37abfadc66d"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/douglas-r-guilbeault",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/douglas-r-guilbeault",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "f58a373cfc927fbfcf133b393e4cb302371b2f2de2c289110a5c329fd4ef91f1"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/francis-j-flynn",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/francis-j-flynn",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "7024577b7145819600c5269c06b1fbf969bff4ba04582097406395e1cf0b827a"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/glenn-r-carroll",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/glenn-r-carroll",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "e2a3f4525858b057926915d1084c7671076645e3cf95f814cd582c8c8535d62e"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/jennifer-eberhardt",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/jennifer-eberhardt",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b953e1eb763d4d67d5f5929eb534f9c302a20f2be008c096271f1abbf2bcecfe"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/julien-clement",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/julien-clement",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "3efdb2ee548875ba8878599fe45f18531d757d98c914f405acc7c81ed4216978"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/michele-j-gelfand",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/michele-j-gelfand",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "bfef71e0d72a7b04128787e9a104d12f4aba8263843303e3f8777cb4a65426ce"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/nir-halevy",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/nir-halevy",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "c9e142797765851d73fc339d4c6c5eb3a7eb0f0b4e3cfed59128e80b9289e5ac"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/robert-burgelman",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/robert-burgelman",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b2e420dd181c506b79c67b67d3ae53b22d1d782ff54062006397cd30d36c5f2b"
+  },
+  {
+    "requested_url": "https://www.gsb.stanford.edu/faculty-research/faculty/william-barnett",
+    "canonical_url": "https://www.gsb.stanford.edu/faculty-research/faculty/william-barnett",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "82404ae98d3081086ab60d722011764881388491034cf40d6ddfc00249bcffa6"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/mills-aaron",
+    "canonical_url": "https://www.mcgill.ca/law/profs/mills-aaron",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "fccff31283864fa9467425dd3030ea9b1256f3bd2439a5e6c76495194b57e613"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/klein-alana",
+    "canonical_url": "https://www.mcgill.ca/law/profs/klein-alana",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "fcf92e35c5a25539f7c3211dcac43bf9c138b5e8c3e8c7ea371829e734ed3709"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/christians-allison",
+    "canonical_url": "https://www.mcgill.ca/law/profs/christians-allison",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "3aa7398ac36f9362a9fffcc2a1a1cd2c71a38239a5564832630c42e30ed724aa"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/profs/harrington-andrea",
+    "canonical_url": "https://www.mcgill.ca/law/profs/harrington-andrea",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "bcd73f408186e49bf8fefe209af1b90e99f828724089d3b6c8631c5e8e3ffae6"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/walsh-catherine",
+    "canonical_url": "https://www.mcgill.ca/law/profs/walsh-catherine",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "0e38db101586a0a3997d8978bfc6bccbe4f19b91298d65369d404d47e01f4203"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/weinstock-daniel",
+    "canonical_url": "https://www.mcgill.ca/law/profs/weinstock-daniel",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "c9e690290233a85f34ff66b2560d759949183309ccf71fc913b3b53ced549823"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/fox-decent-evan",
+    "canonical_url": "https://www.mcgill.ca/law/profs/fox-decent-evan",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "a7f81f1223d07e74891040428d7bd8d62702c4a1a85a3a7c311d46d74f390e9c"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/megret-frederic",
+    "canonical_url": "https://www.mcgill.ca/law/profs/megret-frederic",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "7639213faeb5fe1579ec23f5ef77429ccc3aa2435314c46f120e4cfe01e4cbae"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/ellis-jaye",
+    "canonical_url": "https://www.mcgill.ca/law/profs/ellis-jaye",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "def79762e2fd121eb15fd08fb80676da7aa30f692830aaa39f347efd3461b76c"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/raso-jennifer",
+    "canonical_url": "https://www.mcgill.ca/law/profs/raso-jennifer",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "40192b4ae8bb89c4608e1da286c05c4e1adf689356cd66bb4bb0ad9a464c8214"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/poirier-johanne",
+    "canonical_url": "https://www.mcgill.ca/law/profs/poirier-johanne",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "50cdf4d28003b408e6412149a0b9aa01ec7ec0fc984ecc712229f21f2abfb6b6"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/profs/chan-jonathan",
+    "canonical_url": "https://www.mcgill.ca/law/profs/chan-jonathan",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b9aa07f73e3f941ba995f8b1db9a310d39e73aa2943109e5c30e0fff1c2a4a51"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/sloan-kerry",
+    "canonical_url": "https://www.mcgill.ca/law/profs/sloan-kerry",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "932a9f773e146325a2b01578848d29d833fb154249136d2c0ded584dd78f2272"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/profs/schutz-konstanze-von",
+    "canonical_url": "https://www.mcgill.ca/law/profs/schutz-konstanze-von",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "9178d6742bd92692799ea847b7d01f2ad8ecea796e5eb4b185d8690d028036b8"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/manikis-marie",
+    "canonical_url": "https://www.mcgill.ca/law/profs/manikis-marie",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "de1dcb75749881f929a94995d9d31707756eab6b3b0ec68e3df742a1b039825e"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/profs/cumyn-michelle",
+    "canonical_url": "https://www.mcgill.ca/law/profs/cumyn-michelle",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "9ac31c1d017ca0b591af5faf8c9d04552ed54ed5d397634bf0ca36d45b8ffce9"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/profs/weisbord-noah",
+    "canonical_url": "https://www.mcgill.ca/law/profs/weisbord-noah",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "6b383ccd968904652de510e79267a596ae672e95f6f9c2ec7f874a467e9f9431"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/zumbansen-peer",
+    "canonical_url": "https://www.mcgill.ca/law/profs/zumbansen-peer",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "3ed3ad7bd36287405ab6c3a71ddba4cd91a455515399de6b036cf7dc6e254453"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/priya-s-gupta",
+    "canonical_url": "https://www.mcgill.ca/law/profs/gupta-priya",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "a9eb441045dd5c229d135e412514c80b50571d34710933633fa80841cbf2b10c"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/gold-richard",
+    "canonical_url": "https://www.mcgill.ca/law/profs/gold-richard",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "6b4a3cf3462564133f310e0eefcc7db1b5a191e57089ca94dd51af559d5537bd"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/jukier-rosalie",
+    "canonical_url": "https://www.mcgill.ca/law/profs/jukier-rosalie",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "ff5c4f93280a6429d6f81135e7e7e090bb99a1aaa49c82040b164cfa9d89f53a"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/jodoin-sebastien",
+    "canonical_url": "https://www.mcgill.ca/law/profs/jodoin-sebastien",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "d49012b74e27dc61ad3d007640ec553040947cdc1150282c5bf9761dc317b5b9"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/piper-tina",
+    "canonical_url": "https://www.mcgill.ca/law/profs/piper-tina",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "e5d1818d1d02dda15336d1d7620a490320ac7edf5c6312fb5a6d7abe104aea0d"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/profs/correia-vincent",
+    "canonical_url": "https://www.mcgill.ca/law/profs/correia-vincent",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "1da523a55b23664c1dcb99bb412588f922a3713c82ffac7a6b0e0a4d75fbc17b"
+  },
+  {
+    "requested_url": "https://www.mcgill.ca/law/about/profs/emerich-yaell",
+    "canonical_url": "https://www.mcgill.ca/law/profs/emerich-yaell",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b9ae6f7f0b567726897d34b720e6c1477dbb97fc0c94eae1544665d73e8073b8"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/10580",
+    "canonical_url": "https://profiles.stanford.edu/sarah-billington?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "7253dfd8674b94095b1af8adca3a1d986c4b34f571afddac87b4bdbe2a2ea835"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/10973",
+    "canonical_url": "https://profiles.stanford.edu/stephen-monismith?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "4f7a7f6e9292ac455e679f2d698f27d6845dded72a4bfc94947552f297ae9153"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/171269",
+    "canonical_url": "https://profiles.stanford.edu/barbara-simpson?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "ac3e130381bd6d505468504f3054be718af0b4bb7f012033c3ec5bba6b8e454f"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/20873",
+    "canonical_url": "https://profiles.stanford.edu/peter-kitanidis?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "430665b361d7948cf1805662988955aa72f995930e97c279882360a6e746beb9"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/23651",
+    "canonical_url": "https://profiles.stanford.edu/ram-rajagopal?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "9ba73f19b242a887a0b149684b9c1af6cb63e195fdf0f9fa02234cd61215152a"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/25071",
+    "canonical_url": "https://profiles.stanford.edu/hae-young-noh?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "1a1b38765de9382dbc3965162b4b19f578b858b488ff93614f9589d6cbfd635c"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/373041",
+    "canonical_url": "https://profiles.stanford.edu/yaochun-yu?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "68a85733e7d337f257aae5367ea34ec123ca54c5c41367f10e6589eb0e22966d"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/373842",
+    "canonical_url": "https://profiles.stanford.edu/nina-zhao?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "b6ab62efae99f2176c9aee12236e39c8aeea7d2bafbf43518a36e40482c65107"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/41325",
+    "canonical_url": "https://profiles.stanford.edu/martin-fischer?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "603ca50a57623d7901fdd7d9d18e48229adcc52187a326b26d1f7d3cb63d3080"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/41512",
+    "canonical_url": "https://profiles.stanford.edu/gregory-deierlein?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "ccc253729f939dbf4311da9e8b2cc515bcbda719ce6af103840741b1ee92d22d"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/41624",
+    "canonical_url": "https://profiles.stanford.edu/eduardo-miranda?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "0edb8f367d08f315eb0eaa7539116940c10b01085f6036bded2e737a95968aee"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/42755",
+    "canonical_url": "https://profiles.stanford.edu/michael-lepech?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "baefa2d25ae2b8ba7435675361a6c55a6035071cf8bf17479e6f9114b74090de"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/47600",
+    "canonical_url": "https://profiles.stanford.edu/william-mitch?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "db7585097d870f1f986d443a9d3888473bd1c5b0365f042daa0e6b15030f66c1"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/51606",
+    "canonical_url": "https://profiles.stanford.edu/iro-armeni?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "77a436f1f5e5f061a62d41933815592caa35c2de6537a1860f66fa3aa17949f2"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/62078",
+    "canonical_url": "https://profiles.stanford.edu/rishee-jain?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "f2cfb16208735e8d61c7b5787c1bef2f521746cef52d4fb65294855766cadb6e"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/67642",
+    "canonical_url": "https://profiles.stanford.edu/nicholas-ouellette?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "df74c4be609e7374f135e51fd71f3e7e696799df68f0eacf6903a93f4b7d49af"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/8049",
+    "canonical_url": "https://profiles.stanford.edu/alexandria-boehm?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "7706a61c4e87790ff598448415296cc1eafddc41aea3c3d9f9be7594a5cbef4e"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/8102",
+    "canonical_url": "https://profiles.stanford.edu/lynn-hildemann?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "5179045ec321a18eb0ecbea9f4dfd0ed360c4c739721a0003bdc1180453c2646"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/8777",
+    "canonical_url": "https://profiles.stanford.edu/oliver-fringer?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "d2844ce6b6ba96e16ac826b703bd8ae40bf5e989c31ab76e45d26a2f6fe8275f"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/9094",
+    "canonical_url": "https://profiles.stanford.edu/mark-jacobson?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "15106e7d5cd55f59adea6316833d626727ed194323486d1dfddab8c0cddd6b71"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/9469",
+    "canonical_url": "https://profiles.stanford.edu/ronaldo-borja?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "919d5558ae925d0e503da9a1facf09e87e53d5373de3377538adca1d6b3ee76a"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/9502",
+    "canonical_url": "https://profiles.stanford.edu/jack-baker?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "8a11fe923089346848cf18fd0b1fdace9610cdddefcdb33c2b88ccad54d1087f"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/9591",
+    "canonical_url": "https://profiles.stanford.edu/kincho-law?releaseVersion=11.5.3",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "8095695bfba8905eda2cab9a67246a92a5f121b06e61509fa6057f190c477aee"
+  },
+  {
+    "requested_url": "https://profiles.stanford.edu/intranet/erica-plambeck",
+    "canonical_url": "https://idp-proxy.med.stanford.edu/auth/realms/med-all/protocol/saml?SAMLRequest=fZJLa%2BMwFIX%2FilFhdrakJHUymiQQ7CkE2lLSThfdDMK%2BpgI9PLpSH%2F%2B%2BktNO2020Edx7DjrfQWuURo9iF8OjPcC%2FCBiKF6MtimmxIdFb4SQqFFYaQBE6cbu7uhSzionRu%2BA6p8kXy2mHRAQflLOk2Lcb8rdu56uf7Pd8uVyt2KxZtqxezWt2zpvZRbPYLUhxDx6TfkOSPZkQI%2BwtBmlDGrFZXXJWcn7Ha8G4mC8eSNEmBmVlmFyPIYwoKFX9WKa4L6%2BVgb7K%2FsH5voI%2BUpnYqQepDdK0LKXW9IOMZiRSNM4i5BdPsXVHkeii9%2BkulRm16lQgxYXzHUwVb8ggNUIGuUldqCf4P9l9VJMfiwb8Lfgn1cGfw%2BUnRso1KA34ncCA1s7S0WE4AI45B9muc3QxFea3p%2F1ZuaZf9evjt7hOkPv2xiWO10xh5IkOeMWnierLYZKKaHGETg0K%2Bh9nnP0q3k%2BCTYGfm1R6SAUEH4HQ7THB97%2B4fQM%3D&RelayState=https%3A%2F%2Fprofiles.stanford.edu%2Fintranet%2Ferica-plambeck&SigAlg=http%3A%2F%2Fwww.w3.org%2F2001%2F04%2Fxmldsig-more%23rsa-sha256&Signature=MV8%2BwrsCKWHJ9%2BZfIdwF8vnh5apSQaG%2FIEDyCyKItqXA76EjCAU7c3spjIpqCIOrAFlafLkjdb5u2avfSKbk120ExwxRZR3Y%2FYnfhFllfXg1Ad5%2BAhWkshCuPcHVfpDnBND4XTBLoT8vphZ90ZwJtdzi1andQU%2FyIVbpix7WuNYImaCK4IN1S79ZI6zSjNOEXOgfAzT7e4jTtbDCvKzMZd2wcbXgELhG2EHz3dpGloJyDX0hQRcbFRc%2FwTdqXiAB%2B4xHgI4PZFpRFIbCXBrO6zXlT099AtCcIEatroqS%2FzggILoj6Zy%2FU7W0WebFRyBrafTR8W7B8vLUF1thRZ3tAA%3D%3D",
+    "retrieved_at": "2026-10-12",
+    "status": 200,
+    "content_sha256": "f2a761e17ee5818f59cefca226f25ca0a6fab0d4af69107935e15d5aa7ad530c"
+  }
+]

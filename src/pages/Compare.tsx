@@ -36,6 +36,8 @@ import { Header, fmt, exportCsv, Empty } from "../components/common";
 import { Button } from "../components/ui/button";
 import { Dialog } from "../components/ui/dialog";
 import {
+  benchmarkFields,
+  type BenchmarkField,
   loadBenchmarks,
   matchedField,
   tierLabels,
@@ -103,7 +105,7 @@ export function Compare() {
     null,
   );
   const [discipline, setDiscipline] = useState<
-    "all" | "Computer Science" | "Physics"
+    "all" | BenchmarkField
   >("all");
   const benchOn =
     Boolean(c.benchmarks) && (c.level === "type" || c.level === "university");
@@ -146,18 +148,19 @@ export function Compare() {
                   type: `International · ${tierLabels[a.tier]}`,
                   facultyId: "",
                   departmentId: "",
-                  qualifications: "",
-                  phdYear: null,
-                  phdStatus: "",
+                  qualifications: a.qualifications,
+                  phdYear: a.phdYear,
+                  phdStatus: a.phdStatus,
                   experience: null,
-                  interests: "",
+                  interests: a.interests,
                   q1: null,
                   recentQ1: null,
-                  scholarUrl: "",
+                  scholarUrl: a.scholarUrl,
+                  researchgateUrl: a.researchgateUrl,
                   snapshotDate: "",
                   status: "international_benchmark",
                   employmentStatus: "",
-                  notes: "International benchmark (OpenAlex metrics)",
+                  notes: "International benchmark. Bibliography reflects source-listed works; citation metrics require a matched research profile.",
                 }) as unknown as Academic,
             ),
         ),
@@ -328,12 +331,14 @@ export function Compare() {
             onChange={(e) => setDiscipline(e.target.value as typeof discipline)}
           >
             <option value="all">All sampled disciplines</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Physics">Physics</option>
+            {benchmarkFields.map((discipline) => (
+              <option key={discipline} value={discipline}>{discipline}</option>
+            ))}
           </Select>
           <small className="caption">
-            Benchmarks sample Computer Science and Physics only; proxy units are
-            excluded. Sri Lankan academics are matched by department name.
+            Benchmarks cover seven disciplines with uneven university coverage; proxy units are
+            excluded. Sri Lankan academics are matched by department and faculty.
+            New discipline samples have citation metrics pending verification.
           </small>
         </label>
       )}

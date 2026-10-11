@@ -1,6 +1,6 @@
 id,name,short,country,type,qsRank,tier,records,substitution
 mit,Massachusetts Institute of Technology,MIT,United States,Private,1,elite,50,
-stanford,Stanford University,Stanford,United States,Private,=2,elite,50,
+stanford,Stanford University,Stanford,United States,Private,=2,elite,135,
 iastate,Iowa State University,Iowa State,United States,Public,=540,middle,50,
 kstate,Kansas State University,K-State,United States,Public,1001-1200,lower,46,
 unsw,UNSW Sydney,UNSW,Australia,Public,19,elite,50,
@@ -15,7 +15,7 @@ iitd,Indian Institute of Technology Delhi,IIT Delhi,India,Public,118,elite,44,
 iitb,Indian Institute of Technology Bombay,IIT Bombay,India,Public,134,elite,49,
 iitbhu,Indian Institute of Technology (BHU) Varanasi,IIT BHU,India,Public,=510,middle,28,"Anna University (QS 470) department sites unreachable (DNS/TLS failures); IIT BHU (same band, public) used"
 panjab,Panjab University,Panjab,India,Public,1001-1200,lower,32,
-mcgill,McGill University,McGill,Canada,Public,30,elite,41,
+mcgill,McGill University,McGill,Canada,Public,30,elite,66,
 toronto,University of Toronto,Toronto,Canada,Public,32,elite,45,
 concordia,Concordia University,Concordia,Canada,Public,=497,middle,45,
 regina,University of Regina,Regina,Canada,Public,1001-1200,lower,31,

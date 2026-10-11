@@ -1,0 +1,1568 @@
+[
+  {
+    "academic_id": "INT-3fc45c7a0228",
+    "name": "Ami Bhatt",
+    "sources": [
+      "https://med.stanford.edu/profiles/ami-bhatt"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 175
+  },
+  {
+    "academic_id": "INT-8a5c261a392d",
+    "name": "Anne Brunet",
+    "sources": [
+      "https://med.stanford.edu/profiles/anne-brunet"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 178
+  },
+  {
+    "academic_id": "INT-df0f790bd637",
+    "name": "Christina Curtis",
+    "sources": [
+      "https://med.stanford.edu/profiles/christina-curtis"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 159
+  },
+  {
+    "academic_id": "INT-05cd2dcdb8ba",
+    "name": "Jesse Engreitz",
+    "sources": [
+      "https://med.stanford.edu/profiles/jesse-engreitz"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 90
+  },
+  {
+    "academic_id": "INT-4c05a70049b5",
+    "name": "Julie Baker",
+    "sources": [
+      "https://med.stanford.edu/profiles/julie-baker"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 53
+  },
+  {
+    "academic_id": "INT-3b07df2d2257",
+    "name": "Laura Attardi",
+    "sources": [
+      "https://med.stanford.edu/profiles/laura-attardi"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 161
+  },
+  {
+    "academic_id": "INT-fabff549a607",
+    "name": "Le Cong",
+    "sources": [
+      "https://med.stanford.edu/profiles/186687"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 58
+  },
+  {
+    "academic_id": "INT-ac4ee1411ab5",
+    "name": "Maria Barna",
+    "sources": [
+      "https://med.stanford.edu/profiles/maria-barna"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 49
+  },
+  {
+    "academic_id": "INT-0bc7fdd3c0bf",
+    "name": "MaryAnn Campion",
+    "sources": [
+      "https://med.stanford.edu/profiles/maryann-campion"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 21
+  },
+  {
+    "academic_id": "INT-0311fbf69b13",
+    "name": "Michael Bassik",
+    "sources": [
+      "https://med.stanford.edu/profiles/michael-bassik"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 132
+  },
+  {
+    "academic_id": "INT-4e7e16e1168b",
+    "name": "Monther Abu-Remaileh",
+    "sources": [
+      "https://med.stanford.edu/profiles/monther-abu-remaileh"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 65
+  },
+  {
+    "academic_id": "INT-4478aca8d11c",
+    "name": "Nicolas Altemose",
+    "sources": [
+      "https://med.stanford.edu/profiles/altemose"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 32
+  },
+  {
+    "academic_id": "INT-c8bb41cd5bbb",
+    "name": "Ronald\u00a0W. Davis",
+    "sources": [
+      "https://med.stanford.edu/profiles/ronald-davis"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 380
+  },
+  {
+    "academic_id": "INT-90bb2f905869",
+    "name": "Stanley N. Cohen",
+    "sources": [
+      "https://med.stanford.edu/profiles/stanley-cohen"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 322
+  },
+  {
+    "academic_id": "INT-29ca75df96e1",
+    "name": "Andrew Fire",
+    "sources": [
+      "https://med.stanford.edu/profiles/andrew-fire"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 197
+  },
+  {
+    "academic_id": "INT-7e3ac8dc5b2c",
+    "name": "Margaret T. Fuller",
+    "sources": [
+      "https://med.stanford.edu/profiles/margaret-fuller"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 140
+  },
+  {
+    "academic_id": "INT-2bf588332a16",
+    "name": "Aaron D. Gitler",
+    "sources": [
+      "https://med.stanford.edu/profiles/aaron-gitler"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 200
+  },
+  {
+    "academic_id": "INT-086c12033107",
+    "name": "Andrea Hanson-Kahn",
+    "sources": [
+      "https://med.stanford.edu/profiles/andrea-kwan"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 36
+  },
+  {
+    "academic_id": "INT-ace3e8154953",
+    "name": "Livnat Jerby",
+    "sources": [
+      "https://med.stanford.edu/profiles/livnat-jerby"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 41
+  },
+  {
+    "academic_id": "INT-bb7e6955533d",
+    "name": "Anshul Kundaje",
+    "sources": [
+      "https://med.stanford.edu/profiles/anshul-kundaje"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 269
+  },
+  {
+    "academic_id": "INT-4b8795c5040b",
+    "name": "Joseph (Joe) Lipsick",
+    "sources": [
+      "https://med.stanford.edu/profiles/joseph-lipsick"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 98
+  },
+  {
+    "academic_id": "INT-35a0be7e26d8",
+    "name": "Julien\u00a0Sage",
+    "sources": [
+      "https://med.stanford.edu/profiles/julien-sage"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 153
+  },
+  {
+    "academic_id": "INT-859f9bda16bd",
+    "name": "Arend Sidow",
+    "sources": [
+      "https://med.stanford.edu/profiles/arend-sidow"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 76
+  },
+  {
+    "academic_id": "INT-77b9213bf75a",
+    "name": "Lars Steinmetz",
+    "sources": [
+      "https://med.stanford.edu/profiles/lars-steinmetz"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 256
+  },
+  {
+    "academic_id": "INT-1e2243f24dfd",
+    "name": "Monte Winslow",
+    "sources": [
+      "https://med.stanford.edu/profiles/monte-winslow"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 91
+  },
+  {
+    "academic_id": "INT-1bed7b55a209",
+    "name": "Adam Nayak",
+    "sources": [
+      "https://cee.stanford.edu/people/adam-nayak"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-c3e8112ae885",
+    "name": "Alexandria Boehm",
+    "sources": [
+      "https://cee.stanford.edu/people/alexandria-boehm",
+      "https://profiles.stanford.edu/alexandria-boehm?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 396
+  },
+  {
+    "academic_id": "INT-f1832a75cca4",
+    "name": "Barbara G Simpson",
+    "sources": [
+      "https://cee.stanford.edu/people/barbara-simpson",
+      "https://profiles.stanford.edu/barbara-simpson?releaseVersion=11.5.3"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-ef299933732b",
+    "name": "Eduardo Miranda",
+    "sources": [
+      "https://cee.stanford.edu/people/eduardo-miranda",
+      "https://profiles.stanford.edu/eduardo-miranda?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 217
+  },
+  {
+    "academic_id": "INT-1d8531971e50",
+    "name": "Erica Plambeck",
+    "sources": [
+      "https://cee.stanford.edu/people/erica-plambeck",
+      "https://idp-proxy.med.stanford.edu/auth/realms/med-all/protocol/saml?SAMLRequest=fZJLa%2BMwFIX%2FilFhdrakJHUymiQQ7CkE2lLSThfdDMK%2BpgI9PLpSH%2F%2B%2BktNO2020Edx7DjrfQWuURo9iF8OjPcC%2FCBiKF6MtimmxIdFb4SQqFFYaQBE6cbu7uhSzionRu%2BA6p8kXy2mHRAQflLOk2Lcb8rdu56uf7Pd8uVyt2KxZtqxezWt2zpvZRbPYLUhxDx6TfkOSPZkQI%2BwtBmlDGrFZXXJWcn7Ha8G4mC8eSNEmBmVlmFyPIYwoKFX9WKa4L6%2BVgb7K%2FsH5voI%2BUpnYqQepDdK0LKXW9IOMZiRSNM4i5BdPsXVHkeii9%2BkulRm16lQgxYXzHUwVb8ggNUIGuUldqCf4P9l9VJMfiwb8Lfgn1cGfw%2BUnRso1KA34ncCA1s7S0WE4AI45B9muc3QxFea3p%2F1ZuaZf9evjt7hOkPv2xiWO10xh5IkOeMWnierLYZKKaHGETg0K%2Bh9nnP0q3k%2BCTYGfm1R6SAUEH4HQ7THB97%2B4fQM%3D&RelayState=https%3A%2F%2Fprofiles.stanford.edu%2Fintranet%2Ferica-plambeck&SigAlg=http%3A%2F%2Fwww.w3.org%2F2001%2F04%2Fxmldsig-more%23rsa-sha256&Signature=MV8%2BwrsCKWHJ9%2BZfIdwF8vnh5apSQaG%2FIEDyCyKItqXA76EjCAU7c3spjIpqCIOrAFlafLkjdb5u2avfSKbk120ExwxRZR3Y%2FYnfhFllfXg1Ad5%2BAhWkshCuPcHVfpDnBND4XTBLoT8vphZ90ZwJtdzi1andQU%2FyIVbpix7WuNYImaCK4IN1S79ZI6zSjNOEXOgfAzT7e4jTtbDCvKzMZd2wcbXgELhG2EHz3dpGloJyDX0hQRcbFRc%2FwTdqXiAB%2B4xHgI4PZFpRFIbCXBrO6zXlT099AtCcIEatroqS%2FzggILoj6Zy%2FU7W0WebFRyBrafTR8W7B8vLUF1thRZ3tAA%3D%3D"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-79b02601e966",
+    "name": "Gregory Deierlein",
+    "sources": [
+      "https://cee.stanford.edu/people/gregory-deierlein",
+      "https://profiles.stanford.edu/gregory-deierlein?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 308
+  },
+  {
+    "academic_id": "INT-d38493f8b718",
+    "name": "Hae Young Noh",
+    "sources": [
+      "https://cee.stanford.edu/people/haeyoung-noh",
+      "https://profiles.stanford.edu/hae-young-noh?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 123
+  },
+  {
+    "academic_id": "INT-826b3fd8c2be",
+    "name": "Haoqi (Nina) Zhao",
+    "sources": [
+      "https://cee.stanford.edu/people/nina-zhao",
+      "https://profiles.stanford.edu/nina-zhao?releaseVersion=11.5.3"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-49b18cc0cf80",
+    "name": "Iro Armeni",
+    "sources": [
+      "https://cee.stanford.edu/people/iro-armeni",
+      "https://profiles.stanford.edu/iro-armeni?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-8956d320b180",
+    "name": "Jack Baker",
+    "sources": [
+      "https://cee.stanford.edu/people/jack-baker",
+      "https://profiles.stanford.edu/jack-baker?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 213
+  },
+  {
+    "academic_id": "INT-35632d734ced",
+    "name": "Kincho Law",
+    "sources": [
+      "https://cee.stanford.edu/people/kincho-law",
+      "https://profiles.stanford.edu/kincho-law?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 444
+  },
+  {
+    "academic_id": "INT-fb8a57ac73ab",
+    "name": "Lynn Hildemann",
+    "sources": [
+      "https://cee.stanford.edu/people/lynn-hildemann",
+      "https://profiles.stanford.edu/lynn-hildemann?releaseVersion=11.5.3"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 99
+  },
+  {
+    "academic_id": "INT-8b24fa494cc0",
+    "name": "Mark Z. Jacobson",
+    "sources": [
+      "https://cee.stanford.edu/people/mark-jacobson",
+      "https://profiles.stanford.edu/mark-jacobson?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 407
+  },
+  {
+    "academic_id": "INT-ad0672dfc439",
+    "name": "Martin Fischer",
+    "sources": [
+      "https://cee.stanford.edu/people/martin-fischer",
+      "https://profiles.stanford.edu/martin-fischer?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 133
+  },
+  {
+    "academic_id": "INT-76e5becf5813",
+    "name": "Michael Lepech",
+    "sources": [
+      "https://cee.stanford.edu/people/michael-lepech",
+      "https://profiles.stanford.edu/michael-lepech?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 83
+  },
+  {
+    "academic_id": "INT-8f1a8c40d021",
+    "name": "Nicholas Ouellette",
+    "sources": [
+      "https://cee.stanford.edu/people/nicholas-ouellette",
+      "https://profiles.stanford.edu/nicholas-ouellette?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 147
+  },
+  {
+    "academic_id": "INT-21e0b8ec3af1",
+    "name": "Oliver Fringer",
+    "sources": [
+      "https://cee.stanford.edu/people/oliver-fringer",
+      "https://profiles.stanford.edu/oliver-fringer?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 107
+  },
+  {
+    "academic_id": "INT-54ec9a3b6455",
+    "name": "Peter K. Kitanidis",
+    "sources": [
+      "https://cee.stanford.edu/people/peter-kitanidis",
+      "https://profiles.stanford.edu/peter-kitanidis?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 218
+  },
+  {
+    "academic_id": "INT-9b0afdfe8d6b",
+    "name": "Ram Rajagopal",
+    "sources": [
+      "https://cee.stanford.edu/people/ram-rajagopal",
+      "https://profiles.stanford.edu/ram-rajagopal?releaseVersion=11.5.3"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 198
+  },
+  {
+    "academic_id": "INT-01c3d0a1be7b",
+    "name": "Rishee Jain",
+    "sources": [
+      "https://cee.stanford.edu/people/rishee-jain",
+      "https://profiles.stanford.edu/rishee-jain?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 79
+  },
+  {
+    "academic_id": "INT-06fab5b91a49",
+    "name": "Ronaldo Borja",
+    "sources": [
+      "https://cee.stanford.edu/people/ronaldo-borja",
+      "https://profiles.stanford.edu/ronaldo-borja?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 7
+  },
+  {
+    "academic_id": "INT-778c83935bc8",
+    "name": "Sarah Billington",
+    "sources": [
+      "https://cee.stanford.edu/people/sarah-billington",
+      "https://profiles.stanford.edu/sarah-billington?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 210
+  },
+  {
+    "academic_id": "INT-0675164d2faf",
+    "name": "Stephen Monismith",
+    "sources": [
+      "https://cee.stanford.edu/people/stephen-monismith",
+      "https://profiles.stanford.edu/stephen-monismith?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 230
+  },
+  {
+    "academic_id": "INT-25041e7c5a8c",
+    "name": "William Mitch",
+    "sources": [
+      "https://cee.stanford.edu/people/william-mitch",
+      "https://profiles.stanford.edu/william-mitch?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 160
+  },
+  {
+    "academic_id": "INT-7a6387e04ebd",
+    "name": "Yaochun Yu",
+    "sources": [
+      "https://cee.stanford.edu/people/yaochun-yu",
+      "https://profiles.stanford.edu/yaochun-yu?releaseVersion=11.5.3"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-01de102598a7",
+    "name": "Amit Seru",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/amit-seru"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 44
+  },
+  {
+    "academic_id": "INT-a782ef2decc0",
+    "name": "Anat R. Admati",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/anat-r-admati"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 34
+  },
+  {
+    "academic_id": "INT-1904a222f8ea",
+    "name": "Arvind Krishnamurthy",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/arvind-krishnamurthy"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 53
+  },
+  {
+    "academic_id": "INT-0563e08d4a2b",
+    "name": "Benjamin H\u00e9bert",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/benjamin-hebert"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": false,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 15
+  },
+  {
+    "academic_id": "INT-fc91dacb6a60",
+    "name": "Greg Buchak",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/greg-buchak"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 6
+  },
+  {
+    "academic_id": "INT-db2c5e150d64",
+    "name": "Hanno Lustig",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/hanno-lustig"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 45
+  },
+  {
+    "academic_id": "INT-1ec225baa1fb",
+    "name": "Ilya A. Strebulaev",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/ilya-strebulaev"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 23
+  },
+  {
+    "academic_id": "INT-9bb26cad25f7",
+    "name": "James D. Paron",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/james-d-paron"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 3
+  },
+  {
+    "academic_id": "INT-921c5f13a357",
+    "name": "Jeffrey Zwiebel",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/jeffrey-zwiebel"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 7
+  },
+  {
+    "academic_id": "INT-4e3744efd5e5",
+    "name": "Jonathan B. Berk",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/jonathan-b-berk"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 25
+  },
+  {
+    "academic_id": "INT-596f22ca3ca1",
+    "name": "Joshua D. Rauh",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/joshua-d-rauh"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 28
+  },
+  {
+    "academic_id": "INT-5ea5532a9b28",
+    "name": "Juliane Begenau",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/juliane-begenau"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 8
+  },
+  {
+    "academic_id": "INT-c93f283f0e01",
+    "name": "Matteo Maggiori",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/matteo-maggiori",
+      "https://www.matteomaggiori.com/"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-5231b0d663dc",
+    "name": "Michael Blank",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/michael-blank"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-f942d3fc13b5",
+    "name": "Naz Koont",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/naz-koont",
+      "https://sites.google.com/view/naz-koont/home"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 1
+  },
+  {
+    "academic_id": "INT-5d40c20939c2",
+    "name": "Peter M. DeMarzo",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/peter-m-demarzo"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 34
+  },
+  {
+    "academic_id": "INT-ee0921d2ad6a",
+    "name": "Steven Grenadier",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/steven-grenadier"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 18
+  },
+  {
+    "academic_id": "INT-c834bb6a58d4",
+    "name": "Tim de Silva",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/tim-de-silva"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 6
+  },
+  {
+    "academic_id": "INT-c49ee6b316b6",
+    "name": "Vikrant Vig",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/vikrant-vig"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": false,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 6
+  },
+  {
+    "academic_id": "INT-b543790f1fc4",
+    "name": "Zhiguo He",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/zhiguo-he"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 49
+  },
+  {
+    "academic_id": "INT-ef197ab39280",
+    "name": "Amir Goldberg",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/amir-goldberg"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 29
+  },
+  {
+    "academic_id": "INT-29b736f7dcff",
+    "name": "Ashley Martin",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/ashley-martin"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 21
+  },
+  {
+    "academic_id": "INT-9723eb2bd803",
+    "name": "Brian S. Lowery",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/brian-lowery"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 25
+  },
+  {
+    "academic_id": "INT-e4b9022076fc",
+    "name": "Dale T. Miller",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/dale-t-miller"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 91
+  },
+  {
+    "academic_id": "INT-4874bb7d35e8",
+    "name": "David Melnikoff",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/david-melnikoff"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 9
+  },
+  {
+    "academic_id": "INT-ab9f3597aa1a",
+    "name": "Deborah H. Gruenfeld",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/deborah-h-gruenfeld"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 10
+  },
+  {
+    "academic_id": "INT-5a5e8c0c9328",
+    "name": "Douglas R. Guilbeault",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/douglas-r-guilbeault"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 12
+  },
+  {
+    "academic_id": "INT-b6c6f5811b93",
+    "name": "Francis J. Flynn",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/francis-j-flynn"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 18
+  },
+  {
+    "academic_id": "INT-b7f2b02d8180",
+    "name": "Glenn R. Carroll",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/glenn-r-carroll"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": true,
+    "listed_publications": 87
+  },
+  {
+    "academic_id": "INT-85141ab0c349",
+    "name": "Jennifer Eberhardt",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/jennifer-eberhardt"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 15
+  },
+  {
+    "academic_id": "INT-949732470fba",
+    "name": "Julien Clement",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/julien-clement"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 7
+  },
+  {
+    "academic_id": "INT-8235cde59298",
+    "name": "Michele J. Gelfand",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/michele-j-gelfand"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 35
+  },
+  {
+    "academic_id": "INT-025264baf2d2",
+    "name": "Nir Halevy",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/nir-halevy"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 56
+  },
+  {
+    "academic_id": "INT-8d82e3839c7b",
+    "name": "Robert A. Burgelman",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/robert-burgelman"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 15
+  },
+  {
+    "academic_id": "INT-ce977478738c",
+    "name": "William P. Barnett",
+    "sources": [
+      "https://www.gsb.stanford.edu/faculty-research/faculty/william-barnett"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 33
+  },
+  {
+    "academic_id": "INT-c3eda39a051f",
+    "name": "Aaron Mills",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/mills-aaron"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-77af428edcc8",
+    "name": "Alana Klein",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/klein-alana"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-e3c167835e18",
+    "name": "Allison Christians",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/christians-allison"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-efab82ef86ba",
+    "name": "Andrea Harrington",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/harrington-andrea"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-a37df3d69109",
+    "name": "Catherine Walsh",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/walsh-catherine"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 7
+  },
+  {
+    "academic_id": "INT-75ef9bd018ab",
+    "name": "Daniel Weinstock",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/weinstock-daniel"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-630820388a6b",
+    "name": "Evan Fox-Decent",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/fox-decent-evan"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-6e3b6033e8c5",
+    "name": "Fr\u00e9d\u00e9ric M\u00e9gret",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/megret-frederic"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 12
+  },
+  {
+    "academic_id": "INT-374d120db01a",
+    "name": "Jaye Ellis",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/ellis-jaye"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 6
+  },
+  {
+    "academic_id": "INT-6bd3e11392fe",
+    "name": "Jennifer Raso",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/raso-jennifer"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 9
+  },
+  {
+    "academic_id": "INT-9fda33a30b20",
+    "name": "Johanne Poirier",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/poirier-johanne"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-be040c63105f",
+    "name": "Jonathan Chan",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/chan-jonathan"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 14
+  },
+  {
+    "academic_id": "INT-2429ee49ea66",
+    "name": "Kerry Sloan",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/sloan-kerry"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 8
+  },
+  {
+    "academic_id": "INT-e37dbfe56f70",
+    "name": "Konstanze von Sch\u00fctz",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/schutz-konstanze-von"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 3
+  },
+  {
+    "academic_id": "INT-1d8d9cdc015e",
+    "name": "Marie Manikis",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/manikis-marie"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-ced81746c732",
+    "name": "Michelle Cumyn",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/cumyn-michelle"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 4
+  },
+  {
+    "academic_id": "INT-343670a17ec7",
+    "name": "Noah Weisbord",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/weisbord-noah"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 5
+  },
+  {
+    "academic_id": "INT-cd5396cf7e34",
+    "name": "Peer Zumbansen",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/zumbansen-peer"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 22
+  },
+  {
+    "academic_id": "INT-42f1609264f2",
+    "name": "Priya S. Gupta",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/gupta-priya"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 8
+  },
+  {
+    "academic_id": "INT-bae8c0803284",
+    "name": "Richard Gold",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/gold-richard"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-4238225b2e9b",
+    "name": "Rosalie Jukier",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/jukier-rosalie"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-2d6831be8f5e",
+    "name": "S\u00e9bastien Jodoin",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/jodoin-sebastien"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": true,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 4
+  },
+  {
+    "academic_id": "INT-895910c166e8",
+    "name": "Tina Piper",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/piper-tina"
+    ],
+    "education": true,
+    "doctorate": true,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-11c62aa04514",
+    "name": "Vincent Correia",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/correia-vincent"
+    ],
+    "education": false,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  },
+  {
+    "academic_id": "INT-00ad55f4fa07",
+    "name": "Ya\u00ebll Emerich",
+    "sources": [
+      "https://www.mcgill.ca/law/profs/emerich-yaell"
+    ],
+    "education": true,
+    "doctorate": false,
+    "research": true,
+    "scholar": false,
+    "researchgate": false,
+    "orcid": false,
+    "listed_publications": 0
+  }
+]
