@@ -1,0 +1,28 @@
+{
+  "description": "Initial manual broad-field classifications based on exact published unit titles. This groups fields, not identical faculty curricula. Ambiguous units remain Unmapped. Override a specific department or faculty as evidence improves.",
+  "faculties": {
+    "cinec--faculty-of-engineering": "Engineering",
+    "cinec--faculty-of-health-sciences": "Medicine / Health",
+    "colombo--faculty-of-medicine": "Medicine / Health",
+    "horizon--faculty-of-information-technology": "Computing / IT",
+    "horizon--faculty-of-management": "Management / Business",
+    "horizon--faculty-of-nursing": "Medicine / Health",
+    "horizon--faculty-of-science": "Natural Sciences",
+    "jayewardenepura--faculty-of-computing": "Computing / IT",
+    "kdu--faculty-of-allied-health-science": "Medicine / Health",
+    "kdu--faculty-of-computing": "Computing / IT",
+    "kdu--faculty-of-engineering": "Engineering",
+    "kelaniya--faculty-of-humanities": "Humanities",
+    "kelaniya--faculty-of-science": "Natural Sciences",
+    "kelaniya--faculty-of-social-sciences": "Social Sciences",
+    "moratuwa--faculty-of-engineering": "Engineering",
+    "moratuwa--faculty-of-engineering-university-of-moratuwa": "Engineering",
+    "moratuwa--faculty-of-medicine": "Medicine / Health",
+    "nsbm--faculty-of-business": "Management / Business",
+    "nsbm--faculty-of-computing": "Computing / IT",
+    "nsbm--faculty-of-engineering": "Engineering",
+    "nsbm--faculty-of-science": "Natural Sciences",
+    "peradeniya--faculty-of-engineering": "Engineering"
+  },
+  "departments": {}
+}

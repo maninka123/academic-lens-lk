@@ -1,0 +1,15 @@
+{
+  "version": "demo-2026-10-11",
+  "mode": "demo",
+  "collectionDate": "2026-10-11",
+  "window": [
+    2021,
+    2025
+  ],
+  "description": "720 fictional profiles across all 15 institutions. Do not interpret as institutional evidence.",
+  "scopeNote": "Synthetic data covers the original 15-institution brief.",
+  "q1Methodology": "Synthetic counts only. A production policy must define ranking provider, category selection and ranking year before adding real Q1 data.",
+  "limitations": [
+    "All names, qualifications and metrics are fictional."
+  ]
+}

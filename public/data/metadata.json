@@ -1,0 +1,21 @@
+{
+  "version": "partial-8b4f599f8d",
+  "mode": "real",
+  "collectionDate": "2026-10-11",
+  "window": [
+    2021,
+    2025
+  ],
+  "description": "Automatically extracted partial collection. Bibliometric sources and dates remain attached to each profile.",
+  "scopeNote": "The real collection contains 14 institutions in scope and excludes Saegis. An institution without collected profiles is not an institution without academic staff.",
+  "q1Methodology": "No documented Q1 policy has been supplied. Missing counts remain unknown; no counts are inferred from Scholar totals.",
+  "limitations": [
+    "Not an exhaustive national census. Extracted facts and employment require factual review.",
+    "Name variants and cross-institution appointments may be duplicated.",
+    "Indexed ResearchGate snapshots may be stale and are not interchangeable with Google Scholar totals.",
+    "Qualification and teaching evidence can be incomplete. A title such as Dr is not evidence of a PhD.",
+    "No collected values for: h-index, exact five-year citations, Q1 publications, five-year Q1 publications.",
+    "Country identifies the awarding institution, not necessarily the physical location of study."
+  ],
+  "sourceFiles": "Data files"
+}

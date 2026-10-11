@@ -1,0 +1,5 @@
+faculty_id,faculty_name,department_count,academic_records
+faculty-of-computing,Faculty of Computing,0,30
+faculty-of-engineering,Faculty of Engineering,0,17
+faculty-of-allied-health-science,Faculty of Allied Health Science,0,1
+unassigned-faculty,,0,17

@@ -1,0 +1,61 @@
+id,facultyId,universityId,name
+cinec--faculty-of-engineering--department-of-civil-engineering,cinec--faculty-of-engineering,cinec,Department of Civil Engineering
+cinec--faculty-of-engineering--department-of-electrical-and-electronic-engineering,cinec--faculty-of-engineering,cinec,Department of Electrical and Electronic Engineering
+cinec--faculty-of-engineering--department-of-mechanical-and-automotive-engineering,cinec--faculty-of-engineering,cinec,Department of Mechanical and Automotive Engineering
+cinec--faculty-of-humanities-and-education--department-of-aviation,cinec--faculty-of-humanities-and-education,cinec,Department of Aviation
+cinec--faculty-of-humanities-and-education--department-of-interdisciplinary-studies,cinec--faculty-of-humanities-and-education,cinec,Department of Interdisciplinary Studies
+cinec--faculty-of-humanities-and-education--department-of-marine-simulation,cinec--faculty-of-humanities-and-education,cinec,Department of Marine Simulation
+cinec--faculty-of-humanities-and-education--department-of-safety-survival-training,cinec--faculty-of-humanities-and-education,cinec,Department of Safety & Survival Training
+cinec--faculty-of-marine-engineering--department-of-industrial-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Industrial Engineering
+cinec--faculty-of-marine-engineering--department-of-marine-electrical-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Marine Electrical Engineering
+cinec--faculty-of-marine-engineering--department-of-marine-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Marine Engineering
+cinec--faculty-of-maritime-sciences--department-of-marine-electronic-radio-communication,cinec--faculty-of-maritime-sciences,cinec,Department of Marine Electronic & Radio Communication
+cinec--faculty-of-maritime-sciences--department-of-navigation,cinec--faculty-of-maritime-sciences,cinec,Department of Navigation
+jaffna--faculty-of-arts--department-of-political-science,jaffna--faculty-of-arts,jaffna,"Department of Political Science,"
+jaffna--department-of-computer-engineering,,jaffna,Department of Computer Engineering
+jaffna--department-of-law,,jaffna,"Department of Law,"
+jaffna--department-of-mechanical-engineering,,jaffna,Department of Mechanical Engineering
+kelaniya--faculty-of-humanities--department-of-hindi,kelaniya--faculty-of-humanities,kelaniya,Department of Hindi
+kelaniya--faculty-of-science--department-of-industrial-management,kelaniya--faculty-of-science,kelaniya,Department of Industrial Management
+kelaniya--faculty-of-social-sciences--department-of-philosophy,kelaniya--faculty-of-social-sciences,kelaniya,"Department of Philosophy,"
+moratuwa--faculty-of-engineering--department-of-chemical-and-process-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Chemical and Process Engineering
+moratuwa--faculty-of-engineering--department-of-civil-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Civil Engineering
+moratuwa--faculty-of-engineering--department-of-computer-science-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Computer Science & Engineering
+moratuwa--faculty-of-engineering--department-of-earth-resources-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Earth Resources Engineering
+moratuwa--faculty-of-engineering--department-of-transport-management-logistics-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Transport Management & Logistics Engineering
+moratuwa--faculty-of-engineering-university-of-moratuwa--department-of-electronic-and-telecommunication-engineering,moratuwa--faculty-of-engineering-university-of-moratuwa,moratuwa,Department of Electronic and Telecommunication Engineering
+moratuwa--faculty-of-medicine--department-of-anatomy,moratuwa--faculty-of-medicine,moratuwa,Department of Anatomy
+moratuwa--faculty-of-medicine--department-of-medical-education,moratuwa--faculty-of-medicine,moratuwa,Department of Medical Education
+moratuwa--faculty-of-medicine--department-of-medicine-and-mental-health,moratuwa--faculty-of-medicine,moratuwa,Department of Medicine and Mental Health
+moratuwa--faculty-of-medicine--department-of-obstetrics-and-gynecology,moratuwa--faculty-of-medicine,moratuwa,Department of Obstetrics and Gynecology
+moratuwa--faculty-of-medicine--department-of-pathology-and-forensic-medicine,moratuwa--faculty-of-medicine,moratuwa,Department of Pathology and Forensic Medicine
+nsbm--faculty-of-business--department-of-accounting-and-finance,nsbm--faculty-of-business,nsbm,Department of Accounting and Finance
+nsbm--faculty-of-business--department-of-economics-and-decision-sciences,nsbm--faculty-of-business,nsbm,Department of Economics and Decision Sciences
+nsbm--faculty-of-business--department-of-english-and-modern-languages,nsbm--faculty-of-business,nsbm,Department of English and Modern Languages
+nsbm--faculty-of-business--department-of-english-modern-languages,nsbm--faculty-of-business,nsbm,Department of English & Modern Languages
+nsbm--faculty-of-business--department-of-legal-studies,nsbm--faculty-of-business,nsbm,Department of Legal Studies
+nsbm--faculty-of-business--department-of-management,nsbm--faculty-of-business,nsbm,Department of Management
+nsbm--faculty-of-business--department-of-marketing-and-tourism,nsbm--faculty-of-business,nsbm,Department of Marketing and Tourism
+nsbm--faculty-of-business--department-of-marketing-and-tourism-management,nsbm--faculty-of-business,nsbm,Department of Marketing and Tourism Management
+nsbm--faculty-of-business--department-of-operations-and-logistics,nsbm--faculty-of-business,nsbm,Department of Operations and Logistics
+nsbm--faculty-of-computing--department-of-computer-and-data-science,nsbm--faculty-of-computing,nsbm,Department of Computer and Data Science
+nsbm--faculty-of-computing--department-of-computer-science-software-engineering,nsbm--faculty-of-computing,nsbm,Department of Computer Science & Software Engineering
+nsbm--faculty-of-computing--department-of-computer-security-and-network-systems,nsbm--faculty-of-computing,nsbm,Department of Computer Security and Network Systems
+nsbm--faculty-of-computing--department-of-data-science,nsbm--faculty-of-computing,nsbm,Department of Data Science
+nsbm--faculty-of-computing--department-of-english-modern-languages,nsbm--faculty-of-computing,nsbm,Department of English & Modern Languages
+nsbm--faculty-of-computing--department-of-software-engineering,nsbm--faculty-of-computing,nsbm,Department of Software Engineering
+nsbm--faculty-of-computing--department-of-software-engineering-and-computer-security,nsbm--faculty-of-computing,nsbm,Department of Software Engineering and Computer Security
+nsbm--faculty-of-computing--department-of-software-engineering-computer-security,nsbm--faculty-of-computing,nsbm,Department of Software Engineering & Computer Security
+nsbm--faculty-of-computing--department-of-sofware-engineering-and-computer-security,nsbm--faculty-of-computing,nsbm,Department of Sofware Engineering and Computer Security
+nsbm--faculty-of-engineering--department-of-design-studies,nsbm--faculty-of-engineering,nsbm,Department of Design Studies
+nsbm--faculty-of-engineering--department-of-electrical-electronic-and-systems-engineering,nsbm--faculty-of-engineering,nsbm,"Department of Electrical, Electronic and Systems Engineering"
+nsbm--faculty-of-engineering--department-of-mechatronic-and-industrial-engineering,nsbm--faculty-of-engineering,nsbm,Department of Mechatronic and Industrial Engineering
+nsbm--faculty-of-engineering--department-of-mechatronic-and-industry-engineering,nsbm--faculty-of-engineering,nsbm,Department of Mechatronic and Industry Engineering
+nsbm--faculty-of-science--department-of-biomedical-science,nsbm--faculty-of-science,nsbm,Department of Biomedical Science
+nsbm--faculty-of-science--department-of-health-sciences,nsbm--faculty-of-science,nsbm,Department of Health Sciences
+nsbm--faculty-of-science--department-of-legal-studies,nsbm--faculty-of-science,nsbm,Department of Legal Studies
+nsbm--faculty-of-science--department-of-life-science,nsbm--faculty-of-science,nsbm,Department of Life Science
+nsbm--faculty-of-science--department-of-life-sciences,nsbm--faculty-of-science,nsbm,Department of Life Sciences
+peradeniya--faculty-of-engineering--department-of-computer-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Computer Engineering
+peradeniya--faculty-of-engineering--department-of-computer-engineering-university-of-peradeniya,peradeniya--faculty-of-engineering,peradeniya,Department of Computer Engineering - University of Peradeniya
+ruhuna--department-of-civil-and-environmental-engineering,,ruhuna,Department of Civil and Environmental Engineering

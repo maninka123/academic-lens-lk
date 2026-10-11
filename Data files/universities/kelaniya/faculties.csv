@@ -1,0 +1,6 @@
+faculty_id,faculty_name,department_count,academic_records
+faculty-of-science,Faculty of Science,1,44
+faculty-of-humanities,Faculty of Humanities,1,6
+unassigned-faculty,,0,15
+faculty-of-social-sciences,Faculty of Social Sciences,0,9
+faculty-of-social-sciences,"Faculty of Social Sciences,",1,6

@@ -12,11 +12,14 @@ Explore Sri Lankan academic profiles, compare peer groups, and keep research dat
 - Pin academics across chart changes and inspect their values, peer statistics and percentile positions.
 - Switch between appropriate totals, means, medians and distributions; compare pooled academics with equal university weighting.
 - Explore scatter/bubble plots, boxes, histograms, composition charts, heatmaps and treemaps.
-- Browse searchable profiles, drill into institutional hierarchies, and explore a locally bundled world map and PhD Sankey.
+- Search every person by name, open their full profile, and follow their university → faculty → department hierarchy. Profile charts compare the same position, qualification, both, or PhD holders at every level.
+- Explore a locally bundled world map and PhD Sankey. Illustrated profile placeholders reflect documented qualifications and positions; appearance styles are user selected, with no gender inference.
 - Save custom groups in your browser, share configurations by URL, and export charts as PNG or records as CSV.
 - Use light/dark appearance and responsive layouts with readable 16px body text.
 
 ![Comparison Studio with fictional demonstration data](docs/screenshots/comparison-studio.png)
+
+![Individual profile and peer comparisons (fictional demo)](docs/screenshots/person-profile.png)
 
 ## Run locally
 
@@ -48,6 +51,8 @@ npm run data:import
 npm test
 npm run build
 ```
+
+Optional `Data files/metadata.json` can configure collection dates and the metric window; `q1_methodology.md` documents any verified Q1 policy.
 
 The importer discovers new academic CSVs recursively and regenerates `public/data/{academics,universities,faculties,departments}.csv` and metadata. Duplicate IDs, malformed CSVs and invalid numeric values stop import. Update `Data files/field-mapping.json` for manual field classifications; ambiguous units stay Unmapped. See the [dataset guide](Data%20files/README.md) for folder rules and the [collection prompt](DATA_COLLECTION_PROMPT.md) for independent research work.
 
