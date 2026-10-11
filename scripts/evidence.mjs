@@ -121,7 +121,9 @@ const DOCTORATE =
   /\b(ph\.?\s?d|d\.?\s?phil|doctor of philosophy|dr\.?\s?rer\.?\s?nat|doctorat(?:e)?|d\.?\s?eng)\b/i;
 const ONGOING = new RegExp(
   String.raw`(?:ph\.?\s?d|d\.?\s?phil|doctora\w*)[^;,]{0,40}?\b(?:reading|candidate|candidature|pursuing|ongoing|registered|in progress|submitted|undergoing|following|student|scholar)\b` +
-    String.raw`|\b(?:reading|candidate|pursuing|ongoing|registered|following|reading for|studying for)\b[^;,]{0,30}?(?:ph\.?\s?d|d\.?\s?phil|doctora\w*)`,
+    String.raw`|\b(?:reading|candidate|pursuing|ongoing|registered|following|reading for|studying for)\b[^;,]{0,30}?(?:ph\.?\s?d|d\.?\s?phil|doctora\w*)` +
+    // Sri Lankan conventions: "Ph.D (R)" and "PhD (FGS, UOC)- Reading" both mean reading for the degree.
+    String.raw`|(?:ph\.?\s?d|d\.?\s?phil)\.?\s*\(\s*r\s*\)|(?:ph\.?\s?d|d\.?\s?phil)\.?\s*\([^)]{0,40}\)\s*-\s*reading\b`,
   "i",
 );
 const HONORARY = /\bhonor(?:ary|is causa)\b|\bh\.?\s?c\.?\b/i;
