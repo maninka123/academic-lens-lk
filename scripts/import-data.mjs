@@ -495,6 +495,7 @@ const readme = "README.md";
 if (fs.existsSync(readme)) {
   const block = [
     "<!-- dataset-summary:start -->",
+    `<!-- Snapshot ${version} -->`,
     `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles · ${summary.institutionsWithProfiles} institutions · ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${collectionDate}. [Coverage report](reports/validation-report.md).`,
     "<!-- dataset-summary:end -->",
   ].join("\n");

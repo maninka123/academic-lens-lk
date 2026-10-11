@@ -22,14 +22,14 @@
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0d1c2b;
-  --surface: #14283a;
-  --text: #dce7f0;
-  --heading: #eff6fc;
-  --muted: #a5b9c9;
-  --border: #30485b;
-  --soft: #213b50;
-  --nav: rgba(15, 32, 47, 0.94);
+  --bg: #090909;
+  --surface: #161616;
+  --text: #e7e7e7;
+  --heading: #fafafa;
+  --muted: #adadad;
+  --border: #343434;
+  --soft: #232323;
+  --nav: rgba(12, 12, 12, 0.94);
   background: var(--bg);
   color: var(--text);
 }
@@ -1334,11 +1334,11 @@ footer {
   font-size: 1.4rem;
 }
 [data-theme="dark"] .sidebar nav a.active {
-  background: #244963;
-  color: #c2def3;
+  background: #2b2b2b;
+  color: #f4f4f4;
 }
 [data-theme="dark"] .coverage-note {
-  background: #1b3a4b;
+  background: #202020;
 }
 [data-theme="dark"] .data-badge {
   background: #23453f;
@@ -1359,7 +1359,7 @@ footer {
   color: #b0dfc5;
 }
 [data-theme="dark"] .eyebrow {
-  color: #a0bdcf;
+  color: #bdbdbd;
 }
 @media (min-width: 1700px) {
   .main-content {
@@ -2451,7 +2451,7 @@ th > .column-filter {
 
 /* Fixed PhD origins map and accessible country shortcuts. */
 .origins-map-surface { background: #f5f8fa; border-radius: 16px; padding: 4px 12px 16px; }
-[data-theme="dark"] .origins-map-surface { background: #172c3c; }
+[data-theme="dark"] .origins-map-surface { background: #1b1b1b; }
 .origins-map-key { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 20px; font-size: 0.9375rem; }
 .origins-map-key span { display: inline-flex; gap: 7px; align-items: center; }
 .origins-map-key i { width: 14px; height: 14px; border-radius: 4px; border: 1px solid #64748b33; }
@@ -2462,3 +2462,73 @@ th > .column-filter {
 @media (max-width: 600px) { .origins-top-countries { grid-template-columns: repeat(2, minmax(0, 1fr)); } .origins-map-surface { padding-inline: 0; } }
 .origins-map-surface .chart-body { max-width: 1100px; margin-inline: auto; }
 .origins-map-surface [role="img"] { height: auto !important; aspect-ratio: 2.25; }
+
+/* Balance overview charts without reducing the type size. */
+.overview-distributions { align-items: stretch; }
+.overview-distributions > .card { min-width: 0; }
+.overview-distributions .section-heading { min-height: 88px; align-items: flex-start; }
+.overview-distributions .section-heading:has(.institution-key) { flex-wrap: wrap; gap: 8px; }
+.overview-distributions .section-heading:has(.institution-key) > div { flex-basis: 100%; }
+.institution-key { font-size: 0.9375rem; gap: 8px; }
+.overview-distributions .position-legend { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 22px; margin-top: 0; }
+.overview-distributions .position-legend button { grid-template-columns: 10px minmax(0, 1fr) auto; gap: 8px; padding: 9px 0; min-height: 52px; }
+.overview-distributions .position-legend button > :last-child { grid-column: 3; font-size: 0.9375rem; }
+.overview-distributions .position-legend button strong { text-align: right; font-variant-numeric: tabular-nums; }
+.overview-distributions .position-legend button > :nth-child(2) { grid-row: span 2; }
+.overview-distributions .position-legend .legend-swatch { grid-row: span 2; width: 10px; height: 10px; }
+.position-legend-heading { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.9375rem; padding: 4px 0 8px; border-bottom: 1px solid var(--border); }
+@media (min-width: 901px) and (max-width: 1350px) { .overview-distributions { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .overview-distributions .position-legend { grid-template-columns: 1fr; } .overview-distributions .position-legend button { grid-template-columns: 12px minmax(0, 1fr) auto 60px; min-height: 44px; } .overview-distributions .position-legend button > :nth-child(2), .overview-distributions .position-legend .legend-swatch { grid-row: auto; } .overview-distributions .position-legend button > :last-child { grid-column: auto; } .overview-distributions .section-heading { min-height: 0; } }
+.overview-distributions .position-legend button { grid-template-columns: 10px minmax(0, 1fr) auto 52px; gap: 7px; padding: 9px 0; }
+.overview-distributions .position-legend button > :nth-child(2), .overview-distributions .position-legend .legend-swatch { grid-row: auto; }
+.overview-distributions .position-legend button > :last-child { grid-column: auto; }
+.overview-distributions .position-legend li { margin: 0; }
+
+/* Concise exploration shortcuts: clear pictograms and full-width text. */
+.question-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.question-card { grid-template-columns: 1fr auto; gap: 12px; padding: 18px; align-content: start; }
+.question-card .preset-icon { grid-column: 1; grid-row: 1; width: 48px; height: 48px; color: #2675b9; background: #2675b914; }
+.question-card > svg { grid-column: 2; grid-row: 1; color: var(--muted); }
+.question-card > span:not(.preset-icon) { grid-column: 1 / -1; grid-row: 2; }
+.question-card strong { font-size: 1.125rem; line-height: 1.3; }
+.question-card small { font-size: 1rem; line-height: 1.4; margin-top: 5px; }
+.question-card:nth-child(2) .preset-icon { color: #148879; background: #14887914; }
+.question-card:nth-child(3) .preset-icon { color: #8864ac; background: #8864ac14; }
+.question-card:nth-child(4) .preset-icon { color: #aa6523; background: #aa652314; }
+.question-card:active { transform: scale(0.99); }
+@media (max-width: 1200px) { .question-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .question-grid { grid-template-columns: 1fr; gap: 10px; } .question-card { grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; padding: 14px; } .question-card > span:not(.preset-icon) { grid-column: 2; grid-row: 1; } .question-card > svg { grid-column: 3; } }
+
+.dataset-status { display: flex; align-items: center; gap: 9px; padding: 10px 12px; color: var(--muted); font-size: 1rem; }
+.dataset-status strong { font-weight: 500; }
+.dataset-status .status-dot { margin: 0; flex-shrink: 0; }
+
+/* Concise methodology with readable full-width statistical rules. */
+.concise-methods ul { margin: 8px 0 12px; padding-left: 20px; }
+.concise-methods li { line-height: 1.5; margin-top: 6px; }
+.statistical-methods { margin-top: 16px; }
+.statistical-methods h3 { margin-bottom: 10px; }
+.methods-table { width: 100%; min-width: 0; table-layout: auto; }
+.methods-table th, .methods-table td { padding: 10px 12px; white-space: normal; line-height: 1.45; vertical-align: top; font-size: 1rem; }
+.methods-table tbody th { width: 190px; color: var(--text); font-weight: 600; text-align: left; }
+.method-details { margin-top: 18px; border-top: 1px solid var(--border); }
+.method-details summary { cursor: pointer; padding: 14px 0; font-weight: 600; }
+.method-policy { white-space: pre-line; }
+.method-corrections { margin-top: 14px; }
+.method-corrections p { margin: 5px 0 0; color: var(--muted); }
+.collection-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 12px 0 0; }
+.collection-facts dt { color: var(--muted); font-size: 1rem; }
+.collection-facts dd { margin: 5px 0 0; font-size: 1.5rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+@media(max-width: 600px) { .collection-facts { grid-template-columns: 1fr; gap: 12px; } .collection-facts > div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; } .collection-facts dd { font-size: 1.125rem; } .methods-table tbody th { width: 115px; } .methods-table th, .methods-table td { padding: 9px 6px; } }
+
+/* Neutral dark surfaces; semantic and chart colours remain accents. */
+[data-theme="dark"] .dialog-overlay { background: #000a; }
+[data-theme="dark"] .question-card .preset-icon { background: #282828; }
+[data-theme="dark"] .nav-scrim { background: #0009; }
+[data-theme="dark"] .coverage-note { color: var(--text); }
+[data-theme="dark"] .institution-monogram { background: #282828; color: var(--blue); }
+[data-theme="dark"] .institution-monogram.nonstate { color: var(--teal); }
+[data-theme="dark"] .question-card .preset-icon { color: #75b6ee; }
+[data-theme="dark"] .question-card:nth-child(2) .preset-icon { color: #60cabb; }
+[data-theme="dark"] .question-card:nth-child(3) .preset-icon { color: #bea2df; }
+[data-theme="dark"] .question-card:nth-child(4) .preset-icon { color: #e2ae73; }
