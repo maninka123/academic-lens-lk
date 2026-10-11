@@ -1,0 +1,29 @@
+# source: https://www.phys.ksu.edu/about/people/faculty/
+Itzik Ben-Itzhak | Distinguished Professor | https://www.phys.ksu.edu/about/people/faculty/ben-itzhak.html
+Matt Berg | Professor | https://www.phys.ksu.edu/about/people/faculty/berg.html
+Cosmin Blaga | Associate Professor | https://www.phys.ksu.edu/about/people/faculty/blaga.html
+Tim Bolton | Professor and Head | https://www.phys.ksu.edu/about/people/faculty/bolton.html
+Amit Chakrabarti | Professor | https://www.phys.ksu.edu/about/people/faculty/chakrabarti.html
+Buddho Chakrabarti | Professor | https://www.phys.ksu.edu/about/people/faculty/chakrabarti-b.html
+Charles Fehrenbach | Research Assistant Professor | https://www.phys.ksu.edu/about/people/faculty/fehrenbach.html
+Barbara Fennell | Teaching Professor | https://www.phys.ksu.edu/about/people/faculty/fennell.html
+Bret Flanders | Professor and Associate Head | https://www.phys.ksu.edu/about/people/faculty/flanders.html
+Loren Greenman | Associate Professor | https://www.phys.ksu.edu/about/people/faculty/greenman.html
+Meng Han | Assistant Professor | https://www.phys.ksu.edu/about/people/faculty/han.html
+Glenn Horton-Smith | Chapin Professor | https://www.phys.ksu.edu/about/people/faculty/horton-smith.html
+Cade Ifland | Instructor | https://www.phys.ksu.edu/about/people/faculty/ifland.html
+Andrew Ivanov | Professor | https://www.phys.ksu.edu/about/people/faculty/ivanov.html
+Ketino Kaadze | Associate Professor | https://www.phys.ksu.edu/about/people/faculty/kaadze.html
+Vinod Kumarappan | Professor | https://www.phys.ksu.edu/about/people/faculty/kumarappan.html
+Huynh Lam | Research Assistant Professor | https://www.phys.ksu.edu/about/people/faculty/lam.html
+J.T. Laverty | Associate Professor | https://www.phys.ksu.edu/about/people/faculty/laverty.html
+Qiaoyi (Joey) Liu | Teaching Assistant Professor | https://www.phys.ksu.edu/about/people/faculty/liu.html
+Yurii Maravin | Professor | https://www.phys.ksu.edu/about/people/faculty/maravin.html
+Nino Matcharadze | Instructor | https://www.phys.ksu.edu/about/people/faculty/matcharadze.html
+Bharat Ratra | Distinguished Professor | https://www.phys.ksu.edu/about/people/faculty/ratra.html
+Daniel Rolles | Professor | https://www.phys.ksu.edu/about/people/faculty/rolles.html
+Artem Rudenko | Cortelyou-Rust Professor | https://www.phys.ksu.edu/about/people/faculty/rudenko.html
+Lado Samushia | Professor | https://www.phys.ksu.edu/about/people/faculty/samushia.html
+Jeremy Schmit | Professor | https://www.phys.ksu.edu/about/people/faculty/schmit.html
+Uwe Thumm | Distinguished Professor | https://www.phys.ksu.edu/about/people/faculty/thumm.html
+Gary Wysin | Professor | https://www.phys.ksu.edu/about/people/faculty/wysin.html

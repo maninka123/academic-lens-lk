@@ -1,2 +1,13 @@
-faculty_id,faculty_name,department_count,academic_records
-unassigned-faculty,,0,48
+﻿faculty_id,faculty_name,department_count,academic_records
+unassigned-faculty,,0,12
+faculty-of-computing,Faculty of Computing,3,13
+faculty-of-engineering,Faculty of Engineering,3,3
+faculty-of-graduate-studies,Faculty of Graduate Studies,0,1
+faculty-of-humanities-sciences,Faculty of Humanities & Sciences,3,11
+sliit-business-school,SLIIT Business School,1,2
+school-of-architecture,School of Architecture,1,1
+school-of-business-and-ai,School of Business and AI,0,0
+school-of-education,School of Education,0,1
+school-of-law,School of Law,0,2
+school-of-nursing,School of Nursing,0,1
+school-of-psychology,School of Psychology,0,1

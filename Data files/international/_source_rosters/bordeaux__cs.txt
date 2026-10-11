@@ -1,0 +1,32 @@
+# source: https://www.labri.fr/presentation/annuaire (LaBRI computer science lab, Université de Bordeaux/Bordeaux INP/CNRS; Statut Pr or MdC only = 123 university faculty; systematic sample = every 4th; team in brackets)
+David Auber | Professeur des universités (team BKB) | https://www.labri.fr/presentation/annuaire
+Nicolas Bonichon | Maître de conférences (team CI) | https://www.labri.fr/presentation/annuaire
+Serge Chaumette | Professeur des universités (team Progress) | https://www.labri.fr/presentation/annuaire
+Bruno Courcelle | Professeur des universités (team LX) | https://www.labri.fr/presentation/annuaire
+Pascal Desbarats | Professeur des universités (team TAD) | https://www.labri.fr/presentation/annuaire
+Isabelle Dutour | Maître de conférences (team BKB) | https://www.labri.fr/presentation/annuaire
+Alain Griffault | Maître de conférences (team MTV) | https://www.labri.fr/presentation/annuaire
+Frederic Herbreteau | Maître de conférences (team MTV) | https://www.labri.fr/presentation/annuaire
+Sofian Maabout | Maître de conférences (team RATIO) | https://www.labri.fr/presentation/annuaire
+Raymond Namyst | Professeur des universités (team STORM) | https://www.labri.fr/presentation/annuaire
+David Renault | Maître de conférences (team LX) | https://www.labri.fr/presentation/annuaire
+John Michael Robson | Professeur des universités (team AlgoDist) | https://www.labri.fr/presentation/annuaire
+Pierre-Andre Wacrenier | Maître de conférences (team STORM) | https://www.labri.fr/presentation/annuaire
+Samuel Thibault | Professeur des universités (team STORM) | https://www.labri.fr/presentation/annuaire
+Marc Zeitoun | Professeur des universités (team LX) | https://www.labri.fr/presentation/annuaire
+Abdou Guermouche | Maître de conférences (team TOPAL) | https://www.labri.fr/presentation/annuaire
+Anca Muscholl | Professeur des universités (team SYNTH) | https://www.labri.fr/presentation/annuaire
+Marie Beurton-Aimar | Maître de conférences (team TAD) | https://www.labri.fr/presentation/annuaire
+Bruno Pinaud | Professeur des universités (team BKB) | https://www.labri.fr/presentation/annuaire
+Arnaud Pecher | Professeur des universités (team GO) | https://www.labri.fr/presentation/annuaire
+Pierre Ramet | Professeur des universités (team TOPAL) | https://www.labri.fr/presentation/annuaire
+Raluca Uricaru | Maître de conférences (team BKB) | https://www.labri.fr/presentation/annuaire
+Gregoire Passault | Maître de conférences (team DART) | https://www.labri.fr/presentation/annuaire
+Pierre Bénard | Maître de conférences (team MANIOC) | https://www.labri.fr/presentation/annuaire
+Fleur Mougin | Maître de conférences (team 7) | https://www.labri.fr/presentation/annuaire
+Vincent Penelle | Maître de conférences (team MTV) | https://www.labri.fr/presentation/annuaire
+Loann Giovannangeli | Maître de conférences (team BKB) | https://www.labri.fr/presentation/annuaire
+Luan Teylo Gouveia Lima | Maître de conférences (team TADaaM) | https://www.labri.fr/presentation/annuaire
+Victoria Bourgeais | Maître de conférences (team BKB) | https://www.labri.fr/presentation/annuaire
+Mathieu Hilaire | Maître de conférences (team MTV) | https://www.labri.fr/presentation/annuaire
+Aliaume Lopez | Maître de conférences (team LX) | https://www.labri.fr/presentation/annuaire

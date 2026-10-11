@@ -1,0 +1,26 @@
+# source: https://cs.pku.edu.cn/szdw/jyxl/amz/ALL.htm (PKU School of Computer Science 教研系列, pages ALL..ALL/10; 121 faculty; systematic sample = every 5th; name romanised with pypinyin, Chinese name in col 7)
+Kaigui Bian | 长聘副教授 | https://cs.pku.edu.cn/info/1061/1602.htm | 计算机网络 |  |  | 边凯归
+Bin Chen | 教授 | https://cs.pku.edu.cn/info/1062/3165.htm | 图形与多媒体 |  |  | 陈斌
+Wei Chen | 副研究员 | https://cs.pku.edu.cn/info/1062/1612.htm | 人工智能、计算社会科学、大数据管理 |  |  | 陈薇
+Ming Zhang | 教授 | https://cs.pku.edu.cn/info/1086/1730.htm | 文本挖掘、知识图谱、图神经网络、计算机教育研究 |  |  | 张铭
+Haiyan Zhao | 副教授 | https://cs.pku.edu.cn/info/1086/1738.htm | 需求工程，软件复用 |  |  | 赵海燕
+Hongfei Yan | 副教授 | https://cs.pku.edu.cn/info/1085/1721.htm | 计算机网络、人工智能 |  |  | 闫宏飞
+Jiangfang Yi | 副教授 | https://cs.pku.edu.cn/info/1085/1724.htm | 计算机体系结构 |  |  | 易江芳
+Daqing Zhang | 教授 | https://cs.pku.edu.cn/info/1086/1728.htm | 普适计算 |  |  | 张大庆
+Zhen Xiao | 研究员 | https://cs.pku.edu.cn/info/1084/1711.htm | 区块链、分布式系统 |  |  | 肖臻
+Ruiqin Xiong | 长聘副教授 | https://cs.pku.edu.cn/info/1084/1715.htm | 视频编码和图像处理 |  |  | 熊瑞勤
+Di Wang | 助理教授 | https://cs.pku.edu.cn/info/1083/1706.htm | 程序设计语言，概率编程 |  |  | 王迪
+Ruosong Wang | 助理教授 | https://cs.pku.edu.cn/info/1083/2859.htm | 机器学习 |  |  | 王若松
+Zhao Wang | 副教授 | https://cs.pku.edu.cn/info/1083/1710.htm | 信息安全、数字信号处理、计算机教育 |  |  | 王昭
+Bin Sun | 副教授 | https://cs.pku.edu.cn/info/1078/1675.htm | 人工智能、自然语言处理 |  |  | 孙斌
+Yonghong Tian | 教授 | https://cs.pku.edu.cn/info/1082/1696.htm | 媒体大数据处理与分析，计算机应用技术 |  |  | 田永鸿
+Tian Liu | 副教授 | https://cs.pku.edu.cn/info/1071/1689.htm | 计算机科学理论 |  |  | 刘田
+Zongqing Lu | 长聘副教授 | https://cs.pku.edu.cn/info/1071/1694.htm | 强化学习、多模态大模型、通用智能体 |  |  | 卢宗青
+Tingting Jiang | 副教授 | https://cs.pku.edu.cn/info/1069/1634.htm | 计算机视觉、图像视频处理 |  |  | 蒋婷婷
+Ding Li | 助理教授 | https://cs.pku.edu.cn/info/1071/1685.htm | 程序分析，系统监控 |  |  | 李锭
+Wenxin Li | 教授 | https://cs.pku.edu.cn/info/1071/1677.htm | 人工智能，图形识别 |  |  | 李文新
+Dan Hao | 教授 | https://cs.pku.edu.cn/info/1067/1626.htm | 软件测试 |  |  | 郝丹
+Qun Huang | 长聘副教授 | https://cs.pku.edu.cn/info/1067/1629.htm | 计算机网络、分布式系统 |  |  | 黄群
+Yifeng Chen | 研究员 | https://cs.pku.edu.cn/info/1062/1606.htm | 并行编程语言，异构并行软件，形式化方法 |  |  | 陈一峯
+Xu Chu | 助理研究员 | https://cs.pku.edu.cn/info/1062/3351.htm | 机器学习、数据挖掘 |  |  | 初旭
+Meng Gai | 副研究员 | https://cs.pku.edu.cn/info/1066/3084.htm | 计算机图形学、实时渲染、虚拟现实、视景仿真 |  |  | 盖孟

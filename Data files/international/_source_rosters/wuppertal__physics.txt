@@ -1,0 +1,21 @@
+# source: https://physik.uni-wuppertal.de/de/personen-1/ (professors = 20; apl. excluded)
+Markus Axer | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/axer/
+Hermann Boos | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/boos/
+Szabolcs Borsányi | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/borsanyi/
+Zoltán Fodor | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/fodor/
+Johannes Grebe-Ellis | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/grebe-ellis/
+Jana Günther | Jun.-Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/guenther/
+Michaela I. Hegglin Shepherd | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/hegglin-shepherd/
+Klaus Helbing | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/helbing/
+Christian Hemker-Heß | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/hemker-hess/
+Emma Järvinen | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/jaervinen/
+Karl-Heinz Kampert | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/kampert/
+Andreas Klümper | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/kluemper/
+Francesco Knechtli | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/knechtli/
+Katerina Lipka | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/lipka/
+Andreas Petzold | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/petzold/
+Felix Plöger | Jun.-Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/ploeger/
+Kalman Szabo | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/szabo/
+Claus Michael Volk | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/volk/
+Wolfgang Wagner | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/wagner/
+Christian Zeitnitz | Prof. Dr. | https://www.physik.uni-wuppertal.de/de/personen/detail/zeitnitz/

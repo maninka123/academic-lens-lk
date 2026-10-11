@@ -1,0 +1,79 @@
+# source: https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/about-us/find-a-researcher (unlinked entries use directory URL; blank title = not listed)
+Nadeem Ahmed | Lecturer | https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/about-us/find-a-researcher
+Haris Aziz | Scientia Associate Professor | https://www.unsw.edu.au/staff/haris-aziz
+Michael Bain |  | https://www.unsw.edu.au/staff/michael-bain
+Sara Ballouz |  | https://www.unsw.edu.au/staff/sara-ballouz
+Gustavo Batista | Associate Professor | https://www.unsw.edu.au/staff/gustavo-batista
+Alan Blair |  | https://www.unsw.edu.au/staff/alan-blair
+Richard Buckland | UNSW Director of Teaching Practice | https://www.unsw.edu.au/staff/richard-buckland
+Xin Cao | Senior Lecturer | https://www.unsw.edu.au/staff/xin-cao
+Chun Tung Chou | Associate Professor | https://www.unsw.edu.au/staff/chun-tung-chou
+Francisco Cruz |  | https://www.unsw.edu.au/staff/francisco-cruz
+Ali Darejeh | Lecturer | https://www.unsw.edu.au/staff/ali-darejeh
+Raveen De Silva | Senior Lecturer | https://www.unsw.edu.au/staff/raveen-de-silva
+Oliver Diessel |  | https://www.unsw.edu.au/staff/oliver-diessel
+Kevin Elphinstone | Associate Professor | https://www.unsw.edu.au/staff/kevin-elphinstone
+Angela Finlayson | Senior Lecturer | https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/about-us/find-a-researcher
+Hasindu Gamaarachchi | Senior Lecturer | https://www.unsw.edu.au/staff/hasindu-gamaarachchi
+Serge Gaspers | Professor | https://www.unsw.edu.au/staff/serge-gaspers
+Dong Gong |  | https://www.unsw.edu.au/staff/dong-gong
+Hui Guo |  | https://www.unsw.edu.au/staff/hui-guo
+Rachid Hamadi | Senior Lecturer | https://www.unsw.edu.au/staff/rachid-hamadi
+Tara Hamilton |  | https://www.unsw.edu.au/staff/tara-hamilton
+Mahbub Hassan | Professor | https://www.unsw.edu.au/staff/mahbub-hassan
+Yizhang He |  | https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/about-us/find-a-researcher
+Gernot Heiser | Scientia Professor and John Lions Chair | https://www.unsw.edu.au/staff/gernot-heiser
+Henry Hickman |  | https://www.unsw.edu.au/staff/henry-hickman
+Wen Hu | Professor | https://www.unsw.edu.au/staff/wen-hu
+Paul Hunter |  | https://www.unsw.edu.au/staff/paul-hunter
+Sanjay Jha | Director of Research and Innovation | https://www.unsw.edu.au/staff/sanjay-jha
+Jiaojiao Jiang | Senior Lecturer | https://www.unsw.edu.au/staff/jiaojiao-jiang
+Yuchao Jiang |  | https://www.unsw.edu.au/staff/yuchao-jiang
+Michael Johnson |  | https://www.unsw.edu.au/staff/michael-johnson2
+Aditya Joshi | Senior Lecturer | https://www.unsw.edu.au/staff/aditya-joshi
+Salil Kanhere | Professor | https://www.unsw.edu.au/staff/salil-kanhere
+Piotr Koniusz | Associate Professor | https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/about-us/find-a-researcher
+Jesse Laeuchli |  | https://www.unsw.edu.au/staff/jesse-laeuchli
+Yuekang Li |  | https://www.unsw.edu.au/staff/yuekang-li
+Raymond Louie | Lecturer | https://www.unsw.edu.au/staff/raymond-louie
+Ashesh Mahidadia |  | https://www.unsw.edu.au/staff/ashesh-mahidadia
+Nadine Marcus | Professor | https://www.unsw.edu.au/staff/nadine-marcus
+Eric Martin | Senior Lecturer | https://www.unsw.edu.au/staff/eric-martin
+Rahat Masood | Associate Lecturer | https://www.unsw.edu.au/staff/rahat-masood
+Erik Meijering | Professor of Biomedical Image Computing | https://www.unsw.edu.au/staff/erik-meijering
+Gelareh Mohammadi | Associate Professor | https://www.unsw.edu.au/staff/gelareh-mohammadi
+Oliver Obst |  | https://www.unsw.edu.au/staff/oliver-obst
+Maurice Pagnucco | Deputy Dean (Education) | https://www.unsw.edu.au/staff/maurice-pagnucco
+Helen Paik | Associate Professor | https://www.unsw.edu.au/staff/helen-paik
+Hammond Pearce | Senior Lecturer | https://www.unsw.edu.au/staff/hammond-pearce
+Fethi Rabhi | Professor | https://www.unsw.edu.au/staff/fethi-rabhi
+Vineet Rajani |  | https://www.unsw.edu.au/staff/vineet-rajani
+Jake Renzella | Lecturer | https://www.unsw.edu.au/staff/jake-renzella
+Sushmita Ruj |  | https://www.unsw.edu.au/staff/sushmita-ruj
+Flora Salim | Professor | https://www.unsw.edu.au/staff/flora-salim
+Claude Sammut |  | https://www.unsw.edu.au/staff/claude-sammut
+Sebastian Sequoiah-Grayson | Senior Lecturer in Epistemics | https://www.unsw.edu.au/staff/sebastian-sequoiah-grayson
+Thomas Sewell |  | https://www.unsw.edu.au/staff/thomas-sewell
+Arash Shaghaghi | Senior Lecturer in Cyber Security | https://www.unsw.edu.au/staff/arash-shaghaghi
+John Shepherd | Deputy Head of School (Education) | https://www.unsw.edu.au/staff/john-shepherd
+Shaveen Singh |  | https://www.unsw.edu.au/staff/shaveen-singh
+Sonit Singh | Senior Lecturer | https://www.unsw.edu.au/staff/sonit-singh
+Yang Song | Senior Lecturer | https://www.unsw.edu.au/staff/yang-song
+Arcot Sowmya | Professor | https://www.unsw.edu.au/staff/arcot-sowmya
+Yulei Sui | Professor | https://www.unsw.edu.au/staff/yulei-sui
+Basem Suleiman | Deputy Director of Software Engineering Program | https://www.unsw.edu.au/staff/basem-suleiman
+Benjamin Tag |  | https://www.unsw.edu.au/staff/benjamin-tag
+Andrew Taylor | Associate Professor | https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/about-us/find-a-researcher
+Michael Thielscher | Professor | https://www.unsw.edu.au/staff/michael-thielscher
+Ron Van der Meyden | Professor | https://www.unsw.edu.au/staff/ron-van-der-meyden
+Sasha Vassar |  | https://www.unsw.edu.au/staff/sasha-vassar
+Toby Walsh |  | https://www.unsw.edu.au/staff/toby-walsh
+Xiaoyang Wang |  | https://www.unsw.edu.au/staff/xiaoyang-wang
+Dong Wen | Senior Lecturer | https://www.unsw.edu.au/staff/dong-wen
+Wayne Wobcke | Associate Professor | https://www.unsw.edu.au/staff/wayne-wobcke
+Raymond Wong |  | https://www.unsw.edu.au/staff/raymond-wong
+Jingling Xue | Head of Programming Languages and Compilers Group | https://www.unsw.edu.au/staff/jingling-xue
+Lina Yao |  | https://www.unsw.edu.au/staff/lina-yao
+Fang-Lue Zhang | Senior Lecturer | https://www.unsw.edu.au/staff/fang-lue-zhang
+Haibo Zhang |  | https://www.unsw.edu.au/staff/haibo-zhang
+Wenjie Zhang |  | https://www.unsw.edu.au/staff/wenjie-zhang

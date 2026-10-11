@@ -1,6 +1,12 @@
 import fs from "node:fs";
 import { createHash } from "node:crypto";
 import { csvRead, universities, slug, hierarchy, csvWrite } from "./shared.mjs";
+import {
+  resolveAlias,
+  linkStatus,
+  metricEvidence,
+  normaliseRank,
+} from "./evidence.mjs";
 const source = process.argv[2] || "Data files";
 const walk = (p) =>
   fs
@@ -16,30 +22,29 @@ const inputs = fs.existsSync(source + "/universities")
   ? walk(source + "/universities")
   : [source + "/academics_all.csv"];
 const sourceRows = inputs.flatMap(csvRead);
-const snapshots = new Map(
-  csvRead(source + "/research_metrics_snapshots.csv").map((r) => [
-    r.academic_id,
-    r,
-  ]),
+const optionalCsv = (name) =>
+  fs.existsSync(source + "/" + name) ? csvRead(source + "/" + name) : [];
+const snapshots = optionalCsv("research_metrics_snapshots.csv");
+const observations = optionalCsv("research_metric_observations.csv");
+const identities = optionalCsv("research_identity_evidence.csv");
+const aliasRows = optionalCsv("identity_aliases.csv");
+const aliases = Object.fromEntries(
+  aliasRows.map((r) => [r.alias_academic_id, r.canonical_academic_id]),
 );
+for (const id of Object.keys(aliases)) {
+  aliases[id] = resolveAlias(id, aliases);
+  if (
+    !sourceRows.some((r) => r.academic_id === aliases[id]) ||
+    sourceRows.some((r) => r.academic_id === id)
+  )
+    throw Error("Invalid academic alias: " + id);
+}
 const n = (v) => {
-  if (v === "" || v == null) return null;
+  if (v == null || String(v).trim() === "") return null;
   const n = Number(v);
   if (!Number.isFinite(n) || n < 0) throw Error("Invalid numeric value: " + v);
   return n;
 };
-const rank = (s) =>
-  /senior professor/i.test(s)
-    ? "Senior Professor"
-    : /associate professor/i.test(s)
-      ? "Associate Professor"
-      : /professor/i.test(s)
-        ? "Professor"
-        : /senior lecturer/i.test(s)
-          ? "Senior Lecturer"
-          : /lecturer/i.test(s)
-            ? "Lecturer"
-            : "Other";
 const rows = sourceRows.map((r) => {
   const u = universities.find(
     (u) => u.name === r.university.replace(/ \(SLIIT\)$/, ""),
@@ -53,6 +58,23 @@ const rows = sourceRows.map((r) => {
   const phd =
     r.phd_status !== "in_progress" &&
     (Boolean(r.phd_university) || /\bph\.?d\b|doctor of philosophy/i.test(q));
+  const evidence = metricEvidence(r, snapshots, observations, aliases);
+  const scholarStatus = linkStatus(
+    r.academic_id,
+    r.google_scholar_url,
+    identities,
+    aliases,
+  );
+  const researchgateStatus = linkStatus(
+    r.academic_id,
+    r.researchgate_url,
+    identities,
+    aliases,
+  );
+  const qualificationReview =
+    r.phd_status === "in_progress" && /university of reading/i.test(q)
+      ? "Qualification evidence names the University of Reading, but the recorded PhD status is in progress. Completion status needs data review."
+      : "";
   return {
     id: r.academic_id,
     name: r.full_name,
@@ -64,7 +86,7 @@ const rows = sourceRows.map((r) => {
     department: r.department,
     type: u.type,
     position: r.academic_position,
-    rank: rank(r.academic_position),
+    rank: normaliseRank(r.academic_position),
     qualifications: q,
     qualification: phd
       ? "PhD"
@@ -90,10 +112,16 @@ const rows = sourceRows.map((r) => {
     sourceUrl: r.staff_profile_url,
     scholarUrl: r.google_scholar_url,
     researchgateUrl: r.researchgate_url || r.research_gate_url || "",
+    scholarStatus,
+    researchgateStatus,
+    qualificationReview,
+    metricEvidence: JSON.stringify(evidence),
     metricsUrl: r.metrics_source_url,
     metricsSource: r.research_metrics_source,
     collectionDate: r.collected_at,
-    snapshotDate: snapshots.get(r.academic_id)?.retrieved_at || "",
+    snapshotDate: [...new Set(evidence.map((e) => e.date).filter(Boolean))]
+      .sort()
+      .join("; "),
     status: r.record_status,
     employmentStatus: r.employment_status,
     field: "Unmapped",
@@ -158,6 +186,17 @@ const metadata = {
       .digest("hex")
       .slice(0, 10),
   mode: "real",
+  identityAliases: aliases,
+  evidenceFiles: [
+    "research_metric_observations.csv",
+    "research_identity_evidence.csv",
+    "identity_aliases.csv",
+    "academic_affiliations.csv",
+    "field_evidence.csv",
+    "profile_verification.csv",
+    "collection_report.md",
+    "APPLICATION_HANDOFF.md",
+  ].filter((f) => fs.existsSync(source + "/" + f)),
   collectionDate:
     settings.collectionDate ||
     rows
@@ -169,7 +208,7 @@ const metadata = {
   window: settings.window || [2021, 2025],
   description:
     settings.description ||
-    "Automatically extracted partial collection. Bibliometric sources and dates remain attached to each profile.",
+    "Partial collection with documented corrections and source-specific research evidence. Counts are calculated from authoritative academic records; archives, aliases and evidence rows are excluded.",
   scopeNote:
     settings.scopeNote ||
     "The real collection contains 14 institutions in scope and excludes Saegis. An institution without collected profiles is not an institution without academic staff.",
@@ -201,6 +240,7 @@ fs.writeFileSync(
   JSON.stringify(metadata, null, 2),
 );
 for (const f of [
+  ...metadata.evidenceFiles,
   "coverage.csv",
   "faculty_department_inventory.csv",
   "research_metrics_snapshots.csv",

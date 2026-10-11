@@ -1,5 +1,6 @@
 import Papa from "papaparse";
 import type { Academic, Dataset, University, Metadata } from "../types";
+import { academicDisplayName } from "./names";
 const numeric = [
   "phdYear",
   "experience",
@@ -32,6 +33,30 @@ export async function loadDataset(): Promise<Dataset> {
   };
   const academics = parse(a).map((r) => {
     const row: Record<string, unknown> = { ...r };
+    row.sourceName = r.name;
+    row.name = academicDisplayName({
+      name: r.name,
+      qualification: r.qualification,
+      phdStatus: r.phdStatus,
+      qualifications: r.qualifications,
+    });
+    if (r.metricEvidence) {
+      const evidence = JSON.parse(r.metricEvidence);
+      if (
+        !Array.isArray(evidence) ||
+        evidence.some(
+          (e) =>
+            !e ||
+            typeof e.metric !== "string" ||
+            !Number.isFinite(e.value) ||
+            ["source", "url", "date", "note"].some(
+              (k) => typeof e[k] !== "string",
+            ),
+        )
+      )
+        throw Error(`Invalid metric evidence for ${r.id}`);
+      row.metricEvidence = evidence;
+    }
     for (const k of numeric) {
       const n = r[k]?.trim() === "" ? null : Number(r[k]);
       if (n !== null && (!Number.isFinite(n) || n < 0))

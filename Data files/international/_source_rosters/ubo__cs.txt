@@ -1,0 +1,22 @@
+# source: https://labsticc.fr/fr/lab-sticc/annuaire (Lab-STICC directory, 22 pages; UBO-employed 'Enseignant chercheur' only = 73; systematic sample = every 2nd; computing teams only: SHAKER,P4S,ARCAD,IRIS,INUIT,DECIDE,SI3; microwave/materials teams excluded)
+Jean Philippe Babau | Enseignant·e chercheur·e (team SHAKER) | https://labsticc.fr/fr/lab-sticc/annuaire
+Karim Bigou | Enseignant·e chercheur·e (team ARCAD) | https://labsticc.fr/fr/lab-sticc/annuaire
+Eric Cariou | Enseignant·e chercheur·e (team P4S) | https://labsticc.fr/fr/lab-sticc/annuaire
+Paul Desombre | Enseignant·e chercheur·e (team SI3) | https://labsticc.fr/fr/lab-sticc/annuaire
+David Espes | Enseignant·e chercheur·e (team IRIS) | https://labsticc.fr/fr/lab-sticc/annuaire
+Erwan Fabiani | Enseignant·e chercheur·e (team ARCAD) | https://labsticc.fr/fr/lab-sticc/annuaire
+Yann Glemarec | Enseignant·e chercheur·e (team INUIT) | https://labsticc.fr/fr/lab-sticc/annuaire
+Goulven Guillou | Enseignant·e chercheur·e (team SHAKER) | https://labsticc.fr/fr/lab-sticc/annuaire
+Mickaël Kerboeuf | Enseignant·e chercheur·e (team SHAKER) | https://labsticc.fr/fr/lab-sticc/annuaire
+Mounir Lallali | Enseignant·e chercheur·e (team P4S) | https://labsticc.fr/fr/lab-sticc/annuaire
+Marc Le Pouliquen | Enseignant·e chercheur·e (team DECIDE) | https://labsticc.fr/fr/lab-sticc/annuaire
+Laurent Lemarchand | Enseignant·e chercheur·e (team SHAKER) | https://labsticc.fr/fr/lab-sticc/annuaire
+Mélanie Marazin | Enseignant·e chercheur·e (team SI3) | https://labsticc.fr/fr/lab-sticc/annuaire
+Laurent Tchamnda Nana | Enseignant·e chercheur·e (team IRIS) | https://labsticc.fr/fr/lab-sticc/annuaire
+Valérie-Anne Nicolas | Enseignant·e chercheur·e (team SHAKER) | https://labsticc.fr/fr/lab-sticc/annuaire
+Jérémy Riviere | Enseignant·e chercheur·e (team INUIT) | https://labsticc.fr/fr/lab-sticc/annuaire
+Philippe Rostaing | Enseignant·e chercheur·e (team SI3) | https://labsticc.fr/fr/lab-sticc/annuaire
+Stéphane Rubini | Enseignant·e chercheur·e (team SHAKER) | https://labsticc.fr/fr/lab-sticc/annuaire
+Frank Singhoff | Enseignant·e chercheur·e (team SHAKER) | https://labsticc.fr/fr/lab-sticc/annuaire
+Hai Nam Tran | Enseignant·e chercheur·e (team SHAKER) | https://labsticc.fr/fr/lab-sticc/annuaire
+Koffi-Clément Yao | Enseignant·e chercheur·e (team SI3) | https://labsticc.fr/fr/lab-sticc/annuaire

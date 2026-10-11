@@ -11,24 +11,80 @@ cinec--faculty-of-marine-engineering--department-of-marine-electrical-engineerin
 cinec--faculty-of-marine-engineering--department-of-marine-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Marine Engineering
 cinec--faculty-of-maritime-sciences--department-of-marine-electronic-radio-communication,cinec--faculty-of-maritime-sciences,cinec,Department of Marine Electronic & Radio Communication
 cinec--faculty-of-maritime-sciences--department-of-navigation,cinec--faculty-of-maritime-sciences,cinec,Department of Navigation
-jaffna--faculty-of-arts--department-of-political-science,jaffna--faculty-of-arts,jaffna,"Department of Political Science,"
-jaffna--department-of-computer-engineering,,jaffna,Department of Computer Engineering
-jaffna--department-of-law,,jaffna,"Department of Law,"
-jaffna--department-of-mechanical-engineering,,jaffna,Department of Mechanical Engineering
-kelaniya--faculty-of-humanities--department-of-hindi,kelaniya--faculty-of-humanities,kelaniya,Department of Hindi
+colombo--faculty-of-arts--department-of-communication-and-creative-arts,colombo--faculty-of-arts,colombo,Department of Communication and Creative Arts
+colombo--faculty-of-arts--department-of-international-relations,colombo--faculty-of-arts,colombo,Department of International Relations
+colombo--faculty-of-science--department-of-chemistry,colombo--faculty-of-science,colombo,Department of Chemistry
+colombo--faculty-of-science--department-of-mathematics,colombo--faculty-of-science,colombo,Department of Mathematics
+colombo--faculty-of-science--department-of-nuclear-science,colombo--faculty-of-science,colombo,Department of Nuclear Science
+colombo--faculty-of-science--department-of-physics,colombo--faculty-of-science,colombo,Department of Physics
+colombo--faculty-of-science--department-of-plant-sciences,colombo--faculty-of-science,colombo,Department of Plant Sciences
+colombo--faculty-of-science--department-of-statistics,colombo--faculty-of-science,colombo,Department of Statistics
+colombo--faculty-of-science--department-of-zoology-and-environment-sciences,colombo--faculty-of-science,colombo,Department of Zoology and Environment Sciences
+horizon--department-of-nursing,,horizon,Department of Nursing
+horizon--english-language-teaching-unit,,horizon,English Language Teaching Unit
+jaffna--faculty-of-allied-health-sciences--department-of-medical-laboratory-sciences,jaffna--faculty-of-allied-health-sciences,jaffna,Department of Medical Laboratory Sciences
+jaffna--faculty-of-allied-health-sciences--department-of-nursing,jaffna--faculty-of-allied-health-sciences,jaffna,Department of Nursing
+jaffna--faculty-of-allied-health-sciences--department-of-pharmacy,jaffna--faculty-of-allied-health-sciences,jaffna,Department of Pharmacy
+jaffna--faculty-of-arts--department-of-media-studies,jaffna--faculty-of-arts,jaffna,Department of Media Studies
+jaffna--faculty-of-arts--department-of-political-science,jaffna--faculty-of-arts,jaffna,Department of Political Science
+jaffna--faculty-of-arts--home-economics-unit,jaffna--faculty-of-arts,jaffna,Home Economics Unit
+jaffna--faculty-of-engineering--department-of-civil-engineering,jaffna--faculty-of-engineering,jaffna,Department of Civil Engineering
+jaffna--faculty-of-engineering--department-of-computer-engineering,jaffna--faculty-of-engineering,jaffna,Department of Computer Engineering
+jaffna--faculty-of-engineering--department-of-electrical-and-electronic-engineering,jaffna--faculty-of-engineering,jaffna,Department of Electrical and Electronic Engineering
+jaffna--faculty-of-engineering--department-of-interdisciplinary-studies,jaffna--faculty-of-engineering,jaffna,Department of Interdisciplinary Studies
+jaffna--faculty-of-engineering--department-of-mechanical-engineering,jaffna--faculty-of-engineering,jaffna,Department of Mechanical Engineering
+jaffna--faculty-of-medicine--department-of-anatomy,jaffna--faculty-of-medicine,jaffna,Department of Anatomy
+jaffna--faculty-of-medicine--department-of-biochemistry,jaffna--faculty-of-medicine,jaffna,Department of Biochemistry
+jaffna--faculty-of-medicine--department-of-community-and-family-medicine,jaffna--faculty-of-medicine,jaffna,Department of Community and Family Medicine
+jaffna--faculty-of-medicine--department-of-medicine,jaffna--faculty-of-medicine,jaffna,Department of Medicine
+jaffna--faculty-of-medicine--department-of-microbiology,jaffna--faculty-of-medicine,jaffna,Department of Microbiology
+jaffna--faculty-of-medicine--department-of-paediatrics,jaffna--faculty-of-medicine,jaffna,Department of Paediatrics
+jaffna--faculty-of-medicine--department-of-parasitology,jaffna--faculty-of-medicine,jaffna,Department of Parasitology
+jaffna--faculty-of-medicine--department-of-pathology,jaffna--faculty-of-medicine,jaffna,Department of Pathology
+jaffna--faculty-of-medicine--department-of-pharmacology,jaffna--faculty-of-medicine,jaffna,Department of Pharmacology
+jaffna--faculty-of-medicine--department-of-physiology,jaffna--faculty-of-medicine,jaffna,Department of Physiology
+jaffna--faculty-of-medicine--department-of-surgery,jaffna--faculty-of-medicine,jaffna,Department of Surgery
+jaffna--faculty-of-science--department-of-chemistry,jaffna--faculty-of-science,jaffna,Department of Chemistry
+jaffna--department-of-law,,jaffna,Department of Law
+jaffna--department-of-philosophy,,jaffna,Department of Philosophy
+jaffna--department-of-tamil,,jaffna,Department of Tamil
+kelaniya--faculty-of-humanities--department-of-hindi-studies,kelaniya--faculty-of-humanities,kelaniya,Department of Hindi Studies
 kelaniya--faculty-of-science--department-of-industrial-management,kelaniya--faculty-of-science,kelaniya,Department of Industrial Management
-kelaniya--faculty-of-social-sciences--department-of-philosophy,kelaniya--faculty-of-social-sciences,kelaniya,"Department of Philosophy,"
+kelaniya--faculty-of-social-sciences--department-of-philosophy,kelaniya--faculty-of-social-sciences,kelaniya,Department of Philosophy
+kelaniya--faculty-of-social-sciences--department-of-political-science,kelaniya--faculty-of-social-sciences,kelaniya,Department of Political Science
+moratuwa--faculty-of-architecture--department-of-architecture,moratuwa--faculty-of-architecture,moratuwa,Department of Architecture
+moratuwa--faculty-of-architecture--department-of-building-economics,moratuwa--faculty-of-architecture,moratuwa,Department of Building Economics
+moratuwa--faculty-of-architecture--department-of-facilities-management,moratuwa--faculty-of-architecture,moratuwa,Department of Facilities Management
+moratuwa--faculty-of-architecture--department-of-integrated-design,moratuwa--faculty-of-architecture,moratuwa,Department of Integrated Design
+moratuwa--faculty-of-architecture--department-of-town-country-planning,moratuwa--faculty-of-architecture,moratuwa,Department of Town & Country Planning
+moratuwa--faculty-of-business--department-of-decision-sciences,moratuwa--faculty-of-business,moratuwa,Department of Decision Sciences
+moratuwa--faculty-of-business--department-of-industrial-management,moratuwa--faculty-of-business,moratuwa,Department of Industrial Management
+moratuwa--faculty-of-business--department-of-management-of-technology-faculty-of-business,moratuwa--faculty-of-business,moratuwa,Department of Management of Technology (Faculty of Business)
 moratuwa--faculty-of-engineering--department-of-chemical-and-process-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Chemical and Process Engineering
 moratuwa--faculty-of-engineering--department-of-civil-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Civil Engineering
 moratuwa--faculty-of-engineering--department-of-computer-science-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Computer Science & Engineering
 moratuwa--faculty-of-engineering--department-of-earth-resources-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Earth Resources Engineering
+moratuwa--faculty-of-engineering--department-of-electrical-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Electrical Engineering
+moratuwa--faculty-of-engineering--department-of-electronic-telecommunication-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Electronic & Telecommunication Engineering
+moratuwa--faculty-of-engineering--department-of-languages,moratuwa--faculty-of-engineering,moratuwa,Department of Languages
+moratuwa--faculty-of-engineering--department-of-materials-science-and-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Materials Science and Engineering
+moratuwa--faculty-of-engineering--department-of-mathematics,moratuwa--faculty-of-engineering,moratuwa,Department of Mathematics
+moratuwa--faculty-of-engineering--department-of-mechanical-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Mechanical Engineering
+moratuwa--faculty-of-engineering--department-of-textile-apparel-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Textile & Apparel Engineering
 moratuwa--faculty-of-engineering--department-of-transport-management-logistics-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Transport Management & Logistics Engineering
 moratuwa--faculty-of-engineering-university-of-moratuwa--department-of-electronic-and-telecommunication-engineering,moratuwa--faculty-of-engineering-university-of-moratuwa,moratuwa,Department of Electronic and Telecommunication Engineering
+moratuwa--faculty-of-information-technology--department-of-computational-mathematics,moratuwa--faculty-of-information-technology,moratuwa,Department of Computational Mathematics
+moratuwa--faculty-of-information-technology--department-of-information-technology,moratuwa--faculty-of-information-technology,moratuwa,Department of Information Technology
+moratuwa--faculty-of-information-technology--department-of-interdisciplinary-studies,moratuwa--faculty-of-information-technology,moratuwa,Department of Interdisciplinary Studies
 moratuwa--faculty-of-medicine--department-of-anatomy,moratuwa--faculty-of-medicine,moratuwa,Department of Anatomy
+moratuwa--faculty-of-medicine--department-of-biochemistry-and-clinical-chemistry,moratuwa--faculty-of-medicine,moratuwa,Department of Biochemistry and Clinical Chemistry
 moratuwa--faculty-of-medicine--department-of-medical-education,moratuwa--faculty-of-medicine,moratuwa,Department of Medical Education
 moratuwa--faculty-of-medicine--department-of-medicine-and-mental-health,moratuwa--faculty-of-medicine,moratuwa,Department of Medicine and Mental Health
 moratuwa--faculty-of-medicine--department-of-obstetrics-and-gynecology,moratuwa--faculty-of-medicine,moratuwa,Department of Obstetrics and Gynecology
 moratuwa--faculty-of-medicine--department-of-pathology-and-forensic-medicine,moratuwa--faculty-of-medicine,moratuwa,Department of Pathology and Forensic Medicine
+moratuwa--faculty-of-medicine--department-of-physiology,moratuwa--faculty-of-medicine,moratuwa,Department of Physiology
+moratuwa--faculty-of-medicine--department-of-public-health-and-family-medicine,moratuwa--faculty-of-medicine,moratuwa,Department of Public Health and Family Medicine
+moratuwa--faculty-of-medicine--department-of-surgery-and-anesthesia,moratuwa--faculty-of-medicine,moratuwa,Department of Surgery and Anesthesia
 nsbm--faculty-of-business--department-of-accounting-and-finance,nsbm--faculty-of-business,nsbm,Department of Accounting and Finance
 nsbm--faculty-of-business--department-of-economics-and-decision-sciences,nsbm--faculty-of-business,nsbm,Department of Economics and Decision Sciences
 nsbm--faculty-of-business--department-of-english-and-modern-languages,nsbm--faculty-of-business,nsbm,Department of English and Modern Languages
@@ -56,6 +112,45 @@ nsbm--faculty-of-science--department-of-health-sciences,nsbm--faculty-of-science
 nsbm--faculty-of-science--department-of-legal-studies,nsbm--faculty-of-science,nsbm,Department of Legal Studies
 nsbm--faculty-of-science--department-of-life-science,nsbm--faculty-of-science,nsbm,Department of Life Science
 nsbm--faculty-of-science--department-of-life-sciences,nsbm--faculty-of-science,nsbm,Department of Life Sciences
+peradeniya--faculty-of-agriculture--department-of-english-language-teaching,peradeniya--faculty-of-agriculture,peradeniya,Department of English Language Teaching
+peradeniya--faculty-of-allied-health-sciences--department-of-english-language-teaching,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of English Language Teaching
+peradeniya--faculty-of-arts--arabic-islamic-civilization,peradeniya--faculty-of-arts,peradeniya,Arabic & Islamic Civilization
+peradeniya--faculty-of-arts--archaeology,peradeniya--faculty-of-arts,peradeniya,Archaeology
+peradeniya--faculty-of-arts--classical-languages,peradeniya--faculty-of-arts,peradeniya,Classical Languages
+peradeniya--faculty-of-arts--department-of-english-language-teaching,peradeniya--faculty-of-arts,peradeniya,Department of English Language Teaching
+peradeniya--faculty-of-arts--department-of-law,peradeniya--faculty-of-arts,peradeniya,Department of Law
+peradeniya--faculty-of-arts--economics-statistics,peradeniya--faculty-of-arts,peradeniya,Economics & Statistics
+peradeniya--faculty-of-arts--education,peradeniya--faculty-of-arts,peradeniya,Education
+peradeniya--faculty-of-arts--english,peradeniya--faculty-of-arts,peradeniya,English
+peradeniya--faculty-of-arts--fine-arts,peradeniya--faculty-of-arts,peradeniya,Fine Arts
+peradeniya--faculty-of-arts--geography,peradeniya--faculty-of-arts,peradeniya,Geography
+peradeniya--faculty-of-arts--history,peradeniya--faculty-of-arts,peradeniya,History
+peradeniya--faculty-of-arts--pali-buddhist-studies,peradeniya--faculty-of-arts,peradeniya,Pali & Buddhist Studies
+peradeniya--faculty-of-arts--philosphy,peradeniya--faculty-of-arts,peradeniya,Philosphy
+peradeniya--faculty-of-arts--political-science,peradeniya--faculty-of-arts,peradeniya,Political Science
+peradeniya--faculty-of-arts--psychology,peradeniya--faculty-of-arts,peradeniya,Psychology
+peradeniya--faculty-of-arts--sinhala,peradeniya--faculty-of-arts,peradeniya,Sinhala
+peradeniya--faculty-of-arts--sociology,peradeniya--faculty-of-arts,peradeniya,Sociology
+peradeniya--faculty-of-arts--tamil,peradeniya--faculty-of-arts,peradeniya,Tamil
+peradeniya--faculty-of-engineering--department-of-chemical-and-process-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Chemical and Process Engineering
 peradeniya--faculty-of-engineering--department-of-computer-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Computer Engineering
 peradeniya--faculty-of-engineering--department-of-computer-engineering-university-of-peradeniya,peradeniya--faculty-of-engineering,peradeniya,Department of Computer Engineering - University of Peradeniya
-ruhuna--department-of-civil-and-environmental-engineering,,ruhuna,Department of Civil and Environmental Engineering
+peradeniya--faculty-of-engineering--department-of-english-language-teaching,peradeniya--faculty-of-engineering,peradeniya,Department of English Language Teaching
+peradeniya--faculty-of-medicine--department-of-english-language-teaching,peradeniya--faculty-of-medicine,peradeniya,Department of English Language Teaching
+peradeniya--faculty-of-science--department-of-english-language-teaching,peradeniya--faculty-of-science,peradeniya,Department of English Language Teaching
+peradeniya--faculty-of-science--department-of-zoology,peradeniya--faculty-of-science,peradeniya,Department of Zoology
+peradeniya--faculty-of-science--english-language-teaching-unit,peradeniya--faculty-of-science,peradeniya,English Language Teaching Unit
+ruhuna--faculty-of-engineering--department-of-civil-and-environmental-engineering,ruhuna--faculty-of-engineering,ruhuna,Department of Civil and Environmental Engineering
+ruhuna--faculty-of-engineering--department-of-electrical-and-information-engineering,ruhuna--faculty-of-engineering,ruhuna,Department of Electrical and Information Engineering
+ruhuna--faculty-of-engineering--department-of-interdisciplinary-studies,ruhuna--faculty-of-engineering,ruhuna,Department of Interdisciplinary Studies
+sliit--faculty-of-computing--department-of-computer-science,sliit--faculty-of-computing,sliit,Department of Computer Science
+sliit--faculty-of-computing--department-of-computer-systems-engineering,sliit--faculty-of-computing,sliit,Department of Computer Systems Engineering
+sliit--faculty-of-computing--department-of-information-technology,sliit--faculty-of-computing,sliit,Department of Information Technology
+sliit--faculty-of-engineering--department-of-civil-engineering,sliit--faculty-of-engineering,sliit,Department of Civil Engineering
+sliit--faculty-of-engineering--department-of-electrical-electronic-engineering,sliit--faculty-of-engineering,sliit,Department of Electrical & Electronic Engineering
+sliit--faculty-of-engineering--department-of-mechanical-engineering,sliit--faculty-of-engineering,sliit,Department of Mechanical Engineering
+sliit--faculty-of-humanities-sciences--department-of-applied-sciences,sliit--faculty-of-humanities-sciences,sliit,Department of Applied Sciences
+sliit--faculty-of-humanities-sciences--department-of-linguistics,sliit--faculty-of-humanities-sciences,sliit,Department of Linguistics
+sliit--faculty-of-humanities-sciences--department-of-mathematics-and-statistics,sliit--faculty-of-humanities-sciences,sliit,Department of Mathematics and Statistics
+sliit--school-of-architecture--department-of-architecture,sliit--school-of-architecture,sliit,Department of Architecture
+sliit--sliit-business-school--department-of-information-management,sliit--sliit-business-school,sliit,Department of Information Management

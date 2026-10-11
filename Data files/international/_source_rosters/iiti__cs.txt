@@ -1,0 +1,26 @@
+# source: https://cse.iiti.ac.in/people/faculty (IIT Indore Dept of CSE; 25 regular faculty; col4 = specialization, col6 = PhD as listed)
+Aniruddha Singh Kushwaha | Head of Department | https://cse.iiti.ac.in/people/faculty | Software Defined Networking, Network Programmability, Datacenter networks |  | 
+Abhishek Srivastava | Professor | https://cse.iiti.ac.in/people/faculty | Ubiquitous Computing, EdgeAI, Web of Things, Physical AI, Human-centric Computing |  | PhD, University of Alberta
+Aruna Tiwari | Professor | https://cse.iiti.ac.in/people/faculty | Machine Learning, Soft-computing, Big Data, Data Mining, Deep Learning |  | PhD, RGPV Bhopal
+Kapil Ahuja | Professor | https://cse.iiti.ac.in/people/faculty | Artificial Intelligence, Machine Learning, Soft Computing, Numerical Methods, Game Theory, and Optimization. |  | PhD, Virginia Tech
+Anirban Sengupta | Professor | https://cse.iiti.ac.in/people/faculty | CAD-VLSI, EDA, High Level Synthesis, IP core Security, Hardware Trojan, Fault Security, Digital Watermark in digital chip, Optimization of Hardware Accelerators, Design Automation. |  | PhD, Toronto Metropolitan University
+Neminath Hubballi | Professor | https://cse.iiti.ac.in/people/faculty | Computer Networks, Network Security, System Security, Fault Detection in Networks |  | PhD, IIT Guwahati
+Surya Prakash | Professor | https://cse.iiti.ac.in/people/faculty | Biometrics, Machine Learning, Deep Learning, Pattern Recognition, Computer Vision, Image Processing and Big Data |  | PhD, IIT Kanpur
+Somnath Dey | Professor | https://cse.iiti.ac.in/people/faculty | Human Computer Interaction, Image Processing, Computer Graphics, Biometric Security. |  | PhD, IIT Kharagpur
+Gourinath Banda | Professor | https://cse.iiti.ac.in/people/faculty | Embedded Systems (Cyber-physical systems, Internet-of-Things, Wireless Sensor Networks, etc.) and their Formal Verification (Model Checking, Abstract Interpretation, Program Transformation and Generation, Program Analysis),Semantics-based Emulation of Languages and Systems, Autonomous vehicles |  | PhD, Roskilde University
+Bodhisatwa Mazumdar | Associate Professor | https://cse.iiti.ac.in/people/faculty | Hardware Security, Side-channel Analysis, Cryptography, Digital VLSI Design. |  | PhD, IIT Kharagpur
+Puneet Gupta | Associate Professor | https://cse.iiti.ac.in/people/faculty | Computer Vision, Deep Learning, Image Processing |  | PhD, IIT Kanpur
+Ranveer Singh | Associate Professor | https://cse.iiti.ac.in/people/faculty | Algorithmic Graph Theory, Computational Complexity, Determinant vs. Permanent, Expanders and Ramanujan Graphs |  | PhD, IIT Jodhpur
+Chandresh Kumar Maurya | Associate Professor | https://cse.iiti.ac.in/people/faculty | Natural Langauge Processing, Information retrieval, Text Mining, Machine Learning, Data Mining, Deep Learning |  | PhD, IIT Roorkee
+Nagendra Kumar | Associate Professor | https://cse.iiti.ac.in/people/faculty | Artificial Intelligence, Natural Language Processing, Computer Vision, Social Network Analysis, Deep Learning, Data Mining |  | PhD, IIT Hyderabad
+Soumi Chattopadhyay | Associate Professor | https://cse.iiti.ac.in/people/faculty | Services Computing, Artificial Intelligence, Machine Learning, Logic and Automated Reasoning |  | PhD, ISI Kolkata
+Ayan Mondal | Assistant Professor | https://cse.iiti.ac.in/people/faculty | Internet of Things (IoT), Edge Intelligence, Edge-Cloud Continuum, Quantum Computing |  | PhD, IIT Kharagpur
+Sidharth Sharma | Assistant Professor | https://cse.iiti.ac.in/people/faculty | Network Softwarization and Management, Performance Modeling, Machine Learning for Networks, Network Algorithms |  | 
+Subhra Mazumdar | Assistant Professor | https://cse.iiti.ac.in/people/faculty | Applied Cryptography, Blockchain & Cryptocurrencies, Combinatorial Optimization |  | PhD, ISI Kolkata
+Sasank Mouli | Assistant Professor | https://cse.iiti.ac.in/people/faculty | Theoretical Computer Science, Proof complexity, Algebraic proof systems, Computational Complexity |  | PhD, University of California San Diego
+Lawqueen Kanesh | Assistant Professor | https://cse.iiti.ac.in/people/faculty | Parameterized/Approximation/Exact Algorithms, Graph Theory and Algorithms, Kernelization |  | PhD, Institute of Mathematical Sciences
+Debasish Pattanayak | Assistant Professor | https://cse.iiti.ac.in/people/faculty | Distributed Algorithms, Fault-tolerance, Swarm Robots, Randomized Algorithms, Graph Algorithms |  | PhD, IIT Guwahati
+Pramod Ganapathi | Assistant Professor | https://cse.iiti.ac.in/people/faculty |  |  | 
+Tanima Dutta | Assistant Professor | https://cse.iiti.ac.in/people/faculty |  |  | 
+Sushmita Ruj | Assistant Professor | https://cse.iiti.ac.in/people/faculty |  |  | 
+Monalisa Sarma | Assistant Professor | https://cse.iiti.ac.in/people/faculty |  |  | 

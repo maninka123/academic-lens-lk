@@ -1,0 +1,29 @@
+# source: https://web.cs.toronto.edu/people/faculty-directory (visiting excluded; ~112 eligible; systematic sample = every 4th entry in directory order)
+Ishtiaque Ahmed | Associate Professor | https://www.ishtiaque.net/
+Varinia Bernales | Assistant Professor | https://bernales.matter.toronto.edu/
+Michael Brudno | Professor | https://www.cs.toronto.edu/~brudno/public/
+Christina Christara | Professor | https://www.cs.toronto.edu/~ccc/
+Sven Dickinson | Professor | https://www.cs.toronto.edu/~sven/
+Murat Erdogdu | Associate Professor | https://www.cs.toronto.edu/~erdogdu/
+Yashar Ganjali | Professor | https://www.cs.toronto.edu/~yganjali/
+Eitan Grinspun | Professor | https://www.dgp.toronto.edu/~eitan/
+Vassos Hadzilacos | Professor | https://www.cs.toronto.edu/~vassos/
+Swastik Kopparty | Professor | https://www.math.toronto.edu/swastik/
+David Levin | Associate Professor | https://www.cs.toronto.edu/~diwlevin/
+Peter Love | Professor | https://www.physics.utoronto.ca/members/love-peter/
+Sheila McIlraith | Professor | https://www.cs.toronto.edu/~sheila/
+Aleksandar Nikolov | Associate Professor | https://www.cs.toronto.edu/~anikolov/
+Toniann Pitassi | Professor | https://www.cs.toronto.edu/~toni/
+Gururaj Saileshwar | Assistant Professor | https://gururaj-s.github.io/
+Nisarg Shah | Associate Professor | https://www.cs.toronto.edu/~nisarg/
+Karan Singh | Professor | https://www.dgp.toronto.edu/~karan/
+Lisa Strug | Professor | https://www.statistics.utoronto.ca/people/directories/all-faculty/lisa-strug
+Raquel Urtasun | Professor | https://www.cs.toronto.edu/~urtasun/
+Daniel Wigdor | Professor | https://www.dgp.toronto.edu/~dwigdor/
+Qizhen Zhang | Assistant Professor | https://qizhenzhang.me
+Jonathan Calver | Assistant Professor, Teaching Stream | http://www.cs.toronto.edu/~calver/
+Steve Engels | Professor, Teaching Stream | https://www.cs.toronto.edu/~sengels/
+Paul He | Assistant Professor, Teaching Stream | https://paulhe.com/
+François Pitt | Associate Professor, Teaching Stream | https://www.cs.toronto.edu/~fpitt/
+Sadia Sharmin | Assistant Professor, Teaching Stream | https://www.cs.toronto.edu/people/faculty-directory
+Kuei (Jack) Sun | Assistant Professor, Teaching Stream | https://www.cs.toronto.edu/~sunk/

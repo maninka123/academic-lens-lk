@@ -1,0 +1,21 @@
+{
+  "qsEdition": "QS World University Rankings 2027 (published 18 June 2026)",
+  "collectionDate": "2026-10-11",
+  "sriLankaQs": {
+    "colombo": "1001-1200",
+    "peradeniya": "1201-1400",
+    "jayewardenepura": "1401+",
+    "kelaniya": "not ranked",
+    "moratuwa": "1401+",
+    "jaffna": "not ranked",
+    "ruhuna": "not ranked",
+    "kdu": "not ranked",
+    "sliit": "not ranked",
+    "nsbm": "not ranked",
+    "cinec": "not ranked",
+    "horizon": "not ranked",
+    "kiu": "not ranked",
+    "icbt": "not ranked"
+  },
+  "metricSource": "OpenAlex (name + institution matched; ambiguous names left blank)"
+}

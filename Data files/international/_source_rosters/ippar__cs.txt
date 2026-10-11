@@ -1,0 +1,35 @@
+# source: https://www.polytechnique.edu/education/departements-denseignement-et-de-recherche/departement-dinformatique-et-de-recherche-de-lecole-polytechnique/membres-du-corps-enseignant (École polytechnique / IP Paris, Département d'informatique; resident teaching faculty only = 34 of 88; non-resident/part-time chargés excluded)
+Emmanuel Haucourt | Professeur | http://www.lix.polytechnique.fr/Labo/Emmanuel.Haucourt/
+Titouan Carette | Professeur assistant | https://lmf.cnrs.fr/Perso/TitouanCarette
+Gilles Schaeffer | Professeur chargé de cours | http://www.lix.polytechnique.fr/Labo/Gilles.Schaeffer/
+Sarah Berkemer | Professeure assistante | http://www.lix.polytechnique.fr/Labo/Sarah.BERKEMER
+Olivier Bournez | Professeur | http://www.lix.polytechnique.fr/Labo/Olivier.Bournez
+Marie-Paule Cani | Professeure de classe exceptionnelle | https://www.lix.polytechnique.fr/vista/vista-member/marie-paule_cani/
+Olivier Blazy | Professeur | http://www.lix.polytechnique.fr/Labo/Olivier.BLAZY
+Luca Castelli Aleardi | Professeur assistant | http://www.lix.polytechnique.fr/~amturing/
+Thomas Clausen | Professeur | https://www.thomasclausen.net/biographies/biography-long-en/
+Juan-Antonio Cordero-Fuertes | Professeur | https://www.enseignement.polytechnique.fr/profs/informatique/Juan-Antonio.Cordero-Fuertes/
+Yanlei Diao | Professeure | http://www.lix.polytechnique.fr/Labo/Yanlei.Diao/
+Benjamin Doerr | Professeur de classe exceptionnelle | http://www.lix.polytechnique.fr/Labo/Benjamin.Doerr/
+Jeremy Dubut | Professeur assistant | https://jeremydubut.com/
+Constantin Enea | Professeur | http://www.lix.polytechnique.fr/Labo/Constantin.ENEA/
+Eric Goubault | Professeur de classe exceptionnelle | http://www.lix.polytechnique.fr/Labo/Eric.Goubault
+Samuel Mimram | Professeur | https://www.lix.polytechnique.fr/Labo/Samuel.Mimram/
+Kevin Jiokeng | Professeur assistant | https://kjiokeng.github.io
+Vicky Kalogeiton | Professeure assistante | http://vicky.kalogeiton.info/
+Martin Krejca | Professeur assistant | https://www.lix.polytechnique.fr/Labo/Martin.KREJCA/
+Ambroise Lafont | Professeur assistant | https://amblafont.github.io/
+Johannes Lutzeyer | Professeur assistant | https://johanneslutzeyer.com/
+François Morain | Professeur de classe exceptionnelle | http://www.lix.polytechnique.fr/Labo/Francois.Morain/
+Sergio Mover | Professeur | http://www.sergiomover.eu/
+Maks Ovsjanikov | Professeur | http://www.lix.polytechnique.fr/~maks/
+Gleb Pogudin | Professeur | http://www.lix.polytechnique.fr/Labo/Gleb.POGUDIN/
+Sylvie Putot | Professeure | http://www.lix.polytechnique.fr/Labo/Sylvie.Putot
+Jesse Read | Professeur | http://jmread.github.io/
+Damien Rohmer | Professeur | https://imagecomputing.net/damien.rohmer/
+Sonia Vanier | Professeure | https://www.polytechnique.edu/education/departements-denseignement-et-de-recherche/departement-dinformatique-et-de-recherche-de-lecole-polytechnique/membres-du-corps-enseignant
+Michalis Vazirgiannis | Professeur de classe exceptionnelle | http://www.lix.polytechnique.fr/Labo/Michalis.Vazirgiannis/
+Benjamin Werner | Professeur de classe exceptionnelle | http://www.lix.polytechnique.fr/Labo/Benjamin.Werner/
+Sebastian Will | Professeur | http://www.lix.polytechnique.fr/Labo/Sebastian.WILL/
+Noam Zeilberger | Professeur | http://www.lix.polytechnique.fr/Labo/Noam.ZEILBERGER/
+Hang Zhou | Professeure | http://www.normalesup.org/~zhou/

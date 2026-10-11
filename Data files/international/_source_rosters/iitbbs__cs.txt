@@ -1,0 +1,15 @@
+# source: https://secs.iitbbs.ac.in/index.php/faculty-members/ (School of Electrical and Computer Sciences, CSE faculty = 14)
+Abhik Jana | Assistant Professor | https://secs.iitbbs.ac.in/index.php/abhik/
+Debi Prosad Dogra | Associate Professor; Head, Department of CSE | https://secs.iitbbs.ac.in/index.php/dpdogra/
+Debiprasanna Sahoo | Assistant Professor | https://secs.iitbbs.ac.in/index.php/dpsahoo/
+Devashree Tripathy | Assistant Professor | https://secs.iitbbs.ac.in/index.php/devashree-tripathy/
+Joy Chandra Mukherjee | Assistant Professor | https://secs.iitbbs.ac.in/index.php/joy/
+Manas Jyoti Kashyop | Assistant Professor | https://secs.iitbbs.ac.in/index.php/manaskashyop/
+Manoranjan Satpathy | Professor | https://secs.iitbbs.ac.in/index.php/manoranjan/
+Padmalochan Bera | Associate Professor | https://secs.iitbbs.ac.in/index.php/padmalochanbera/
+Pragati Shrivastava | Assistant Professor | https://secs.iitbbs.ac.in/index.php/pragati/
+Ram Prasad Padhy | Assistant Professor | https://secs.iitbbs.ac.in/index.php/ramprasad/
+Shreya Ghosh | Assistant Professor | https://secs.iitbbs.ac.in/index.php/shreya/
+Srinivas Pinisetty | Associate Professor | https://secs.iitbbs.ac.in/index.php/srinivaspinisetty/
+Sudipta Saha | Associate Professor | https://secs.iitbbs.ac.in/index.php/sudipta/
+Sumana Maiti | Assistant Professor | https://secs.iitbbs.ac.in/index.php/sumana/

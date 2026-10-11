@@ -1,0 +1,59 @@
+# source: https://www.cs.stanford.edu/people/faculty (pages 0-1; listing continues after 'Schramm'; courtesy/adjunct/visiting/emeritus excluded)
+Sara Achour | Assistant Professor of Computer Science and of Electrical Engineering | https://www.cs.stanford.edu/people/sara-achour
+Maneesh Agrawala | Forest Baskett Professor | https://www.cs.stanford.edu/people/maneesh-agrawala
+Alex Aiken | Alcatel-Lucent Professor of Communications and Networking | https://www.cs.stanford.edu/people/alex-aiken
+Nima Anari | Associate Professor of Computer Science | https://www.cs.stanford.edu/people/nima-anari
+Clark Barrett | Corbel Professor | https://www.cs.stanford.edu/people/clark-barrett
+Gill Bejerano | Professor of Developmental Biology, of Computer Science and of Pediatrics | https://www.cs.stanford.edu/people/gill-bejerano
+Michael Bernstein | Professor of Computer Science | https://www.cs.stanford.edu/people/michael-bernstein
+Jeannette Bohg | Associate Professor of Computer Science | https://www.cs.stanford.edu/people/jeannette-bohg
+Dan Boneh | Cryptography Professor and Professor of Electrical Engineering | https://www.cs.stanford.edu/people/dan-boneh
+Adam Bouland | Assistant Professor of Computer Science | https://www.cs.stanford.edu/people/adam-bouland
+Emma Brunskill | Associate Professor of Computer Science | https://www.cs.stanford.edu/people/emma-brunskill
+Moses Charikar | Donald E. Knuth Professor | https://www.cs.stanford.edu/people/moses-charikar
+Yejin Choi | Dieter Schwarz Foundation Professor of Computer Science | https://www.cs.stanford.edu/people/yejin-choi-0
+Emma Dauterman | Assistant Professor of Computer Science | https://www.cs.stanford.edu/people/emma-dauterman
+Ron Dror | Cheriton Family Professor | https://www.cs.stanford.edu/people/ron-dror
+Zakir Durumeric | Assistant Professor of Computer Science | https://www.cs.stanford.edu/people/zakir-durumeric
+Dawson Engler | Associate Professor of Computer Science and of Electrical Engineering | https://www.cs.stanford.edu/people/dawson-engler
+Stefano Ermon | Associate Professor of Computer Science | https://www.cs.stanford.edu/people/stefano-ermon
+Kayvon Fatahalian | Associate Professor of Computer Science | https://www.cs.stanford.edu/people/kayvon-fatahalian
+Ron Fedkiw | Canon Professor in the School of Engineering | https://www.cs.stanford.edu/people/ron-fedkiw
+Chelsea Finn | Assistant Professor of Computer Science and of Electrical Engineering | https://www.cs.stanford.edu/people/chelsea-finn
+Emily Fox | Professor of Statistics and of Computer Science | https://www.cs.stanford.edu/people/emily-fox
+Michael Genesereth | Associate Professor of Computer Science | https://www.cs.stanford.edu/people/michael-genesereth
+Noah Goodman | Professor of Psychology and of Computer Science | https://www.cs.stanford.edu/people/noah-goodman
+Christopher Gregg | Associate Professor (Teaching) of Computer Science | https://www.cs.stanford.edu/people/christopher-gregg
+Carlos Ernesto Guestrin | Fortinet Founders Professor | https://www.cs.stanford.edu/people/carlos-guestrin
+Leonidas Guibas | Paul Pigott Professor of Engineering | https://www.cs.stanford.edu/people/leonidas-guibas
+Tatsunori Hashimoto | Assistant Professor of Computer Science | https://www.cs.stanford.edu/people/tatsunori-hashimoto
+Mark Horowitz | Yahoo! Founders Professor in the School of Engineering, Professor of Computer Science | https://www.cs.stanford.edu/people/mark-horowitz
+Doug James | LeRa Professor | https://www.cs.stanford.edu/people/doug-james
+Dan Jurafsky | Reynolds Professor in Humanities, Professor of Linguistics, Professor of Computer Science | https://www.cs.stanford.edu/people/dan-jurafsky
+Oussama Khatib | Weichai Professor | https://www.cs.stanford.edu/people/oussama-khatib
+Fredrik Kjolstad | Assistant Professor of Computer Science | https://www.cs.stanford.edu/people/fredrik-kjoelstad
+Sanmi Koyejo | Associate Professor of Computer Science | https://www.cs.stanford.edu/people/sanmi-koyejo
+Christoforos Kozyrakis | Leonard Bosack and Sandy K. Lerner Professor of Engineering and Professor of Computer Science | https://www.cs.stanford.edu/people/christos-kozyrakis
+Anshul Kundaje | Associate Professor of Genetics and of Computer Science | https://www.cs.stanford.edu/people/anshul-kundaje
+Monica Lam | Professor of Computer Science | https://www.cs.stanford.edu/people/monica-lam
+James Landay | Anand Rajaraman and Venky Harinarayan Professor | https://www.cs.stanford.edu/people/james-landay
+Jure Leskovec | Alfred and Rebecca Lin Professor | https://www.cs.stanford.edu/people/jure-leskovec
+Philip Levis | Professor of Computer Science and of Electrical Engineering | https://www.cs.stanford.edu/people/philip-levis
+Fei-Fei Li | Sequoia Capital Professor | https://www.cs.stanford.edu/people/fei-fei-li
+Percy Liang | Thomas M. Siebel Professor of Machine Learning | https://www.cs.stanford.edu/people/percy-liang
+C. Karen Liu | Professor of Computer Science | https://www.cs.stanford.edu/people/karen-liu
+Tengyu Ma | Assistant Professor of Computer Science | https://www.cs.stanford.edu/people/tengyu-ma
+Christopher Manning | Professor | https://www.cs.stanford.edu/people/christopher-manning
+David Mazieres | Professor of Computer Science | https://www.cs.stanford.edu/people/david-mazieres
+Azalia Mirhoseini | Assistant Professor of Computer Science | https://www.cs.stanford.edu/people/azalia-mirhoseini
+John Mitchell | Mary and Gordon Crary Family Professor in the School of Engineering | https://www.cs.stanford.edu/people/john-mitchell
+Subhasish Mitra | William E. Ayer Professor of Electrical Engineering and Professor of Computer Science | https://www.cs.stanford.edu/people/subhasish-mitra
+Kunle Olukotun | Cadence Design Systems Professor | https://www.cs.stanford.edu/people/oyekunle-olukotun
+Christopher Piech | Associate Professor (Teaching) of Computer Science | https://www.cs.stanford.edu/people/chris-piech
+Balaji Prabhakar | VMware Founders Professor of Computer Science | https://www.cs.stanford.edu/people/balaji-prabhakar
+Christopher Re | Professor of Computer Science | https://www.cs.stanford.edu/people/chris-re
+Omer Reingold | Rajeev Motwani Professor of Computer Science | https://www.cs.stanford.edu/people/omer-reingold
+Mendel Rosenblum | Cheriton Family Professor and Professor of Electrical Engineering | https://www.cs.stanford.edu/people/mendel-rosenblum
+Aviad Rubinstein | Professor of Computer Science | https://www.cs.stanford.edu/people/aviad-rubinstein
+Dorsa Sadigh | Associate Professor of Computer Science | https://www.cs.stanford.edu/people/dorsa-sadigh
+Mehran Sahami | James and Ellenor Chesebrough Professor | https://www.cs.stanford.edu/people/mehran-sahami

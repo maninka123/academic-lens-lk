@@ -1,0 +1,15 @@
+# source: https://eecs.nbu.edu.cn/szdw/jsml.htm (Ningbo Univ. 计算机科学与技术系 teaching faculty = 42; systematic sample = every 3rd)
+Yihong Dong | 教授 | https://eecs.nbu.edu.cn/info/3341/16366.htm | 计算机科学与技术系 |  |  | 董一鸿
+Wei Jin | 教授 | https://eecs.nbu.edu.cn/info/3341/16396.htm | 计算机科学与技术系 |  |  | 金炜
+Jiangbo Qian | 教授 | https://eecs.nbu.edu.cn/info/3341/16436.htm | 计算机科学与技术系 |  |  | 钱江波
+Yefang Chen | 副教授 | https://eecs.nbu.edu.cn/info/3341/16476.htm | 计算机科学与技术系 |  |  | 陈叶芳
+Jun Niu | 副教授 | https://eecs.nbu.edu.cn/info/3341/16506.htm | 计算机科学与技术系 |  |  | 钮俊
+Xijiong Xie | 副教授 | https://eecs.nbu.edu.cn/info/3341/16546.htm | 计算机科学与技术系 |  |  | 谢锡炯
+Yirui Wang | 副教授 | https://eecs.nbu.edu.cn/info/3341/16586.htm | 计算机科学与技术系 |  |  | 王艺睿
+Li Dong | 副教授 | https://eecs.nbu.edu.cn/info/3341/16616.htm | 计算机科学与技术系 |  |  | 董理
+Jie Cheng | 讲师 | https://eecs.nbu.edu.cn/info/3341/16636.htm | 计算机科学与技术系 |  |  | 程劼
+Xing Jin | 讲师 | https://eecs.nbu.edu.cn/info/3341/16686.htm | 计算机科学与技术系 |  |  | 金兴
+Pinyan Tang | 讲师 | https://eecs.nbu.edu.cn/info/3341/16666.htm | 计算机科学与技术系 |  |  | 汤品妍
+Miaoqun Ye | 讲师 | https://eecs.nbu.edu.cn/info/3341/16736.htm | 计算机科学与技术系 |  |  | 叶苗群
+Bowen Xu | 讲师 | https://eecs.nbu.edu.cn/info/3341/16766.htm | 计算机科学与技术系 |  |  | 徐博文
+Wentao He | 讲师 | https://eecs.nbu.edu.cn/info/3341/17166.htm | 计算机科学与技术系 |  |  | 何文韬

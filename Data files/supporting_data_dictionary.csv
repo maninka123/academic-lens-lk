@@ -1,0 +1,18 @@
+﻿table,field,definition,missing_values
+web_source_checks.csv,university_id,Existing manifest institution ID.,Blank means not supplied or not applicable; never a numeric zero.
+web_source_checks.csv,source_url,Official primary source checked through the web tool.,Blank means not supplied or not applicable; never a numeric zero.
+web_source_checks.csv,checked_at,Date the indexed official content was inspected.,Blank means not supplied or not applicable; never a numeric zero.
+web_source_checks.csv,access_mechanism,Separately records indexed web retrieval; does not claim a local HTTP 200.,Blank means not supplied or not applicable; never a numeric zero.
+web_source_checks.csv,search_index_freshness,Freshness reported by the web tool; not the original page last-updated date.,Blank means not supplied or not applicable; never a numeric zero.
+web_source_checks.csv,content_check,Specific source content actually checked; not exhaustive staff coverage.,Blank means not supplied or not applicable; never a numeric zero.
+web_source_checks.csv,direct_retrieval_issue,Direct access failure retained independently of indexed content availability.,Blank means not supplied or not applicable; never a numeric zero.
+web_source_checks.csv,academic_ids,Linked authoritative IDs when the exact source URL is a core profile; other IDs are traceable in field evidence/checkpoints.,Blank means not supplied or not applicable; never a numeric zero.
+web_source_checks.csv,remaining_limitations,"Unresolved freshness, field or organizational evidence.",Blank means not supplied or not applicable; never a numeric zero.
+field_quality_review.csv,review_id,Stable linked review observation identifier.,Blank means not supplied or not applicable; never a numeric zero.
+field_quality_review.csv,academic_id,Preserved authoritative academic ID.,Blank means not supplied or not applicable; never a numeric zero.
+field_quality_review.csv,field_group,Fields affected by a source extraction/identity scope issue.,Blank means not supplied or not applicable; never a numeric zero.
+field_quality_review.csv,issue,Concrete detected source-provenance problem.,Blank means not supplied or not applicable; never a numeric zero.
+field_quality_review.csv,checked_at,Date the source scope was rechecked.,Blank means not supplied or not applicable; never a numeric zero.
+field_quality_review.csv,source_url,Own official staff profile providing stronger scoped evidence.,Blank means not supplied or not applicable; never a numeric zero.
+field_quality_review.csv,decision,"Resolved decisions mean correction is documented, not that every academic field is complete.",Blank means not supplied or not applicable; never a numeric zero.
+field_quality_review.csv,notes,Correction scope and missing-information limits; old/new values remain in change_log.csv.,Blank means not supplied or not applicable; never a numeric zero.

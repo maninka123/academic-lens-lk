@@ -1,9 +1,9 @@
-faculty_id,faculty_name,department_count,academic_records
+﻿faculty_id,faculty_name,department_count,academic_records
+unassigned-faculty,,2,5
 faculty-of-education,Faculty of Education,0,5
+faculty-of-it,Faculty of IT,0,0
 faculty-of-information-technology,Faculty of Information Technology,0,12
 faculty-of-law,Faculty of Law,0,2
-faculty-of,"Faculty of ",0,4
-faculty-of-nursing,Faculty of Nursing,0,1
 faculty-of-management,Faculty of Management,0,7
 faculty-of-science,Faculty of Science,0,8
 faculty-of-technology,Faculty of Technology,0,7

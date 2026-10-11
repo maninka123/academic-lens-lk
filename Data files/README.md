@@ -1,35 +1,19 @@
-# Editable academic data
+# Editable Sri Lanka Academic Atlas dataset
 
-Edit CSVs under `universities/`. Each academic lives in **one authoritative file**. Keep the original header and academic ID. Blank numbers mean unknown; an explicit zero means zero.
+Authoritative academic rows live only in universities/<university-id>/faculties/<faculty-slug>/academics.csv or its departments/<department-slug>/academics.csv leaves. Faculty-level rows have no published department; unknown parent faculties use unassigned-faculty, including a department below it when published. Each authoritative ID occurs once. Empty CSVs are placeholders, not no-staff assertions. Faculty/department spellings are published evidence, not inferred broad-field mappings.
 
-```text
-universities/
-  moratuwa/
-    faculties.csv                         # Convenience inventory
-    faculties/
-      faculty-of-engineering/
-        academics.csv                     # Faculty records without a named department
-        departments/
-          department-of-civil-engineering/
-            academics.csv                 # Records assigned to that department
-      unassigned-faculty/
-        academics.csv                     # Faculty not published
-```
+Current checked population: **1,388 academic records**, 228 additions from the 1,173-ID baseline, 13 documented duplicate aliases retained in review, 12 populated institutions and 14 institutions in scope. Saegis is excluded. This collection remains incomplete and has not achieved 10,000 distinct academics. Read [collection_report.md](collection_report.md) and [APPLICATION_HANDOFF.md](APPLICATION_HANDOFF.md) for actual coverage, limitations and remaining work.
 
-Every university uses this layout. CSV names and published faculty/department fields remain consistent; unknown groups use `unassigned-faculty`. KIU and ICBT have header-only placeholders. Saegis is excluded by the collection's revised scope.
+Preserve the exact 32-column academic header, UTF-8 CSV quoting and stable IDs. Numbers are unformatted and nonnegative; blanks mean unknown, not zero. Published qualifications/position titles remain source text. PhD Reading/candidate qualifications are ongoing and have no completion year. Source-reported experience is not extrapolated. SLIIT's accepted academic spelling differs from the unchanged manifest name; institution_aliases.csv maps both to the single sliit ID.
 
-To add a unit, create a lowercase, hyphenated folder and an `academics.csv` with the original header. The importer discovers all these CSVs recursively. Do not repeat people in university, faculty and department CSVs. Published unit names come from the CSV fields, not folder names. Faculty inventory files are informational, not academic sources.
+Supporting files:
 
-Supporting collection logs, coverage reports, metric snapshots and the data dictionary are at this directory's root. `_archive/original-collection-2026-10-11/` preserves the supplied flat bundle and is excluded from Git.
+- universities.csv, each faculties.csv, faculty_department_inventory.csv, coverage.csv and coverage_dimensions.csv reconcile the authoritative population and distinguish retrieval, employment, identity and field completeness. Inventory-only units may be provisional. inventory_excluded_rows.csv preserves rejected news/history/navigation labels. A visited page is not proof of complete staff coverage.
+- baseline_records.csv, change_log.csv, collection_checkpoints.csv, field_evidence.csv, field_quality_review.csv, web_source_checks.csv, supporting_data_dictionary.csv and profile_verification.csv preserve row identity, old/new corrections, source dates and affiliation moves. identity_duplicate_records.csv, identity_aliases.csv and academic_affiliations.csv preserve confirmed duplicates and overlapping affiliations. identity_review.csv, unit_review.csv and employment_review.csv retain unresolved cases.
+- research_metrics_snapshots.csv keeps the original platform snapshot header; research_metric_observations.csv stores additional live h-index/annual values. research_identity_evidence.csv distinguishes official links and observed conflicts. Legacy research_search_log.csv retains its header; research_search_attempts.csv adds academic IDs, exact submitted queries, source URLs and index-freshness limitations. research_unresolved.csv records remaining gaps.
+- publication_details.csv preserves one link per academic/publication, including legitimate coauthorship. publication_verification.csv holds conservative Crossref matches; publication_extraction_review.csv retains rejected empty template rows. publication_duplicate_records.csv preserves removed per-person duplicates; publication_identity_review.csv records unresolved DOI/date conflicts. publication_coverage.csv and q1_partial_counts.csv mark partial coverage. q1_methodology.md defines publication-year SJR/best-category policy; historical evidence is required before complete Q1 fields are populated.
+- source_pages.csv preserves legacy read observations; source_observations.csv records HTTP retrievals separately. access_issues.csv retains failures. data_dictionary.csv documents field semantics. field-mapping.json remains a manual, evidence-based mapping; unknown units stay Unmapped.
 
-After edits, run from the project root:
+Save CSV replacements atomically and checkpoint each unit. Do not create editable aggregate academic copies. Optional generated/read-only delivery archives are under _exports/. _archive/ is preserved unchanged and excluded from the active ZIP. The application session handles import and publication; no application commands were run in this collection session.
 
-```sh
-npm run data:import
-npm test
-npm run build
-```
-
-Generated website files are in `public/data/`; edit this directory's source CSVs instead. GitHub Actions imports them before each deployment. Duplicate IDs stop the import. Use a CSV-aware editor to preserve quoted commas and multiline fields.
-
-Baseline: **1,173 unique records**, 12 institutions with records, 14 in scope, 47 faculty groups including unassigned groups, and 98 populated academic CSVs. The website calculates field coverage directly; older reports may contain stale counts.
+International benchmark samples (QS 2027 elite, middle and lower tiers in seven countries) live separately in [international/](international/README.md). They are not part of the Sri Lankan population or its counts.

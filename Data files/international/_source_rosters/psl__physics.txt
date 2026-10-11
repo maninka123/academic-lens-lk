@@ -1,0 +1,33 @@
+# source: https://www.phys.ens.psl.eu/fr/annuaire?f[0]=fonction:15 (Département de physique de l'ENS-PSL, filter 'Enseignant·e chercheur·euse'; PSL-affiliated only)
+Alexandros Alexakis | Enseignant·chercheur (Hydrodynamique, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/132/alexandros-alexakis
+Jean-Francois Allemand | Enseignant·chercheur (Biophysique, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/13/jean-francois-allemand
+Emmanuel Baudin | Enseignant·chercheur (ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/59/emmanuel-baudin
+Giulio Biroli | Enseignant·chercheur (Systèmes complexes, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/200/giulio-biroli
+Lydéric Bocquet | Enseignant·chercheur (ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/64/lyderic-bocquet
+Baptiste Coquinot | Enseignant·chercheur (ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/52/baptiste-coquinot
+Baptiste Correge | Enseignant·chercheur (Hors équilibre, Expérimental, Hydrodynamique, Physique expérimentale, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/202/baptiste-correge
+Luca De'Medici | Enseignant·chercheur (Matière condensée, ESPCI-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/155/luca-demedici
+Cédric Deffayet | Enseignant·chercheur (Physique théorique, ENS-PSL, CNRS, Université PSL) | https://www.phys.ens.psl.eu/fr/annuaire/48/cedric-deffayet
+Emmanuel Dormy | Enseignant·chercheur (Mathématiques, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/138/emmanuel-dormy
+Stephan Fauve | Enseignant·chercheur (Physique Macroscopique, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/32/stephan-fauve
+Marylou Gabrie | Enseignant·e chercheur·euse (Physique statistique, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/299/marylou-gabrie
+Vincent Hakim | Enseignant·chercheur (ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/137/vincent-hakim
+Gabriel Hetet | Enseignant·chercheur (ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/153/gabriel-hetet
+Jesper Jacobsen | Enseignant·chercheur (Physique mathématique, Physique théorique, ENS-PSL, Sorbonne Université) | https://www.phys.ens.psl.eu/fr/annuaire/72/jesper-jacobsen
+Raphaël Jeanneret | Enseignant·chercheur (ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/46/raphael-jeanneret
+Amir-Kian Kashani-Poor | Enseignant·chercheur (Physique théorique, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/62/amir-kian-kashani-poor
+Guillaume Legendre | Enseignant·chercheur (Mathématiques, Université de Paris Dauphine-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/55/guillaume-legendre
+Marc Lelarge | Enseignant·chercheur (Data sciences, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/172/marc-lelarge
+Nat Levine | Enseignant·chercheur (ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/171/nat-levine
+François Levrier | Enseignant·chercheur (Astrophysique, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/78/francois-levrier
+Philippe Marcq | Enseignant·e chercheur·euse (Matière Molle et Biophysique, Sorbonne Université, ESPCI-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/368/philippe-marcq
+Thierry Mora | Enseignant·chercheur (ENS-PSL, CNRS) | https://www.phys.ens.psl.eu/fr/annuaire/56/thierry-mora
+Sylvain Nascimbene | Enseignant·chercheur (Physique quantique, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/81/sylvain-nascimbene
+Kalliopi Petraki | Enseignante·chercheuse (Physique théorique, Physique des hautes énergies, ENS-PSL, Sorbonne Université) | https://www.phys.ens.psl.eu/fr/annuaire/304/kalliopi-petraki
+François Petrelis | Enseignant·chercheur (Physique expérimentale, Physique Macroscopique, ENS-PSL, CNRS) | https://www.phys.ens.psl.eu/fr/annuaire/79/francois-petrelis
+Jakob Reichel | Enseignant·chercheur (Physique quantique, ENS-PSL, Sorbonne Université, CNRS) | https://www.phys.ens.psl.eu/fr/annuaire/41/jakob-reichel
+Carlo Sirtori | Enseignant·chercheur (Physique quantique, ENS-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/97/carlo-sirtori
+Angela Vasanelli | Enseignante·chercheuse (Université de Paris Dauphine-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/99/angela-vasanelli
+Massimo Vergassola | Enseignant·chercheur (Biophysique, ENS-PSL, CNRS) | https://www.phys.ens.psl.eu/fr/annuaire/45/massimo-vergassola
+Christophe Voisin | Enseignant·chercheur (Matière condensée, ENS-PSL, Université de Paris Cité) | https://www.phys.ens.psl.eu/fr/annuaire/96/christophe-voisin
+Zorana Zeravcic | Enseignante·chercheuse (ESPCI-PSL) | https://www.phys.ens.psl.eu/fr/annuaire/394/zorana-zeravcic

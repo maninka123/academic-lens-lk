@@ -1,3 +1,4 @@
-faculty_id,faculty_name,department_count,academic_records
+﻿faculty_id,faculty_name,department_count,academic_records
+unassigned-faculty,,3,0
 faculty-of-computing,Faculty of Computing,0,13
-faculty-of-management-studies-and-commerce,"Faculty of Management Studies and Commerce,",0,1
+faculty-of-management-studies-and-commerce,Faculty of Management Studies and Commerce,0,1

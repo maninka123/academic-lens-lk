@@ -1,0 +1,27 @@
+# source: https://www.stonybrook.edu/physics/people/faculty.html (TOTAL=78; systematic sample = every 3rd entry in page order)
+Barry Barish | President's Distinguished Endowed Chair | https://www.stonybrook.edu/physics/about/awards-and-prizes/profiles/barishaward.html
+Axel Drees | Distinguished Professor | https://www.stonybrook.edu/physics/people/_profiles/dreesa.html
+Vladimir Korepin | Distinguished Professor | https://www.stonybrook.edu/physics/people/_profiles/korepinv.html
+Laszlo Mihaly | Distinguished Service Professor | https://www.stonybrook.edu/physics/people/_profiles/mihalyl.html
+Edward Shuryak | Distinguished Professor | https://www.stonybrook.edu/physics/people/_profiles/shuryake.html
+Thomas Weinacht | Distinguished Teaching Professor | https://www.stonybrook.edu/physics/people/_profiles/weinachtt.html
+Thomas Allison | Professor | https://www.stonybrook.edu/physics/people/_profiles/allisont.html
+Dmitri Averin | Professor | https://www.stonybrook.edu/physics/people/_profiles/averind.html
+Rouven Essig | Professor | https://www.stonybrook.edu/physics/people/_profiles/essigr.html
+Paul Goldbart | Professor | https://www.stonybrook.edu/physics/people/_profiles/goldbartp.html
+JoAnne Hewett | Professor | https://www.stonybrook.edu/physics/people/_profiles/hewettj.html
+Joanna Kiryluk | Professor | https://www.stonybrook.edu/physics/people/_profiles/kirylukj.html
+Kenneth Lanzetta | Professor | https://www.stonybrook.edu/physics/people/_profiles/lanzettak.html
+Mengkun Liu | Professor | https://www.stonybrook.edu/physics/people/_profiles/lium.html
+James Misewich | Professor | https://www.stonybrook.edu/physics/people/_profiles/misewichj.html
+Giacinto Piacquadio | Professor | https://www.stonybrook.edu/physics/people/_profiles/piacquadiog.html
+Neelima Sehgal | Professor | https://www.stonybrook.edu/physics/people/_profiles/sehgaln.html
+Tzu-Chieh Wei | Professor | https://www.stonybrook.edu/physics/people/_profiles/weit.html
+Jan Bernauer | Associate Professor | https://www.stonybrook.edu/physics/people/_profiles/bernauerj.html
+Will Farr | Associate Professor | https://www.stonybrook.edu/physics/people/_profiles/farrw.html
+Sergey Syritsyn | Associate Professor | https://www.stonybrook.edu/physics/people/_profiles/syritsyns.html
+Hannah Arnold | Assistant Professor | https://www.stonybrook.edu/physics/people/_profiles/arnoldh.html
+Valerio Dao | Assistant Professor | https://www.stonybrook.edu/physics/people/_profiles/daov.html
+Aishwarya Kumar | Assistant Professor | https://www.stonybrook.edu/physics/people/_profiles/kumara.html
+Ciro Riccio | Assistant Professor | https://www.stonybrook.edu/physics/people/_profiles/riccioc.html
+Ross Corliss | Lecturer | https://www.stonybrook.edu/physics/people/_profiles/corlissr.html

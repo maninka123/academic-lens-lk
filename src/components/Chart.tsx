@@ -27,6 +27,7 @@ import { Download, Maximize2, Minimize2 } from "lucide-react";
 import { useAtlas } from "../store";
 import { Button } from "./ui/button";
 import { Dialog } from "./ui/dialog";
+import { formatPlot } from "../analytics/plot-format";
 echarts.use([
   BarChart,
   ScatterChart,
@@ -96,7 +97,7 @@ function ChartCanvas({
           fontSize: 15,
         },
         aria: { enabled: true, description: label },
-        ...option,
+        ...formatPlot(option),
       },
       true,
     );

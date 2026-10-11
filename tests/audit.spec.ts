@@ -122,6 +122,7 @@ test("chart switching, empty filters, fullscreen and keyboard escape", async ({
       .getByLabel("Aggregation")
       .getByRole("option", { name: "Combined career total" }),
   ).toHaveCount(0);
+  await page.getByText("Refine compared profiles", { exact: true }).click();
   await page
     .getByLabel("Search profiles", { exact: true })
     .fill("No Such Person xyz");
@@ -145,7 +146,7 @@ test("the data source is fixed, including stale browser preferences and old demo
     page.getByRole("combobox", { name: "Dataset", exact: true }),
   ).toHaveCount(0);
   await expect(
-    page.getByText("1,173 matching profiles", { exact: false }),
+    page.getByText("1,393 matching profiles", { exact: false }),
   ).toBeVisible();
   const view = JSON.stringify({
     v: 1,
@@ -175,7 +176,7 @@ test("real-data screenshots for the published README", async ({ page }) => {
   await page.goto("./#/academics/SL-ec237eee4737");
   await expect(
     page.getByRole("heading", {
-      name: "Prof. Janaka Wijayanayake",
+      name: "Dr Janaka Wijayanayake*",
       exact: true,
     }),
   ).toBeVisible();

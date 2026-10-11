@@ -1,0 +1,15 @@
+# source: https://www.tu-chemnitz.de/physik/professuren.html.en (professorships; apl./honorary excluded)
+Simon Kahmann | Junior Professor, Experimental Semiconductor Physics | https://www.tu-chemnitz.de/physik/EHLP/
+Christoph Tegenkamp | Univ.-Prof., Solid Surfaces Analysis | https://www.tu-chemnitz.de/physik/AFKO/
+Robert Magerle | Univ.-Prof., Chemical Physics | https://www.tu-chemnitz.de/physik/CHEMPHYS/
+Thomas Seyller | Univ.-Prof., Technical Physics | https://www.tu-chemnitz.de/physik/TEPH/
+Ulrich Theodor Schwarz | Univ.-Prof., Experimental Sensor Science | https://www.tu-chemnitz.de/physik/EXSE/
+Dietrich R. T. Zahn | Univ.-Prof., Semiconductor Physics | https://www.tu-chemnitz.de/physik/HLPH/
+Olav Hellwig | Univ.-Prof., Functional Magnetic Materials | https://www.tu-chemnitz.de/physik/MAGFUN/
+Carsten Deibel | Univ.-Prof., Optics and Photonics of Condensed Matter | https://www.tu-chemnitz.de/physik/OPKM/
+Wolfgang Einhäuser-Treyer | Univ.-Prof., Physics of Cognitive Processes | https://www.tu-chemnitz.de/physik/PHKP/
+Martin Weigel | Univ.-Prof., Computational & Statistical Physics | https://www.tu-chemnitz.de/physik/SNWP
+Alexandra Bendixen | Univ.-Prof., Structure and Function of Cognitive Systems | https://www.tu-chemnitz.de/physik/SFKS/
+Angela Thränhardt | Univ.-Prof., Theoretical Physics - Simulation of New Materials | https://www.tu-chemnitz.de/physik/TPSM/
+Martina Hentschel | Univ.-Prof., Theoretical Physics of Complex Dynamic Systems | https://www.tu-chemnitz.de/physik/TPKDS
+Sibylle Gemming | Univ.-Prof., Theoretical Physics of Quantum Mechanical Processes and Systems | https://www.tu-chemnitz.de/physik/TQPS

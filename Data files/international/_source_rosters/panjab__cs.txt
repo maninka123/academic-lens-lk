@@ -1,0 +1,11 @@
+# source: https://dcsa.puchd.ac.in/show-faculty.php (Department of Computer Science & Applications; TOTAL=10)
+Anuj Sharma | Associate Professor; Chairperson | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=2099&qstrempdesigcode=67
+Anu Gupta | Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=1843&qstrempdesigcode=8
+Indu Chhabra | Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=1844&qstrempdesigcode=8
+Sonal Chawla | Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=1845&qstrempdesigcode=8
+Anuj Kumar | Associate Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=2833&qstrempdesigcode=9
+Balwinder Kaur | Associate Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=2800&qstrempdesigcode=9
+Jasleen Kaur Bains | Associate Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=2808&qstrempdesigcode=9
+Rohini Sharma | Associate Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=2819&qstrempdesigcode=9
+Kavita Taneja | Assistant Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=3390&qstrempdesigcode=10
+Supreet Thapar | Assistant Professor | https://dcsa.puchd.ac.in/show-biodata.php?qstrempid=3391&qstrempdesigcode=10

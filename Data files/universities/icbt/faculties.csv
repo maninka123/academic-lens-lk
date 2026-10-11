@@ -1,2 +1,5 @@
-faculty_id,faculty_name,department_count,academic_records
-,,,
+﻿faculty_id,faculty_name,department_count,academic_records
+unassigned-faculty,,0,0
+faculty-of-business-management,Faculty of Business Management,0,0
+faculty-of-engineering-construction,Faculty of Engineering & Construction,0,0
+faculty-of-information-technology,Faculty of Information Technology,0,0

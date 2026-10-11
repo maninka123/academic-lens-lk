@@ -1,0 +1,808 @@
+{
+ "qs_edition": "QS World University Rankings 2027 (published 2026-06-18)",
+ "qs_sources": [
+  "https://www.qs.com/en-us/insights/qs-world-university-rankings",
+  "https://xuanxiao.org/en/rankings/qs/world-university-rankings/2027 (mirror of the QS 2027 table; topuniversities.com blocks automated access)",
+  "https://www.sjp.ac.lk/news/usj-became-joint-3rd-in-sri-lanka-and-1401-in-qs-world-university-rankings-2027/"
+ ],
+ "tiers": {
+  "elite": "Top 2 in the country by QS 2027 with an accessible official staff directory",
+  "middle": "Two universities ranked ~QS 2027 420-560",
+  "lower": "Two universities in QS 2027 bands ~801-1200 (University of Colombo is 1001-1200)"
+ },
+ "fields": {
+  "cs": "Computer Science",
+  "physics": "Physics"
+ },
+ "universities": [
+  {
+   "id": "mit",
+   "country": "United States",
+   "name": "Massachusetts Institute of Technology",
+   "short": "MIT",
+   "type": "Private",
+   "qs_rank_2027": "1",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "School of Engineering",
+     "Department of Electrical Engineering and Computer Science (CS faculty)"
+    ],
+    "physics": [
+     "School of Science",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "stanford",
+   "country": "United States",
+   "name": "Stanford University",
+   "short": "Stanford",
+   "type": "Private",
+   "qs_rank_2027": "=2",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "School of Engineering",
+     "Department of Computer Science"
+    ],
+    "physics": [
+     "School of Humanities and Sciences",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "iastate",
+   "country": "United States",
+   "name": "Iowa State University",
+   "short": "Iowa State",
+   "type": "Public",
+   "qs_rank_2027": "=540",
+   "tier": "middle",
+   "departments": {
+    "cs": [
+     "College of Liberal Arts and Sciences",
+     "Department of Computer Science"
+    ],
+    "physics": [
+     "College of Liberal Arts and Sciences",
+     "Department of Physics and Astronomy"
+    ]
+   }
+  },
+  {
+   "id": "kstate",
+   "country": "United States",
+   "name": "Kansas State University",
+   "short": "K-State",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "departments": {
+    "cs": [
+     "Carl R. Ice College of Engineering",
+     "Department of Computer Science"
+    ],
+    "physics": [
+     "College of Arts and Sciences",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "unsw",
+   "country": "Australia",
+   "name": "UNSW Sydney",
+   "short": "UNSW",
+   "type": "Public",
+   "qs_rank_2027": "19",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "Faculty of Engineering",
+     "School of Computer Science and Engineering"
+    ],
+    "physics": [
+     "Faculty of Science",
+     "School of Physics"
+    ]
+   }
+  },
+  {
+   "id": "anu",
+   "country": "Australia",
+   "name": "Australian National University",
+   "short": "ANU",
+   "type": "Public",
+   "qs_rank_2027": "29",
+   "tier": "elite",
+   "substitution": "University of Melbourne (QS 22) directories return HTTP 403 to automated access; next-ranked ANU used",
+   "departments": {
+    "cs": [
+     "College of Systems and Society",
+     "School of Computing"
+    ],
+    "physics": [
+     "College of Science",
+     "Research School of Physics"
+    ]
+   }
+  },
+  {
+   "id": "murdoch",
+   "country": "Australia",
+   "name": "Murdoch University",
+   "short": "Murdoch",
+   "type": "Public",
+   "qs_rank_2027": "422",
+   "tier": "middle",
+   "substitution": "University of Canberra (QS 477) staff profiles return HTTP 403; Murdoch (same band) used. Murdoch 'our people' pages list ranked senior academics only",
+   "departments": {
+    "cs": [
+     "College of Science, Technology, Engineering and Mathematics",
+     "School of Information Technology"
+    ],
+    "physics": [
+     "College of Science, Technology, Engineering and Mathematics",
+     "School of Mathematics, Statistics, Chemistry and Physics"
+    ]
+   }
+  },
+  {
+   "id": "unisc",
+   "country": "Australia",
+   "name": "University of the Sunshine Coast",
+   "short": "UniSC",
+   "type": "Public",
+   "qs_rank_2027": "851-900",
+   "tier": "lower",
+   "substitution": "Charles Sturt University (QS 951-1000) blocks automated access (HTTP 403); UniSC used. UniSC has no physics department: engineering academics used as nearest physical-science unit",
+   "departments": {
+    "cs": [
+     "School of Science, Technology and Engineering",
+     "Information and Communication Technology"
+    ],
+    "physics": [
+     "School of Science, Technology and Engineering",
+     "Engineering (physical sciences substitute)"
+    ]
+   }
+  },
+  {
+   "id": "pku",
+   "country": "China",
+   "name": "Peking University",
+   "short": "PKU",
+   "type": "Public",
+   "qs_rank_2027": "13",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "School of Computer Science",
+     "School of Computer Science"
+    ],
+    "physics": [
+     "School of Physics",
+     "School of Physics"
+    ]
+   }
+  },
+  {
+   "id": "tsinghua",
+   "country": "China",
+   "name": "Tsinghua University",
+   "short": "Tsinghua",
+   "type": "Public",
+   "qs_rank_2027": "14",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "Department of Computer Science and Technology",
+     "Department of Computer Science and Technology"
+    ],
+    "physics": [
+     "Department of Physics",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "jilin",
+   "country": "China",
+   "name": "Jilin University",
+   "short": "Jilin",
+   "type": "Public",
+   "qs_rank_2027": "=488",
+   "tier": "middle",
+   "departments": {
+    "cs": [
+     "College of Computer Science and Technology",
+     "College of Computer Science and Technology"
+    ],
+    "physics": [
+     "College of Physics",
+     "College of Physics"
+    ]
+   }
+  },
+  {
+   "id": "ningbo",
+   "country": "China",
+   "name": "Ningbo University",
+   "short": "Ningbo",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "departments": {
+    "cs": [
+     "Faculty of Electrical Engineering and Computer Science",
+     "Department of Computer Science and Technology"
+    ],
+    "physics": [
+     "School of Physical Science and Technology",
+     "School of Physical Science and Technology"
+    ]
+   }
+  },
+  {
+   "id": "iitd",
+   "country": "India",
+   "name": "Indian Institute of Technology Delhi",
+   "short": "IIT Delhi",
+   "type": "Public",
+   "qs_rank_2027": "118",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "Indian Institute of Technology Delhi",
+     "Department of Computer Science and Engineering"
+    ],
+    "physics": [
+     "Indian Institute of Technology Delhi",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "iitb",
+   "country": "India",
+   "name": "Indian Institute of Technology Bombay",
+   "short": "IIT Bombay",
+   "type": "Public",
+   "qs_rank_2027": "134",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "Indian Institute of Technology Bombay",
+     "Department of Computer Science and Engineering"
+    ],
+    "physics": [
+     "Indian Institute of Technology Bombay",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "iitbhu",
+   "country": "India",
+   "name": "Indian Institute of Technology (BHU) Varanasi",
+   "short": "IIT BHU",
+   "type": "Public",
+   "qs_rank_2027": "=510",
+   "tier": "middle",
+   "substitution": "Anna University (QS 470) department sites unreachable (DNS/TLS failures); IIT BHU (same band, public) used",
+   "departments": {
+    "cs": [
+     "Indian Institute of Technology (BHU) Varanasi",
+     "Department of Computer Science and Engineering"
+    ],
+    "physics": [
+     "Indian Institute of Technology (BHU) Varanasi",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "panjab",
+   "country": "India",
+   "name": "Panjab University",
+   "short": "Panjab",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "departments": {
+    "cs": [
+     "Faculty of Science",
+     "Department of Computer Science and Applications"
+    ],
+    "physics": [
+     "Faculty of Science",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "mcgill",
+   "country": "Canada",
+   "name": "McGill University",
+   "short": "McGill",
+   "type": "Public",
+   "qs_rank_2027": "30",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "Faculty of Science",
+     "School of Computer Science"
+    ],
+    "physics": [
+     "Faculty of Science",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "toronto",
+   "country": "Canada",
+   "name": "University of Toronto",
+   "short": "Toronto",
+   "type": "Public",
+   "qs_rank_2027": "32",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "Faculty of Arts and Science",
+     "Department of Computer Science"
+    ],
+    "physics": [
+     "Faculty of Arts and Science",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "concordia",
+   "country": "Canada",
+   "name": "Concordia University",
+   "short": "Concordia",
+   "type": "Public",
+   "qs_rank_2027": "=497",
+   "tier": "middle",
+   "departments": {
+    "cs": [
+     "Gina Cody School of Engineering and Computer Science",
+     "Department of Computer Science and Software Engineering"
+    ],
+    "physics": [
+     "Faculty of Arts and Science",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "regina",
+   "country": "Canada",
+   "name": "University of Regina",
+   "short": "Regina",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "departments": {
+    "cs": [
+     "Faculty of Science",
+     "Department of Computer Science"
+    ],
+    "physics": [
+     "Faculty of Science",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "psl",
+   "country": "France",
+   "name": "Université PSL",
+   "short": "PSL",
+   "type": "Public",
+   "qs_rank_2027": "34",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "École normale supérieure – PSL",
+     "Département d'informatique (DI ENS)"
+    ],
+    "physics": [
+     "École normale supérieure – PSL",
+     "Département de physique de l'ENS"
+    ]
+   }
+  },
+  {
+   "id": "ippar",
+   "country": "France",
+   "name": "Institut Polytechnique de Paris",
+   "short": "IP Paris",
+   "type": "Public",
+   "qs_rank_2027": "43",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "École polytechnique",
+     "Département d'informatique"
+    ],
+    "physics": [
+     "École polytechnique",
+     "Département de physique"
+    ]
+   }
+  },
+  {
+   "id": "bordeaux",
+   "country": "France",
+   "name": "Université de Bordeaux",
+   "short": "Bordeaux",
+   "type": "Public",
+   "qs_rank_2027": "=485",
+   "tier": "middle",
+   "substitution": "Université de Montpellier (QS 473) has no static staff list (LIRMM directory is JavaScript-only); Bordeaux (same band) used",
+   "departments": {
+    "cs": [
+     "Collège Sciences et Technologies",
+     "LaBRI (Laboratoire Bordelais de Recherche en Informatique)"
+    ],
+    "physics": [
+     "Collège Sciences et Technologies",
+     "LOMA (Laboratoire Ondes et Matière d'Aquitaine)"
+    ]
+   }
+  },
+  {
+   "id": "ubo",
+   "country": "France",
+   "name": "Université de Bretagne Occidentale",
+   "short": "UBO",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "departments": {
+    "cs": [
+     "UFR Sciences et Techniques",
+     "Lab-STICC computing teams"
+    ],
+    "physics": [
+     "UFR Sciences et Techniques",
+     "OPTIMAG (Optics and Magnetism Laboratory)"
+    ]
+   }
+  },
+  {
+   "id": "tum",
+   "country": "Germany",
+   "name": "Technical University of Munich",
+   "short": "TUM",
+   "type": "Public",
+   "qs_rank_2027": "25",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "School of Computation, Information and Technology",
+     "Department of Computer Science"
+    ],
+    "physics": [
+     "School of Natural Sciences",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "lmu",
+   "country": "Germany",
+   "name": "LMU Munich",
+   "short": "LMU",
+   "type": "Public",
+   "qs_rank_2027": "61",
+   "tier": "elite",
+   "departments": {
+    "cs": [
+     "Faculty of Mathematics, Informatics and Statistics",
+     "Institute of Informatics"
+    ],
+    "physics": [
+     "Faculty of Physics",
+     "Faculty of Physics"
+    ]
+   }
+  },
+  {
+   "id": "bayreuth",
+   "country": "Germany",
+   "name": "University of Bayreuth",
+   "short": "Bayreuth",
+   "type": "Public",
+   "qs_rank_2027": "472",
+   "tier": "middle",
+   "departments": {
+    "cs": [
+     "Faculty of Mathematics, Physics and Computer Science",
+     "Department of Computer Science"
+    ],
+    "physics": [
+     "Faculty of Mathematics, Physics and Computer Science",
+     "Institute of Physics"
+    ]
+   }
+  },
+  {
+   "id": "chemnitz",
+   "country": "Germany",
+   "name": "Chemnitz University of Technology",
+   "short": "TU Chemnitz",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "substitution": "Bielefeld University (QS 1001-1200) publishes no consolidated professor list (research-group pages only); TU Chemnitz (same band) used",
+   "departments": {
+    "cs": [
+     "Faculty of Computer Science",
+     "Faculty of Computer Science"
+    ],
+    "physics": [
+     "Faculty of Natural Sciences",
+     "Institute of Physics"
+    ]
+   }
+  },
+  {
+   "id": "stonybrook",
+   "country": "United States",
+   "name": "Stony Brook University",
+   "short": "Stony Brook",
+   "type": "Public",
+   "qs_rank_2027": "468",
+   "tier": "middle",
+   "departments": {
+    "cs": [
+     "College of Engineering and Applied Sciences",
+     "Department of Computer Science"
+    ],
+    "physics": [
+     "College of Arts and Sciences",
+     "Department of Physics and Astronomy"
+    ]
+   }
+  },
+  {
+   "id": "binghamton",
+   "country": "United States",
+   "name": "Binghamton University",
+   "short": "Binghamton",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "departments": {
+    "cs": [
+     "Thomas J. Watson College of Engineering and Applied Science",
+     "School of Computing"
+    ],
+    "physics": [
+     "Harpur College of Arts and Sciences",
+     "Department of Physics, Applied Physics and Astronomy"
+    ]
+   }
+  },
+  {
+   "id": "cdu",
+   "country": "Australia",
+   "name": "Charles Darwin University",
+   "short": "CDU",
+   "type": "Public",
+   "qs_rank_2027": "551",
+   "tier": "middle",
+   "substitution": "Second middle-tier slot: University of Canberra, JCU, CQU and ECU block automated access; CDU (QS 551) used. CDU has no physics department, so only IT is sampled",
+   "departments": {
+    "cs": [
+     "Faculty of Science and Technology",
+     "Information Technology"
+    ]
+   }
+  },
+  {
+   "id": "uestc",
+   "country": "China",
+   "name": "University of Electronic Science and Technology of China",
+   "short": "UESTC",
+   "type": "Public",
+   "qs_rank_2027": "=488",
+   "tier": "middle",
+   "departments": {
+    "cs": [
+     "School of Computer Science and Engineering",
+     "School of Computer Science and Engineering"
+    ],
+    "physics": [
+     "School of Physics",
+     "School of Physics"
+    ]
+   }
+  },
+  {
+   "id": "nwu",
+   "country": "China",
+   "name": "Northwest University",
+   "short": "Northwest Univ.",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "departments": {
+    "cs": [
+     "School of Information Science and Technology",
+     "School of Computer Science (Software)"
+    ],
+    "physics": [
+     "School of Physics",
+     "School of Physics"
+    ]
+   }
+  },
+  {
+   "id": "iiti",
+   "country": "India",
+   "name": "Indian Institute of Technology Indore",
+   "short": "IIT Indore",
+   "type": "Public",
+   "qs_rank_2027": "=546",
+   "tier": "middle",
+   "substitution": "IIT Indore physics site returns HTTP 403; only CSE sampled",
+   "departments": {
+    "cs": [
+     "Indian Institute of Technology Indore",
+     "Department of Computer Science and Engineering"
+    ]
+   }
+  },
+  {
+   "id": "iitbbs",
+   "country": "India",
+   "name": "Indian Institute of Technology Bhubaneswar",
+   "short": "IIT Bhubaneswar",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "substitution": "Aligarh Muslim University (same band) faculty pages are JavaScript-only; IIT Bhubaneswar used",
+   "departments": {
+    "cs": [
+     "School of Electrical and Computer Sciences",
+     "Computer Science and Engineering"
+    ],
+    "physics": [
+     "School of Basic Sciences",
+     "Physics"
+    ]
+   }
+  },
+  {
+   "id": "windsor",
+   "country": "Canada",
+   "name": "University of Windsor",
+   "short": "Windsor",
+   "type": "Public",
+   "qs_rank_2027": "537",
+   "tier": "middle",
+   "substitution": "University of Guelph (QS 546) people directory is JavaScript-only; Windsor (QS 537) used",
+   "departments": {
+    "cs": [
+     "Faculty of Science",
+     "School of Computer Science"
+    ],
+    "physics": [
+     "Faculty of Science",
+     "Department of Physics"
+    ]
+   }
+  },
+  {
+   "id": "sherbrooke",
+   "country": "Canada",
+   "name": "Université de Sherbrooke",
+   "short": "Sherbrooke",
+   "type": "Public",
+   "qs_rank_2027": "951-1000",
+   "tier": "lower",
+   "departments": {
+    "cs": [
+     "Faculté des sciences",
+     "Département d'informatique"
+    ],
+    "physics": [
+     "Faculté des sciences",
+     "Département de physique"
+    ]
+   }
+  },
+  {
+   "id": "strasbourg",
+   "country": "France",
+   "name": "Université de Strasbourg",
+   "short": "Strasbourg",
+   "type": "Public",
+   "qs_rank_2027": "456",
+   "tier": "middle",
+   "departments": {
+    "cs": [
+     "ICube laboratory",
+     "ICube computer-science teams"
+    ],
+    "physics": [
+     "Faculté de physique et ingénierie",
+     "Faculté de physique et ingénierie"
+    ]
+   }
+  },
+  {
+   "id": "cyu",
+   "country": "France",
+   "name": "CY Cergy Paris Université",
+   "short": "CY Cergy",
+   "type": "Public",
+   "qs_rank_2027": "901-950",
+   "tier": "lower",
+   "substitution": "Nantes Université (901-950) LS2N directory is AJAX-protected; CY Cergy (same band) used. LPTM physics lab publishes no member list; only computing (ETIS) sampled",
+   "departments": {
+    "cs": [
+     "ETIS laboratory",
+     "ETIS (Information Processing and Systems)"
+    ]
+   }
+  },
+  {
+   "id": "wuerzburg",
+   "country": "Germany",
+   "name": "University of Würzburg",
+   "short": "Würzburg",
+   "type": "Public",
+   "qs_rank_2027": "430",
+   "tier": "middle",
+   "substitution": "Leipzig University (QS 540) physics institutes publish no professor lists; Würzburg (QS 430) used",
+   "departments": {
+    "cs": [
+     "Faculty of Mathematics and Computer Science",
+     "Institute of Computer Science"
+    ],
+    "physics": [
+     "Faculty of Physics and Astronomy",
+     "Faculty of Physics and Astronomy"
+    ]
+   }
+  },
+  {
+   "id": "wuppertal",
+   "country": "Germany",
+   "name": "University of Wuppertal",
+   "short": "Wuppertal",
+   "type": "Public",
+   "qs_rank_2027": "1001-1200",
+   "tier": "lower",
+   "substitution": "University of Oldenburg (same band) publishes no consolidated professor list; Wuppertal used",
+   "departments": {
+    "cs": [
+     "School of Mathematics and Natural Sciences",
+     "Computer Science"
+    ],
+    "physics": [
+     "School of Mathematics and Natural Sciences",
+     "Physics"
+    ]
+   }
+  }
+ ],
+ "sri_lanka_qs_2027": {
+  "colombo": "1001-1200",
+  "peradeniya": "1201-1400",
+  "jayewardenepura": "1401+",
+  "moratuwa": "1401+"
+ },
+ "limitations": [
+  "Australia has 5 universities: every Australian university in the QS 801-1200 band other than UniSC (ACU, Charles Sturt) and Southern Cross (634) block automated access to staff directories."
+ ]
+}

@@ -1,0 +1,22 @@
+# source: https://www.ifi.lmu.de/institut/index.html (core units; apl./associated excluded; URL = research unit site)
+Dieter Kranzlmüller | Prof. Dr. (Kommunikationssysteme und Systemprogrammierung) | https://www.ifi.lmu.de/nm/de/
+Thomas Seidl | Prof. Dr. (Datenbanksysteme und Data Mining) | https://www.dbs.ifi.lmu.de/
+Marcus Paradies | Prof. Dr. (Datenbanksysteme und Data Mining) | https://www.dbs.ifi.lmu.de/
+Volker Tresp | Prof. Dr. (Datenbanksysteme und Data Mining) | https://www.dbs.ifi.lmu.de/
+Dirk Beyer | Prof. Dr. (Software and Systems Engineering) | https://www.sosy-lab.org/
+Marie-Christine Jakobs | Prof. Dr. (Software and Systems Engineering) | https://www.sosy-lab.org/
+Gidon Ernst | Prof. Dr. (Software and Systems Engineering) | https://www.sosy-lab.org/
+Majid Zamani | Prof. (Software and Systems Engineering) | https://www.sosy-lab.org/
+Martin Wirsing | Prof. Dr. (Software and Systems Engineering) | https://www.sosy-lab.org/
+Johannes Kinder | Prof. Dr. (Programmiersprachen und Künstliche Intelligenz) | https://www.plai.ifi.lmu.de/
+Sven Strickroth | Prof. Dr. (Technology Enhanced Learning) | https://www.tel.ifi.lmu.de/
+Jasmin Blanchette | Prof. Dr. (Theoretische Informatik und Theorembeweisen) | https://www.tcs.ifi.lmu.de/
+Claudia Linnhoff-Popien | Prof. Dr. (Mobile und Verteilte Systeme) | https://www.mobile.ifi.lmu.de/
+Ralf Zimmer | Prof. Dr. (Bioinformatik) | https://www.bio.ifi.lmu.de/
+Caroline Friedel | Prof. Dr. (Bioinformatik) | https://www.bio.ifi.lmu.de/
+Volker Heun | Prof. Dr. (Bioinformatik) | https://www.bio.ifi.lmu.de/
+Florian Alt | Prof. Dr. (Medieninformatik) | https://www.medien.ifi.lmu.de/
+Andreas Butz | Prof. Dr. (Mensch-Maschine-Interaktion) | https://www.mmi.ifi.lmu.de/
+Albrecht Schmidt | Prof. Dr. (Human-Centered Ubiquitous Media) | https://www.um.informatik.uni-muenchen.de
+Eyke Hüllermeier | Prof. Dr. (Künstliche Intelligenz und Maschinelles Lernen) | https://www.kiml.ifi.lmu.de/
+Björn Ommer | Prof. Dr. (Computer Vision and Learning) | https://ommer-lab.com/

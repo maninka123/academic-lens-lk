@@ -1,0 +1,23 @@
+# source: https://www.cs.mcgill.ca/people/faculty/ (44 eligible; systematic sample = every 2nd entry in directory order)
+Brigitte Pientka | Professor; Director of the School | https://www.cs.mcgill.ca/people/faculty/
+Oana Balmau | Professor | https://www.cs.mcgill.ca/people/faculty/
+Xiao-Wen Chang | Professor | https://www.cs.mcgill.ca/people/faculty/
+Luc Devroye | Professor | https://www.cs.mcgill.ca/people/faculty/
+Gregory Dudek | Professor | https://www.cs.mcgill.ca/people/faculty/
+Jin Guo | Professor | https://www.cs.mcgill.ca/people/faculty/
+Bettina Kemme | Professor | https://www.cs.mcgill.ca/people/faculty/
+Michael Langer | Professor | https://www.cs.mcgill.ca/people/faculty/
+Hsiu-Chin Lin | Professor | https://www.cs.mcgill.ca/people/faculty/
+Muthucumaru Maheswaran | Professor | https://www.cs.mcgill.ca/people/faculty/
+Borke Obada | Professor | https://www.cs.mcgill.ca/people/faculty/
+Joelle Pineau | Professor | https://www.cs.mcgill.ca/people/faculty/
+Reihaneh Rabbany | Professor | https://www.cs.mcgill.ca/people/faculty/
+Siva Reddy | Professor | https://www.cs.mcgill.ca/people/faculty/
+Robert Robere | Professor | https://www.cs.mcgill.ca/people/faculty/
+David Rolnick | Professor | https://www.cs.mcgill.ca/people/faculty/
+Kaleem Siddiqi | Professor | https://www.cs.mcgill.ca/people/faculty/
+Adrian Vetta | Professor | https://www.cs.mcgill.ca/people/faculty/
+Giulia Alberini | Faculty Lecturer | https://www.cs.mcgill.ca/people/faculty/
+Mathieu Bérubé-Vallières | Faculty Lecturer | https://www.cs.mcgill.ca/people/faculty/
+Pascale Gourdeau | Faculty Lecturer | https://www.cs.mcgill.ca/people/faculty/
+Faten M'hiri | Faculty Lecturer | https://www.cs.mcgill.ca/people/faculty/

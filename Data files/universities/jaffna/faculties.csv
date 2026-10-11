@@ -1,3 +1,10 @@
-faculty_id,faculty_name,department_count,academic_records
-unassigned-faculty,,3,119
-faculty-of-arts,"Faculty of Arts,",1,2
+﻿faculty_id,faculty_name,department_count,academic_records
+unassigned-faculty,,75,62
+faculty-of-allied-health-sciences,Faculty of Allied Health Sciences,3,12
+faculty-of-arts,Faculty of Arts,3,7
+faculty-of-engineering,Faculty of Engineering,5,5
+faculty-of-engineering-university-of-jaffna,"Faculty of Engineering, University of Jaffna",0,0
+faculty-of-graduate-studies,Faculty of Graduate Studies,0,0
+faculty-of-medicine,Faculty of Medicine,12,33
+faculty-of-science,Faculty of Science,1,1
+faculty-of-siddha-medicine,Faculty of Siddha Medicine,0,13

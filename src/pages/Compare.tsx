@@ -32,6 +32,8 @@ import { AcademicTable } from "../components/AcademicTable";
 import { Header, fmt, exportCsv, Empty } from "../components/common";
 import { Button } from "../components/ui/button";
 import { Dialog } from "../components/ui/dialog";
+import { loadBenchmarks, tierLabels } from "../data/international";
+import type { Academic } from "../types";
 const charts: Record<ChartType, string> = {
   bar: "Bar",
   grouped: "Grouped composition",
@@ -64,7 +66,7 @@ export function Compare() {
     const handler = () => {
       setMobile(query.matches);
       setLeft(!query.matches);
-      setRight(!query.matches);
+      setRight(!query.matches && useAtlas.getState().pinned.length > 0);
     };
     query.addEventListener("change", handler);
     return () => query.removeEventListener("change", handler);
@@ -73,11 +75,50 @@ export function Compare() {
       () => !window.matchMedia("(max-width:1100px)").matches,
     ),
     [right, setRight] = useState(
-      () => !window.matchMedia("(max-width:1100px)").matches,
+      () =>
+        pinned.length > 0 && !window.matchMedia("(max-width:1100px)").matches,
     ),
     [notice, setNotice] = useState(""),
     [groupName, setGroupName] = useState("");
-  const rows = filterAcademics(d.academics, filters),
+  const [bench, setBench] = useState<Academic[]>([]);
+  const benchOn =
+    Boolean(c.benchmarks) && (c.level === "type" || c.level === "university");
+  useEffect(() => {
+    if (!benchOn || bench.length) return;
+    loadBenchmarks()
+      .then((b) =>
+        setBench(
+          b.academics.map(
+            (a) =>
+              ({
+                ...a,
+                universityId: "intl-" + a.universityId,
+                university: `${a.universityShort} · ${a.country} (${a.tier})`,
+                type: `International · ${tierLabels[a.tier]}`,
+                facultyId: "",
+                departmentId: "",
+                qualifications: "",
+                phdYear: null,
+                phdStatus: "",
+                experience: null,
+                interests: "",
+                q1: null,
+                recentQ1: null,
+                scholarUrl: "",
+                snapshotDate: "",
+                status: "international_benchmark",
+                employmentStatus: "",
+                notes: "International benchmark (OpenAlex metrics)",
+              }) as unknown as Academic,
+          ),
+        ),
+      )
+      .catch(() => setNotice("International benchmarks could not be loaded."));
+  }, [benchOn, bench.length]);
+  const rows = [
+      ...filterAcademics(d.academics, filters),
+      ...(benchOn ? bench : []),
+    ],
     groups = compare(rows, c, custom),
     selected = pinned.flatMap((id) => {
       const a = d.academics.find((a) => a.id === id);
@@ -146,6 +187,24 @@ export function Compare() {
             </option>
           ))}
         </select>
+      </label>
+      <label className="check">
+        <input
+          type="checkbox"
+          checked={Boolean(c.benchmarks)}
+          onChange={(e) =>
+            configure({ benchmarks: e.target.checked, groups: [] })
+          }
+        />{" "}
+        <span>
+          Add international benchmarks
+          {c.benchmarks && !benchOn && (
+            <small>
+              {" "}
+              (available at the Public vs Non-state or Universities level)
+            </small>
+          )}
+        </span>
       </label>
       <Multi
         label="Comparison groups"
@@ -280,7 +339,10 @@ export function Compare() {
           Logarithmic scale (positive values)
         </label>
       )}
-      <Filters compact />
+      <details className="comparison-refinements">
+        <summary>Refine compared profiles</summary>
+        <Filters compact />
+      </details>
       <details className="custom-builder" open={c.level === "custom"}>
         <summary>Custom academic groups</summary>
         <p className="caption">
@@ -348,6 +410,58 @@ export function Compare() {
           <button onClick={() => setNotice("")}>Dismiss</button>
         </div>
       )}
+      <div
+        className="comparison-presets"
+        aria-label="Comparison starting points"
+      >
+        <span className="caption">Start with a question</span>
+        {(
+          [
+            [
+              "Compare institution sizes",
+              { metric: "count", aggregation: "total", chart: "bar" },
+            ],
+            [
+              "Compare typical citations",
+              { metric: "citations", aggregation: "median", chart: "bar" },
+            ],
+            [
+              "Explore individual academics",
+              {
+                metric: "citations",
+                aggregation: "median",
+                chart: "scatter",
+                xMetric: "hIndex",
+              },
+            ],
+            [
+              "Compare academic positions",
+              {
+                metric: "count",
+                aggregation: "total",
+                chart: "percentStacked",
+              },
+            ],
+          ] as const
+        ).map(([label, settings]) => (
+          <Button
+            key={label}
+            variant="outline"
+            onClick={() =>
+              configure({
+                level: "university",
+                groups: [],
+                log: false,
+                sort: "value",
+                labels: true,
+                ...settings,
+              })
+            }
+          >
+            {label}
+          </Button>
+        ))}
+      </div>
       <div className="studio-toolbar">
         <div className="inline">
           <Button variant="ghost" onClick={() => setLeft(!left)}>
@@ -434,7 +548,14 @@ export function Compare() {
           {has ? (
             <Chart
               option={chartOption}
-              height={450}
+              height={
+                c.chart === "heatmap"
+                  ? Math.max(480, Math.min(900, groups.length * 48 + 150))
+                  : 500
+              }
+              minWidth={
+                c.chart === "heatmap" ? 950 : c.chart === "bar" ? 520 : 680
+              }
               onClick={(p) => {
                 if (p.data?.academicId)
                   useAtlas.getState().pin(p.data.academicId);

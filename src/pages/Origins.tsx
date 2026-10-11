@@ -105,7 +105,7 @@ export function Origins() {
       >
         {ready ? (
           <Chart
-            height={470}
+            height={350}
             label="World map of PhD awarding countries"
             option={{
               tooltip: { renderMode: "richText" },
@@ -123,6 +123,14 @@ export function Origins() {
                   type: "map",
                   map: "world",
                   roam: true,
+                  left: 65,
+                  right: 10,
+                  top: 0,
+                  bottom: 25,
+                  boundingCoords: [
+                    [-180, 85],
+                    [180, -58],
+                  ],
                   selectedMode: "single",
                   itemStyle: {
                     areaColor: "#ecf1f5",
@@ -144,7 +152,7 @@ export function Origins() {
         ) : error ? (
           <Empty>{error}</Empty>
         ) : (
-          <div className="skeleton" style={{ height: 470 }} />
+          <div className="skeleton" style={{ height: 350 }} />
         )}
         <div className="country-pills">
           {groups.map((g) => (
@@ -159,7 +167,7 @@ export function Origins() {
           ))}
         </div>
       </Card>
-      <div className="two-columns">
+      <div className="two-columns origin-layout">
         <Card
           title={country || "All recorded origins"}
           subtitle={`${rows.length} profiles · ${new Set(rows.map((a) => a.universityId)).size} current institutions`}
@@ -172,25 +180,35 @@ export function Origins() {
                 <strong>{g.rows.length}</strong>
               </div>
             ))}
-            <h3>Academic positions</h3>
-            {groupRows(rows, "rank").map((g) => (
-              <div className="detail-line" key={g.id}>
-                <span>{g.label}</span>
-                <strong>{g.rows.length}</strong>
-              </div>
-            ))}
-            <h3>PhD awarding institutions</h3>
-            {[...new Set(rows.map((a) => a.phdUniversity).filter(Boolean))].map(
-              (u) => (
+            <details>
+              <summary>Academic positions</summary>
+              {groupRows(rows, "rank").map((g) => (
+                <div className="detail-line" key={g.id}>
+                  <span>{g.label}</span>
+                  <strong>{g.rows.length}</strong>
+                </div>
+              ))}
+            </details>
+            <details>
+              <summary>
+                PhD awarding institutions (
+                {new Set(rows.map((a) => a.phdUniversity).filter(Boolean)).size}
+                )
+              </summary>
+              {[
+                ...new Set(rows.map((a) => a.phdUniversity).filter(Boolean)),
+              ].map((u) => (
                 <p key={u}>{u}</p>
-              ),
-            )}
-            <h3>Research areas</h3>
-            <p>
-              {[...new Set(rows.map((a) => a.interests).filter(Boolean))].join(
-                "; ",
-              ) || "Not available"}
-            </p>
+              ))}
+            </details>
+            <details>
+              <summary>Research areas</summary>
+              <p>
+                {[
+                  ...new Set(rows.map((a) => a.interests).filter(Boolean)),
+                ].join("; ") || "Not available"}
+              </p>
+            </details>
           </div>
         </Card>
         <Card
@@ -213,11 +231,22 @@ export function Origins() {
             height={290}
             option={{
               tooltip: { renderMode: "richText" },
-              grid: { left: 80, right: 25, top: 25, bottom: 50 },
+              grid: {
+                left: 25,
+                right: 25,
+                top: 35,
+                bottom: 20,
+                containLabel: true,
+              },
               xAxis: {
                 type: "category",
                 data: groupRows(rows, "rank").map((g) => g.label),
-                axisLabel: { fontSize: 14, rotate: 15 },
+                axisLabel: {
+                  fontSize: 14,
+                  rotate: 25,
+                  width: 110,
+                  overflow: "break",
+                },
               },
               yAxis: { type: "value", name: "Citations" },
               series: [
@@ -255,32 +284,44 @@ export function Origins() {
         }
       >
         {rows.length ? (
-          <Chart
-            height={Math.max(440, nodes.size * 20)}
-            minWidth={800}
-            option={{
-              tooltip: { renderMode: "richText" },
-              series: [
-                {
-                  type: "sankey",
-                  left: 20,
-                  right: 200,
-                  top: 20,
-                  bottom: 20,
-                  nodeGap: 12,
-                  label: {
-                    fontSize: 14,
-                    formatter: (p: any) =>
-                      p.name.replace(/^(Country|Current|PhD): /, ""),
+          <div className="flow-chart">
+            <Chart
+              height={Math.max(
+                360,
+                Math.max(
+                  ...["Country: ", "Current: ", "PhD: "].map(
+                    (prefix) =>
+                      [...nodes].filter((n) => n.startsWith(prefix)).length,
+                  ),
+                ) *
+                  26 +
+                  40,
+              )}
+              minWidth={800}
+              option={{
+                tooltip: { renderMode: "richText" },
+                series: [
+                  {
+                    type: "sankey",
+                    left: 20,
+                    right: 200,
+                    top: 20,
+                    bottom: 20,
+                    nodeGap: 12,
+                    label: {
+                      fontSize: 14,
+                      formatter: (p: any) =>
+                        p.name.replace(/^(Country|Current|PhD): /, ""),
+                    },
+                    data: [...nodes].map((name) => ({ name })),
+                    links: [...links.values()],
+                    lineStyle: { color: "source", opacity: 0.25 },
+                    emphasis: { focus: "adjacency" },
                   },
-                  data: [...nodes].map((name) => ({ name })),
-                  links: [...links.values()],
-                  lineStyle: { color: "source", opacity: 0.25 },
-                  emphasis: { focus: "adjacency" },
-                },
-              ],
-            }}
-          />
+                ],
+              }}
+            />
+          </div>
         ) : (
           <Empty />
         )}

@@ -11,7 +11,7 @@ test("real collection, comparison controls, profiles, exports, and screenshots",
       name: "A clearer view of our academic landscape.",
     }),
   ).toBeVisible();
-  await expect(page.getByText("1,173", { exact: true }).first()).toBeVisible();
+  await expect(page.getByText("1,393", { exact: true }).first()).toBeVisible();
   await page.screenshot({ path: "docs/screenshots/overview.png" });
   await page.getByRole("link", { name: "Academics", exact: true }).click();
   await expect(
@@ -29,7 +29,7 @@ test("real collection, comparison controls, profiles, exports, and screenshots",
   await expect(page.locator(".pinned-card")).toHaveCount(1);
   await page
     .getByLabel("Measurement", { exact: true })
-    .selectOption("recentCitations");
+    .selectOption("q1");
   await expect(
     page.getByRole("heading", { name: "No available values" }),
   ).toBeVisible();
@@ -72,6 +72,7 @@ test("fixture comparisons, custom groups, share state and chart exports", async 
     await expect(page.locator(".studio-main tbody tr")).toHaveCount(15);
   }
   for (const i of [1, 2, 3]) {
+    if (i === 1) await page.getByRole("button", { name: "Show pinned academics" }).click();
     const name = "Demo Academic " + String(i).padStart(2, "0") + "002";
     await page.getByLabel("Add Academic").fill(name);
     await page.locator(".search-results button").first().click();
@@ -186,7 +187,7 @@ test("people search, hierarchy, qualification and position comparisons on deskto
     8,
   );
   await page.getByLabel("Compare with", { exact: true }).selectOption("both");
-  await page.getByLabel("Illustration style").selectOption("long");
+  await expect(page.getByLabel("Illustration style")).toHaveCount(0);
   await page.screenshot({
     path: "output/playwright/fixture-profile.png",
     fullPage: false,

@@ -1,0 +1,14 @@
+# source: https://www.uwindsor.ca/science/computerscience/1046/faculty (TOTAL=26; titles not shown on listing; systematic sample = every 2nd)
+Imran Ahmad | Faculty member | https://www.uwindsor.ca/science/computerscience/1064/dr-imran-ahmad
+Ahmad Biniaz | Faculty member | https://www.uwindsor.ca/science/computerscience/1151/dr-ahmad-biniaz
+Jessica Chen | Faculty member | https://www.uwindsor.ca/science/computerscience/1058/dr-jessica-chen
+Arunita Jaekel | Faculty member | https://www.uwindsor.ca/science/computerscience/1034/dr-arunita-jaekel
+Ziad Kobti | Faculty member | https://www.uwindsor.ca/science/computerscience/1060/dr-ziad
+Andreas Maniatis | Faculty member | https://www.uwindsor.ca/science/computerscience/375880/dr-andreas-maniatis
+Asish Mukhopadhyay | Faculty member | https://www.uwindsor.ca/science/computerscience/1053/dr-asish-mukhopadhyay
+Prashanth Cheluvasai Ranga | Faculty member | https://www.uwindsor.ca/science/computerscience/242400/dr-prashanth-cheluvasai-ranga
+Sherif Saad Ahmed | Faculty member | https://www.uwindsor.ca/science/computerscience/85202/dr-sherif-saad-ahmed
+Saeed Samet | Faculty member | https://www.uwindsor.ca/science/computerscience/1052/dr-saeed-samet
+Shaon Bhatta Shuvo | Faculty member | https://www.uwindsor.ca/science/computerscience/332611/dr-shaon-bhatta-shuvo
+Yung Tsin | Faculty member | https://www.uwindsor.ca/science/computerscience/1025/dr-yung-h-tsin
+Aznam Yacoub | Faculty member | https://www.uwindsor.ca/science/computerscience/242402/dr-aznam-yacoub

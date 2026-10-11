@@ -1,0 +1,25 @@
+# source: https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ (Faculté de physique et ingénierie, enseignants-chercheurs PR/MCF = 93; émérites/PRAG excluded; systematic sample = every 4th; col4 = laboratory)
+Said Ahzi | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab ICube
+Nicolas Arbor | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Jérôme Baudot | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Stéphane Berciaud | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPCMS
+Quentin Bonnefoy | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Éric Chabert | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Éric Christoffel | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab LISEC
+Jean-François Dayen | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPCMS
+Olivier Dorvaux | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Jean Farago | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab ICS
+Mathieu Gallart | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPCMS
+David Halley | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPCMS
+Boris Hippolyte | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Armin Ilg | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Dominique Knittel | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab INSA
+Édouard Laroche | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab 
+Mounir Maaloum | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab ICS
+Hervé Molique | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Asher Perez | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Mircea Rastei | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPCMS
+Anne Rubin | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab ICS
+François Stock | Maître de conférences | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab 
+Andrea Tsinganis | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab IPHC
+Shannon Whitlock | Professeur | https://physique-ingenierie.unistra.fr/faculte/enseignants/enseignants-chercheurs/ | lab ISIS

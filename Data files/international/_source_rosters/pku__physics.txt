@@ -1,0 +1,35 @@
+# source: https://www.phy.pku.edu.cn/jsfcjy.jsp?urltype=tree.TreeTempUrl&wbtreeid=1658 (PKU School of Physics 教研人员 via its public queryteacher.jsp feed; 233 staff; systematic sample = every 6th; col4 = unit; pinyin names, Chinese in col 7)
+Liupan An | 助理教授 | https://faculty.pku.edu.cn/anliupan/zh_CN/index.htm | 技术物理系 |  |  | 安刘攀
+Chuan Cheng | 助理研究员 | https://faculty.pku.edu.cn/chengchuan/zh_CN/index.htm | 人工微结构和介观物理全国重点实验室 |  |  | 程川
+Yuan Chen | 助理教授 | https://faculty.pku.edu.cn/chenyuan/zh_CN/index.htm | 量子材料科学中心 |  |  | 陈昱安
+Feng Ding | 助理教授 | https://faculty.pku.edu.cn/dingfeng/zh_CN/index.htm | 大气与海洋科学系 |  |  | 丁峰
+Xu Feng | 教授 | https://faculty.pku.edu.cn/fengxu/zh_CN/index.htm | 理论物理研究所 |  |  | 冯旭
+Yuanning Gao | 教授 | https://faculty.pku.edu.cn/gaoyuanning/zh_CN/index.htm | 技术物理系 |  |  | 高原宁
+Hao Hong | 副研究员 | https://faculty.pku.edu.cn/honghao/zh_CN/index.htm | 凝聚态物理与材料物理研究所 |  |  | 洪浩
+Yaowen Hu | 助理教授 | https://faculty.pku.edu.cn/huyaowen/zh_CN/index.htm | 现代光学研究所 |  |  | 胡耀文
+Shuang Jia | 教授 | https://faculty.pku.edu.cn/jiashuang/zh_CN/index.htm | 量子材料科学中心 |  |  | 贾爽
+KUWATA MIKINORI | 长聘副教授 | https://faculty.pku.edu.cn/KUWATAMIKINORI/zh_CN/index.htm | 大气与海洋科学系 |  |  | KUWATA MIKINORI
+Jia Li | 长聘副教授 | https://faculty.pku.edu.cn/lijia/zh_CN/index.htm | 量子材料科学中心 |  |  | 栗佳
+Xi Lin | 教授 | https://faculty.pku.edu.cn/linxi/en/index.htm | 量子材料科学中心 |  |  | 林熙
+Fang Liu | 副研究员 | https://faculty.pku.edu.cn/liufang/zh_CN/index.htm | 凝聚态物理与材料物理研究所 |  |  | 刘放
+Shuxin Liu | 副教授 | https://faculty.pku.edu.cn/liushuxin/zh_CN/index.htm | 普通物理教学中心 |  |  | 刘树新
+Yuxin Liu | 教授 | https://faculty.pku.edu.cn/liuyuxin/zh_CN/index.htm | 理论物理研究所 |  |  | 刘玉鑫
+Xinzheng Li | 教授 | https://faculty.pku.edu.cn/lixinzheng/zh_CN/index.htm | 凝聚态物理与材料物理研究所 |  |  | 李新征
+Chunxiong Luo | 教授 | https://faculty.pku.edu.cn/luochunxiong/zh_CN/index.htm | 凝聚态物理与材料物理研究所 |  |  | 罗春雄
+Youdong Mao | 教授 | https://faculty.pku.edu.cn/maoyoudong/zh_CN/index.htm | 凝聚态物理与材料物理研究所 |  |  | 毛有东
+Ce Meng | 副教授 | https://faculty.pku.edu.cn/mengce/zh_CN/index.htm | 普通物理教学中心 |  |  | 孟策
+Liangyou Peng | 教授 | https://faculty.pku.edu.cn/pengliangyou/zh_CN/index.htm | 现代光学研究所 |  |  | 彭良友
+Bin Qiao | 教授 | https://faculty.pku.edu.cn/qiaobin/zh_CN/index.htm | 重离子物理研究所 |  |  | 乔宾
+Shanming Ruan | 助理教授 | https://faculty.pku.edu.cn/ruanshanming/zh_CN/index.htm | 理论物理研究所 |  |  | 阮善明
+SHINDO RYUICHI | 长聘副教授 | https://faculty.pku.edu.cn/RyuichiShindo/zh_CN/index.htm | 量子材料科学中心 |  |  | SHINDO RYUICHI
+Dong Sun | 教授 | https://faculty.pku.edu.cn/sundong/zh_CN/index.htm | 量子材料科学中心 |  |  | 孙栋
+Shina Tan | 教授 | https://faculty.pku.edu.cn/tanshina/zh_CN/index.htm | 量子材料科学中心 |  |  | 檀时钠
+Enge Wang | 教授 | https://faculty.pku.edu.cn/wangenge/zh_CN/index.htm | 量子材料科学中心 |  |  | 王恩哥
+Jie Wang | 助理教授 | https://faculty.pku.edu.cn/wangjie/zh_CN/index.htm | 量子材料科学中心 |  |  | 王捷
+Siguang Wang | 副教授 | https://faculty.pku.edu.cn/wangsiguang/zh_CN/index.htm | 技术物理系 |  |  | 王思广
+Biao Wu | 教授 | http://www.phy.pku.edu.cn/wubiao/ | 量子材料科学中心 |  |  | 吴飙
+Yunfeng Xiao | 教授 | http://researchgroups.pku.edu.cn/microcavity | 现代光学研究所 |  |  | 肖云峰
+Limei Xu | 教授 | https://faculty.pku.edu.cn/xulm/zh_CN/index.htm | 量子材料科学中心 |  |  | 徐莉梅
+Jing Yang | 副教授 | https://faculty.pku.edu.cn/yangjing/zh_CN/index.htm | 基础物理实验教学中心 |  |  | 杨景
+Xuelin Yang | 教授 | https://faculty.pku.edu.cn/yangxuelin/zh_CN/index.htm | 凝聚态物理与材料物理研究所 |  |  | 杨学林
+Yu Ye | 教授 | https://faculty.pku.edu.cn/yeyu/zh_CN/index.htm | 凝聚态物理与材料物理研究所 |  |  | 叶堉

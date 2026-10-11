@@ -1,0 +1,20 @@
+# source: same UniSC school staff page; UniSC has no physics department -> nearest physical-science unit = engineering academics block (substitute field 'Physical Sciences & Engineering')
+Geoffrey Will | Associate Professor | https://www.usc.edu.au/people/associate-professor-geoffrey-will
+Zahra Faraji Rad | Associate Professor | https://www.usc.edu.au/people/zahra-faraji-rad
+Adrian McCallum | Senior Lecturer | https://www.usc.edu.au/people/dr-adrian-mccallum
+David Alonso-Caneiro | Senior Lecturer | https://www.usc.edu.au/people/david-alonso-caneiro
+Dariusz Alterman | Senior Lecturer | https://www.usc.edu.au/people/dr-dariusz-alterman
+Lynette Cheah | Professor | https://www.usc.edu.au/people/professor-lynette-cheah
+Christophe Gerber | Associate Professor | https://www.usc.edu.au/people/dr-christophe-gerber
+Rezwanul Haque | Senior Lecturer | https://www.usc.edu.au/people/dr-rezwanul-haque
+Umer Izhar | Senior Lecturer | https://www.usc.edu.au/people/dr-umer-izhar
+Damon Kent | Associate Professor | https://www.usc.edu.au/people/associate-professor-damon-kent
+Naveen Kumar Elumalai | Senior Lecturer | https://www.usc.edu.au/people/dr-naveen-kumar-elumalai
+Li-minn Ang | Professor | https://www.usc.edu.au/people/professor-li-minn-ang-kenneth
+Umme Mumtahina | Lecturer | https://www.usc.edu.au/people/dr-umme-mumtahina
+Anne Ng | Senior Lecturer | https://www.usc.edu.au/people/dr-anne-ng
+Ayodele Olofinjana | Senior Lecturer | https://www.usc.edu.au/people/dr-ayodele-olofinjana
+Charith Rathnayaka | Senior Lecturer | https://www.usc.edu.au/people/dr-charith-rathnayaka
+Sajeeb Saha | Senior Lecturer | https://www.usc.edu.au/people/dr-sajeeb-saha
+Tongfei Tian | Lecturer | https://www.usc.edu.au/people/dr-tongfei-tian
+Phil Yeoh | Senior Lecturer | https://www.usc.edu.au/people/dr-phil-yeoh
