@@ -197,3 +197,45 @@ test("real-data screenshots for the published README", async ({ page }) => {
   await page.goto("./#/academics/SL-ec237eee4737");
   await page.screenshot({ path: "docs/screenshots/person-mobile.png" });
 });
+
+test("skip link retains the route and mobile navigation traps focus and closes with Escape", async ({
+  page,
+}) => {
+  await page.goto("./#/compare");
+  await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("link", { name: "Skip to main content" }),
+  ).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#\/compare$/);
+  await expect(page.locator("#main-content")).toBeFocused();
+  await expect(page.getByRole("main")).toHaveCount(1);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(
+    page.getByRole("link", { name: "Overview", exact: true }),
+  ).toHaveCount(0);
+  await page.getByRole("button", { name: "Toggle navigation" }).click();
+  await expect(
+    page.getByRole("button", { name: "Close navigation", exact: true }),
+  ).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(
+    page.getByRole("link", { name: "Project on GitHub" }),
+  ).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("button", { name: "Close navigation", exact: true }),
+  ).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(
+    page.getByRole("button", { name: "Toggle navigation" }),
+  ).toBeFocused();
+  await expect(
+    page.getByRole("link", { name: "Overview", exact: true }),
+  ).toHaveCount(0);
+  await page.getByRole("button", { name: "Toggle navigation" }).click();
+  await page.getByRole("button", { name: "Close navigation", exact: true }).click();
+  await expect(
+    page.getByRole("button", { name: "Toggle navigation" }),
+  ).toBeFocused();
+});

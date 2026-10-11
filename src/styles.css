@@ -1964,3 +1964,11 @@ footer {
     flex-wrap: wrap;
   }
 }
+@media (max-width: 760px) {
+  .sidebar {
+    visibility: hidden;
+  }
+  .sidebar.mobile-open {
+    visibility: visible;
+  }
+}

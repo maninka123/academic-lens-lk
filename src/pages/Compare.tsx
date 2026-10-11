@@ -369,7 +369,10 @@ export function Compare() {
         }
       >
         {left && !mobile && controls}
-        <main className="studio-main">
+        <section
+          className="studio-main"
+          aria-label="Comparison chart and statistics"
+        >
           <div className="chart-title">
             <div className="eyebrow">
               {levelLabels[c.level]} ·{" "}
@@ -539,7 +542,7 @@ export function Compare() {
               </tbody>
             </table>
           </div>
-        </main>
+        </section>
         {right && !mobile && <Pinned />}
       </div>
       {mobile && (

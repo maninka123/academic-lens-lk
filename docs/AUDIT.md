@@ -19,6 +19,7 @@ Corrections:
 - Shared and persisted configuration are validated; invalid shared links show a visible message. Deleted custom groups cannot remain selected. Oversized URL shares are rejected with a clear recovery action.
 - The production dataset is fixed. There is no selector, demo loader or deployed demo dataset; saved demo preferences and old demo links cannot switch it. Fictional records are confined to browser-test fixtures.
 - Source downloads match the available files; demonstration-only mapping links were removed.
+- Skip links move focus without changing the app route. Closed mobile navigation is hidden from keyboard access; its open menu traps Tab, closes with Escape and restores focus to the menu button.
 
 Regression coverage is in `src/analytics/charts.test.ts`, `src/components/ProfileStanding.test.tsx`, and `tests/audit.spec.ts`. Browser audit images are local artifacts under `output/playwright/`. README images show the real collected dataset.
 
