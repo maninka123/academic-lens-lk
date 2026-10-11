@@ -1,0 +1,211 @@
+import { test, expect } from "@playwright/test";
+test("real collection, comparison controls, profiles, exports, and screenshots", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("./");
+  await expect(
+    page.getByRole("heading", {
+      name: "A clearer view of our academic landscape.",
+    }),
+  ).toBeVisible();
+  await expect(page.getByText("1,173", { exact: true }).first()).toBeVisible();
+  await page.screenshot({ path: "docs/screenshots/overview.png" });
+  await page.getByRole("link", { name: "Academics", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Academic Explorer" }),
+  ).toBeVisible();
+  const name = await page.locator("tbody .academic-name").first().textContent();
+  await page.locator("tbody .academic-name").first().click();
+  await expect(
+    page.getByRole("heading", { name: name!, exact: true }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Compare this academic" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Comparison Studio" }),
+  ).toBeVisible();
+  await expect(page.locator(".pinned-card")).toHaveCount(1);
+  await page
+    .getByLabel("Measurement", { exact: true })
+    .selectOption("recentCitations");
+  await expect(
+    page.getByRole("heading", { name: "No available values" }),
+  ).toBeVisible();
+  await page
+    .getByLabel("Measurement", { exact: true })
+    .selectOption("citations");
+  await page.getByLabel("Chart type").selectOption("scatter");
+  await expect(page.locator(".pinned-card")).toHaveCount(1);
+  await page.getByLabel("Peer group").selectOption("rank");
+  await page.getByLabel("Comparison level").selectOption("type");
+  await page.getByLabel("University weighting").selectOption("equal");
+  await expect(
+    page.getByText("Valid universities", { exact: true }),
+  ).toBeVisible();
+  await page.getByLabel("Chart type").selectOption("box");
+  await page
+    .getByRole("button", { name: "Export records", exact: true })
+    .click();
+  await expect(page.locator(".pinned-card")).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+test("demo comparisons, ten pins, custom groups, share state and chart exports", async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("./#/compare");
+  await page.getByLabel("Dataset", { exact: true }).selectOption("demo");
+  await expect(
+    page.getByRole("heading", { name: "Comparison Studio" }),
+  ).toBeVisible();
+  await page
+    .getByLabel("Measurement", { exact: true })
+    .selectOption("recentCitations");
+  for (const mode of ["total", "mean", "median"]) {
+    await page.getByLabel("Aggregation", { exact: true }).selectOption(mode);
+    await expect(page.locator(".studio-main tbody tr")).toHaveCount(15);
+  }
+  for (const i of [1, 2, 3]) {
+    const name = "Demo Academic " + String(i).padStart(2, "0") + "002";
+    await page.getByLabel("Add Academic").fill(name);
+    await page.locator(".search-results button").first().click();
+  }
+  await expect(page.locator(".pinned-card")).toHaveCount(3);
+  await page.getByLabel("Chart type").selectOption("scatter");
+  await expect(page.locator(".studio-main canvas")).toBeVisible();
+  await page.getByLabel("Peer group").selectOption("rank");
+  await page.screenshot({ path: "docs/screenshots/comparison-studio.png" });
+  const dl = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Export chart as PNG" })
+    .first()
+    .click();
+  expect((await dl).suggestedFilename()).toContain(".png");
+  await page
+    .locator("summary")
+    .filter({ hasText: "Custom academic groups" })
+    .click();
+  await page.getByLabel("Group name", { exact: true }).fill("Test group A");
+  await page.getByRole("button", { name: "Save 3 pinned academics" }).click();
+  await expect(page.getByLabel("Comparison level")).toHaveValue("custom");
+  await page.getByRole("button", { name: "Share comparison" }).click();
+  await expect(page.getByText("Comparison link copied.")).toBeVisible();
+  const url = await page.evaluate(() => navigator.clipboard.readText());
+  expect(url).toContain("view=");
+  await page.goto("about:blank");
+  await page.goto(url);
+  await expect(page.locator(".pinned-card")).toHaveCount(3);
+  await expect(page.getByLabel("Comparison level")).toHaveValue("custom");
+  await page.getByRole("link", { name: "PhD Origins", exact: true }).click();
+  await page.getByRole("button", { name: /Australia \d/ }).click();
+  await expect(
+    page.getByRole("button", { name: "Clear Australia" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      name: "Academics with a PhD institution in Australia",
+    }),
+  ).toBeVisible();
+  await page.screenshot({ path: "docs/screenshots/phd-origins.png" });
+  expect(errors).toEqual([]);
+});
+test("responsive layout, readable text, and appearance", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("./");
+  await expect(
+    page.getByRole("heading", {
+      name: "A clearer view of our academic landscape.",
+    }),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  expect(
+    await page.evaluate(() =>
+      parseFloat(getComputedStyle(document.documentElement).fontSize),
+    ),
+  ).toBeGreaterThanOrEqual(16);
+  await page.getByRole("button", { name: "Toggle navigation" }).click();
+  await page.getByRole("button", { name: "Dark appearance" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await page.getByRole("link", { name: "Compare", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Show controls", exact: true })
+    .click();
+  await expect(page.getByLabel("Measurement", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Close", exact: true }).click();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "docs/screenshots/mobile.png",
+    fullPage: false,
+  });
+});
+
+test("people search, hierarchy, qualification and position comparisons on desktop and mobile", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("./#/academics");
+  await page.getByLabel("Dataset", { exact: true }).selectOption("demo");
+  await page.getByLabel("Search people by name").fill("Demo Academic 01002");
+  await expect(page.locator("tbody .academic-name")).toHaveCount(1);
+  await page.locator("tbody .academic-name").click();
+  await expect(
+    page.getByRole("heading", { name: "Where this person stands" }),
+  ).toBeVisible();
+  await expect(
+    page
+      .getByRole("navigation", { name: "Academic hierarchy" })
+      .getByRole("link"),
+  ).toHaveCount(3);
+  await expect(page.getByLabel("Compare with", { exact: true })).toHaveValue(
+    "position",
+  );
+  await page.getByLabel("Compare with", { exact: true }).selectOption("phd");
+  await page
+    .getByLabel("Peer context", { exact: true })
+    .selectOption("department");
+  await page
+    .getByLabel("Profile measurement", { exact: true })
+    .selectOption("hIndex");
+  await expect(page.getByRole("table").first().locator("tbody tr")).toHaveCount(
+    8,
+  );
+  await page.getByLabel("Compare with", { exact: true }).selectOption("both");
+  await page.getByLabel("Illustration style").selectOption("long");
+  await page.screenshot({
+    path: "docs/screenshots/person-profile.png",
+    fullPage: false,
+  });
+  const download = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Export this person’s record" })
+    .click();
+  expect((await download).suggestedFilename()).toContain(".csv");
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page
+    .getByLabel("Compare with", { exact: true })
+    .selectOption("qualification");
+  await expect(page.getByLabel("Peer context", { exact: true })).toBeVisible();
+  await page.screenshot({
+    path: "docs/screenshots/person-mobile.png",
+    fullPage: false,
+  });
+  expect(errors).toEqual([]);
+});

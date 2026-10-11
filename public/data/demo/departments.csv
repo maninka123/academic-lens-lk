@@ -1,0 +1,61 @@
+id,facultyId,universityId,name
+colombo-f0-d0,colombo-f0,colombo,Applied studies
+colombo-f1-d1,colombo-f1,colombo,Systems and methods
+colombo-f2-d0,colombo-f2,colombo,Applied studies
+colombo-f3-d1,colombo-f3,colombo,Systems and methods
+peradeniya-f0-d0,peradeniya-f0,peradeniya,Applied studies
+peradeniya-f1-d1,peradeniya-f1,peradeniya,Systems and methods
+peradeniya-f2-d0,peradeniya-f2,peradeniya,Applied studies
+peradeniya-f3-d1,peradeniya-f3,peradeniya,Systems and methods
+jayewardenepura-f0-d0,jayewardenepura-f0,jayewardenepura,Applied studies
+jayewardenepura-f1-d1,jayewardenepura-f1,jayewardenepura,Systems and methods
+jayewardenepura-f2-d0,jayewardenepura-f2,jayewardenepura,Applied studies
+jayewardenepura-f3-d1,jayewardenepura-f3,jayewardenepura,Systems and methods
+kelaniya-f0-d0,kelaniya-f0,kelaniya,Applied studies
+kelaniya-f1-d1,kelaniya-f1,kelaniya,Systems and methods
+kelaniya-f2-d0,kelaniya-f2,kelaniya,Applied studies
+kelaniya-f3-d1,kelaniya-f3,kelaniya,Systems and methods
+moratuwa-f0-d0,moratuwa-f0,moratuwa,Applied studies
+moratuwa-f1-d1,moratuwa-f1,moratuwa,Systems and methods
+moratuwa-f2-d0,moratuwa-f2,moratuwa,Applied studies
+moratuwa-f3-d1,moratuwa-f3,moratuwa,Systems and methods
+jaffna-f0-d0,jaffna-f0,jaffna,Applied studies
+jaffna-f1-d1,jaffna-f1,jaffna,Systems and methods
+jaffna-f2-d0,jaffna-f2,jaffna,Applied studies
+jaffna-f3-d1,jaffna-f3,jaffna,Systems and methods
+ruhuna-f0-d0,ruhuna-f0,ruhuna,Applied studies
+ruhuna-f1-d1,ruhuna-f1,ruhuna,Systems and methods
+ruhuna-f2-d0,ruhuna-f2,ruhuna,Applied studies
+ruhuna-f3-d1,ruhuna-f3,ruhuna,Systems and methods
+kdu-f0-d0,kdu-f0,kdu,Applied studies
+kdu-f1-d1,kdu-f1,kdu,Systems and methods
+kdu-f2-d0,kdu-f2,kdu,Applied studies
+kdu-f3-d1,kdu-f3,kdu,Systems and methods
+sliit-f0-d0,sliit-f0,sliit,Applied studies
+sliit-f1-d1,sliit-f1,sliit,Systems and methods
+sliit-f2-d0,sliit-f2,sliit,Applied studies
+sliit-f3-d1,sliit-f3,sliit,Systems and methods
+nsbm-f0-d0,nsbm-f0,nsbm,Applied studies
+nsbm-f1-d1,nsbm-f1,nsbm,Systems and methods
+nsbm-f2-d0,nsbm-f2,nsbm,Applied studies
+nsbm-f3-d1,nsbm-f3,nsbm,Systems and methods
+cinec-f0-d0,cinec-f0,cinec,Applied studies
+cinec-f1-d1,cinec-f1,cinec,Systems and methods
+cinec-f2-d0,cinec-f2,cinec,Applied studies
+cinec-f3-d1,cinec-f3,cinec,Systems and methods
+horizon-f0-d0,horizon-f0,horizon,Applied studies
+horizon-f1-d1,horizon-f1,horizon,Systems and methods
+horizon-f2-d0,horizon-f2,horizon,Applied studies
+horizon-f3-d1,horizon-f3,horizon,Systems and methods
+kiu-f0-d0,kiu-f0,kiu,Applied studies
+kiu-f1-d1,kiu-f1,kiu,Systems and methods
+kiu-f2-d0,kiu-f2,kiu,Applied studies
+kiu-f3-d1,kiu-f3,kiu,Systems and methods
+saegis-f0-d0,saegis-f0,saegis,Applied studies
+saegis-f1-d1,saegis-f1,saegis,Systems and methods
+saegis-f2-d0,saegis-f2,saegis,Applied studies
+saegis-f3-d1,saegis-f3,saegis,Systems and methods
+icbt-f0-d0,icbt-f0,icbt,Applied studies
+icbt-f1-d1,icbt-f1,icbt,Systems and methods
+icbt-f2-d0,icbt-f2,icbt,Applied studies
+icbt-f3-d1,icbt-f3,icbt,Systems and methods

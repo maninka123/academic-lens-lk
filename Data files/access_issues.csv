@@ -1,0 +1,19 @@
+﻿university,url,issue
+University of Kelaniya,https://medicine.kln.ac.lk/index.php/people/academic-staff-directory.html,HTTP Error 502: Bad Gateway
+University of Kelaniya,https://staff.kln.ac.lk/,HTTP Error 502: Bad Gateway
+University of Kelaniya,https://ict.kln.ac.lk/index.php/kelani-email,HTTP Error 404: Not Found
+University of Kelaniya,https://science.kln.ac.lk/depts/stcs/images/Staff/Academic/DSC_0010_cjpg.jpeg,non_html
+University of Kelaniya,https://science.kln.ac.lk/depts/stcs/index.php/component/sppagebuilder/?view=page&id=87,HTTP Error 404: Not Found
+University of Kelaniya,https://ss.kln.ac.lk/,HTTP Error 502: Bad Gateway
+University of Ruhuna,https://www.eng.ruh.ac.lk/academic-staff/,HTTP Error 502: Bad Gateway
+University of Ruhuna,https://www.ruh.ac.lk/index.php/en/faculties,HTTP Error 502: Bad Gateway
+University of Ruhuna,https://www.fmst.ruh.ac.lk/index.php?ctgry=acs&main=hmpge&menu=ocg&submenu=staff,HTTP Error 502: Bad Gateway
+University of Ruhuna,https://www.mgt.ruh.ac.lk/index.php/staff-members/academic-staff,HTTP Error 502: Bad Gateway
+University of Ruhuna,https://www.ruh.ac.lk/,HTTP Error 502: Bad Gateway
+University of Ruhuna,https://www.eng.ruh.ac.lk/dcee/staff/imalkaweerawardana@gmail.com ,HTTP Error 404: Not Found
+CINEC Campus,https://www.cinec.edu/academic/faculty-of-health-sciences/department-of-health-and-medical-sciences.html,HTTP Error 405: Not Allowed
+CINEC Campus,https://www.cinec.edu/academic/faculty-of-engineering-and-technology/mailto,HTTP Error 404: Not Found
+All institutions,https://scholar.google.com/citations,HTTP 429 encountered on direct profile access. No bypass attempted. Scholar metric values remain unavailable.
+All institutions,https://www.researchgate.net/profile/Prasad-Jayaweera,Direct access HTTP 403. Some metrics obtained through search-indexed profile snapshots.
+KIU,https://kiu.ac.lk/index.php/care-advancement/,Historical staff table returns HTTP 404. No current academic records exported.
+ICBT Campus,https://icbt.lk/leadership-at-icbt/,"Leadership page is accessible, but does not establish the full-time teaching staff population. No teaching staff records exported."

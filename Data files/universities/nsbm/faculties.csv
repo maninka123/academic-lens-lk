@@ -1,0 +1,8 @@
+faculty_id,faculty_name,department_count,academic_records
+faculty-of-business,Faculty of Business,9,41
+faculty-of-business-department-of-management,Faculty of Business - Department of Management,0,1
+faculty-of-computing,Faculty of Computing,9,21
+faculty-of-engineering,Faculty of Engineering,4,21
+unassigned-faculty,,0,9
+faculty-of-postgraduate-studies-professional-advancement,Faculty of Postgraduate Studies & Professional Advancement,0,1
+faculty-of-science,Faculty of Science,5,18
