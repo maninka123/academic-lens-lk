@@ -71,6 +71,35 @@ function Shell() {
     setMenu(false);
     window.scrollTo(0, 0);
   }, [location.pathname]);
+  useEffect(() => {
+    if (!menu) return;
+    const sidebar = document.querySelector<HTMLElement>(".sidebar");
+    sidebar?.querySelector<HTMLButtonElement>(".mobile-nav-close")?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenu(false);
+        document.querySelector<HTMLButtonElement>(".mobile-menu")?.focus();
+      }
+      if (e.key === "Tab") {
+        const items = [
+          ...(sidebar?.querySelectorAll<HTMLElement>(
+            "a[href], button:not([disabled]), select",
+          ) || []),
+        ];
+        const first = items[0],
+          last = items.at(-1);
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menu]);
   const sharedDataset = new URLSearchParams(location.search).get("dataset");
   const routes = [
     ["/", "Overview", LayoutDashboard],
@@ -81,7 +110,16 @@ function Shell() {
   ] as const;
   return (
     <div className="app-shell">
-      <a className="skip-link" href="#main-content">
+      <a
+        className="skip-link"
+        href="#main-content"
+        onClick={(e) => {
+          e.preventDefault();
+          const main = document.getElementById("main-content");
+          main?.focus();
+          main?.scrollIntoView();
+        }}
+      >
         Skip to main content
       </a>
       <aside className={"sidebar " + (menu ? "mobile-open" : "")}>
@@ -90,7 +128,10 @@ function Shell() {
           variant="ghost"
           size="icon"
           aria-label="Close navigation"
-          onClick={() => setMenu(false)}
+          onClick={() => {
+            setMenu(false);
+            document.querySelector<HTMLButtonElement>(".mobile-menu")?.focus();
+          }}
         >
           <X size={22} />
         </Button>
@@ -142,7 +183,10 @@ function Shell() {
         <button
           className="nav-scrim"
           aria-label="Close navigation overlay"
-          onClick={() => setMenu(false)}
+          onClick={() => {
+            setMenu(false);
+            document.querySelector<HTMLButtonElement>(".mobile-menu")?.focus();
+          }}
         />
       )}
       <div className="app-content">
@@ -173,7 +217,7 @@ function Shell() {
             Partial real collection
           </span>
         </div>
-        <main id="main-content" className="main-content">
+        <main id="main-content" className="main-content" tabIndex={-1}>
           {error ? (
             <Empty title="Unable to load the dataset">
               {error}
