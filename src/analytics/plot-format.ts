@@ -7,7 +7,7 @@ export const plotNumber = (value: unknown) => {
         minimumFractionDigits: 1,
         maximumFractionDigits: 1,
       })
-    : String(value);
+    : "Not available";
 };
 // Apply display precision only; calculations retain their original precision.
 export function formatPlot(option: any) {
