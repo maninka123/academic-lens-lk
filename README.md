@@ -5,7 +5,7 @@ Explore academics, compare peer groups, and discover where their PhDs were award
 **[Open the app](https://maninka123.github.io/academic-lens-lk/)** · [Dataset guide](Data%20files/README.md) · [Full documentation](docs/PROJECT_GUIDE.md)
 
 <!-- dataset-summary:start -->
-<!-- Snapshot partial-3bfa266c39 -->
+<!-- Snapshot partial-0a5ac85541 -->
 **1,397 Sri Lankan profiles · 14 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-12. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
