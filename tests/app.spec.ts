@@ -262,14 +262,14 @@ test("coverage, single-provider rules, international benchmarks and statistics e
   await expect(page.getByLabel("Comparison provider")).toHaveValue(
     "likeForLike",
   );
-  await expect(page.getByText(/matched/i).first()).toBeVisible();
+  await expect(page.getByText(/Sri Lankan matches/).first()).toBeVisible();
   await page.screenshot({ path: "output/playwright/global.png" });
   // PhD Origins: only documented doctorates, with the association caveat.
   await page.getByRole("link", { name: "PhD Origins", exact: true }).click();
   await expect(page.getByText(/documented/i).first()).toBeVisible();
   await expect(
     page.getByRole("heading", {
-      name: "Sri Lankan and overseas doctorates by institution",
+      name: "Doctorate origins by institution",
     }),
   ).toBeVisible();
   // Methodology: research methodology and correction process are published.
@@ -279,7 +279,7 @@ test("coverage, single-provider rules, international benchmarks and statistics e
     .click();
   await expect(page.getByText("Three kinds of completeness")).toBeVisible();
   await expect(
-    page.getByText("Updates, corrections and removal requests"),
+    page.getByText("Corrections or removal"),
   ).toBeVisible();
   expect(errors).toEqual([]);
 });

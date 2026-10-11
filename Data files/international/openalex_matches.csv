@@ -1629,3 +1629,113 @@ INT-36057c0e5ecd,wuppertal,Kalman Szabo,https://openalex.org/A5103479238,Kálman
 INT-16d0df317d6a,wuppertal,Claus Michael Volk,,,,,,0,openalex_no_name_match_at_institution
 INT-bfcc6f177595,wuppertal,Wolfgang Wagner,,,,,,4,openalex_multiple_candidates_requires_review
 INT-9f158bbb14cc,wuppertal,Christian Zeitnitz,https://openalex.org/A5105778750,Christian Zeitnitz,1160,64769,111,1,openalex_matched_name_and_institution
+INT-3fc45c7a0228,stanford,Ami Bhatt,https://openalex.org/A5080667439,Ami Siddharth Bhatt,248,11102,51,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-8a5c261a392d,stanford,Anne Brunet,https://openalex.org/A5088357328,Anne Brunet,225,51346,91,2,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-df0f790bd637,stanford,Christina Curtis,https://openalex.org/A5036849769,Christina N. Curtis,300,31617,57,3,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-05cd2dcdb8ba,stanford,Jesse Engreitz,https://openalex.org/A5124745649,Jesse M. Engreitz,8,7,1,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-4c05a70049b5,stanford,Julie Baker,https://openalex.org/A5091016887,Julie C. Baker,83,13214,36,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-3b07df2d2257,stanford,Laura Attardi,https://openalex.org/A5019574388,Laura Donatella Attardi,280,23766,60,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-fabff549a607,stanford,Le Cong,https://openalex.org/A5080765172,Le Cong,102,28587,31,6,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-ac4ee1411ab5,stanford,Maria Barna,https://openalex.org/A5034280950,Maria Barna,81,9960,37,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-0bc7fdd3c0bf,stanford,MaryAnn Campion,https://openalex.org/A5072316555,MaryAnn W. Campion,33,622,12,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-0311fbf69b13,stanford,Michael Bassik,https://openalex.org/A5022593887,Michael Cory Bassik,281,27972,73,3,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-4e7e16e1168b,stanford,Monther Abu-Remaileh,https://openalex.org/A5045437960,Monther Abu-Remaileh,129,9604,34,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-4478aca8d11c,stanford,Nicolas Altemose,https://openalex.org/A5058769938,Nicolas Altemose,69,6766,22,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-c8bb41cd5bbb,stanford,Ronald W. Davis,https://openalex.org/A5022830611,Ronald W. Davis,819,135219,160,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-90bb2f905869,stanford,Stanley N. Cohen,https://openalex.org/A5037623968,Stanley N. Cohen,466,50206,105,2,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-29ca75df96e1,stanford,Andrew Fire,https://openalex.org/A5057231025,Andrew Z. Fire,279,53741,88,2,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-7e3ac8dc5b2c,stanford,Margaret T. Fuller,https://openalex.org/A5051737700,Margaret T. Fuller,164,17176,60,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-2bf588332a16,stanford,Aaron D. Gitler,https://openalex.org/A5087989608,Aaron D. Gitler,244,28772,76,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-086c12033107,stanford,Andrea Hanson-Kahn,https://openalex.org/A5102796949,Andrea Hanson‐Kahn,34,1491,18,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-ace3e8154953,stanford,Livnat Jerby,https://openalex.org/A5075766401,Livnat Jerby‐Arnon,59,6783,14,2,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-bb7e6955533d,stanford,Anshul Kundaje,https://openalex.org/A5083952534,Anshul Bharat Kundaje,587,71982,88,3,openalex_matched_official_bibliography_overlap_and_institution
+INT-4b8795c5040b,stanford,Joseph (Joe) Lipsick,https://openalex.org/A5077079787,Joseph S. Lipsick,99,3274,32,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-35a0be7e26d8,stanford,Julien Sage,https://openalex.org/A5073510275,Julien Sage,511,27320,81,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-859f9bda16bd,stanford,Arend Sidow,https://openalex.org/A5069064297,Arend Sidow,114,44336,54,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-77b9213bf75a,stanford,Lars Steinmetz,https://openalex.org/A5002497731,Lars Michael Steinmetz,390,35443,85,2,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-1e2243f24dfd,stanford,Monte Winslow,https://openalex.org/A5062358716,Monte M. Winslow,418,13558,54,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-1bed7b55a209,stanford,Adam Nayak,,,,,,1,openalex_candidate_requires_corroboration
+INT-c3e8112ae885,stanford,Alexandria Boehm,https://openalex.org/A5029824968,Alexandria B B Boehm,529,21912,81,1,openalex_matched_official_profile_orcid
+INT-f1832a75cca4,stanford,Barbara G Simpson,,,,,,1,openalex_merged_namesakes_requires_review
+INT-ef299933732b,stanford,Eduardo Miranda,https://openalex.org/A5048928715,Eduardo Miranda,189,9235,49,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-1d8531971e50,stanford,Erica Plambeck,https://openalex.org/A5084021293,Erica L. Plambeck,90,4307,34,1,openalex_matched_additional_official_linked_bibliography
+INT-79b02601e966,stanford,Gregory Deierlein,https://openalex.org/A5005143658,Gregory G. Deierlein,231,10159,51,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-d38493f8b718,stanford,Hae Young Noh,https://openalex.org/A5082588269,Hae Young Noh,264,4168,35,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-826b3fd8c2be,stanford,Haoqi (Nina) Zhao,,,,,,1,openalex_merged_namesakes_rejected
+INT-49b18cc0cf80,stanford,Iro Armeni,https://openalex.org/A5014426007,Iro Armeni,69,4517,12,1,openalex_matched_additional_official_linked_bibliography
+INT-8956d320b180,stanford,Jack Baker,https://openalex.org/A5062286104,Jack W. Baker,349,19427,58,3,openalex_matched_official_bibliography_overlap_and_institution
+INT-35632d734ced,stanford,Kincho Law,https://openalex.org/A5008053913,Kincho H. Law,429,10768,50,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-fb8a57ac73ab,stanford,Lynn Hildemann,https://openalex.org/A5061064268,Lynn M. Hildemann,133,14322,45,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-8b24fa494cc0,stanford,Mark Z. Jacobson,https://openalex.org/A5052364466,Mark Z. Jacobson,725,49444,106,2,openalex_matched_official_profile_orcid
+INT-ad0672dfc439,stanford,Martin Fischer,https://openalex.org/A5058863567,Martin A Fischer,351,12481,53,4,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-76e5becf5813,stanford,Michael Lepech,https://openalex.org/A5016853502,Michael D. Lepech,176,5856,36,3,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-8f1a8c40d021,stanford,Nicholas Ouellette,https://openalex.org/A5015916957,Nicholas T. Ouellette,283,5468,44,1,openalex_matched_official_profile_orcid
+INT-21e0b8ec3af1,stanford,Oliver Fringer,https://openalex.org/A5033279409,Oliver B. Fringer,190,5555,40,1,openalex_matched_official_profile_orcid
+INT-54ec9a3b6455,stanford,Peter K. Kitanidis,https://openalex.org/A5077217744,Peter K. Kitanidis,396,17490,69,1,openalex_matched_official_profile_orcid
+INT-9b0afdfe8d6b,stanford,Ram Rajagopal,https://openalex.org/A5028892842,Ram Rajagopal,412,10407,55,5,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-01c3d0a1be7b,stanford,Rishee Jain,https://openalex.org/A5048079808,Rishee  Kumar Jain,117,3163,28,1,openalex_matched_official_profile_orcid
+INT-06fab5b91a49,stanford,Ronaldo Borja,https://openalex.org/A5013299984,Ronaldo I. Borja,265,10982,62,1,openalex_matched_additional_official_linked_bibliography
+INT-778c83935bc8,stanford,Sarah Billington,https://openalex.org/A5077663125,Sarah L. Billington,163,5411,41,2,openalex_matched_official_profile_orcid
+INT-0675164d2faf,stanford,Stephen Monismith,https://openalex.org/A5062742041,Stephen G. Monismith,350,14208,64,1,openalex_matched_official_profile_orcid
+INT-25041e7c5a8c,stanford,William Mitch,https://openalex.org/A5045123804,William A. Mitch,215,19367,73,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-7a6387e04ebd,stanford,Yaochun Yu,https://openalex.org/A5030345475,Yaochun Yu,41,2767,18,2,openalex_matched_official_orcid_main_split_profile
+INT-01de102598a7,stanford,Amit Seru,https://openalex.org/A5080784081,Amit Seru,193,21128,65,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-a782ef2decc0,stanford,Anat R. Admati,https://openalex.org/A5006978875,Anat R. Admati,88,14260,35,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-1904a222f8ea,stanford,Arvind Krishnamurthy,https://openalex.org/A5101497042,Arvind Krishnamurthy,509,34126,93,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-0563e08d4a2b,stanford,Benjamin Hébert,https://openalex.org/A5015547447,Benjamin M. Hebert,45,1496,19,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-fc91dacb6a60,stanford,Greg Buchak,https://openalex.org/A5048631964,Greg Buchak,40,2767,14,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-db2c5e150d64,stanford,Hanno Lustig,,,,,,2,openalex_multiple_candidates_requires_review
+INT-1ec225baa1fb,stanford,Ilya A. Strebulaev,https://openalex.org/A5036294230,Ilya A. Strebulaev,121,8530,38,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-9bb26cad25f7,stanford,James D. Paron,https://openalex.org/A5049642613,James D. Paron,17,21,2,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-921c5f13a357,stanford,Jeffrey Zwiebel,https://openalex.org/A5072641829,Jeffrey Zwiebel,26,5062,14,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-4e3744efd5e5,stanford,Jonathan B. Berk,https://openalex.org/A5062751059,Jonathan Berk,96,11987,31,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-596f22ca3ca1,stanford,Joshua D. Rauh,https://openalex.org/A5050420368,Joshua Rauh,118,7387,40,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-5ea5532a9b28,stanford,Juliane Begenau,https://openalex.org/A5056465293,Juliane Begenau,46,1695,16,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-c93f283f0e01,stanford,Matteo Maggiori,https://openalex.org/A5065807417,Matteo Maggiori,253,6329,33,1,openalex_matched_additional_official_linked_bibliography
+INT-5231b0d663dc,stanford,Michael Blank,,,,,,14,openalex_merged_namesakes_rejected
+INT-f942d3fc13b5,stanford,Naz Koont,https://openalex.org/A5012067286,Naz Koont,15,133,7,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-5d40c20939c2,stanford,Peter M. DeMarzo,https://openalex.org/A5060574841,Peter M. DeMarzo,108,9920,42,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-ee0921d2ad6a,stanford,Steven Grenadier,https://openalex.org/A5021183165,Steven R. Grenadier,55,4426,26,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-c834bb6a58d4,stanford,Tim de Silva,https://openalex.org/A5062509533,Tim de Silva,15,144,6,3,openalex_matched_official_bibliography_overlap_and_institution
+INT-c49ee6b316b6,stanford,Vikrant Vig,https://openalex.org/A5013932798,Vikrant Vig,69,7507,33,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-b543790f1fc4,stanford,Zhiguo He,https://openalex.org/A5089595588,Zhiguo He,194,12842,51,5,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-ef197ab39280,stanford,Amir Goldberg,https://openalex.org/A5003121162,Amir Goldberg,81,2447,20,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-29b736f7dcff,stanford,Ashley Martin,https://openalex.org/A5045318549,Ashley E. Martin,71,1949,22,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-9723eb2bd803,stanford,Brian S. Lowery,https://openalex.org/A5008518722,Brian S. Lowery,71,4202,28,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-e4b9022076fc,stanford,Dale T. Miller,https://openalex.org/A5056617397,Dale T. Miller,178,27958,66,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-4874bb7d35e8,stanford,David Melnikoff,https://openalex.org/A5070872588,David E. Melnikoff,49,941,11,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-ab9f3597aa1a,stanford,Deborah H. Gruenfeld,https://openalex.org/A5009446409,Deborah H. Gruenfeld,57,12162,29,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-5a5e8c0c9328,stanford,Douglas R. Guilbeault,https://openalex.org/A5036032919,Douglas Guilbeault,60,1393,14,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-b6c6f5811b93,stanford,Francis J. Flynn,https://openalex.org/A5016893433,Francis J. Flynn,98,8564,39,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-b7f2b02d8180,stanford,Glenn R. Carroll,https://openalex.org/A5075324044,Glenn R. Carroll,269,19843,65,1,openalex_matched_official_profile_orcid
+INT-85141ab0c349,stanford,Jennifer Eberhardt,https://openalex.org/A5054094267,Jennifer Lynn Eberhardt,97,9182,30,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-949732470fba,stanford,Julien Clement,https://openalex.org/A5103006550,Julien Clément,23,387,6,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-8235cde59298,stanford,Michele J. Gelfand,https://openalex.org/A5070913945,Michele Joy Gelfand,423,42196,85,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-025264baf2d2,stanford,Nir Halevy,https://openalex.org/A5012362296,Nir Halevy,109,3937,28,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-8d82e3839c7b,stanford,Robert A. Burgelman,https://openalex.org/A5076108500,Robert A. Burgelman,141,14088,31,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-ce977478738c,stanford,William P. Barnett,https://openalex.org/A5065172071,William P. Barnett,65,7742,26,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-c3eda39a051f,mcgill,Aaron Mills,,,,,,12,openalex_no_name_match_at_institution
+INT-77af428edcc8,mcgill,Alana Klein,https://openalex.org/A5072251464,Alana Klein,42,129,6,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-e3c167835e18,mcgill,Allison Christians,https://openalex.org/A5008113620,Allison Christians,149,672,15,1,openalex_matched_additional_official_linked_bibliography
+INT-efab82ef86ba,mcgill,Andrea Harrington,https://openalex.org/A5022042598,Andrea J. Harrington,31,22,3,3,openalex_matched_official_profile_publication
+INT-a37df3d69109,mcgill,Catherine Walsh,,,,,,25,openalex_merged_namesakes_rejected
+INT-75ef9bd018ab,mcgill,Daniel Weinstock,https://openalex.org/A5014150213,Daniel Weinstock,219,2414,22,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-630820388a6b,mcgill,Evan Fox-Decent,https://openalex.org/A5075025409,Evan Fox-Decent,98,598,14,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-6e3b6033e8c5,mcgill,Frédéric Mégret,https://openalex.org/A5083185716,Frédéric Megret,258,3441,31,2,openalex_matched_official_bibliography_dominant_profile_with_small_fragments
+INT-374d120db01a,mcgill,Jaye Ellis,https://openalex.org/A5045468145,Jaye Ellis,73,251,8,2,openalex_matched_official_bibliography_overlap_and_institution
+INT-6bd3e11392fe,mcgill,Jennifer Raso,https://openalex.org/A5028276309,Jennifer Raso,25,112,6,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-9fda33a30b20,mcgill,Johanne Poirier,https://openalex.org/A5087439525,Johanne Poirier,125,473,11,1,openalex_matched_additional_official_linked_bibliography
+INT-be040c63105f,mcgill,Jonathan Chan,,,,,,2,openalex_multiple_candidates_requires_review
+INT-2429ee49ea66,mcgill,Kerry Sloan,https://openalex.org/A5079543087,Kerry Sloan,4,2,1,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-e37dbfe56f70,mcgill,Konstanze von Schütz,https://openalex.org/A5005731351,Konstanze von Schütz,6,6,1,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-1d8d9cdc015e,mcgill,Marie Manikis,https://openalex.org/A5070648747,Marie Manikis,55,243,9,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-ced81746c732,mcgill,Michelle Cumyn,https://openalex.org/A5084570441,Michelle Cumyn,37,108,4,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-343670a17ec7,mcgill,Noah Weisbord,https://openalex.org/A5004270902,Noah Weisbord,48,51,4,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-cd5396cf7e34,mcgill,Peer Zumbansen,https://openalex.org/A5050156026,Peer C. Zumbansen,287,1873,23,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-42f1609264f2,mcgill,Priya S. Gupta,https://openalex.org/A5013457706,Priya Sarin Gupta,36,201,8,3,openalex_matched_official_bibliography_overlap_and_institution
+INT-bae8c0803284,mcgill,Richard Gold,https://openalex.org/A5047166988,Edward Richard Gold,143,1715,24,2,openalex_matched_official_profile_publication
+INT-4238225b2e9b,mcgill,Rosalie Jukier,https://openalex.org/A5087758323,Rosalie Jukier,40,72,5,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-2d6831be8f5e,mcgill,Sébastien Jodoin,https://openalex.org/A5011966918,Sébastien Jodoin,105,671,14,1,openalex_matched_official_bibliography_overlap_and_institution
+INT-895910c166e8,mcgill,Tina Piper,https://openalex.org/A5043200711,Tina Piper,23,83,6,1,openalex_matched_primary_publication_and_subject
+INT-11c62aa04514,mcgill,Vincent Correia,https://openalex.org/A5075205829,Vincent Correia,54,15,2,1,openalex_matched_primary_publication_and_subject
+INT-00ad55f4fa07,mcgill,Yaëll Emerich,https://openalex.org/A5071203431,Yaëll Emerich,66,99,5,1,openalex_matched_official_bibliography_overlap_and_institution

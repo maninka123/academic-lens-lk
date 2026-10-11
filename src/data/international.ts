@@ -33,6 +33,8 @@ export type BenchmarkAcademic = {
   /** "department", "research-lab" or "proxy" (stand-in for a missing discipline). */
   unitType: string;
   position: string;
+  employmentStatus: string;
+  includedInBenchmarks: string;
   rank: string;
   careerStage: string;
   doctorateStatus: string;
@@ -113,7 +115,7 @@ export function loadBenchmarks(): Promise<Benchmarks> {
     ]);
     const num = (v: string) => (v?.trim() ? Number(v) : null);
     return {
-      academics: parse(a).map((r) => ({
+      academics: parse(a).filter((r) => r.includedInBenchmarks !== "false").map((r) => ({
         ...(r as any),
         listedPublicationCount: num(r.listedPublicationCount),
         phdYear: num(r.phdYear),

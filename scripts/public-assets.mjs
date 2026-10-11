@@ -47,6 +47,7 @@ export const PUBLIC_ACADEMIC_COLUMNS = [
   "doctorateStatus",
   "phdUniversity",
   "phdCountry",
+  "phdCountryInferred",
   "phdYear",
   "phdStatus",
   "experience",

@@ -1,5 +1,10 @@
 import { useSyntheticFixture } from "./fixtures-helper";
 import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const records = Number(
+  JSON.parse(readFileSync("public/data/dataset_summary.json", "utf8"))
+    .academicRecords,
+).toLocaleString("en");
 
 test("desktop, tablet and narrow mobile route audit", async ({ page }) => {
   test.setTimeout(120000);
@@ -148,7 +153,7 @@ test("the data source is fixed, including stale browser preferences and old demo
     page.getByRole("combobox", { name: "Dataset", exact: true }),
   ).toHaveCount(0);
   await expect(
-    page.getByText("1,393 matching profiles", { exact: false }),
+    page.getByText(`${records} matching profiles`, { exact: false }),
   ).toBeVisible();
   const view = JSON.stringify({
     v: 1,

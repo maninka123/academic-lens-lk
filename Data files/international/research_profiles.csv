@@ -28,7 +28,7 @@ INT-1bed7b55a209,Adam Nayak,https://cee.stanford.edu/people/adam-nayak,,,not_lis
 INT-c3e8112ae885,Alexandria Boehm,https://profiles.stanford.edu/alexandria-boehm?releaseVersion=11.5.3,https://orcid.org/0000-0002-8162-5090,396,official_profile_list,2026-10-12
 INT-f1832a75cca4,Barbara G Simpson,https://profiles.stanford.edu/barbara-simpson?releaseVersion=11.5.3,,,not_listed_or_not_extractable,2026-10-12
 INT-ef299933732b,Eduardo Miranda,https://profiles.stanford.edu/eduardo-miranda?releaseVersion=11.5.3,,217,official_profile_list,2026-10-12
-INT-1d8531971e50,Erica Plambeck,https://idp-proxy.med.stanford.edu/auth/realms/med-all/protocol/saml?SAMLRequest=fZJLa%2BMwFIX%2FilFhdrakJHUymiQQ7CkE2lLSThfdDMK%2BpgI9PLpSH%2F%2B%2BktNO2020Edx7DjrfQWuURo9iF8OjPcC%2FCBiKF6MtimmxIdFb4SQqFFYaQBE6cbu7uhSzionRu%2BA6p8kXy2mHRAQflLOk2Lcb8rdu56uf7Pd8uVyt2KxZtqxezWt2zpvZRbPYLUhxDx6TfkOSPZkQI%2BwtBmlDGrFZXXJWcn7Ha8G4mC8eSNEmBmVlmFyPIYwoKFX9WKa4L6%2BVgb7K%2FsH5voI%2BUpnYqQepDdK0LKXW9IOMZiRSNM4i5BdPsXVHkeii9%2BkulRm16lQgxYXzHUwVb8ggNUIGuUldqCf4P9l9VJMfiwb8Lfgn1cGfw%2BUnRso1KA34ncCA1s7S0WE4AI45B9muc3QxFea3p%2F1ZuaZf9evjt7hOkPv2xiWO10xh5IkOeMWnierLYZKKaHGETg0K%2Bh9nnP0q3k%2BCTYGfm1R6SAUEH4HQ7THB97%2B4fQM%3D&RelayState=https%3A%2F%2Fprofiles.stanford.edu%2Fintranet%2Ferica-plambeck&SigAlg=http%3A%2F%2Fwww.w3.org%2F2001%2F04%2Fxmldsig-more%23rsa-sha256&Signature=MV8%2BwrsCKWHJ9%2BZfIdwF8vnh5apSQaG%2FIEDyCyKItqXA76EjCAU7c3spjIpqCIOrAFlafLkjdb5u2avfSKbk120ExwxRZR3Y%2FYnfhFllfXg1Ad5%2BAhWkshCuPcHVfpDnBND4XTBLoT8vphZ90ZwJtdzi1andQU%2FyIVbpix7WuNYImaCK4IN1S79ZI6zSjNOEXOgfAzT7e4jTtbDCvKzMZd2wcbXgELhG2EHz3dpGloJyDX0hQRcbFRc%2FwTdqXiAB%2B4xHgI4PZFpRFIbCXBrO6zXlT099AtCcIEatroqS%2FzggILoj6Zy%2FU7W0WebFRyBrafTR8W7B8vLUF1thRZ3tAA%3D%3D,,,not_listed_or_not_extractable,2026-10-12
+INT-1d8531971e50,Erica Plambeck,https://www.gsb.stanford.edu/faculty-research/faculty/erica-plambeck,,,not_listed_or_not_extractable,2026-10-12
 INT-79b02601e966,Gregory Deierlein,https://profiles.stanford.edu/gregory-deierlein?releaseVersion=11.5.3,,308,official_profile_list,2026-10-12
 INT-d38493f8b718,Hae Young Noh,https://profiles.stanford.edu/hae-young-noh?releaseVersion=11.5.3,,123,official_profile_list,2026-10-12
 INT-826b3fd8c2be,Haoqi (Nina) Zhao,https://profiles.stanford.edu/nina-zhao?releaseVersion=11.5.3,https://orcid.org/0000-0003-3908-630X,,not_listed_or_not_extractable,2026-10-12
@@ -85,12 +85,12 @@ INT-025264baf2d2,Nir Halevy,https://www.gsb.stanford.edu/faculty-research/facult
 INT-8d82e3839c7b,Robert A. Burgelman,https://www.gsb.stanford.edu/faculty-research/faculty/robert-burgelman,,15,official_profile_list,2026-10-12
 INT-ce977478738c,William P. Barnett,https://www.gsb.stanford.edu/faculty-research/faculty/william-barnett,,33,official_profile_list,2026-10-12
 INT-c3eda39a051f,Aaron Mills,https://www.mcgill.ca/law/profs/mills-aaron,,,not_listed_or_not_extractable,2026-10-12
-INT-77af428edcc8,Alana Klein,https://www.mcgill.ca/law/profs/klein-alana,,,not_listed_or_not_extractable,2026-10-12
+INT-77af428edcc8,Alana Klein,https://www.mcgill.ca/law/profs/klein-alana,,21,official_profile_list,2026-10-12
 INT-e3c167835e18,Allison Christians,https://www.mcgill.ca/law/profs/christians-allison,,,not_listed_or_not_extractable,2026-10-12
 INT-efab82ef86ba,Andrea Harrington,https://www.mcgill.ca/law/profs/harrington-andrea,,,not_listed_or_not_extractable,2026-10-12
 INT-a37df3d69109,Catherine Walsh,https://www.mcgill.ca/law/profs/walsh-catherine,,7,official_profile_list,2026-10-12
-INT-75ef9bd018ab,Daniel Weinstock,https://www.mcgill.ca/law/profs/weinstock-daniel,,,not_listed_or_not_extractable,2026-10-12
-INT-630820388a6b,Evan Fox-Decent,https://www.mcgill.ca/law/profs/fox-decent-evan,,,not_listed_or_not_extractable,2026-10-12
+INT-75ef9bd018ab,Daniel Weinstock,https://www.mcgill.ca/law/profs/weinstock-daniel,,9,official_profile_list,2026-10-12
+INT-630820388a6b,Evan Fox-Decent,https://www.mcgill.ca/law/profs/fox-decent-evan,,47,official_profile_list,2026-10-12
 INT-6e3b6033e8c5,Frédéric Mégret,https://www.mcgill.ca/law/profs/megret-frederic,,12,official_profile_list,2026-10-12
 INT-374d120db01a,Jaye Ellis,https://www.mcgill.ca/law/profs/ellis-jaye,,6,official_profile_list,2026-10-12
 INT-6bd3e11392fe,Jennifer Raso,https://www.mcgill.ca/law/profs/raso-jennifer,,9,official_profile_list,2026-10-12
@@ -98,14 +98,14 @@ INT-9fda33a30b20,Johanne Poirier,https://www.mcgill.ca/law/profs/poirier-johanne
 INT-be040c63105f,Jonathan Chan,https://www.mcgill.ca/law/profs/chan-jonathan,,14,official_profile_list,2026-10-12
 INT-2429ee49ea66,Kerry Sloan,https://www.mcgill.ca/law/profs/sloan-kerry,,8,official_profile_list,2026-10-12
 INT-e37dbfe56f70,Konstanze von Schütz,https://www.mcgill.ca/law/profs/schutz-konstanze-von,,3,official_profile_list,2026-10-12
-INT-1d8d9cdc015e,Marie Manikis,https://www.mcgill.ca/law/profs/manikis-marie,,,not_listed_or_not_extractable,2026-10-12
-INT-ced81746c732,Michelle Cumyn,https://www.mcgill.ca/law/profs/cumyn-michelle,,4,official_profile_list,2026-10-12
-INT-343670a17ec7,Noah Weisbord,https://www.mcgill.ca/law/profs/weisbord-noah,,5,official_profile_list,2026-10-12
+INT-1d8d9cdc015e,Marie Manikis,https://www.mcgill.ca/law/profs/manikis-marie,,76,official_profile_list,2026-10-12
+INT-ced81746c732,Michelle Cumyn,https://www.mcgill.ca/law/profs/cumyn-michelle,,47,official_profile_list,2026-10-12
+INT-343670a17ec7,Noah Weisbord,https://www.mcgill.ca/law/profs/weisbord-noah,,26,official_profile_list,2026-10-12
 INT-cd5396cf7e34,Peer Zumbansen,https://www.mcgill.ca/law/profs/zumbansen-peer,,22,official_profile_list,2026-10-12
 INT-42f1609264f2,Priya S. Gupta,https://www.mcgill.ca/law/profs/gupta-priya,,8,official_profile_list,2026-10-12
 INT-bae8c0803284,Richard Gold,https://www.mcgill.ca/law/profs/gold-richard,,,not_listed_or_not_extractable,2026-10-12
-INT-4238225b2e9b,Rosalie Jukier,https://www.mcgill.ca/law/profs/jukier-rosalie,,,not_listed_or_not_extractable,2026-10-12
+INT-4238225b2e9b,Rosalie Jukier,https://www.mcgill.ca/law/profs/jukier-rosalie,,29,official_profile_list,2026-10-12
 INT-2d6831be8f5e,Sébastien Jodoin,https://www.mcgill.ca/law/profs/jodoin-sebastien,,4,official_profile_list,2026-10-12
 INT-895910c166e8,Tina Piper,https://www.mcgill.ca/law/profs/piper-tina,,,not_listed_or_not_extractable,2026-10-12
 INT-11c62aa04514,Vincent Correia,https://www.mcgill.ca/law/profs/correia-vincent,,,not_listed_or_not_extractable,2026-10-12
-INT-00ad55f4fa07,Yaëll Emerich,https://www.mcgill.ca/law/profs/emerich-yaell,,,not_listed_or_not_extractable,2026-10-12
+INT-00ad55f4fa07,Yaëll Emerich,https://www.mcgill.ca/law/profs/emerich-yaell,,69,official_profile_list,2026-10-12

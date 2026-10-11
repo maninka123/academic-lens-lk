@@ -40,7 +40,9 @@ const inputs = fs.existsSync(source + "/universities")
   ? walk(source + "/universities")
   : [source + "/academics_all.csv"];
 // Librarian appointments are outside the academic teaching/research scope.
-const sourceRows = inputs.flatMap(csvRead).filter((r) => !/librarian/i.test(r.academic_position || ""));
+const sourceRows = inputs
+  .flatMap(csvRead)
+  .filter((r) => !/librarian/i.test(r.academic_position || ""));
 const optionalCsv = (name) =>
   fs.existsSync(source + "/" + name) ? csvRead(source + "/" + name) : [];
 const snapshots = optionalCsv("research_metrics_snapshots.csv");
@@ -103,6 +105,10 @@ const rows = sourceRows.map((r) => {
     doctorateStatus: doctorate,
     phdUniversity: r.phd_university,
     phdCountry: r.phd_country,
+    // Labels countries inferred from the awarding institution's name.
+    phdCountryInferred: /^inferred/.test(r.phd_country_basis || "")
+      ? "yes"
+      : "",
     phdYear:
       doctorate === "completed_documented" ? n(r.phd_completion_year) : null,
     phdStatus: r.phd_status,

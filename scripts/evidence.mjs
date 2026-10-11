@@ -126,12 +126,18 @@ const ONGOING = new RegExp(
     String.raw`|(?:ph\.?\s?d|d\.?\s?phil)\.?\s*\(\s*r\s*\)|(?:ph\.?\s?d|d\.?\s?phil)\.?\s*\([^)]{0,40}\)\s*-\s*reading\b`,
   "i",
 );
+// "University of Reading" / "Reading, UK" is an awarding institution, not "reading for".
+const READING_UNIVERSITY =
+  /university\s+of\s+reading|\breading\s*,?\s*(?:u\.?\s?k\b|united kingdom|england)/gi;
 const HONORARY = /\bhonor(?:ary|is causa)\b|\bh\.?\s?c\.?\b/i;
 /**
  * @returns {"completed_documented"|"in_progress"|"contradictory"|"unknown"}
  */
 export function doctorateStatus({ phd_status = "", qualifications = "" }) {
-  const q = String(qualifications || "");
+  const q = String(qualifications || "").replace(
+    READING_UNIVERSITY,
+    "University of R.",
+  );
   const ongoing = ONGOING.test(q);
   // A doctorate named outside the ongoing phrase (e.g. "PhD (Colombo); reading DSc").
   const withoutOngoing = q.replace(new RegExp(ONGOING.source, "gi"), " ");

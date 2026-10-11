@@ -318,13 +318,17 @@ export function Profile() {
                   ],
                   [
                     "PhD awarding country",
-                    a.phdCountry,
+                    a.phdCountry && a.phdCountryInferred
+                      ? `${a.phdCountry} (inferred from university name)`
+                      : a.phdCountry,
                     a.phdCountry
                       ? ev.doctorate === "review"
                         ? "review"
                         : "recorded"
                       : "missing",
-                    "Country of the awarding institution, not necessarily where the person studied",
+                    a.phdCountryInferred
+                      ? "Inferred from the awarding institution's name; not stated in the source"
+                      : "Country of the awarding institution, not necessarily where the person studied",
                   ],
                   [
                     "PhD completion year",
