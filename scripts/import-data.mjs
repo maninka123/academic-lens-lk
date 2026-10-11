@@ -495,7 +495,7 @@ const readme = "README.md";
 if (fs.existsSync(readme)) {
   const block = [
     "<!-- dataset-summary:start -->",
-    `**Snapshot ${version} (collected ${collectionDate}):** ${summary.academicRecords.toLocaleString("en")} collected academic profiles from ${summary.institutionsWithProfiles} of ${summary.institutionsInScope} institutions in scope, across ${summary.facultiesRepresented} faculties and ${summary.departmentsRepresented} departments. ${summary.verifiedIdentity.toLocaleString("en")} have a verified research identity, ${summary.verifiedEmployment.toLocaleString("en")} verified employment and ${summary.withAnyMetric.toLocaleString("en")} at least one research metric; ${summary.needsReview} need manual review. International benchmarks: ${summary.internationalBenchmarks.academics.toLocaleString("en")} sampled academics from ${summary.internationalBenchmarks.universities} universities in ${summary.internationalBenchmarks.countries} countries. Collected profiles are not the total academic population. Full report: [reports/validation-report.md](reports/validation-report.md).`,
+    `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles · ${summary.institutionsWithProfiles} institutions · ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${collectionDate}. [Coverage report](reports/validation-report.md).`,
     "<!-- dataset-summary:end -->",
   ].join("\n");
   const text = fs.readFileSync(readme, "utf8");
