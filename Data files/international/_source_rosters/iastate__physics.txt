@@ -1,0 +1,28 @@
+# source: https://www.physastro.iastate.edu/people/faculty
+Paul Canfield | Distinguished Professor | https://www.physastro.iastate.edu/people/paul-canfield
+Chunhui Chen | Professor | https://www.physastro.iastate.edu/people/chunhui-chen
+James Cochran | Professor | https://www.physastro.iastate.edu/people/james-cochran
+Cameron Dean | Assistant Professor | https://www.physastro.iastate.edu/people/cameron-dean
+Jim Evans | Professor | https://www.physastro.iastate.edu/people/jim-evans
+Zhe Fei | Associate Professor | https://www.physastro.iastate.edu/people/zhe-fei
+Rebecca Flint | Associate Professor | https://www.physastro.iastate.edu/people/rebecca-flint
+Yuji Furukawa | Professor | https://www.physastro.iastate.edu/people/yuji-furukawa
+John Hauptman | Professor | https://www.physastro.iastate.edu/people/john-hauptman
+Adam Kaminski | Harmon-Ye Professor | https://www.physastro.iastate.edu/people/adam-kaminski
+Charles Kerton | Professor | https://www.physastro.iastate.edu/people/charles-kerton
+Frank Krennrich | Professor and Department Chair | https://www.physastro.iastate.edu/people/frank-krennrich
+Robert McQueeney | John and Mary Weaver Professor | https://www.physastro.iastate.edu/people/robert-mcqueeney
+Soeren Prell | Professor | https://www.physastro.iastate.edu/people/soeren-prell
+Ruslan Prozorov | Professor | https://www.physastro.iastate.edu/people/ruslan-prozorov
+Raquel Ribeiro | Associate Professor | https://www.physastro.iastate.edu/people/raquel-ribeiro
+Marzia Rosati | Professor | https://www.physastro.iastate.edu/people/marzia-rosati
+Srimoyee Sen | Associate Professor | https://www.physastro.iastate.edu/people/srimoyee-sen
+Chandan Setty | Assistant Professor | https://www.physastro.iastate.edu/people/chandan-setty
+Jacob Simon | Associate Professor | https://www.physastro.iastate.edu/people/jacob-simon
+Alex Travesset | Professor | https://www.physastro.iastate.edu/people/alex-travesset
+Michael Tringides | Professor | https://www.physastro.iastate.edu/people/michael-tringides
+Kirill Tuchin | Professor | https://www.physastro.iastate.edu/people/kirill-tuchin
+James Vary | Distinguished Professor | https://www.physastro.iastate.edu/people/james-vary
+Jigang Wang | Professor | https://www.physastro.iastate.edu/people/jigang-wang
+Amanda Weinstein | Associate Professor | https://www.physastro.iastate.edu/people/amanda-weinstein
+Matthew Wetstein | Associate Professor | https://www.physastro.iastate.edu/people/matthew-wetstein

@@ -1,6 +1,9 @@
-faculty_id,faculty_name,department_count,academic_records
-faculty-of-science,Faculty of Science,1,44
-faculty-of-humanities,Faculty of Humanities,1,6
+﻿faculty_id,faculty_name,department_count,academic_records
 unassigned-faculty,,0,15
-faculty-of-social-sciences,Faculty of Social Sciences,0,9
-faculty-of-social-sciences,"Faculty of Social Sciences,",1,6
+faculty-of-commerce-management-studies,Faculty of Commerce & Management Studies,0,0
+faculty-of-computing-and-technology,Faculty of Computing and Technology,0,0
+faculty-of-graduate-studies,Faculty of Graduate Studies,0,0
+faculty-of-humanities,Faculty of Humanities,2,7
+faculty-of-medicine,Faculty of Medicine,0,0
+faculty-of-science,Faculty of Science,1,44
+faculty-of-social-sciences,Faculty of Social Sciences,2,23

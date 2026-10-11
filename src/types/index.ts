@@ -16,6 +16,7 @@ export type NumericMetric = Exclude<Metric, "count" | "phd" | "overseas">;
 export type Academic = {
   id: string;
   name: string;
+  sourceName?: string;
   universityId: string;
   facultyId: string;
   departmentId: string;
@@ -42,6 +43,17 @@ export type Academic = {
   sourceUrl: string;
   scholarUrl: string;
   researchgateUrl?: string;
+  scholarStatus?: string;
+  researchgateStatus?: string;
+  qualificationReview?: string;
+  metricEvidence?: {
+    metric: string;
+    value: number;
+    source: string;
+    url: string;
+    date: string;
+    note: string;
+  }[];
   metricsUrl: string;
   metricsSource: string;
   collectionDate: string;
@@ -58,6 +70,8 @@ export type University = {
   type: "Public" | "Non-state";
 };
 export type Metadata = {
+  identityAliases?: Record<string, string>;
+  evidenceFiles?: string[];
   version: string;
   mode: "real" | "demo";
   collectionDate: string;
@@ -137,4 +151,5 @@ export type Config = {
   log: boolean;
   labels: boolean;
   sort: "name" | "value";
+  benchmarks?: boolean;
 };

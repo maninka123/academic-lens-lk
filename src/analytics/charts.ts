@@ -8,6 +8,7 @@ import type {
 import { aggregate, compare, groupKey, summary, values } from "./engine";
 import { metricLabels } from "../types";
 import { colors, short } from "../components/common";
+import { plotNumber } from "./plot-format";
 export function comparisonChart(
   rows: Academic[],
   c: Config,
@@ -20,17 +21,24 @@ export function comparisonChart(
   const metric = c.metric as NumericMetric;
   const base: any = {
     tooltip: { trigger: "item", renderMode: "richText", confine: true },
-    grid: { left: 65, right: 35, top: 55, bottom: 100 },
-    legend: { top: 5, type: "scroll", textStyle: { fontSize: 14 } },
+    grid: { left: 75, right: 32, top: 85, bottom: 85, containLabel: true },
+    legend: {
+      top: 5,
+      left: 10,
+      right: 10,
+      type: "scroll",
+      textStyle: { fontSize: 14, width: 160, overflow: "truncate" },
+      tooltip: { show: true },
+    },
     xAxis: {
       type: "category",
       data: labels,
       axisLabel: {
         fontSize: 14,
-        interval: "auto",
+        interval: 0,
         rotate: labels.length > 5 ? 35 : 0,
         width: 125,
-        overflow: "truncate",
+        overflow: "break",
       },
     },
     yAxis: {
@@ -41,10 +49,21 @@ export function comparisonChart(
           : ["phd", "overseas"].includes(c.metric)
             ? "Percent"
             : "Value",
+      nameLocation: "middle",
+      nameGap: 50,
       nameTextStyle: { fontSize: 14 },
       axisLabel: { fontSize: 14 },
     },
-    dataZoom: [{ type: "slider", bottom: 15, height: 20 }, { type: "inside" }],
+    dataZoom: [
+      {
+        type: "slider",
+        bottom: 15,
+        height: 20,
+        startValue: 0,
+        endValue: Math.min(11, labels.length - 1),
+      },
+      { type: "inside" },
+    ],
   };
   const pinSeries = (kind: "scatter" | "box") =>
     pinned
@@ -248,16 +267,22 @@ export function comparisonChart(
     });
     return {
       ...base,
-      grid: { left: 150, right: 70, top: 40, bottom: 100 },
+      grid: { left: 20, right: 25, top: 30, bottom: 75, containLabel: true },
       xAxis: {
         type: "category",
         data: metrics.map((m) => metricLabels[m]),
-        axisLabel: { fontSize: 14, rotate: 25 },
+        axisLabel: {
+          fontSize: 14,
+          interval: 0,
+          width: 120,
+          overflow: "break",
+          rotate: 0,
+        },
       },
       yAxis: {
         type: "category",
         data: labels,
-        axisLabel: { fontSize: 14, width: 130, overflow: "truncate" },
+        axisLabel: { fontSize: 14, width: 200, overflow: "break" },
       },
       visualMap: {
         min: 0,
@@ -275,7 +300,7 @@ export function comparisonChart(
           label: {
             show: true,
             fontSize: 14,
-            formatter: (p: any) => Math.round(p.data.actual).toLocaleString(),
+            formatter: (p: any) => plotNumber(p.data.actual),
           },
           tooltip: {
             formatter: (p: any) =>
@@ -283,7 +308,19 @@ export function comparisonChart(
           },
         },
       ],
-      dataZoom: [],
+      dataZoom:
+        labels.length > 15
+          ? [
+              {
+                type: "slider",
+                yAxisIndex: 0,
+                right: 0,
+                width: 14,
+                startValue: 0,
+                endValue: 14,
+              },
+            ]
+          : [],
     };
   }
   if (c.chart === "treemap")
@@ -293,7 +330,10 @@ export function comparisonChart(
         {
           type: "treemap",
           roam: true,
-          label: { fontSize: 16, formatter: "{b}\n{c}" },
+          label: {
+            fontSize: 16,
+            formatter: (p: any) => `${p.name}\n${plotNumber(p.value)}`,
+          },
           data: groups
             .filter((g) => g.value !== null && g.value > 0)
             .map((g, i) => ({
@@ -353,6 +393,11 @@ export function comparisonChart(
   }
   return {
     ...base,
+    legend: { show: false },
+    grid: { left: 15, right: 80, top: 15, bottom: 65, containLabel: true },
+    xAxis: { type: c.log ? "log" : "value", name: metricLabels[c.metric], nameLocation: "middle", nameGap: 35, axisLabel: { fontSize: 14 } },
+    yAxis: { type: "category", inverse: true, data: labels, axisLabel: { fontSize: 14, width: 180, overflow: "break" } },
+    dataZoom: labels.length > 12 ? [{ type: "slider", yAxisIndex: 0, right: 5, width: 15, startValue: 0, endValue: 11 }] : [],
     series: [
       {
         name:
@@ -361,8 +406,8 @@ export function comparisonChart(
             : c.aggregation,
         type: "bar",
         barMaxWidth: 52,
-        itemStyle: { borderRadius: [5, 5, 0, 0] },
-        label: { show: c.labels, position: "top", fontSize: 14 },
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: c.labels, position: "right", fontSize: 14 },
         data: groups.map((g, i) => ({
           name: labels[i],
           value: g.value,
@@ -379,7 +424,7 @@ export function comparisonChart(
         })),
         tooltip: {
           formatter: (p: any) =>
-            `${p.name}\n${c.aggregation}: ${p.value === null ? "Not available" : Number(p.value).toLocaleString()}\nValid records: ${p.data.n}\n${c.weight === "equal" && c.level === "type" ? "Each university contributes equally" : ""}`,
+            `${p.name}\n${c.aggregation}: ${plotNumber(p.value)}\nValid records: ${p.data.n}\n${c.weight === "equal" && c.level === "type" ? "Each university contributes equally" : ""}`,
         },
       },
     ],

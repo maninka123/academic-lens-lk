@@ -1,0 +1,38 @@
+# source: https://www.physik.uni-wuerzburg.de/ueber-uns/lehrstuehle-arbeitsgruppen/ (professors heading/belonging to physics chairs & groups = 37; vacant/emeritus/senior excluded; chemistry/biozentrum chairs excluded)
+Sebastian Klembt | Prof. Dr. (EP I) | https://www.physik.uni-wuerzburg.de/ep1/team/prof-dr-sebastian-klembt/
+Matthias Bode | Prof. Dr. (EP II) | https://www.physik.uni-wuerzburg.de/ep2/team/prof-dr-matthias-bode/
+Laëtitia Farinacci | Prof.in Dr. (EP II) | https://www.physik.uni-wuerzburg.de/ep2/
+Laurens W. Molenkamp | Prof. Dr. (EP III, head) | https://www.physik.uni-wuerzburg.de/ep3/staff/head-of-chair/prof-dr-laurens-w-molenkamp/
+Karl Brunner | Prof. Dr. (EP III) | https://www.physik.uni-wuerzburg.de/ep3/staff/professors/prof-dr-karl-brunner/
+Hartmut Buhmann | Prof. Dr. (EP III) | https://www.physik.uni-wuerzburg.de/ep3/staff/professors/prof-dr-hartmut-buhmann/
+Charles Gould | Prof. Dr. (EP III) | https://www.physik.uni-wuerzburg.de/ep3/staff/professors/prof-dr-charles-gould/
+Ralph Claessen | Prof. Dr. (EP IV, head) | https://www.physik.uni-wuerzburg.de/ep4/team/head-of-chair/prof-dr-ralph-claessen/
+Vladimir Hinkov | Prof. Dr. (EP IV) | https://www.physik.uni-wuerzburg.de/ep4/team/professors-and-group-leaders/prof-dr-vladimir-hinkov/
+Michael Sing | Prof. Dr. (EP IV) | https://www.physik.uni-wuerzburg.de/ep4/team/professors-and-group-leaders/prof-dr-michael-sing/
+Jörg Schäfer | Prof. Dr. (EP IV) | https://www.physik.uni-wuerzburg.de/ep4/team/professors-and-group-leaders/prof-dr-joerg-schaefer/
+Bert Hecht | Prof. Dr. (EP V) | https://www.physik.uni-wuerzburg.de/ep5/team/professors/prof-dr-bert-hecht/
+Peter M. Jakob | Prof. Dr. (EP V) | https://www.physik.uni-wuerzburg.de/ep5/team/professors/prof-dr-peter-michael-jakob/
+Volker C. Behr | Prof. Dr. (EP V) | https://www.physik.uni-wuerzburg.de/ep5/team/professors/prof-dr-volker-christian-behr/
+Vladimir Dyakonov | Prof. Dr. (EP VI) | https://www.physik.uni-wuerzburg.de/ep6/staff/professors/prof-dr-vladimir-dyakonov/
+Jens Pflaum | Prof. Dr. (EP VI) | https://www.physik.uni-wuerzburg.de/ep6/staff/professors/prof-dr-jens-pflaum/
+Friedrich Reinert | Prof. Dr. (EP VII) | https://www.physik.uni-wuerzburg.de/ep7/team/prof-dr-friedrich-reinert/
+Sven Höfling | Prof. Dr. (Technische Physik, head) | https://www.physik.uni-wuerzburg.de/tep/team/head-of-chair/prof-dr-sven-hoefling/
+Thomas Trefzger | Prof. Dr. (Physik und ihre Didaktik) | https://www.physik.uni-wuerzburg.de/pid/personal/prof-dr-thomas-trefzger/
+Raimund Ströhmer | Prof. Dr. (Physik und ihre Didaktik) | https://www.physik.uni-wuerzburg.de/pid/personal/prof-dr-raimund-stroehmer/
+Ronny Thomale | Prof. Dr. (TP I) | https://www.physik.uni-wuerzburg.de/tp1/team/
+Fakher Assaad | Prof. Dr. (TP I) | https://www.physik.uni-wuerzburg.de/tp1/team/professoren/prof-dr-fakher-assaad/
+Werner Hanke | Prof. Dr. (TP I, research professor) | https://www.physik.uni-wuerzburg.de/tp1/team/professoren/prof-dr-dr-hc-werner-hanke/
+Martin Greiter | Prof. Dr. (TP I) | https://www.physik.uni-wuerzburg.de/tp1/team/professoren/prof-dr-martin-greiter/
+Ansgar Denner | Prof. Dr. (TP II) | https://www.physik.uni-wuerzburg.de/tp2/personen/prof-dr-ansgar-denner/
+Werner Porod | Prof. Dr. (TP II) | https://www.physik.uni-wuerzburg.de/tp2/personen/prof-dr-werner-porod/
+Thorsten Ohl | Prof. Dr. (TP II) | https://www.physik.uni-wuerzburg.de/tp2/personen/prof-dr-thorsten-ohl/
+Johanna Erdmenger | Prof.in Dr. (TP III, head) | https://www.physik.uni-wuerzburg.de/tp3/personen/lehrstuhlinhaberin/prof-dr-johanna-erdmenger/
+Dominik Neuenfeld | Prof. Dr. (TP III) | https://www.physik.uni-wuerzburg.de/tp3/personen/professoren/prof-dr-dominik-neuenfeld/
+Haye Hinrichsen | Prof. Dr. (TP III) | https://www.physik.uni-wuerzburg.de/tp3/personen/professoren/prof-dr-haye-hinrichsen/
+Björn Trauzettel | Prof. Dr. (TP IV) | https://www.physik.uni-wuerzburg.de/tp4/people/professors/prof-dr-bjoern-trauzettel/
+Ewelina Hankiewicz | Prof.in Dr. (TP IV) | https://www.physik.uni-wuerzburg.de/tp4/people/professors/prof-dr-ewelina-m-hankiewicz/
+Giorgio Sangiovanni | Prof. Dr. (Computational Quantum Materials) | https://www.physik.uni-wuerzburg.de/cqm/team/prof-dr-giorgio-sangiovanni/
+Karl Mannheim | Prof. Dr. (Astronomie) | https://www.physik.uni-wuerzburg.de/astro/
+Matthias Kadler | Prof. Dr. (Astronomie) | https://www.physik.uni-wuerzburg.de/astro/mitarbeiter/ag-kadler/prof-dr-matthias-kadler/
+Adriana Palffy-Buß | Prof.in Dr. (Röntgenquantenoptik) | https://www.physik.uni-wuerzburg.de/research-groups/palffy-buss-group/team/prof-dr-adriana-palffy-buss/
+Sara Buson | Prof.in Dr. (Multimessenger Astronomy) | https://www.physik.uni-wuerzburg.de/astro/mitarbeiter/ag-buson/

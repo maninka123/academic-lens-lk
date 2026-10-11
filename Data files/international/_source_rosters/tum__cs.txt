@@ -1,0 +1,20 @@
+# source: https://www.cs.cit.tum.de/en/cs/people/professors/ (TOTAL=55 professors; systematic sample ~every 3rd entry; URLs = linked research-area page where no personal profile given)
+Reto Achermann | Prof. | https://www.cs.cit.tum.de/en/cs/people/professors/
+Susanne Albers | Prof. Dr. rer. nat. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/algorithmic-economics-operations-research/
+Stefan Bauer | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/people/professors/
+Felix Brandt | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/algorithmic-economics-operations-research/
+Daniel Cremers | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/extreme-scaling/
+Javier Esparza | Prof. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/security-safety-risk-management/
+Alexander Fraser | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/people/professors/
+Jana Giceva | Prof. Dr.sc. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/data-engineering-cloud-systems/
+Stephan Günnemann | Prof. Dr. rer. nat. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/extreme-scaling/
+Stefanie Jegelka | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/people/professors/
+Stephan Krusche | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/information-systems-software-engineering/
+Florian Matthes | Prof. Dr. rer. nat. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/information-systems-software-engineering/
+Thomas Neumann | Prof. Dr. rer. nat. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/extreme-scaling/
+Alexander Pretschner | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/information-systems-software-engineering/
+Stefanie Rinderle-Ma | Prof. Dr. rer. nat. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/information-systems-software-engineering/
+Julia Schnabel | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/people/professors/
+Nils Thuerey | Prof. Dr.-Ing. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/extreme-scaling/
+Ingo Weber | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/research-innovation/areas/information-systems-software-engineering/
+Florian Zuleger | Prof. Dr. | https://www.cs.cit.tum.de/en/cs/people/professors/

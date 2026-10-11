@@ -1,0 +1,31 @@
+# source: https://faculty.nwu.edu.cn/xyjslb.jsp?urltype=tsites.CollegeTeacherList&id=1124 (Northwest University faculty homepage platform, 计算机学院（软件学院）; 30 staff with homepages; titles not shown; name from homepage <title>, romanised with pypinyin; systematic sample = every 1th)
+Siying Niu | 讲师 | https://faculty.nwu.edu.cn/niusiying/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 牛思莹
+Chao Feng |  | https://faculty.nwu.edu.cn/fengchao/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 冯超
+Guixin Ye |  | https://faculty.nwu.edu.cn/yeguixin/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 叶贵鑫
+Qirong Bu |  | https://faculty.nwu.edu.cn/QirongBu/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 卜起荣
+Dekui Wang |  | https://faculty.nwu.edu.cn/wangdekui/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 王德奎
+Hao Wu |  | https://faculty.nwu.edu.cn/HaoWu928/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 吴昊
+Kang Li |  | https://faculty.nwu.edu.cn/KangLi/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 李康
+Zhanyong Tang | 教授 | https://faculty.nwu.edu.cn/ZhanyongTang/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 汤战勇
+Yanyi Cui |  | https://faculty.nwu.edu.cn/cuiyanyi/zh_CN/index.htm | 计算机学院（软件学院） |  | 硕士研究生毕业 | 崔焱一
+Ying Huang | 讲师 | https://faculty.nwu.edu.cn/huangying1/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 黄影
+Zhou Wei |  | https://faculty.nwu.edu.cn/ZhouWei/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 周伟
+Mengqiao Ye |  | https://faculty.nwu.edu.cn/yemengqiao/zh_CN/index.htm | 计算机学院（软件学院） |  |  | 叶梦桥
+Jianqiang Yan | 教授级高级工程师 | https://faculty.nwu.edu.cn/yanjianqiang/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 颜建强
+Zhi Hu | 讲师 | https://faculty.nwu.edu.cn/huzhi/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 胡陟
+Liqiong Chang |  | https://faculty.nwu.edu.cn/LiqiongChang/zh_CN/index.htm |  |  |  | 常俪琼
+Xin Cao |  | https://faculty.nwu.edu.cn/XinCao/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 曹欣
+Haibo Zhang |  | https://faculty.nwu.edu.cn/HaiboZhang/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 张海波
+Ju Wang |  | https://faculty.nwu.edu.cn/ju/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 王举
+Peng Wang |  | https://faculty.nwu.edu.cn/wangpeng/zh_CN/index.htm | 计算机学院（软件学院） |  | 硕士研究生毕业 | 王鹏
+Tingliang Feng |  | https://faculty.nwu.edu.cn/fengtingliang/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 冯廷亮
+Yuhe Zhang |  | https://faculty.nwu.edu.cn/YuheZhang/zh_CN/index.htm | 西北大学 |  | 博士研究生毕业 | 张雨禾
+Xiao Zhang |  | https://faculty.nwu.edu.cn/zhangxiao12/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 张晓
+Tianren Luo | 教授 | https://faculty.nwu.edu.cn/luotianren/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 罗天任
+Ling Guo |  | https://faculty.nwu.edu.cn/LingGuo2/zh_CN/index.htm |  |  |  | 郭凌
+Xingxing Hao | 副教授 | https://faculty.nwu.edu.cn/haoxingxing/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 郝星星
+Xinda Liu |  | https://faculty.nwu.edu.cn/liuxinda/zh_CN/index.htm | 计算机学院（软件学院） |  | 博士研究生毕业 | 刘鑫达
+Yang Xu |  | https://faculty.nwu.edu.cn/xuyang/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 许阳
+Pengfei Xu |  | https://faculty.nwu.edu.cn/PengfeiXu/zh_CN/index.htm | 信息科学与技术学院（软件学院） |  | 博士研究生毕业 | 许鹏飞
+Xiao Liang |  | https://faculty.nwu.edu.cn/liangxiao1/zh_CN/index.htm |  |  |  | 梁潇
+Xiang Zhang | 副教授 | https://faculty.nwu.edu.cn/zhangxiang1/zh_CN/index.htm | 西北大学 |  | 博士研究生毕业 | 张翔

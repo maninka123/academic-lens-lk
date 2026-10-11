@@ -1,5 +1,15 @@
-faculty_id,faculty_name,department_count,academic_records
-faculty-of-computing,Faculty of Computing,0,30
-faculty-of-engineering,Faculty of Engineering,0,17
+﻿faculty_id,faculty_name,department_count,academic_records
+unassigned-faculty,,14,17
 faculty-of-allied-health-science,Faculty of Allied Health Science,0,1
-unassigned-faculty,,0,17
+faculty-of-allied-health-sciences,Faculty of Allied Health Sciences,0,0
+faculty-of-allied-health-sciences-fahs,Faculty of Allied Health Sciences (FAHS),0,0
+faculty-of-built-environment-spatial-sciences,Faculty of Built Environment & Spatial Sciences,0,0
+faculty-of-computing,Faculty of Computing,0,30
+faculty-of-criminal-justice,Faculty of Criminal Justice,0,0
+faculty-of-defence-studies-and-strategic-studies,Faculty of Defence Studies and Strategic Studies,0,0
+faculty-of-engineering,Faculty of Engineering,0,17
+faculty-of-graduate-studies,Faculty of Graduate Studies,0,0
+faculty-of-law,Faculty of Law,0,0
+faculty-of-management-social-sciences-and-humanities,"Faculty of Management, Social Sciences and Humanities",0,0
+faculty-of-medicine,Faculty of Medicine,0,0
+faculty-of-technology,Faculty of Technology,0,0

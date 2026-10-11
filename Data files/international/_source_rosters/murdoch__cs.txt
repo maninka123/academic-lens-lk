@@ -1,0 +1,9 @@
+# source: https://www.murdoch.edu.au/schools/information-technology/about/our-people (page lists only Professors/Associate Professors with rank; 'Dr' entries without rank excluded)
+Hamid Laga | Professor | https://researchportal.murdoch.edu.au/esploro/profile/hamid_laga
+David Parry | Professor | https://researchportal.murdoch.edu.au/esploro/profile/david_parry
+Ferdous Sohel | Professor | https://researchportal.murdoch.edu.au/esploro/profile/ferdous_sohel
+Kevin Wong | Professor | https://researchportal.murdoch.edu.au/esploro/profile/kevin_wong
+Polychronis Koutsakis | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/polychronis_koutsakis
+David Murray | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/david_murray/overview
+Mohd. Fairuz Shiratuddin | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/mohd_fairuz_shiratuddin
+Guanjin (Brenda) Wang | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/guanjin_wang/overview

@@ -1,0 +1,14 @@
+# source: https://www.cdu.edu.au/engineering-it-environment/it/staff (CDU Information Technology discipline staff = 13; ranks shown only as Prof/Dr)
+Sami Azam | Professor; IT Discipline Chair | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Nicola Bidwell | Professor | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Charles Yeo | Dr (academic) | https://www.cdu.edu.au/staff/charles-yeo
+Yakub Sebastian | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Cat Kutay | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Thuseethan Selvarajah | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Md Rafiqul Islam | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Pritika | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Bharanidharan Shanmugam | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Jamal El-Den | Dr (academic) | https://www.cdu.edu.au/staff/jamal-el-den
+Asif Karim | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Yan Zhang | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff
+Reem Sherif | Dr (academic) | https://www.cdu.edu.au/engineering-it-environment/it/staff

@@ -1,0 +1,29 @@
+# source: https://comp.anu.edu.au/people/ (academics filter; 56 eligible; systematic sample = every 2nd entry in directory order, starting with 1st)
+Thushara Abhayapala | Professor | https://comp.anu.edu.au/people/thushara-abhayapala/
+Josh Andres | Senior Lecturer | https://comp.anu.edu.au/people/josh-andres/
+Amanda Barnard | Senior Professor | https://comp.anu.edu.au/people/amanda-barnard/
+Giuseppe Barca | Associate Professor | https://comp.anu.edu.au/people/giuseppe-barca/
+Steve Blackburn | Professor | https://comp.anu.edu.au/people/steve-blackburn/
+Thang Bui | Senior Lecturer | https://comp.anu.edu.au/people/thang-bui/
+Yun Kuen (Marco) Cheung | Senior Lecturer | https://comp.anu.edu.au/people/marco-cheung/
+Catherine Galvin | Lecturer | https://comp.anu.edu.au/people/catherine-galvin/
+Charles Gretton | Associate Professor | https://comp.anu.edu.au/people/charles-gretton/
+Patrik Haslum | Associate Professor | https://comp.anu.edu.au/people/patrik-haslum/
+Matthew Hole | Professor | https://comp.anu.edu.au/people/matthew-hole/
+Jing Jiang | Professor | https://comp.anu.edu.au/people/jing-jiang/
+Hanna Kurniawati | Professor | https://comp.anu.edu.au/people/hanna-kurniawati/
+Miaomiao Liu | Associate Professor | https://comp.anu.edu.au/people/miaomiao-liu/
+Alberto F. Martín | Senior Lecturer | https://comp.anu.edu.au/people/alberto-martin/
+Fabian Muehlboeck | Lecturer | https://comp.anu.edu.au/people/fabian-muehlboeck/
+Ehsan Nabavi | Senior Lecturer | https://comp.anu.edu.au/people/ehsan-nabavi/
+Liam O'Connor | Senior Lecturer | https://comp.anu.edu.au/people/liam-oconnor/
+Dirk Pattinson | Professor | https://comp.anu.edu.au/people/dirk-pattinson/
+Aaron Quigley | Professor | https://comp.anu.edu.au/people/aaron-quigley/
+Rahul Shome | Senior Lecturer | https://comp.anu.edu.au/people/rahul-shome/
+Hanna Suominen | Professor | https://comp.anu.edu.au/people/hanna-suominen/
+John Taylor | Professor | https://comp.anu.edu.au/people/john-taylor/
+Sylvie Thiébaux | Senior Professor | https://comp.anu.edu.au/people/sylvie-thiebaux/
+Felipe Trevizan | Associate Professor | https://comp.anu.edu.au/people/felipe-trevizan/
+Graham Williams | Professor | https://comp.anu.edu.au/people/graham-williams/
+Liang Zheng | Associate Professor | https://comp.anu.edu.au/people/liang-zheng/
+Jing Zhang | Senior Lecturer | https://comp.anu.edu.au/people/jing-zhang/

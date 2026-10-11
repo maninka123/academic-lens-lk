@@ -1,0 +1,14 @@
+# source: https://www.ai.uni-bayreuth.de/en/professors/index.html (chairs/working groups; vacant N.N. excluded)
+Thomas Rauber | Professor, Applied Computer Science II - Parallel and Distributed Systems | http://www.ai2.uni-bayreuth.de/de/index.html
+Dominik Henrich | Professor, Applied Computer Science III - Robotics and Embedded Systems | https://www.ai3.uni-bayreuth.de/de/index.html
+Stefan Jablonski | Professor, Applied Computer Science IV - Databases and Information Systems | https://www.ai4.uni-bayreuth.de/en/index.html
+Michael Guthe | Professor, Applied Computer Science V - Graphical Data Processing | https://www.ai5.uni-bayreuth.de/de/index.html
+Christian Knauer | Professor, Applied Computer Science VI - Algorithms and Data Structures | https://www.ai6.uni-bayreuth.de/en/startseite.html
+Wim Martens | Professor, Applied Computer Science VII - Data-Intensive Algorithms | https://www.theoinf.uni-bayreuth.de/en/index.html
+Jörg Müller | Professor, Applied Computer Science VIII - Serious Games | https://www.ai8.uni-bayreuth.de/en/index.html
+Daniel Buschek | Junior research group leader, Applied Computer Science IX - Mobile Intelligent User Interfaces | https://www.hciai.uni-bayreuth.de/en/index.html
+Ruben Mayer | Professor, Applied Computer Science X - Data Systems | https://www.datasystems.uni-bayreuth.de/en/index.html
+Heike Leutheuser | Professor, Applied Computer Science XI - Machine Learning in Medicine | https://www.ai11.uni-bayreuth.de/en/index.html
+Sebastian Roth | Professor, Applied Computer Science XII - Cybersecurity | https://cysec.uni-bayreuth.de/
+Thomy Phan | Professor, Applied Computer Science XIII - Artificial Intelligence and Machine Learning | https://www.aiml.uni-bayreuth.de/en/index.html
+Anke Reinschlüssel | Professor, Applied Computer Science XIV - Mobile Computing and Telemedicine | https://www.hcimed.uni-bayreuth.de/en/index.html

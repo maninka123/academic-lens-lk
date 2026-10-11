@@ -1,0 +1,26 @@
+# source: https://faculty.nwu.edu.cn/xyjslb.jsp?urltype=tsites.CollegeTeacherList&id=1052 (Northwest University faculty homepage platform, 物理学院; 53 staff with homepages; titles not shown; name from homepage <title>, romanised with pypinyin; systematic sample = every 2th)
+Tao Zhang |  | https://faculty.nwu.edu.cn/TaoZhang/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 张涛
+Yang Jiao |  | https://faculty.nwu.edu.cn/YangJiao/zh_CN/index.htm | 物理学院 |  |  | 焦杨
+Shuguang Cheng |  | https://faculty.nwu.edu.cn/ShuguangCheng/zh_CN/index.htm | 物理学院 |  |  | 成淑光
+Wenli Yang |  | https://faculty.nwu.edu.cn/WenliYang/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 杨文力
+Pengyu Nan |  | https://faculty.nwu.edu.cn/nanpengyu/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 南朋玉
+Hangzhou Yang |  | https://faculty.nwu.edu.cn/HangzhouYang/zh_CN/index.htm | 物理学院 |  |  | 杨杭洲
+Ruohui Wang | 教授 | https://faculty.nwu.edu.cn/RuohuiWang/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 王若晖
+Dan Su |  | https://faculty.nwu.edu.cn/sudan/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 苏丹
+Niumiao Zhang | 副教授 | https://faculty.nwu.edu.cn/NiumiaoZhang/zh_CN/index.htm | 物理学院 |  |  | 张妞苗
+Peng Hu |  | https://faculty.nwu.edu.cn/PengHu/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 胡鹏
+Haosong Li |  | https://faculty.nwu.edu.cn/HaosongLi/zh_CN/index.htm | 物理学院 |  |  | 李浩松
+Ping Guo |  | https://faculty.nwu.edu.cn/guoping/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 郭平
+Hao Luo | 副教授 | https://faculty.nwu.edu.cn/luo/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 罗昊
+Huiwu Yu |  | https://faculty.nwu.edu.cn/yuhuiwu/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 喻惠武
+Yang Lin |  | https://faculty.nwu.edu.cn/linyang/zh_CN/index.htm | 物理学院 |  |  | 林泱
+Feng Teng | 教授 | https://faculty.nwu.edu.cn/FengTeng/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 滕凤
+Xing Zhang |  | https://faculty.nwu.edu.cn/zhangxing12/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 张星
+Xinyuan Qi | 教授 | https://faculty.nwu.edu.cn/qixycn/zh_CN/index.htm | 物理学院 |  |  | 齐新元
+Xiankun Yao | 副教授 | https://faculty.nwu.edu.cn/xiankunyao/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 姚献坤
+Bin Wu |  | https://faculty.nwu.edu.cn/BinWu/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 吴滨
+Jiaming Song | 副教授 | https://faculty.nwu.edu.cn/JiamingSong/zh_CN/index.htm | 物理学院 |  |  | 宋佳明
+Hui Miao | 副教授 | https://faculty.nwu.edu.cn/HuiMiao/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 苗慧
+Si Li | 教授 | https://faculty.nwu.edu.cn/lisi/zh_CN/index.htm | 物理学院 |  |  | 李思
+Fengyi Chen |  | https://faculty.nwu.edu.cn/chenfengyi/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 陈凤仪
+Chunmei Zhang | 教授 | https://faculty.nwu.edu.cn/zhangchunmei/zh_CN/index.htm | 物理学院 |  | 博士研究生毕业 | 张春梅

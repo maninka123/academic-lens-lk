@@ -1,9 +1,12 @@
-import { useState } from "react";
 import type { Academic } from "../types";
 
 /** A symbolic illustration, never a likeness or an inference about identity. */
 export function AcademicPortrait({ academic }: { academic: Academic }) {
-  const [style, setStyle] = useState("neutral");
+  const style = /(?:^|[\s.(])(?:Mrs|Ms|Miss)\.?\s*(?:\)|\s|(?=[A-Z]))/i.test(
+    academic.sourceName || academic.name,
+  )
+    ? "long"
+    : "short";
   const doctorate = academic.qualification === "PhD";
   const senior = /professor|senior|dean|head/i.test(
     academic.rank + " " + academic.position,
@@ -66,18 +69,6 @@ export function AcademicPortrait({ academic }: { academic: Academic }) {
           : academic.qualification}{" "}
         · {senior ? "Senior role" : academic.rank}
       </span>
-      <label className="portrait-style">
-        Illustration style
-        <select
-          aria-label="Illustration style"
-          value={style}
-          onChange={(e) => setStyle(e.target.value)}
-        >
-          <option value="neutral">Neutral</option>
-          <option value="short">Short hair</option>
-          <option value="long">Long hair</option>
-        </select>
-      </label>
     </div>
   );
 }

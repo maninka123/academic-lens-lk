@@ -1,32 +1,56 @@
-SRI LANKA ACADEMIC ATLAS: PARTIAL COLLECTION
-Collected 11 October 2026
+SRI LANKA ACADEMIC ATLAS — EXPANDED PARTIAL COLLECTION
+Checked 2026-10-11
 
-Saegis Campus is excluded. The agreed scope contains 14 institutions.
-This delivery does not complete an exhaustive census of every faculty and department.
+# Collection handoff — 2026-10-11
 
-This batch contains 1173 main staff records from 12 institutions, 1125 unique official source pages read, 154 official Scholar links, and 94 name-and-affiliation matched ResearchGate metric snapshots. Every main record received an individual research profile search. Only 79 records have a citation total; other matched snapshots may provide publication counts only.
-The KIU and ICBT academic CSVs contain headers only. This does not imply those institutions have no academics.
+The editable hierarchy is structurally validated for import review. This is an expanded, evidence-preserving **partial collection**, not a completed census of all 14 institutions.
 
-FILES
-Each institution has a separate academic CSV. academics_all.csv combines their main records.
-coverage.csv reports extracted counts and gaps, not institutional staff totals.
-faculty_department_inventory.csv reports discovered units and whether their links were visited. It is not a verified exhaustive hierarchy.
-source_pages.csv records the official pages read.
-research_metrics_snapshots.csv separates source-specific research totals.
-research_search_log.csv records individual searches. Searches do not guarantee identity verification.
-research_unresolved.csv lists unresolved research matches.
-employment_review.csv keeps 77 records needing employment review outside the main dataset.
-access_issues.csv records observed access issues. Interrupted discovery runs did not produce an exhaustive failed-URL log.
-data_dictionary.csv explains fields and missing values.
+Starting population: 1,173 unique academic IDs across 12 populated institutions. Current population: **1,388 authoritative academic records**, with 228 newly added academics and 13 confirmed duplicate source identities preserved outside the authoritative leaves. All 1173 original IDs remain either authoritative or traceably retained as aliases. The 10,000-distinct-academic target has **not** been reached; rows/fields/publications/review candidates are never added to that academic count. Unresolved cross-institution or name aliases mean this is an operational distinct-record count, not proof of a complete person census.
 
-LIMITATIONS
-All main records remain automatically extracted and require factual review before publication or institutional comparison. Permanent or full-time status is not individually verified. Some directory pages may be outdated. Name variants or cross-institution appointments may remain duplicated.
-Only 381 records have extracted qualification information. Blank values may reflect extraction gaps, unpublished information or inaccessible sources.
-Google Scholar returned HTTP 429 on direct access. ResearchGate returned HTTP 403 on direct access. No bypass was attempted. ResearchGate values came from indexed search snapshots and may be stale. These counts must not be treated as Scholar counts or added to them.
-All h-index, exact 2021 to 2025 citation totals, and Q1 publication counts remain blank. Q1 counts require publication-level matching with a consistent journal quartile source and publication-year/category rule.
-A missing PhD record must not be counted as no PhD. Country mappings identify the institution's country, not necessarily the physical location of doctoral study.
-Teaching experience is included only where explicitly reported. It can be approximate and source dated.
-Discovery was interrupted after this partial batch. No collection continues automatically after delivery.
+| Institution | Authoritative records |
+|---|---:|
+| CINEC Campus | 71 |
+| University of Colombo | 342 |
+| Horizon Campus | 46 |
+| ICBT Campus | 0 |
+| University of Jaffna | 133 |
+| University of Sri Jayewardenepura | 14 |
+| General Sir John Kotelawala Defence University | 65 |
+| University of Kelaniya | 89 |
+| KIU | 0 |
+| University of Moratuwa | 245 |
+| NSBM Green University | 111 |
+| University of Peradeniya | 165 |
+| University of Ruhuna | 59 |
+| Sri Lanka Institute of Information Technology | 48 |
 
-CSV FORMAT
-UTF-8 with a BOM for convenient opening in Excel. One header row. Numeric counts are unformatted integers; empty cells are missing values. No invented example academics are included.
+849 currently authoritative records have documented field corrections; 4472 field changes and 489 moves have traceable entries in change_log.csv. Stronger affiliation evidence was used for Moratuwa, Peradeniya Arts, Jaffna, Ruhuna and SLIIT. Four incomplete Horizon faculty strings were moved to the published English Language Teaching Unit under unassigned-faculty. Faculty/address punctuation, awarding-university prefixes and confirmed aliases were checked again. Existing uncertain employment records remain visible with status flags.
+
+Employment: 249 authoritative records have explicit permanent-staff evidence; 1139 do not have a confirmed permanent appointment. 196 candidates remain in employment_review.csv. KIU and ICBT current faculty sources and available named academic/committee sources were checked; their authoritative academic leaves remain header-only because explicit appointment evidence was insufficient. Empty leaves do not mean no staff.
+
+Research: 311 active records have a verified official researcher link, including 294 with Scholar links. 241 active records have live Scholar metrics with a displayed-name cross-check. Wrong official links are retained with conflict flags, not accepted as identities. Legacy indexed ResearchGate snapshots remain separate and may be stale. Mixed core provenance is explicitly labelled and field-level evidence is retained.
+
+- total_publications: 90 populated authoritative values
+- total_citations: 294 populated authoritative values
+- citations_2021_2025: 131 populated authoritative values
+- h_index: 241 populated authoritative values
+- total_q1_journal_publications: 0 populated authoritative values
+- q1_publications_2021_2025: 0 populated authoritative values
+
+There are 919 publication-to-academic links, with 11 independently matched publication metadata records. These are partial profile lists; coauthor links remain valid and person-level DOI/title/year deduplication is applied. Historical journal quartiles have not been established, so complete Q1 totals and percentages remain unknown. q1_methodology.md declares the consistent future classification policy; q1_partial_counts.csv and publication_coverage.csv show incomplete coverage.
+
+Source discovery includes all 14 institutional homepages, previously unvisited inventory URLs, 84 Peradeniya central department links, SJP faculty and management departmental staff pages, Colombo Science's published permanent sections, Ruhuna Engineering current directories plus its 2025/2026 handbook, and SLIIT pagination/profile checks. There are 52 recorded unit/check checkpoints and 1294 source retrieval observations. A retrieved page is not equivalent to a completed unit review. KDU access denials, CINEC retrieval failures, DNS/server failures and platform/registry restrictions are retained in access_issues.csv. No CAPTCHA/authentication/rate-limit bypass was used.
+
+Validation: exact 32-column leaves; unique nonempty IDs/names; institution/affiliation placement; original-ID preservation and correction logs; nonnegative numeric fields and plausible years; ongoing PhDs without completion years; metric provenance; publication deduplication; fresh independent CSV count; faculty/manifest/coverage reconciliation. A cross-person repeated-field audit corrected 19 Ruhuna Civil/Environmental profiles using their own educational sections; prior shared-panel values remain traceable in field_quality_review.csv and change_log.csv. Indexed official-page reads after direct access failures are separately documented in web_source_checks.csv. See validation_report.json. 0 warnings require review.
+
+## Remaining collection work
+
+- Exhaustive named current staff collection and employment verification across all faculties/units remains incomplete; coverage.csv is deliberately marked incomplete for every institution.
+- Resolve 17 pending identity cases, contradictory primary appointments, old staff biographies and source spelling variants before treating the records as a census of current permanent staff.
+- Finish KIU/ICBT appointment evidence, SLIIT pagination gaps and inaccessible official units through authorised public sources.
+- Complete missing qualifications, awarding-country evidence and dated academic employment histories; do not extrapolate durations.
+- Recheck legacy research matches, complete missing Scholar identities and exact annual metrics when accessible, verify publication types and historical SCImago/SJR quartiles. OpenAlex is not used to fill identity or metric gaps speculatively.
+
+## Application-session handoff
+
+Data work has stayed inside Data files/. Application files, repository scripts, generated website data, builds, deployments and Git operations were not touched. The application session may review this handoff and the validation report, then import the authoritative hierarchy. No other application session could be messaged through the available tools; this file is the ready-to-review notification to pass to that session. Do not count archives, supporting review rows or exports as additional academics.

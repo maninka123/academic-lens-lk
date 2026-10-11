@@ -1,0 +1,12 @@
+# source: https://www.tu-chemnitz.de/informatik/professuren.php.en (professorships; vacant/honorary excluded)
+Matthias Werner | Professor, Operating Systems | http://osg.informatik.tu-chemnitz.de/
+Michael Martin | Professor, Data Management | http://www.tu-chemnitz.de/informatik/dm/
+Fred Hamker | Professor, Artificial Intelligence | http://www.tu-chemnitz.de/informatik/KI/index.php.en
+Maximilian Eibl | Professor, Media Informatics | http://www.tu-chemnitz.de/informatik/mi/index.php.en
+Florian Röhrbein | Professor, Neurorobotics | http://www.tu-chemnitz.de/informatik/neurorobotik/index.php.en
+Alejandro Masrur | Professor, Computer Architectures and Systems | http://www.tu-chemnitz.de/informatik/CAS/index.php.en
+Janet Siegmund | Professor, Software Engineering | http://www.tu-chemnitz.de/informatik/ST/
+Wolfram Hardt | Professor, Computer Engineering | http://www.tu-chemnitz.de/informatik/ce/index.php.en
+Dominik Scheder | Professor, Theoretical Computer Science | http://www.tu-chemnitz.de/informatik/theoretische-informatik/index.html.en
+Martin Gaedke | Professor, Distributed and Self-organizing Systems | http://vsr.informatik.tu-chemnitz.de/
+Stefan Reitmann | Junior Professor, Pervasive Computing Systems | http://www.tu-chemnitz.de/informatik/pcs/

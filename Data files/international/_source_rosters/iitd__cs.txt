@@ -1,0 +1,21 @@
+# source: https://homecse.iitd.ac.in/faculty/ (TOTAL=39 regular; systematic sample = every 2nd entry)
+Amit Kumar | Professor; Head of Department | https://homecse.iitd.ac.in/team/amit-kumar/
+Abhilash Jindal | Assistant Professor | https://homecse.iitd.ac.in/team/abhilash-jindal/
+Amitabha Bagchi | Professor | https://homecse.iitd.ac.in/team/amitabha-bagchi/
+Chetan Arora | Professor | https://homecse.iitd.ac.in/team/chetan-arora/
+Keerti Choudhary | Assistant Professor | https://homecse.iitd.ac.in/team/keerti-choudhary/
+Kumar Madhukar | Assistant Professor | https://homecse.iitd.ac.in/team/kumar-madhukar/
+Maya Ramanath | Associate Professor | https://homecse.iitd.ac.in/team/maya-ramanath/
+Nikhil Balaji | Assistant Professor | https://homecse.iitd.ac.in/team/nikhil-balaji/
+Piyush Kumar Sharma | Assistant Professor | https://homecse.iitd.ac.in/team/piyush-kumar-sharma/
+Priyanka Golia | Assistant Professor | https://homecse.iitd.ac.in/team/priyanka-golia/
+Rahul Garg | Professor | https://homecse.iitd.ac.in/team/rahul-garg/
+Rajendra Kumar | Assistant Professor | https://homecse.iitd.ac.in/team/rajendra-kumar/
+Rohan Paul | Associate Professor | https://homecse.iitd.ac.in/team/rohan-paul/
+Sanjiva Prasad | Professor | https://homecse.iitd.ac.in/team/sanjiva-prasad/
+Smruti Ranjan Sarangi | Professor | https://homecse.iitd.ac.in/team/smruti-ranjan-sarangi/
+Srikanta Bedathur | Professor | https://homecse.iitd.ac.in/team/srikanta-bedathur/
+Subodh Vishnu Sharma | Associate Professor | https://homecse.iitd.ac.in/team/subodh-vishnu-sharma/
+Tarun Mangla | Assistant Professor | https://homecse.iitd.ac.in/team/tarun-mangla/
+Venkata Vivek Kumar Koppula | Assistant Professor | https://homecse.iitd.ac.in/team/venkata-vivek-kumar-koppula/
+Vireshwar Kumar | Assistant Professor | https://homecse.iitd.ac.in/team/vireshwar-kumar/

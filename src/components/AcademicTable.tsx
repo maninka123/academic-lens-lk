@@ -4,10 +4,12 @@ import {
   getCoreRowModel,
   getSortedRowModel,
   getPaginationRowModel,
+  getFilteredRowModel,
   flexRender,
   type ColumnDef,
   type SortingState,
   type VisibilityState,
+  type ColumnFiltersState,
 } from "@tanstack/react-table";
 import { Link } from "react-router-dom";
 import {
@@ -21,9 +23,16 @@ import type { Academic } from "../types";
 import { useAtlas } from "../store";
 import { Button } from "./ui/button";
 import { fmt, short, exportCsv } from "./common";
-export function AcademicTable({ rows }: { rows: Academic[] }) {
+export function AcademicTable({
+  rows,
+  columnFilters = false,
+}: {
+  rows: Academic[];
+  columnFilters?: boolean;
+}) {
   const { pin, unpin, pinned } = useAtlas();
   const [sorting, setSorting] = useState<SortingState>([]);
+  const [filters, setFilters] = useState<ColumnFiltersState>([]);
   const [visibility, setVisibility] = useState<VisibilityState>({
     faculty: false,
     department: false,
@@ -40,6 +49,7 @@ export function AcademicTable({ rows }: { rows: Academic[] }) {
         id: "pin",
         header: "Pin",
         enableSorting: false,
+        enableColumnFilter: false,
         cell: ({ row }) => (
           <Button
             variant="ghost"
@@ -92,6 +102,15 @@ export function AcademicTable({ rows }: { rows: Academic[] }) {
         ] as const
       ).map((key) => ({
         accessorKey: key,
+        filterFn: ((row: any, id: string, range: [string, string]) => {
+          const value = row.getValue(id);
+          const [min, max] = range;
+          return (
+            value !== null &&
+            (min === "" || value >= Number(min)) &&
+            (max === "" || value <= Number(max))
+          );
+        }) as any,
         header: {
           experience: "Experience",
           publications: "Publications",
@@ -113,7 +132,10 @@ export function AcademicTable({ rows }: { rows: Academic[] }) {
   const table = useReactTable({
     data: rows,
     columns: cols,
-    state: { sorting, columnVisibility: visibility },
+    state: { sorting, columnVisibility: visibility, columnFilters: filters },
+    onColumnFiltersChange: setFilters,
+    getFilteredRowModel: getFilteredRowModel(),
+    defaultColumn: { filterFn: "includesString" },
     onSortingChange: setSorting,
     onColumnVisibilityChange: setVisibility,
     getCoreRowModel: getCoreRowModel(),
@@ -125,9 +147,15 @@ export function AcademicTable({ rows }: { rows: Academic[] }) {
     <div className="table-section">
       <div className="table-toolbar">
         <span>
-          {rows.length.toLocaleString()} matching profiles · — means unavailable
+          {table.getFilteredRowModel().rows.length.toLocaleString()} matching
+          profiles · — means unavailable
         </span>
         <div className="inline">
+          {filters.length > 0 && (
+            <Button variant="ghost" onClick={() => setFilters([])}>
+              Clear column filters
+            </Button>
+          )}
           <details className="columns-menu">
             <summary>
               <Columns3 size={17} />
@@ -149,7 +177,12 @@ export function AcademicTable({ rows }: { rows: Academic[] }) {
                 ))}
             </div>
           </details>
-          <Button variant="outline" onClick={() => exportCsv(rows)}>
+          <Button
+            variant="outline"
+            onClick={() =>
+              exportCsv(table.getFilteredRowModel().rows.map((r) => r.original))
+            }
+          >
             <Download size={17} />
             Export CSV
           </Button>
@@ -173,6 +206,59 @@ export function AcademicTable({ rows }: { rows: Academic[] }) {
                           ? " ↓"
                           : ""}
                     </button>
+                    {columnFilters &&
+                      h.column.getCanFilter() &&
+                      ([
+                        "experience",
+                        "publications",
+                        "citations",
+                        "recentCitations",
+                        "hIndex",
+                        "q1",
+                        "recentQ1",
+                      ].includes(h.column.id) ? (
+                        <div className="column-range">
+                          {["Minimum", "Maximum"].map((label, index) => (
+                            <input
+                              key={label}
+                              type="number"
+                              min="0"
+                              step="any"
+                              aria-label={`${label} ${h.column.columnDef.header}`}
+                              placeholder={index === 0 ? "Min" : "Max"}
+                              value={
+                                (
+                                  h.column.getFilterValue() as
+                                    [string, string] | undefined
+                                )?.[index] || ""
+                              }
+                              onChange={(e) => {
+                                const range = [
+                                  ...((h.column.getFilterValue() as [
+                                    string,
+                                    string,
+                                  ]) || ["", ""]),
+                                ];
+                                range[index] = e.target.value;
+                                h.column.setFilterValue(
+                                  range.some(Boolean) ? range : undefined,
+                                );
+                              }}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <input
+                          className="column-filter"
+                          type="search"
+                          aria-label={`Filter ${h.column.columnDef.header}`}
+                          placeholder="Filter…"
+                          value={(h.column.getFilterValue() as string) || ""}
+                          onChange={(e) =>
+                            h.column.setFilterValue(e.target.value || undefined)
+                          }
+                        />
+                      ))}
                   </th>
                 ))}
               </tr>
@@ -190,7 +276,7 @@ export function AcademicTable({ rows }: { rows: Academic[] }) {
             ))}
           </tbody>
         </table>
-        {!rows.length && (
+        {!table.getFilteredRowModel().rows.length && (
           <div className="empty">No profiles match these filters.</div>
         )}
       </div>

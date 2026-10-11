@@ -1,0 +1,15 @@
+# source: https://www.ph.nat.tum.de/en/ph/about/profs/ (TOTAL=42 professors; systematic sample = every 3rd)
+Willi Auwärter | Prof. Dr.sc.nat. | https://www.ph.tum.de/en/ph/about/profs/willi-auwaerter/
+Johannes Barth | Prof. Dr. rer. nat. | https://www.ph.tum.de/en/ph/about/profs/johannes-barth/
+Laura Classen | Prof. Dr. rer. nat. | https://www.ph.tum.de/en/ph/about/profs/laura-classen/
+Laura Fabbietti | Prof. Dr. rer. nat. | https://www.ph.tum.de/en/ph/about/profs/laura-fabbietti/
+Jonathan Finley | Prof. Ph.D. | https://www.ph.tum.de/en/ph/about/profs/jonathan-finley/
+Tim Happel | Prof. Dr. | https://www.ph.tum.de/en/ph/about/profs/tim-happel/
+Alexander Holleitner | Prof. Dr. rer. nat. | https://www.ph.tum.de/en/ph/about/profs/alex-holleitner/
+Michael Knap | Prof. Dr. techn. | https://www.ph.tum.de/en/ph/about/profs/michael-knap/
+Katharina Krischer | Prof. Dr. rer. nat. habil. | https://www.ph.tum.de/en/ph/about/profs/katharina-krischer/
+Christine Papadakis | Prof. Ph.D. | https://www.ph.tum.de/en/ph/about/profs/christine-papadakis/
+Frank Pollmann | Prof. Dr. rer. nat. | https://www.ph.tum.de/en/ph/about/profs/frank-pollmann/
+Elisa Resconi | Prof. Dr. | https://www.ph.tum.de/en/ph/about/profs/elisa-resconi/
+Stefan Schönert | Prof. Dr. rer. nat. | https://www.ph.tum.de/en/ph/about/profs/stefan-schoenert/
+Lorenzo Tancredi | Prof. Dr.sc.nat. | https://www.ph.tum.de/en/ph/about/profs/lorenzo-tancredi/

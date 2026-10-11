@@ -20,6 +20,7 @@ import { Header, Card, Stat, short, fmt, colors } from "../components/common";
 import { Chart } from "../components/Chart";
 import { Button } from "../components/ui/button";
 import type { Config } from "../types";
+import { GlobalTeaser } from "./Global";
 export function Overview() {
   const { academics, universities, metadata } = useData();
   const { filters, configure, setFilters } = useAtlas();
@@ -33,7 +34,9 @@ export function Overview() {
     rows.filter((a) => a.phdCountry && a.qualification === "PhD"),
     "phdCountry",
   ).sort((a, b) => b.rows.length - a.rows.length);
-  const ranks = groupRows(rows, "rank");
+  const ranks = groupRows(rows, "rank").sort(
+    (a, b) => b.rows.length - a.rows.length,
+  );
   const pub = values(rows.map((a) => a.publications)),
     cit = values(rows.map((a) => a.citations));
   const preset = (c: Partial<Config>, f?: Parameters<typeof setFilters>[0]) => {
@@ -244,16 +247,12 @@ export function Overview() {
             height={320}
             option={{
               tooltip: { renderMode: "richText" },
-              legend: {
-                bottom: 0,
-                type: "scroll",
-                textStyle: { fontSize: 14 },
-              },
+              legend: { show: false },
               series: [
                 {
                   type: "pie",
                   radius: ["45%", "72%"],
-                  center: ["50%", "43%"],
+                  center: ["50%", "50%"],
                   label: { show: false },
                   data: ranks.map((g, i) => ({
                     name: g.label,
@@ -267,6 +266,28 @@ export function Overview() {
               preset({ level: "rank", groups: [p.name] });
             }}
           />
+          <ul className="position-legend" aria-label="Academic position legend">
+            {ranks.map((g, i) => (
+              <li key={g.id}>
+                <button
+                  onClick={() => preset({ level: "rank", groups: [g.id] })}
+                >
+                  <span
+                    className="legend-swatch"
+                    style={{ backgroundColor: colors[i % colors.length] }}
+                  />
+                  <span>{g.label}</span>
+                  <strong>{g.rows.length.toLocaleString()}</strong>
+                  <span>
+                    {rows.length
+                      ? ((100 * g.rows.length) / rows.length).toFixed(1)
+                      : "0.0"}
+                    %
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
         </Card>
         <Card
           title="Research comparison"
@@ -335,6 +356,7 @@ export function Overview() {
           }}
         />
       </Card>
+      <GlobalTeaser />
       <Card
         title="Explore an institution"
         subtitle="Follow the hierarchy from university to faculty, department and academic."

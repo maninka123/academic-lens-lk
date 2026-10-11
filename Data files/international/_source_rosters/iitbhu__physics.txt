@@ -1,0 +1,17 @@
+# source: https://iitbhu.ac.in/dept/phy/faculty (TOTAL=31; systematic sample = every 2nd)
+Rajendra Prasad | Professor and Head of the Department | https://iitbhu.ac.in/dept/phy/people/rprasadapp
+Anita Mohan | Professor | https://iitbhu.ac.in/dept/phy/people/amohanapp
+Deba Prasad Giri | Professor | https://iitbhu.ac.in/dept/phy/people/dgiriapp
+Praveen Chandra Pandey | Professor | https://iitbhu.ac.in/dept/phy/people/pcpandeyapp
+Rakesh K Singh | Professor | https://iitbhu.ac.in/dept/phy/people/krakeshsinghphy
+Shail Upadhyay | Professor | https://iitbhu.ac.in/dept/phy/people/supadhyayapp
+Bidya Binay Karak | Associate Professor | https://iitbhu.ac.in/dept/phy/people/karakapp
+Prasun Dutta | Associate Professor | https://iitbhu.ac.in/dept/phy/people/pduttaphy
+Shradha Mishra | Associate Professor | https://iitbhu.ac.in/dept/phy/people/smishraphy
+Saurabh Tripathi | Associate Professor | https://iitbhu.ac.in/dept/phy/people/stripathiphy
+Swapnil Patil | Associate Professor | https://iitbhu.ac.in/dept/phy/people/spatilphy
+Biswanath Bhoi | Assistant Professor | https://iitbhu.ac.in/dept/phy/people/biswanathphy
+Kuldeep Verma | Assistant Professor | https://iitbhu.ac.in/dept/phy/people/kuldeepphy
+Pavan Kumar Aluri | Assistant Professor | https://iitbhu.ac.in/dept/phy/people/pavanaluriphy
+Ravindra Kumar Yadav | Assistant Professor | https://iitbhu.ac.in/dept/phy/people/ravindraphy
+Saurabh Kumar Srivastav | Assistant Professor | https://iitbhu.ac.in/dept/phy/people/saurabhphy

@@ -1,0 +1,56 @@
+﻿id,name,country,qs_rank_2027,tier
+mit,Massachusetts Institute of Technology,United States,1,elite
+stanford,Stanford University,United States,=2,elite
+iastate,Iowa State University,United States,=540,middle
+kstate,Kansas State University,United States,1001-1200,lower
+unsw,UNSW Sydney,Australia,19,elite
+anu,Australian National University,Australia,29,elite
+murdoch,Murdoch University,Australia,422,middle
+unisc,University of the Sunshine Coast,Australia,851-900,lower
+pku,Peking University,China,13,elite
+tsinghua,Tsinghua University,China,14,elite
+jilin,Jilin University,China,=488,middle
+ningbo,Ningbo University,China,1001-1200,lower
+iitd,Indian Institute of Technology Delhi,India,118,elite
+iitb,Indian Institute of Technology Bombay,India,134,elite
+iitbhu,Indian Institute of Technology (BHU) Varanasi,India,=510,middle
+panjab,Panjab University,India,1001-1200,lower
+mcgill,McGill University,Canada,30,elite
+toronto,University of Toronto,Canada,32,elite
+concordia,Concordia University,Canada,=497,middle
+regina,University of Regina,Canada,1001-1200,lower
+psl,Université PSL,France,34,elite
+ippar,Institut Polytechnique de Paris,France,43,elite
+bordeaux,Université de Bordeaux,France,=485,middle
+ubo,Université de Bretagne Occidentale,France,1001-1200,lower
+tum,Technical University of Munich,Germany,25,elite
+lmu,LMU Munich,Germany,61,elite
+bayreuth,University of Bayreuth,Germany,472,middle
+chemnitz,Chemnitz University of Technology,Germany,1001-1200,lower
+stonybrook,Stony Brook University,United States,468,middle
+binghamton,Binghamton University,United States,1001-1200,lower
+cdu,Charles Darwin University,Australia,551,middle
+uestc,University of Electronic Science and Technology of China,China,=488,middle
+nwu,Northwest University,China,1001-1200,lower
+iiti,Indian Institute of Technology Indore,India,=546,middle
+iitbbs,Indian Institute of Technology Bhubaneswar,India,1001-1200,lower
+windsor,University of Windsor,Canada,537,middle
+sherbrooke,Université de Sherbrooke,Canada,951-1000,lower
+strasbourg,Université de Strasbourg,France,456,middle
+cyu,CY Cergy Paris Université,France,901-950,lower
+wuerzburg,University of Würzburg,Germany,430,middle
+wuppertal,University of Wuppertal,Germany,1001-1200,lower
+colombo,University of Colombo,Sri Lanka,1001-1200,sri_lanka
+peradeniya,University of Peradeniya,Sri Lanka,1201-1400,sri_lanka
+jayewardenepura,University of Sri Jayewardenepura,Sri Lanka,1401+,sri_lanka
+kelaniya,University of Kelaniya,Sri Lanka,not ranked,sri_lanka
+moratuwa,University of Moratuwa,Sri Lanka,1401+,sri_lanka
+jaffna,University of Jaffna,Sri Lanka,not ranked,sri_lanka
+ruhuna,University of Ruhuna,Sri Lanka,not ranked,sri_lanka
+kdu,General Sir John Kotelawala Defence University,Sri Lanka,not ranked,sri_lanka
+sliit,Sri Lanka Institute of Information Technology,Sri Lanka,not ranked,sri_lanka
+nsbm,NSBM Green University,Sri Lanka,not ranked,sri_lanka
+cinec,CINEC Campus,Sri Lanka,not ranked,sri_lanka
+horizon,Horizon Campus,Sri Lanka,not ranked,sri_lanka
+kiu,KIU,Sri Lanka,not ranked,sri_lanka
+icbt,ICBT Campus,Sri Lanka,not ranked,sri_lanka

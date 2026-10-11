@@ -1,0 +1,12 @@
+# source: https://cs.uni-wuppertal.de/de/team/ (Informatik professors = 11; maths-only and apl. excluded)
+Matthias Bolten | Prof. Dr. (Wissenschaftliches Rechnen und Hochleistungsrechnen) | https://www.hpc.uni-wuppertal.de/de/
+Andreas Frommer | Prof. Dr. (Angewandte Informatik) | https://www.ai.uni-wuppertal.de/de/angewandte-informatik/
+Linda Grogorick | Prof. Dr. (Didaktik der Informatik) | https://ddi.uni-wuppertal.de/
+Hendrik Heuer | Prof. Dr. (Design vertrauenswürdiger KI) | https://www.cais-research.de/team_category/vetrauenswuerdige-intelligenz/
+Bruno Lang | Prof. Dr. (Angewandte Informatik) | https://www.ai.uni-wuppertal.de/de/angewandte-informatik/
+Peter Zaspel | Prof. Dr. (Wissenschaftliches Rechnen und Hochleistungsrechnen) | https://www.hpc.uni-wuppertal.de/de/
+Tibor Jager | Prof. Dr.-Ing. (IT-Sicherheit & Kryptographie) | https://itsc.uni-wuppertal.de/de/
+Christian Mainka | Prof. Dr.-Ing. (Robust, Secure and Privacy-Preserving Smart Systems) | https://roses.uni-wuppertal.de/de/
+Tobias Meisen | Prof. Dr.-Ing. (Technologien und Management der digitalen Transformation) | https://www.tmdt.uni-wuppertal.de/de/
+Malte Mues | Prof. Dr.-Ing. (Reliable Software and Distributed Systems) | https://rsds.uni-wuppertal.de/de/
+Dietmar Tutsch | Prof. Dr.-Ing. (Automatisierungstechnik/Informatik) | https://www.lfa.uni-wuppertal.de/de/

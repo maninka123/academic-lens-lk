@@ -1,0 +1,30 @@
+# source: https://faculty.uestc.edu.cn/xylb.jsp?urltype=tsites.CollegeTeacherList&id=2031 (UESTC faculty homepage platform, 计算机科学与工程学院（网络空间安全学院）; 143 listed staff; titles not shown in listing; systematic sample = every 5th)
+Hongbin Cai |  | http://faculty.uestc.edu.cn/caihongbin/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 蔡洪斌
+Chao Xu |  | http://faculty.uestc.edu.cn/CHAOXU/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 许超
+Ting Chen |  | http://faculty.uestc.edu.cn/chenting/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 陈厅
+Hancong Duan |  | http://faculty.uestc.edu.cn/duanhancong/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 段翰聪
+Chaoxu Fu |  | http://faculty.uestc.edu.cn/fuchaoxu/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 符朝旭
+Lianli Gao |  | http://faculty.uestc.edu.cn/gaolianli/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 高联丽
+Yu Gu |  | http://faculty.uestc.edu.cn/guyu/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 谷雨
+Chun He |  | http://faculty.uestc.edu.cn/hechun1/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 何春
+Ping Hu |  | http://faculty.uestc.edu.cn/pinghu/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 胡平
+Jiacheng Ji |  | http://faculty.uestc.edu.cn/jijiacheng/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 吉家成
+Jianming Liao |  | http://faculty.uestc.edu.cn/liaojianming/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 廖建明
+Lin Li |  | http://faculty.uestc.edu.cn/lilin2/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 李林
+Nianbo Liu |  | http://faculty.uestc.edu.cn/liunianbo/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 刘念伯
+Wei Li |  | http://faculty.uestc.edu.cn/liwei3/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 李伟
+Liang Luo |  | http://faculty.uestc.edu.cn/luoliang/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 罗亮
+Xinzheng Niu |  | http://faculty.uestc.edu.cn/niuxinzheng/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 牛新征
+NAKAGAWA FUJI |  | http://faculty.uestc.edu.cn/renfuji/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | NAKAGAWA FUJI
+SHEN HENGTAO |  | http://faculty.uestc.edu.cn/shenhengtao/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | SHEN HENGTAO
+Chunyu Wang |  | http://faculty.uestc.edu.cn/wangchunyu/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 王春雨
+Xiaofen Wang |  | http://faculty.uestc.edu.cn/wangxiaofen/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 汪小芬
+Hong Wu |  | http://faculty.uestc.edu.cn/wuhong/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 吴洪
+Mingyu Xiao |  | http://faculty.uestc.edu.cn/xiaomingyu/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 肖鸣宇
+Wanli Xie |  | http://faculty.uestc.edu.cn/xiewanli/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 谢万里
+Bo Yang |  | http://faculty.uestc.edu.cn/yangbo3/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 杨波
+Xuan Yang |  | http://faculty.uestc.edu.cn/yangxuan/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 杨璇
+Yalan Ye |  | http://faculty.uestc.edu.cn/yeyalan/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 叶娅兰
+Yanru Zhang |  | http://faculty.uestc.edu.cn/yanruzhang/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 张彦如
+Zhiwei Zhao |  | http://faculty.uestc.edu.cn/zhaozhiwei1/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 赵志为
+Tao Zhou |  | http://faculty.uestc.edu.cn/zhoutao1/zh_CN/index.htm | 计算机科学与工程学院（网络空间安全学院） |  |  | 周涛

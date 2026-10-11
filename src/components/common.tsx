@@ -123,7 +123,11 @@ export function exportCsv(rows: Academic[]) {
     Object.fromEntries(
       Object.entries(r).map(([k, v]) => [
         k,
-        typeof v === "string" && /^[=+@\-\t\r]/.test(v) ? "'" + v : v,
+        typeof v === "string" && /^[=+@\-\t\r]/.test(v)
+          ? "'" + v
+          : v && typeof v === "object"
+            ? JSON.stringify(v)
+            : v,
       ]),
     ),
   );

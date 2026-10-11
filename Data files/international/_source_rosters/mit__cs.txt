@@ -1,0 +1,87 @@
+# source: https://www.eecs.mit.edu/role/faculty-cs/
+Hal Abelson | Class of 1922 Professor | https://www.eecs.mit.edu/people/hal-abelson/
+Fadel Adib | Professor, Media Lab; Joint appointment in EECS | https://www.eecs.mit.edu/people/fadel-adib/
+Anant Agarwal | CEO, edX; Professor Post-Tenure | https://www.eecs.mit.edu/people/anant-agarwal/
+Pulkit Agrawal | Associate Professor | https://www.eecs.mit.edu/people/pulkit-agrawal/
+Mohammad Alizadeh | NEC Professor of Software Science and Engineering | https://www.eecs.mit.edu/people/mohammad-alizadeh/
+Saman Amarasinghe | Thomas and Gerd Perkins Professor of Electrical Engineering and Computer Science | https://www.eecs.mit.edu/people/saman-amarasinghe/
+Hari Balakrishnan | Fujitsu Professor in Electrical Engineering and Computer Science | https://www.eecs.mit.edu/people/hari-balakrishnan/
+Adam Belay | Associate Professor | https://www.eecs.mit.edu/people/adam-belay/
+Robert Berwick | Professor of CS and Engineering and Computational Linguistics (Post-Tenure) | https://www.eecs.mit.edu/people/robert-berwick/
+Jas Brooks | Assistant Professor | https://www.eecs.mit.edu/people/jas-brooks/
+Zana Bucinca | Assistant Professor | https://www.eecs.mit.edu/people/zana-bucinca/
+Michael Carbin | Associate Professor | https://www.eecs.mit.edu/people/michael-carbin/
+Anantha Chandrakasan | Provost; Vannevar Bush Professor of Electrical Engineering and Computer Science | https://www.eecs.mit.edu/people/anantha-chandrakasan/
+Brynmor Chapman | Lecturer | https://www.eecs.mit.edu/people/brynmor-chapman/
+Adam Chlipala | Arthur Conner Professor | https://www.eecs.mit.edu/people/adam-chlipala/
+Isaac Chuang | Julius A. Stratton Professor in Electrical Engineering and Physics | https://www.eecs.mit.edu/people/isaac-chuang/
+Henry Corrigan-Gibbs | Visiting Associate Professor | https://www.eecs.mit.edu/people/henry-corrigan-gibbs/
+Constantinos Daskalakis | Armen Avanessians (1982) Professor | https://www.eecs.mit.edu/people/constantinos-daskalakis/
+Christina Delimitrou | Associate Professor | https://www.eecs.mit.edu/people/christina-delimitrou/
+Erik Demaine | Professor | https://www.eecs.mit.edu/people/erik-demaine/
+Srini Devadas | Edwin Sibley Webster Professor | https://www.eecs.mit.edu/people/srini-devadas/
+Frederic Durand | Amar Bose Professor of Computing | https://www.eecs.mit.edu/people/fredo-durand/
+Joel Emer | Professor of the Practice in EECS | https://www.eecs.mit.edu/people/joel-emer/
+Bailey Flanigan | Assistant Professor | https://www.eecs.mit.edu/people/bailey-flanigan/
+Mohsen Ghaffari | Associate Professor | https://www.eecs.mit.edu/people/mohsen-ghaffari/
+Manya Ghobadi | Associate Professor | https://www.eecs.mit.edu/people/manya-ghobadi/
+David Gifford | Professor of CS and Engineering (Post-Tenure) | https://www.eecs.mit.edu/people/david-gifford/
+Mitchell Gordon | Assistant Professor | https://www.eecs.mit.edu/people/mitchell-gordon/
+W. Eric L Grimson | Professor of Computer Science and Engineering | https://www.eecs.mit.edu/people/w-eric-l-grimson/
+John Guttag | Dugald C. Jackson Professor in Electrical Engineering (Post-Tenure) | https://www.eecs.mit.edu/people/john-guttag/
+Song Han | Associate Professor | https://www.eecs.mit.edu/people/song-han/
+Sam Hopkins | Associate Professor | https://www.eecs.mit.edu/people/sam-hopkins/
+Daniel Huttenlocher | Dean, MIT Schwarzman College of Computing; Panasonic Professor | https://www.eecs.mit.edu/people/daniel-huttenlocher/
+Piotr Indyk | Thomas D. and Virginia W. Cabot Professor | https://www.eecs.mit.edu/people/piotr-indyk/
+Daniel Jackson | Thomas and Gerd Perkins Professor of Electrical Engineering and Computer Science | https://www.eecs.mit.edu/people/daniel-jackson/
+M. Frans Kaashoek | Charles A. Piper (1935) Professor | https://www.eecs.mit.edu/people/m-frans-kaashoek/
+Yael Kalai | Ellen Swallow Richards (1873) Professor | https://www.eecs.mit.edu/people/yael-kalai/
+David Karger | Professor | https://www.eecs.mit.edu/people/david-karger/
+Dina Katabi | Thuan (1990) and Nicole Pham Professor | https://www.eecs.mit.edu/people/dina-katabi/
+Manolis Kellis | Professor of CS | https://www.eecs.mit.edu/people/manolis-kellis/
+Omar Khattab | Assistant Professor | https://www.eecs.mit.edu/people/omar-khattab/
+Tim Kraska | Professor | https://www.eecs.mit.edu/people/tim-kraska/
+Steven Leeb | Emanuel E. Landsman (1958) Professor | https://www.eecs.mit.edu/people/steven-leeb/
+Charles Leiserson | Edwin Sibley Webster Professor | https://www.eecs.mit.edu/people/charles-leiserson/
+Ben Lindquist | Assistant Professor | https://www.eecs.mit.edu/people/ben-lindquist/
+Barbara Liskov | Institute Professor (post tenure) | https://www.eecs.mit.edu/people/barbara-liskov/
+Kuikui Liu | Assistant Professor | https://www.eecs.mit.edu/people/kuikui-liu/
+Andrew Lo | Charles E. and Susan T. Harris Professor | https://www.eecs.mit.edu/people/andrew-lo/
+Nancy Lynch | NEC Professor of Software Science and Engineering (Post-Tenure) | https://www.eecs.mit.edu/people/nancy-lynch/
+Samuel Madden | Faculty Head, CS; Distinguished College of Computing Professor | https://www.eecs.mit.edu/people/samuel-madden/
+Aleksander Mądry | Visiting Scientist | https://www.eecs.mit.edu/people/aleksander-madry/
+Wojciech Matusik | Cadence Design Systems Professor | https://www.eecs.mit.edu/people/wojciech-matusik/
+Muriel Médard | NEC Professor of Software Science and Engineering | https://www.eecs.mit.edu/people/muriel-m%c3%a9dard/
+Silvio Micali | Ford Professor of Engineering (Post-Tenure) | https://www.eecs.mit.edu/people/silvio-micali/
+Robert Miller | Distinguished Professor of Computer Science | https://www.eecs.mit.edu/people/rob-miller/
+Ankur Moitra | Francis Wright Davis Professor of Mathematics; joint appointment in EECS | https://www.eecs.mit.edu/people/ankur-moitra/
+Robert Morris | Professor of CS and Engineering | https://www.eecs.mit.edu/people/robert-morris/
+Stefanie Mueller | Associate Professor | https://www.eecs.mit.edu/people/stefanie-mueller/
+Anand V Natarajan | Associate Professor | https://www.eecs.mit.edu/people/anand-v-natarajan/
+Rachit Nigam | Assistant Professor | https://www.eecs.mit.edu/people/rachit-nigam/
+Alan Oppenheim | Ford Professor of Engineering (Post-Tenure) | https://www.eecs.mit.edu/people/alan-oppenheim/
+Asu Ozdaglar | EECS Department Head; MathWorks Professor | https://www.eecs.mit.edu/people/asu-ozdaglar/
+Jonathan Ragan-Kelley | Associate Professor | https://www.eecs.mit.edu/people/jonathan-ragan-kelley/
+Manish Raghavan | Assistant Professor | https://www.eecs.mit.edu/people/manish-raghavan/
+Srini Raghuraman | Lecturer | https://www.eecs.mit.edu/people/srini-raghuraman/
+Lindsey Raymond | Assistant Professor | https://www.eecs.mit.edu/people/lindsey-raymond/
+Martin Rinard | Joan and Irwin M. (1957) Jacobs Professor | https://www.eecs.mit.edu/people/martin-rinard/
+Ronald Rivest | Institute Professor (Post-Tenure) | https://www.eecs.mit.edu/people/ronald-rivest/
+Ronitt Rubinfeld | Edwin Sibley Webster Professor | https://www.eecs.mit.edu/people/ronitt-rubinfeld/
+Daniela Rus | Director, CSAIL; Panasonic Professor | https://www.eecs.mit.edu/people/daniela-rus/
+Daniel Sanchez | Elihu Thomson Professor of EECS | https://www.eecs.mit.edu/people/daniel-sanchez-martin/
+Arvind Satyanarayan | Associate Professor | https://www.eecs.mit.edu/people/arvind-satyanarayan/
+Nir Shavit | Professor of EECS | https://www.eecs.mit.edu/people/nir-shavit/
+Julian Shun | Associate Professor | https://www.eecs.mit.edu/people/julian-shun/
+Armando Solar-Lezama | Distinguished Professor of Computing | https://www.eecs.mit.edu/people/armando-solar-lezama/
+Justin Solomon | Associate Professor of EECS | https://www.eecs.mit.edu/people/justin-solomon/
+Alfred Spector | Professor of the Practice | https://www.eecs.mit.edu/people/alfred-spector/
+Gerald Sussman | Panasonic Professor (Post-Tenure) | https://www.eecs.mit.edu/people/gerald-sussman/
+Vivienne Sze | Professor | https://www.eecs.mit.edu/people/vivienne-sze/
+Peter Szolovits | Professor of Computer Science and Engineering (Post-Tenure) | https://www.eecs.mit.edu/people/peter-szolovits/
+Vinod Vaikuntanathan | Ford Professor of Engineering | https://www.eecs.mit.edu/people/vinod-vaikuntanathan/
+Andrew Wang | Lecturer | https://www.eecs.mit.edu/people/andrew-wang/
+Ryan Williams | Professor of EECS | https://www.eecs.mit.edu/people/ryan-williams/
+Virginia Vassilevska Williams | Cecil H. Green Professor in Electrical Engineering and Computer Science | https://www.eecs.mit.edu/people/virginia-williams/
+Mengjia Yan | Associate Professor | https://www.eecs.mit.edu/people/mengjia-yan/
+Nickolai Zeldovich | Joan and Irwin M. (1957) Jacobs Professor | https://www.eecs.mit.edu/people/nickolai-zeldovich/

@@ -1,0 +1,27 @@
+# source: https://www.cs.stonybrook.edu/people/index.html (TOTAL=55 core faculty; systematic sample = every 2nd; PRODiG fellow and incoming (spring 2027) faculty dropped)
+Mohammad Javad Amiri | Assistant Professor | https://www3.cs.stonybrook.edu/~amiri/
+Aruna Balasubramanian | Associate Professor | https://www3.cs.stonybrook.edu/~arunab
+Michael Bender | John L. Hennessy Endowed Professor | https://www.cs.stonybrook.edu/~bender
+Xiaojun Bi | Professor | https://www.xiaojunbi.com/
+Tuhin Chakrabarty | Assistant Professor | https://tuhinjubcse.github.io/
+Rezaul Chowdhury | Associate Professor | https://www.cs.stonybrook.edu/~rezaul
+Akshat Dave | Assistant Professor | https://akshatdave.github.io
+Michael Ferdman | Professor | https://compas.cs.stonybrook.edu/~mferdman/
+Anshul Gandhi | Professor | https://www.cs.stonybrook.edu/~anshul
+Himanshu Gupta | Professor | https://www.cs.stonybrook.edu/~hgupta
+Shubham Jain | Associate Professor | https://shubhamjain.net
+Robert F. Kelly | Senior Lecturer | https://www.cs.stonybrook.edu/~robkelly/
+Dongyoon Lee | Associate Professor | https://www3.cs.stonybrook.edu/~dongyoon/
+Abid M. Malik | Associate Professor of Practice | https://www.cs.stonybrook.edu/people/index.html
+Richard McKenna | Lecturer | https://www.cs.stonybrook.edu/~richard/
+Klaus Mueller | Professor | https://www.cs.stonybrook.edu/~mueller
+Michalis Polychronakis | Professor | https://www3.cs.stonybrook.edu/~mikepo/
+C.R. Ramakrishnan | Professor | https://www.cs.stonybrook.edu/~cram/
+Michael Ryoo | Associate Professor | http://michaelryoo.com
+Tony Scarlatos | Senior Lecturer | https://www.cs.stonybrook.edu/~tony/
+Radu Sion | Associate Professor | https://www.cs.stonybrook.edu/~sion/
+Scott Smolka | Distinguished Professor | https://www.cs.stonybrook.edu/~sas/
+Yifan Sun | Assistant Professor of Practice | https://sites.google.com/site/yifansunwebsite
+Ting Wang | Associate Professor | https://alps-lab.github.io/
+Zhaozheng Yin | Associate Professor | https://www3.cs.stonybrook.edu/~zyin/index.htm
+Erez Zadok | Professor | https://www.cs.stonybrook.edu/~ezk/

@@ -1,3 +1,4 @@
+import { plotNumber } from "../analytics/plot-format";
 import { useState } from "react";
 import type { Academic, NumericMetric } from "../types";
 import { metricLabels } from "../types";
@@ -164,7 +165,7 @@ export function ProfileStanding({
                 valueFormatter: (v: number | null) =>
                   v === null
                     ? "Not available"
-                    : fmt(log ? Math.pow(10, v) - 1 : v, 1),
+                    : plotNumber(log ? Math.pow(10, v) - 1 : v),
               },
               grid: { left: 100, right: 30, bottom: 55, top: 25 },
               xAxis: {
@@ -210,7 +211,7 @@ export function ProfileStanding({
               tooltip: {
                 trigger: "axis",
                 valueFormatter: (v: number) =>
-                  v === null ? "Unavailable" : `${fmt(v, 1)}th percentile`,
+                  v === null ? "Unavailable" : `${plotNumber(v)}th percentile`,
               },
               grid: { left: 110, right: 30, top: 15, bottom: 50 },
               xAxis: {

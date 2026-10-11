@@ -6,3 +6,6 @@ test-results/
 
 Data files/_archive/
 output/playwright/
+scripts/baselines/_cache/
+__pycache__/
+Data files/_exports/*.zip

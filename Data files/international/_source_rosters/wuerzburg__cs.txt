@@ -1,0 +1,30 @@
+# source: https://www.informatik.uni-wuerzburg.de/lehrstuehle-professuren/ (Institut für Informatik chairs/professorships = 29; vacant, Senior-, Honorar-, Zweitmitglieder excluded)
+Alexander Wolff | Prof. Dr. (Effiziente Algorithmen) | https://www.informatik.uni-wuerzburg.de/algo/team/wolff-alexander/
+Christian Glaßer | Prof. Dr. (Komplexitätstheorie) | https://www.informatik.uni-wuerzburg.de/algo/team/glasser-christian/
+Marie Schmidt | Prof. Dr. (Optimierung unter Ressourcenbeschränkungen) | https://www.informatik.uni-wuerzburg.de/algo/team/schmidt-marie/
+Samuel Kounev | Prof. Dr.-Ing. (Software Engineering) | https://se.informatik.uni-wuerzburg.de/staff/samuel-kounev/
+Tobias Hoßfeld | Prof. Dr. (Kommunikationsnetze) | https://www.informatik.uni-wuerzburg.de/comnet/team/staff/hossfeld/
+Radu Timofte | Prof. Dr. (Computer Vision) | https://www.informatik.uni-wuerzburg.de/computervision/
+Birgit Lugrin | Prof. Dr. (Socially Interactive Agents) | https://www.informatik.uni-wuerzburg.de/sia/team/prof-dr-birgit-lugrin/
+Carolin Wienrich | Prof. Dr. (Psychologie Interaktiver Systeme) | https://www.informatik.uni-wuerzburg.de/pis/people/profin-dr-carolin-wienrich/
+Marc Erich Latoschik | Prof. Dr. (Human Computer Interaction) | https://hci.uni-wuerzburg.de/people/marc-latoschik/
+Sebastian von Mammen | Prof. Dr. (Games Engineering) | https://www.informatik.uni-wuerzburg.de/games/forschungsgruppe/sebastian-von-mammen/
+Andreas Hotho | Prof. Dr. (Data Science) | https://www.informatik.uni-wuerzburg.de/datascience/staff/hotho/
+Marco Pruckner | Prof. Dr.-Ing. (Modellierung und Simulation) | https://www.informatik.uni-wuerzburg.de/modsim/team/pruckner/
+Andreas Nüchter | Prof. Dr. (Robotik) | https://www.informatik.uni-wuerzburg.de/robotics/team/nuechter/
+Matthias Jung | Prof. Dr.-Ing. (Technische Informatik) | https://www.informatik.uni-wuerzburg.de/ce/team/matthias-jung/
+Martin Hennecke | Prof. Dr. (Didaktik der Informatik) | https://www.informatik.uni-wuerzburg.de/didaktik/team/hennecke/
+Guido Dietl | Prof. Dr.-Ing. (Satellite Communication and Radar Systems) | https://www.informatik.uni-wuerzburg.de/scrs/team/prof-dr-guido-dietl/
+Peter Chudý | Prof. Dr. (Avioniksysteme) | https://wueaddress.uni-wuerzburg.de/person/182448
+Mohamed Khalil Ben-Larbi | Prof. Dr.-Ing. (Raumfahrtinformatik und Satellitensysteme) | https://www.informatik.uni-wuerzburg.de/sisat/team/
+Dietmar Seipel | Prof. Dr. (Wissensbasierte Systeme) | https://www.informatik.uni-wuerzburg.de/is/mitarbeiter/seipel-dietmar/
+Günther Waxenegger-Wilfing | Prof. Dr. (Intelligent Space and Energy Systems) | https://www.informatik.uni-wuerzburg.de/ises/
+Hakan Kayal | Prof. Dr.-Ing. (Raumfahrttechnik) | https://www.informatik.uni-wuerzburg.de/raumfahrttechnik/team/kayal/
+Marco Schmidt | Prof. Dr. (Eingebettete Systeme und Sensoren für Erdbeobachtung) | https://www.informatik.uni-wuerzburg.de/esseo/team/prof-dr-marco-schmidt/
+Linus Franke | Prof. Dr.-Ing. (Visual Computing) | https://linus-franke.com/
+Ingo Scholtes | Prof. Dr. (Machine Learning for Complex Networks) | https://www.caidas.uni-wuerzburg.de/ml4nets/team/prof-dr-ingo-scholtes/
+Goran Glavaš | Prof. Dr. (Natural Language Processing) | https://www.caidas.uni-wuerzburg.de/nlp/team/goran-glavas/
+Katharina Breininger | Prof. Dr. (Pattern Recognition) | https://www.caidas.uni-wuerzburg.de/pr/team/katharina-breininger/
+Carlo D'Eramo | Prof. Dr. (Reinforcement Learning) | https://www.caidas.uni-wuerzburg.de/rlcdm/team/carlo-deramo/
+Christof Weiß | Prof. Dr.-Ing. (Computational Humanities) | https://www.caidas.uni-wuerzburg.de/ch/team/
+Damien Garreau | Prof. Dr. (Theorie des Maschinellen Lernens) | https://sites.google.com/view/damien-garreau/

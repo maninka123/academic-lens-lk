@@ -1,0 +1,33 @@
+# source: https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/ (TOTAL=64 professors; systematic sample = every 2nd)
+Monika Aidelsburger | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/monika-aidelsburger-aed0763a.html
+Ralf Bender | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/ralf-bender-5d36b526.html
+Thomas Birner | Prof. (Meteorologisches Institut) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/thomas-birner-9fe38be7.html
+Immanuel Bloch | Prof. (Lehrstuhl für Experimentalphysik - Quantenoptik) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/immanuel-bloch-b97e96f3.html
+Fabian Bohrdt | Prof. (Quantenvielteilchentheorie) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/fabian-bohrdt-939e945e.html
+Ilka Brunner | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/ilka-brunner-446c5461.html
+Andreas Burkert | Prof. (Lehrstuhl Computational Astrophysics) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/andreas-burkert-6e9ca4b0.html
+Emiliano Cortés | Prof. (Nanoinstitut München) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/emiliano-cortes-44dbb055.html
+Georgi Dvali | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/georgi-dvali-e597fae6.html
+Barbara Ercolano | Professorin | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/barbara-ercolano-cc5a6c0b.html
+Erwin Frey | Prof.; Prodekan | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/erwin-frey-ace633bf.html
+Michael Haack | Prof. (Theoretical Physics) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/michael-haack-ce45c706.html
+Jad Halimeh | Prof. (Synthetische Quantensysteme) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/jad-halimeh-9919110d.html
+Alexander Högele | Prof. (Nanophotonics) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/alexander-hoegele-aa963969.html
+Peter Hommelhoff | Prof. (Ultraschnelle Quantenphysik und Nanophotonik) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/peter-hommelhoff-bcb2fcfa.html
+Stefan Karsch | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/stefan-karsch-d9c3903e.html
+Ulf Kleineberg | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/ulf-kleineberg-925ed3f7.html
+Ferenc Krausz | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/ferenc-krausz-dfe8430d.html
+Thomas Kuhr | Prof. (Experimental Particle Physics) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/thomas-kuhr-d091e3bf.html
+Tim Liedl | Prof. (Weiche kondensierte Materie) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/tim-liedl-ca5583df.html
+Bernhard Mayer | Prof. (Meteorologisches Institut) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/bernhard-mayer-000b59f2.html
+Viatcheslav Mukhanov | Prof. (Chair on Cosmology) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/viatcheslav-mukhanov-282da498.html
+Lode Pollet | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/lode-pollet-48948870.html
+Joachim Rädler | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/joachim-raedler-cd971327.html
+Marco Riboldi | Prof. (Lehrstuhl für Medizinische Physik) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/marco-riboldi-6f6e00fa.html
+Steffen Rulands | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/steffen-rulands-945caff9.html
+Anja Schmidt | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/anja-schmidt-0222f04a.html
+Jörg Schreiber | Prof. (Medizinische Physik, Laser-Ionen-Beschleunigung) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/joerg-schreiber-86517603.html
+Alexander Urban | Prof. | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/alexander-urban-b797fa38.html
+Michael Walter | Prof. (Lehrstuhl für Quanteninformationstheorie) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/michael-walter-bb0a5b40.html
+Jochen Weller | Prof.; Studiendekan | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/jochen-weller-8d65d508.html
+Mark Wenig | Prof. (Meteorologisches Institut) | https://www.physik.lmu.de/de/ueber-die-fakultaet-fuer-physik/personen/kontaktseite/mark-wenig-7c98feec.html

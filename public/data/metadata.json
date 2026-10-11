@@ -1,20 +1,45 @@
 {
-  "version": "partial-8b4f599f8d",
+  "version": "partial-b62a9fec4d",
   "mode": "real",
+  "identityAliases": {
+    "SL-7e7a7caa860a": "SL-4f250b2658c0",
+    "SL-d3f183cbbcb9": "SL-0f443adf71ba",
+    "SL-967059e7323a": "SL-152274f5b6e1",
+    "SL-90c64669e1de": "SL-1e978aca8cb1",
+    "SL-a7b8de2ae569": "SL-fb75ad83c462",
+    "SL-693c580e152a": "SL-144e19f3a9cd",
+    "SL-32c09e9863c8": "SL-b591c176d5dd",
+    "SL-0a3b0241e448": "SL-ff1b6c80aa65",
+    "SL-28a8b7727b7b": "SL-e52149e06729",
+    "SL-3578daba6533": "SL-5b189b28550c",
+    "SL-9177ae2adf9a": "SL-ebec42c41062",
+    "SL-7ac948df90b8": "SL-dd58210d266c",
+    "SL-0ae2ea17bdd1": "SL-b591c176d5dd"
+  },
+  "evidenceFiles": [
+    "research_metric_observations.csv",
+    "research_identity_evidence.csv",
+    "identity_aliases.csv",
+    "academic_affiliations.csv",
+    "field_evidence.csv",
+    "profile_verification.csv",
+    "collection_report.md",
+    "APPLICATION_HANDOFF.md"
+  ],
   "collectionDate": "2026-10-11",
   "window": [
     2021,
     2025
   ],
-  "description": "Automatically extracted partial collection. Bibliometric sources and dates remain attached to each profile.",
+  "description": "Partial collection with documented corrections and source-specific research evidence. Counts are calculated from authoritative academic records; archives, aliases and evidence rows are excluded.",
   "scopeNote": "The real collection contains 14 institutions in scope and excludes Saegis. An institution without collected profiles is not an institution without academic staff.",
-  "q1Methodology": "No documented Q1 policy has been supplied. Missing counts remain unknown; no counts are inferred from Scholar totals.",
+  "q1Methodology": "# Q1 journal article methodology\n\nDeclared 11 October 2026. Window: complete calendar years 2021–2025.\n\nProvider: SCImago Journal & Country Rank (SJR). Use each article publication year's journal ranking, identified by journal title and ISSN. The chosen quartile is the best quartile across the journal's subject categories for that ranking year; retain all category results in journal_quartile_evidence.csv. This convention does not equate disciplines or faculty curricula.\n\nEligible types: verified research articles and review articles published in journals. Exclude conference proceedings/papers, books, chapters, editorials, letters, corrections, preprints and unknown types. Retain evidence for publication type and publication year. Do not infer eligibility from a Scholar or ResearchGate item total.\n\nDeduplicate within an academic by normalised DOI, then conservative normalised title plus year where DOI is absent. A coauthored article may have one legitimate link to each verified academic author. Do not deduplicate across people.\n\nMissing publication-year or category evidence stays unresolved. Never substitute the current quartile, an institutional ranking, or another provider. Keep provider-specific evidence separate.\n\nPopulate total_q1_journal_publications only when the person's journal-article list is demonstrably complete and historical quartile evidence covers every eligible article. Apply the same standard within 2021–2025 for q1_publications_2021_2025. Otherwise both complete-total fields stay blank as appropriate. Verified partial counts belong in q1_partial_counts.csv with the known denominator and coverage limitations. Blank partial counts mean not assessed; zero requires an assessed eligible set. No Q1 percentages without a valid journal-article denominator.\n\nCitations received during 2021–2025 are a different metric from citations to articles published in those years. The citation window requires all five annual citation values; rolling since values are ineligible.\n",
   "limitations": [
     "Not an exhaustive national census. Extracted facts and employment require factual review.",
     "Name variants and cross-institution appointments may be duplicated.",
     "Indexed ResearchGate snapshots may be stale and are not interchangeable with Google Scholar totals.",
     "Qualification and teaching evidence can be incomplete. A title such as Dr is not evidence of a PhD.",
-    "No collected values for: h-index, exact five-year citations, Q1 publications, five-year Q1 publications.",
+    "No collected values for: Q1 publications, five-year Q1 publications.",
     "Country identifies the awarding institution, not necessarily the physical location of study."
   ],
   "sourceFiles": "Data files"

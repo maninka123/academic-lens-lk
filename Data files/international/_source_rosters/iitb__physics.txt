@@ -1,0 +1,25 @@
+# source: https://www.phy.iitb.ac.in/people (faculty directory; 47 current; systematic sample = every 2nd entry)
+Aftab Alam | Professor | https://www.phy.iitb.ac.in/employee-profile/aftab-alam
+Soumya Bera | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/soumya-bera
+Sayantika Bhowal | Assistant Professor | https://www.phy.iitb.ac.in/employee-profile/sayantika-bhowal
+Pragya Das | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/pragya-das
+Sadhana Dash | Professor | https://www.phy.iitb.ac.in/employee-profile/sadhana-dash
+Himadri Shekhar Dhar | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/himadri-shekhar-dhar
+Kantimay Das Gupta | Professor | https://www.phy.iitb.ac.in/employee-profile/kantimay-das-gupta
+Rahul Kashyap | Assistant Professor | https://www.phy.iitb.ac.in/employee-profile/rahul-kashyap
+Pramod Kumar | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/pramod-kumar
+Vikram Rentala | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/vikram-rentala
+Siddhartha Santra | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/siddhartha-santra
+Asmita Mukherjee | Professor | https://www.phy.iitb.ac.in/employee-profile/asmita-mukherjee
+Kumar Rao | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/kumar-rao
+Prashant Kumar | Assistant Professor | https://www.phy.iitb.ac.in/employee-profile/prashant-kumar
+Sumiran Pujari | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/sumiran-pujari
+Anshuman Kumar | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/anshuman-kumar
+Maniraj Mahalingam | Assistant Professor | https://www.phy.iitb.ac.in/employee-profile/maniraj-mahalingam
+Uditendu Mukhopadhyay | Assistant Professor | https://www.phy.iitb.ac.in/employee-profile/uditendu-mukhopadhyay
+M Senthil Kumar | Professor | https://www.phy.iitb.ac.in/employee-profile/m-senthil-kumar
+Mithun Kumar Mitra | Professor | https://www.phy.iitb.ac.in/employee-profile/mithun
+Punit Parmananda | Professor | https://www.phy.iitb.ac.in/employee-profile/punit-parmananda
+Sunita Srivastava | Associate Professor | https://www.phy.iitb.ac.in/employee-profile/sunita-srivastava
+Parinda Vasa | Professor | https://www.phy.iitb.ac.in/employee-profile/parinda-vasa
+Debojit Sarkar | Assistant Professor | https://www.phy.iitb.ac.in/employee-profile/debojit-sarkar

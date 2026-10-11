@@ -1,0 +1,26 @@
+# source: https://www.concordia.ca/ginacody/computer-science-software-eng/about/faculty-members.html (TOTAL=49; systematic sample = every 2nd entry)
+Anil Ufuk Batmaz | Assistant Professor | https://www.concordia.ca/faculty/anilufuk-batmaz.html
+Abdelhak Bentaleb | Assistant Professor | https://www.concordia.ca/faculty/abdelhak-bentaleb.html
+Sandra Cespedes | Associate Professor | https://www.concordia.ca/faculty/sandra-cespedes.html
+Constantinos Constantinides | Associate Professor | https://www.concordia.ca/faculty/constantinos-constantinides.html
+Joumana Dargham | Assistant Professor | https://www.concordia.ca/faculty/joumana-dargham.html
+Todd Eavis | Associate Professor | https://www.concordia.ca/faculty/todd-eavis.html
+Dhrubajyoti Goswami | Associate Professor | https://www.concordia.ca/faculty/dhrubajyoti-goswami.html
+Yann-Gaël Guéhéneuc | Professor | https://www.concordia.ca/faculty/yanngael-gueheneuc.html
+Hovhannes Harutyunyan | Professor | https://www.concordia.ca/faculty/hovhannes-harutyunyan.html
+Nora Houari | Senior Lecturer | https://www.concordia.ca/faculty/nora-houari.html
+Brigitte Jaumard | Professor | https://www.concordia.ca/faculty/brigitte-jaumard.html
+Marta Kersten-Oertel | Associate Professor | https://www.concordia.ca/faculty/marta-kerstenoertel.html
+Adam Krzyzak | Professor | https://www.concordia.ca/faculty/adam-krzyzak.html
+Essam Mansour | Associate Professor | https://www.concordia.ca/faculty/essam-mansour.html
+Kaustubha Mendhurwar | Lecturer | https://www.concordia.ca/faculty/kaustubhaashok-mendhurwar.html
+Sudhir Mudur | Professor | https://www.concordia.ca/faculty/sudhir-mudur.html
+Denis Pankratov | Associate Professor | https://www.concordia.ca/faculty/denis-pankratov.html
+Tiberiu Popa | Associate Professor | https://www.concordia.ca/faculty/tiberiu-popa.html
+Charalambos Poullis | Professor | https://www.concordia.ca/faculty/charalambos-poullis.html
+Peter Rigby | Professor | https://www.concordia.ca/faculty/peter-rigby.html
+Emad Shihab | Professor | https://www.concordia.ca/faculty/emad-shihab.html
+Nematollaah Shiri V. | Associate Professor | https://www.concordia.ca/faculty/nematollaah-shiri.html
+Nikolaos Tsantalis | Professor | https://www.concordia.ca/faculty/nikolaos-tsantalis.html
+Yiming Xiao | Associate Professor | https://www.concordia.ca/faculty/yiming-xiao.html
+Jinqiu Yang | Assistant Professor | https://www.concordia.ca/faculty/jinqiu-yang.html

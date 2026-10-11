@@ -204,7 +204,8 @@ export function Methodology() {
             <p>
               Lifetime totals are the combined career metrics of academics in
               current listings. They are not the institution's historical
-              research output. Current employment is not individually verified.
+              research output. Employment verification varies by person; refer
+              to each profile's evidence and status.
             </p>
             <p>
               Five-year citations count citations received during{" "}
@@ -246,6 +247,7 @@ export function Methodology() {
         </p>
         <div className="source-links inline">
           {[
+            ...(d.metadata.evidenceFiles || []),
             "academics.csv",
             "universities.csv",
             "faculties.csv",

@@ -1,0 +1,42 @@
+﻿id,name,short,country,type,qs_rank_2027,tier,academic_records,openalex_institution_ids,substitution_note
+mit,Massachusetts Institute of Technology,MIT,United States,Private,1,elite,50,I63966007,
+stanford,Stanford University,Stanford,United States,Private,=2,elite,50,I97018004,
+iastate,Iowa State University,Iowa State,United States,Public,=540,middle,50,I173911158,
+kstate,Kansas State University,K-State,United States,Public,1001-1200,lower,46,I189590672,
+unsw,UNSW Sydney,UNSW,Australia,Public,19,elite,50,I31746571,
+anu,Australian National University,ANU,Australia,Public,29,elite,49,I118347636,University of Melbourne (QS 22) directories return HTTP 403 to automated access; next-ranked ANU used
+murdoch,Murdoch University,Murdoch,Australia,Public,422,middle,11,I176790772,University of Canberra (QS 477) staff profiles return HTTP 403; Murdoch (same band) used. Murdoch 'our people' pages list ranked senior academics only
+unisc,University of the Sunshine Coast,UniSC,Australia,Public,851-900,lower,30,I174025329,Charles Sturt University (QS 951-1000) blocks automated access (HTTP 403); UniSC used. UniSC has no physics department: engineering academics used as nearest physical-science unit
+pku,Peking University,PKU,China,Public,13,elite,50,I20231570,
+tsinghua,Tsinghua University,Tsinghua,China,Public,14,elite,50,I99065089,
+jilin,Jilin University,Jilin,China,Public,=488,middle,45,I194450716,
+ningbo,Ningbo University,Ningbo,China,Public,1001-1200,lower,39,I109935558,
+iitd,Indian Institute of Technology Delhi,IIT Delhi,India,Public,118,elite,44,I68891433,
+iitb,Indian Institute of Technology Bombay,IIT Bombay,India,Public,134,elite,49,I162827531,
+iitbhu,Indian Institute of Technology (BHU) Varanasi,IIT BHU,India,Public,=510,middle,28,I56404289,"Anna University (QS 470) department sites unreachable (DNS/TLS failures); IIT BHU (same band, public) used"
+panjab,Panjab University,Panjab,India,Public,1001-1200,lower,32,I51452335,
+mcgill,McGill University,McGill,Canada,Public,30,elite,41,I5023651,
+toronto,University of Toronto,Toronto,Canada,Public,32,elite,45,I185261750,
+concordia,Concordia University,Concordia,Canada,Public,=497,middle,45,I60158472,
+regina,University of Regina,Regina,Canada,Public,1001-1200,lower,31,I194028371,
+psl,Université PSL,PSL,France,Public,34,elite,48,I29607241|I2746051580,
+ippar,Institut Polytechnique de Paris,IP Paris,France,Public,43,elite,48,I142476485|I4210145102,
+bordeaux,Université de Bordeaux,Bordeaux,France,Public,=485,middle,50,I15057530,Université de Montpellier (QS 473) has no static staff list (LIRMM directory is JavaScript-only); Bordeaux (same band) used
+ubo,Université de Bretagne Occidentale,UBO,France,Public,1001-1200,lower,32,I161929037|I4405260085,
+tum,Technical University of Munich,TUM,Germany,Public,25,elite,33,I62916508,
+lmu,LMU Munich,LMU,Germany,Public,61,elite,46,I8204097,
+bayreuth,University of Bayreuth,Bayreuth,Germany,Public,472,middle,31,I54009628,
+chemnitz,Chemnitz University of Technology,TU Chemnitz,Germany,Public,1001-1200,lower,25,I2610724,Bielefeld University (QS 1001-1200) publishes no consolidated professor list (research-group pages only); TU Chemnitz (same band) used
+stonybrook,Stony Brook University,Stony Brook,United States,Public,468,middle,50,I59553526,
+binghamton,Binghamton University,Binghamton,United States,Public,1001-1200,lower,45,I123946342,
+cdu,Charles Darwin University,CDU,Australia,Public,551,middle,13,I29894533,"Second middle-tier slot: University of Canberra, JCU, CQU and ECU block automated access; CDU (QS 551) used. CDU has no physics department, so only IT is sampled"
+uestc,University of Electronic Science and Technology of China,UESTC,China,Public,=488,middle,50,I150229711,
+nwu,Northwest University,Northwest Univ.,China,Public,1001-1200,lower,50,I37802460,
+iiti,Indian Institute of Technology Indore,IIT Indore,India,Public,=546,middle,25,I64295750,IIT Indore physics site returns HTTP 403; only CSE sampled
+iitbbs,Indian Institute of Technology Bhubaneswar,IIT Bhubaneswar,India,Public,1001-1200,lower,34,I99729588,Aligarh Muslim University (same band) faculty pages are JavaScript-only; IIT Bhubaneswar used
+windsor,University of Windsor,Windsor,Canada,Public,537,middle,21,I74413500,University of Guelph (QS 546) people directory is JavaScript-only; Windsor (QS 537) used
+sherbrooke,Université de Sherbrooke,Sherbrooke,Canada,Public,951-1000,lower,41,I135117807,
+strasbourg,Université de Strasbourg,Strasbourg,France,Public,456,middle,49,I68947357,
+cyu,CY Cergy Paris Université,CY Cergy,France,Public,901-950,lower,23,I4210142324|I4387155829,Nantes Université (901-950) LS2N directory is AJAX-protected; CY Cergy (same band) used. LPTM physics lab publishes no member list; only computing (ETIS) sampled
+wuerzburg,University of Würzburg,Würzburg,Germany,Public,430,middle,50,I25974101,Leipzig University (QS 540) physics institutes publish no professor lists; Würzburg (QS 430) used
+wuppertal,University of Wuppertal,Wuppertal,Germany,Public,1001-1200,lower,31,I167360494,University of Oldenburg (same band) publishes no consolidated professor list; Wuppertal used

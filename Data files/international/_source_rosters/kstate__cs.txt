@@ -1,0 +1,22 @@
+# source: https://www.cs.ksu.edu/people/faculty/ (adjunct excluded)
+Daniel Andresen | Professor and Department Head | https://www.cs.ksu.edu/about/people/faculty/andresen/
+George Amariucai | Associate Professor | https://www.cs.ksu.edu/about/people/faculty/amariucai/
+Torben Amtoft | Associate Professor | https://www.cs.ksu.edu/about/people/faculty/amtoft/
+Nathan Bean | Teaching Associate Professor | https://www.cs.ksu.edu/about/people/faculty/bean/
+Doina Caragea | Professor | https://www.cs.ksu.edu/about/people/faculty/caragea/
+Abhilekha Dalal | Research Assistant Professor | https://www.cs.ksu.edu/about/people/faculty/dalal/
+Russell Feldhausen | Instructor | https://www.cs.ksu.edu/about/people/faculty/feldhausen/
+John Hatcliff | University Distinguished Professor | https://www.cs.ksu.edu/about/people/faculty/hatcliff/
+Pascal Hitzler | University Distinguished Professor | https://www.cs.ksu.edu/about/people/faculty/hitzler/
+William Hsu | Professor | https://www.cs.ksu.edu/about/people/faculty/hsu/
+Friday James | Teaching Assistant Professor | https://www.cs.ksu.edu/about/people/faculty/james/
+Dennis Lang | Teaching Assistant Professor | https://www.cs.ksu.edu/about/people/faculty/lang/
+Safia Malallah | Teaching Assistant Professor | https://www.cs.ksu.edu/about/people/faculty/malallah/
+Hande Küçük McGinty | Assistant Professor | https://www.cs.ksu.edu/about/people/faculty/mcginty/
+Mitchell Neilsen | Professor | https://www.cs.ksu.edu/about/people/faculty/neilsen/
+Robby | Professor | https://www.cs.ksu.edu/about/people/faculty/robby/
+Lior Shamir | Professor | https://www.cs.ksu.edu/about/people/faculty/shamir/
+Julie Thornton | Instructor | https://www.cs.ksu.edu/about/people/faculty/thornton/
+Jorge Valenzuela | Teaching Assistant Professor | https://www.cs.ksu.edu/about/people/faculty/valenzuela/
+Eugene Vasserman | Associate Professor | https://www.cs.ksu.edu/about/people/faculty/vasserman/
+Josh Weese | Teaching Associate Professor | https://www.cs.ksu.edu/about/people/faculty/weese/

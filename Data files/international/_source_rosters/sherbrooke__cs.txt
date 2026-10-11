@@ -1,0 +1,26 @@
+# source: https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral (Département d'informatique, corps professoral = 25)
+Bessam Abdulrazak | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/bessam-abdulrazak
+Marie-Flavie Auclair-Fortier | Professeure agrégée; Directrice de département | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/marie-flavie-auclair-fortier
+Michael Blondin | Professeur agrégé | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/michael-blondin
+Maxime Descoteaux | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/maxime-descoteaux
+Richard Egli | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/richard-egli
+Marc Frappier | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/marc-frappier
+Guillaume Gilet | Professeur agrégé | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/guillaume-gilet
+Sylvain Giroux | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/sylvain-giroux
+Toby Dylan Hocking | Professeur agrégé | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/toby-dylan-hocking
+Pierre-Marc Jodoin | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/pierre-marc-jodoin
+Froduald Kabanza | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/froduald-kabanza
+Hubert Kenfack Ngankam | Professeur adjoint | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/hubert-kenfack-ngankam
+Manuel Lafond | Professeur agrégé | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/manuel-lafond
+Luc Lavoie | Professeur agrégé | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/luc-lavoie
+Alexandre Mercier-Aubin | Professeur adjoint | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/alexandre-mercier-aubin
+Hisanari Otsu | Professeur adjoint | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/hisanari-otsu
+Aïda Ouangraoua | Professeure titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/aida-ouangraoua
+François Rheault | Professeur adjoint | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/francois-rheault
+Nadia Tahiri | Professeure adjointe | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/nadia-tahiri
+Dave Touchette | Professeur agrégé | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/dave-touchette
+Amine Trabelsi | Professeur adjoint | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/amine-trabelsi
+Martin Vallières | Professeur agrégé | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/martin-vallieres
+Shengrui Wang | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/shengrui-wang
+Cunlu Zhou | Professeur adjoint | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/cunlu-zhou
+Djemel Ziou | Professeur titulaire | https://www.usherbrooke.ca/informatique/nous-joindre/personnel/corps-professoral/professeurs/djemel-ziou

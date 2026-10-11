@@ -1,0 +1,82 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {
+  resolveAlias,
+  linkStatus,
+  metricEvidence,
+  normaliseRank,
+} from "./evidence.mjs";
+test("aliases retain identity and reject cycles", () => {
+  assert.equal(
+    resolveAlias("old", { old: "middle", middle: "current" }),
+    "current",
+  );
+  assert.throws(() => resolveAlias("a", { a: "b", b: "a" }), /Circular/);
+});
+test("research status is matched to the actual platform identity", () => {
+  const evidence = [
+    {
+      academic_id: "old",
+      profile_url: "https://scholar.google.com/citations?user=wrong",
+      checked_at: "2026-10-11",
+      identity_verification_status: "rejected_different_person",
+    },
+  ];
+  assert.equal(
+    linkStatus(
+      "current",
+      "https://scholar.google.com/citations?hl=en&user=wrong",
+      evidence,
+      { old: "current" },
+    ),
+    "rejected_different_person",
+  );
+  assert.equal(
+    linkStatus(
+      "current",
+      "https://scholar.google.com/citations?user=correct",
+      evidence,
+      { old: "current" },
+    ),
+    "recorded_unverified",
+  );
+});
+test("mixed-platform metrics retain independent sources and dates", () => {
+  const row = {
+    academic_id: "a",
+    total_publications: "20",
+    total_citations: "123",
+    h_index: "5",
+  };
+  const evidence = metricEvidence(
+    row,
+    [
+      {
+        academic_id: "a",
+        publications: "20",
+        citations: "90",
+        source: "ResearchGate",
+        profile_url: "https://www.researchgate.net/profile/A",
+        retrieved_at: "2025-01-01",
+        freshness: "indexed",
+      },
+    ],
+    [
+      {
+        academic_id: "a",
+        metric: "total_citations",
+        value: "123",
+        platform: "Google Scholar",
+        source_url: "https://scholar.google.com/citations?user=a",
+        retrieved_at: "2026-10-11",
+        notes: "live",
+      },
+    ],
+    {},
+  );
+  assert.equal(evidence[0].source, "ResearchGate");
+  assert.equal(evidence[1].source, "Google Scholar");
+  assert.equal(evidence[2].date, "");
+  assert.equal(normaliseRank("Assistant Professor"), "Assistant Professor");
+  assert.equal(normaliseRank(""), "Unknown");
+});

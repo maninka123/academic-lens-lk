@@ -31,6 +31,7 @@ export const defaultConfig: Config = {
   log: false,
   labels: false,
   sort: "name",
+  benchmarks: false,
 };
 type State = {
   theme: "light" | "dark";
@@ -276,6 +277,7 @@ export function restoreFromUrl() {
     c.groups = c.groups.filter((g: unknown) => typeof g === "string");
     c.log = Boolean(c.log);
     c.labels = Boolean(c.labels);
+    c.benchmarks = Boolean(c.benchmarks);
     useAtlas.getState().restore({
       filters: f,
       config: c,

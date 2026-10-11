@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
 import { Pin, ExternalLink, ArrowLeft } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
@@ -24,7 +24,7 @@ export function Academics() {
   const rows = (
     useFilters ? filterAcademics(academics, filters) : academics
   ).filter((a) =>
-    [a.name, a.university, a.faculty, a.department, a.interests]
+    [a.name, a.sourceName, a.university, a.faculty, a.department, a.interests]
       .join(" ")
       .toLowerCase()
       .includes(query.trim().toLowerCase()),
@@ -60,11 +60,13 @@ export function Academics() {
           </label>
         </div>
         <p className="chart-note">
-          Every collected person has an individual profile. Showing{" "}
-          {rows.length.toLocaleString()} of {academics.length.toLocaleString()}{" "}
-          records.
+          * marks a documented completed PhD or higher research doctorate.
+          Display titles follow the project convention; official titles remain
+          in each profile. Every collected person has an individual profile.
+          Showing {rows.length.toLocaleString()} of{" "}
+          {academics.length.toLocaleString()} records.
         </p>
-        <AcademicTable rows={rows} />
+        <AcademicTable rows={rows} columnFilters />
       </Card>
     </>
   );
@@ -87,6 +89,8 @@ export function Profile() {
     a = d.academics.find((a) => a.id === id);
   const { pin, configure, clear } = useAtlas();
   const nav = useNavigate();
+  const canonical = id && d.metadata.identityAliases?.[id];
+  if (canonical) return <Navigate to={"/academics/" + canonical} replace />;
   if (!a) return <Empty title="Profile not found" />;
   return (
     <>
@@ -158,17 +162,22 @@ export function Profile() {
         />
       </div>
       <p className="portrait-note">
-        Symbolic illustration based on the recorded qualification and position.
-        It does not represent appearance, age, or gender; gender is not recorded
-        in this dataset.
+        Symbolic academic illustration. * denotes a documented completed PhD or
+        higher research doctorate.
       </p>
       <ResearchProfiles academic={a} />
+      {a.qualificationReview && (
+        <p className="notice" role="status">
+          {a.qualificationReview}
+        </p>
+      )}
       <ProfileStanding academic={a} rows={d.academics} />
       <div className="profile-layout">
         <div>
           <Card title="Academic information">
             <Info
               items={[
+                ["Name as published by the source", a.sourceName || a.name],
                 ["University", a.university],
                 ["Faculty / school", a.faculty],
                 ["Department", a.department],
@@ -217,6 +226,58 @@ export function Profile() {
             </Card>
           </div>
           <Card title="Sources & snapshot">
+            {a.metricEvidence?.length ? (
+              <div className="table-scroll">
+                <table>
+                  <caption>
+                    Evidence for this person's recorded research metrics
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th>Metric</th>
+                      <th>Value</th>
+                      <th>Source</th>
+                      <th>Retrieved</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {a.metricEvidence.map((e) => (
+                      <tr key={e.metric}>
+                        <td>
+                          {(
+                            {
+                              publications: "Publications",
+                              citations: "Citations",
+                              recentCitations: "Five-year citations",
+                              hIndex: "h-index",
+                              q1: "Q1 publications",
+                              recentQ1: "Five-year Q1 publications",
+                            } as Record<string, string>
+                          )[e.metric] || e.metric}
+                        </td>
+                        <td>{fmt(e.value)}</td>
+                        <td>
+                          {/^https?:\/\//.test(e.url) ? (
+                            <a
+                              className="text-link"
+                              href={e.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {e.source}
+                            </a>
+                          ) : (
+                            e.source
+                          )}
+                          <p className="caption">{e.note}</p>
+                        </td>
+                        <td>{e.date || "Not recorded"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : null}
             <Info
               items={[
                 ["Collection date", a.collectionDate],

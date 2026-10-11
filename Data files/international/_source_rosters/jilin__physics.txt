@@ -1,0 +1,21 @@
+# source: https://phy.jlu.edu.cn/szdw/jyry1/ (Jilin Univ. College of Physics 教研人员; first listing page of 4 sub-units: 凝聚态物理系 (27), 应用物理系 (19), 理论物理中心 (18), 超硬材料国家重点实验室; listings put 教授 first, so sample is professor-heavy; col4 = unit)
+Mingguang Yao | 教授 | https://teachers.jlu.edu.cn/YaoMingguang/zh_CN/index.htm | 凝聚态物理系 |  |  | 姚明光
+Zhanhui Ding | 教授 | https://teachers.jlu.edu.cn/DingZhanhui | 凝聚态物理系 |  |  | 丁战辉
+Tianmin He | 教授 | https://ptab.jlu.edu.cn/info/1007/1141.htm | 凝聚态物理系 |  |  | 贺天民
+Xiaoli Huang | 教授 | https://teachers.jlu.edu.cn/HuangXiaoli/zh_CN/index.htm | 凝聚态物理系 |  |  | 黄晓丽
+Yuan Ji | 教授 | https://teachers.jlu.edu.cn/JiYuan/zh_CN/index.htm | 凝聚态物理系 |  |  | 纪媛
+Xilian Jin | 教授 | https://teachers.jlu.edu.cn/JinXilian | 凝聚态物理系 |  |  | 靳锡联
+Keyan Ma | 教授 | https://teachers.jlu.edu.cn/MaKeyan | 应用物理系 |  |  | 马克岩
+Zhiwen Cui | 教授 | https://teachers.jlu.edu.cn/CuiZhiwen | 应用物理系 |  |  | 崔志文
+Yimin Gong | 教授 | https://teachers.jlu.edu.cn/GongYimin | 应用物理系 |  |  | 龚依民
+Wei Han | 教授 | https://teachers.jlu.edu.cn/HanWei/zh_CN/index.htm | 应用物理系 |  |  | 韩炜
+Xianfeng Li | 教授 | https://teachers.jlu.edu.cn/LiXianfeng | 应用物理系 |  |  | 李险峰
+Jinxia Liu | 教授 | https://teachers.jlu.edu.cn/LiuJinxia | 应用物理系 |  |  | 刘金霞
+Weimin Song | 教授 | http://theory.jlu.edu.cn/info/1042/1012.htm | 理论物理中心 |  |  | 宋维民
+Ping He | 教授 | http://theory.jlu.edu.cn/info/1042/1042.htm | 理论物理中心 |  |  | 何平
+Liguang Jiao | 教授 | https://teachers.jlu.edu.cn/lgjiao | 理论物理中心 |  |  | 焦利光
+Jian Li | 教授 | https://teachers.jlu.edu.cn/LiJian | 理论物理中心 |  |  | 李剑
+Pin Lv | 教授 | https://teachers.jlu.edu.cn/LvPin | 理论物理中心 |  |  | 吕品
+Haijun Wang | 教授 | https://teachers.jlu.edu.cn/Wanghaijun/zh_CN/index.htm | 理论物理中心 |  |  | 王海军
+Guangtian Zou | 教授 | https://teachers.jlu.edu.cn/zouguangtian/zh_CN/index.htm | 超硬材料国家重点实验室 |  |  | 邹广田
+Shushan Dong | 教授 | http://nlshm-lab.jlu.edu.cn/info/1075/1610.htm | 超硬材料国家重点实验室 |  |  | 董书山

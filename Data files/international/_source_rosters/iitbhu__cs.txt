@@ -1,0 +1,13 @@
+# source: https://iitbhu.ac.in/dept/cse/faculty (29 listed incl. undesignated/former; systematic sample = every 2nd; entries without designation dropped as likely former faculty)
+Bhaskar Biswas | Professor & HoD | https://iitbhu.ac.in/dept/cse/people/bhaskarcse
+Ruchir Gupta | Professor | https://iitbhu.ac.in/dept/cse/faculty
+Sanjay Kumar Singh | Professor | https://iitbhu.ac.in/dept/cse/faculty
+Hari Prabhat Gupta | Associate Professor | https://iitbhu.ac.in/dept/cse/people/hariprabhatcse
+Pratik Chattopadhyay | Associate Professor | https://iitbhu.ac.in/dept/cse/people/pratikcse
+Sukomal Pal | Associate Professor | https://iitbhu.ac.in/dept/cse/people/spalcse
+Ajay Pratap | Associate Professor | https://iitbhu.ac.in/dept/cse/people/ajaycse
+Aparajita Khan | Assistant Professor | https://iitbhu.ac.in/dept/cse/people/aparajitacse
+Harsh Kasyap | Assistant Professor | https://iitbhu.ac.in/dept/cse/people/hkasyapcse
+Mayank Swarnkar | Associate Professor | https://iitbhu.ac.in/dept/cse/people/mayankcse
+Prasenjit Chanak | Associate Professor | https://iitbhu.ac.in/dept/cse/people/prasenjitcse
+Vignesh Sivaraman | Assistant Professor | https://iitbhu.ac.in/dept/cse/people/vigneshcse

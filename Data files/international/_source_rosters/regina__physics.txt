@@ -1,0 +1,10 @@
+# source: https://www.uregina.ca/science/physics/directory/index.json (JSON feed behind https://www.uregina.ca/science/physics/directory/index.html; professors/lecturers/instructors only)
+Aram  Teymurazyan | Associate Professor | https://www.uregina.ca/science/physics/directory/faculty/aram-teymurazyan.html
+Garth Huber | Professor | https://www.uregina.ca/science/physics/directory/faculty/garth-huber.html
+Gojko  Vujanovic | Associate Professor; Canada Research Chair in Subatomic Physics Phenomenology | https://www.uregina.ca/science/physics/directory/faculty/gojko-vujanovic.html
+Gwen Grinyer | Professor, CAP Fellow | https://www.uregina.ca/science/physics/directory/faculty/gwen-grinyer.html
+Marcella Berg | Assistant Professor | https://www.uregina.ca/science/physics/directory/faculty/marcella-berg.html
+Mauricio  Barbi | Professor | https://www.uregina.ca/science/physics/directory/faculty/mauricio-barbi.html
+Nikolay Kolev | Assistant Professor | https://www.uregina.ca/science/physics/directory/faculty/nikolay-kolev.html
+Pierre Ouimet | Assistant Professor | https://www.uregina.ca/science/physics/directory/faculty/pierre-ouimet.html
+Dr. Samantha Lawler | Associate Professor, Campion College | https://www.uregina.ca/science/physics/directory/faculty/samantha-lawler.html

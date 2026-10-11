@@ -1,0 +1,23 @@
+# source: https://www.uregina.ca/science/computer-science/directory/index.json (JSON feed behind https://www.uregina.ca/science/computer-science/directory/index.html; professors/lecturers/instructors only)
+Richard Dosselmann | Assistant Professor; Indigenous Knowledge & Science | https://www.uregina.ca/science/computer-science/directory/dosselmann-richard.html
+Cory Butz | Professor; Department Head | https://www.uregina.ca/science/computer-science/directory/butz-cory.html
+Xue Dong Yang | Professor | https://www.uregina.ca/science/computer-science/directory/yang-xuedong.html
+Joseph Eremondi | Assistant Professor | https://www.uregina.ca/science/computer-science/directory/eremondi-joseph.html
+Sandra Zilles | Professor; Canada Research Chair in Computational Learning Theory | https://www.uregina.ca/science/computer-science/directory/zilles-sandra.html
+Lisa Fan | Associate Professor; Associate Department Head (Graduate); Graduate Coordinator | https://www.uregina.ca/science/computer-science/directory/fan-lisa.html
+Howard J. Hamilton | Professor; Director, Laboratory for Computational Discovery; Graduate Co-op Coordinator | https://www.uregina.ca/science/computer-science/directory/hamilton-howard.html
+Daryl  Hepting | Professor; EDI ( Equity, Diversity, and Inclusion) Coordinator | https://www.uregina.ca/science/computer-science/directory/hepting-daryl.html
+Orland Hoeber | Professor | https://www.uregina.ca/science/computer-science/directory/hoeber-orland.html
+Mengjun  Hu | Lecturer | https://www.uregina.ca/science/computer-science/directory/hu-mengjun.html
+Shakil M. Khan  | Associate Professor | https://www.uregina.ca/science/computer-science/directory/khan-shakil.html
+Malek Mouhoub | Professor | https://www.uregina.ca/science/computer-science/directory/mouhoub-malek.html
+Samira  Sadaoui | Full Professor in Computer Science, PhD | https://www.uregina.ca/science/computer-science/directory/sadaoui-samira.html
+Sami Uddin | Assistant Professor | https://www.uregina.ca/science/computer-science/directory/uddin-sami.html
+Nashid  Shahriar | Associate Professor | https://www.uregina.ca/science/computer-science/directory/shahriar-nashid.html
+Boting  Yang | Professor | https://www.uregina.ca/science/computer-science/directory/yang-boting.html
+JingTao  Yao | Professor | https://www.uregina.ca/science/computer-science/directory/yao-jingtao.html
+Yiyu Yao | Professor | https://www.uregina.ca/science/computer-science/directory/yao-yiyu.html
+Abbas Yazdinejad | Assistant Professor | https://www.uregina.ca/science/computer-science/directory/yazdinejad-abbas.html
+Mehdi Sadeghilalimi | Instructor | https://www.uregina.ca/science/computer-science/directory/sadeghilalimi-mehdi.html
+Vanessa Figueiredo | Assistant Professor | https://www.uregina.ca/science/computer-science/directory/figueiredo-vanessa.html
+Kamyar Khodamoradi | Assistant Professor | https://www.uregina.ca/science/computer-science/directory/khodamoradi-kamyar.html

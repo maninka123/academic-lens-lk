@@ -1,0 +1,19 @@
+# source: https://www.physik.uni-bayreuth.de/en/groups/index.html (chairs/groups; apl. and emeritus excluded)
+Oliver Bäumchen | Professor, Experimental Physics V | https://www.baeumchen.physik.uni-bayreuth.de/en
+Axel Enders | Professor, Experimental Physics XI & Didactics of Physics | https://www.enders.uni-bayreuth.de/en
+Thomas Fischer | Professor, Experimental Physics X | https://thomas-fischer.uni-bayreuth.de/en
+Georg Herink | Professor, Experimental Physics VIII | https://www.ultrafast.uni-bayreuth.de/en
+Eva M. Herzig | Professor, Experimental Physics VII | https://www.herzig.uni-bayreuth.de/en
+Anna Köhler | Professor, Experimental Physics II | http://www.ep2-bayreuth.de
+Jürgen Köhler | Professor, Experimental Physics IX | https://www.ssm.uni-bayreuth.de/en
+Holger Kress | Professor, Experimental Physics VI | https://www.biophys.uni-bayreuth.de/en
+Markus Lippitz | Professor, Experimental Physics III | https://www.ep3.uni-bayreuth.de/en
+Matthias Weiss | Professor, Experimental Physics I | https://www.ep1.uni-bayreuth.de/en
+Vollrath Martin Axt | Professor, Theoretical Physics III | https://www.axt.physik.uni-bayreuth.de/en
+Stephan Gekle | Professor, Theoretical Physics VI | https://www.gekle.physik.uni-bayreuth.de/en
+Stephan Kümmel | Professor, Theoretical Physics IV | https://www.tp4.uni-bayreuth.de/en
+Harald Oberhofer | Professor, Theoretical Physics VII | https://www.oberhofer.physik.uni-bayreuth.de/en
+Arthur Peeters | Professor, Theoretical Physics V | https://www.peeters.physik.uni-bayreuth.de/en
+Matthias Schmidt | Professor, Theoretical Physics II | https://www.mschmidt.uni-bayreuth.de
+Michael Wilczek | Professor, Theoretical Physics I | https://www.wilczek.physik.uni-bayreuth.de/en
+Natalia Dubrovinskaia | Professor, Material Physics and Technology in Extreme Conditions | https://www.dubrovinskaia.uni-bayreuth.de

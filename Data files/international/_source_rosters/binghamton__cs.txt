@@ -1,0 +1,26 @@
+# source: https://www.binghamton.edu/computer-science/people/ (TOTAL=50; systematic sample = every 2nd)
+Ali Ben Ali | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=abenali
+Anurag Andhare | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=aandhar2
+Thomas Bartenstein | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=tbartens
+Jayson Boubin | Assistant Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=jboubin
+Weiying Dai | Associate Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=wdai
+Dave Garrison | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=david.garrison
+Kartik Gopalan | Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=kartik:4e2273c3d00149a1df3596c9dc8f6c59
+Madhusudhan Govindaraju | Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=mgovinda
+Dali Ismail | Assistant Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=dismail
+Kyoung-Don Kang | Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=kang
+Leslie Lander | Associate Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=lander
+Yu (David) Liu | Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=davidl
+Nitish Kumar Panigrahy | Assistant Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=npanigrahy
+Aravind Prakash | Associate Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=aprakash
+Joseph Raskind | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=jraskin3:9bf206c4662a710ffbe47886ce49ecc8
+William Schiesser | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=wschiess:6970cba5e5eab71a13ed01c2409e0294
+Sujoy Sikdar | Assistant Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=ssikdar
+Priti Wakodikar | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=pwakodi1
+George Weinschenk | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=weinscgg
+Zhen Xie | Assistant Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=zxie3
+Kaicheng Yang | Assistant Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=yangkc
+Ghadeer Yassin | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=gyassin
+Yiming Zeng | Assistant Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=yimingz
+Xin Zhang | Lecturer | https://www.binghamton.edu/computer-science/people/profile.html?id=xzhang99:431600d12ee3ef1911ab23c268c4198a
+Yingxue Zhang | Assistant Professor | https://www.binghamton.edu/computer-science/people/profile.html?id=yzhang42

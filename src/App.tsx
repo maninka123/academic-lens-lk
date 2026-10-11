@@ -19,6 +19,7 @@ import {
   Menu,
   X,
   ArrowUpRight,
+  Scale,
 } from "lucide-react";
 import { useAtlas, restoreFromUrl } from "./store";
 import { loadDataset } from "./data/loader";
@@ -29,13 +30,14 @@ import { Compare } from "./pages/Compare";
 import { Academics, Profile, Institution } from "./pages/Academics";
 import { Origins } from "./pages/Origins";
 import { Methodology } from "./pages/Methodology";
+import { Global } from "./pages/Global";
 import { Filters } from "./components/Filters";
 import { Button } from "./components/ui/button";
 import { Empty } from "./components/common";
 useAtlas.getState().configure({});
 restoreFromUrl();
 function Shell() {
-  const { theme, setTheme, pinned } = useAtlas();
+  const { theme, setTheme, pinned, custom } = useAtlas();
   const [data, setData] = useState<Dataset | null>(null),
     [error, setError] = useState(""),
     [menu, setMenu] = useState(false);
@@ -52,6 +54,24 @@ function Shell() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
+  useEffect(() => {
+    if (!data?.metadata.identityAliases) return;
+    const canonical = [
+      ...new Set(pinned.map((id) => data.metadata.identityAliases?.[id] || id)),
+    ];
+    if (canonical.join("|") !== pinned.join("|"))
+      useAtlas.setState({ pinned: canonical });
+    const groups = custom.map((g) => ({
+      ...g,
+      ids: [
+        ...new Set(
+          g.ids.map((id) => data.metadata.identityAliases?.[id] || id),
+        ),
+      ],
+    }));
+    if (JSON.stringify(groups) !== JSON.stringify(custom))
+      useAtlas.setState({ custom: groups });
+  }, [data, pinned, custom]);
   useEffect(() => {
     let active = true;
     setData(null);
@@ -106,6 +126,7 @@ function Shell() {
     ["/compare", "Compare", ChartNoAxesCombined],
     ["/academics", "Academics", Users],
     ["/origins", "PhD Origins", Globe2],
+    ["/global", "Global Benchmarks", Scale],
     ["/methodology", "Data & Methodology", Database],
   ] as const;
   return (
@@ -256,13 +277,16 @@ function Shell() {
                 Partial collection · Extracted profiles require factual review.{" "}
                 <Link to="/methodology">View coverage and limitations</Link>
               </div>
-              {location.pathname !== "/compare" && <Filters />}
+              {!["/compare", "/global"].includes(location.pathname) && (
+                <Filters />
+              )}
               <Routes>
                 <Route path="/" element={<Overview />} />
                 <Route path="/compare" element={<Compare />} />
                 <Route path="/academics" element={<Academics />} />
                 <Route path="/academics/:id" element={<Profile />} />
                 <Route path="/origins" element={<Origins />} />
+                <Route path="/global" element={<Global />} />
                 <Route path="/methodology" element={<Methodology />} />
                 <Route path="/university/:id" element={<Institution />} />
                 <Route

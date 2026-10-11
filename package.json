@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "node --test scripts/evidence.test.mjs && vitest run",
     "build": "npm run typecheck && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "data:import": "node scripts/import-data.mjs",
+    "data:import": "node scripts/import-data.mjs && node scripts/import-international.mjs",
     "test:e2e": "playwright test",
     "data:map": "node scripts/prepare-map.mjs",
     "data:fixtures": "node scripts/generate-test-fixtures.mjs"

@@ -1,0 +1,45 @@
+# source: https://www.cs.iastate.edu/people/faculty
+Pavan Aduri | Professor | https://www.cs.iastate.edu/people/pavan-aduri
+Samik Basu | Professor | https://www.cs.iastate.edu/people/samik-basu
+Georgi Batinov | Assistant Teaching Professor | https://www.cs.iastate.edu/people/georgi-batinov
+Ying Cai | Associate Professor | https://www.cs.iastate.edu/people/ying-cai
+Shu-Hui (Susan) Chang | Teaching Professor | https://www.cs.iastate.edu/people/shu-hui-susan-chang
+Soma Chaudhuri | Associate Professor | https://www.cs.iastate.edu/people/soma-chaudhuri
+Myra Cohen | Professor | https://www.cs.iastate.edu/people/myra-cohen
+Oliver Eulenstein | Professor | https://www.cs.iastate.edu/people/oliver-eulenstein
+Hongyang Gao | Assistant Professor | https://www.cs.iastate.edu/people/hongyang-gao
+Matthew Holman | Assistant Teaching Professor | https://www.cs.iastate.edu/people/matthew-holman
+Mengdi Huai | Assistant Professor | https://www.cs.iastate.edu/people/mengdi-huai
+Xiaoqiu Huang | Professor | https://www.cs.iastate.edu/people/xiaoqiu-huang
+Ali Jannesari | Associate Professor | https://www.cs.iastate.edu/people/ali-jannesari
+Yan-Bin Jia | Professor | https://www.cs.iastate.edu/people/yan-bin-jia
+Ashwin Kallingal Joshy | Assistant Teaching Professor | https://www.cs.iastate.edu/people/ashwin-kallingal-joshy
+Regis Kopper | Assistant Professor | https://www.cs.iastate.edu/people/regis-kopper
+Ambrose Kofi Laing | Associate Teaching Professor | https://www.cs.iastate.edu/people/ambrose-kofi-laing
+James Lathrop | Associate Professor | https://www.cs.iastate.edu/people/james-lathrop
+Wei Le | Professor | https://www.cs.iastate.edu/people/wei-le
+Liyi Li | Assistant Professor | https://www.cs.iastate.edu/people/liyi-li
+Yang Li | Assistant Professor | https://www.cs.iastate.edu/people/yang-li
+Qi Li | Associate Professor | https://www.cs.iastate.edu/people/qi-li
+Robyn Lutz | Distinguished Professor | https://www.cs.iastate.edu/people/robyn-lutz
+Jack Lutz | Professor | https://www.cs.iastate.edu/people/jack-lutz
+Chenglin Miao | Assistant Professor | https://www.cs.iastate.edu/people/chenglin-miao
+Andrew Miner | Associate Professor | https://www.cs.iastate.edu/people/andrew-miner
+Simanta Mitra | Teaching Professor | https://www.cs.iastate.edu/people/simanta-mitra
+Meisam Mohammady | Assistant Professor | https://www.cs.iastate.edu/people/meisam-mohammady
+Sarfaraz Ahmed Mohammed | Assistant Teaching Professor | https://www.cs.iastate.edu/people/sarfaraz-ahmed-mohammed
+Trent Muhr | Lecturer | https://www.cs.iastate.edu/people/trent-muhr
+Gurpur Prabhu | Associate Professor | https://www.cs.iastate.edu/people/gurpur-prabhu
+Christopher Quinn | Assistant Professor | https://www.cs.iastate.edu/people/christopher-quinn
+Jeremy Sheaffer | Assistant Teaching Professor | https://www.cs.iastate.edu/people/jeremy-sheaffer
+Amit Kumar Sikder | Assistant Professor | https://www.cs.iastate.edu/people/amit-kumar-sikder
+Clay Stevens | Assistant Professor | https://www.cs.iastate.edu/people/clay-stevens
+Adisak Sukul | Teaching Professor | https://www.cs.iastate.edu/people/adisak-sukul
+Matthew Tancreti | Associate Teaching Professor | https://www.cs.iastate.edu/people/matthew-tancreti
+Wallapak Tavanapong | Professor | https://www.cs.iastate.edu/people/wallapak-tavanapong
+Bowen Weng | Assistant Professor | https://www.cs.iastate.edu/people/bowen-weng
+Tichakorn (Nok) Wongpiromsarn | Associate Professor | https://www.cs.iastate.edu/people/tichakorn-nok-wongpiromsarn
+Sam Xin | Professor | https://www.cs.iastate.edu/people/sam-xin
+Wenting Xu | Assistant Teaching Professor | https://www.cs.iastate.edu/people/wenting-xu
+Lin Yan | Assistant Professor | https://www.cs.iastate.edu/people/lin-yan
+Wensheng Zhang | Associate Professor | https://www.cs.iastate.edu/people/wensheng-zhang
