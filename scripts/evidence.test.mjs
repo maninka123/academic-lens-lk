@@ -104,6 +104,12 @@ test("a completed doctorate needs explicit evidence", () => {
   assert.equal(s("", "Hon. DSc"), "unknown");
   assert.equal(s("in_progress", "PhD (Reading)"), "in_progress");
   assert.equal(s("", "MSc; Reading for PhD"), "in_progress");
+  // A doctorate being pursued is never a completed doctorate.
+  assert.equal(s("", "B.A (Hons) (UOJ), M.Phil (UOJ), Ph.D (R) (Aberdeen)"), "in_progress");
+  assert.equal(s("", "PhD (FGS, UOC)- Reading, MSc. (KIU)"), "in_progress");
+  assert.equal(s("", "PhD (reading), MSc, BSc"), "in_progress");
+  assert.equal(s("listed_completed", "Ph.D (R) (University of Aberdeen)"), "contradictory");
+  assert.equal(s("", "PhD (in progress); MSc; BSc"), "in_progress");
 });
 test("contradictory doctorate records are flagged, not counted", () => {
   assert.equal(
