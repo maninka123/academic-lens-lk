@@ -107,11 +107,11 @@ describe("academic selection", () => {
   });
   it("directory pagination and pin actions work", () => {
     render(<AcademicTable rows={rows} />, { wrapper });
+    expect(screen.getAllByRole("link")[0]).toHaveTextContent("Academic 1");
     fireEvent.click(screen.getByLabelText("Pin Academic 0"));
     expect(useAtlas.getState().pinned).toEqual(["a0"]);
     fireEvent.click(screen.getByLabelText("Next page"));
-    expect(
-      screen.getByRole("link", { name: "Academic 15" }),
-    ).toBeInTheDocument();
+    expect(screen.getAllByRole("link")).toHaveLength(1);
+    expect(screen.getByText("Senior Lecturer", { selector: "td" })).toBeInTheDocument();
   });
 });

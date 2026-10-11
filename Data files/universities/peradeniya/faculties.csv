@@ -1,10 +1,10 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
 unassigned-faculty,,0,0
-faculty-of-agriculture,Faculty of Agriculture,7,0
+faculty-of-agriculture,Faculty of Agriculture,8,1
 faculty-of-allied-health-sciences,Faculty of Allied Health Sciences,7,1
-faculty-of-arts,Faculty of Arts,25,141
+faculty-of-arts,Faculty of Arts,25,143
 faculty-of-dental-sciences,Faculty of Dental Sciences,7,0
-faculty-of-engineering,Faculty of Engineering,11,19
+faculty-of-engineering,Faculty of Engineering,12,21
 faculty-of-management,Faculty of Management,5,0
 faculty-of-medicine,Faculty of Medicine,19,1
 faculty-of-science,Faculty of Science,12,3

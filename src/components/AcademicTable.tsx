@@ -31,7 +31,10 @@ export function AcademicTable({
   columnFilters?: boolean;
 }) {
   const { pin, unpin, pinned } = useAtlas();
-  const [sorting, setSorting] = useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>([
+    { id: "rank", desc: false },
+    { id: "name", desc: false },
+  ]);
   const [filters, setFilters] = useState<ColumnFiltersState>([]);
   const [visibility, setVisibility] = useState<VisibilityState>({
     faculty: false,
@@ -87,7 +90,30 @@ export function AcademicTable({
       },
       { accessorKey: "faculty", header: "Faculty" },
       { accessorKey: "department", header: "Department" },
-      { accessorKey: "rank", header: "Position" },
+      {
+        accessorKey: "rank",
+        header: "Position",
+        sortingFn: (a, b) => {
+          const order = [
+            "Senior Professor",
+            "Professor",
+            "Associate Professor",
+            "Assistant Professor",
+            "Senior Lecturer",
+            "Lecturer",
+            "Assistant Lecturer",
+            "Instructor",
+            "Librarian",
+            "Other",
+            "Unknown",
+          ];
+          const level = (rank: string) => {
+            const i = order.indexOf(rank);
+            return i < 0 ? order.length : i;
+          };
+          return level(a.original.rank) - level(b.original.rank);
+        },
+      },
       { accessorKey: "qualification", header: "Qualification" },
       { accessorKey: "phdCountry", header: "PhD country" },
       ...(

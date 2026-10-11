@@ -1,3 +1,4 @@
+import { Select } from "../components/ui/select";
 import { useState, useEffect } from "react";
 import {
   Share2,
@@ -285,7 +286,7 @@ export function Compare() {
       <div className="step-label">01 · Define your comparison</div>
       <label className="field">
         Comparison level
-        <select
+        <Select
           aria-label="Comparison level"
           value={c.level}
           onChange={(e) =>
@@ -297,7 +298,7 @@ export function Compare() {
               {l}
             </option>
           ))}
-        </select>
+        </Select>
       </label>
       <label className="check">
         <input
@@ -320,7 +321,7 @@ export function Compare() {
       {benchOn && (
         <label className="field">
           Equivalent discipline
-          <select
+          <Select
             aria-label="Equivalent discipline"
             value={discipline}
             onChange={(e) => setDiscipline(e.target.value as typeof discipline)}
@@ -328,7 +329,7 @@ export function Compare() {
             <option value="all">All sampled disciplines</option>
             <option value="Computer Science">Computer Science</option>
             <option value="Physics">Physics</option>
-          </select>
+          </Select>
           <small className="caption">
             Benchmarks sample Computer Science and Physics only; proxy units are
             excluded. Sri Lankan academics are matched by department name.
@@ -344,7 +345,7 @@ export function Compare() {
       <div className="step-label">02 · Choose the measurement</div>
       <label className="field">
         Measurement
-        <select
+        <Select
           aria-label="Measurement"
           value={c.metric}
           onChange={(e) => configure({ metric: e.target.value as Metric })}
@@ -354,11 +355,11 @@ export function Compare() {
               {l}
             </option>
           ))}
-        </select>
+        </Select>
       </label>
       <label className="field">
         Aggregation
-        <select
+        <Select
           aria-label="Aggregation"
           value={c.aggregation}
           onChange={(e) =>
@@ -379,12 +380,12 @@ export function Compare() {
               }
             </option>
           ))}
-        </select>
+        </Select>
       </label>
       {providerMetric && (
         <label className="field">
           Bibliometric provider
-          <select
+          <Select
             aria-label="Bibliometric provider"
             value={single ? (benchOn ? "OpenAlex" : provider) : "mixed"}
             onChange={(e) =>
@@ -415,13 +416,13 @@ export function Compare() {
               </>
             )}
             <option value="mixed">Mixed providers (exploratory)</option>
-          </select>
+          </Select>
         </label>
       )}
       {c.level === "type" && (
         <label className="field">
           University weighting
-          <select
+          <Select
             value={c.weight}
             aria-label="University weighting"
             onChange={(e) =>
@@ -430,13 +431,13 @@ export function Compare() {
           >
             <option value="pooled">Pooled academics</option>
             <option value="equal">Equal university weight</option>
-          </select>
+          </Select>
         </label>
       )}
       <div className="step-label">03 · Visualise</div>
       <label className="field">
         Chart type
-        <select
+        <Select
           aria-label="Chart type"
           value={c.chart}
           onChange={(e) => configure({ chart: e.target.value as ChartType })}
@@ -452,12 +453,12 @@ export function Compare() {
                 {l}
               </option>
             ))}
-        </select>
+        </Select>
       </label>
       {["scatter", "bubble"].includes(c.chart) && numeric && (
         <label className="field">
           Horizontal axis
-          <select
+          <Select
             aria-label="Horizontal axis"
             value={c.xMetric}
             onChange={(e) =>
@@ -471,12 +472,12 @@ export function Compare() {
                   {v}
                 </option>
               ))}
-          </select>
+          </Select>
         </label>
       )}
       <label className="field">
         Order groups
-        <select
+        <Select
           aria-label="Order groups"
           value={c.sort || "name"}
           onChange={(e) =>
@@ -485,7 +486,7 @@ export function Compare() {
         >
           <option value="name">Alphabetical</option>
           <option value="value">Statistic, highest first</option>
-        </select>
+        </Select>
       </label>
       <label className="check">
         <input

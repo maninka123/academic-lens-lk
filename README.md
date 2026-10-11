@@ -5,8 +5,8 @@ Explore academics, compare peer groups, and discover where their PhDs were award
 **[Open the app](https://maninka123.github.io/academic-lens-lk/)** · [Dataset guide](Data%20files/README.md) · [Full documentation](docs/PROJECT_GUIDE.md)
 
 <!-- dataset-summary:start -->
-<!-- Snapshot partial-3dc1b1eb7d -->
-**1,393 Sri Lankan profiles · 12 institutions · 1,630 international benchmark profiles.** Partial collection, updated 11 October 2026. [Coverage report](reports/validation-report.md).
+<!-- Snapshot partial-79d1881892 -->
+**1,392 Sri Lankan profiles · 12 institutions · 1,630 international benchmark profiles.** Partial collection, updated 2026-10-11. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
 - Search people and inspect qualifications, research links and peer comparisons.
@@ -21,7 +21,9 @@ Explore academics, compare peer groups, and discover where their PhDs were award
 | --- | --- |
 | ![Comparison Studio](docs/screenshots/comparison-studio.png) | ![Academic profile](docs/screenshots/person-profile.png) |
 
-![PhD origins map](docs/screenshots/phd-origins.png)
+| PhD origins | Global benchmarks |
+| --- | --- |
+| ![PhD origins map](docs/screenshots/phd-origins.png) | ![Global benchmarks](docs/screenshots/global-benchmarks.png) |
 
 <details>
 <summary>Mobile preview</summary>
@@ -51,3 +53,34 @@ GitHub Pages releases: **Actions → Build, check and deploy GitHub Pages → Ru
 
 > [!NOTE]
 > This project uses only publicly available information. Data may be incomplete, outdated or incorrect—please verify details with the original sources.
+
+## Global benchmark method
+
+Official Computer Science and Physics samples, grouped by QS 2027 tier. Research metrics use matched OpenAlex profiles on both sides.
+
+<details>
+<summary>Method, sampling and substitutions</summary>
+
+- QS World University Rankings 2027, published 18 June 2026. Each country contributes two elite universities (top two with accessible directories), two middle-tier universities (~420–560) and two lower-tier universities (~800–1200). Australia has one lower-tier sample because other directories blocked access.
+- Official staff directories exclude visiting, adjunct, courtesy and emeritus roles. Departments larger than 25 are sampled systematically in directory order. These are samples, not national censuses.
+- OpenAlex matches require name and institution agreement. Ambiguous or implausibly merged profiles remain blank; lookup attempts are not matches. Groups need at least 10 valid values to report a median.
+- Use the career-stage control to compare similar positions. Elite samples often contain more professors than Sri Lankan directories. No overall performance score is produced.
+- Data and source rosters: [international dataset](Data%20files/international/). Build scripts: [scripts/baselines](scripts/baselines/).
+
+### Substitutions
+
+- **ANU** (Australia, elite): University of Melbourne (QS 22) directories return HTTP 403 to automated access; next-ranked ANU used
+- **Murdoch** (Australia, middle): University of Canberra (QS 477) staff profiles return HTTP 403; Murdoch (same band) used. Murdoch 'our people' pages list ranked senior academics only
+- **UniSC** (Australia, lower): Charles Sturt University (QS 951-1000) blocks automated access (HTTP 403); UniSC used. UniSC has no physics department: engineering academics used as nearest physical-science unit
+- **IIT BHU** (India, middle): Anna University (QS 470) department sites unreachable (DNS/TLS failures); IIT BHU (same band, public) used
+- **Bordeaux** (France, middle): Université de Montpellier (QS 473) has no static staff list (LIRMM directory is JavaScript-only); Bordeaux (same band) used
+- **TU Chemnitz** (Germany, lower): Bielefeld University (QS 1001-1200) publishes no consolidated professor list (research-group pages only); TU Chemnitz (same band) used
+- **CDU** (Australia, middle): Second middle-tier slot: University of Canberra, JCU, CQU and ECU block automated access; CDU (QS 551) used. CDU has no physics department, so only IT is sampled
+- **IIT Indore** (India, middle): IIT Indore physics site returns HTTP 403; only CSE sampled
+- **IIT Bhubaneswar** (India, lower): Aligarh Muslim University (same band) faculty pages are JavaScript-only; IIT Bhubaneswar used
+- **Windsor** (Canada, middle): University of Guelph (QS 546) people directory is JavaScript-only; Windsor (QS 537) used
+- **CY Cergy** (France, lower): Nantes Université (901-950) LS2N directory is AJAX-protected; CY Cergy (same band) used. LPTM physics lab publishes no member list; only computing (ETIS) sampled
+- **Würzburg** (Germany, middle): Leipzig University (QS 540) physics institutes publish no professor lists; Würzburg (QS 430) used
+- **Wuppertal** (Germany, lower): University of Oldenburg (same band) publishes no consolidated professor list; Wuppertal used
+
+</details>

@@ -123,11 +123,11 @@ export function Overview() {
     <>
       <Header
         eyebrow="Sri Lanka · Academic research atlas"
-        title="A clearer view of our academic landscape."
-        description="A transparent, evidence-linked collection of published academic profiles from Sri Lankan universities, with international benchmarks and reproducible comparisons."
+        title="Sri Lanka’s academic landscape."
+        description="Explore academics, qualifications and research — across Sri Lanka and beyond."
         action={
           <Button onClick={() => preset({})}>
-            Open Comparison Studio
+            Compare institutions
             <ArrowUpRight size={18} />
           </Button>
         }

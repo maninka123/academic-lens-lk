@@ -16,6 +16,7 @@ import {
   Database,
   Sun,
   Moon,
+  Monitor,
   Menu,
   X,
   ArrowUpRight,
@@ -37,7 +38,7 @@ import { Empty } from "./components/common";
 useAtlas.getState().configure({});
 restoreFromUrl();
 function Shell() {
-  const { theme, setTheme, pinned, custom } = useAtlas();
+  const { theme, themeMode, setTheme, pinned, custom } = useAtlas();
   const [data, setData] = useState<Dataset | null>(null),
     [error, setError] = useState(""),
     [menu, setMenu] = useState(false);
@@ -51,6 +52,15 @@ function Shell() {
       setShareError(sessionStorage.getItem("atlas-share-error") || "");
     }
   }, [location.search]);
+  useEffect(() => {
+    if (themeMode !== "system") return;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const sync = () =>
+      useAtlas.setState({ theme: media.matches ? "dark" : "light" });
+    sync();
+    media.addEventListener("change", sync);
+    return () => media.removeEventListener("change", sync);
+  }, [themeMode]);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
@@ -177,14 +187,26 @@ function Shell() {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="dataset-status">
-            <span className="status-dot" />
-            <strong>Collected dataset</strong>
+          <div className="theme-switch" role="group" aria-label="Appearance">
+            {(
+              [
+                ["light", "Light appearance", Sun],
+                ["dark", "Dark appearance", Moon],
+                ["system", "System appearance", Monitor],
+              ] as const
+            ).map(([mode, label, Icon]) => (
+              <button
+                key={mode}
+                type="button"
+                aria-label={label}
+                title={label}
+                aria-pressed={themeMode === mode}
+                onClick={() => setTheme(mode)}
+              >
+                <Icon size={23} aria-hidden="true" />
+              </button>
+            ))}
           </div>
-          <Button variant="ghost" onClick={setTheme}>
-            {theme === "light" ? <Moon size={19} /> : <Sun size={19} />}{" "}
-            {theme === "light" ? "Dark appearance" : "Light appearance"}
-          </Button>
           <a
             className="repo-link"
             href="https://github.com/maninka123/academic-lens-lk"
@@ -231,7 +253,17 @@ function Shell() {
           </div>
           <span className="data-badge">
             <span className="status-dot" />
-            Partial real collection
+            {data?.metadata.collectionDate
+              ? "Data updated " +
+                new Date(
+                  data.metadata.collectionDate.slice(0, 10) + "T00:00:00Z",
+                ).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                  timeZone: "UTC",
+                })
+              : "Academic dataset"}
           </span>
         </div>
         <main id="main-content" className="main-content" tabIndex={-1}>
@@ -269,13 +301,8 @@ function Shell() {
                   version is {data.metadata.version}; results may differ.
                 </div>
               )}
-              <div className="collection-banner">
-                Partial collection · Extracted profiles require factual review.{" "}
-                <Link to="/methodology">View coverage and limitations</Link>
-              </div>
-              {!["/compare", "/global"].includes(location.pathname) && (
-                <Filters />
-              )}
+              {(location.pathname === "/" ||
+                location.pathname.startsWith("/university/")) && <Filters />}
               <Routes>
                 <Route path="/" element={<Overview />} />
                 <Route path="/compare" element={<Compare />} />

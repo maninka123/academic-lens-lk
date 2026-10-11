@@ -6,6 +6,8 @@ import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import { filterAcademics, groupRows } from "../analytics/engine";
 import { Header, Card, fmt, Empty } from "../components/common";
+import campusImages from "../data/campus-images.json";
+import { Filters } from "../components/Filters";
 import { AcademicTable } from "../components/AcademicTable";
 import { Button } from "../components/ui/button";
 import { AcademicPortrait } from "../components/AcademicPortrait";
@@ -59,17 +61,10 @@ export function Academics() {
               checked={useFilters}
               onChange={(e) => setUseFilters(e.target.checked)}
             />
-            Apply global filters
+            Advanced filters
           </label>
         </div>
-        <p className="chart-note">
-          “Dr … *” is shown only for a documented completed PhD or higher
-          research doctorate. Other names keep the honorific published by the
-          source, or none; no title is inferred. Official titles remain in
-          each profile. Every collected person has an individual profile.
-          Showing {rows.length.toLocaleString()} of{" "}
-          {academics.length.toLocaleString()} records.
-        </p>
+        {useFilters && <Filters />}
         <AcademicTable rows={rows} columnFilters />
       </Card>
     </>
@@ -103,10 +98,9 @@ function Info({ items }: { items: InfoItem[] }) {
           <dt>{k}</dt>
           <dd>
             {evidenceLabel(v)}
-            {level &&
-              !(
-                level === "missing" && evidenceLabel(v) === "Not yet documented"
-              ) && <EvidenceBadge level={level} title={title} />}
+            {level === "review" && (
+              <EvidenceBadge level={level} title={title} />
+            )}
           </dd>
         </div>
       ))}
@@ -177,13 +171,6 @@ export function Profile() {
       `${e?.source || a.metricsSource || "Source not recorded"}${e?.date ? " · " + e.date : ""}${ev.identity === "verified" ? " · identity linked from an official page" : " · identity not independently verified"}`,
     ];
   };
-  const lastChecked = [
-    a.collectionDate,
-    ...(a.metricEvidence || []).map((e) => e.date),
-  ]
-    .filter(Boolean)
-    .sort()
-    .at(-1);
   return (
     <>
       <Link className="text-link" to="/academics">
@@ -253,26 +240,6 @@ export function Profile() {
           }
         />
       </div>
-      <p className="portrait-note">
-        Neutral placeholder (initials only). * denotes a documented completed
-        PhD or higher research doctorate. Honorifics appear only when the source
-        states them.
-      </p>
-      <div className="evidence-summary" aria-label="Evidence status">
-        <span>
-          Research identity <EvidenceBadge level={ev.identity} />
-        </span>
-        <span>
-          Employment <EvidenceBadge level={ev.employment} />
-        </span>
-        <span>
-          Doctorate <EvidenceBadge level={ev.doctorate} />
-        </span>
-        <span className="caption">
-          Last checked {lastChecked || "date not recorded"} · source record
-          collected {a.collectionDate || "date not recorded"}
-        </span>
-      </div>
       <ResearchProfiles academic={a} />
       {a.qualificationReview && (
         <p className="notice" role="status">
@@ -291,7 +258,6 @@ export function Profile() {
                   "recorded",
                   "Original published name, unchanged",
                 ],
-                ["University", a.university, "recorded"],
                 [
                   "Faculty / school",
                   a.faculty,
@@ -307,7 +273,6 @@ export function Profile() {
                   a.position,
                   a.position ? "recorded" : "missing",
                 ],
-                ["Normalised position", a.rank],
                 [
                   "Research interests",
                   a.interests,
@@ -332,13 +297,16 @@ export function Profile() {
                     a.qualifications,
                     a.qualifications ? "recorded" : "missing",
                   ],
-                  ["Highest documented qualification", a.qualification],
-                  [
-                    "Doctorate",
-                    doctorateText[a.doctorateStatus || "unknown"],
-                    ev.doctorate,
-                    "A title, a doctoral institution or ambiguous text is not evidence of completion",
-                  ],
+                  ...(["in_progress", "contradictory"].includes(
+                    a.doctorateStatus || "",
+                  )
+                    ? [
+                        [
+                          "Doctorate status",
+                          doctorateText[a.doctorateStatus!],
+                        ] as InfoItem,
+                      ]
+                    : []),
                   [
                     "PhD awarding institution",
                     a.phdUniversity,
@@ -394,89 +362,6 @@ export function Profile() {
               />
             </Card>
           </div>
-          <Card title="Sources & snapshot">
-            {a.metricEvidence?.length ? (
-              <div className="table-scroll">
-                <table>
-                  <caption>
-                    Evidence for this person's recorded research metrics
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th>Metric</th>
-                      <th>Value</th>
-                      <th>Source</th>
-                      <th>Retrieved</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {a.metricEvidence.map((e) => (
-                      <tr key={e.metric}>
-                        <td>
-                          {(
-                            {
-                              publications: "Publications",
-                              citations: "Citations",
-                              recentCitations: "Five-year citations",
-                              hIndex: "h-index",
-                              q1: "Q1 publications",
-                              recentQ1: "Five-year Q1 publications",
-                            } as Record<string, string>
-                          )[e.metric] || e.metric}
-                        </td>
-                        <td>{fmt(e.value)}</td>
-                        <td>
-                          {/^https?:\/\//.test(e.url) ? (
-                            <a
-                              className="text-link"
-                              href={e.url}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {e.source}
-                            </a>
-                          ) : (
-                            e.source
-                          )}
-                          <p className="caption">{e.note}</p>
-                        </td>
-                        <td>{e.date || "Not recorded"}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : null}
-            <Info
-              items={[
-                ["Collection date", a.collectionDate],
-                ["Metric snapshot date", a.snapshotDate],
-                ["Metric source", a.metricsSource],
-                ["Verification status", a.status],
-                ["Notes", a.notes],
-              ]}
-            />
-            <div className="inline source-links">
-              {[
-                [a.sourceUrl, "Official academic source"],
-                [a.scholarUrl, "Google Scholar link"],
-                [a.metricsUrl, "Bibliometric source"],
-              ]
-                .filter(([url]) => /^https?:\/\//.test(url))
-                .map(([url, label]) => (
-                  <a
-                    key={label}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-link"
-                    href={url}
-                  >
-                    {label}
-                    <ExternalLink size={16} />
-                  </a>
-                ))}
-            </div>
-          </Card>
         </div>
         <div>
           <div className="card">
@@ -554,6 +439,7 @@ export function Institution() {
         This unit is not recorded in the selected institution.
       </Empty>
     );
+  const campus = campusImages[u.id as keyof typeof campusImages];
   const label = department
     ? raw.find((a) => a.departmentId === department)?.department
     : faculty
@@ -608,28 +494,44 @@ export function Institution() {
         <ArrowLeft size={17} />
         {faculty ? "Parent institution" : "Overview"}
       </Link>
-      <Header
-        eyebrow={
-          u.type +
-          " · " +
-          (department
-            ? "Department"
-            : faculty
-              ? "Faculty / school"
-              : "Institution explorer")
-        }
-        title={label || "Unit unavailable"}
-        description={
-          faculty
-            ? u.name
-            : "Collected academic profiles and organisational structure."
-        }
-        action={
-          <Button onClick={() => openCompare()}>
-            Open in Comparison Studio
-          </Button>
-        }
-      />
+      <div className="institution-hero">
+        {campus && (
+          <img
+            className="institution-hero-image"
+            src={import.meta.env.BASE_URL + campus.image}
+            alt=""
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        )}
+        <Header
+          eyebrow={
+            u.type +
+            " · " +
+            (department
+              ? "Department"
+              : faculty
+                ? "Faculty / school"
+                : "Institution explorer")
+          }
+          title={label || "Unit unavailable"}
+          description={faculty ? u.name : "People, faculties & research"}
+          action={
+            <Button onClick={() => openCompare()}>Compare institution</Button>
+          }
+        />
+        {campus && (
+          <a
+            className="campus-credit"
+            href={campus.source}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Photo · {campus.credit} ↗
+          </a>
+        )}
+      </div>
       <CoveragePanel
         rows={rows}
         rosterNote={
@@ -693,20 +595,6 @@ export function Institution() {
               </Link>
             ))}
           </div>
-        </Card>
-      )}
-      {!department && directRows.length > 0 && (
-        <Card
-          title={
-            faculty ? "Faculty-level academics" : "Institution-level academics"
-          }
-          subtitle={
-            faculty
-              ? "No department is recorded for these people. They belong to this faculty only."
-              : "No faculty is recorded for these people."
-          }
-        >
-          <AcademicTable rows={directRows} />
         </Card>
       )}
       <Card

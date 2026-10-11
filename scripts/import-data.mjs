@@ -16,6 +16,7 @@ import {
   sanitizeText,
 } from "./evidence.mjs";
 import { rankFor, careerStage, COUNTRY_PROFILES } from "./countries.mjs";
+import { lowerQualification } from "./qualifications.mjs";
 import {
   PUBLIC_FILES,
   PUBLIC_ACADEMIC_COLUMNS,
@@ -38,7 +39,8 @@ const walk = (p) =>
 const inputs = fs.existsSync(source + "/universities")
   ? walk(source + "/universities")
   : [source + "/academics_all.csv"];
-const sourceRows = inputs.flatMap(csvRead);
+// Librarian appointments are outside the academic teaching/research scope.
+const sourceRows = inputs.flatMap(csvRead).filter((r) => !/librarian/i.test(r.academic_position || ""));
 const optionalCsv = (name) =>
   fs.existsSync(source + "/" + name) ? csvRead(source + "/" + name) : [];
 const snapshots = optionalCsv("research_metrics_snapshots.csv");
@@ -62,16 +64,6 @@ const n = (v) => {
   if (!Number.isFinite(x) || x < 0) throw Error("Invalid numeric value: " + v);
   return x;
 };
-// Highest non-doctoral qualification named in the published text.
-const lowerQualification = (q) =>
-  /master|m\.?sc|m\.?phil|mba|m\.?eng|m\.?a\b|\bmd\b|\bms\b/i.test(q)
-    ? "Masters / MPhil"
-    : /bachelor|b\.?sc|b\.?eng|b\.?a\b|mbbs|llb/i.test(q)
-      ? "Bachelors"
-      : q
-        ? "Other documented"
-        : "Unknown";
-
 const rows = sourceRows.map((r) => {
   const u = universities.find(
     (u) => u.name === r.university.replace(/ \(SLIIT\)$/, ""),
