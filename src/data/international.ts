@@ -26,8 +26,12 @@ export type BenchmarkAcademic = {
   faculty: string;
   department: string;
   field: string;
+  /** "department", "research-lab" or "proxy" (stand-in for a missing discipline). */
+  unitType: string;
   position: string;
   rank: string;
+  careerStage: string;
+  doctorateStatus: string;
   qualification: string;
   phdUniversity: string;
   phdCountry: string;

@@ -6,6 +6,9 @@ export async function useSyntheticFixture(page: Page) {
   await page.route("**/data/*", async (route) => {
     const file = new URL(route.request().url()).pathname.split("/").pop()!;
     if (file === "world.geo.json") return route.continue();
+    // Real snapshot summaries must never describe synthetic fixture records.
+    if (file === "coverage_summary.csv" || file === "dataset_summary.json")
+      return route.fulfill({ status: 404, body: "" });
     if (file === "field-mapping.json") {
       const rows = Papa.parse<any>(
         readFileSync("tests/fixtures/academics.csv", "utf8"),

@@ -1,0 +1,29 @@
+{
+  "primary": "LK",
+  "datasets": [
+    {
+      "id": "LK",
+      "country": "Sri Lanka",
+      "code": "LK",
+      "role": "primary",
+      "description": "National collection of published academic profiles (partial, not a census).",
+      "researcherIds": [
+        "Google Scholar",
+        "ResearchGate",
+        "OpenAlex"
+      ],
+      "path": "./"
+    },
+    {
+      "id": "INT",
+      "country": "International",
+      "code": "INT",
+      "role": "benchmark-sample",
+      "description": "QS 2027 tier samples from seven countries (Computer Science and Physics). Samples, not national censuses.",
+      "researcherIds": [
+        "OpenAlex"
+      ],
+      "path": "international/"
+    }
+  ]
+}

@@ -8,6 +8,17 @@ import type {
   Metric,
   NumericMetric,
 } from "../types";
+// Approximate career stage; duplicated from analytics/quality to avoid an import cycle.
+const careerStageOf = (rank: string) =>
+  ({
+    "Senior Professor": "Professor",
+    Professor: "Professor",
+    "Associate Professor": "Mid-career",
+    "Senior Lecturer": "Mid-career",
+    "Assistant Professor": "Early-career",
+    Lecturer: "Early-career",
+    "Assistant Lecturer": "Early-career",
+  })[rank] || (rank === "Unknown" ? "Unknown" : "Teaching / other");
 export const values = (v: (number | null | undefined)[]) =>
   v.filter((n): n is number => typeof n === "number" && Number.isFinite(n));
 export const sum = (v: number[]) => v.reduce((s, n) => s + n, 0);
@@ -138,6 +149,8 @@ export function groupKey(a: Academic, level: Level) {
       return a.field;
     case "rank":
       return a.rank;
+    case "careerStage":
+      return careerStageOf(a.rank);
     case "qualification":
       return a.qualification;
     case "phdCountry":
@@ -193,10 +206,16 @@ export function groupRows(
   }
   return [...map.values()];
 }
+/**
+ * Group statistics. Groups with fewer than `minN` valid observations are
+ * flagged (`lowN`) and, when sorting by value, placed after adequately sampled
+ * groups so that very small samples are never ranked among them.
+ */
 export function compare(
   rows: Academic[],
   c: Config,
   custom: CustomGroup[] = [],
+  minN = 10,
 ) {
   return groupRows(rows, c.level, custom)
     .filter((g) => !c.groups.length || c.groups.includes(g.id))
@@ -211,9 +230,11 @@ export function compare(
         stats = { ...stats, value: mean(v) };
         universityN = v.length;
       }
+      const counted = c.metric === "count" ? Infinity : stats.n;
       return {
         ...g,
         ...stats,
+        lowN: counted < minN,
         universityN,
         distribution: ["count", "phd", "overseas"].includes(c.metric)
           ? []
@@ -222,7 +243,8 @@ export function compare(
     })
     .sort((a, b) =>
       c.sort === "value"
-        ? (b.value ?? -Infinity) - (a.value ?? -Infinity) ||
+        ? Number(a.lowN) - Number(b.lowN) ||
+          (b.value ?? -Infinity) - (a.value ?? -Infinity) ||
           a.label.localeCompare(b.label)
         : a.label.localeCompare(b.label),
     );

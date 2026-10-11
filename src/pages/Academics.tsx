@@ -1,20 +1,23 @@
 import { useState } from "react";
+import type { Academic } from "../types";
 import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
 import { Pin, ExternalLink, ArrowLeft } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
-import {
-  filterAcademics,
-  completeness,
-  aggregate,
-  groupRows,
-} from "../analytics/engine";
-import { Header, Card, Stat, fmt, Empty } from "../components/common";
+import { filterAcademics, groupRows } from "../analytics/engine";
+import { Header, Card, fmt, Empty } from "../components/common";
 import { AcademicTable } from "../components/AcademicTable";
 import { Button } from "../components/ui/button";
 import { AcademicPortrait } from "../components/AcademicPortrait";
 import { ProfileStanding } from "../components/ProfileStanding";
 import { ResearchProfiles } from "../components/ResearchProfiles";
+import {
+  CoveragePanel,
+  EvidenceBadge,
+  MetricSummaryTable,
+  type EvidenceLevel,
+} from "../components/Quality";
+import { MIN_SAMPLE } from "../analytics/quality";
 import { exportCsv } from "../components/common";
 export function Academics() {
   const { academics } = useData();
@@ -60,9 +63,10 @@ export function Academics() {
           </label>
         </div>
         <p className="chart-note">
-          * marks a documented completed PhD or higher research doctorate.
-          Display titles follow the project convention; official titles remain
-          in each profile. Every collected person has an individual profile.
+          “Dr … *” is shown only for a documented completed PhD or higher
+          research doctorate. Other names keep the honorific published by the
+          source, or none; no title is inferred. Official titles remain in
+          each profile. Every collected person has an individual profile.
           Showing {rows.length.toLocaleString()} of{" "}
           {academics.length.toLocaleString()} records.
         </p>
@@ -90,18 +94,65 @@ const evidenceLabel = (value: string | number | null) => {
   };
   return typeof value === "string" ? labels[value] || value : value;
 };
-function Info({ items }: { items: [string, string | number | null][] }) {
+type InfoItem = [string, string | number | null, EvidenceLevel?, string?];
+function Info({ items }: { items: InfoItem[] }) {
   return (
     <dl className="info-list">
-      {items.map(([k, v]) => (
+      {items.map(([k, v, level, title]) => (
         <div key={k}>
           <dt>{k}</dt>
-          <dd>{evidenceLabel(v)}</dd>
+          <dd>
+            {evidenceLabel(v)}
+            {level &&
+              !(
+                level === "missing" && evidenceLabel(v) === "Not yet documented"
+              ) && <EvidenceBadge level={level} title={title} />}
+          </dd>
         </div>
       ))}
     </dl>
   );
 }
+/** Evidence level of the main facts on a profile. */
+export function profileEvidence(a: Academic) {
+  const identity: EvidenceLevel = [a.scholarStatus, a.researchgateStatus].some(
+    (s) =>
+      [
+        "verified_official_link",
+        "matched_user_supplied_platform_evidence",
+      ].includes(s || ""),
+  )
+    ? "verified"
+    : [a.scholarStatus, a.researchgateStatus].some((s) =>
+          /review|rejected/.test(s || ""),
+        )
+      ? "review"
+      : a.scholarUrl || a.researchgateUrl
+        ? "recorded"
+        : "missing";
+  const employment: EvidenceLevel = /review/.test(a.employmentStatus + a.status)
+    ? "review"
+    : ["permanent_officially_listed", "emeritus_officially_listed"].includes(
+          a.employmentStatus,
+        )
+      ? "verified"
+      : "recorded";
+  const doctorate: EvidenceLevel =
+    a.doctorateStatus === "completed_documented"
+      ? "verified"
+      : a.doctorateStatus === "contradictory"
+        ? "review"
+        : a.doctorateStatus === "in_progress"
+          ? "recorded"
+          : "missing";
+  return { identity, employment, doctorate };
+}
+const doctorateText: Record<string, string> = {
+  completed_documented: "Completed — documented in the source",
+  in_progress: "In progress — not counted as a completed PhD",
+  contradictory: "Contradictory evidence — not counted until reviewed",
+  unknown: "Not documented",
+};
 export function Profile() {
   const { id } = useParams();
   const d = useData(),
@@ -111,6 +162,28 @@ export function Profile() {
   const canonical = id && d.metadata.identityAliases?.[id];
   if (canonical) return <Navigate to={"/academics/" + canonical} replace />;
   if (!a) return <Empty title="Profile not found" />;
+  const ev = profileEvidence(a);
+  const metricLevel = (
+    m: "publications" | "citations" | "recentCitations" | "hIndex",
+  ): [EvidenceLevel?, string?] => {
+    if (a[m] === null) return ["missing"];
+    const e = a.metricEvidence?.find((x) => x.metric === m);
+    return [
+      ev.identity === "verified"
+        ? "verified"
+        : ev.identity === "review"
+          ? "review"
+          : "recorded",
+      `${e?.source || a.metricsSource || "Source not recorded"}${e?.date ? " · " + e.date : ""}${ev.identity === "verified" ? " · identity linked from an official page" : " · identity not independently verified"}`,
+    ];
+  };
+  const lastChecked = [
+    a.collectionDate,
+    ...(a.metricEvidence || []).map((e) => e.date),
+  ]
+    .filter(Boolean)
+    .sort()
+    .at(-1);
   return (
     <>
       <Link className="text-link" to="/academics">
@@ -181,9 +254,25 @@ export function Profile() {
         />
       </div>
       <p className="portrait-note">
-        Symbolic academic illustration. * denotes a documented completed PhD or
-        higher research doctorate.
+        Neutral placeholder (initials only). * denotes a documented completed
+        PhD or higher research doctorate. Honorifics appear only when the source
+        states them.
       </p>
+      <div className="evidence-summary" aria-label="Evidence status">
+        <span>
+          Research identity <EvidenceBadge level={ev.identity} />
+        </span>
+        <span>
+          Employment <EvidenceBadge level={ev.employment} />
+        </span>
+        <span>
+          Doctorate <EvidenceBadge level={ev.doctorate} />
+        </span>
+        <span className="caption">
+          Last checked {lastChecked || "date not recorded"} · source record
+          collected {a.collectionDate || "date not recorded"}
+        </span>
+      </div>
       <ResearchProfiles academic={a} />
       {a.qualificationReview && (
         <p className="notice" role="status">
@@ -196,15 +285,41 @@ export function Profile() {
           <Card title="Academic information">
             <Info
               items={[
-                ["Name as published by the source", a.sourceName || a.name],
-                ["University", a.university],
-                ["Faculty / school", a.faculty],
-                ["Department", a.department],
-                ["Published position", a.position],
+                [
+                  "Name as published by the source",
+                  a.sourceName || a.name,
+                  "recorded",
+                  "Original published name, unchanged",
+                ],
+                ["University", a.university, "recorded"],
+                [
+                  "Faculty / school",
+                  a.faculty,
+                  a.faculty ? "recorded" : "missing",
+                ],
+                [
+                  "Department",
+                  a.department,
+                  a.department ? "recorded" : "missing",
+                ],
+                [
+                  "Published position",
+                  a.position,
+                  a.position ? "recorded" : "missing",
+                ],
                 ["Normalised position", a.rank],
-                ["Research interests", a.interests],
+                [
+                  "Research interests",
+                  a.interests,
+                  a.interests ? "recorded" : "missing",
+                ],
                 ["Standardised field", a.field],
-                ["Employment status", a.employmentStatus],
+                [
+                  "Employment status",
+                  a.employmentStatus,
+                  ev.employment,
+                  "Verified only when an official source states a permanent or emeritus appointment",
+                ],
               ]}
             />
           </Card>
@@ -212,12 +327,42 @@ export function Profile() {
             <Card title="Education">
               <Info
                 items={[
-                  ["Published qualifications", a.qualifications],
+                  [
+                    "Published qualifications",
+                    a.qualifications,
+                    a.qualifications ? "recorded" : "missing",
+                  ],
                   ["Highest documented qualification", a.qualification],
-                  ["PhD institution", a.phdUniversity],
-                  ["PhD country", a.phdCountry],
-                  ["PhD completion year", a.phdYear],
-                  ["PhD evidence status", a.phdStatus],
+                  [
+                    "Doctorate",
+                    doctorateText[a.doctorateStatus || "unknown"],
+                    ev.doctorate,
+                    "A title, a doctoral institution or ambiguous text is not evidence of completion",
+                  ],
+                  [
+                    "PhD awarding institution",
+                    a.phdUniversity,
+                    a.phdUniversity
+                      ? ev.doctorate === "review"
+                        ? "review"
+                        : "recorded"
+                      : "missing",
+                  ],
+                  [
+                    "PhD awarding country",
+                    a.phdCountry,
+                    a.phdCountry
+                      ? ev.doctorate === "review"
+                        ? "review"
+                        : "recorded"
+                      : "missing",
+                    "Country of the awarding institution, not necessarily where the person studied",
+                  ],
+                  [
+                    "PhD completion year",
+                    a.phdYear,
+                    a.phdYear ? "recorded" : "missing",
+                  ],
                 ]}
               />
             </Card>
@@ -228,13 +373,18 @@ export function Profile() {
                     "Recorded academic experience",
                     a.experience === null ? null : a.experience + " years",
                   ],
-                  ["Publications", a.publications],
-                  ["Citations", a.citations],
+                  [
+                    "Publications",
+                    a.publications,
+                    ...metricLevel("publications"),
+                  ],
+                  ["Citations", a.citations, ...metricLevel("citations")],
                   [
                     `Citations received ${d.metadata.window.join("–")}`,
                     a.recentCitations,
+                    ...metricLevel("recentCitations"),
                   ],
-                  ["h-index", a.hIndex],
+                  ["h-index", a.hIndex, ...metricLevel("hIndex")],
                   ["Q1 journal publications", a.q1],
                   [
                     `Q1 publications published ${d.metadata.window.join("–")}`,
@@ -480,46 +630,23 @@ export function Institution() {
           </Button>
         }
       />
-      <div className="stats-grid four">
-        <Stat label="Available profiles" value={rows.length} />
-        <Stat
-          label="Recorded faculties"
-          value={new Set(rows.map((a) => a.facultyId).filter(Boolean)).size}
+      <CoveragePanel
+        rows={rows}
+        rosterNote={
+          (d.coverage.find((c) => c.university_id === u.id)?.roster_status ||
+            "Directory coverage not assessed.") +
+          ` · ${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties and ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments represented in the collected profiles.`
+        }
+      />
+      <Card
+        title="Research metrics"
+        subtitle="Collected profiles in this unit. Each median uses a single bibliometric provider; groups below the minimum sample are not reported."
+      >
+        <MetricSummaryTable
+          rows={rows}
+          minN={d.metadata.minimumSample || MIN_SAMPLE}
         />
-        <Stat
-          label="Recorded departments"
-          value={new Set(rows.map((a) => a.departmentId).filter(Boolean)).size}
-        />
-        <Stat
-          label="Citation completeness"
-          value={
-            rows.length
-              ? fmt(completeness(rows, "citations"), 1) + "%"
-              : "Not available"
-          }
-          detail={`${rows.filter((a) => a.citations !== null).length} valid records`}
-        />
-      </div>
-      <div className="stats-grid four">
-        {(["citations", "publications", "experience", "hIndex"] as const).map(
-          (m) => (
-            <Stat
-              key={m}
-              label={
-                "Median " +
-                {
-                  citations: "citations",
-                  publications: "publications",
-                  experience: "experience",
-                  hIndex: "h-index",
-                }[m]
-              }
-              value={fmt(aggregate(rows, m, "median").value, 1)}
-              detail={`${aggregate(rows, m, "median").n} valid profiles`}
-            />
-          ),
-        )}
-      </div>
+      </Card>
       {faculty && rows.some((a) => a.field && a.field !== "Unmapped") && (
         <Button variant="outline" onClick={() => openCompare(true)}>
           Compare equivalent fields across institutions

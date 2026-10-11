@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { AlertTriangle } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import {
@@ -10,11 +11,19 @@ import {
   type Benchmarks,
   type Tier,
 } from "../data/international";
-import { summary, values, median } from "../analytics/engine";
-import { Header, Card, Stat, Empty, fmt, download } from "../components/common";
+import { summary, median } from "../analytics/engine";
+import {
+  careerStageOf,
+  isMatched,
+  logSplit,
+  MIN_SAMPLE,
+  WEAK_COVERAGE,
+} from "../analytics/quality";
+import { exportStatistics, metricDefinitions } from "../analytics/exports";
+import { Header, Card, Stat, Empty, fmt } from "../components/common";
 import { Chart } from "../components/Chart";
 import { Button } from "../components/ui/button";
-import Papa from "papaparse";
+import type { Academic } from "../types";
 
 type GMetric = "hIndex" | "citations" | "recentCitations" | "publications";
 const metricNames: Record<GMetric, string> = {
@@ -38,6 +47,7 @@ const COUNTRIES = [
   "France",
   "Germany",
 ];
+const STAGES = ["Professor", "Mid-career", "Early-career"] as const;
 // Ordinal one-hue ramp for tiers (validated) + an accent for Sri Lanka.
 const palette = {
   light: {
@@ -53,115 +63,128 @@ const palette = {
     sl: "#d95926",
   },
 };
-type Unit = {
-  id: string;
+type Group = {
+  key: Tier | "sl";
   label: string;
-  country: string;
-  tier: Tier | "sl";
-  qs: string;
+  /** Records eligible for the comparison (after discipline/stage filters). */
+  eligible: number;
+  /** Values of the metric from the comparison provider. */
   values: number[];
-  n: number;
+  /** Values that can be drawn on the current axis (log: positive only). */
+  plotted: number[];
+  zeros: number;
 };
+type Unit = Group & { id: string; country: string; qs: string };
+
+export { isMatched };
 
 export function Global() {
   const d = useData();
   const theme = useAtlas((s) => s.theme);
   const col = palette[theme];
+  const minN = d.metadata.minimumSample || MIN_SAMPLE;
   const [b, setB] = useState<Benchmarks | null>(null),
     [error, setError] = useState(""),
     [metric, setMetric] = useState<GMetric>("hIndex"),
     [field, setField] = useState<"matched" | "Computer Science" | "Physics">(
       "matched",
     ),
-    [slScope, setSlScope] = useState<"matched" | "all">("matched"),
-    [log, setLog] = useState(true),
-    [slSource, setSlSource] = useState<"openalex" | "collected">("collected");
+    [stage, setStage] = useState<"all" | (typeof STAGES)[number]>("all"),
+    [mode, setMode] = useState<"likeForLike" | "exploratory">("likeForLike"),
+    [includeProxy, setIncludeProxy] = useState(false),
+    [log, setLog] = useState(true);
   useEffect(() => {
     loadBenchmarks().then(setB, (e) => setError(String(e)));
   }, []);
-  // Sri Lankan OpenAlex lookups can be partial (daily API budget); only default
-  // to them once every populated Sri Lankan university is covered.
-  const oaCoverage = useMemo(() => {
-    if (!b) return { covered: 0, total: 0 };
-    const populated = new Set(d.academics.map((a) => a.universityId));
-    const covered = new Set(
-      d.academics
-        .filter((a) => b.slOpenAlex.has(a.id))
-        .map((a) => a.universityId),
-    );
-    return { covered: covered.size, total: populated.size };
-  }, [b, d]);
-  const oaComplete =
-    oaCoverage.total > 0 && oaCoverage.covered >= oaCoverage.total;
-  useEffect(() => {
-    if (oaComplete) setSlSource("openalex");
-  }, [oaComplete]);
 
   const view = useMemo(() => {
     if (!b) return null;
     const fieldOk = (f: string) => field === "matched" || f === field;
-    const intl = b.academics.filter((a) => fieldOk(a.field));
-    const sl = d.academics
-      .map((a) => ({ a, f: matchedField(a) }))
-      .filter(({ f }) => (slScope === "all" ? true : f !== "" && fieldOk(f)))
-      .map(({ a }) => a);
-    const v = (rows: { [k: string]: any }[]) =>
-      values(rows.map((r) => r[metric] as number | null));
-    const useOa = slSource === "openalex" && b.slOpenAlex.size > 0;
-    const slv = (rows: { id: string; [k: string]: any }[]) =>
-      values(
-        rows.map((r) =>
-          useOa
-            ? (b.slOpenAlex.get(r.id)?.[metric] ?? null)
-            : (r[metric] as number | null),
-        ),
+    const stageOk = (rank: string) =>
+      stage === "all" || careerStageOf(rank) === stage;
+    const intl = b.academics.filter(
+      (a) =>
+        fieldOk(a.field) &&
+        stageOk(a.rank) &&
+        (includeProxy || a.unitType !== "proxy"),
+    );
+    const sl = d.academics.filter((a) => {
+      const f = matchedField(a);
+      return f !== "" && fieldOk(f) && stageOk(a.rank);
+    });
+    // Sri Lankan value from the comparison provider. Like-for-like uses only
+    // successfully matched OpenAlex researchers; attempted lookups are not matches.
+    const slValue = (a: Academic) => {
+      if (mode === "exploratory") return a[metric];
+      const o = b.slOpenAlex.get(a.id);
+      return o && isMatched(o.status) ? (o[metric] ?? null) : null;
+    };
+    const build = (
+      key: Tier | "sl",
+      label: string,
+      raw: (number | null)[],
+      eligible: number,
+    ): Group => {
+      const vals = raw.filter(
+        (v): v is number => typeof v === "number" && Number.isFinite(v),
       );
-    const tierGroups = [
-      {
-        key: "sl" as const,
-        label: "Sri Lanka",
-        values: slv(sl),
-        rows: sl.length,
-      },
+      const split = logSplit(vals);
+      return {
+        key,
+        label,
+        eligible,
+        values: vals,
+        plotted: log ? split.positive : vals,
+        zeros: split.excluded,
+      };
+    };
+    const slMatched = sl.filter((a) =>
+      isMatched(b.slOpenAlex.get(a.id)?.status),
+    );
+    const tierGroups: Group[] = [
+      build("sl", "Sri Lanka", sl.map(slValue), sl.length),
       ...[...TIERS].reverse().map((t) => {
         const rows = intl.filter((a) => a.tier === t);
-        return {
-          key: t,
-          label: tierLabels[t],
-          values: v(rows),
-          rows: rows.length,
-        };
+        return build(
+          t,
+          tierLabels[t],
+          rows.map((a) => a[metric]),
+          rows.length,
+        );
       }),
     ];
     const units: Unit[] = [
       ...b.universities.map((u) => {
         const rows = intl.filter((a) => a.universityId === u.id);
-        const vals = v(rows);
         return {
+          ...build(
+            u.tier,
+            u.short,
+            rows.map((a) => a[metric]),
+            rows.length,
+          ),
           id: u.id,
-          label: u.short,
           country: u.country,
-          tier: u.tier,
           qs: u.qsRank,
-          values: vals,
-          n: rows.length,
         };
       }),
       ...d.universities.map((u) => {
         const rows = sl.filter((a) => a.universityId === u.id);
         return {
+          ...build("sl", u.short, rows.map(slValue), rows.length),
           id: u.id,
-          label: u.short,
           country: "Sri Lanka",
-          tier: "sl" as const,
           qs: b.metadata.sriLankaQs[u.id] || "not ranked",
-          values: slv(rows),
-          n: rows.length,
         };
       }),
     ];
-    return { intl, sl, tierGroups, units };
-  }, [b, d, metric, field, slScope, slSource]);
+    const proxies = b.academics.filter(
+      (a) => a.unitType === "proxy" && fieldOk(a.field),
+    );
+    const labs = intl.filter((a) => a.unitType === "research-lab").length;
+    const attempted = sl.filter((a) => b.slOpenAlex.has(a.id)).length;
+    return { intl, sl, slMatched, attempted, tierGroups, units, proxies, labs };
+  }, [b, d, metric, field, stage, mode, includeProxy, log]);
 
   if (error)
     return (
@@ -176,11 +199,26 @@ export function Global() {
     );
 
   const colorOf = (t: Tier | "sl") => (t === "sl" ? col.sl : col[t]);
-  const slMedian = median(view.tierGroups[0].values);
-  const covered = (n: number, total: number) =>
-    total ? `${n} of ${total} with values` : "No records";
+  const enough = (g: Group) => g.values.length >= minN;
+  const medianOf = (g: Group) => (enough(g) ? median(g.values) : null);
+  const sl = view.tierGroups[0];
+  const slMedian = medianOf(sl);
+  const provider =
+    mode === "likeForLike"
+      ? "OpenAlex on both sides"
+      : "Sri Lanka: collected Google Scholar/ResearchGate; benchmarks: OpenAlex (exploratory)";
+  const coverage = (g: Group) =>
+    g.eligible ? (100 * g.values.length) / g.eligible : null;
+  const weak = (g: Group) => {
+    const c = coverage(g);
+    return c !== null && c < WEAK_COVERAGE;
+  };
+  const describe = (g: Group) =>
+    `${g.values.length} valid of ${g.eligible} eligible` +
+    (weak(g) ? ` · weak coverage (${fmt(coverage(g), 1)}%)` : "");
+  const zeroCount = view.tierGroups.reduce((s, g) => s + g.zeros, 0);
 
-  // 1 · Box plot: Sri Lanka vs each tier.
+  // 1 · Box plot: Sri Lanka vs each tier (insufficient groups are not drawn).
   const box = {
     tooltip: { trigger: "item", confine: true },
     grid: { left: 70, right: 30, top: 30, bottom: 60, containLabel: true },
@@ -188,7 +226,7 @@ export function Global() {
       type: "category",
       data: view.tierGroups.map(
         (g) =>
-          `${g.key === "sl" ? "Sri Lanka" : tierShort[g.key as Tier].replace(" tier", "")}\nn=${g.values.length}`,
+          `${g.key === "sl" ? "Sri Lanka" : tierShort[g.key as Tier].replace(" tier", "")}\nn=${g.values.length}${enough(g) ? "" : " ⚠"}`,
       ),
       axisLabel: { fontSize: 12, interval: 0 },
     },
@@ -197,7 +235,7 @@ export function Global() {
       name: metricNames[metric],
       nameLocation: "middle",
       nameGap: 50,
-      min: log ? 1 : 0,
+      min: log ? undefined : 0,
       splitLine: { lineStyle: { opacity: 0.35 } },
     },
     series: [
@@ -205,21 +243,25 @@ export function Global() {
         type: "boxplot",
         name: metricNames[metric],
         data: view.tierGroups.map((g) => {
-          const s = summary(g.values.map((x) => (log ? Math.max(x, 1) : x)));
-          return {
-            value: [s.min, s.q1, s.median, s.q3, s.max],
-            itemStyle: {
-              color: colorOf(g.key) + "33",
-              borderColor: colorOf(g.key),
-              borderWidth: 2,
-            },
-          };
+          const s = summary(g.plotted);
+          return enough(g) && s.n
+            ? {
+                value: [s.min, s.q1, s.median, s.q3, s.max],
+                itemStyle: {
+                  color: colorOf(g.key) + "33",
+                  borderColor: colorOf(g.key),
+                  borderWidth: 2,
+                },
+              }
+            : { value: [null, null, null, null, null] };
         }),
         tooltip: {
           formatter: (p: any) => {
             const g = view.tierGroups[p.dataIndex];
+            if (!enough(g))
+              return `${g.label}<br/>Insufficient sample: ${describe(g)} (minimum ${minN})`;
             const s = summary(g.values);
-            return `${g.label}<br/>Median ${fmt(s.median, 1)} · IQR ${fmt(s.q1, 1)}–${fmt(s.q3, 1)}<br/>${covered(g.values.length, g.rows)}`;
+            return `${g.label}<br/>Median ${fmt(s.median, 1)} · IQR ${fmt(s.q1, 1)}–${fmt(s.q3, 1)}<br/>${describe(g)}${log && g.zeros ? `<br/>${g.zeros} zero values not drawn` : ""}`;
           },
         },
       },
@@ -250,16 +292,21 @@ export function Global() {
       barMaxWidth: 26,
       itemStyle: { color: col[t], borderRadius: [4, 4, 0, 0] },
       data: COUNTRIES.map((c) => {
-        const vals = values(
-          view.intl
-            .filter((a) => a.country === c && a.tier === t)
-            .map((a) => a[metric]),
-        );
-        return { value: median(vals), n: vals.length };
+        const rows = view.intl.filter((a) => a.country === c && a.tier === t);
+        const vals = rows
+          .map((a) => a[metric])
+          .filter((v): v is number => v !== null);
+        return {
+          value: vals.length >= minN ? median(vals) : null,
+          n: vals.length,
+          eligible: rows.length,
+        };
       }),
       tooltip: {
         formatter: (p: any) =>
-          `${p.name} · ${tierLabels[t]}<br/>Median ${fmt(p.value, 1)} (n=${p.data.n})`,
+          p.data.n >= minN
+            ? `${p.name} · ${tierShort[t]}<br/>Median ${fmt(p.value, 1)} (${p.data.n} valid of ${p.data.eligible})`
+            : `${p.name} · ${tierShort[t]}<br/>Insufficient sample (${p.data.n} valid; minimum ${minN})`,
       },
       ...(i === 0 && slMedian !== null
         ? {
@@ -275,17 +322,20 @@ export function Global() {
     })),
   };
 
-  // 3 · University ladder (median), Sri Lankan institutions highlighted.
+  // 3 · University ladder (median), only universities with an adequate sample.
   const ladderUnits = view.units
-    .filter((u) => u.values.length >= 3)
-    .map((u) => ({ ...u, med: median(u.values)! }))
+    .filter((u) => enough(u) && median(u.plotted) !== null)
+    .map((u) => ({ ...u, med: median(u.plotted)! }))
     .sort((a, b) => a.med - b.med);
+  const hiddenSl = view.units.filter(
+    (u) => u.key === "sl" && u.eligible > 0 && !enough(u),
+  );
   const ladder = {
     tooltip: { trigger: "item", confine: true },
     grid: { left: 10, right: 50, top: 10, bottom: 30, containLabel: true },
     xAxis: {
       type: log ? "log" : "value",
-      min: log ? 1 : 0,
+      min: log ? undefined : 0,
       name: `Median ${metricNames[metric]}`,
       nameLocation: "middle",
       nameGap: 28,
@@ -301,14 +351,14 @@ export function Global() {
         type: "bar",
         barMaxWidth: 12,
         data: ladderUnits.map((u) => ({
-          value: log ? Math.max(u.med, 1) : u.med,
-          itemStyle: { color: colorOf(u.tier), borderRadius: [0, 4, 4, 0] },
+          value: u.med,
+          itemStyle: { color: colorOf(u.key), borderRadius: [0, 4, 4, 0] },
           unit: u,
         })),
         tooltip: {
           formatter: (p: any) => {
             const u: Unit = p.data.unit;
-            return `${u.label} (${u.country})<br/>${u.tier === "sl" ? "Sri Lanka" : tierLabels[u.tier]} · QS 2027 ${u.qs}<br/>Median ${fmt(median(u.values), 1)} · ${covered(u.values.length, u.n)}`;
+            return `${u.label} (${u.country})<br/>${u.key === "sl" ? "Sri Lanka" : tierLabels[u.key as Tier]} · QS 2027 ${u.qs}<br/>Median ${fmt(median(u.values), 1)} · ${describe(u)}`;
           },
         },
       },
@@ -316,9 +366,7 @@ export function Global() {
   };
 
   // 4 · QS position vs median metric.
-  const scatterUnits = view.units.filter(
-    (u) => u.values.length >= 3 && qsNumeric(u.qs) !== null,
-  );
+  const scatterUnits = ladderUnits.filter((u) => qsNumeric(u.qs) !== null);
   const scatter = {
     tooltip: { trigger: "item", confine: true },
     legend: { top: 0 },
@@ -336,7 +384,7 @@ export function Global() {
     },
     yAxis: {
       type: log ? "log" : "value",
-      min: log ? 1 : 0,
+      min: log ? undefined : 0,
       name: `Median ${metricNames[metric]}`,
       nameLocation: "middle",
       nameGap: 50,
@@ -358,53 +406,75 @@ export function Global() {
         color: "inherit",
       },
       data: scatterUnits
-        .filter((u) => u.tier === t)
-        .map((u) => ({
-          value: [qsNumeric(u.qs), Math.max(median(u.values)!, log ? 1 : 0)],
-          unit: u,
-        })),
+        .filter((u) => u.key === t)
+        .map((u) => ({ value: [qsNumeric(u.qs), u.med], unit: u })),
       tooltip: {
         formatter: (p: any) => {
           const u: Unit = p.data.unit;
-          return `${u.label} (${u.country})<br/>QS 2027 ${u.qs}<br/>Median ${fmt(median(u.values), 1)} · ${covered(u.values.length, u.n)}`;
+          return `${u.label} (${u.country})<br/>QS 2027 ${u.qs}<br/>Median ${fmt(median(u.values), 1)} · ${describe(u)}`;
         },
       },
     })),
   };
 
   const tableRows = [...view.units]
-    .filter((u) => u.n > 0)
+    .filter((u) => u.eligible > 0)
     .sort(
       (a, b) =>
         (qsNumeric(a.qs) ?? 9999) - (qsNumeric(b.qs) ?? 9999) ||
         a.label.localeCompare(b.label),
     );
   const exportTable = () =>
-    download(
+    exportStatistics(
+      {
+        title: `Global benchmarks · ${metricNames[metric]}`,
+        population:
+          "Sri Lankan collected profiles in matched disciplines and international QS-tier samples (Computer Science, Physics)",
+        filters: {
+          discipline:
+            field === "matched" ? "Computer Science + Physics" : field,
+          "career stage": stage,
+          "proxy units": includeProxy ? "included" : "excluded",
+        },
+        metric: metricNames[metric],
+        metricDefinition: metricDefinitions[metric],
+        provider,
+        aggregation:
+          "median per university (groups below the minimum are not reported)",
+        datasetVersion: d.metadata.version,
+        window: d.metadata.window.join("–"),
+        minimumSample: minN,
+        notes: [
+          "International samples are not national censuses.",
+          "Sri Lankan QS positions use the midpoint of the published band.",
+        ],
+      },
+      tableRows.map((u) => ({
+        group: `${u.label} (${u.country}, ${u.key === "sl" ? "Sri Lanka" : u.key}, QS ${u.qs})`,
+        value: medianOf(u),
+        valid: u.values.length,
+        eligible: u.eligible,
+        providers:
+          u.key === "sl" && mode === "exploratory"
+            ? "Google Scholar/ResearchGate"
+            : "OpenAlex",
+        flag: !enough(u)
+          ? `n < ${minN}: not reported`
+          : weak(u)
+            ? "Weak coverage"
+            : "",
+      })),
       "global-benchmarks.csv",
-      "﻿" +
-        Papa.unparse(
-          tableRows.map((u) => ({
-            university: u.label,
-            country: u.country,
-            tier: u.tier === "sl" ? "Sri Lanka" : u.tier,
-            qs_rank_2027: u.qs,
-            sampled_academics: u.n,
-            with_values: u.values.length,
-            ["median_" + metric]: median(u.values),
-          })),
-        ),
     );
 
-  const statFor = (i: number) => {
-    const g = view.tierGroups[i];
-    const m = median(g.values);
+  const statFor = (g: Group) => {
+    const m = medianOf(g);
     return (
       <Stat
         key={g.key}
         label={g.key === "sl" ? "Sri Lanka" : tierLabels[g.key as Tier]}
-        value={m === null ? "Not available" : fmt(m, 1)}
-        detail={`Median ${metricNames[metric]} · ${covered(g.values.length, g.rows)}`}
+        value={m === null ? "Insufficient sample" : fmt(m, 1)}
+        detail={`Median ${metricNames[metric]} · ${describe(g)}${m === null ? ` (minimum ${minN})` : ""}`}
       />
     );
   };
@@ -414,31 +484,57 @@ export function Global() {
       <Header
         eyebrow="Sri Lanka · International benchmarks"
         title="How does Sri Lanka compare?"
-        description={`Sri Lankan academics against samples from ${b.universities.length} universities in seven countries, grouped by QS 2027 tier: elite, middle and lower.`}
+        description={`Sri Lankan academics against samples from ${b.universities.length} universities in seven countries, grouped by QS 2027 tier. Benchmarks are samples, not national censuses.`}
         action={
           <Button variant="ghost" onClick={exportTable}>
-            Export summary CSV
+            Export statistics CSV
           </Button>
         }
       />
-      <div className="notice" role="note">
-        {slSource === "openalex" && b.slOpenAlex.size
-          ? "Both sides use OpenAlex metrics, matched by name within each institution. Ambiguous names are left out on both sides."
-          : "Benchmark metrics come from OpenAlex, but the Sri Lankan values shown are collected Google Scholar and ResearchGate snapshots, which usually report higher counts. Treat gaps as indicative."}{" "}
-        <a
-          href="#benchmark-method"
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById("benchmark-method")?.scrollIntoView();
-          }}
-        >
-          How the benchmarks were built
-        </a>
-      </div>
+      {mode === "likeForLike" ? (
+        <div className="notice" role="note">
+          Like-for-like: both sides use OpenAlex, matched by name within each
+          institution. Sri Lankan OpenAlex matching: {view.slMatched.length}{" "}
+          matched of {view.attempted} attempted lookups, out of {view.sl.length}{" "}
+          eligible Sri Lankan academics in these disciplines. Groups with fewer
+          than {minN} valid values are not reported.{" "}
+          <a
+            href="#benchmark-method"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("benchmark-method")?.scrollIntoView();
+            }}
+          >
+            How the benchmarks were built
+          </a>
+        </div>
+      ) : (
+        <div className="notice warn-notice" role="alert">
+          <AlertTriangle size={16} aria-hidden="true" /> Exploratory
+          mixed-provider mode: Sri Lankan values are collected Google
+          Scholar/ResearchGate snapshots, benchmarks are OpenAlex. Scholar
+          usually reports higher counts, so this view is not a valid comparison
+          and must not be used for conclusions.
+        </div>
+      )}
       <div className="global-controls">
+        <label className="field">
+          Comparison
+          <select
+            aria-label="Comparison provider"
+            value={mode}
+            onChange={(e) => setMode(e.target.value as typeof mode)}
+          >
+            <option value="likeForLike">
+              Like-for-like (OpenAlex both sides)
+            </option>
+            <option value="exploratory">Exploratory: mixed providers</option>
+          </select>
+        </label>
         <label className="field">
           Metric
           <select
+            aria-label="Metric"
             value={metric}
             onChange={(e) => setMetric(e.target.value as GMetric)}
           >
@@ -450,8 +546,9 @@ export function Global() {
           </select>
         </label>
         <label className="field">
-          Discipline
+          Equivalent discipline
           <select
+            aria-label="Equivalent discipline"
             value={field}
             onChange={(e) => setField(e.target.value as typeof field)}
           >
@@ -461,30 +558,29 @@ export function Global() {
           </select>
         </label>
         <label className="field">
-          Sri Lankan group
+          Career stage
           <select
-            value={slScope}
-            onChange={(e) => setSlScope(e.target.value as typeof slScope)}
+            aria-label="Career stage"
+            value={stage}
+            onChange={(e) => setStage(e.target.value as typeof stage)}
           >
-            <option value="matched">Same disciplines only</option>
-            <option value="all">All collected academics</option>
+            <option value="all">All positions</option>
+            <option value="Professor">Professors</option>
+            <option value="Mid-career">
+              Associate professors / senior lecturers
+            </option>
+            <option value="Early-career">
+              Assistant professors / lecturers
+            </option>
           </select>
         </label>
-        <label className="field">
-          Sri Lankan metric source
-          <select
-            value={slSource}
-            onChange={(e) => setSlSource(e.target.value as typeof slSource)}
-          >
-            <option value="openalex" disabled={!b.slOpenAlex.size}>
-              {oaComplete
-                ? "OpenAlex (same source as benchmarks)"
-                : `OpenAlex (partial: ${oaCoverage.covered} of ${oaCoverage.total} universities)`}
-            </option>
-            <option value="collected">
-              Collected profiles (Scholar / ResearchGate)
-            </option>
-          </select>
+        <label className="check">
+          <input
+            type="checkbox"
+            checked={includeProxy}
+            onChange={(e) => setIncludeProxy(e.target.checked)}
+          />{" "}
+          Include proxy units ({view.proxies.length})
         </label>
         <label className="check">
           <input
@@ -495,23 +591,37 @@ export function Global() {
           Log scale
         </label>
       </div>
-      <div className="stats-grid">
-        {view.tierGroups.map((_, i) => statFor(i))}
+      <div className="inline-note">
+        Sri Lankan academics are included when their department or faculty name
+        identifies Computer Science/computing or Physics. Career stages map
+        different national title systems onto approximate equivalents.
+        {includeProxy &&
+          ` Proxy units (${view.proxies.length} academics) stand in for a missing discipline, e.g. engineering where a university has no physics department; they are not fully equivalent.`}
+        {view.labs > 0 &&
+          ` ${view.labs} benchmark academics come from research-lab rosters that mix university faculty with research-agency staff.`}
+        {log &&
+          ` Log scale: ${zeroCount} zero value${zeroCount === 1 ? " is" : "s are"} left out of the charts (never changed to 1) but remain in the medians.`}
       </div>
+      <div className="stats-grid">{view.tierGroups.map(statFor)}</div>
       <div className="two-columns">
         <Card
           title="Sri Lanka against each tier"
-          subtitle="Box shows the middle 50% of academics; whiskers show the observed range."
+          subtitle="Box: middle 50% of academics; whiskers: observed range. ⚠ marks groups below the minimum sample; they are not drawn."
         >
           <Chart
             option={box}
             height={400}
             label="Box plot of the metric for Sri Lanka and the three international tiers"
+            exportStats={exportTable}
           />
         </Card>
         <Card
           title="Tier medians by country"
-          subtitle={`Orange dashed line: Sri Lankan median${slMedian === null ? "" : ` (${fmt(slMedian, 1)})`} for the same selection.`}
+          subtitle={
+            slMedian === null
+              ? `Sri Lankan median not shown: only ${sl.values.length} valid values (minimum ${minN}).`
+              : `Orange dashed line: Sri Lankan median (${fmt(slMedian, 1)}) for the same selection.`
+          }
         >
           <Chart
             option={byCountry}
@@ -521,18 +631,28 @@ export function Global() {
         </Card>
       </div>
       <Card
-        title="Where Sri Lankan universities sit"
-        subtitle="Each university's median (at least 3 academics with values), coloured by tier. Sri Lankan institutions are orange."
+        title="Where universities sit"
+        subtitle={`Median per university, only where at least ${minN} academics have values. Sri Lankan institutions are orange.`}
       >
+        {hiddenSl.length > 0 && (
+          <p className="caption">
+            Not shown (insufficient Sri Lankan sample):{" "}
+            {hiddenSl
+              .map((u) => `${u.label} (${u.values.length} of ${u.eligible})`)
+              .join(", ")}
+            .
+          </p>
+        )}
         <Chart
           option={ladder}
           height={Math.max(420, ladderUnits.length * 17 + 60)}
           label="Ranked bar chart of university medians"
+          exportStats={exportTable}
         />
       </Card>
       <Card
         title="QS position and research metric"
-        subtitle="Better QS rank to the right. Sri Lankan universities are placed at the midpoint of their published QS 2027 band."
+        subtitle="Better QS rank to the right. Sri Lankan universities sit at the midpoint of their published QS 2027 band; universities below the minimum sample are omitted."
       >
         <Chart
           option={scatter}
@@ -542,7 +662,7 @@ export function Global() {
       </Card>
       <Card
         title="Benchmark universities"
-        subtitle="Universities chosen from QS 2027, with sampled departments and coverage. Substitutions are explained under Data & Methodology."
+        subtitle="Universities chosen from QS 2027, with eligible and valid counts. Substitutions are explained below."
       >
         <div className="table-scroll">
           <table>
@@ -552,8 +672,8 @@ export function Global() {
                 <th>Country</th>
                 <th>Tier</th>
                 <th>QS 2027</th>
-                <th>Sampled</th>
-                <th>With values</th>
+                <th>Eligible</th>
+                <th>Valid</th>
                 <th>Median {metricNames[metric]}</th>
               </tr>
             </thead>
@@ -562,11 +682,16 @@ export function Global() {
                 <tr key={u.country + u.id}>
                   <td>{u.label}</td>
                   <td>{u.country}</td>
-                  <td>{u.tier === "sl" ? "Sri Lanka" : u.tier}</td>
+                  <td>{u.key === "sl" ? "Sri Lanka" : u.key}</td>
                   <td>{u.qs}</td>
-                  <td>{u.n}</td>
+                  <td>{u.eligible}</td>
                   <td>{u.values.length}</td>
-                  <td>{fmt(median(u.values), 1)}</td>
+                  <td className={enough(u) && !weak(u) ? "" : "flag-cell"}>
+                    {enough(u) ? fmt(median(u.values), 1) : `n < ${minN}`}
+                    {enough(u) && weak(u) && (
+                      <small className="warn-text"> · weak coverage</small>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -582,30 +707,32 @@ export function Global() {
         </div>
         <ul className="method-list">
           <li>
-            Each country has two elite universities (the top two in the country
-            with an accessible official staff directory), two middle-tier
-            universities (QS ~420–560) and two lower-tier universities (QS
-            ~800–1200, the band of the University of Colombo). Australia has one
-            lower-tier university: the others in that band block automated
-            access.
+            Each country has two elite universities (the top two with an
+            accessible official staff directory), two middle-tier universities
+            (QS ~420–560) and two lower-tier universities (QS ~800–1200, the
+            band of the University of Colombo). Australia has one lower-tier
+            university: the others in that band block automated access.
           </li>
           <li>
-            Departments are matched to Sri Lankan strengths: Computer Science
-            and Physics, or the nearest unit where Physics does not exist.
-            Rosters come from official directories, with visiting, adjunct,
-            courtesy and emeritus staff excluded. Departments larger than 25 are
-            sampled systematically in directory order.
+            Computer Science and Physics rosters come from official directories;
+            visiting, adjunct, courtesy and emeritus staff are excluded.
+            Departments larger than 25 are sampled systematically in directory
+            order. Samples are not national censuses.
           </li>
           <li>
-            Research metrics come from OpenAlex, matched by name within the
-            university's OpenAlex institution. Ambiguous names (two plausible
-            profiles) are left blank, not guessed. Missing values are excluded,
-            never treated as zero.
+            OpenAlex researchers are matched by name within the university's
+            OpenAlex institution. Ambiguous names (two plausible profiles) and
+            implausibly merged profiles are left blank, not guessed. An
+            attempted lookup is never counted as a match.
           </li>
           <li>
             Elite directories mostly list tenure-track professors, while Sri
-            Lankan lists include lecturers and probationary staff. Compare
-            matching positions where that matters.
+            Lankan lists include lecturers and probationary staff. Use the
+            career-stage control to compare similar positions.
+          </li>
+          <li>
+            No overall performance score is produced. Medians describe the
+            sampled academics with valid values only.
           </li>
           <li>
             The editable data, source rosters and build scripts are in{" "}
@@ -629,40 +756,64 @@ export function Global() {
   );
 }
 
-/** Compact Overview card: Sri Lankan median h-index against the three tiers. */
+/**
+ * Homepage preview. Like-for-like only: Sri Lanka is shown against the tiers
+ * when enough Sri Lankan researchers have matched OpenAlex values.
+ */
 export function GlobalTeaser() {
   const d = useData();
   const theme = useAtlas((s) => s.theme);
   const col = palette[theme];
+  const minN = d.metadata.minimumSample || MIN_SAMPLE;
   const [b, setB] = useState<Benchmarks | null>(null);
   useEffect(() => {
     loadBenchmarks().then(setB, () => setB(null));
   }, []);
   if (!b) return null;
-  const sl = values(
-    d.academics.filter((a) => matchedField(a)).map((a) => a.hIndex),
-  );
+  const eligible = d.academics.filter((a) => matchedField(a));
+  const sl = eligible
+    .map((a) => {
+      const o = b.slOpenAlex.get(a.id);
+      return o && isMatched(o.status) ? o.hIndex : null;
+    })
+    .filter((v): v is number => v !== null);
   const bars = [
-    { label: "Sri Lanka", key: "sl" as const, v: sl },
+    ...(sl.length >= minN
+      ? [{ label: "Sri Lanka", key: "sl" as const, v: sl }]
+      : []),
     ...[...TIERS].reverse().map((t) => ({
       label: tierLabels[t],
       key: t,
-      v: values(b.academics.filter((a) => a.tier === t).map((a) => a.hIndex)),
+      v: b.academics
+        .filter((a) => a.tier === t && a.unitType !== "proxy")
+        .map((a) => a.hIndex)
+        .filter((x): x is number => x !== null),
     })),
   ];
   return (
     <Card
-      title="How Sri Lanka compares internationally"
-      subtitle="Median h-index in Computer Science and Physics: Sri Lanka (collected profiles) against QS 2027 tiers in seven countries (OpenAlex)."
+      title="How does Sri Lanka compare internationally?"
+      subtitle="Median OpenAlex h-index in Computer Science and Physics: Sri Lanka against QS 2027 tier samples from seven countries, using the same provider on both sides."
       action={
         <Link className="text-link" to="/global">
           Open Global Benchmarks
         </Link>
       }
     >
+      {sl.length < minN && (
+        <div className="measurement-note warn">
+          <span className="warn-text">
+            <AlertTriangle size={14} aria-hidden="true" /> Sri Lanka is not
+            shown yet: only {sl.length} of {eligible.length} Sri Lankan Computer
+            Science and Physics academics have a matched OpenAlex profile
+            (minimum {minN}). Comparing collected Google Scholar values with
+            OpenAlex benchmarks would not be like-for-like.
+          </span>
+        </div>
+      )}
       <Chart
-        height={260}
-        label="Median h-index for Sri Lanka and the three international tiers"
+        height={sl.length >= minN ? 260 : 210}
+        label="Median h-index for the international tiers and, when available, Sri Lanka"
         option={{
           tooltip: { trigger: "item", confine: true },
           grid: {
@@ -672,7 +823,10 @@ export function GlobalTeaser() {
             bottom: 10,
             containLabel: true,
           },
-          xAxis: { type: "value", splitLine: { lineStyle: { opacity: 0.35 } } },
+          xAxis: {
+            type: "value",
+            splitLine: { lineStyle: { opacity: 0.35 } },
+          },
           yAxis: {
             type: "category",
             inverse: true,

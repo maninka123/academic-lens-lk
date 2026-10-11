@@ -13,10 +13,24 @@ export const metricLabels = {
 };
 export type Metric = keyof typeof metricLabels;
 export type NumericMetric = Exclude<Metric, "count" | "phd" | "overseas">;
+export type DoctorateStatus =
+  | "completed_documented"
+  | "in_progress"
+  | "contradictory"
+  | "unknown";
+export type Provider =
+  | "Google Scholar"
+  | "ResearchGate"
+  | "OpenAlex"
+  | "Mixed"
+  | "Other"
+  | "Not recorded";
 export type Academic = {
   id: string;
   name: string;
   sourceName?: string;
+  country?: string;
+  doctorateStatus?: DoctorateStatus;
   universityId: string;
   facultyId: string;
   departmentId: string;
@@ -68,6 +82,50 @@ export type University = {
   name: string;
   short: string;
   type: "Public" | "Non-state";
+  country?: string;
+};
+/** Per-institution coverage indicators published by the importer. */
+export type Coverage = {
+  university_id: string;
+  university: string;
+  type: string;
+  academic_records: number;
+  verified_identity: number;
+  verified_employment: number;
+  with_any_metric: number;
+  with_qualifications: number;
+  doctorate_documented: number;
+  doctorate_in_progress: number;
+  doctorate_contradictory: number;
+  needs_review: number;
+  faculties_represented: number;
+  departments_represented: number;
+  units_discovered: number;
+  units_visited: number;
+  roster_status: string;
+};
+export type DatasetSummary = {
+  version: string;
+  collectionDate: string;
+  institutionsInScope: number;
+  institutionsWithProfiles: number;
+  facultiesRepresented: number;
+  departmentsRepresented: number;
+  academicRecords: number;
+  verifiedIdentity: number;
+  verifiedEmployment: number;
+  withAnyMetric: number;
+  withQualifications: number;
+  doctorateDocumented: number;
+  doctorateInProgress: number;
+  doctorateContradictory: number;
+  needsReview: number;
+  metricAvailability: Record<string, number>;
+  internationalBenchmarks: {
+    universities: number;
+    academics: number;
+    countries: number;
+  };
 };
 export type Metadata = {
   identityAliases?: Record<string, string>;
@@ -80,11 +138,16 @@ export type Metadata = {
   q1Methodology: string;
   limitations: string[];
   scopeNote: string;
+  minimumSample?: number;
+  correctionContact?: string;
+  country?: string;
 };
 export type Dataset = {
   academics: Academic[];
   universities: University[];
   metadata: Metadata;
+  coverage: Coverage[];
+  summary: DatasetSummary | null;
 };
 export type Level =
   | "type"
@@ -93,6 +156,7 @@ export type Level =
   | "department"
   | "field"
   | "rank"
+  | "careerStage"
   | "qualification"
   | "phdCountry"
   | "experience"
@@ -104,6 +168,7 @@ export const levelLabels: Record<Level, string> = {
   department: "Departments",
   field: "Standardised fields",
   rank: "Academic positions",
+  careerStage: "Career stage (approximate, cross-system)",
   qualification: "Qualifications",
   phdCountry: "PhD countries",
   experience: "Experience groups",
@@ -152,4 +217,7 @@ export type Config = {
   labels: boolean;
   sort: "name" | "value";
   benchmarks?: boolean;
+  /** "single" restricts metric values to one provider; "mixed" is exploratory. */
+  providerMode?: "single" | "mixed";
+  provider?: Provider;
 };

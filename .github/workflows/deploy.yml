@@ -1,4 +1,7 @@
-name: Build and deploy GitHub Pages
+name: Build, check and deploy GitHub Pages
+# Pushes and pull requests build and check the site, including the public-asset
+# allowlist. Publishing is manual: inspect the uploaded `public-site` artifact,
+# then run this workflow with "Run workflow" (workflow_dispatch) to deploy.
 on:
   push:
     branches: [main]
@@ -21,15 +24,25 @@ jobs:
       - run: npm ci
       - name: Import current editable dataset
         run: npm run data:import
+      - name: Check public data allowlist
+        run: node scripts/check-public-assets.mjs
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - name: Check built site for internal files and credentials
+        run: node scripts/check-public-assets.mjs dist
+      - name: Upload site for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site
+          path: dist
+          retention-days: 14
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'workflow_dispatch'
         with:
           path: dist
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
     permissions:

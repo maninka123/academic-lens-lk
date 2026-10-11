@@ -60,7 +60,9 @@ Optional `Data files/metadata.json` can configure collection dates and the metri
 
 The importer discovers new academic CSVs recursively and regenerates `public/data/{academics,universities,faculties,departments}.csv` and metadata. Duplicate IDs, malformed CSVs and invalid numeric values stop import. Update `Data files/field-mapping.json` for manual field classifications; ambiguous units stay Unmapped. See the [dataset guide](Data%20files/README.md) for folder rules and the [collection prompt](DATA_COLLECTION_PROMPT.md) for independent research work.
 
-The updated collection has **1,393 unique academic records across 12 populated institutions**, with **14 institutions in scope**. It adds 233 records and preserves 13 merged identities as aliases relative to the initial 1,173 records. There are 294 citation values, 241 h-index values and 131 exact five-year citation values; complete Q1 totals remain unavailable. Employment verification and collection coverage are partial. Per-metric sources distinguish live Scholar measurements from indexed ResearchGate snapshots.
+<!-- dataset-summary:start -->
+**Snapshot partial-3dc1b1eb7d (collected 2026-10-11):** 1,393 collected academic profiles from 12 of 14 institutions in scope, across 59 faculties and 155 departments. 311 have a verified research identity, 264 verified employment and 297 at least one research metric; 16 need manual review. International benchmarks: 1,630 sampled academics from 41 universities in 7 countries. Collected profiles are not the total academic population. Full report: [reports/validation-report.md](reports/validation-report.md).
+<!-- dataset-summary:end -->
 
 The website always uses the collected dataset. Visitors cannot switch datasets, and shared links cannot change the data source. Synthetic records live only in `tests/fixtures/` for browser testing and are excluded from production.
 
@@ -79,13 +81,15 @@ OpenAlex responses are cached in `scripts/baselines/_cache/`. Set `OPENALEX_API_
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/deploy.yml` imports the current editable data, validates TypeScript, runs tests, builds and deploys whenever `main` changes. Set repository **Settings → Pages → Source → GitHub Actions**. Pull requests run checks without deploying.
+The workflow in `.github/workflows/deploy.yml` imports the current editable data, checks the public-asset allowlist, validates TypeScript, runs tests, builds, checks the built site for internal files or credentials, and uploads it as the `public-site` artifact on every push and pull request. **Deployment is manual:** inspect the artifact, then run the workflow from the Actions tab ("Run workflow") to publish. Set repository **Settings → Pages → Source → GitHub Actions**.
+
+The site is public even though the repository is private. Only allowlisted files and columns are published; internal evidence and review files stay in `Data files/`. See [docs/DATA_POLICY.md](docs/DATA_POLICY.md) for what is published, attribution, reuse conditions and the correction/removal process, and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the data flow and how to add country datasets.
 
 Vite uses `/academic-lens-lk/` as its base; HashRouter keeps deep links working on Pages. If you rename the repository, update `vite.config.ts`. Commit source/data changes and let the workflow rebuild; `dist/`, dependencies, local test traces and original collection backups are excluded from Git.
 
 ## Interpreting comparisons
 
-Missing values are excluded from metric denominators. Percentiles use midrank ties and are suppressed below five valid peers. Quartiles use linear interpolation; box whiskers show observed min/max. Equal university weight means the arithmetic mean of available university statistics. PhD percentages use documented qualifications; unknowns remain visible in composition charts.
+Missing values are excluded from metric denominators and never treated as zero. Primary comparisons use a single bibliometric provider (Google Scholar, ResearchGate or OpenAlex); mixed providers are an explicitly labelled exploratory mode. Groups with fewer than 10 valid values are flagged and never ranked, and logarithmic charts leave zero values out (reported beside the chart) instead of shifting them. Every comparison shows eligible records, valid values, completeness, provider and measurement date, and statistics export as CSV with the selection, metric definition, provider, counts and dataset version. Percentiles use midrank ties and are suppressed below five valid peers. Quartiles use linear interpolation; box whiskers show observed min/max. Equal university weight means the arithmetic mean of available university statistics. PhD percentages use documented qualifications; unknowns remain visible in composition charts.
 
 Combined career publication/citation totals are **not** a university's historical output and may repeat coauthored work. h-index values are never summed. Five-year citations refer to citations received in 2021–2025; five-year Q1 refers to qualifying papers published in that period. Citation position does not measure overall academic or teaching quality. Full definitions and completeness tables are on **Data & Methodology**.
 
@@ -93,10 +97,10 @@ World boundaries: Natural Earth via [world-atlas](https://github.com/topojson/wo
 
 ## Display names and verification
 
-The app displays **Dr Name*** only for a documented completed PhD or higher research doctorate. The asterisk identifies that evidence. Medical qualifications alone, ongoing doctorates and a source’s Dr/Professor title do not qualify under this project’s display convention. Other profiles use **Mr Name**, preserving explicitly recorded Ms/Mrs/Miss. Mr is a requested display default, not an inferred gender. Names contain no position or qualification suffix; published source names and positions remain visible in the profile and unchanged in the editable CSVs.
+The app displays **Dr Name*** only for a documented completed PhD or higher research doctorate. The asterisk identifies that evidence. Medical qualifications alone, ongoing doctorates and a source’s Dr/Professor title do not qualify under this project’s display convention. Other profiles show an honorific only when the source states one (Mr, Mrs, Ms or Miss); otherwise the plain published name is used. No honorific or gender is inferred. Names contain no position or qualification suffix; published source names and positions remain visible in the profile and unchanged in the editable CSVs.
 
 Research links show their recorded verification status. Metric evidence lists the platform and retrieval date for each populated field. Old profile URLs and pinned identities resolve through documented aliases. The data review notes are in [docs/DATA_UPDATE_REVIEW.md](docs/DATA_UPDATE_REVIEW.md).
 
 Comparison presets provide starting points; chart values use one decimal place while calculations retain full precision. Academic Explorer supports column text filters and numeric ranges, and CSV export respects those filters.
 
-Portrait hairstyles follow explicitly recorded honorifics (Ms/Mrs/Miss or Mr); otherwise the default illustration is used. No hairstyle selector is shown.
+Profile placeholders show initials only; they never depict appearance or imply gender. Each profile shows compact evidence badges (verified, recorded but unverified, needs review, not documented) beside identity, employment, doctorate and metric values, with the last checked date.

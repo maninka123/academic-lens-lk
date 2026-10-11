@@ -5,7 +5,7 @@ import type {
   Metric,
   NumericMetric,
 } from "../types";
-import { aggregate, compare, groupKey, summary, values } from "./engine";
+import { compare, groupKey, summary, values } from "./engine";
 import { metricLabels } from "../types";
 import { colors, short } from "../components/common";
 import { plotNumber } from "./plot-format";
@@ -395,9 +395,51 @@ export function comparisonChart(
     ...base,
     legend: { show: false },
     grid: { left: 15, right: 70, top: 15, bottom: 65, containLabel: true },
-    xAxis: { type: c.log ? "log" : "value", name: metricLabels[c.metric], nameLocation: "middle", nameGap: 35, axisLabel: { fontSize: 14 } },
-    yAxis: { type: "category", inverse: true, data: labels, axisLabel: { fontSize: 14, lineHeight: 20, width: 210, overflow: "truncate", formatter: (value: string) => { const [unit, ...parents] = value.split(" · "); return parents.length ? unit.replace(/^Faculty of /, "") + "\n" + short(parents.join(" · ")) : value; } } },
-    dataZoom: labels.length > 8 ? [{ type: "slider", yAxisIndex: 0, right: 5, width: 20, startValue: 0, endValue: 7, minValueSpan: 7, maxValueSpan: 7, zoomLock: true, showDataShadow: false, showDetail: false, brushSelect: false }] : [],
+    xAxis: {
+      type: c.log ? "log" : "value",
+      name: metricLabels[c.metric],
+      nameLocation: "middle",
+      nameGap: 35,
+      axisLabel: { fontSize: 14 },
+    },
+    yAxis: {
+      type: "category",
+      inverse: true,
+      data: labels,
+      axisLabel: {
+        fontSize: 14,
+        lineHeight: 20,
+        width: 210,
+        overflow: "truncate",
+        formatter: (value: string) => {
+          const [unit, ...parents] = value.split(" · ");
+          return parents.length
+            ? unit.replace(/^Faculty of /, "") +
+                "\n" +
+                short(parents.join(" · "))
+            : value;
+        },
+      },
+    },
+    dataZoom:
+      labels.length > 8
+        ? [
+            {
+              type: "slider",
+              yAxisIndex: 0,
+              right: 5,
+              width: 20,
+              startValue: 0,
+              endValue: 7,
+              minValueSpan: 7,
+              maxValueSpan: 7,
+              zoomLock: true,
+              showDataShadow: false,
+              showDetail: false,
+              brushSelect: false,
+            },
+          ]
+        : [],
     series: [
       {
         name:
@@ -408,23 +450,38 @@ export function comparisonChart(
         barMaxWidth: 28,
         itemStyle: { borderRadius: [0, 5, 5, 0] },
         label: { show: c.labels, position: "right", fontSize: 14 },
-        data: groups.map((g, i) => ({
+        data: groups.map((g) => ({
           name: g.label,
-          value: g.value,
+          // On a log axis, non-positive values cannot be drawn: they are left
+          // out (and reported beside the chart), never shifted to 1.
+          value: c.log && g.value !== null && g.value <= 0 ? null : g.value,
           groupId: g.id,
           itemStyle: {
-            color:
-              c.level === "type"
+            color: g.lowN
+              ? "#a9b6c2"
+              : c.level === "type"
                 ? g.id === "Public"
                   ? "#2675b9"
                   : "#169688"
                 : "#2675b9",
+            ...(g.lowN
+              ? {
+                  decal: {
+                    symbol: "rect",
+                    dashArrayX: [1, 0],
+                    dashArrayY: [3, 3],
+                    rotation: -Math.PI / 4,
+                    color: "rgba(255,255,255,.55)",
+                  },
+                }
+              : {}),
           },
           n: g.n,
+          lowN: g.lowN,
         })),
         tooltip: {
           formatter: (p: any) =>
-            `${p.name}\n${c.aggregation}: ${plotNumber(p.value)}\nValid records: ${p.data.n}\n${c.weight === "equal" && c.level === "type" ? "Each university contributes equally" : ""}`,
+            `${p.name}\n${c.aggregation}: ${plotNumber(p.value)}\nValid records: ${p.data.n}${p.data.lowN ? "\nInsufficient sample: shown for reference, not ranked" : ""}\n${c.weight === "equal" && c.level === "type" ? "Each university contributes equally" : ""}`,
         },
       },
     ],

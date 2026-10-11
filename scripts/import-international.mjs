@@ -3,7 +3,9 @@
 // dataset produced by import-data.mjs is not modified.
 import fs from "node:fs";
 import { csvRead, csvWrite, slug } from "./shared.mjs";
-import { normaliseRank } from "./evidence.mjs";
+import { sanitizeUrl, doctorateStatus } from "./evidence.mjs";
+import { rankFor, careerStage } from "./countries.mjs";
+import { checkPublicData } from "./public-assets.mjs";
 
 const source = (process.argv[2] || "Data files") + "/international";
 const out = "public/data/international";
@@ -30,31 +32,23 @@ const fieldOf = new Map(
   departments.map((d) => [d.university_id + "|" + d.department, d.field]),
 );
 
-// Equivalent position labels for non-English titles. Source text stays in `position`.
-// Order matters: 副教授 and 助理教授 contain 教授.
-const RANKS = [
-  [
-    /副教授|副研究员|professeure? agrégée?|associate professor/i,
-    "Associate Professor",
-  ],
-  [
-    /助理教授|助理研究员|professeure? adjointe?|jun\.-prof|junior prof|assistant professor|professeur assistant|professeure assistante/i,
-    "Assistant Professor",
-  ],
-  [
-    /教授|院士|研究员|^professeure?\b|professeure? des universit|univ\.-prof|^prof\.|directeu?r(ice)? de recherche/i,
-    "Professor",
-  ],
-  [
-    /讲师|ma[iî]tre(sse)? de conf|chargée? de recherche|chargée? d'enseignement|enseignant/i,
-    "Lecturer",
-  ],
-];
-const rankOf = (p) => {
-  const r = normaliseRank(p || "");
-  if (!["Other", "Unknown"].includes(r)) return r;
-  return RANKS.find(([re]) => re.test(p || ""))?.[1] || r;
-};
+// Position titles (including French, German and Chinese) map through the shared
+// country rules; the published source title stays in `position`.
+const rankOf = (p) => rankFor(p, "International");
+// Proxy units stand in for a missing discipline (e.g. engineering where a
+// university has no physics department). Research-lab rosters mix university
+// faculty and research-agency staff. Both are flagged, never silently equated.
+const unitNote = (d) =>
+  /substitute|nearest/i.test(d.department + " " + d.source_note)
+    ? "proxy"
+    : /\blab|laboratoire|LaBRI|LOMA|ICube|ETIS|OPTIMAG|STICC/i.test(
+          d.department + " " + d.source_note,
+        )
+      ? "research-lab"
+      : "department";
+const unitOf = new Map(
+  departments.map((d) => [d.university_id + "|" + d.department, unitNote(d)]),
+);
 const n = (v) => {
   if (v == null || String(v).trim() === "") return null;
   const x = Number(v);
@@ -66,10 +60,8 @@ const rows = walk(source)
   .map((r) => {
     const u = byName.get(r.university);
     if (!u) throw Error("Unknown international university: " + r.university);
-    const phd =
-      r.phd_status !== "in_progress" &&
-      (Boolean(r.phd_university) ||
-        /ph\.?\s?d|doctorat|doctorate|博士/i.test(r.qualifications || ""));
+    const doctorate = doctorateStatus(r);
+    const phd = doctorate === "completed_documented";
     return {
       id: r.academic_id,
       name: r.full_name,
@@ -85,9 +77,12 @@ const rows = walk(source)
       faculty: r.faculty,
       department: r.department,
       field: fieldOf.get(u.id + "|" + r.department) || "Unmapped",
+      unitType: unitOf.get(u.id + "|" + r.department) || "department",
       position: r.academic_position,
       rank: rankOf(r.academic_position),
+      careerStage: careerStage(rankOf(r.academic_position)),
       qualification: phd ? "PhD" : "Unknown",
+      doctorateStatus: doctorate,
       phdUniversity: r.phd_university,
       phdCountry: r.phd_country,
       phdYear: n(r.phd_completion_year),
@@ -97,9 +92,9 @@ const rows = walk(source)
       recentCitations: n(r.citations_2021_2025),
       hIndex: n(r.h_index),
       metricsSource: r.research_metrics_source,
-      metricsUrl: r.metrics_source_url,
+      metricsUrl: sanitizeUrl(r.metrics_source_url),
       lookupStatus: r.research_lookup_status,
-      sourceUrl: r.staff_profile_url,
+      sourceUrl: sanitizeUrl(r.staff_profile_url),
       collectionDate: r.collected_at,
     };
   });
@@ -118,6 +113,21 @@ csvWrite(
     tier: u.tier,
     records: rows.filter((r) => r.universityId === u.id).length,
     substitution: u.substitution_note,
+  })),
+);
+csvWrite(
+  out + "/departments.csv",
+  departments.map((d) => ({
+    universityId: d.university_id,
+    country: d.country,
+    tier: d.tier,
+    faculty: d.faculty,
+    department: d.department,
+    field: d.field,
+    unitType: unitNote(d),
+    rosterEligible: d.roster_eligible,
+    sampled: d.sampled,
+    source: sanitizeUrl((d.source_note.match(/https?:\/\/\S+/) || [""])[0]),
   })),
 );
 const slOpenAlex = fs.existsSync(source + "/sri_lanka_openalex_metrics.csv")
@@ -150,6 +160,19 @@ fs.writeFileSync(
       sriLankaQs: Object.fromEntries(qs.map((r) => [r.id, r.qs_rank_2027])),
       metricSource:
         "OpenAlex (name + institution matched; ambiguous names left blank)",
+      measurementDate: rows
+        .map((r) => r.collectionDate)
+        .sort()
+        .at(-1),
+      benchmarkMatches: {
+        attempted: rows.length,
+        matched: rows.filter((r) => /(^|_)matched(_|$)/.test(r.lookupStatus)).length,
+      },
+      sriLankaOpenAlex: {
+        attempted: slOpenAlex.length,
+        matched: slOpenAlex.filter((r) => r.openalex_id).length,
+        note: "Attempted lookups are not matches. Only matched researchers carry OpenAlex values.",
+      },
     },
     null,
     2,
@@ -158,3 +181,8 @@ fs.writeFileSync(
 console.log(
   `Imported ${rows.length} international baseline records from ${universities.length} universities.`,
 );
+const problems = checkPublicData("public/data");
+if (problems.length) {
+  console.error("Public asset check failed:\n- " + problems.join("\n- "));
+  process.exit(1);
+}

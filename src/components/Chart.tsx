@@ -23,7 +23,7 @@ import {
   AriaComponent,
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
-import { Download, Maximize2, Minimize2 } from "lucide-react";
+import { Download, FileSpreadsheet, Maximize2, Minimize2 } from "lucide-react";
 import { useAtlas } from "../store";
 import { Button } from "./ui/button";
 import { Dialog } from "./ui/dialog";
@@ -58,6 +58,7 @@ function ChartCanvas({
   minWidth,
   full,
   setFull,
+  exportStats,
 }: {
   option: any;
   height?: number;
@@ -66,6 +67,7 @@ function ChartCanvas({
   minWidth?: number;
   full: boolean;
   setFull: (v: boolean) => void;
+  exportStats?: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null),
     instance = useRef<echarts.ECharts | null>(null);
@@ -131,6 +133,20 @@ function ChartCanvas({
         >
           <Download size={18} />
         </Button>
+        {exportStats && (
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="Export chart with supporting statistics"
+            title="Export chart (PNG) with supporting statistics (CSV)"
+            onClick={() => {
+              save();
+              exportStats();
+            }}
+          >
+            <FileSpreadsheet size={18} />
+          </Button>
+        )}
         <Button
           variant="ghost"
           size="icon"
@@ -162,6 +178,8 @@ export function Chart(props: {
   onClick?: (p: any) => void;
   label?: string;
   minWidth?: number;
+  /** Adds an action that saves the chart together with its statistics CSV. */
+  exportStats?: () => void;
 }) {
   const [full, setFull] = useState(false);
   const wrap = useRef<HTMLDivElement>(null);

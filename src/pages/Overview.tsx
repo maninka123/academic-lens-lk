@@ -1,44 +1,38 @@
 import {
   ArrowUpRight,
   ArrowRight,
-  Building2,
-  Users,
+  GraduationCap,
   Globe2,
-  FlaskConical,
+  Layers,
+  Scale,
 } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { useData } from "../data/context";
 import { useAtlas, emptyFilters } from "../store";
-import {
-  filterAcademics,
-  groupRows,
-  aggregate,
-  values,
-  sum,
-} from "../analytics/engine";
+import { filterAcademics, groupRows } from "../analytics/engine";
+import { coverageOf } from "../analytics/quality";
 import { Header, Card, Stat, short, fmt, colors } from "../components/common";
 import { Chart } from "../components/Chart";
 import { Button } from "../components/ui/button";
 import type { Config } from "../types";
 import { GlobalTeaser } from "./Global";
+
 export function Overview() {
-  const { academics, universities, metadata } = useData();
+  const { academics, universities, metadata, summary } = useData();
   const { filters, configure, setFilters } = useAtlas();
   const nav = useNavigate(),
     rows = filterAcademics(academics, filters);
+  const filtered = rows.length !== academics.length;
   const groups = universities.map((u) => ({
     ...u,
     rows: rows.filter((a) => a.universityId === u.id),
   }));
-  const countries = groupRows(
-    rows.filter((a) => a.phdCountry && a.qualification === "PhD"),
-    "phdCountry",
-  ).sort((a, b) => b.rows.length - a.rows.length);
   const ranks = groupRows(rows, "rank").sort(
     (a, b) => b.rows.length - a.rows.length,
   );
-  const pub = values(rows.map((a) => a.publications)),
-    cit = values(rows.map((a) => a.citations));
+  const cov = coverageOf(rows);
+  const pct = (n: number) =>
+    rows.length ? fmt((100 * n) / rows.length, 1) + "%" : "—";
   const preset = (c: Partial<Config>, f?: Parameters<typeof setFilters>[0]) => {
     configure({
       level: "university",
@@ -86,12 +80,51 @@ export function Overview() {
       },
     ],
   };
+  const questions = [
+    {
+      icon: GraduationCap,
+      q: "How do academic qualifications differ between institutions?",
+      sub: "Share of documented doctorates among records with documented qualifications.",
+      go: () =>
+        preset({
+          level: "university",
+          metric: "phd",
+          aggregation: "percentage",
+          chart: "bar",
+          sort: "value",
+        }),
+    },
+    {
+      icon: Globe2,
+      q: "Where did Sri Lankan academics obtain their PhDs?",
+      sub: "Awarding countries and institutions, by institution, position and discipline.",
+      go: () => nav("/origins"),
+    },
+    {
+      icon: Layers,
+      q: "How do fields and academic ranks differ?",
+      sub: "Position and qualification composition of each institution.",
+      go: () =>
+        preset({
+          level: "university",
+          metric: "count",
+          aggregation: "total",
+          chart: "percentStacked",
+        }),
+    },
+    {
+      icon: Scale,
+      q: "How does Sri Lanka compare internationally using equivalent metrics?",
+      sub: "QS 2027 tier samples, OpenAlex on both sides, equivalent disciplines.",
+      go: () => nav("/global"),
+    },
+  ];
   return (
     <>
       <Header
-        eyebrow="Sri Lanka · Academic intelligence"
+        eyebrow="Sri Lanka · Academic research atlas"
         title="A clearer view of our academic landscape."
-        description="Explore institutions, connect academic profiles, and build comparisons grounded in the data."
+        description="A transparent, evidence-linked collection of published academic profiles from Sri Lankan universities, with international benchmarks and reproducible comparisons."
         action={
           <Button onClick={() => preset({})}>
             Open Comparison Studio
@@ -101,59 +134,72 @@ export function Overview() {
       />
       <div className="overview-band">
         <div>
-          <span className="status-dot" /> Partial collection ·{" "}
+          <span className="status-dot" /> Snapshot{" "}
+          {summary?.version || metadata.version} · collected{" "}
           {metadata.collectionDate}
+          {filtered && " · global filters applied"}
         </div>
         <Link to="/methodology">
-          Understand the coverage <ArrowRight size={16} />
+          How the data were collected <ArrowRight size={16} />
         </Link>
       </div>
-      <div className="stats-grid">
+      <div className="stats-grid snapshot">
         <Stat
-          label="Institutions in scope"
-          value={universities.length}
-          detail={`${groups.filter((g) => g.rows.length).length} with collected records`}
-        />
-        <Stat
-          label="Academic profiles"
+          label="Academics collected"
           value={fmt(rows.length)}
-          detail="Records in the filtered dataset"
+          detail="Published profiles — not the total academic population"
         />
         <Stat
-          label="Public academics"
-          value={fmt(rows.filter((a) => a.type === "Public").length)}
-          detail="Published academic listings"
+          label="Institutions covered"
+          value={`${groups.filter((g) => g.rows.length).length} of ${universities.length}`}
+          detail="Institutions in scope with collected profiles"
         />
         <Stat
-          label="Non-state academics"
-          value={fmt(rows.filter((a) => a.type === "Non-state").length)}
-          detail="Published academic listings"
+          label="Faculties · departments"
+          value={`${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} · ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size}`}
+          detail="Units represented in the collected profiles"
         />
         <Stat
-          label="Recorded PhD holders"
-          value={rows.filter((a) => a.qualification === "PhD").length}
-          detail="Extracted degree evidence; review required"
+          label="Verified research identities"
+          value={fmt(cov.verifiedIdentity)}
+          detail={`${pct(cov.verifiedIdentity)} linked from an official page · ${fmt(cov.verifiedEmployment)} verified employment`}
         />
         <Stat
-          label="PhD countries"
-          value={countries.length}
-          detail="Known awarding-institution countries"
+          label="Data completeness"
+          value={pct(cov.withMetric)}
+          detail={`Any research metric · qualifications ${pct(cov.withQualifications)} · ${fmt(cov.needsReview)} need review`}
         />
         <Stat
-          label="Recorded publications"
-          value={pub.length ? fmt(sum(pub)) : "Not available"}
-          detail={`${pub.length} valid profiles · combined career metrics`}
-        />
-        <Stat
-          label="Recorded citations"
-          value={cit.length ? fmt(sum(cit)) : "Not available"}
-          detail={`${cit.length} valid profiles · indexed snapshots`}
+          label="International benchmarks"
+          value={fmt(summary?.internationalBenchmarks.academics ?? null)}
+          detail={
+            summary
+              ? `Sampled academics · ${summary.internationalBenchmarks.universities} universities · ${summary.internationalBenchmarks.countries} countries`
+              : "Not loaded"
+          }
         />
       </div>
-      <div className="overview-grid">
+      <section aria-label="Research questions" className="research-questions">
+        <h2>Start with a research question</h2>
+        <div className="question-grid">
+          {questions.map(({ icon: Icon, q, sub, go }) => (
+            <button key={q} className="question-card" onClick={go}>
+              <span className="preset-icon">
+                <Icon size={22} />
+              </span>
+              <span>
+                <strong>{q}</strong>
+                <small>{sub}</small>
+              </span>
+              <ArrowRight size={18} />
+            </button>
+          ))}
+        </div>
+      </section>
+      <div className="two-columns align-start">
         <Card
-          title="The institutional landscape"
-          subtitle="Academic records collected · click an institution to explore"
+          title="Collected profiles by institution"
+          subtitle="Number of collected records — directory coverage differs between institutions, so these are not staff totals. Click an institution to explore."
           action={
             <span className="legend-inline">
               <i className="blue" />
@@ -165,95 +211,19 @@ export function Overview() {
           <Chart
             option={barOption}
             height={480}
+            label="Collected academic profiles by institution"
             onClick={(p) =>
               p.data?.universityId && nav("/university/" + p.data.universityId)
             }
           />
         </Card>
-        <div className="overview-right">
-          <Card
-            title="Make the comparison yours"
-            subtitle="Start with a question, then explore the evidence."
-            className="preset-card"
-          >
-            <div className="preset-list">
-              {[
-                {
-                  label: "Public vs Non-state",
-                  sub: "Two perspectives on the landscape",
-                  icon: Building2,
-                  c: { level: "type" },
-                },
-                {
-                  label: "Engineering across universities",
-                  sub: "Manually mapped equivalent fields",
-                  icon: FlaskConical,
-                  c: { level: "university" },
-                  f: { fields: ["Engineering"] },
-                },
-                {
-                  label: "Academic positions",
-                  sub: "Explore qualifications by rank",
-                  icon: Users,
-                  c: {
-                    level: "rank",
-                    metric: "phd",
-                    aggregation: "percentage",
-                  },
-                },
-                {
-                  label: "Recent research impact",
-                  sub: metadata.window.join("–") + " citation distributions",
-                  icon: ArrowUpRight,
-                  c: {
-                    metric: "recentCitations",
-                    aggregation: "distribution",
-                    chart: "box",
-                  },
-                },
-                {
-                  label: "PhD origins",
-                  sub: "Follow international academic pathways",
-                  icon: Globe2,
-                  c: { level: "phdCountry" },
-                },
-              ].map((p: any) => (
-                <button key={p.label} onClick={() => preset(p.c, p.f)}>
-                  <span className="preset-icon">
-                    <p.icon size={22} />
-                  </span>
-                  <span>
-                    <strong>{p.label}</strong>
-                    <small>{p.sub}</small>
-                  </span>
-                  <ArrowUpRight size={18} />
-                </button>
-              ))}
-            </div>
-            <Link className="text-link" to="/compare">
-              Build a custom comparison <ArrowRight size={17} />
-            </Link>
-          </Card>
-          <div className="coverage-note">
-            <div className="eyebrow">Context matters</div>
-            <h3>A profile is more than a citation count.</h3>
-            <p>
-              Compare within fields and positions. Check valid sample sizes.
-              Keep missing data visible.
-            </p>
-            <Link to="/methodology">
-              Read the methodology <ArrowRight size={17} />
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="two-columns align-start">
         <Card
           title="Academic positions"
-          subtitle="Original titles are retained in each profile"
+          subtitle="Normalised positions; original titles are retained in each profile."
         >
           <Chart
-            height={320}
+            height={260}
+            label="Academic positions in the collected profiles"
             option={{
               tooltip: { renderMode: "richText" },
               legend: { show: false },
@@ -298,66 +268,21 @@ export function Overview() {
             ))}
           </ul>
         </Card>
-        <Card
-          title="Research comparison"
-          subtitle="Median citations · valid records only; collected coverage varies"
-        >
-          <Chart
-            height={560}
-            label="Median citations by institution"
-            option={{
-              tooltip: { trigger: "axis", renderMode: "richText" },
-              grid: {
-                left: 10,
-                right: 60,
-                top: 10,
-                bottom: 30,
-                containLabel: true,
-              },
-              yAxis: {
-                type: "category",
-                inverse: true,
-                data: groups.map((g) => g.short),
-                axisLabel: { fontSize: 14 },
-              },
-              xAxis: {
-                type: "value",
-                name: "Median citations",
-                nameLocation: "middle",
-                nameGap: 28,
-                axisLabel: { fontSize: 13 },
-              },
-              series: [
-                {
-                  type: "bar",
-                  barMaxWidth: 18,
-                  label: { show: true, position: "right", fontSize: 13 },
-                  data: groups.map((g) => ({
-                    value: aggregate(g.rows, "citations", "median").value,
-                    itemStyle: {
-                      color: g.type === "Public" ? "#2675b9" : "#169688",
-                      borderRadius: [0, 4, 4, 0],
-                    },
-                  })),
-                },
-              ],
-            }}
-          />
-        </Card>
       </div>
       <Card
         title="Qualifications across institutions"
-        subtitle="Percent of all collected profiles · Unknown remains a visible category"
+        subtitle="Highest documented qualification as a share of collected profiles. PhD counts only documented completed doctorates; contradictory or in-progress doctorates are not counted. Unknown stays visible."
       >
         <Chart
           height={350}
+          label="Qualification composition by institution"
           option={{
             tooltip: { trigger: "axis", renderMode: "richText" },
             legend: { top: 0, textStyle: { fontSize: 14 } },
             grid: { left: 60, right: 20, top: 55, bottom: 80 },
             xAxis: {
               type: "category",
-              data: groups.map((g) => g.short),
+              data: groups.map((g) => `${g.short}`),
               axisLabel: { fontSize: 14, rotate: 35 },
             },
             yAxis: { type: "value", max: 100, name: "Percent" },
@@ -381,11 +306,15 @@ export function Overview() {
             })),
           }}
         />
+        <p className="caption">
+          Institutions with no collected profiles show no bars; this does not
+          mean they have no academic staff.
+        </p>
       </Card>
       <GlobalTeaser />
       <Card
         title="Explore an institution"
-        subtitle="Follow the hierarchy from university to faculty, department and academic."
+        subtitle="Follow the hierarchy from university to faculty, department and academic. Each view shows its own data coverage."
       >
         <div className="institution-grid">
           {groups.map((g) => (
@@ -407,7 +336,8 @@ export function Overview() {
                 <small>
                   {g.type} ·{" "}
                   {g.rows.length
-                    ? g.rows.length + " profiles"
+                    ? g.rows.length +
+                      (g.rows.length === 1 ? " profile" : " profiles")
                     : "No collected profiles"}
                 </small>
               </div>
