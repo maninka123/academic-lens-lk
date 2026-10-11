@@ -338,7 +338,7 @@ export function Compare() {
           <small className="caption">
             Benchmarks cover seven disciplines with uneven university coverage; proxy units are
             excluded. Sri Lankan academics are matched by department and faculty.
-            New discipline samples have citation metrics pending verification.
+            Citation metrics are included only for matched research profiles; unresolved values remain blank.
           </small>
         </label>
       )}

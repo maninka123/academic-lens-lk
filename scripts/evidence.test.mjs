@@ -110,6 +110,9 @@ test("a completed doctorate needs explicit evidence", () => {
   assert.equal(s("", "PhD (reading), MSc, BSc"), "in_progress");
   assert.equal(s("listed_completed", "Ph.D (R) (University of Aberdeen)"), "contradictory");
   assert.equal(s("", "PhD (in progress); MSc; BSc"), "in_progress");
+  // The University of Reading awards completed doctorates.
+  assert.equal(s("listed_completed", "Ph.D. Genetics | University of Reading, U.K. | 1990"), "completed_documented");
+  assert.equal(s("listed_completed", "B.Sc. (Jaffna); Ph.D. (Reading, UK)"), "completed_documented");
 });
 test("contradictory doctorate records are flagged, not counted", () => {
   assert.equal(

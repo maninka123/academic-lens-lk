@@ -1,10 +1,15 @@
 import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const records = Number(
+  JSON.parse(readFileSync("public/data/dataset_summary.json", "utf8"))
+    .academicRecords,
+).toLocaleString("en");
 test("updated records, aliases, column filters and automatic portrait", async ({
   page,
 }) => {
   await page.goto("./#/academics");
   await expect(
-    page.getByText("1,393 matching profiles", { exact: false }),
+    page.getByText(`${records} matching profiles`, { exact: false }),
   ).toBeVisible();
   await page.getByLabel("Filter University", { exact: true }).fill("Kelaniya");
   await page.getByLabel("Minimum Citations", { exact: true }).fill("100");
@@ -47,7 +52,7 @@ test("comparison presets, dropdown arrows and compact origins", async ({
   });
   await page.goto("./#/");
   await expect(
-    page.getByRole("list", { name: "Academic position legend" }),
+    page.getByRole("list", { name: "Academic positions, senior to junior" }),
   ).toBeVisible();
   await page.screenshot({
     path: "output/playwright/new-overview-desktop.png",

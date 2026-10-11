@@ -28,7 +28,7 @@ The dataset contains 1,740 academics across 41 universities. The original sample
 | Management | Stanford GSB, Organizational Behavior | 15 |
 | Business | Stanford GSB, Finance | 20 |
 
-These are selected departmental samples, not coverage of all five disciplines at every university. Medicine includes basic medical research in Genetics. Business currently represents Finance; Management represents Organizational Behavior. New samples use alphabetical systematic selection, with Genetics sampled across alphabetical pages. Only eligible professor roles are included; duplicate names within each university are excluded. New citation metrics and doctorate details remain blank pending verification. These records support profile and discipline exploration but do not yet contribute measured citation values to benchmark charts.
+These are selected departmental samples, not coverage of all five disciplines at every university. Medicine includes basic medical research in Genetics. Business currently represents Finance; Management represents Organizational Behavior. New samples use alphabetical systematic selection, with Genetics sampled across alphabetical pages. Only eligible professor roles are included; duplicate names within each university are excluded. The 12 October verification pass corroborated OpenAlex identities and imported metrics for 102 of the 110 profiles. Eight unresolved profiles retain blank metrics. Explicit doctorate details are available for 79 people. Adam Nayak is listed for a summer 2027 Stanford appointment and is excluded from current-staff benchmarks, leaving 1,739 eligible international records.
 
 `_field_expansion_2026-10-12.json` records the counts and official source URLs. `_source_rosters/` contains the extracted eligible names, titles and profile links (rather than verbatim HTML for this expansion).
 
@@ -41,7 +41,7 @@ international/<country>/universities/<id>/faculties.csv
 international/<country>/universities/<id>/faculties/<faculty>/departments/<department>/academics.csv
 ```
 
-`academics.csv` uses the exact 32-column Sri Lankan header. `employment_status` is `listed_in_official_directory`; `record_status` is `baseline_sample_official_directory`.
+`academics.csv` uses the exact 32-column Sri Lankan header. Most records use `employment_status = listed_in_official_directory` and `record_status = baseline_sample_official_directory`. Future appointments use `future_appointment` / `official_future_appointment` and are excluded from current benchmarks.
 
 ## Fields
 
@@ -67,6 +67,27 @@ OpenAlex and profile responses are cached in `scripts/baselines/_cache/`, so a r
 
 All 110 new official profiles were read, plus 24 directly linked full Stanford profiles and accessible researcher websites linked by official pages. Research descriptions are available for 108 people, education for 100, explicit doctorate evidence for 79, official-linked Scholar identities for 21 and ORCID links for 13. Unpublished or ambiguous details remain blank. No ResearchGate link was found on these checked pages.
 
-`research_profiles.csv` records full research-profile URLs, ORCID and source-listed bibliography counts. `publications.csv` contains 8,181 researcher–publication attributions from official page lists across 89 profiles. The same coauthored work may appear under multiple researchers. These are not 8,181 globally unique works, or an exhaustive lifetime bibliography. McGill selected citations retain their full citation with unparsed title/author fields blank. Source and collection date accompany every entry.
+`research_profiles.csv` records full research-profile URLs, ORCID and source-listed bibliography counts. `publications.csv` contains 8,496 researcher–publication attributions from official page lists across 95 profiles. The same coauthored work may appear under multiple researchers. These are not 8,496 globally unique works, or an exhaustive lifetime bibliography. McGill selected citations retain their full citation with unparsed title/author fields blank. Source and collection date accompany every entry.
 
-The international app importer now publishes research interests, exact qualification statements, Scholar/ResearchGate links, ORCID, research-profile URLs and source-listed publication counts in `public/data/international/academics.csv`, plus a separate `publications.csv` bibliography. Citation metrics remain independently unverified for the new profiles; source-listed bibliography counts are not used as citation-provider publication totals.
+The international app importer now publishes research interests, exact qualification statements, Scholar/ResearchGate links, ORCID, research-profile URLs and source-listed publication counts in `public/data/international/academics.csv`, plus a separate `publications.csv` bibliography. Citation metrics are verified separately from source-listed bibliography counts, which are not used as citation-provider publication totals.
+
+## Research metric verification (12 October 2026)
+
+All 110 new profiles were checked. The pass accepted 102 OpenAlex author identities through official-linked ORCID or matching publications from official staff biographies, bibliographies, researcher websites linked by those pages, or primary publishers. Author subject clusters were reviewed to reject merged namesakes. This verifies identity and the provider snapshot; it does not establish an exhaustive lifetime research record or certify every indexed work.
+
+The imported values are indexed works, total citations, author h-index and citations received during calendar years 2021–2025, as reported in OpenAlex author snapshots retrieved on 12 October 2026. A measured zero is retained; unresolved values stay blank. Q1 publication metrics remain unknown. Metrics are OpenAlex, not Google Scholar, and should be compared using the app's OpenAlex view.
+
+Where a main corroborated profile has small split fragments, only the main profile's totals are used and the limitation is documented. Large unresolved splits are not summed. Jesse Engreitz's corroborated profile contains only eight indexed works, so coverage is likely incomplete. This limitation applies to interpreting the provider totals as lifetime output.
+
+| Unresolved profile | Reason metrics remain blank |
+|---|---|
+| Adam Nayak | Future appointment; candidate not corroborated by publication or official ORCID |
+| Barbara G Simpson | Candidate includes structural engineering and unrelated archaeology |
+| Haoqi (Nina) Zhao | ORCID-linked record also contains unrelated photonics papers |
+| Hanno Lustig | Multiple substantial corroborated profiles; no safe author-total aggregation |
+| Michael Blank | Matching finance paper mixed into unrelated subject clusters |
+| Aaron Mills | Primary law publication found, but its OpenAlex authorship has no author ID |
+| Catherine Walsh | Law publications merged with a predominantly astrophysics profile |
+| Jonathan Chan | Multiple corroborated profiles; no safe author-total aggregation |
+
+`_metric_verification_2026-10-12.json` preserves identity evidence, candidate results, provider snapshots, retrieval dates and the imported values. `_metric_verification_summary_2026-10-12.json` summarizes coverage. The quality-check notebook is `../../scripts/baselines/international_verification_audit.ipynb`. The existing importer regenerates the app CSVs at their existing paths; no data-path migration is needed.

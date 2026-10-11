@@ -932,9 +932,9 @@
   },
   {
     "requested_url": "https://profiles.stanford.edu/intranet/erica-plambeck",
-    "canonical_url": "https://idp-proxy.med.stanford.edu/auth/realms/med-all/protocol/saml?SAMLRequest=fZJLa%2BMwFIX%2FilFhdrakJHUymiQQ7CkE2lLSThfdDMK%2BpgI9PLpSH%2F%2B%2BktNO2020Edx7DjrfQWuURo9iF8OjPcC%2FCBiKF6MtimmxIdFb4SQqFFYaQBE6cbu7uhSzionRu%2BA6p8kXy2mHRAQflLOk2Lcb8rdu56uf7Pd8uVyt2KxZtqxezWt2zpvZRbPYLUhxDx6TfkOSPZkQI%2BwtBmlDGrFZXXJWcn7Ha8G4mC8eSNEmBmVlmFyPIYwoKFX9WKa4L6%2BVgb7K%2FsH5voI%2BUpnYqQepDdK0LKXW9IOMZiRSNM4i5BdPsXVHkeii9%2BkulRm16lQgxYXzHUwVb8ggNUIGuUldqCf4P9l9VJMfiwb8Lfgn1cGfw%2BUnRso1KA34ncCA1s7S0WE4AI45B9muc3QxFea3p%2F1ZuaZf9evjt7hOkPv2xiWO10xh5IkOeMWnierLYZKKaHGETg0K%2Bh9nnP0q3k%2BCTYGfm1R6SAUEH4HQ7THB97%2B4fQM%3D&RelayState=https%3A%2F%2Fprofiles.stanford.edu%2Fintranet%2Ferica-plambeck&SigAlg=http%3A%2F%2Fwww.w3.org%2F2001%2F04%2Fxmldsig-more%23rsa-sha256&Signature=MV8%2BwrsCKWHJ9%2BZfIdwF8vnh5apSQaG%2FIEDyCyKItqXA76EjCAU7c3spjIpqCIOrAFlafLkjdb5u2avfSKbk120ExwxRZR3Y%2FYnfhFllfXg1Ad5%2BAhWkshCuPcHVfpDnBND4XTBLoT8vphZ90ZwJtdzi1andQU%2FyIVbpix7WuNYImaCK4IN1S79ZI6zSjNOEXOgfAzT7e4jTtbDCvKzMZd2wcbXgELhG2EHz3dpGloJyDX0hQRcbFRc%2FwTdqXiAB%2B4xHgI4PZFpRFIbCXBrO6zXlT099AtCcIEatroqS%2FzggILoj6Zy%2FU7W0WebFRyBrafTR8W7B8vLUF1thRZ3tAA%3D%3D",
+    "canonical_url": "https://profiles.stanford.edu/intranet/erica-plambeck",
     "retrieved_at": "2026-10-12",
-    "status": 200,
+    "status": "authentication_required_not_read",
     "content_sha256": "f2a761e17ee5818f59cefca226f25ca0a6fab0d4af69107935e15d5aa7ad530c"
   }
 ]

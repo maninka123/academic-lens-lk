@@ -202,7 +202,7 @@ export function Methodology() {
           <Section title="Sources & benchmarks">
             <ul>
               <li>Google Scholar, ResearchGate and OpenAlex. Primary comparisons use one provider at a time.</li>
-              <li>International sample: seven countries, three QS 2027 tiers, Computer Science, Physics, Medicine, Engineering, Law, Management and Business; up to 25 people per department. The five newer disciplines currently cover selected Stanford and McGill units, with uneven country and tier coverage and citation metrics pending verification.</li>
+              <li>International sample: seven countries, three QS 2027 tiers, Computer Science, Physics, Medicine, Engineering, Law, Management and Business; up to 25 people per department. The five newer disciplines currently cover selected Stanford and McGill units, with uneven country and tier coverage. The newer profiles require official ORCID or publication corroboration and subject consistency checks before OpenAlex metrics are included; unresolved identities remain blank. Future appointments are excluded from current-staff benchmarks.</li>
               <li>Substitute disciplines are flagged and excluded by default.</li>
             </ul>
           </Section>

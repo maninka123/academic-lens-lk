@@ -17,7 +17,7 @@
     "kiu": "not ranked",
     "icbt": "not ranked"
   },
-  "metricSource": "OpenAlex (name + institution matched; ambiguous names left blank)",
+  "metricSource": "OpenAlex (original samples: name + institution; new samples: official ORCID/publication corroboration and subject review; unresolved matches blank)",
   "measurementDate": "2026-10-12",
   "fields": [
     "Computer Science",
@@ -42,33 +42,34 @@
     "Business": {
       "records": 20,
       "universities": 1,
-      "measured": 0
+      "measured": 18
     },
     "Management": {
       "records": 15,
       "universities": 1,
-      "measured": 0
+      "measured": 15
     },
     "Engineering": {
-      "records": 25,
+      "records": 24,
       "universities": 1,
-      "measured": 0
+      "measured": 22
     },
     "Medicine": {
       "records": 25,
       "universities": 1,
-      "measured": 0
+      "measured": 25
     },
     "Law": {
       "records": 25,
       "universities": 1,
-      "measured": 0
+      "measured": 22
     }
   },
+  "futureAppointmentsExcluded": 1,
   "samplingNote": "Up to 25 academics per unit; newer disciplines cover selected universities only. Unverified metrics remain blank.",
   "benchmarkMatches": {
-    "attempted": 1630,
-    "matched": 1133
+    "attempted": 1740,
+    "matched": 1235
   },
   "sriLankaOpenAlex": {
     "attempted": 1346,

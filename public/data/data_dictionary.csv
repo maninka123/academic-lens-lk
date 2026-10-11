@@ -27,7 +27,7 @@ employment_status,Explicit permanent staff evidence is marked permanent_official
 record_status,Evidence and review state; directory listing alone does not prove current full-time employment.,"Empty means unknown, unavailable, or not verified. It never means zero."
 research_lookup_status,Actual search/official linkage/metric retrieval status. A submitted query is not an identity match.,"Empty means unknown, unavailable, or not verified. It never means zero."
 phd_status,"listed_completed, in_progress, or not_published_or_not_extracted. Unknown is not evidence of no PhD.","Empty means unknown, unavailable, or not verified. It never means zero."
-phd_country_basis,"Institution name resolved through a conservative institution mapping, or country explicit in qualification evidence.","Empty means unknown, unavailable, or not verified. It never means zero."
+phd_country_basis,"How the country was established: explicit in qualification evidence or the institution name, or inferred_from_institution_name (a hand-checked institution-to-country mapping; the country is not stated in the source). Inferred countries are labelled on the site.","Empty means unknown, unavailable, or not verified. It never means zero."
 qualification_evidence,Supporting qualification text. Use the associated staff profile URL. Automated extraction requires review.,"Empty means unknown, unavailable, or not verified. It never means zero."
 experience_evidence,"Source wording for reported experience, which may be an approximate number or an older snapshot.","Empty means unknown, unavailable, or not verified. It never means zero."
 notes,Specific source freshness and interpretation limitations.,"Empty means unknown, unavailable, or not verified. It never means zero."

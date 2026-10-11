@@ -82,6 +82,8 @@ const rows = walk(source)
       field: fieldOf.get(u.id + "|" + r.department) || "Unmapped",
       unitType: unitOf.get(u.id + "|" + r.department) || "department",
       position: r.academic_position,
+      employmentStatus: r.employment_status,
+      includedInBenchmarks: r.employment_status !== "future_appointment",
       rank: rankOf(r.academic_position),
       careerStage: careerStage(rankOf(r.academic_position)),
       qualification: phd ? (/\b(?:ph\.?\s?d|d\.?\s?phil)\b/i.test(r.qualifications) ? "PhD" : "Doctorate") : "Unknown",
@@ -184,17 +186,18 @@ fs.writeFileSync(
         .at(-1),
       sriLankaQs: Object.fromEntries(qs.map((r) => [r.id, r.qs_rank_2027])),
       metricSource:
-        "OpenAlex (name + institution matched; ambiguous names left blank)",
+        "OpenAlex (original samples: name + institution; new samples: official ORCID/publication corroboration and subject review; unresolved matches blank)",
       measurementDate: rows
         .map((r) => r.collectionDate)
         .sort()
         .at(-1),
       fields: [...new Set(departments.map((d) => d.field))],
       fieldCoverage: Object.fromEntries([...new Set(departments.map((d) => d.field))].map((field) => [field, {
-        records: rows.filter((r) => r.field === field).length,
+        records: rows.filter((r) => r.field === field && r.includedInBenchmarks).length,
         universities: new Set(rows.filter((r) => r.field === field).map((r) => r.universityId)).size,
-        measured: rows.filter((r) => r.field === field && r.hIndex != null).length,
+        measured: rows.filter((r) => r.field === field && r.includedInBenchmarks && r.hIndex != null).length,
       }])),
+      futureAppointmentsExcluded: rows.filter((r) => !r.includedInBenchmarks).length,
       samplingNote: "Up to 25 academics per unit; newer disciplines cover selected universities only. Unverified metrics remain blank.",
       benchmarkMatches: {
         attempted: rows.filter((r) => r.lookupStatus !== "not_yet_verified").length,

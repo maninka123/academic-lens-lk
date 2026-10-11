@@ -14,10 +14,7 @@ export const metricLabels = {
 export type Metric = keyof typeof metricLabels;
 export type NumericMetric = Exclude<Metric, "count" | "phd" | "overseas">;
 export type DoctorateStatus =
-  | "completed_documented"
-  | "in_progress"
-  | "contradictory"
-  | "unknown";
+  "completed_documented" | "in_progress" | "contradictory" | "unknown";
 export type Provider =
   | "Google Scholar"
   | "ResearchGate"
@@ -44,6 +41,8 @@ export type Academic = {
   qualification: string;
   phdUniversity: string;
   phdCountry: string;
+  /** Country inferred from the awarding institution's name, not published. */
+  phdCountryInferred?: boolean;
   phdYear: number | null;
   phdStatus: string;
   experience: number | null;

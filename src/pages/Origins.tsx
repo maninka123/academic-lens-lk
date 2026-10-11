@@ -344,7 +344,7 @@ export function Origins() {
         <Stat
           label="Awarding country known"
           value={pct(known.length, documented.length)}
-          detail={`${known.length} of ${documented.length} documented doctorates`}
+          detail={`${known.length} of ${documented.length} documented doctorates · ${known.filter((a) => a.phdCountryInferred).length} inferred from the university name`}
         />
         <Stat
           label="Awarding institution known"
