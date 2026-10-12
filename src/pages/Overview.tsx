@@ -10,7 +10,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useData } from "../data/context";
 import { useAtlas, emptyFilters } from "../store";
-import { filterAcademics, groupRows } from "../analytics/engine";
+import { groupRows } from "../analytics/engine";
 import { coverageOf } from "../analytics/quality";
 import { Header, Card, Stat, short, fmt, colors } from "../components/common";
 import { Chart } from "../components/Chart";
@@ -21,9 +21,9 @@ import { GlobalTeaser } from "./Global";
 export function Overview() {
   const [qualificationScale, setQualificationScale] = useState<"share" | "count">("share");
   const { academics, universities, summary } = useData();
-  const { filters, configure, setFilters } = useAtlas();
+  const { configure, setFilters } = useAtlas();
   const nav = useNavigate(),
-    rows = filterAcademics(academics, filters);
+    rows = academics;
   const groups = universities.map((u) => ({
     ...u,
     rows: rows.filter((a) => a.universityId === u.id),
