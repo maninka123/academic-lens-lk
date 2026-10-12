@@ -213,7 +213,7 @@ export function AcademicTable({
         </div>
       </div>
       <div className="table-scroll">
-        <table>
+        <table className="academic-records-table">
           <thead>
             {table.getHeaderGroups().map((g) => (
               <tr key={g.id}>

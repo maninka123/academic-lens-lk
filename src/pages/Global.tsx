@@ -91,9 +91,7 @@ export function Global() {
   const [b, setB] = useState<Benchmarks | null>(null),
     [error, setError] = useState(""),
     [metric, setMetric] = useState<GMetric>("hIndex"),
-    [field, setField] = useState<"matched" | BenchmarkField>(
-      "matched",
-    ),
+    [field, setField] = useState<BenchmarkField>("Computer Science"),
     [stage, setStage] = useState<"all" | (typeof STAGES)[number]>("all"),
     [mode, setMode] = useState<"likeForLike" | "exploratory">("likeForLike"),
     [includeProxy, setIncludeProxy] = useState(false),
@@ -105,7 +103,7 @@ export function Global() {
 
   const view = useMemo(() => {
     if (!b) return null;
-    const fieldOk = (f: string) => field === "matched" ? defaultBenchmarkFields.includes(f) : f === field;
+    const fieldOk = (f: string) => f === field;
     const stageOk = (rank: string) =>
       stage === "all" || careerStageOf(rank) === stage;
     const intl = b.academics.filter(
@@ -457,8 +455,7 @@ export function Global() {
         population:
           "Sri Lankan collected profiles in matched disciplines and international QS-tier samples (seven covered disciplines)",
         filters: {
-          discipline:
-            field === "matched" ? "Computer Science & Physics" : field,
+          discipline: field,
           "career stage": stage,
           "proxy units": includeProxy ? "included" : "excluded",
         },
@@ -575,7 +572,6 @@ export function Global() {
             value={field}
             onChange={(e) => setField(e.target.value as typeof field)}
           >
-            <option value="matched">Computer Science & Physics</option>
             {benchmarkFields.map((discipline) => (
               <option key={discipline} value={discipline}>{discipline}</option>
             ))}

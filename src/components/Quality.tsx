@@ -156,7 +156,7 @@ export function CoveragePanel({
 
 const metricNames: Record<string, string> = {
   citations: "Citations",
-  recentCitations: "Citations in window",
+  recentCitations: "Citations · 2021–2025",
   publications: "Publications",
   hIndex: "h-index",
   experience: "Academic experience (years)",
@@ -169,6 +169,7 @@ const metricNames: Record<string, string> = {
 export function MetricSummaryTable({
   rows,
   minN = MIN_SAMPLE,
+  presentation = "table",
   metrics = [
     "citations",
     "hIndex",
@@ -179,33 +180,67 @@ export function MetricSummaryTable({
 }: {
   rows: Academic[];
   minN?: number;
+  presentation?: "table" | "cards";
   metrics?: NumericMetric[];
 }) {
+  const summaries = metrics.map((m) => {
+    const counts = providerCounts(rows, m);
+    const provider = PROVIDER_METRICS.includes(m) ? counts[0]?.[0] : undefined;
+    const used = provider ? withProvider(rows, provider).rows : rows;
+    return {
+      m, provider, q: quality(used, m, minN),
+      v: values(used.map((a) => a[m])),
+      excluded: counts.slice(1).reduce((s, [, n]) => s + n, 0),
+    };
+  });
+  if (presentation === "cards") return (
+    <div className="research-summary">
+      <p className="caption">Typical value = median (the middle value). At least {minN} profiles needed; each metric uses one source.</p>
+      <div className="research-summary-grid">
+        {summaries.map(({ m, provider, q, v, excluded }) => (
+          <article className="research-metric-card" key={m}>
+            <h3>{metricNames[m] || m}</h3>
+            <div className="research-typical-value">
+              <strong>{q.lowN ? "—" : fmt(median(v), 1)}</strong>
+              <span>{q.valid === 0 ? "No data" : q.lowN ? "Too few profiles" : "Typical value"}</span>
+            </div>
+            <div className="research-sample">
+              <strong>{q.valid} of {q.eligible} profiles used</strong>
+              <span>{q.completeness === null ? "—" : q.completeness.toFixed(1) + "%"}</span>
+              <span className="coverage-track" aria-hidden="true"><i style={{ width: `${q.completeness ?? 0}%` }} /></span>
+            </div>
+            <div className="research-metric-source">
+              <span>{provider || (PROVIDER_METRICS.includes(m) ? "No source available" : "Official profiles")}</span>
+              {q.valid > 0 && q.weak && <span className="metric-status is-warning">Limited data</span>}
+            </div>
+            {excluded > 0 && (
+              <details className="metric-source-detail">
+                <summary>{excluded} other-source values omitted</summary>
+                <span>Other sources are kept separate so the median compares values from the same provider.</span>
+              </details>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  );
   return (
     <div className="table-scroll">
       <table className="metric-summary-table">
         <caption className="caption">
-          One provider per metric · Missing values excluded
+          Median = middle value · One source per metric · Missing values excluded
         </caption>
         <thead>
           <tr>
             <th>Metric</th>
-            <th>Median</th>
-            <th>Coverage</th>
+            <th>Typical value (median)</th>
+            <th>Profiles used</th>
             <th>Source</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {metrics.map((m) => {
-            const counts = providerCounts(rows, m);
-            const provider = PROVIDER_METRICS.includes(m)
-              ? counts[0]?.[0]
-              : undefined;
-            const used = provider ? withProvider(rows, provider).rows : rows;
-            const q = quality(used, m, minN);
-            const v = values(used.map((a) => a[m]));
-            const excluded = counts.slice(1).reduce((s, [, n]) => s + n, 0);
+          {summaries.map(({ m, provider, q, v, excluded }) => {
             return (
               <tr key={m}>
                 <td>{metricNames[m] || m}</td>
@@ -221,7 +256,7 @@ export function MetricSummaryTable({
                         : q.completeness.toFixed(1) + "%"}
                     </strong>
                     <span>
-                      {q.valid} / {q.eligible} profiles
+                      {q.valid} of {q.eligible} profiles
                     </span>
                     <span className="coverage-track" aria-hidden="true">
                       <i style={{ width: `${q.completeness ?? 0}%` }} />
@@ -235,7 +270,7 @@ export function MetricSummaryTable({
                       : "Official profile")}
                   {excluded > 0 && (
                     <details className="metric-source-detail">
-                      <summary>+{excluded} excluded</summary>
+                      <summary>{excluded} other-source values omitted</summary>
                       <span>
                         Values from other providers are excluded to keep the
                         median comparable.
@@ -257,8 +292,8 @@ export function MetricSummaryTable({
                           : "Minimum sample and coverage requirements met."
                     }
                   >
-                    {q.lowN
-                      ? `n < ${minN}`
+                    {q.valid === 0 ? "No data" : q.lowN
+                      ? "Too few profiles"
                       : q.weak
                         ? "Low coverage"
                         : "Available"}
