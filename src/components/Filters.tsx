@@ -20,7 +20,8 @@ export function Multi({
   const menu = useRef<HTMLDetailsElement>(null);
   useEffect(() => {
     const dismiss = (event: PointerEvent) => {
-      if (menu.current?.open && !menu.current.contains(event.target as Node)) menu.current.open = false;
+      if (menu.current?.open && !menu.current.contains(event.target as Node))
+        menu.current.open = false;
     };
     const escape = (event: KeyboardEvent) => {
       if (event.key === "Escape" && menu.current?.open) {
@@ -209,14 +210,10 @@ export function Filters({ compact = false }: { compact?: boolean }) {
           </label>
           <details>
             <summary>Numeric ranges</summary>
-            {(
-              ["experience", "phdYear", "citations", "publications"] as const
-            ).map((k) => (
+            {(["citations", "publications"] as const).map((k) => (
               <label className="field" key={k}>
                 {
                   {
-                    experience: "Experience (years)",
-                    phdYear: "PhD year",
                     citations: "Citations",
                     publications: "Publications",
                   }[k]

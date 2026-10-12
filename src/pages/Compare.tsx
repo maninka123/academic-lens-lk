@@ -13,6 +13,7 @@ import { useData } from "../data/context";
 import { useAtlas, encodeState } from "../store";
 import {
   metricLabels,
+  selectableMetricLabels,
   levelLabels,
   type Level,
   type Metric,
@@ -104,9 +105,7 @@ export function Compare() {
   const [openAlex, setOpenAlex] = useState<Map<string, SlOpenAlex> | null>(
     null,
   );
-  const [discipline, setDiscipline] = useState<
-    "all" | BenchmarkField
-  >("all");
+  const [discipline, setDiscipline] = useState<"all" | BenchmarkField>("all");
   const benchOn =
     Boolean(c.benchmarks) && (c.level === "type" || c.level === "university");
   const providerMetric = PROVIDER_METRICS.includes(c.metric as NumericMetric);
@@ -160,7 +159,8 @@ export function Compare() {
                   snapshotDate: "",
                   status: "international_benchmark",
                   employmentStatus: "",
-                  notes: "International benchmark. Bibliography reflects source-listed works; citation metrics require a matched research profile.",
+                  notes:
+                    "International benchmark. Bibliography reflects source-listed works; citation metrics require a matched research profile.",
                 }) as unknown as Academic,
             ),
         ),
@@ -332,13 +332,16 @@ export function Compare() {
           >
             <option value="all">All sampled disciplines</option>
             {benchmarkFields.map((discipline) => (
-              <option key={discipline} value={discipline}>{discipline}</option>
+              <option key={discipline} value={discipline}>
+                {discipline}
+              </option>
             ))}
           </Select>
           <small className="caption">
-            Benchmarks cover seven disciplines with uneven university coverage; proxy units are
-            excluded. Sri Lankan academics are matched by department and faculty.
-            Citation metrics are included only for matched research profiles; unresolved values remain blank.
+            Benchmarks cover seven disciplines with uneven university coverage;
+            proxy units are excluded. Sri Lankan academics are matched by
+            department and faculty. Citation metrics are included only for
+            matched research profiles; unresolved values remain blank.
           </small>
         </label>
       )}
@@ -356,7 +359,7 @@ export function Compare() {
           value={c.metric}
           onChange={(e) => configure({ metric: e.target.value as Metric })}
         >
-          {Object.entries(metricLabels).map(([v, l]) => (
+          {Object.entries(selectableMetricLabels).map(([v, l]) => (
             <option key={v} value={v}>
               {l}
             </option>
@@ -471,7 +474,7 @@ export function Compare() {
               configure({ xMetric: e.target.value as NumericMetric })
             }
           >
-            {Object.entries(metricLabels)
+            {Object.entries(selectableMetricLabels)
               .filter(([k]) => !["count", "phd", "overseas"].includes(k))
               .map(([k, v]) => (
                 <option key={k} value={k}>
@@ -864,12 +867,24 @@ export function Compare() {
                 {groups.map((g) => (
                   <tr key={g.id}>
                     <td>{g.label}</td>
-                    <td className="numeric"><NumericValue value={g.value} maximum={Math.max(0, ...groups.map(x => x.value ?? 0))} /></td>
+                    <td className="numeric">
+                      <NumericValue
+                        value={g.value}
+                        maximum={Math.max(
+                          0,
+                          ...groups.map((x) => x.value ?? 0),
+                        )}
+                      />
+                    </td>
                     <td>
                       {g.n} / {g.total}
                     </td>
                     <td>
-                      <NumericValue value={g.total ? g.n / g.total * 100 : null} maximum={100} suffix="%" />
+                      <NumericValue
+                        value={g.total ? (g.n / g.total) * 100 : null}
+                        maximum={100}
+                        suffix="%"
+                      />
                     </td>
                     {numeric && (
                       <td>

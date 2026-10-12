@@ -18,7 +18,6 @@ const metrics: NumericMetric[] = [
   "citations",
   "publications",
   "hIndex",
-  "experience",
   "recentCitations",
   "q1",
   "recentQ1",

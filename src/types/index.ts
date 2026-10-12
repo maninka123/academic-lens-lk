@@ -12,6 +12,11 @@ export const metricLabels = {
   recentQ1: "Five-year Q1 publications",
 };
 export type Metric = keyof typeof metricLabels;
+/** Measurements available in the app; retain legacy fields for source history. */
+export const selectableMetricLabels = Object.fromEntries(
+  Object.entries(metricLabels).filter(([key]) => !["experience", "phdYear"].includes(key)),
+);
+export const isSelectableMetric = (key: string) => Object.hasOwn(selectableMetricLabels, key);
 export type NumericMetric = Exclude<Metric, "count" | "phd" | "overseas">;
 export type DoctorateStatus =
   "completed_documented" | "in_progress" | "contradictory" | "unknown";

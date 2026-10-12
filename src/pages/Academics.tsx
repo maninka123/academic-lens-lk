@@ -330,21 +330,12 @@ export function Profile() {
                       ? "Inferred from the awarding institution's name; not stated in the source"
                       : "Country of the awarding institution, not necessarily where the person studied",
                   ],
-                  [
-                    "PhD completion year",
-                    a.phdYear,
-                    a.phdYear ? "recorded" : "missing",
-                  ],
                 ]}
               />
             </Card>
             <Card title="Teaching & research">
               <Info
                 items={[
-                  [
-                    "Recorded academic experience",
-                    a.experience === null ? null : a.experience + " years",
-                  ],
                   [
                     "Publications",
                     a.publications,
