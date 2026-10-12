@@ -63,6 +63,8 @@ export const PUBLIC_ACADEMIC_COLUMNS = [
   "researchgateUrl",
   "scholarStatus",
   "researchgateStatus",
+  "openAlexStatus",
+  "openAlexUrl",
   "qualificationReview",
   "metricEvidence",
   "metricsUrl",

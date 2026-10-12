@@ -21,6 +21,7 @@ SL_INST = {
     "kelaniya": ["I142651801"], "moratuwa": ["I195740183"], "jaffna": ["I198412587"], "ruhuna": ["I128559575"],
     "kdu": ["I197250369"], "sliit": ["I192365124"], "nsbm": ["I4405256374"], "cinec": ["I4400064418"],
     "kiu": ["I4405268052"],
+    "icbt": ["I4392738302"],
 }
 
 
@@ -100,7 +101,8 @@ def main():
     def checkpoint():
         if not out: return
         with path.open("w", newline="", encoding="utf-8-sig") as f:
-            w = csv.DictWriter(f, fieldnames=list(next(iter(out.values())).keys()))
+            fields = list(dict.fromkeys(k for row in out.values() for k in row))
+            w = csv.DictWriter(f, fieldnames=fields)
             w.writeheader(); w.writerows(out.values())
 
     for uid, items in by_uni.items():

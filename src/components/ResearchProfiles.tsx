@@ -7,6 +7,8 @@ export function researchProfileLinks(academic: Academic) {
     academic.scholarUrl,
     academic.researchgateUrl,
     academic.metricsUrl,
+    academic.openAlexUrl,
+    ...(academic.metricEvidence || []).map((e) => e.url),
   ];
   const find = (matches: (host: string) => boolean) => {
     for (const candidate of candidates) {
@@ -37,6 +39,11 @@ export function researchProfileLinks(academic: Academic) {
           ? undefined
           : find((host) => /^(www\.)?researchgate\.net$/i.test(host)),
       status: academic.researchgateStatus,
+    },
+    {
+      label: "OpenAlex",
+      url: find((host) => /^(api\.)?openalex\.org$/i.test(host)),
+      status: "openalex_source",
     },
   ];
 }
@@ -81,7 +88,9 @@ export function ResearchProfiles({ academic }: { academic: Academic }) {
               )}
               {url && (
                 <p className="caption">
-                  {status === "verified_official_link"
+                  {status === "openalex_source"
+                    ? "Author record behind the saved OpenAlex lookup; provider-specific metrics retain their source."
+                    : status === "verified_official_link"
                     ? "Linked from an official profile"
                     : status === "matched_user_supplied_platform_evidence"
                       ? "Matched using supplied platform evidence"

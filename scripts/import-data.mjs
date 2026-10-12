@@ -10,6 +10,7 @@ import {
   resolveAlias,
   linkStatus,
   metricEvidence,
+  openAlexFallback,
   doctorateStatus,
   doctorateReview,
   sanitizeUrl,
@@ -47,6 +48,7 @@ const optionalCsv = (name) =>
   fs.existsSync(source + "/" + name) ? csvRead(source + "/" + name) : [];
 const snapshots = optionalCsv("research_metrics_snapshots.csv");
 const observations = optionalCsv("research_metric_observations.csv");
+const openAlex = optionalCsv("international/sri_lanka_openalex_metrics.csv");
 const identities = optionalCsv("research_identity_evidence.csv");
 const aliasRows = optionalCsv("identity_aliases.csv");
 const aliases = Object.fromEntries(
@@ -66,7 +68,10 @@ const n = (v) => {
   if (!Number.isFinite(x) || x < 0) throw Error("Invalid numeric value: " + v);
   return x;
 };
-const rows = sourceRows.map((r) => {
+const openAlexById = new Map(openAlex.map((r) => [resolveAlias(r.academic_id, aliases), r]));
+const rows = sourceRows.map((original) => {
+  const fallback = openAlexFallback(original, openAlexById.get(original.academic_id));
+  const r = { ...original, ...fallback.fields };
   const u = universities.find(
     (u) => u.name === r.university.replace(/ \(SLIIT\)$/, ""),
   );
@@ -77,7 +82,7 @@ const rows = sourceRows.map((r) => {
       : "";
   const q = r.qualifications || "";
   const doctorate = doctorateStatus(r);
-  const evidence = metricEvidence(r, snapshots, observations, aliases).map(
+  const evidence = [...metricEvidence(original, snapshots, observations, aliases), ...fallback.evidence].map(
     (e) => ({ ...e, url: sanitizeUrl(e.url), note: sanitizeText(e.note) }),
   );
   const reviews = [
@@ -137,10 +142,12 @@ const rows = sourceRows.map((r) => {
       identities,
       aliases,
     ),
+    openAlexStatus: openAlexById.get(r.academic_id)?.status || "not_attempted",
+    openAlexUrl: sanitizeUrl(openAlexById.get(r.academic_id)?.openalex_id || ""),
     qualificationReview: reviews.join(" "),
     metricEvidence: JSON.stringify(evidence),
-    metricsUrl: sanitizeUrl(r.metrics_source_url),
-    metricsSource: r.research_metrics_source,
+    metricsUrl: sanitizeUrl(r.metrics_source_url || fallback.evidence[0]?.url || ""),
+    metricsSource: r.research_metrics_source || (fallback.evidence.length ? "OpenAlex" : ""),
     collectionDate: r.collected_at,
     snapshotDate: [...new Set(evidence.map((e) => e.date).filter(Boolean))]
       .sort()

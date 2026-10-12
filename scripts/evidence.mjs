@@ -39,6 +39,24 @@ export const metricFields = {
   q1: "total_q1_journal_publications",
   recentQ1: "q1_publications_2021_2025",
 };
+/** Fill absent app values from a successful OpenAlex lookup; preserve recorded provider values. */
+export function openAlexFallback(row, lookup) {
+  const fields = {}, evidence = [];
+  if (!lookup?.openalex_id || !/(^|_)matched(_|$)/.test(lookup.status || "") ||
+      /(^|_)(not|no|un)_?matched/.test(lookup.status || "")) return { fields, evidence };
+  for (const [metric, column] of Object.entries(metricFields)) {
+    if (row[column] !== "" && row[column] != null) continue;
+    const raw = lookup[column];
+    if (raw == null || String(raw).trim() === "") continue;
+    const value = Number(raw);
+    if (!Number.isFinite(value) || value < 0) throw Error("Invalid OpenAlex " + column);
+    fields[column] = String(value);
+    evidence.push({ metric, value, source: "OpenAlex", url: lookup.openalex_id,
+      date: lookup.checked_at || "", note: "Successful OpenAlex author match. " +
+        (lookup.checked_at ? "Lookup checked on the recorded date." : "Retrieval date was not recorded in this saved snapshot.") });
+  }
+  return { fields, evidence };
+}
 export function metricEvidence(row, snapshots, observations, aliases) {
   const samePerson = (e) =>
     resolveAlias(e.academic_id, aliases) === row.academic_id;
