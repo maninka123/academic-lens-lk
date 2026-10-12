@@ -1,0 +1,1188 @@
+{
+  "summary": {
+    "reviewed_at": "2026-10-13",
+    "searched_profiles": 1000,
+    "new_scholar_links": 116,
+    "sri_lanka_links": 24,
+    "international_links": 92,
+    "qualification_statements_added": 17,
+    "new_documented_doctorates": 6,
+    "live_scholar_metrics_added": 0,
+    "platform_access": "HTTP 429; source link associations checked, no live Scholar identity/metric assertion",
+    "unresolved_searches": 884
+  },
+  "accepted_source_associations": [
+    {
+      "id": "SL-e1158c4b1b67",
+      "name": "Dr. Thilina Fernando",
+      "university": "University of Kelaniya",
+      "url": "https://scholar.google.com/citations?user=7EosBXoAAAAJ&hl=en",
+      "user": "7EosBXoAAAAJ",
+      "source": "https://science.kln.ac.lk/depts/bota/index.php/component/sppagebuilder/?id=44&view=page",
+      "official_source": "https://science.kln.ac.lk/depts/bota/index.php/staff/academic-staff",
+      "context": "Dr. Thilina Fernando Senior Lecturer Ph. D (MTSU, USA) B.Sc (Peradeniya) University Location\n: Room No. B1 312 email: fernandom@kln.ac.lk Telephone: +94-11-2903223 Fax: + 94-11-2914480 Google Scholar | Research Gate ORCID ID"
+    },
+    {
+      "id": "SL-352c9d414191",
+      "name": "Dr. Damayanthi Herath",
+      "university": "University of Peradeniya",
+      "url": "https://scholar.google.com/citations?user=G2jUV5IAAAAJ&hl=en",
+      "user": "G2jUV5IAAAAJ",
+      "source": "https://people.ce.pdn.ac.lk/staff/academic/damayanthi-herath/",
+      "official_source": "https://people.ce.pdn.ac.lk/staff/academic/",
+      "context": "Research Interests: Data Engineering Machine Learning Metagenomics Computational Biology Edutainment Publications: 2023 DeepSelectNet: deep neural network based selective sequencing for oxford nanopore sequencing Anjana Senanayake , Hasindu Gamaarachchi , Damayanthi Herath , Roshan Ragel BMC bioinformatics , 2023 doi: 10.1186/s12859-023-05151-0 [ PDF ] [ Codebase ] Semantic segmentation using Vision Transformers: A survey Hans Thisanke , Chamli Deshan , Kavindu Chamith , Sachith Seneviratne , Rajith Vidanaarachchi , Damayanthi Herath Engineering Applications of Artificial Intelligence , 2023 doi: 10.1016/j.engappai.2023.106669 [ PDF (Preprint) ] [ Project ] [ Codebase ] #vision transformer #semantic segmentation #review #survey #convolution neural networks #self-supervised learning #deep learning 2022 Interpretable Student Performance Prediction Using Explainable Boosting Machine for Multi-Class Classification Shyaman Jayasundara , Amila Indika , Damayanthi Herath 2022 2nd International Conference on Advanced Research in Computing (ICARC) , 2022 doi: 10.1109/ICARC54489.2022.9753867 Forecasting Electricity Power Generation of Pawan Danavi Wind Farm, Sri Lanka, Using Gene Expression Programming Damayanthi Herath , Jeevani Jayasinghe , Upaka Rathnayake Applied Computational Intelligence and Soft Computing , 2022 doi: 10.1155/2022/7081444 [ PDF ] miRNAFinder: A comprehensive web resource for plant Pre-microRNA classification Sandali Lokuge , Shyaman Jayasundara , Puwasuru Ihalage"
+    },
+    {
+      "id": "SL-5383d801902b",
+      "name": "Dr. Suneth Namal Karunarathna",
+      "university": "University of Peradeniya",
+      "url": "https://scholar.google.com/citations?user=G39TP7EAAAAJ&hl=en",
+      "user": "G39TP7EAAAAJ",
+      "source": "https://people.ce.pdn.ac.lk/staff/academic/suneth-namal-karunarathna/",
+      "official_source": "https://people.ce.pdn.ac.lk/staff/academic/",
+      "context": "Research Interests: Network Security Mobility Management Fast Initial Authentication Load Balancing Network Virtualization Wireless Communication Software Defined Networks Internet of Things (IoT) Publications: 2025 Prediction of Dengue Outbreaks in Sri Lanka Using Machine Learning Techniques HU Uduwanage , KMSL Konara , GDR Mihiranga , SN Karunarathna , F Noordeen , I Ekanayake Sri Lanka Journal of Medicine , 2025 doi: https://sljm.sljol.info/articles/10.4038/sljm.v34i1.568 [ PDF ] [ Presentation ] [ Project ] [ Codebase ] #Dengue #Dengue outbreak prediction #Machine learning #Early warning system #Time series forecasting 2020 Control channel denial-of-service attack in SDN-based networks Shriparen Sriskandarajah , Matthew McKague , Ernest Foo , Roshan G. Ragel , Suneth Namal Karunarathna 2020 Moratuwa Engineering Research Conference (MERCon) , 2020 doi: 10.1109/MERCon50084.2020.9185266 #Switches #Computer architecture #Denial-of-service attack #Workstations #Measurement #Servers 2016 Implementation of OpenFlow based cognitive radio network architecture: SDN&R Suneth Namal , Ijaz Ahmad , Saad Saud , Markku Jokinen , Andrei Gurtov Wireless Networks , 2016 doi: 10.1007/s11276-015-0973-5 [ PDF ] #Cognitive networks #OpenFlow #Wireless SDN #Virtual SSID #IEEE 802.11 #WARP #5G networks 2015 Autonomic trust management in cloud-based and highly dynamic IoT applications Suneth Namal , Hasindu Gamaarachchi , Gyu MyoungLee , Tai-Won Um 2015 ITU Kaleidoscope: Trust in the Information S"
+    },
+    {
+      "id": "SL-fe5cf0498528",
+      "name": "Dr. Swarnalatha Radhakrishnan",
+      "university": "University of Peradeniya",
+      "url": "https://scholar.google.com/citations?user=SN6DXkUAAAAJ&hl=en",
+      "user": "SN6DXkUAAAAJ",
+      "source": "https://people.ce.pdn.ac.lk/staff/academic/swarnalatha-radhakrishnan/",
+      "official_source": "https://people.ce.pdn.ac.lk/staff/academic/",
+      "context": "Research Interests: Computer Architecture Embedded Systems Computer Interfacing Memory Hierarchy Design Publications: 2015 Exploring multilevel cache hierarchies in application specific mpsocs Isuru Nawinne , Haris Javaid , Roshan Ragel , Swarnalatha Radhakrishnan , Sri Parameswaran IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems , 2015 doi: 10.1109/TCAD.2015.2445736 #Algorithm design and analysis #Hardware #Program processors #Space exploration #Integrated circuit modeling #Mathematical model #Optimization Exploring multilevel cache hierarchies in application specific mpsocs Isuru Nawinne , Haris Javaid , Roshan Ragel , Swarnalatha Radhakrishnan , Sri Parameswaran IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems , 2015 doi: 10.1109/TCAD.2015.2445736 #Algorithm design and analysis #Hardware #Program processors #Space exploration #Integrated circuit modeling #Mathematical model #Optimization 2013 A Study on Instruction-set Selection Using Multi-application Based Application Specific Instruction-set Processors Roshan G. Ragel , Swarnalatha Radhakrishnan , Jude Angelo Ambrose , Sri Parameswaran 2013 26th International Conference on VLSI Design and 2013 12th International Conference on Embedded Systems , 2013 doi: 10.1109/VLSID.2013.154 [ PDF (Preprint) ] #Hardware #Thumb #Embedded systems #Benchmark testing #Standards #Instruction sets CSER: HW/SW configurable soft-error resiliency for application specific instruction-se"
+    },
+    {
+      "id": "SL-354d3649650b",
+      "name": "Dr. Rachini Kishara Withanage",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=2d6ib2MAAAAJ&hl=en",
+      "user": "2d6ib2MAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/rachini-withanage/",
+      "official_source": "https://med.cmb.ac.lk/anaesthesiology-critical-care/staff/",
+      "context": "Dr. Rachini Kishara Withanage MBBS(Peradeniya), MD(Colombo), Fellowship in Liver Transplant & Hepatobiliary Anaesthesia (Birmingham, UK) Senior Lecturer in Anaesthesiology Department of Anaesthesiology & Critical Care Faculty of Medicine, University of Colombo, Sri Lanka. Google scholar Citation ResearchGate A Senior Lecturer at the Department of Anaesthesiology & Critical Care, Faculty of Medicine University of Colombo and Honorary Consultant Anaesthetist, University Department of Anaesthesiology & Critical Care, National Hospital of Sri Lanka. Primary education at Sirimavo Bandaranaike Vidyalaya, Colombo. Graduated from the University of Peradeniya, Sri Lanka in 2008. Obtained the MD in Anaesthesiology from PGIM, University of Colombo in 2018. Awarded the Fellowship in Liver Transplant & Hepatobiliary Anaesthesia from Queen Elizabeth Hospital, Birmingham, UK. Board certified in August 2020 as a Consultant Anaesthetist with special training in Transplant Anaesthesia & Critical Care. Research interests include liver transplantation, hepatobiliary anaesthesia, and peri-operative haemodynamic monitoring."
+    },
+    {
+      "id": "SL-a85ae5c41f37",
+      "name": "Dr. Dineshani Hettiarachchi",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=-enI5M4AAAAJ&hl=en",
+      "user": "-enI5M4AAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/dineshani-hettiarachchi/",
+      "official_source": "https://med.cmb.ac.lk/anatomygeneticsbiomedicalinformatics/staff/",
+      "context": "Dr. Dineshani Hettiarachchi MBBS(Manipal), MSc.(Colombo), MCGP(Colombo),SEDA UK, Ph.D (Colombo) Specialist in Medical Genetics Senior Lecturer in Anatomy and Family Physician Department of Anatomy, Genetics and Biomedical Informatics Faculty of Medicine, University of Colombo, Sri Lanka. Google scholar Citation. Senior Lecturer at the Department of Anatomy,Genetics and Biomedical Informatics, Faculty of Medicine, University of Colombo. She’s a clinical member of the Undiagnosed Diseases Network International (UDNI) and a steering committee member of the Global Genomic Medicine Collaborative (G2MC). Dineshani is also a family physician, a council member and the Chair of the Continuing Professional Development subcommittee of the College of General Practitioners of Sri Lanka (CGPSL). She won the Zonta International Award for Young Women in Public Affairs in 2004 for her active participation in empowering young women. She was and the Charter President of the Young Zonta Club of Colombo and an alumni member of the global shapers community an initiative of the World Economic Forum (WEF)."
+    },
+    {
+      "id": "SL-f1587f4915f2",
+      "name": "Dr. E. P. Meran Keshawa",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=_Tor_8wAAAAJ&hl=en",
+      "user": "_Tor_8wAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/meran-keshawa/",
+      "official_source": "https://med.cmb.ac.lk/biochemistry/staff/",
+      "context": "Google scholar Citation Publons ResearchGate Dr. Meran Keshawa Ediriweera is a Senior Lecturer in Biochemistry and Molecular Biology in the Department of Biochemistry & Molecular Biology, Faculty of Medicine, University of Colombo, Sri Lanka. He was educated at Richmond College, Galle. Currently, he coordinates the MSc in Biochemistry and Molecular Biology program in the department. In 2026, the King Fahd University of Petroleum and Minerals (KFUPM) offered him an Ibn Sina Global Fellowship, a prestigious fellowship for a foreign academic by a Middle Eastern university. He also serves as a visiting scholar at Karunya University of Science and Technology, India. After completing his undergraduate degree in India, he joined the Institute of Biochemistry, Molecular Biology and Biotechnology (IBMBB), University of Colombo, for his Master’s degree in Molecular Life Sciences. Following his PhD in Molecular Biology and Medicinal Chemistry from the IBMBB, he moved to South Korea for a postdoctoral fellowship at the Functional Genomic Biochemistry Laboratory of the Subtropical/Tropical Organism Gene Bank, Jeju National University. Dr. Ediriweera has authored nearly 68 publications in peer-reviewed international journals covering Cell Biology, Biochemistry, Molecular Biology, Pharmacognosy, Nanotechnology, Bioinformatics, and Drug Discovery. He was the first from Sri Lanka to publish his research findings and several write-ups in reputed international journals such as Biomedicine & Pha"
+    },
+    {
+      "id": "SL-ffd9e7f6fc27",
+      "name": "Dr. Dilushi Wijayaratne",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=-D5I9B8AAAAJ&hl=en",
+      "user": "-D5I9B8AAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/dilushi-wijayaratne/",
+      "official_source": "https://med.cmb.ac.lk/department-of-clinical-medicine/staff/",
+      "context": "Google scholar citation Dilushi Wijayaratne is a Senior Lecturer in Clinical Medicine in the Department of Clinical Medicine, Faculty of Medicine, University of Colombo, and an Honorary Consultant Nephrologist at the National Hospital of Sri Lanka and the National Institute of Nephrology, Dialysis and Transplantation. She graduated from the Faculty of Medicine, Colombo in 2010 with First Class Honours, 8 distinctions and 17 gold medals, including the “Student of the Year” awarded by the University of Colombo, for academic excellence, sportsmanship, proven leadership among peers and exemplary character. She received the Dr Soma de Sylva award, awarded by the Ceylon College of Physicians, for best performance at the MD selection examination 2013 and went on to complete the MD(Medicine) in 2016, receiving the Dr. John F. Stokes Gold Medal for the best performance. She trained in nephrology at the University Medical Unit, Colombo and the Royal Free Hospital London, and was board certified as a Specialist Nephrologist in 2020. She is a Fellow of the Royal College of Physicians (FRCP), UK, and a Fellow of the International Society of Nephrology (FISN). Dr Wijayaratne has an MSc in Clinical Trials (2023), awarded by the University of Oxford. She is currently pursuing a Doctor of Philosophy (DPhil) in the Nuffield Department of Population Health, University of Oxford, on a full scholarship, researching the effects of empagliflozin on the proteome in chronic kidney disease. She has be"
+    },
+    {
+      "id": "SL-05ba2ef92c94",
+      "name": "Dr. Aruni O. P. Gallage",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=fBfif1sAAAAJ&hl=en",
+      "user": "fBfif1sAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/aruni-gallage/",
+      "official_source": "https://med.cmb.ac.lk/commed/staff/",
+      "context": "Google scholar Citation Dr. Aruni Gallage graduated from Faculty of Medicine, University of Colombo in 2015 in MBBS degree programme with second-class upper division honours and a distinction for Forensic Medicine and Toxicology. She also has first-class honours in Community Medicine and a second-class upper division honours for Behavioural Sciences. She won Prof. Dulitha Fernando gold medal for the best performance in Community Medicine in year 2015 . After graduation she served as an intern medical officer (2015-2016) and a relief house officer in Chemical Pathology (2016-2017) at Provincial General Hospital Badulla. Dr. Aruni has started her academic career as a Lecturer in the department of Community Medicine at the end of year 2017. She has successfully completed the MSc in Community Medicine in the Postgraduate Institute of Medicine, University of Colombo in 2020 and was awarded Dr C. H. Piyaratne Memorial Gold Medal for Best Performance in MSc Community Medicine in 2021 . She is currently reading for MD in Community Medicine in the Postgraduate Institute of Medicine, University of Colombo."
+    },
+    {
+      "id": "SL-08afeb372c6d",
+      "name": "Dr. Nadeeka Chandraratne",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=mBSRQf8AAAAJ&hl=en",
+      "user": "mBSRQf8AAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/nadeeka-chandraratne/",
+      "official_source": "https://med.cmb.ac.lk/commed/staff/",
+      "context": "Google scholar Citation Dr. Nadeeka Chandraratne is a Board Certified Consultant Community Physician and  a Public Health Specialist. Nadeeka graduated as a medical doctor (MBBS with honours) from the Faculty of Medicine, University of Colombo in 2006. She gained her Master’s (MSc) in Community Medicine from the Postgraduate Institute of Medicine (PGIM) of the University of Colombo in 2011. She also completed a Master’s degree in Development Studies (MDS) at the Faculty of Graduate Studies, University of Colombo in 2013 and her MD in Community Medicine from the PGIM in 2016. She obtained her DFPH (UK) following completion of the Diplomate Examination of Faculty of Public Health(UK) in 2018 and she is also a Fellow of the Royal Society for Public Health (UK). During her academic and professional career she has researched, published, trained and given invited presentations on a wide range of public health topics including child sexual abuse, premenstrual syndrome, gender-based violence, sexual harassment in workplaces, economic costs of tobacco and alcohol use, migrant health, child nutrition in communities and social health insurance for universal health coverage. She has won several national and academic awards and prizes for her publications including the President’s award for Scientific Publications. Nadeeka is an External Lecturer for the Department of Health Promotion, Rajarata University of Sri Lanka and has also served in the capacity of a consultant to several UN organ"
+    },
+    {
+      "id": "SL-876ea99a54f9",
+      "name": "Dr. Ravindra Samaranayake",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=xWtRAeEAAAAJ&hl=en",
+      "user": "xWtRAeEAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/ravindra-samaranayake/",
+      "official_source": "https://med.cmb.ac.lk/forensic/staff/",
+      "context": "Google scholar Citation ResearchGate Dr. Ravindra Samaranayake is a senior lecturer in the Department of Forensic Medicine & Toxicology, Faculty of Medicine, University of Colombo. He graduated from the Faculty of Medicine, University of Sri Jayawardenapura, Sri Lanka in 2000."
+    },
+    {
+      "id": "SL-a8a7290d537d",
+      "name": "Dr. Ashwini de Abrew",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=wbEWDO8AAAAJ&hl=en",
+      "user": "wbEWDO8AAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/ashwini-de-abrew/",
+      "official_source": "https://med.cmb.ac.lk/mededu/staff/",
+      "context": "Google scholar Citation Researchgate Dr. Ashwini de Abrew graduated from the Faculty of Medicine, University of Colombo in 2007, with Second Class Honours (Upper Division), First Class Honours in Applied Sciences and Distinctions in Parasitology and Obstetrics and Gynaecology. She was awarded the Vishvanathan gold medal for excellence in clinical Obstetrics and Gynaecology. She joined the Medical Education Development and Research Center (MEDARC), now the Department of Medical Education, in 2009. She enrolled in the Postgraduate Institute of Medicine, University of Colombo for further study in Medical Education and is presently reading for a MD in Medical Education. Dr. De Abrew is keenly interested in curriculum development, staff development, technology based learning and student support. Outside her primary specialty of Medical Education, she has research interests in Non-Communicable Diseases, Women’s Health and Clinical Trial Registration. As a young researcher, she has been recognized by the Asia Pacific Academic Consortium for Public Health (APACPH) for the young researcher travel award, and by the National Institute of Health, USA as a trainee of the ASCEND programme. She contributes to the Faculty by supporting teaching activities in the MBBS and BSc Physiotherapy programmes of study. She has additionally been an office bearer of the Clinical Programme, Quality Assurance Cell and Language Unit. Dr de Abrew is the Treasurer of the WHO Collaborating Center in Medical E"
+    },
+    {
+      "id": "SL-470a77950b56",
+      "name": "Dr. Santhushya Fernando",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=lilg1t0AAAAJ&hl=en",
+      "user": "lilg1t0AAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/santhushya-fernando/",
+      "official_source": "https://med.cmb.ac.lk/medical-humanities/staff/",
+      "context": "Google scholar Citation Dr Santhushya Fernando graduated from Army Medical College, Pakistan. She joined Sri Jayewardenepura General Hospital and served as it’s Deputy Director for 8 years before she joined the Department of Medical Humanities, Faculty of Medicine, University of Colombo in 2021. She has also served as a temporary lecturer in the Department of Community Medicine, Faculty of Medicine, Rajarata University of Sri Lanka. She obtained MSc in Community Medicine in at the Post Graduate Institute of Medicine, University of Colombo followed by MD in Community Medicine in 2017.  She was Board certified as a specialist in Community Medicine in 2019. She obtained her post-doctoral training at University of Oxford, UK. She served as the Assistant Secretary of the College of Community Physicians of Sri Lanka in 2011 and 2012 and as council member of the Perinatal Society of Sri Lanka in 2020. She has also served as a temporary advisor to the World Health Organization SEARO office and been a member of the regional steering committee for networking of centers of expertise on tropical diseases in the SEARO region in 2012. She has carried out a number of original research projects and also been a part of research teams and has published and presented her research in national and international conferences and journals. In 2012 she won the NRC merit award for Scientific Publications and in 2010 won the Henry Rajaratnam Award for the best free paper at the Annual Academic Session "
+    },
+    {
+      "id": "SL-a69e988dbd5e",
+      "name": "Dr. Santushi Amarasuriya",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=Rmc260oAAAAJ&hl=en",
+      "user": "Rmc260oAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/santushi-amarasuriya/",
+      "official_source": "https://med.cmb.ac.lk/medical-humanities/staff/",
+      "context": "Google scholar Citation Santushi Amarasuriya is a Senior Lecturer at the Department of Medical Humanities. She is a Clinical Psychologist by profession and also has a PhD from the University of Melbourne. She joined the Faculty of Medicine as the first permanent academic staff member recruited to the Behavioural Sciences Stream in 2006. After the establishment of the Department of Medical Humanities in 2016 at the Faculty of Medicine, she joined this Department of Medical Humanities as the first Senior Lecturer of this Department."
+    },
+    {
+      "id": "SL-725762940f94",
+      "name": "Dr. N. Hermali Silva",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=NQKug9kAAAAJ&hl=en",
+      "user": "NQKug9kAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/hermali-silva/",
+      "official_source": "https://med.cmb.ac.lk/parasitology/staff/",
+      "context": "Google scholar Citation ResearchGate Dr.Hermali Silva is a past pupil of Devi Balika Vidyalaya, Colombo and graduated from Kursk State Medical University, Russia in 2008 with First Class Honours. From 2009 to 2014 she has held several appointments as a Medical Officer attached to government hospitals under the Ministry of Health, Sri Lanka. Following her passion for teaching, she joined the Department of Parasitology Faculty of Medicine, University of Colombo in 2014. Dr.Silva holds a Certificate for Teaching in Higher Education (CTHE) conducted by the University of Colombo and is an Accredited Teacher in Higher Education by the Staff and Educational Development Association (SEDA), UK. She is involved in teaching undergraduates, in the various teaching activities of the integrated problem based curriculum of the Medical Faculty, and in facilitating small group teaching activities; Problem-Based Learning (PBL) sessions, Small Group Discussions (SGDs). Furthermore she is also involved in teaching activities of various courses conducted by the Department of Parasitology such as the Overseas Elective Programmes, training programmes in medical p+arasitology/ leishmaniasis and activities in the leishmaniasis clinic and laboratory work at the ‘Centre for Training, Research and Diagnosis of Leishmaniasis’, Faculty of Medicine, University of Colombo. She has worked as the Convenor of the Nephro-urology module from 2015 to 2017) and is the Convenor, Colombo Medical Faculty Publishers –"
+    },
+    {
+      "id": "SL-3d8c494b7ef2",
+      "name": "Dr. Sanath Senanayake",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=CsOY1kQAAAAJ&hl=en",
+      "user": "CsOY1kQAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/sanath-senanayake/",
+      "official_source": "https://med.cmb.ac.lk/parasitology/staff/",
+      "context": "Google scholar Citation ResearchGate Dr. Sanath Senanayake is a senior lecturer in the Department of Parasitology, Faculty of Medicine, University of Colombo. He graduated in 1998."
+    },
+    {
+      "id": "SL-dd82d9fca12e",
+      "name": "Dr. Chiranthi Kongala Liyanage",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=QCg-WIUAAAAJ&hl=en",
+      "user": "QCg-WIUAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/chiranthi-liyanage/",
+      "official_source": "https://med.cmb.ac.lk/pharmac/staff/",
+      "context": "Dr. Chiranthi Kongala Liyanage Home Positions Qualifications & Fellowships Awards & Orations Research & Grants Publications Teaching Experience Projects Gallery Contacts Others © 2023 University of Colombo, Sri Lanka. All rights reserved. Dr. Chiranthi K. Liyanage MBBS, MD (Medicine), MRCP (UK), MRCP (UK) (Rheumatology), PgCertMedEd Senior Lecturer & Specialist in Rheumatology and Rehabilitation Department of Pharmacology, Faculty of Medicine, University of Colombo, Sri Lanka. Google scholar Citation ResearchGate Dr. Chiranthi Liyanage is a Senior Lecturer in the Department of Pharmacology, Faculty of Medicine, University of Colombo and a specialist in Rheumatology and Rheumatology."
+    },
+    {
+      "id": "SL-180d946bb6ba",
+      "name": "Dr. Akalanka De Silva",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=QB8I-_kAAAAJ&hl=en",
+      "user": "QB8I-_kAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/medicine/akalanka-silva/",
+      "official_source": "https://med.cmb.ac.lk/physiology/staff/",
+      "context": "Google Scholar Citation ORCID Dr Akalanka De Silva is a Lecturer (Probationary) in the Department of Physiology, Faculty of Medicine, University of Colombo. She graduated in 2021 with First Class Honours and distinctions in Physiology, Biochemistry, Microbiology, Parasitology, Pharmacology, Medicine, Gynaecology and Obstetrics, Paediatrics and Psychiatry."
+    },
+    {
+      "id": "SL-22f39adaada3",
+      "name": "Dr Chandima Arachchige",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=3N7wbcEAAAAJ&hl=en",
+      "user": "3N7wbcEAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/statistics/chandima-priyadarshani/",
+      "official_source": "https://www.res.cmb.ac.lk/statistics/chandima-priyadarshani/",
+      "context": "Dr. GACN Priyadarshani Department of Statistics Home Appointments Awards and Grants Research Publications Gallery © University of Colombo, Sri Lanka. All rights reserved. Dr. G. A. C. N. Priyadarshani (Dr. Chandima N.P.G. Arachchige) SENIOR LECTURER – GRADE II Department of Statistics University of Colombo Colombo 00300 Sri Lanka Office: Department of Statistics Work Phone: +94 11-259 0111 Work Fax: +94 11-259 0111 Email: chandi@stat.cmb.ac.lk Academic & Professional Qualifications PhD 2020 PhD in Statistics La Trobe University, Australia BSc 2013 BSc in Statistics (First Class Honours) University of Colombo, Sri Lanka SEDA 2025 Teaching portfolio accreditation Staff and Educational Development Association UK CTHE 2025 Certificate in Teaching in Higher Education (CTHE) University of Colombo CTMH 2022 Certificate in Teaching Methodology in Higher Education Staff Development Center, Sri Lanka Institute of Information Technology Certificate 2021 A short course on Let’s write a Systematic Review: A Guide to develop a Systematic Review Dean Research and Development Office, General Sir John Kotelawala Defence University, Sri Lanka Certificate 2020 Workshop on Teaching in the Department of Mathematics and Statistics La Trobe University, Australia Certificate 2020 Effective Teaching, Effective Learning in Quantitative Disciplines AMSI Summer School 2020, La Trobe University, Australia Certificate 2018 Advanced Sessional Teachers Summit College of Science, Health and Engineering, La T"
+    },
+    {
+      "id": "SL-13cec3114ec0",
+      "name": "Prof Gayani Galhena",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=QyfwPvAAAAAJ&hl=en",
+      "user": "QyfwPvAAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/zoology/gayani-harendra/research/",
+      "official_source": "https://www.res.cmb.ac.lk/zoology/gayani-harendra/",
+      "context": "Prof Gayani Harendra Galhena Department of Zoology Home Appointments Awards and Grants Research Publications Gallery © University of Colombo, Sri Lanka. All rights reserved."
+    },
+    {
+      "id": "SL-37a39a86a65c",
+      "name": "Dr Neranga Abeyasinghe",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=bERJjjEAAAAJ&hl=en",
+      "user": "bERJjjEAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/chemistry/neranga-abeyasinghe/research/",
+      "official_source": "https://www.res.cmb.ac.lk/chemistry/neranga-abeyasinghe/",
+      "context": "Dr. Neranga Ishan Abeyasinghe Department of Chemistry Home Appointments Awards and Grants Research Publications Gallery © University of Colombo, Sri Lanka. All rights reserved."
+    },
+    {
+      "id": "SL-92c55e51a29b",
+      "name": "Dr. Shamila Dawood",
+      "university": "University of Colombo",
+      "url": "https://scholar.google.com/citations?user=JJ1CJ-YAAAAJ&hl=en",
+      "user": "JJ1CJ-YAAAAJ",
+      "source": "https://www.res.cmb.ac.lk/commercial.law/dlfshamila/",
+      "official_source": "https://law.cmb.ac.lk/staff/department-commercial-law-academic-staff",
+      "context": "Google Scholar BIOGRAPHY Dr. Shamila Dawood is a senior lecturer currently affiliated with the Department of Commercial Law at the University of Colombo. She holds a Doctor of Philosophy degree from the Queensland University of Technology (QUT) in Brisbane, Australia, a Master of Laws degree in International Public Law from the University of Oslo in Norway, and a Bachelor of Laws degree from the University of Colombo in Sri Lanka. She is also an Attorney-at-Law of the Supreme Court of Sri Lanka. Dr. Dawood has received the Certificate in Teaching in Higher Education (CTHE) and the Diploma in Commercial Arbitration from the ICLP in Colombo. She teaches subjects such as International Investment Law, Business Law, Contract Law, and Legal Methods at the undergraduate level, and she is involved in teaching and supervising PhD and Master’s thesis students. Dr. Dawood serves as the Director of the English Legal Unit, which was established by the Faculty of Law to enhance the bilingual teaching system at the undergraduate level. She also holds the position of Senior Treasurer at the Muslim Majlis of the University of Colombo. Furthermore, she acts as the Coordinator for the Doctor of Philosophy Degree program in the Faculty of Law and as the Course Director for the LLM programs in Fundamental of Commercial Law, Company Law, and International Business Law. Dr. Dawood has served as a visiting lecturer, examiner, and resource person in various law teaching institutions and centers. She "
+    },
+    {
+      "id": "SL-67d208aebe80",
+      "name": "Dr. Brammah R Thangarajah",
+      "university": "University of Jaffna",
+      "url": "https://scholar.google.com/citations?user=ubRetAEAAAAJ&hl=en",
+      "user": "ubRetAEAAAAJ",
+      "source": "https://med.jfn.ac.lk/personnel/dr-brammah-r-thangarajah/",
+      "official_source": "https://med.jfn.ac.lk/personnel/dr-brammah-r-thangarajah/",
+      "context": "Dr. Brammah R Thangarajah MBBS, MD, MRCP Head & Senior Lecturer in Medicine (Grade II) Department of Medicine, Faculty of Medicine, University of Jaffna Specialist Nephrologist Teaching Hospital-Jaffna, Sri Lanka brammah@univ.jfn.ac.lk Google Scholar ResearchGate URL to Institutional Repository"
+    },
+    {
+      "id": "SL-90db7b5e2d29",
+      "name": "Dr. Budditha Hettige",
+      "university": "University of Sri Jayewardenepura",
+      "url": "https://scholar.google.com/citations?user=5loZ5JYAAAAJ&hl=en",
+      "user": "5loZ5JYAAAAJ",
+      "source": "https://computing.sjp.ac.lk/index.php/staff/",
+      "official_source": "https://computing.sjp.ac.lk/index.php/staff/",
+      "context": "Dr. Budditha Hettige (Senior Lecturer) PhD(Moratuwa), MPhil(Moratuwa), BSc(USJ) Fields of Interest: Multi-Agent Systems, Natural Language Processing Email: budditha@sjp.ac.lk Tel: +94-766229829"
+    },
+    {
+      "id": "INT-de3ec97fe912",
+      "name": "Olivier Blazy",
+      "university": "Institut Polytechnique de Paris",
+      "url": "https://scholar.google.com/citations?user=d2THIRYAAAAJ&hl=en",
+      "user": "d2THIRYAAAAJ",
+      "source": "http://www.lix.polytechnique.fr/Labo/Olivier.BLAZY",
+      "official_source": "http://www.lix.polytechnique.fr/Labo/Olivier.BLAZY",
+      "context": "O. Blazy Cryptographer École Polytechnique · LIX Navigation Home Publications Collab. Graph Talks & Seminars Talk Map Press & Media Editorial Duties Community Teaching Language English Français Deutsch tlhIngan Hol External profiles DBLP Scholar HAL CV ORCID Linkedin Github École Polytechnique · LIX · GRACE Team Olivier Blazy — Professor in Cybersecurity Scientific Director of CIEDS · Post-quantum cryptography · Digital identity · Privacy Olivier Blazy Professor · Scientific Director of CIEDS École Polytechnique — LIX — GRACE Team — Palaiseau, France I work on provable security with a focus on smooth projective hash functions, post-quantum cryptography (NIST standard proposals including HQC), anonymous credentials, digital identity and privacy-preserving protocols. My research bridges theoretical foundations and practical constructions — from secure messaging systems to online age verification. CV Email Signal — Publications Conferences & journals — Co-authors Collaboration network — Talks Seminars & conferences — Press items Media appearances Latest most recent activity Academic career positions held Positions 2026 → Scientific Director, CIEDS Interdisciplinary Centre for Defence and Security · École Polytechnique · Institut Polytechnique de Paris 2021 → Professor, École Polytechnique LIX · GRACE Team · Palaiseau, France 2014–2021 Université de Limoges (HDR 2019) Associate Professor (MCF) · XLIM · Cryptis Team 2012–2014 Ruhr-Universität Bochum Postdoc · Foundation of Cryptog"
+    },
+    {
+      "id": "INT-790777eabe78",
+      "name": "Thomas Clausen",
+      "university": "Institut Polytechnique de Paris",
+      "url": "https://scholar.google.com/citations?user=zmoKKIcAAAAJ&hl=en",
+      "user": "zmoKKIcAAAAJ",
+      "source": "https://www.thomasclausen.net/biographies/biography-long-en/",
+      "official_source": "https://www.thomasclausen.net/biographies/biography-long-en/",
+      "context": "ORCID: orcid.org/0000-0002-7400-8887 Google Scholar: scholar.google.fr/citations?hl=fr&user=zmoKKIcAAAAJ ResearchGate: www.researchgate.net/profile/Thomas_Heide_Clausen"
+    },
+    {
+      "id": "INT-f32549a60daf",
+      "name": "Jeremy Dubut",
+      "university": "Institut Polytechnique de Paris",
+      "url": "https://scholar.google.com/citations?user=k8NVQh8AAAAJ&hl=en",
+      "user": "k8NVQh8AAAAJ",
+      "source": "https://jeremydubut.com/",
+      "official_source": "https://jeremydubut.com/",
+      "context": "☵ Jérémy Dubut-Kross (デュブ黒須・ジェレミー) Home Publications Journals Conferences Others Talks Teachings 〆 Home Publications Journals Conferences Others Talks Teachings"
+    },
+    {
+      "id": "INT-d5d1496f4aa7",
+      "name": "Vicky Kalogeiton",
+      "university": "Institut Polytechnique de Paris",
+      "user": "gIRvhKkAAAAJ",
+      "url": "https://scholar.google.com/citations?user=gIRvhKkAAAAJ&hl=en",
+      "source": "http://vicky.kalogeiton.info/",
+      "official_source": "http://vicky.kalogeiton.info/",
+      "context": "Own Scholar icon in the personal homepage header beside CV/social links; separate named student and collaborator links excluded."
+    },
+    {
+      "id": "INT-eee967cf3469",
+      "name": "Johannes Lutzeyer",
+      "university": "Institut Polytechnique de Paris",
+      "url": "https://scholar.google.com/citations?user=OfT4ns8AAAAJ&hl=en",
+      "user": "OfT4ns8AAAAJ",
+      "source": "https://johanneslutzeyer.com/",
+      "official_source": "https://johanneslutzeyer.com/",
+      "context": "GoogleScholar LinkedIn Twitter johannes [dot] lutzeyer [at] polytechnique [dot] edu"
+    },
+    {
+      "id": "INT-68d92c3808b7",
+      "name": "Michalis Vazirgiannis",
+      "university": "Institut Polytechnique de Paris",
+      "url": "https://scholar.google.com/citations?user=aWGJYcMAAAAJ&hl=en",
+      "user": "aWGJYcMAAAAJ",
+      "source": "http://www.lix.polytechnique.fr/Labo/Michalis.Vazirgiannis/",
+      "official_source": "http://www.lix.polytechnique.fr/Labo/Michalis.Vazirgiannis/",
+      "context": "Michalis Vazirgiannis What's new Latest publications"
+    },
+    {
+      "id": "INT-74a53b3b5b76",
+      "name": "Sebastian Will",
+      "university": "Institut Polytechnique de Paris",
+      "url": "https://scholar.google.com/citations?user=_N2B6S8AAAAJ&hl=en",
+      "user": "_N2B6S8AAAAJ",
+      "source": "http://www.lix.polytechnique.fr/Labo/Sebastian.WILL/",
+      "official_source": "http://www.lix.polytechnique.fr/Labo/Sebastian.WILL/",
+      "context": "Sebastian Will, Professor at Ecole Polytechnique Sebastian Will Sebastian Will Research Interests News, links, info, ... Short Bio CV [pdf] Teaching Internships @ X Current and previous teaching @ X Previous teaching Publications publication list Talks Software"
+    },
+    {
+      "id": "INT-a4aa56577d13",
+      "name": "Clément Dutreix",
+      "university": "Université de Bordeaux",
+      "url": "https://scholar.google.com/citations?user=j8xYDCQAAAAJ&hl=en",
+      "user": "j8xYDCQAAAAJ",
+      "source": "https://www.loma.cnrs.fr/clement-dutreix/",
+      "official_source": "https://www.loma.cnrs.fr/annuaire/",
+      "context": "Clément DUTREIX | https://www.loma.cnrs.fr Laboratoire Ondes et Matière d'Aquitaine Une couche de graphène permet d’éviter la rupture Khvalyuk – 8 September 2026 Schnitzer – 15 September 2026 Plateforme NSI & Caractérisation Optique Plateforme COLA Sarah WESTGATE Fanny MASSOZ Oscar RODRIGO VICEN Praneel BHATTACHARYA David MAWSON Arthur BRISSEAU Nils WILMOTTE Ratnojit BHATTACHERJEE Clément DUTREIX Employment history Mentoring Teaching Preprints Publications Ph.D. Thesis Contributions Organized conferences Clément DUTREIX Article suivant Stefano POLIZZI Article précédent NETA signe une licence exclusive AST Derniers articles Sarah WESTGATE Fanny MASSOZ Laboratoire Ondes et Matière d'Aquitaine LOMA"
+    },
+    {
+      "id": "INT-c68d612883c8",
+      "name": "Murray Batchelor",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=fcsNGkgAAAAJ&hl=en",
+      "user": "fcsNGkgAAAAJ",
+      "source": "https://physics.anu.edu.au/contact/people/profile.php?ID=316",
+      "official_source": "https://physics.anu.edu.au/contact/people/profile.php?ID=316",
+      "context": "Murray Batchelor was born in Taree, NSW, Australia. He completed 1st Class Honours with a University Medal in Theoretical Physics at The University of New South Wales in 1983. He completed his PhD in Mathematics at The Australian National University in 1987 and then worked for a year at Instituut Lorentz for Theoretical Physics in Leiden, The Netherlands. He was supported by the Australian Research Council through the consecutive awards of a Queen Elizabeth II Research Fellowship, two Senior Research Fellowships and an Australian Professorial Fellowship. He has also held numerous Large Grants with the Australian Research Council. He was awarded The Australian Academy of Science Pawsey Medal (1997) for outstanding research in physics and The Australian Mathematical Society Medal (1998) for distinguished research in the mathematical sciences. He is the only researcher to receive both awards in mathematics and physics. He was promoted to full Professor at ANU in 2001. From mid 2005 to April 2013 he was Head of the Department of Theoretical Physics, RSPE. Professor Batchelor has held visiting positions at the Universities of Amsterdam, Oxford and Tokyo. Most recently he was a Visiting Fellow at All Souls College, Oxford during Michaelmas Term 2013. In June 2008 Professor Batchelor was awarded an Honorary Professorship from Chongqing University in Chongqing, China. During 2013 he took up a position there in the Centre for Modern Physics. Professor Batchelor served a term as Editor"
+    },
+    {
+      "id": "INT-af84ba4327b0",
+      "name": "Ilya Shadrivov",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=dlUKHTEAAAAJ&hl=en",
+      "user": "dlUKHTEAAAAJ",
+      "source": "https://physics.anu.edu.au/contact/people/profile.php?ID=380",
+      "official_source": "https://physics.anu.edu.au/contact/people/profile.php?ID=380",
+      "context": "Professor Ilya Shadrivov profile Research School of Physics Main navigation Professor Ilya Shadrivov Publications Book Book chapter Journal article Conference paper Conference written presentation Journal short contribution Journal article (non-refereed)"
+    },
+    {
+      "id": "INT-fbaff728e621",
+      "name": "Daria Smirnova",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=36cmlewAAAAJ&hl=en",
+      "user": "36cmlewAAAAJ",
+      "source": "https://physics.anu.edu.au/contact/people/profile.php?ID=1525",
+      "official_source": "https://physics.anu.edu.au/contact/people/profile.php?ID=1525",
+      "context": "Assoc Professor Daria Smirnova profile Research School of Physics Main navigation Assoc Professor Daria Smirnova Publications Journal article Conference paper Conference written presentation"
+    },
+    {
+      "id": "INT-07d6bd1846e1",
+      "name": "Amanda Barnard",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=lGtwfOQAAAAJ&hl=en",
+      "user": "lGtwfOQAAAAJ",
+      "source": "https://comp.anu.edu.au/people/amanda-barnard/",
+      "official_source": "https://comp.anu.edu.au/people/amanda-barnard/",
+      "context": "Website https://en.wikipedia.org/wiki/Amanda_Barnard Publications ORCiD dblp Google Scholar ANU Research Profile amanda-barnard-2 Social LinkedIn"
+    },
+    {
+      "id": "INT-37a49b61d3fc",
+      "name": "Thang Bui",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=SVq3y1sAAAAJ&hl=en",
+      "user": "SVq3y1sAAAAJ",
+      "source": "https://comp.anu.edu.au/people/thang-bui/",
+      "official_source": "https://comp.anu.edu.au/people/thang-bui/",
+      "context": "Website https://thangbui.github.io Publications ORCiD dblp Google Scholar ANU Research Profile thang-bui"
+    },
+    {
+      "id": "INT-1046388aaf94",
+      "name": "Matthew Hole",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=BoPimVUAAAAJ&hl=en",
+      "user": "BoPimVUAAAAJ",
+      "source": "https://comp.anu.edu.au/people/matthew-hole/",
+      "official_source": "https://comp.anu.edu.au/people/matthew-hole/",
+      "context": "Website https://maths.anu.edu.au/people/academics/matthew-hole Publications ORCiD dblp Google Scholar"
+    },
+    {
+      "id": "INT-176ab7ccda72",
+      "name": "Jing Jiang",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=hVTK2YwAAAAJ&hl=en",
+      "user": "hVTK2YwAAAAJ",
+      "source": "https://comp.anu.edu.au/people/jing-jiang/",
+      "official_source": "https://comp.anu.edu.au/people/jing-jiang/",
+      "context": "Email Jing.Jiang@anu.edu.au adir.hdr.comp@anu.edu.au Clusters Intelligent Systems Research Students Haojie Zhuang Oucheng Liu Ying Zhang Publications ORCiD dblp Google Scholar"
+    },
+    {
+      "id": "INT-dd7398ee099f",
+      "name": "Hanna Kurniawati",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=JkjFXbAAAAAJ&hl=en",
+      "user": "JkjFXbAAAAAJ",
+      "source": "https://comp.anu.edu.au/people/hanna-kurniawati/",
+      "official_source": "https://comp.anu.edu.au/people/hanna-kurniawati/",
+      "context": "Website https://rdllab.github.io/ Publications ORCiD dblp Google Scholar ANU Research Profile hanna-kurniawati Social LinkedIn"
+    },
+    {
+      "id": "INT-4412143c799b",
+      "name": "Alberto F. Martín",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=CumvSwwAAAAJ&hl=en",
+      "user": "CumvSwwAAAAJ",
+      "source": "https://comp.anu.edu.au/people/alberto-martin/",
+      "official_source": "https://comp.anu.edu.au/people/alberto-martin/",
+      "context": "Website https://amartinhuertas.github.io/ Publications ORCiD dblp Google Scholar ANU Research Profile alberto-f-martin"
+    },
+    {
+      "id": "INT-5d410bf7fc47",
+      "name": "Rahul Shome",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=tXraTF8AAAAJ&hl=en",
+      "user": "tXraTF8AAAAJ",
+      "source": "https://comp.anu.edu.au/people/rahul-shome/",
+      "official_source": "https://comp.anu.edu.au/people/rahul-shome/",
+      "context": "Website https://rahulsho.me Publications ORCiD dblp Google Scholar ANU Research Profile rahul-shome"
+    },
+    {
+      "id": "INT-6acf847527e9",
+      "name": "Hanna Suominen",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=o4qymo4AAAAJ&hl=en",
+      "user": "o4qymo4AAAAJ",
+      "source": "https://comp.anu.edu.au/people/hanna-suominen/",
+      "official_source": "https://comp.anu.edu.au/people/hanna-suominen/",
+      "context": "Publications ORCiD dblp Google Scholar ANU Research Profile hanna-suominen Social Twitter LinkedIn"
+    },
+    {
+      "id": "INT-e90a3a548812",
+      "name": "Sylvie Thiébaux",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=UliUD0gAAAAJ&hl=en",
+      "user": "UliUD0gAAAAJ",
+      "source": "https://comp.anu.edu.au/people/sylvie-thiebaux/",
+      "official_source": "https://comp.anu.edu.au/people/sylvie-thiebaux/",
+      "context": "Website https://users.cecs.anu.edu.au/~thiebaux/ Publications ORCiD dblp Google Scholar ANU Research Profile sylvie-thiebaux"
+    },
+    {
+      "id": "INT-116aa6f1a84d",
+      "name": "Felipe Trevizan",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=AG1PRG4AAAAJ&hl=en",
+      "user": "AG1PRG4AAAAJ",
+      "source": "https://comp.anu.edu.au/people/felipe-trevizan/",
+      "official_source": "https://comp.anu.edu.au/people/felipe-trevizan/",
+      "context": "Research My research interests lie at the intersection of Artificial Intelligence,\nOperations Research and Machine Learning including automated planning and\nscheduling, planning under uncertainty, heuristic search, and reinforcement\nlearning. For more details, see https://felipe.trevizan.org. If you are a prospective or current student looking for research projects, see\nhttps://felipe.trevizan.org/students.html for an up-to-date list potential\ntopics. Biography Dr. Felipe Trevizan is currently an Assistant Professor in the School of Computing at the Australian National University (ANU) . Previously,\nFelipe was a Senior Research Scientist at NICTA (now Data61/CSIRO ). Felipe earned his Ph.D. in Machine\nLearning (2013) from Carnegie Mellon University (CMU)\nunder the supervision of Prof. Manuela Veloso .\nIn his thesis, Felipe introduced short-sighted planning ,\na novel approach to effectively plan under uncertainty. As part of his Ph.D.\nprogram, Felipe received a M.Sc. degree (2010) where he showed how to use\nmachine learning techniques to classify the opponentâs strategy in the RoboCup small size league . Before joining CMU, Felipe received his first M.Sc. degree (2006) and his\nBachelor of Computer Science degree (2004) from Instituto de MatemÃ¡tica e EstatÃ­stica at Universidade de SÃ£o Paulo under the supervision of Prof. Leliane Nunes de Barros . In this M.Sc. thesis,\nFelipe introduced a new model for planning under uncertainty in which actions can be either probabilistic,"
+    },
+    {
+      "id": "INT-b10c3cc708c0",
+      "name": "Graham Williams",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=08HEV_kAAAAJ&hl=en",
+      "user": "08HEV_kAAAAJ",
+      "source": "https://comp.anu.edu.au/people/graham-williams/",
+      "official_source": "https://comp.anu.edu.au/people/graham-williams/",
+      "context": "Publications dblp Google Scholar ANU Research Profile graham-williams"
+    },
+    {
+      "id": "INT-a4a11a01646c",
+      "name": "Liang Zheng",
+      "university": "Australian National University",
+      "url": "https://scholar.google.com/citations?user=vNHqr3oAAAAJ&hl=en",
+      "user": "vNHqr3oAAAAJ",
+      "source": "https://comp.anu.edu.au/people/liang-zheng/",
+      "official_source": "https://comp.anu.edu.au/people/liang-zheng/",
+      "context": "Website https://zheng-lab-anu.github.io/ Publications ORCiD dblp Google Scholar ANU Research Profile liang-zheng"
+    },
+    {
+      "id": "INT-8df4879a9374",
+      "name": "Francisco Cruz",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=esTjFlkAAAAJ&hl=en",
+      "user": "esTjFlkAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/francisco-cruz",
+      "official_source": "https://www.unsw.edu.au/staff/francisco-cruz",
+      "context": "Dr Francisco Cruz Senior Lecturer Engineering Computer Science and Engineering Follow me Follow me Google Scholar"
+    },
+    {
+      "id": "INT-274f19335dc2",
+      "name": "Hasindu Gamaarachchi",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=XVAjC6cAAAAJ&hl=en",
+      "user": "XVAjC6cAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/hasindu-gamaarachchi",
+      "official_source": "https://www.unsw.edu.au/staff/hasindu-gamaarachchi",
+      "context": "Dr Hasindu Gamaarachchi Senior Lecturer 2020 / PhD in Computer Science and Engineering / UNSW Sydney / Australia 2015 / BSc Engineering (Hons.) in Computer Engineering / University of Peradeniya / Sri Lanka Engineering Computer Science and Engineering Follow me Follow me fab fa-twitter Google Scholar LinkedIn"
+    },
+    {
+      "id": "INT-deadd63bcd5f",
+      "name": "Aditya Joshi",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=SbYRrvgAAAAJ&hl=en",
+      "user": "SbYRrvgAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/aditya-joshi",
+      "official_source": "https://www.unsw.edu.au/staff/aditya-joshi",
+      "context": "Dr Aditya Joshi Senior Lecturer PhD, Indian Institute of Technology Bombay, India and Monash University, Australia (jointly awarded). Thesis title: ' Investigations in Computational Sarcasm ' [ Monograph ], 2018 MTech (Computer Science and Engineering), IIT Bombay. Dissertation title: 'Adaptation of Sentiment Analysis to a New Text Form', 2011 Engineering Computer Science and Engineering Follow me Follow me fab fa-twitter Google Scholar LinkedIn"
+    },
+    {
+      "id": "INT-b0b629ba6b46",
+      "name": "Jesse Laeuchli",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=lC2GX_sAAAAJ&hl=en",
+      "user": "lC2GX_sAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/jesse-laeuchli",
+      "official_source": "https://www.unsw.edu.au/staff/jesse-laeuchli",
+      "context": "Dr Jesse Laeuchli Senior Lecturer Certified Ethical Hacker Engineering Computer Science and Engineering Follow me Follow me Google Scholar"
+    },
+    {
+      "id": "INT-44409bddaa06",
+      "name": "Rahat Masood",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=4E0WoloAAAAJ&hl=en",
+      "user": "4E0WoloAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/rahat-masood",
+      "official_source": "https://www.unsw.edu.au/staff/rahat-masood",
+      "context": "Dr Rahat Masood Senior Lecturer PhD. in Information Security and Privacy (UNSW, Data61-CSIRO - Australia) MS in Computer and Communication Security (NUST - Pakistan) B.Sc. in Software Engineering (University of Engineering & Technology - Pakistan) Engineering Computer Science and Engineering Follow me Follow me Google Scholar LinkedIn"
+    },
+    {
+      "id": "INT-57e0ae27d003",
+      "name": "Oliver Obst",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=m6n603wAAAAJ&hl=en",
+      "user": "m6n603wAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/oliver-obst",
+      "official_source": "https://www.unsw.edu.au/staff/oliver-obst",
+      "context": "Associate Professor Oliver Obst Associate Professor Engineering Computer Science and Engineering Follow me Follow me Google Scholar LinkedIn"
+    },
+    {
+      "id": "INT-31541a4b5b4e",
+      "name": "Hammond Pearce",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=pRILQ5MAAAAJ&hl=en",
+      "user": "pRILQ5MAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/hammond-pearce",
+      "official_source": "https://www.unsw.edu.au/staff/hammond-pearce",
+      "context": "Dr Hammond Pearce Senior Lecturer Engineering Computer Science and Engineering Follow me Follow me Academia Google Scholar LinkedIn"
+    },
+    {
+      "id": "INT-4b7acd8b7a81",
+      "name": "Jake Renzella",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=l_sP9GcAAAAJ&hl=en",
+      "user": "l_sP9GcAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/jake-renzella",
+      "official_source": "https://www.unsw.edu.au/staff/jake-renzella",
+      "context": "Dr Jake Renzella Study options Discover UNSW How to apply Help centre Research strengths Partner with us Facilities & infrastructure Higher degree research Our faculties Engage with UNSW Giving Alumni Find an expert Partnerships Our story Our impact Collaboration Our campus Excellence Follow Dr Jake Renzella Follow me Engage with us Study News, Media & Events About us Acknowledgement of Country Follow us"
+    },
+    {
+      "id": "INT-e7fd272e4d64",
+      "name": "Yang Song",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=7u3M9hMAAAAJ&hl=en",
+      "user": "7u3M9hMAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/yang-song",
+      "official_source": "https://www.unsw.edu.au/staff/yang-song",
+      "context": "Associate Professor Yang Song Associate Professor Engineering Computer Science and Engineering Follow me Follow me Google Scholar"
+    },
+    {
+      "id": "INT-aa85d10ea6de",
+      "name": "Basem Suleiman",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=4zrewDMAAAAJ&hl=en",
+      "user": "4zrewDMAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/basem-suleiman",
+      "official_source": "https://www.unsw.edu.au/staff/basem-suleiman",
+      "context": "Dr Basem Suleiman Senior Lecturer Ph.D. in Computer Science, University of New South Wales, Sydney, Australia Graduate Certificate in Research Commercialization & Management, University of New South Wales (UNSW), Sydney, Australia Master of Computing (Software Engineering) , Western Sydney University, Australia. Engineering Computer Science and Engineering Follow me Follow me ResearchGate Google Scholar LinkedIn"
+    },
+    {
+      "id": "INT-790680f2e04d",
+      "name": "Lina Yao",
+      "university": "UNSW Sydney",
+      "url": "https://scholar.google.com/citations?user=EU3snBgAAAAJ&hl=en",
+      "user": "EU3snBgAAAAJ",
+      "source": "https://www.unsw.edu.au/staff/lina-yao",
+      "official_source": "https://www.unsw.edu.au/staff/lina-yao",
+      "context": "Professor Lina Yao Professor PhD - University of Adelaide, 2014 Master's Degree - University of Adelaide, 2010 Master's Degree -  Nanjing University of Posts and Telecommunications, 2007 Bachelor's Degree - Shandong University, China 2002 Engineering Computer Science and Engineering Follow me Follow me ResearchGate Google Scholar LinkedIn"
+    },
+    {
+      "id": "INT-744b157ce1c3",
+      "name": "Lynette Cheah",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=BXmPkZMAAAAJ&hl=en",
+      "user": "BXmPkZMAAAAJ",
+      "source": "https://www.usc.edu.au/people/professor-lynette-cheah",
+      "official_source": "https://www.usc.edu.au/people/professor-lynette-cheah",
+      "context": "Lynette Cheah is Professor and Chair of Sustainable Transport at the University of the Sunshine Coast in Queensland. She directs the Sustainable Mobility Research Laboratory , which develops innovations and pathways towards sustainable cities, particularly in the area of mobility. Her research focuses on developing data-driven models and digital tools to assess and reduce the environmental impacts of passenger and freight transport. Areas of expertise include smart cities, intelligent transport, urban freight, transport modelling and simulation, technology and policy assessment, life cycle assessments, and material flow analysis. Lynette publishes actively in Transportation Research Record , Transportation Research Part D: Transport and Environment , Transportation Science , Travel Behaviour and Society , Journal of Industrial Ecology , Resource, Conservation and Recycling , and other academic journals. She has won several best paper awards, including the 2023 Best Applied Research Paper Award from the Transportation Research Board Standing Committee on Urban Freight Transportation. Her work has been profiled on ChannelNewsAsia, CNN and Nature. Lynette's work on smart and sustainable mobility brings together perspectives from different disciplines. She collaborates readily with urban planners, architects, geographers, computer scientists and psychologists. Research partners include transport and land planning authorities, logistics service providers, and mobility companies. L"
+    },
+    {
+      "id": "INT-56b5475f4f0f",
+      "name": "Damon Kent",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=wJ_o4XkAAAAJ&hl=en",
+      "user": "wJ_o4XkAAAAJ",
+      "source": "https://about.uq.edu.au/experts/1100?page=0",
+      "official_source": "https://www.usc.edu.au/people/associate-professor-damon-kent",
+      "context": "Dr Damon Kent | UQ Experts Damon Kent Positions Overview Background Availability Fields of research Qualifications Research interests Development and processing of metallic alloys for structural applications Light metals Metallurgy Materials processing Works Funding Past funding Supervision Availability Supervision history Completed supervision Media Enquiries Need help? External profiles Media Working with us Current students Library Contact"
+    },
+    {
+      "id": "INT-7d71756002a6",
+      "name": "Naveen Kumar Elumalai",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=MFC7nwQAAAAJ&hl=en",
+      "user": "MFC7nwQAAAAJ",
+      "source": "https://www.usc.edu.au/people/dr-naveen-kumar-elumalai",
+      "official_source": "https://www.usc.edu.au/people/dr-naveen-kumar-elumalai",
+      "context": "Dr Naveen Elumalai is a Senior Lecturer in Mechanical Engineering who joined UniSC in February 2026, bringing internationally recognised expertise in electrospun nanofiber technologies, clean energy, and advanced composites. His research turns agricultural waste and engineered polymers into high-performance materials; from nanofiber-toughened bio-composites and electromagnetic shielding membranes to piezoelectric sensors that detect damage in structures before it becomes critical. He also works on organic and perovskite solar cells, photocatalytic self-cleaning coatings, circular economy materials, and corrosion of additively manufactured alloys for defence applications. Northern Territory Young Tall Poppy of the Year (2024) and recipient of the RADICLE 25 Award for Outstanding Contribution to NT Science and Innovation, Naveen is recognised among the top 2% of scientists globally by Stanford University for five consecutive years (2021–2025), with over 90 publications, approximately 6,000 citations, and an h-index of 40. Before UniSC, he established the Northern Territory's first nanofiber fabrication facility at Charles Darwin University, and held academic positions at Curtin University Malaysia, UNSW Sydney, and the University of South Australia. He holds a PhD from the National University of Singapore. Research Publications Explore Dr Naveen Kumar Elumalai's publications Research Summary Identifiers ORCID Potential Research projects for HDR & Honours Students Nanofiber-rein"
+    },
+    {
+      "id": "INT-4bc159069e7c",
+      "name": "Sajeeb Saha",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=LDirc48AAAAJ&hl=en",
+      "user": "LDirc48AAAAJ",
+      "source": "https://www.usc.edu.au/people/dr-sajeeb-saha",
+      "official_source": "https://www.usc.edu.au/people/dr-sajeeb-saha",
+      "context": "Dr Sajeeb Saha received his PhD degree in in Electrical and Electronic from the University of Melbourne, Australia. He is currently a Senior Lecturer of Electrical Engineering at the School of Science and Engineering at University of the Sunshine Coast (UniSC). Prior joining UniSC, Dr Saha served as a Senior Lecturer in Electrical and Electronic Engineering at Deakin University from year 2016 to 2021. He also worked as a research fellow at National ICT Australia, Victoria Research Laboratory (2012-2014) and at the School of Engineering, The University of Melbourne (2014-2016). His research interests include power system modelling, analysis and control, fault diagnosis and fault tolerant control, renewable energy sources, battery and Hydrogen fuel cell, smart grid, cyber security of power system, etc. Dr Saha has published more than 75 research articles in high impact journals and international refereed conferences. He has been a part of externally (government and industry) funded research funds worth more than 7 million. He has supervised 2 PhD students to completion. Dr Saha served as the Chair, IEEE Industry Application Society (IAS), Victorian Chapter from 2020-2021. He is a member of IEEE Power and Energy Society and Engineers Australia. He serves on the editorial board or committees of several journals and international conferences. Research Publications Research Publications Rahman S, Saha S, Islam SN, Arif M, Mosadeghy M, Haque E, Oo AM. Analysis of Power Grid Voltage "
+    },
+    {
+      "id": "INT-ee57bd38101b",
+      "name": "Elizabeth Chang",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=RITFWA8AAAAJ&hl=en",
+      "user": "RITFWA8AAAAJ",
+      "source": "https://www.usc.edu.au/people/professor-elizabeth-chang",
+      "official_source": "https://www.usc.edu.au/people/professor-elizabeth-chang",
+      "context": "Professor Elizabeth Chang | UniSC | University of the Sunshine Coast, Queensland, Australia Professor Elizabeth Chang | UniSC | University of the Sunshine Coast, Queensland, Australia Accessibility links Search News Professor Elizabeth Chang Research Publications Research Summary Identifiers Research Grants Research Projects Teaching and supervision Teaching Summary Professional Awards and memberships Professional Memberships Awards and Fellowships Professional Social Media Media"
+    },
+    {
+      "id": "INT-2829de52c282",
+      "name": "Tianwa Chen",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=AhGeJUcAAAAJ&hl=en",
+      "user": "AhGeJUcAAAAJ",
+      "source": "https://www.usc.edu.au/people/dr-tianwa-chen",
+      "official_source": "https://www.usc.edu.au/people/dr-tianwa-chen",
+      "context": "Dr Tianwa Chen has an interdisciplinary research background spanning data science, information systems, artificial intelligence, business process management, and human-centred computing. Her research centres on human decision-making and cognitive processes in the use of digital information artefacts, with a particular focus on data quality management and human-centred AI. Her work also extends to digital equity and gender disparities in collaborative knowledge platforms. A distinctive strength of her research is her expertise in multimodal behavioural and psychophysiological methods, which she applies to explore complex user behaviours and inform the design of human-centred decision support systems that enhance user experience, accessibility, and inclusion. Her work has been published in leading international journals and conferences, including Information Systems, ACM Transactions on Information Systems, Computers in Industry, IEEE Transactions on Knowledge and Data Engineering, and Human Behavior and Emerging Technologies, as well as conferences such as CAiSE, ER, SIGIR, BPM, ACIS, and WWW. Her research excellence has been recognised through national and international awards and fellowships, including the CAiSE’26 PhD Award for the best doctoral thesis in Information Systems Engineering, the ACPHIS 2025 PhD Medal for the best Australian PhD thesis in Information Systems, and the Alexander von Humboldt Research Fellowship for Postdoctoral Researchers. Her research has also r"
+    },
+    {
+      "id": "INT-31de33786758",
+      "name": "Shahrzad Saremi",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=oDhSiscAAAAJ&hl=en",
+      "user": "oDhSiscAAAAJ",
+      "source": "https://www.usc.edu.au/people/dr-shahrzad-saremi",
+      "official_source": "https://www.usc.edu.au/people/dr-shahrzad-saremi",
+      "context": "Publications Explore Dr Shahrzad Saremi's publications Research Summary Dr. Saremi actively supervises Higher Degree by Research (HDR) candidates and welcomes enquiries from motivated researchers whose interests intersect with her areas of expertise. Prospective domestic and international candidates are encouraged to reach out to explore potential research directions. Identifiers ORCID Google Scholar Research grants LAUNCH Partnership Grant (2026), University of the Sunshine Coast — Lead Investigator, $29,357. Project: “Rapid MRI-Based Knee Segmentation: Leveraging Deep Learning for Patient-Specific 3D Models and Clinical Translation"
+    },
+    {
+      "id": "INT-77a09bdaf40b",
+      "name": "Thanh Thi Nguyen",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=xr39SOwAAAAJ&hl=en",
+      "user": "xr39SOwAAAAJ",
+      "source": "https://www.usc.edu.au/people/associate-professor-thanh-thi-nguyen",
+      "official_source": "https://www.usc.edu.au/people/associate-professor-thanh-thi-nguyen",
+      "context": "Dr Nguyen is an Associate Professor in ICT and AI at the School of Science, Technology and Engineering, University of the Sunshine Coast, Moreton Bay Campus, Queensland, Australia. Before that, he was an Associate Professor at the Department of Data Science and AI, Faculty of Information Technology, Monash University, Australia. Dr Nguyen was a visiting scholar with the Computer Science Department at Stanford University in 2015 and the John A. Paulson School of Engineering and Applied Sciences at Harvard University in 2019. He received a European-Pacific Partnership for ICT Expert Exchange Program Award from the European Commission in 2018 and an Australia–India Strategic Research Fund Early and Mid-Career Fellowship from the Australian Academy of Science in 2020. Dr Nguyen has been a leading researcher in Australia in the field of Artificial Intelligence, recognized by The Australian’s 2018 Research Magazine. He has been ranked among the world’s top 2 percent scientists in the field of Artificial Intelligence and Image Processing by Elsevier B.V. and Stanford University. He serves as an Associate Editor for the Knowledge-Based Systems and Healthcare Analytics journals, published by Elsevier, and the Human-Centric Intelligent Systems journal, published by Springer. Over the years, Dr Nguyen has played a sustained role in the international AI and computing research community, serving as a Technical or Program Committee Member for numerous high-profile conferences. In addition,"
+    },
+    {
+      "id": "INT-2a5edefd9bfb",
+      "name": "Mingzhong Wang",
+      "university": "University of the Sunshine Coast",
+      "url": "https://scholar.google.com/citations?user=Jj30mIUAAAAJ&hl=en",
+      "user": "Jj30mIUAAAAJ",
+      "source": "https://www.usc.edu.au/people/dr-mingzhong-wang",
+      "official_source": "https://www.usc.edu.au/people/dr-mingzhong-wang",
+      "context": "Research Summary Identifiers ORCID Google Scholar Potential research projects for HDR and Honours students Machine learning Analysis and mining of mobile data Research grants Project name Investigators Funding body Year Focus Cloud-based Long-lived and Instance-intensive Workflow Management System Mingzhong Wang, CI Chinese National Science Foundation (A$44,000) 2012–2014 Management of large scale workflows in cloud and service environments Service Component Architecture-based Business Management System Mingzhong Wang, CI China Electronics Technology Group Corporation 2013 Design and implementation of business management systems with Service Component Architecture"
+    },
+    {
+      "id": "INT-f0850cf9b269",
+      "name": "Reem Sherif",
+      "university": "Charles Darwin University",
+      "url": "https://scholar.google.com/citations?user=Ke5A85gAAAAJ&hl=en",
+      "user": "Ke5A85gAAAAJ",
+      "source": "https://researchers.cdu.edu.au/en/persons/reem-sherif/",
+      "official_source": "https://www.cdu.edu.au/engineering-it-environment/it/staff",
+      "context": "View Scopus Profile Reem Sherif Dr Lecturer Information Technology , Faculty of Science and Technology , Information Technology https://orcid.org/0000-0002-6992-6608 Registered to supervise postgraduate research PhD projects Please send me an email for research supervision or mentoring"
+    },
+    {
+      "id": "INT-7a29a78b1f93",
+      "name": "Matthias Bode",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=tUOJzEsAAAAJ&hl=en",
+      "user": "tUOJzEsAAAAJ",
+      "source": "https://www.physik.uni-wuerzburg.de/ep2/team/prof-dr-matthias-bode/",
+      "official_source": "https://www.physik.uni-wuerzburg.de/ep2/team/prof-dr-matthias-bode/",
+      "context": "Experimentelle Physik II Team Prof. Dr. Matthias Bode Prof. Dr. Matthias Bode Prof. Dr.\n        \n        Matthias  Bode Head of Chair, Professor Experimental Physics 2 University of Würzburg Am Hubland 97074 Würzburg Germany Gebäude: P1 (Physik) Raum: F-161 Telefon: +49 931 31-83218 Fax: +49 931 31-85158 E-Mail: matthias.bode@uni-wuerzburg.de Cunsultation hour upon email request. ORCID: 0000-0001-7514-5560 Researcher ID: S-3249-2016 Google Scholar: Account Scientific Education 1993: Physik Diplom; Freie Universität Berlin (Germany) 1996: PhD in Physics (Dr. rer. nat.); Universität Hamburg (Germany) 2003: Habilitation in experimental physics; Universität Hamburg (Germany) Employment History 1996-2007: Senior Scientist at the Microsctructure Research Centre of the University of Hamburg in the research group of Prof. Dr. R. Wiesendanger; leader of the group \"Nanomagnetism\" 2007-2010: Leader of the \"Electronic and Magnetic Materials & Devices Group\" at the Center for Nanoscale Materials (Argonne National Laboratory, Illinois, USA) since July 2010: Chair of Experimental Physics II, University of Würzburg Awards 1996: Prize of the Physics Department for an outstanding Ph.D. thesis 2003: Philip-Morris Research Award 2007: IEEE Magnetic Society Distinguished Lecturer Downloads (pdf) Publications Curriculum Vitae (CV)"
+    },
+    {
+      "id": "INT-d9c8f1326359",
+      "name": "Vladimir Dyakonov",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=p5Iebk0AAAAJ&hl=en",
+      "user": "p5Iebk0AAAAJ",
+      "source": "https://www.physik.uni-wuerzburg.de/ep6/staff/professors/prof-dr-vladimir-dyakonov/",
+      "official_source": "https://www.physik.uni-wuerzburg.de/ep6/staff/professors/prof-dr-vladimir-dyakonov/",
+      "context": "Prof. Dr.\n        \n        Vladimir  Dyakonov Professor Head of Experimental Physics VI Experimental Physics VI University of Würzburg Am Hubland 97074 Würzburg Germany Gebäude: P3 (ZEF) Raum: E02 Telefon: +49 931 31-83111 E-Mail: vladimir.dyakonov@uni-wuerzburg.de ORCID: https://orcid.org/0000-0001-8725-9573 Web of Science ResearcherID: F-6862-2013 Google Scholar: Account ↓ Curriculum Vitae (CV) (July 2026) Research funded by:"
+    },
+    {
+      "id": "INT-43153b57c68b",
+      "name": "Sven Höfling",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=ZVggr60AAAAJ&hl=en",
+      "user": "ZVggr60AAAAJ",
+      "source": "https://www.physik.uni-wuerzburg.de/tep/team/head-of-chair/prof-dr-sven-hoefling/",
+      "official_source": "https://www.physik.uni-wuerzburg.de/tep/team/head-of-chair/prof-dr-sven-hoefling/",
+      "context": "Prof. Dr. Sven Höfling - Technische Physik Prof. Dr. Sven Höfling Prof. Dr.\n        \n        Sven  Höfling Topics and Research Interests List of Publications (07/2026) Bildnachweise"
+    },
+    {
+      "id": "INT-756f530e5212",
+      "name": "Dominik Neuenfeld",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=62v4dMvVDc0C&hl=en",
+      "user": "62v4dMvVDc0C",
+      "source": "https://www.physik.uni-wuerzburg.de/tp3/personen/professoren/prof-dr-dominik-neuenfeld/",
+      "official_source": "https://www.physik.uni-wuerzburg.de/tp3/personen/professoren/prof-dr-dominik-neuenfeld/",
+      "context": "Theoretische Physik III Personen Professoren Prof. Dr. Dominik Neuenfeld Prof. Dr. Dominik Neuenfeld Prof. Dr.\n        \n        Dominik  Neuenfeld Juniorprofessor 97074 Würzburg Germany Gebäude: B2 Raum: 1.108 Telefon: 0931 31 81939 E-Mail: dominik.neuenfeld@uni-wuerzburg.de Forschungsinteressen: Schwarze Löcher und Gravitation Quanteninformationstheorie Verallgemeinerungen von Holographie AdS/CFT im Limes einer flachen Raumzeit Wiss. Werdegang: Seit 2023: W1 Professur an der Universität Würzburg 2022: Postdoc an der Universität Amsterdam, Niederlande 2019: Postdoc am Perimeter Institut für theoretische Physik, Waterloo, Kanada 2015-2019: PhD an der Universität von British Columbia, Vancouver, Kanada 2014: Tutor am afrikanischen Institut für mathematische Wissenschaften, M'bour, Senegal 2014: MSc und BSc an der Universität Heidelberg (Imperial College) Publikationen: Für eine aktuelle Liste, siehe Inspire oder Google Scholar ."
+    },
+    {
+      "id": "INT-0bffce065a6a",
+      "name": "Giorgio Sangiovanni",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=SeCV78UAAAAJ&hl=en",
+      "user": "SeCV78UAAAAJ",
+      "source": "https://www.physik.uni-wuerzburg.de/cqm/team/prof-dr-giorgio-sangiovanni/",
+      "official_source": "https://www.physik.uni-wuerzburg.de/cqm/team/prof-dr-giorgio-sangiovanni/",
+      "context": "Google Scholar: Giorgio Sangiovanni"
+    },
+    {
+      "id": "INT-d56707bd0fed",
+      "name": "Alexander Wolff",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=7XqwgZoAAAAJ&hl=en",
+      "user": "7XqwgZoAAAAJ",
+      "source": "https://www.informatik.uni-wuerzburg.de/algo/team/wolff-alexander/",
+      "official_source": "https://www.informatik.uni-wuerzburg.de/algo/team/wolff-alexander/",
+      "context": "Wolff, Alexander - Lehrstuhl für Informatik I - Algorithmen und Komplexität Prof. Dr. Alexander Wolff Aktuelle Lehre Forschung Arbeit in Ausschüssen Kurzer Werdegang Wichtige Veröffentlichungen Vollständige Publikationsliste Schnelleinstieg Bildnachweise"
+    },
+    {
+      "id": "INT-ed102271aca6",
+      "name": "Marie Schmidt",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=b7JEDtAAAAAJ&hl=en",
+      "user": "b7JEDtAAAAAJ",
+      "source": "https://www.informatik.uni-wuerzburg.de/algo/team/schmidt-marie/",
+      "official_source": "https://www.informatik.uni-wuerzburg.de/algo/team/schmidt-marie/",
+      "context": "Fakultät für Mathematik und Informatik Institut für Informatik Lehrstuhl für Informatik I Team Schmidt, Marie Prof. Dr. Marie Schmidt Professorin für Optimierung unter Ressourcenbschränkungen Lehrstuhl für Informatik I Universität Würzburg Am Hubland D-97074 Würzburg Tel.: 0931 31 84571 Gebäude M4 , Raum 01.018 Email: marie.schmidt@uni-wuerzburg.de Forschung Mein Forschungsgebiet ist die (angewandte) Optimierung, insbesondere interessiere ich mich für kombinatorische Optimierung, Optimierung auf Netzwerken, Optimierung unter Unsicherheit und multikriterielle Optimierung. Die Optimierungsprobleme, um die es dabei geht, kommen meist aus dem Bereich Verkehr, Mobilität und Transport. Publikationsübersicht auf ‪ Google Scholar Abschlussarbeiten Haben Sie Interesse an einer Abschlussarbeit im Bereich Optimierung, oder im Bereich Verkehr, Transport und Mobilität? Dann sprechen Sie mich gerne an! Lehre eine Übersicht der am Lehrstuhl angebotenen Veranstaltungen findet sich hier"
+    },
+    {
+      "id": "INT-3eebd6a90c02",
+      "name": "Radu Timofte",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=u3MwH5kAAAAJ&hl=en",
+      "user": "u3MwH5kAAAAJ",
+      "source": "https://www.informatik.uni-wuerzburg.de/computervision/",
+      "official_source": "https://www.informatik.uni-wuerzburg.de/computervision/",
+      "context": "Prof. Dr. Radu Timofte Humboldt Professor for AI and Computer Vision radu.timofte@uni-wuerzburg.de Chair for Computer Vision (Computer Science IV ) University of Würzburg Faculty of Mathematics and Computer Science CAIDAS Publications (Google Scholar) John Skilton Str. 4a Hubland Nord D-97074 Würzburg Germany Office HI.02.B.01 o pening hours : by appointment Sekretariat Monika O'Neill Office opening hours : Monday, Tuesday, Wednesday 9:00-17:00 & by appointment"
+    },
+    {
+      "id": "INT-4346d54d6014",
+      "name": "Marco Pruckner",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=mo-CTdsAAAAJ&hl=en",
+      "user": "mo-CTdsAAAAJ",
+      "source": "https://www.informatik.uni-wuerzburg.de/modsim/team/pruckner/",
+      "official_source": "https://www.informatik.uni-wuerzburg.de/modsim/team/pruckner/",
+      "context": "Prof. Dr.-Ing. Marco Pruckner - Computer Science XI - Modeling and Simulation Prof. Dr.-Ing. Marco Pruckner Links Short CV Research projects Publications Bildnachweise"
+    },
+    {
+      "id": "INT-850d0c21b81a",
+      "name": "Linus Franke",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=WwjWM6UAAAAJ&hl=en",
+      "user": "WwjWM6UAAAAJ",
+      "source": "https://linus-franke.com/",
+      "official_source": "https://linus-franke.com/",
+      "context": "linus (dot) franke (at) uni-wuerzburg (dot) de / Scholar / Twitter / Bluesky / Github"
+    },
+    {
+      "id": "INT-4b668e47f831",
+      "name": "Carlo D'Eramo",
+      "university": "University of Würzburg",
+      "url": "https://scholar.google.com/citations?user=1Rt_86gAAAAJ&hl=en",
+      "user": "1Rt_86gAAAAJ",
+      "source": "https://www.caidas.uni-wuerzburg.de/rlcdm/team/carlo-deramo/",
+      "official_source": "https://www.caidas.uni-wuerzburg.de/rlcdm/team/carlo-deramo/",
+      "context": "Carlo D'Eramo - Reinforcement Learning and Computational Decision-Making Carlo D'Eramo Prof. Dr.\n        \n        Carlo  D'Eramo About me Curriculum Vitae Service Publications Journal articles Conference proceedings Workshop papers Theses Teaching Bildnachweise"
+    },
+    {
+      "id": "INT-ea7f5f8dc09a",
+      "name": "Johannes Kinder",
+      "university": "LMU Munich",
+      "url": "https://scholar.google.com/citations?user=rnDHTKYAAAAJ&hl=en",
+      "user": "rnDHTKYAAAAJ",
+      "source": "https://www.plai.ifi.lmu.de/people/professors/kinder/index.html",
+      "official_source": "https://www.plai.ifi.lmu.de/",
+      "context": "Professor Dr. Johannes Kinder - Chair of Programming Languages and AI - LMU Munich Prof. Dr.\n                Johannes Kinder Contact Short Biography Conference and Workshop Organization Program Committee Memberships Selected Publications"
+    },
+    {
+      "id": "INT-449c38949b58",
+      "name": "Aloka Sinha",
+      "university": "Indian Institute of Technology Delhi",
+      "url": "https://scholar.google.com/citations?user=nGh3mDkAAAAJ&hl=en",
+      "user": "nGh3mDkAAAAJ",
+      "source": "https://web.iitd.ac.in/~aloka/publications.html",
+      "official_source": "https://web.iitd.ac.in/~aloka/",
+      "context": "Prof. Aloka Sinha | Publications Prof. Aloka Sinha Publications Journal Papers Conference Papers Monograph"
+    },
+    {
+      "id": "INT-b13005911724",
+      "name": "Amit Kumar",
+      "university": "Indian Institute of Technology Delhi",
+      "url": "https://scholar.google.com/citations?user=Qu97aMEAAAAJ&hl=en",
+      "user": "Qu97aMEAAAAJ",
+      "source": "https://www.cse.iitd.ac.in/~amitk/",
+      "official_source": "https://homecse.iitd.ac.in/team/amit-kumar/",
+      "context": "Amit Kumar's Homepage Amit Kumar Research Teaching Publications ( google scholar ) Contact Information"
+    },
+    {
+      "id": "INT-5061b9b6da41",
+      "name": "Surya Prakash",
+      "university": "Indian Institute of Technology Indore",
+      "url": "https://scholar.google.com/citations?user=pqP66FLxeBMC&hl=en",
+      "user": "pqP66FLxeBMC",
+      "source": "https://people.iiti.ac.in/~surya/",
+      "official_source": "https://cse.iiti.ac.in/people/faculty",
+      "context": "Home | Teaching Interests | Research Interests | Publications | Sponsored Projects | Students | Short-Term Courses | Join Us PhD and Internship aspirants, click here Dr. Surya Prakash Professor Department of Computer Science and Engineering, School of Engineering, Indian Institute of Technology Indore Indore-453552, Madhya Pradesh, India E-mail: surya AT iiti DOT ac DOT in,\nspagnihotri AT gmail DOT com Phone: +91-731-660-3242 Welcome to my homepage! \nMy broad research interest includes Biometrics, Machine Learning, Deep Learning, Pattern Recognition, Computer Vision, Image Processing, Big Data, and 3D Point Cloud Processing. I am also interested in the use of modern technologies for the preservation of traditional Indian Heritage. Education PhD, 2013, Department of Computer Science & Engineering, Indian Institute of Technology Kanpur, Kanpur, UP, INDIA. MS, 2008, Department of Computer Science & Engineering, Indian Institute of Technology Madras, Chennai, TN, INDIA. BTech, 2001, Department of Computer Science & Engineering, Institute of Engineering and Technology Kanpur, UP, INDIA. Experience Professor, Indian Institute of Technology Indore, Indore, MP, INDIA. [August 2024 - till date] Associate Professor, Indian Institute of Technology Indore, Indore, MP, INDIA. [August 2019- August 2024] Assistant Professor, Indian Institute of Technology Indore, Indore, MP, INDIA. [June 2013-August 2019] Visiting Assistant Professor, Indian Institute of Technology Indore, Indore, MP, INDIA"
+    },
+    {
+      "id": "INT-94aab3f2f625",
+      "name": "Gourinath Banda",
+      "university": "Indian Institute of Technology Indore",
+      "url": "https://scholar.google.com/citations?user=k5nOs00AAAAJ&hl=en",
+      "user": "k5nOs00AAAAJ",
+      "source": "https://people.iiti.ac.in/~gourinath/",
+      "official_source": "https://cse.iiti.ac.in/people/faculty",
+      "context": "Gourinath Banda Professor Indian Institute of Technology Indore Discipline of Computer Science and Engineering , Office: Building POD 1A, Room 422 || Lab: POD 1C 204D Khandwa Road, Simrol Indore, Madhya Pradesh, INDIA 453 552 E-mail: gourinath@iiti.ac.in Autonomous Cyber Physical Systems Research Group Education Ph.D. in Computer Science (Spec: Formal verification of Embedded\nSystems) from \nRoskilde University, Denmark. (Thesis Supervisor: Prof. John Gallagher ) M.S. Engg in Mechatronics (Spec: Realtime Kernel Design) from\nUniversity of Southern Denmark, Denmark. (Thesis Supervisor: Prof. Christo Angelov ) Research Faculty member in  the Discipline of Computer Science and Engineering at Indian Institute of Technology Indore . Research\nInterests: Embedded systems (CPS, IoT, WSN, etc.), Formal verification\n(Model checking, Abstract Interpretation, Static Analysis), Temporal\nlogics, semantics-based emulation of languages and systems, Autonomous\nCyber Physical Systems: Design, Modelling and Verification, Intelligent transport systems, Digital Transformation (Blockchain, IoT, AI). Teaching Operating Systems (Autumn 2013, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25) EmbeddedSystems (Spring 2014, 15, 16, 17, 18, 19, 20, 21) Foundations of Cyber Physical Systems (Spring 2024, 2025) Discrete Mathematics: Lattice Theory (Autumn 2013) Compiler Techniques: Syntax Analysis (Spring 2017, 18) ACPS Lab News RCC2024 Challenge Award granted! CDAC Challene2024 Top8 grantee! WGS2023 Gold Award won! C"
+    },
+    {
+      "id": "INT-00932dbff56a",
+      "name": "Ayan Mondal",
+      "university": "Indian Institute of Technology Indore",
+      "url": "https://scholar.google.com/citations?user=2DCxcnkAAAAJ&hl=en",
+      "user": "2DCxcnkAAAAJ",
+      "source": "https://people.iiti.ac.in/~ayanm/",
+      "official_source": "https://cse.iiti.ac.in/people/faculty",
+      "context": "Ayan Mondal Dr. Ayan Mondal Assistant Professor Department of Computer Science and Engineering Indian Institute of Technology Indore Khandwa Road, Simrol, Indore 453552, India ayanm [AT] iiti [DOT] ac [DOT] in Contact Address Follow me"
+    },
+    {
+      "id": "INT-4e7e16e1168b",
+      "name": "Monther Abu-Remaileh",
+      "university": "Stanford University",
+      "user": "Cxv6tkoAAAAJ",
+      "url": "https://scholar.google.com/citations?user=Cxv6tkoAAAAJ&hl=en",
+      "source": "https://www.abu-remaileh.com",
+      "official_source": "https://med.stanford.edu/profiles/monther-abu-remaileh",
+      "context": "University profile directly links the Abu-Remaileh lab. The lab names Monther as PI and links its research through one Google Scholar profile. Association is source-backed; platform display unavailable."
+    },
+    {
+      "id": "INT-4478aca8d11c",
+      "name": "Nicolas Altemose",
+      "university": "Stanford University",
+      "user": "aamOod8AAAAJ",
+      "url": "https://scholar.google.com/citations?user=aamOod8AAAAJ&hl=en",
+      "source": "https://cap.stanford.edu/profiles/viewCV?facultyId=307703&name=Nicolas_Altemose",
+      "official_source": "https://med.stanford.edu/profiles/altemose",
+      "context": "Person-named official Stanford CV explicitly identifies this Google Scholar profile URL."
+    },
+    {
+      "id": "INT-21e0b8ec3af1",
+      "name": "Oliver Fringer",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=Deo7vLsAAAAJ&hl=en",
+      "user": "Deo7vLsAAAAJ",
+      "source": "https://web.stanford.edu/~fringer/research_modeling.html",
+      "official_source": "https://cee.stanford.edu/people/oliver-fringer",
+      "context": "Oliver Fringer Research Numerical model development Nonhydrostatic ocean modeling Unstructured grids Navier-Stokes codes Applications of numerical models"
+    },
+    {
+      "id": "INT-ba1d85e43475",
+      "name": "Michael Bernstein",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=zkhHirIAAAAJ&hl=en",
+      "user": "zkhHirIAAAAJ",
+      "source": "https://profiles.stanford.edu/michael-bernstein",
+      "official_source": "https://www.cs.stanford.edu/people/michael-bernstein",
+      "context": "Bio Michael Bernstein is a Professor of Computer Science at Stanford University, where he is a Bass University Fellow and Senior Fellow at the Stanford Institute for Human-Centered Artificial Intelligence. A nationally bestselling author, Michael focuses on designing social, societal, and interactive technologies. This research has been reported in venues such as The New York Times, TED AI, and MIT Technology Review, and Michael himself has been recognized with an Alfred P. Sloan Fellowship and the Computer History Museum's Tech for Humanity Prize. Michael holds a bachelor's degree in Symbolic Systems from Stanford University, as well as a master's degree and a Ph.D. in Computer Science from MIT. Academic Appointments Professor, Computer Science Senior Fellow, Institute for Human-Centered Artificial Intelligence (HAI) Member, Bio-X Honors & Awards National Bestseller, Flash Teams (MIT Press), USA TODAY (10/15/2025) Bass University Fellow, Stanford University Patrick J. McGovern Tech for Humanity Prize, Computer History Museum Lasting Impact Award, UIST CASBS Fellow, Center for Advanced Study in the Behavioral Sciences Teaching Honor Roll, Tau Beta Pi Sloan Research Fellowship, Sloan Foundation NSF CAREER award, National Science Foundation Outstanding Academic Title, \"Handbook of Collective Intelligence\", American Library Association, Choice George M. Sprowls Award for best doctoral thesis in Computer Science, MIT Program Affiliations Symbolic Systems Program Professional Educ"
+    },
+    {
+      "id": "INT-a4e56092f65a",
+      "name": "Moses Charikar",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=fYO2d9IAAAAJ&hl=en",
+      "user": "fYO2d9IAAAAJ",
+      "source": "https://profiles.stanford.edu/moses-charikar",
+      "official_source": "https://www.cs.stanford.edu/people/moses-charikar",
+      "context": "Bio Moses Charikar is the Donald E. Knuth professor of Computer Science at Stanford University. He obtained his PhD from Stanford in 2000, spent a year in the research group at Google, and was on the faculty at Princeton from 2001-2015. His research interests include: efficient algorithmic techniques for processing, searching and indexing massive high-dimensional data sets; efficient algorithms for computational problems in high-dimensional statistics and optimization problems in machine learning; approximation algorithms for discrete optimization problems with provable guarantees; convex optimization approaches for non-convex combinatorial optimization problems; low-distortion embeddings of finite metric spaces. His work won best paper awards at FOCS 2003, COLT 2017 and SODA 2024, the 10 year best paper award at VLDB 2017 and the 20 year test of time award at STOC 2022. He was jointly awarded the 2012 Paris Kanellakis Theory and Practice Award for his work on locality sensitive hashing, was named a Simons Investigator in theoretical computer science in 2014, and an ACM Fellow in 2021. Academic Appointments Professor, Computer Science Professor (By courtesy), Mathematics Member, Bio-X Member, Wu Tsai Human Performance Alliance Honors & Awards ACM Fellow, ACM (2021) Paris Kanellakis Theory and Practice Award, ACM (2012) Simons Investigator in Theoretical Computer Science, Simons Foundation (2014) Alfred P. Sloan Fellowship, Sloan Foundation (2003) Distinguished Alumnus Award, "
+    },
+    {
+      "id": "INT-c56bda356d8c",
+      "name": "Chelsea Finn",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=vfPE6hgAAAAJ&hl=en",
+      "user": "vfPE6hgAAAAJ",
+      "source": "https://ai.stanford.edu/~cbfinn/",
+      "official_source": "https://www.cs.stanford.edu/people/chelsea-finn",
+      "context": "Chelsea Finn cbfinn at cs dot stanford dot edu I am an Assistant Professor in Computer Science and Electrical Engineering at Stanford University and co-founder of Pi . My lab, IRIS , studies intelligence through robotic interaction at scale, and is affiliated with SAIL and the ML Group . I am interested in the capability of robots and other agents to develop broadly intelligent behavior through learning and interaction. Previously, I completed my Ph.D. in computer science at UC Berkeley and my B.S. in electrical engineering and computer science at MIT . I also spent time at Google as part of the Google Brain and Google DeepMind team. Prospective students and post-docs , please see this page . CV / Bio / PhD Thesis / Google Scholar / Twitter / IRIS Lab"
+    },
+    {
+      "id": "INT-a5c1aba862b4",
+      "name": "Dan Jurafsky",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=uZg9l58AAAAJ&hl=en",
+      "user": "uZg9l58AAAAJ",
+      "source": "https://web.stanford.edu/~jurafsky/",
+      "official_source": "https://www.cs.stanford.edu/people/dan-jurafsky",
+      "context": "BOOKS 2026 ARTICLES [ALL PUBS] [GOOGLE SCHOLAR] Preprints Myra Cheng, Lujain Ibrahim, Grace Liu, Michelle S. Lam, Vishakh Padmakumar, Nick Madibekov, Diyi Yang, Dan Jurafsky. 2026. LLMs as Oracles: Reliance on LLMs for Subjective Personal Questions. . ArXiv preprint. Andrew Lanpouthakoun*, Aryaman Arora*, Zhengxuan Wu, Dhruv Pai, Ben Keigwin, Dan Jurafsky, Christopher Potts. 2026. PreFT: Prefill-only finetuning for inference efficiency .\narXiv:2605.14217. Sunny Yu, Myra Cheng, Ahmad Jabbar, Ilia Sucholutsky, Katherine M. Collins, Dan Jurafsky, Robert D. Hawkins. 2026. The Efficiency-Gain Illusion: People Underestimate the Rate of AI Use and Overestimate Its Benefits on Simple Tasks .  ArXiv pre-print under review. Sunny Yu, Ahmad Jabbar, Robert Hawkins, Dan Jurafsky, Myra Cheng.  2025. Generation Space Size: Understanding and Calibrating Open-Endedness of LLM Generations .\nArXiv pre-print, under review. 2026 Nathan Roll, Pranav Bhalerao, Martijn Bartelds, Arjun Pawar, Yuka Tatsumi, Tolulope Ogunremi, Chen Shani, Calbert Graham, Meghan Sumner, Dan Jurafsky. 2026. Categorize Early, Integrate Late: Divergent Processing Strategies in Automatic Speech Recognition. To appear, EMNLP 2026 Yuka Tatsumi, Nathan Roll, Robert D. Hawkins, Meghan Sumner, Dan Jurafsky.\n2026.  Universality of Speech Emotion Recognition in Humans and Speech Language Models.  To appear, Interspeech 2026. TolÃºlá»páº¹Ì ÃgÃºnráº¹ÌmÃ­, Dan Jurafsky, Christopher D. Manning, Ahmet ÃstÃ¼n, Martijn Bartelds. 202"
+    },
+    {
+      "id": "INT-d2092d1e36da",
+      "name": "Fredrik Kjolstad",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=bCCxZ28AAAAJ&hl=en",
+      "user": "bCCxZ28AAAAJ",
+      "source": "https://profiles.stanford.edu/fredrik-kjoelstad",
+      "official_source": "https://www.cs.stanford.edu/people/fredrik-kjoelstad",
+      "context": "Bio Fredrik Kjolstad is an Assistant Professor in Computer Science at Stanford University. He works on topics in compilers, programming models, and systems, with an emphasis on compiler techniques that make high-level languages portable. He has received the NSF CAREER Award, the MIT EECS Sprowls PhD Thesis Award in Computer Science, the Tau Beta Phi 2024 Teaching Honor Roll, the Google ML and Systems Junior Faculty Awards, and several distinguished paper awards. Academic Appointments Assistant Professor, Computer Science Honors & Awards Google ML and Systems Junior Faculty Award, Google (2025) Distinguished Artifact Award, ISCA (2024) Teaching Honor Roll, Stanford Tau Beta Pi (2024) Distinguished Paper Award, PLDI (2023) NSF CAREER Award, NSF (2022) Distinguished Paper Award, OOPSLA (2021) Google Research Scholar, Google (2021) First Place MIT EECS George M. Sprowls PhD Thesis Award in Computer Science, MIT EECS (2020) Robert N. Noyce Faculty Fellow, Stanford University School of Engineering (2020) Distinguished Paper Award, OOPSLA (2017) Adobe Fellowship, Adobe (2016) Best Paper Award, EuroMPI (2013) Rosing Prize for best Norwegian IT-related student work., The Norwegian Computer Society (2006) Program Affiliations Stanford SystemX Alliance Additional Info ORCID: https://orcid.org/0000-0002-2267-903X Links Academic website Google Scholar"
+    },
+    {
+      "id": "INT-952fcadd8456",
+      "name": "Christopher Manning",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=1zmDOdwAAAAJ&hl=en",
+      "user": "1zmDOdwAAAAJ",
+      "source": "https://nlp.stanford.edu/~manning/",
+      "official_source": "https://www.cs.stanford.edu/people/christopher-manning",
+      "context": "Christopher Manning, Stanford NLP Christopher Manning Thomas M. Siebel Professor in Machine Learning, Professor of Linguistics and of Computer Science Senior Fellow, Stanford Institute for Human-Centered Artificial Intelligence (HAI) Stanford NLP Group , Stanford AI Lab , HAI , RegLab , Linguistics and Computer Science , Stanford University What's New? Bio Contact Brief CV Papers Books Talks/Videos Students Research Projects Courses Other stuff"
+    },
+    {
+      "id": "INT-d8c3d5d129c5",
+      "name": "Azalia Mirhoseini",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=I1nZzWsAAAAJ&hl=en",
+      "user": "I1nZzWsAAAAJ",
+      "source": "https://profiles.stanford.edu/azalia-mirhoseini",
+      "official_source": "https://www.cs.stanford.edu/people/azalia-mirhoseini",
+      "context": "Bio Azalia Mirhoseini is an Assistant Professor of Computer Science at Stanford University where she directs Scaling Intelligence, a research lab focused on developing scalable and self-improving AI systems. She is a co-founder of Ricursive Intelligence, a frontier lab dedicated to recursive self-improvement through AI that designs the chips that fuel it. Previously, she spent several years in industry AI labs, including Google Brain, Anthropic, and Google DeepMind, working on Gemini and Claude, among other projects. Her past work includes Mixture-of-Experts (MoE) neural architectures, now predominantly used in leading frontier AI models; AlphaChip, a reinforcement learning approach for layout optimization used in the design of advanced chips like Google AI accelerators (TPUs) and data center CPUs; as well as pioneering research on LLM Test-Time Scaling. Her work has been recognized through the Okawa Research Grant, the Google ML and Systems Junior Faculty Award, MIT Technology Review's 35 Under 35 Award, the Best ECE Thesis Award at Rice University, publications in flagship venues such as Nature, and coverage by various media outlets, including WSJ, NYT, Forbes, MIT Technology Review, IEEE Spectrum, WIRED, and TechCrunch. Academic Appointments Assistant Professor, Computer Science Program Affiliations Stanford SystemX Alliance Links http://azaliamirhoseini.com/ Google Scholar"
+    },
+    {
+      "id": "INT-9bb26cad25f7",
+      "name": "James D. Paron",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=OhpTkHEAAAAJ&hl=en",
+      "user": "OhpTkHEAAAAJ",
+      "source": "https://jamesparon.com/research",
+      "official_source": "https://www.gsb.stanford.edu/faculty-research/faculty/james-d-paron",
+      "context": "James D. Paron James D. Paron James D. Paron James D. Paron Home Research CV More Home Research CV James D. Paron James D. Paron James D. Paron James D. Paron Home Research CV Working Papers Making room on an empty planet: The spatial consequences of depopulation with Tim de Silva The wealth of stagnation: Falling growth, rising valuations Who gains when interest rates fall? with Sylvain Catherine, Max Miller, and Natasha Sarin U.S. Treasury Investors are Long in AI with Howard Kung and Hanno Lustig [ Blog Post ] Heterogeneous-agent asset pricing: Timing and pricing idiosyncratic risks Associative learning and representativeness with Michael J. Kahana and Jessica A. Wachter Publications Sovereign default and the decline in interest rates with Max Miller and Jessica A. Wachter Forthcoming, Review of Financial Studies A dynamic model of the racial wealth gap with Sylvain Catherine and Ellen Lu Forthcoming, Review of Financial Studies Publications in other fields A dynamic model of context-based retrieval with Madison D. Paron and Michael J. Kahana Journal of Mathematical Psychology , 2025 faculty page • google scholar • github.io"
+    },
+    {
+      "id": "INT-b543790f1fc4",
+      "name": "Zhiguo He",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=WI3u_xIAAAAJ&hl=en",
+      "user": "WI3u_xIAAAAJ",
+      "source": "https://zhiguohe.net/publications/research/",
+      "official_source": "https://www.gsb.stanford.edu/faculty-research/faculty/zhiguo-he",
+      "context": "Research – Zhiguo He (何治国) Research FORTHCOMING WORKING PAPERS ​PUBLICATIONS Financial Markets and Macroeconomics Dynamic Capital Structure and Debt Maturity Corporate Bonds and Market Liquidity Chinese Economy and Financial Market Economics in FinTech Optimal Contracting and Executive Compensation"
+    },
+    {
+      "id": "INT-dabdac963019",
+      "name": "Trithep Devakul",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=XPXVLeUAAAAJ&hl=en",
+      "user": "XPXVLeUAAAAJ",
+      "source": "https://profiles.stanford.edu/trithep-devakul",
+      "official_source": "https://physics.stanford.edu/people/trithep-devakul",
+      "context": "Trithep Devakul's Profile | Stanford Profiles Trithep Devakul Assistant Professor of Physics Bio Academic Appointments Honors & Awards Professional Education Contact Links 2026-27 Courses 2025-26 Courses 2024-25 Courses 2023-24 Courses Stanford Advisees All Publications Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract"
+    },
+    {
+      "id": "INT-5dc78e317eff",
+      "name": "Patrick Hayden",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=xbjTAm4AAAAJ&hl=en",
+      "user": "xbjTAm4AAAAJ",
+      "source": "https://web.stanford.edu/~phayden/",
+      "official_source": "https://physics.stanford.edu/people/patrick-hayden",
+      "context": "Patrick Hayden Professor\nof Physics Stanford University Office: 308 Varian Phone: (650)725-9181 Email: phayden@stanford.edu Research Interests Quantum information theory, quantum\ncomputing and their role in fundamental physics. I study the absolute\nlimits that\nphysics places on information processing, and how to exploit physical\neffects to accomplish otherwise impossible communication and computing\ntasks. Some Papers * Fault-tolerant qubit from a constant number of components * Approximate quantum error\ncorrection revisited: Introducing the alphabit * Entanglement wedge\nreconstruction via universal recovery channels * Holographic duality from\nrandom tensor networks * Quantum computation vs.\nfirewalls * Two-message quantum\ninteractive proofs and the quantum separability problem * Summoning information in\nspacetime, or where and when can a qubit be? * Holographic mutual\ninformation is monogamous * From low-distortion norm\nembeddings to explicit uncertainty relations and efficient information\nlocking * Black holes as mirrors:\nQuantum information in random subsystems * Counterexamples to the\nmaximal p -norm multiplicativity conjecture for all p > 1 More... Other Affiliations Professor\nof Computer Science (by courtesy), Stanford University Director,\nIt from Qubit Simons Collaboration Fellow, CIFAR\nQuantum Information Processing Program Home Publications Group\nMembers Contact\ninformation"
+    },
+    {
+      "id": "INT-b1947bc85068",
+      "name": "Zhi-Xun Shen",
+      "university": "Stanford University",
+      "url": "https://scholar.google.com/citations?user=P05j1WwAAAAJ&hl=en",
+      "user": "P05j1WwAAAAJ",
+      "source": "https://arpes.stanford.edu/our-people/professor-zhi-xun-shen",
+      "official_source": "https://physics.stanford.edu/people/zhi-xun-shen",
+      "context": "Main navigation Skip Secondary Navigation Secondary Navigation Professor Zhi-Xun Shen Administrative Associate Visitors Collaborators Postdoctoral Scholars Graduate Students Undergraduate Students Previous Members Main content start Dr. Shen is the Paul Pigott Professor in Physical Sciences, Professor of Physics and Applied Physics Departments, and a senior fellow of the Precourt Institute for Energy at Stanford. He is a member of the faculty advisory board of the Knight-Hennessy Scholars program , and the faculty steering committee of Stanford Science Fellows program , at Stanford. Research Dr. Shen's main research interest lies in the area of condensed matter and materials physics, as well as the applications of materials and devices. He develops advanced instruments, with a focus on photon-based spectroscopy, imaging, and scattering tools. He has produced an extensive amount of literature that advanced our understanding of materials related to basic energy sciences, including the physics of superconductors, oxides, novel magnets, density wave materials, topological insulators, novel carbon, and electron emitters. He has more than 600 publications, with ISI Web of Science citation over 55,000, H citation index of 145 ( Google Scholar ), and six of his papers identified by the citation tracking algorithm of the Institute for Scientific Information as among the most cited recent papers in its periodic surveys. His works have been featured as covers of the most important physi"
+    },
+    {
+      "id": "INT-d88afde95382",
+      "name": "Michael Bender",
+      "university": "Stony Brook University",
+      "url": "https://scholar.google.com/citations?user=B1_1mR8AAAAJ&hl=en",
+      "user": "B1_1mR8AAAAJ",
+      "source": "https://researchconnect.stonybrook.edu/en/persons/michael-a-bender/",
+      "official_source": "https://www.cs.stonybrook.edu/~bender",
+      "context": "Biography Michael A. Bender is the John L. Hennessy Chaired Professor of Computer Science at Stony Brook University. He was Founder and Chief Scientist at Tokutek, Inc, an enterprise database company, which was acquired by Percona in 2014. Bender received his B.A. in Applied Mathematics from Harvard University in 1992 and obtained a D.E.A. in Computer Science from the Ecole Normale Superieure de Lyon, France in 1993. He completed a Ph.D. on Scheduling Algorithms from Harvard University in 1998. He has held Visiting Scientist positions at both MIT and King's College London. He is a Fellow of the European Association for Theoretical Computer Science (EATCS), the American Association for the Advancement of Science (AAAS), and the Institute of Electrical and Electronics Engineers (IEEE). Research interests Bender's research interests span the areas of data structures and algorithms, I/O-efficient computing, scheduling, and parallel computing. He has coauthored over 200 articles on these and other topics. Resources https://www3.cs.stonybrook.edu/~bender/ https://scholar.google.com/citations?user=B1_1mR8AAAAJ&hl=en Education/Academic qualification PhD, Computer Science, Harvard University"
+    },
+    {
+      "id": "INT-f692ae6b646b",
+      "name": "Michael Ferdman",
+      "university": "Stony Brook University",
+      "url": "https://scholar.google.com/citations?user=u9J1aE4AAAAJ&hl=en",
+      "user": "u9J1aE4AAAAJ",
+      "source": "https://ai.stonybrook.edu/people/faculty/MichaelFerdman-0",
+      "official_source": "https://compas.cs.stonybrook.edu/~mferdman/",
+      "context": "Michael Ferdman Associate Professor Department of Computer Science Room 343 Stony Brook, NY 11794-2424 Phone (631) 632-8449 Website (URL) http://compas.cs.stonybrook.edu/~mferdman/ Email mferdman@cs.stonybrook.edu Scholar Link https://scholar.google.com/citations?user=u9J1aE4AAAAJ&hl=en"
+    },
+    {
+      "id": "INT-9d6aab09d9ee",
+      "name": "Klaus Mueller",
+      "university": "Stony Brook University",
+      "url": "https://scholar.google.com/citations?user=uya_Zb4AAAAJ&hl=en",
+      "user": "uya_Zb4AAAAJ",
+      "source": "https://ai.stonybrook.edu/people/faculty/KlausMueller",
+      "official_source": "https://www.cs.stonybrook.edu/~mueller",
+      "context": "Klaus Mueller Professor and Interim Chair Department of Computer Science Room 261 Stony Brook, NY 11794-2424 Phone (631) 632-1524 Website (URL) http://www.cs.stonybrook.edu/~mueller Email mueller@cs.stonybrook.edu Scholar Link https://scholar.google.com/citations?user=uya_Zb4AAAAJ&hl=en"
+    },
+    {
+      "id": "INT-aa6aeb01b322",
+      "name": "Artem Rudenko",
+      "university": "Kansas State University",
+      "url": "https://scholar.google.com/citations?user=BMcikd0AAAAJ&hl=en",
+      "user": "BMcikd0AAAAJ",
+      "source": "https://jrm.phys.ksu.edu/Faculty/rudenko.html",
+      "official_source": "https://www.phys.ksu.edu/about/people/faculty/rudenko.html",
+      "context": "See also Artem Rudenko's profile on Google Scholar . Access to journal links may be restricted to subscribers. The KSU Math/Physics Library offers an extensive collection of journal links."
+    },
+    {
+      "id": "INT-80e9a1cc4d7f",
+      "name": "Doina Caragea",
+      "university": "Kansas State University",
+      "url": "https://scholar.google.com/citations?user=GuO4UhsAAAAJ&hl=en",
+      "user": "GuO4UhsAAAAJ",
+      "source": "https://experts.ksu.edu/doina.caragea",
+      "official_source": "https://www.cs.ksu.edu/about/people/faculty/caragea/",
+      "context": "Doina Caragea Professor Department of Computer Science Contact External links View collaborators Orcid identifier 0000-0002-6440-0914 (opens in a new tab) ⁠ Professor Department of Computer Science dcaragea@ksu.edu (Work) (opens in a new tab) Collaboration Network Google Scholar (opens in a new tab) ⁠ Want to connect? Contact us (opens in a new tab)"
+    },
+    {
+      "id": "INT-2d12fb02e235",
+      "name": "Pascal Hitzler",
+      "university": "Kansas State University",
+      "url": "https://scholar.google.com/citations?user=EkwfQcMAAAAJ&hl=en",
+      "user": "EkwfQcMAAAAJ",
+      "source": "https://people.cs.ksu.edu/~hitzler/topics/publications.html",
+      "official_source": "https://www.cs.ksu.edu/about/people/faculty/hitzler/",
+      "context": "Prof. Dr. Pascal Hitzler Publications Currently Processing Books Edited Books (Research Collections) Edited Books (Proceedings) Journal Publications Book Contributions Conference Publications W3C Documents AGU/EGU and Other Abstracts Workshop Publications Journal Edited Issues Edited Workshop Proceedings Posters and Demos Bulletin Contributions and Miscellaneous Media Appearances Theses Project Reports and Deliverables Unpublished Technical Reports Edited Books (enhancement programmes) Book Contributions (enhancement programmes) Unpublished Manuscripts Unpublished Edited Manuscripts"
+    },
+    {
+      "id": "INT-a823aa943f14",
+      "name": "Xuefeng Jiang",
+      "university": "Binghamton University",
+      "url": "https://scholar.google.com/citations?user=utw7r34AAAAJ&hl=en",
+      "user": "utw7r34AAAAJ",
+      "source": "https://www.binghamton.edu/apps/directory/person/profile/xjiang11",
+      "official_source": "https://www.binghamton.edu/physics/faculty/profile.html?id=xjiang11",
+      "context": "Biography Xuefeng Jiang's research primarily focuses on the intersections of physics devices, and nanophotonics, exploring areas such as integrated photonics, quantum photonics, complex photonics, biochemical sensing and non-Hermitian physics. Specifically, his research has been focusing on photonic micro/nano resonators and their applications for sensing, lasing, nonlinear optics and quantum physics. In these fields, he has published more than 30 peer-reviewed research papers in leading scientific journals, including Science , Nature and Nature Physics , and holds three U.S. patents. Additionally, he serves as an associate editor for Optics Express as well as a member of Early Career Editorial Board of Advanced Photonics . Selected Publications X. Jiang , et al., “Chaos-assisted broadband momentum transformation in optical microresonators”, Science 358, 344-347 (2017). X. Jiang , et al., “Coherent Control of Chaotic Optical Microcavity with Reflectionless Scattering Modes”, Nature Physics 20, 109–115 (2024). ( Cover Article ). C. Wang, X. Jiang (Co-First Author), et al., “Electromagnetically induced transparency at a chiral exceptional point”, Nature Physics 16, 334–340 (2020). X. Jiang , et al., “Opto-thermal dynamics in whispering-gallery microresonators”, Light: Science & Applications 9, 24 (2020). X. Jiang , “Singular dielectric nanolaser: breaking diffraction limits to atomic scale”, Advanced Photonics 6, 050503-050503 (2024). X. Jiang , et al., “Whispering-gallery sens"
+    },
+    {
+      "id": "INT-0dcac7fc7270",
+      "name": "Alexey Kolmogorov",
+      "university": "Binghamton University",
+      "url": "https://scholar.google.com/citations?user=iGff22EAAAAJ&hl=en",
+      "user": "iGff22EAAAAJ",
+      "source": "https://www.binghamton.edu/mse/profile.html?id=kolmogorov",
+      "official_source": "https://www.binghamton.edu/physics/faculty/profile.html?id=kolmogorov",
+      "context": "Biography Alexey Kolmogorov's research focuses on the design of new materials with density functional theory and machine learning methods. With a background in physics, materials science and computer science, he develops and uses materials modeling tools at the intersection of the three disciplines. Before joining the department in 2012, he was a postdoctoral researcher at Duke University (2004-2007) and a senior research fellow at the University of Oxford (2008-2012). His group has developed an open-source MAISE package for predicting new synthesizable materials. MAISE features an evolutionary algorithm for finding stable crystal structures and a neural network module for modeling interatomic interactions. Confirmed predictions include the first synthesized superconductor designed fully in silico . For more information about his research and published work, please see his website . Education PhD, Pennsylvania State      University MS, Moscow Institute of\n     Physics and Technology Research Interests Computational condensed matter physics Design of superconducting, topological and battery materials Machine learning and evolutionary optimization Honors and Awards NSF Award to design high-Tc conventional superconductors (BU 2023) NSF EAGER Award to predict doped-covalent-bond superconductors (BU 2021) NSF Award to design tin-based topological insulators, battery      anodes, and lead-free solders (BU, 2018) NSF Award to accelerate materials prediction with neural networks     "
+    },
+    {
+      "id": "INT-63e12e883c49",
+      "name": "Lun Yue",
+      "university": "Binghamton University",
+      "url": "https://scholar.google.com/citations?user=zkGdSWIAAAAJ&hl=en",
+      "user": "zkGdSWIAAAAJ",
+      "source": "https://www.binghamton.edu/apps/directory/person/profile/lyue2",
+      "official_source": "https://www.binghamton.edu/physics/faculty/profile.html?id=lyue2",
+      "context": "Biography To capture the time evolution of a fast process, we need an even faster probe that allows us to \"freeze\" the motion into a series of snapshots. Intense, ultrashort laser pulses provide such a probe, enabling scientists to not only observe but also control electron and nuclear dynamics on their natural timescales — ranging from attoseconds (10^{-18} seconds) to femtoseconds (10^{-15} seconds). Understanding and controlling these ultrafast electron dynamics is of fundamental and technological importance, as electron motion underpins processes such as current flow in materials and the initiation of chemical reactions. Lun Yue's theoretical research is in strong-field and ultrafast physics, focusing on both condensed-phase and gas-phase systems. He aims to develop the theoretical frameworks and numerical tools necessary to predict, control and probe the nonperturbative phenomena arising from strong laser-matter interactions. His research interests span from high-frequency light generation in two-dimensional, bulk and topological materials to the study of correlation-induced fragmentation in molecules. Select Publications L. Yue and M. B. Gaarde, \"Introduction to theory of high-harmonic generation in solids: tutorial\", J. Opt. Soc. Am. B 39, 535 (2022). L. Yue and M. B. Gaarde, \"Characterizing Anomalous High-Harmonic Generation in Solids\", Phys. Rev. Lett. 130, 166903 (2023) L. Yue, R. Hollinger et al., \"Signatures of multi-band effects in high-harmonic generation in mon"
+    },
+    {
+      "id": "INT-db0af5d8e3e7",
+      "name": "Zhe Fei",
+      "university": "Iowa State University",
+      "url": "https://scholar.google.com/citations?user=AZr6gwgAAAAJ&hl=en",
+      "user": "AZr6gwgAAAAJ",
+      "source": "https://faculty.sites.iastate.edu/zfei/publications",
+      "official_source": "https://www.physastro.iastate.edu/people/zhe-fei",
+      "context": "Publications | Zhe Fei Quick Links Main Quick Links Breadcrumb Publications Section Footer Quick Links Zhe Fei Legal and Privacy Links"
+    },
+    {
+      "id": "INT-f1645232c719",
+      "name": "Étienne Lantagne-Hurtubise",
+      "university": "Université de Sherbrooke",
+      "url": "https://scholar.google.com/citations?user=iNzNTBMAAAAJ&hl=en",
+      "user": "iNzNTBMAAAAJ",
+      "source": "https://www.usherbrooke.ca/physique/nous-joindre/personnel/corps-professoral/professeurs/etienne-lantagne-hurtubise",
+      "official_source": "https://www.usherbrooke.ca/recherche/fr/specialistes/details/Etienne.Lantagne-Hurtubise",
+      "context": "Publications de Pr Étienne Lantagne-Hurtubise"
+    },
+    {
+      "id": "INT-571b25fbb1b4",
+      "name": "David Sénéchal",
+      "university": "Université de Sherbrooke",
+      "url": "https://scholar.google.com/citations?user=wxCtER0AAAAJ&hl=en",
+      "user": "wxCtER0AAAAJ",
+      "source": "https://www.usherbrooke.ca/iq/en/about/team/researchers/david-senechal",
+      "official_source": "https://www.usherbrooke.ca/recherche/fr/specialistes/details/David.Senechal",
+      "context": "David Sénéchal Quantum materials Physics department Science faculty Courriel Site web personnel Google Scholar Research interests Ongoing development of numerical methods based on small systems (clusters) for the study of strongly correlated electrons Development of an open library for tensor networks Study of superconductivity in moiré systems (graphene bilayer, etc.) Study of Hubbard's three-band model for high-temperature superconductors Keywords Antiferromagnetism, scientific computing, strongly correlated electrons, topological insulators, numerical methods, variational methods, Hubbard model, parallel programming, electronic properties, superconductivity"
+    },
+    {
+      "id": "INT-436758d8ddb4",
+      "name": "Orland Hoeber",
+      "university": "University of Regina",
+      "url": "https://scholar.google.com/citations?user=ffjlLQUAAAAJ&hl=en",
+      "user": "ffjlLQUAAAAJ",
+      "source": "https://www2.cs.uregina.ca/~hoeber/",
+      "official_source": "https://www.uregina.ca/science/computer-science/directory/hoeber-orland.html",
+      "context": "Dr. Orland Hoeber Dr. Orland Hoeber Personal Information Biography Teaching Winter 2023 CS 215 CS 736/837 Spring 2022 CS 731 Winter 2022 CS 215 CS 490AP Spring/Summer 2021 CS 215 CS 890ET Winter 2021 CS 215 CS 490DG / CS 890ET Spring/Summer 2020 CS 215 CS 837 Winter 2020 CS 215 Spring/Summer 2019 CS 215 CS 837 Winter 2019 CS 215 Fall 2018 CS 215 CS 455 / CS 855 Winter 2018 CS 215 Fall 2017 CS 215 CS 837 Winter 2017 CS 455 / CS 855 Winter 2016 - Fall 2016 Sabbatical Fall 2015 CS 215 CS 837 Winter 2015 CS 215 CS 455 / CS 855 CS 490CY Fall 2014 CS 215 Spring/Summer 2014 CS 837 Winter 2014 CS 215 CS 890DS Fall 2013 CS 215 Fall 2012 CS 215 Winter 2013 CS 490CX CS 890EG Research Research Profiles Interactive Information Retrieval Information Behaviour Innovation Sport Analytics Editorial Boards/Program Committees Publications Patents Graduate Students & Postdocs Associate Head (Graduate) Contact Me"
+    },
+    {
+      "id": "INT-b741b31a589d",
+      "name": "Nashid  Shahriar",
+      "university": "University of Regina",
+      "url": "https://scholar.google.com/citations?user=m0Rgj0gAAAAJ&hl=en",
+      "user": "m0Rgj0gAAAAJ",
+      "source": "https://uregina.ca/~nss373/",
+      "official_source": "https://www.uregina.ca/science/computer-science/directory/shahriar-nashid.html",
+      "context": "Nashid Shahriar's Home Page Nashid Shahriar Email: Nashid.Shahriar AT uregina DOT ca CV About me Research Interest Prospective Students Current Projects Past Projects Classes Taught Recent News Major Awards Publications Book Chapters Refereed Journals and Magazines Refereed Conferences / Workshops Patents Granted"
+    },
+    {
+      "id": "INT-52d616b8eded",
+      "name": "Jeffrey Rau",
+      "university": "University of Windsor",
+      "url": "https://scholar.google.com/citations?user=zZ0SbV8AAAAJ&hl=en",
+      "user": "zZ0SbV8AAAAJ",
+      "source": "https://jeffrau.ca/group/",
+      "official_source": "https://jeffrau.ca/",
+      "context": "Home Teaching Group Publications Toys Group I'm currently an associate professor in the Department of Physics at the University of Windsor. My brief academic and professional history is below: 2025- Associate Professor University of Windsor 2019-2025 Assistant Professor University of Windsor 2017-2019 Post-doctoral Fellow (with R. Moessner ) Max Planck Institute for the Physics of Complex Systems 2014-2017 Post-doctoral Fellow (with M. Gingras ) University of Waterloo 2008-2014 Doctor of Philosophy (with H. Y. Kee) University of Toronto 2005-2008 Bachelor of Science (Physics and Mathematics) University of Windsor In 2026 I received the CAP Herzberg Medal in Physics for my work on frustrated magnetism and altermagnetism. See coverage from the University of Windsor and the Windsor Star The University of Windsor is located in Windsor, Ontario at the southernmost tip of Canada, just across the river from Detroit, Michigan.\n        Our group is located in the Department of Physics in Essex Hall . \n        My office is on the second floor, Room 289-1 and students from all theoretical physics groups sit in the Theory\n        Office just down the hall. Current Members I'm always looking for motivated undergraduate and graduate students to join my group. If you're interested, please get in touch and I'd be happy to discuss potential projects and opportunities. Below are the current members of the group: Lucas Montcalm (2023 - present) Master of Science (Physics) NSERC CGS-M (2023) OGS"
+    },
+    {
+      "id": "INT-dbfaf008f90b",
+      "name": "Nikolaos Tsantalis",
+      "university": "Concordia University",
+      "url": "https://scholar.google.com/citations?user=Jxc9CBwAAAAJ&hl=en",
+      "user": "Jxc9CBwAAAAJ",
+      "source": "https://users.encs.concordia.ca/~nikolaos/publications.html",
+      "official_source": "https://www.concordia.ca/faculty/nikolaos-tsantalis.html",
+      "context": "Nikolaos Tsantalis - Publications Publications Journals BibTeX BibTeX BibTeX BibTeX BibTeX BibTeX BibTeX BibTeX BibTeX BibTeX Data/BibTeX Data/BibTeX BibTeX BibTeX BibTeX BibTeX BibTeX BibTeX Data/BibTeX Data/BibTeX Book Chapters BibTeX International Conferences BibTeX BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Artifact/Data/BibTeX Presentation/BibTeX Presentation/Data/BibTeX Presentation/BibTeX BibTeX Presentation/BibTeX BibTeX BibTeX International Conferences (NIER / ERA / Short) BibTeX Data/BibTeX Presentation/BibTeX BibTeX BibTeX Tool Demonstrations Presentation/Data/BibTeX Presentation/Data/BibTeX Presentation/Data/BibTeX Video/Presentation/BibTeX Video/Presentation/BibTeX Video/Presentation/BibTeX BibTeX Video/BibTeX BibTeX BibTeX International Workshops Presentation/BibTeX BibTeX Ph.D. Dissertation BibTeX Technical Reports Presentations, Posters Presentation Presentation Invited Talks Presentation Presentation"
+    }
+  ],
+  "rejected": [
+    {
+      "id": "SL-0d23066489c3",
+      "name": "Prof. Uthayasanker Thayasivam",
+      "reason": "Previously rejected/wrong-person or duplicate account; not added."
+    },
+    {
+      "id": "SL-bd4e8fa7b541",
+      "name": "Dr. Anthony Shiran Cooray",
+      "reason": "Previously rejected/wrong-person or duplicate account; not added."
+    }
+  ]
+}

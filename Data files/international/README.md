@@ -91,3 +91,6 @@ Where a main corroborated profile has small split fragments, only the main profi
 | Jonathan Chan | Multiple corroborated profiles; no safe author-total aggregation |
 
 `_metric_verification_2026-10-12.json` preserves identity evidence, candidate results, provider snapshots, retrieval dates and the imported values. `_metric_verification_summary_2026-10-12.json` summarizes coverage. The quality-check notebook is `../../scripts/baselines/international_verification_audit.ipynb`. The existing importer regenerates the app CSVs at their existing paths; no data-path migration is needed.
+
+
+On 13 October 2026, the wider missing-link review added 92 source-backed international Google Scholar links using university pages, official-linked researcher websites and an official CV. Profile links and check dates are retained separately from the OpenAlex metric snapshot. Direct Scholar requests were rate-limited; no live Scholar metrics were added. `research_identity_evidence.csv` and `research_search_attempts.csv` preserve the association checks and individual searches.

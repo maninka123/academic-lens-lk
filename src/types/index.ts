@@ -58,6 +58,8 @@ export type Academic = {
   researchgateUrl?: string;
   scholarStatus?: string;
   researchgateStatus?: string;
+  openAlexStatus?: string;
+  openAlexUrl?: string;
   qualificationReview?: string;
   metricEvidence?: {
     metric: string;

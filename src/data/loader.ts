@@ -23,6 +23,7 @@ export async function loadDataset(): Promise<Dataset> {
   const fetchText = async (name: string) => {
     const r = await fetch(
       dir + name + "?v=" + import.meta.env.VITE_DATA_REVISION,
+      { cache: "no-store" },
     );
     if (!r.ok) throw Error(`Cannot load ${name} (${r.status}).`);
     return r.text();

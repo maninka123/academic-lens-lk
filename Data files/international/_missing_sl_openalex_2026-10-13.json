@@ -1,0 +1,1280 @@
+{
+  "checked_at": "2026-10-13",
+  "records": [
+    {
+      "academic_id": "SL-78dad1817cd4",
+      "name": "Mr. Medhisha Pasan Gunawardena",
+      "status": "openalex_matched_publication_or_affiliation_corroborated",
+      "candidate_ids": [
+        "https://openalex.org/A5036707492",
+        "https://openalex.org/A5037179948",
+        "https://openalex.org/A5113418157",
+        "https://openalex.org/A5059416909"
+      ],
+      "evidence": [
+        {
+          "work_id": "https://openalex.org/W7172503877",
+          "title": "Butterfly composition and diversity as indicators of biodiversity in human-modified suburban habitats",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W7172503877"
+        },
+        {
+          "work_id": "https://openalex.org/W7127308495",
+          "title": "Ecological structure of co‐evolved fish assemblages in a highland mountain stream in Sri Lanka",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W7127308495"
+        },
+        {
+          "work_id": "https://openalex.org/W4409261086",
+          "title": "Can butterfly diversity in changing environments serve to enhance conservation potential of urban parks and home gardens?",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4409261086"
+        },
+        {
+          "work_id": "https://openalex.org/W4403131039",
+          "title": "Citizen science and community engagement for environmental monitoring and emergency response: Lessons from the MV X-Press Pearl ship disaster",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4403131039"
+        },
+        {
+          "work_id": "https://openalex.org/W4401029483",
+          "title": "The opportunistic feeding behaviour of Schistura notostigma (Teleostei: Nemacheilidae) in tropical mountain streams in Sri Lanka",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4401029483"
+        },
+        {
+          "work_id": "https://openalex.org/W4392193866",
+          "title": "Systematic review on effects of global climate change on birds",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4392193866"
+        },
+        {
+          "work_id": "https://openalex.org/W4285107870",
+          "title": "Butterfly Gardening in Colombo, Sri Lanka: Approach to Biodiversity Conservation, Monitoring, Education, and Awareness in Urbanizing Habitats",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4285107870"
+        },
+        {
+          "work_id": "https://openalex.org/W4285122335",
+          "title": "Climate Change and Surface Water Resources in Sri Lanka",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4285122335"
+        },
+        {
+          "work_id": "https://openalex.org/W4313130643",
+          "title": "Butterfly Gardening in Colombo, Sri Lanka: Approach to Biodiversity Conservation, Monitoring, Education, and Awareness in Urbanizing Habitats",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4313130643"
+        },
+        {
+          "work_id": "https://openalex.org/W4316089615",
+          "title": "Climate Change and Surface Water Resources in Sri Lanka",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4316089615"
+        },
+        {
+          "work_id": "https://openalex.org/W4320154568",
+          "title": "Butterfly Gardening in Colombo, Sri Lanka: Approach to Biodiversity Conservation, Monitoring, Education, and Awareness in Urbanizing Habitats",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4320154568"
+        },
+        {
+          "work_id": "https://openalex.org/W4231257765",
+          "title": "Butterfly Gardening in Colombo, Sri Lanka: Approach to Biodiversity Conservation, Monitoring, Education, and Awareness in Urbanizing Habitats",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4231257765"
+        },
+        {
+          "work_id": "https://openalex.org/W4252729506",
+          "title": "Climate Change and Surface Water Resources in Sri Lanka",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4252729506"
+        },
+        {
+          "work_id": "https://openalex.org/W2621318655",
+          "title": "Adapting Sri Lanka to Climate Change: Approaches to Water Modelling in the Upper Mahaweli Catchment Area",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W2621318655"
+        }
+      ],
+      "provider_snapshot": {
+        "id": "https://openalex.org/A5059416909",
+        "display_name": "Medhisha Pasan Gunawardena",
+        "display_name_alternatives": [
+          "M. P. Gunawardena",
+          "M.P. Gunawardena",
+          "Medhisha Gunawardena",
+          "Medhisha P. Gunawardena",
+          "Medhisha Pasan Gunawardena"
+        ],
+        "works_count": 18,
+        "cited_by_count": 9,
+        "summary_stats": {
+          "2yr_mean_citedness": 0.5555555555555556,
+          "h_index": 2,
+          "i10_index": 0
+        },
+        "counts_by_year": [
+          {
+            "year": 2014,
+            "works_count": 1,
+            "oa_works_count": 0,
+            "cited_by_count": 0
+          },
+          {
+            "year": 2017,
+            "works_count": 1,
+            "oa_works_count": 0,
+            "cited_by_count": 2
+          },
+          {
+            "year": 2021,
+            "works_count": 2,
+            "oa_works_count": 0,
+            "cited_by_count": 0
+          },
+          {
+            "year": 2022,
+            "works_count": 5,
+            "oa_works_count": 0,
+            "cited_by_count": 2
+          },
+          {
+            "year": 2024,
+            "works_count": 3,
+            "oa_works_count": 1,
+            "cited_by_count": 4
+          },
+          {
+            "year": 2025,
+            "works_count": 1,
+            "oa_works_count": 0,
+            "cited_by_count": 1
+          },
+          {
+            "year": 2026,
+            "works_count": 5,
+            "oa_works_count": 5,
+            "cited_by_count": 0
+          }
+        ],
+        "last_known_institutions": null,
+        "affiliations": [],
+        "orcid": "https://orcid.org/0000-0002-9388-7493",
+        "topics": [
+          {
+            "id": "https://openalex.org/T10487",
+            "display_name": "Plant and animal studies",
+            "count": 6,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1105",
+              "display_name": "Ecology, Evolution, Behavior and Systematics"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/11",
+              "display_name": "Agricultural and Biological Sciences"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/1",
+              "display_name": "Life Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T11974",
+            "display_name": "Lepidoptera: Biology and Taxonomy",
+            "count": 6,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1311",
+              "display_name": "Genetics"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/13",
+              "display_name": "Biochemistry, Genetics and Molecular Biology"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/1",
+              "display_name": "Life Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T10330",
+            "display_name": "Hydrology and Watershed Management Studies",
+            "count": 5,
+            "subfield": {
+              "id": "https://openalex.org/subfields/2312",
+              "display_name": "Water Science and Technology"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/23",
+              "display_name": "Environmental Science"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/3",
+              "display_name": "Physical Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T13435",
+            "display_name": "Animal and Plant Science Education",
+            "count": 4,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3207",
+              "display_name": "Social Psychology"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/32",
+              "display_name": "Psychology"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T10029",
+            "display_name": "Climate variability and models",
+            "count": 3,
+            "subfield": {
+              "id": "https://openalex.org/subfields/2306",
+              "display_name": "Global and Planetary Change"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/23",
+              "display_name": "Environmental Science"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/3",
+              "display_name": "Physical Sciences"
+            }
+          }
+        ]
+      },
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-5376aee48b8f",
+      "name": "Mr. Sadin De Silva",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5061438529",
+        "https://openalex.org/A5045372775",
+        "https://openalex.org/A5019228109",
+        "https://openalex.org/A5053481656",
+        "https://openalex.org/A5011376600",
+        "https://openalex.org/A5089064664",
+        "https://openalex.org/A5003581684",
+        "https://openalex.org/A5011138431",
+        "https://openalex.org/A5005954731"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-5b62e287a51a",
+      "name": "Ms. Chamika Siriwardana",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5010064683",
+        "https://openalex.org/A5113534978",
+        "https://openalex.org/A5046460112",
+        "https://openalex.org/A5025056439"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-def18541ca8f",
+      "name": "Ms. Danushika Nayomi",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-4dd3ef9be2ba",
+      "name": "Ms. Ranthilini Banduwardena",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-f29653365a1b",
+      "name": "Ms. Ravina Perera",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5032430339",
+        "https://openalex.org/A5018139250",
+        "https://openalex.org/A5088904408",
+        "https://openalex.org/A5033989283",
+        "https://openalex.org/A5034329610",
+        "https://openalex.org/A5060115650",
+        "https://openalex.org/A5011070621",
+        "https://openalex.org/A5113604276",
+        "https://openalex.org/A5007551866",
+        "https://openalex.org/A5043100974",
+        "https://openalex.org/A5017932588",
+        "https://openalex.org/A5004096969",
+        "https://openalex.org/A5010456201",
+        "https://openalex.org/A5069798380"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-eda5df4fcbb2",
+      "name": "Ms. Sonali Abeysiriwardana",
+      "status": "openalex_candidate_requires_corroboration",
+      "candidate_ids": [
+        "https://openalex.org/A5120469535"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-798255730eec",
+      "name": "Prof. Thilak Attanayaka",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5059825455",
+        "https://openalex.org/A5085159240"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-b6410bf35ec5",
+      "name": "Mr. Reshan Bandara Samarapperuma",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-4e6da1cf804b",
+      "name": "Ms. Chamathsara Gimhani",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-738c5772a475",
+      "name": "Ms. Kumari Rathnayake",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5077875040",
+        "https://openalex.org/A5023346885",
+        "https://openalex.org/A5112845523",
+        "https://openalex.org/A5028814384"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-f4458387c985",
+      "name": "Ms. Nashad Zeeniya Nafrin",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-5437d4ae4af1",
+      "name": "Ms. Nilanka Pathirana",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5074930459",
+        "https://openalex.org/A5019518524",
+        "https://openalex.org/A5016479770",
+        "https://openalex.org/A5030202917",
+        "https://openalex.org/A5059226011",
+        "https://openalex.org/A5078363757",
+        "https://openalex.org/A5115947339"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-b9e553a8a836",
+      "name": "Ms. Rajaratnam Rathiverni",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-344b262746ba",
+      "name": "Prof. H. L. Obeyesekera",
+      "status": "openalex_candidate_requires_corroboration",
+      "candidate_ids": [
+        "https://openalex.org/A5091170035"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-f0b56fbcc305",
+      "name": "Mr. Chrishankar Janathanan",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5094240691",
+        "https://openalex.org/A5118977259",
+        "https://openalex.org/A5144160280"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-9fdf1a3e1c52",
+      "name": "Mr.Terance Kahapola Arachchi",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-3fe9c7a69dcf",
+      "name": "Mr.Ushira Welikala",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-49e737ce76de",
+      "name": "Ms. Binguni Mabharana",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-43ca22694964",
+      "name": "Ms. Erandi Chandrasena",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-272217c39e5f",
+      "name": "Ms. Lakmini Jayasekera",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5018695254",
+        "https://openalex.org/A5087941031"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-cdfd57259158",
+      "name": "Ms. Thisuri Jayathilake",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5040426521",
+        "https://openalex.org/A5018806581",
+        "https://openalex.org/A5044055936"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-0881ff2d9a84",
+      "name": "Dr. K. Ruwan Perera",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5001888163",
+        "https://openalex.org/A5065356699",
+        "https://openalex.org/A5023180619"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-d5658995eee6",
+      "name": "Ms. Hasini Michelle Cooray",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5006853195",
+        "https://openalex.org/A5021124217"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-1a84248fbe69",
+      "name": "Dr. Jayanthi Gunasekara",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5109851511",
+        "https://openalex.org/A5009153518",
+        "https://openalex.org/A5157878992"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-a89f5b8950ad",
+      "name": "Mr. George Attanayake",
+      "status": "openalex_candidate_requires_corroboration",
+      "candidate_ids": [
+        "https://openalex.org/A5061737069"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-912160a2af8e",
+      "name": "Mr. Palanimuthu Arumugam",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5055284086",
+        "https://openalex.org/A5058621209",
+        "https://openalex.org/A5007405983",
+        "https://openalex.org/A5015023040",
+        "https://openalex.org/A5082428844",
+        "https://openalex.org/A5080177193",
+        "https://openalex.org/A5034232019",
+        "https://openalex.org/A5090591649",
+        "https://openalex.org/A5111285647",
+        "https://openalex.org/A5103277024"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-ea60d4a37824",
+      "name": "Ms. Amila Rupasinghe",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5070723831",
+        "https://openalex.org/A5023874939",
+        "https://openalex.org/A5085039275",
+        "https://openalex.org/A5044915180",
+        "https://openalex.org/A5000002512",
+        "https://openalex.org/A5137732558"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-0d258a6bea3c",
+      "name": "Ms. Sanlakshya Yaupitiyage",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-abf1a9a39a4f",
+      "name": "Mr. Anjana Abeykoon",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5077872204",
+        "https://openalex.org/A5005659336",
+        "https://openalex.org/A5002720864",
+        "https://openalex.org/A5049018628",
+        "https://openalex.org/A5108266629",
+        "https://openalex.org/A5011337207",
+        "https://openalex.org/A5024686780",
+        "https://openalex.org/A5052300470",
+        "https://openalex.org/A5026863124",
+        "https://openalex.org/A5051212374",
+        "https://openalex.org/A5047955423",
+        "https://openalex.org/A5014784334",
+        "https://openalex.org/A5068691927",
+        "https://openalex.org/A5099088281",
+        "https://openalex.org/A5062687981",
+        "https://openalex.org/A5108306966",
+        "https://openalex.org/A5087006442",
+        "https://openalex.org/A5104974275",
+        "https://openalex.org/A5082027422",
+        "https://openalex.org/A5042360924",
+        "https://openalex.org/A5038971300",
+        "https://openalex.org/A5122889229",
+        "https://openalex.org/A5121497390",
+        "https://openalex.org/A5121261341",
+        "https://openalex.org/A5024407122",
+        "https://openalex.org/A5070144311",
+        "https://openalex.org/A5077244002",
+        "https://openalex.org/A5051102066",
+        "https://openalex.org/A5002254724",
+        "https://openalex.org/A5119521555",
+        "https://openalex.org/A5122371109",
+        "https://openalex.org/A5115618438",
+        "https://openalex.org/A5021724034",
+        "https://openalex.org/A5049117416",
+        "https://openalex.org/A5123333746",
+        "https://openalex.org/A5018896026",
+        "https://openalex.org/A5143703561",
+        "https://openalex.org/A5138246556",
+        "https://openalex.org/A5115837658",
+        "https://openalex.org/A5000877485"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-a8359171242e",
+      "name": "Mr. Dananjaya Hettiarachchi",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5049079453",
+        "https://openalex.org/A5071522921",
+        "https://openalex.org/A5101733644",
+        "https://openalex.org/A5110486489",
+        "https://openalex.org/A5013576617",
+        "https://openalex.org/A5092468650",
+        "https://openalex.org/A5079229842",
+        "https://openalex.org/A5055921617",
+        "https://openalex.org/A5000212335",
+        "https://openalex.org/A5025971548",
+        "https://openalex.org/A5000431657"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-22134d5c22a9",
+      "name": "Mr. Isuru Samarappulige",
+      "status": "openalex_matched_publication_or_affiliation_corroborated",
+      "candidate_ids": [
+        "https://openalex.org/A5137326255"
+      ],
+      "evidence": [
+        {
+          "work_id": "https://openalex.org/W4412873206",
+          "title": "Evaluating the Educational Benefits and Risks of AI Coding Assistants Among Novice Programming Students in Sri Lanka",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4412873206"
+        }
+      ],
+      "provider_snapshot": {
+        "id": "https://openalex.org/A5137326255",
+        "display_name": "Isuru Madusanka Samarappulige",
+        "display_name_alternatives": [
+          "Isuru Madusanka Samarappulige",
+          "Isuru Samarappulige",
+          "Madusanka, Samarappulige Isuru",
+          "Samarappulige, Isuru"
+        ],
+        "works_count": 7,
+        "cited_by_count": 2,
+        "summary_stats": {
+          "2yr_mean_citedness": 0.0,
+          "h_index": 1,
+          "i10_index": 0
+        },
+        "counts_by_year": [
+          {
+            "year": 2018,
+            "works_count": 1,
+            "oa_works_count": 1,
+            "cited_by_count": 2
+          },
+          {
+            "year": 2025,
+            "works_count": 2,
+            "oa_works_count": 2,
+            "cited_by_count": 0
+          },
+          {
+            "year": 2026,
+            "works_count": 4,
+            "oa_works_count": 4,
+            "cited_by_count": 0
+          }
+        ],
+        "last_known_institutions": [
+          {
+            "id": "https://openalex.org/I12870472",
+            "ror": "https://ror.org/00t67pt25",
+            "display_name": "Birmingham City University",
+            "country_code": "GB",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I12870472"
+            ]
+          }
+        ],
+        "affiliations": [
+          {
+            "institution": {
+              "id": "https://openalex.org/I12870472",
+              "ror": "https://ror.org/00t67pt25",
+              "display_name": "Birmingham City University",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I12870472"
+              ]
+            },
+            "years": [
+              2026
+            ]
+          }
+        ],
+        "orcid": "https://orcid.org/0009-0009-5070-4843",
+        "topics": [
+          {
+            "id": "https://openalex.org/T10028",
+            "display_name": "Topic Modeling",
+            "count": 2,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1702",
+              "display_name": "Artificial Intelligence"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/17",
+              "display_name": "Computer Science"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/3",
+              "display_name": "Physical Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T10181",
+            "display_name": "Natural Language Processing Techniques",
+            "count": 2,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1702",
+              "display_name": "Artificial Intelligence"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/17",
+              "display_name": "Computer Science"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/3",
+              "display_name": "Physical Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T10260",
+            "display_name": "Software Engineering Research",
+            "count": 2,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1710",
+              "display_name": "Information Systems"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/17",
+              "display_name": "Computer Science"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/3",
+              "display_name": "Physical Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T10533",
+            "display_name": "Teaching and Learning Programming",
+            "count": 2,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1706",
+              "display_name": "Computer Science Applications"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/17",
+              "display_name": "Computer Science"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/3",
+              "display_name": "Physical Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T14414",
+            "display_name": "Artificial Intelligence in Education",
+            "count": 2,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1710",
+              "display_name": "Information Systems"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/17",
+              "display_name": "Computer Science"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/3",
+              "display_name": "Physical Sciences"
+            }
+          }
+        ]
+      },
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-06fbc504906d",
+      "name": "Mr. Thilina Samarasinghe",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5017935680",
+        "https://openalex.org/A5109415752",
+        "https://openalex.org/A5087725757"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-ae438c6cce8b",
+      "name": "Mr.Sankha Wijayawardhana",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-272a32e069d9",
+      "name": "Mr.Tharindu Sampath",
+      "status": "openalex_candidate_requires_corroboration",
+      "candidate_ids": [
+        "https://openalex.org/A5044388294"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-a0c854636283",
+      "name": "Ms. Anuradha Yapa",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5001185785",
+        "https://openalex.org/A5089546803"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-548895a4681f",
+      "name": "Ms. Dulika Fonseka",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5004070917",
+        "https://openalex.org/A5040425099",
+        "https://openalex.org/A5108882310",
+        "https://openalex.org/A5056046885",
+        "https://openalex.org/A5090422087"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-568089ebe921",
+      "name": "Ms. Hiruni Swanika Vidanapathirana",
+      "status": "openalex_candidate_requires_corroboration",
+      "candidate_ids": [
+        "https://openalex.org/A5095999931"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-ff9be6ac0b2a",
+      "name": "Ms. Lakshika Wanninayake",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5001989518",
+        "https://openalex.org/A5136427341"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-db20754ec63f",
+      "name": "Ms. Naduni Jayathilake",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5030082922",
+        "https://openalex.org/A5072829684",
+        "https://openalex.org/A5092874607",
+        "https://openalex.org/A5059852348",
+        "https://openalex.org/A5133026155"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-2e690d7d9919",
+      "name": "Ms. Shirmila Siriweera",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5109365532",
+        "https://openalex.org/A5019677406"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-5c5b62eb281a",
+      "name": "Mr. Thisara Gamage",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5043291449",
+        "https://openalex.org/A5045708723",
+        "https://openalex.org/A5045872786",
+        "https://openalex.org/A5032980924",
+        "https://openalex.org/A5112453990",
+        "https://openalex.org/A5024913646",
+        "https://openalex.org/A5091771431",
+        "https://openalex.org/A5028248265",
+        "https://openalex.org/A5080607818",
+        "https://openalex.org/A5005616711",
+        "https://openalex.org/A5074653119"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-652b18c1eec0",
+      "name": "Mr. Milindu Abeynayake",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5110799320",
+        "https://openalex.org/A5044077442",
+        "https://openalex.org/A5049687459",
+        "https://openalex.org/A5052029224",
+        "https://openalex.org/A5035933755"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-9896165c1ec6",
+      "name": "Mr.Dayal K. Baduraliya",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-f62f5778e093",
+      "name": "Ms. Binuri Ruwanpura",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-c7731ea92c50",
+      "name": "Ms. Kavindi Nayanathara",
+      "status": "openalex_multiple_candidates_requires_review",
+      "candidate_ids": [
+        "https://openalex.org/A5030169843",
+        "https://openalex.org/A5119844539"
+      ],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-20dccd12dbed",
+      "name": "Mr. P. Prabu Premkumar",
+      "status": "openalex_matched_publication_or_affiliation_corroborated",
+      "candidate_ids": [
+        "https://openalex.org/A5003774659"
+      ],
+      "evidence": [
+        {
+          "work_id": "https://openalex.org/W2983373130",
+          "title": "ANALYSIS OF SOCIO-ECONOMIC FACTORS ON THE PURCHASE DECISION OF THREE-WHEELER CUSTOMERS.",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W2983373130"
+        }
+      ],
+      "provider_snapshot": {
+        "id": "https://openalex.org/A5003774659",
+        "display_name": "Prabu Premkumar.",
+        "display_name_alternatives": [
+          "Prabu Premkumar",
+          "Prabu Premkumar."
+        ],
+        "works_count": 1,
+        "cited_by_count": 0,
+        "summary_stats": {
+          "2yr_mean_citedness": 0.0,
+          "h_index": 0,
+          "i10_index": 0
+        },
+        "counts_by_year": [
+          {
+            "year": 2019,
+            "works_count": 1,
+            "oa_works_count": 1,
+            "cited_by_count": 0
+          }
+        ],
+        "last_known_institutions": [
+          {
+            "id": "https://openalex.org/I4392738302",
+            "ror": "https://ror.org/02a37a132",
+            "display_name": "International College of Business and Technology",
+            "country_code": null,
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I4392738302"
+            ]
+          }
+        ],
+        "affiliations": [
+          {
+            "institution": {
+              "id": "https://openalex.org/I4392738302",
+              "ror": "https://ror.org/02a37a132",
+              "display_name": "International College of Business and Technology",
+              "country_code": null,
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4392738302"
+              ]
+            },
+            "years": [
+              2019
+            ]
+          }
+        ],
+        "orcid": null,
+        "topics": [
+          {
+            "id": "https://openalex.org/T10698",
+            "display_name": "Transportation Planning and Optimization",
+            "count": 1,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3313",
+              "display_name": "Transportation"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/33",
+              "display_name": "Social Sciences"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T11161",
+            "display_name": "Consumer Market Behavior and Pricing",
+            "count": 1,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1406",
+              "display_name": "Marketing"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/14",
+              "display_name": "Business, Management and Accounting"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T14244",
+            "display_name": "Consumer Behavior and Marketing Influence",
+            "count": 1,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1406",
+              "display_name": "Marketing"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/14",
+              "display_name": "Business, Management and Accounting"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          }
+        ]
+      },
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-11a000ffcba7",
+      "name": "Dr Sampath Kannangara",
+      "status": "openalex_matched_publication_or_affiliation_corroborated",
+      "candidate_ids": [
+        "https://openalex.org/A5116054435"
+      ],
+      "evidence": [
+        {
+          "work_id": "https://openalex.org/W4406881182",
+          "title": "Impact of Generative AI on Critical Thinking Skills in Undergraduates: A Systematic Review",
+          "basis": "person_authorship_institution_affiliation",
+          "source_url": "https://openalex.org/W4406881182"
+        }
+      ],
+      "provider_snapshot": {
+        "id": "https://openalex.org/A5116054435",
+        "display_name": "S. Kannangara",
+        "display_name_alternatives": [
+          "S. Kannangara"
+        ],
+        "works_count": 1,
+        "cited_by_count": 26,
+        "summary_stats": {
+          "2yr_mean_citedness": 26.0,
+          "h_index": 1,
+          "i10_index": 1
+        },
+        "counts_by_year": [
+          {
+            "year": 2024,
+            "works_count": 1,
+            "oa_works_count": 1,
+            "cited_by_count": 26
+          }
+        ],
+        "last_known_institutions": [
+          {
+            "id": "https://openalex.org/I4392738302",
+            "ror": "https://ror.org/02a37a132",
+            "display_name": "International College of Business and Technology",
+            "country_code": null,
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I4392738302"
+            ]
+          }
+        ],
+        "affiliations": [
+          {
+            "institution": {
+              "id": "https://openalex.org/I4392738302",
+              "ror": "https://ror.org/02a37a132",
+              "display_name": "International College of Business and Technology",
+              "country_code": null,
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4392738302"
+              ]
+            },
+            "years": [
+              2024
+            ]
+          }
+        ],
+        "orcid": "https://orcid.org/0009-0009-9247-8426",
+        "topics": [
+          {
+            "id": "https://openalex.org/T11715",
+            "display_name": "Education and Critical Thinking Development",
+            "count": 1,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3304",
+              "display_name": "Education"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/33",
+              "display_name": "Social Sciences"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T12887",
+            "display_name": "Educational Strategies and Epistemologies",
+            "count": 1,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3204",
+              "display_name": "Developmental and Educational Psychology"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/32",
+              "display_name": "Psychology"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          {
+            "id": "https://openalex.org/T14414",
+            "display_name": "Artificial Intelligence in Education",
+            "count": 1,
+            "subfield": {
+              "id": "https://openalex.org/subfields/1710",
+              "display_name": "Information Systems"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/17",
+              "display_name": "Computer Science"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/3",
+              "display_name": "Physical Sciences"
+            }
+          }
+        ]
+      },
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-37bb753f13bd",
+      "name": "Ms. Chamila Aththanayake",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    },
+    {
+      "academic_id": "SL-4c6f4e5253bc",
+      "name": "Dr. Chandru Sandrasekaran",
+      "status": "openalex_no_verified_author_match",
+      "candidate_ids": [],
+      "evidence": [],
+      "provider_snapshot": null,
+      "checked_at": "2026-10-13"
+    }
+  ]
+}
