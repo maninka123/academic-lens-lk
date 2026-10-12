@@ -7,6 +7,7 @@ import {
   Scale,
 } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
 import { useData } from "../data/context";
 import { useAtlas, emptyFilters } from "../store";
 import { filterAcademics, groupRows } from "../analytics/engine";
@@ -18,6 +19,7 @@ import type { Config } from "../types";
 import { GlobalTeaser } from "./Global";
 
 export function Overview() {
+  const [qualificationScale, setQualificationScale] = useState<"share" | "count">("share");
   const { academics, universities, summary } = useData();
   const { filters, configure, setFilters } = useAtlas();
   const nav = useNavigate(),
@@ -230,13 +232,32 @@ export function Overview() {
       </div>
       <Card
         title="Qualifications across institutions"
-        subtitle="Highest documented qualification as a share of collected profiles. PhD counts only documented completed doctorates; contradictory or in-progress doctorates are not counted. Unknown stays visible."
+        subtitle="Highest recorded qualification. PhD means a documented completed doctorate."
+        action={
+          <div className="chart-scale-toggle" role="group" aria-label="Qualification chart scale">
+            {(["share", "count"] as const).map((scale) => (
+              <button type="button" key={scale} aria-pressed={qualificationScale === scale} onClick={() => setQualificationScale(scale)}>
+                {scale === "share" ? "Share (%)" : "Count"}
+              </button>
+            ))}
+          </div>
+        }
       >
         <Chart
           height={350}
-          label="Qualification composition by institution"
+          label={`Qualification ${qualificationScale === "share" ? "share (%)" : "count"} by institution`}
           option={{
-            tooltip: { trigger: "axis", renderMode: "richText" },
+            tooltip: {
+              trigger: "axis", renderMode: "richText", confine: true,
+              formatter: (params: any[]) => {
+                const group = groups[params[0]?.dataIndex];
+                if (!group) return "";
+                return `${group.name}: ${group.rows.length} profiles\n` + params.map((p) => {
+                  const count = group.rows.filter((a) => a.qualification === p.seriesName).length;
+                  return `${p.seriesName}: ${count} (${group.rows.length ? (100 * count / group.rows.length).toFixed(1) : "0.0"}%)`;
+                }).join("\n");
+              },
+            },
             legend: { top: 0, textStyle: { fontSize: 14 } },
             grid: { left: 60, right: 20, top: 55, bottom: 80 },
             xAxis: {
@@ -244,7 +265,7 @@ export function Overview() {
               data: groups.map((g) => `${g.short}`),
               axisLabel: { fontSize: 14, rotate: 35 },
             },
-            yAxis: { type: "value", max: 100, name: "Percent" },
+            yAxis: { type: "value", max: qualificationScale === "share" ? 100 : undefined, minInterval: qualificationScale === "count" ? 1 : undefined, name: qualificationScale === "share" ? "Percent" : "Profiles" },
             series: [
               "PhD",
               "Masters / MPhil",
@@ -258,8 +279,8 @@ export function Overview() {
               itemStyle: { color: q === "Unknown" ? "#d3dce4" : colors[i] },
               data: groups.map((g) =>
                 g.rows.length
-                  ? (100 * g.rows.filter((a) => a.qualification === q).length) /
-                    g.rows.length
+                  ? g.rows.filter((a) => a.qualification === q).length *
+                    (qualificationScale === "share" ? 100 / g.rows.length : 1)
                   : null,
               ),
             })),

@@ -2814,3 +2814,33 @@ td:first-child { font-weight: 500; }
 .benchmark-missing summary { cursor: pointer; padding: 10px 0; }
 .benchmark-missing ul { padding: 0; list-style: none; display: grid; gap: 8px; }
 .benchmark-missing li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 8px 12px; background: var(--soft); border-radius: 8px; }
+
+/* Chart scales stay beside the legend, with readable touch targets. */
+.origin-composition-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+.origin-composition-toolbar .origin-composition-key { margin: 0; }
+.chart-scale-toggle { display: inline-flex; flex-shrink: 0; padding: 3px; background: var(--soft); border: 1px solid var(--border); border-radius: 12px; }
+.chart-scale-toggle button { min-height: 44px; padding: 0 14px; border: 0; border-radius: 9px; font: inherit; font-size: 14px; font-weight: 600; color: var(--muted); background: transparent; cursor: pointer; }
+.chart-scale-toggle button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: 0 2px 6px #00000012; }
+.chart-scale-toggle button:active { opacity: .7; }
+.chart-scale-toggle button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.research-summary > .caption { margin: 0 0 16px; }
+.research-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.research-metric-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+.research-metric-card h3 { font-size: 16px; margin: 0; line-height: 1.4; }
+.research-typical-value { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; margin: 12px 0 18px; }
+.research-typical-value strong { font-size: 30px; line-height: 1.15; font-weight: 650; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
+.research-typical-value > span { font-size: 14px; color: var(--muted); }
+.research-sample { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 10px; font-size: 14px; }
+.research-sample strong { font-weight: 500; }
+.research-sample > span:not(.coverage-track) { color: var(--muted); }
+.research-sample .coverage-track { flex-basis: 100%; margin-top: 3px; height: 5px; }
+.research-metric-source { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; font-size: 14px; color: var(--muted); }
+.research-metric-card .metric-source-detail { max-width: none; margin-top: 10px; }
+
+/* About 30% denser rows; pin buttons retain their 44px touch area. */
+.academic-records-table tbody td { padding: 3px 11px; }
+.academic-records-table thead th { padding: 9px 11px; }
+.academic-records-table .table-number { gap: 4px; }
+.section-heading:has(.chart-scale-toggle) { flex-wrap: wrap; gap: 12px; }
+.section-heading:has(.chart-scale-toggle) > div:first-child { flex: 1; min-width: min(100%, 260px); }
+.section-heading > .chart-scale-toggle { flex: 0 0 auto; min-width: 0; }

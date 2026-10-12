@@ -30,6 +30,8 @@ type Split = {
   unknown: number;
   total: number;
 };
+type CompositionScale = "share" | "count";
+type CompositionView = "institution" | "position" | "discipline" | "sector";
 /** Documented doctorates split into Sri Lankan, overseas and country-unknown. */
 function splitBy(rows: Academic[], key: (a: Academic) => string): Split[] {
   const m = new Map<string, Split>();
@@ -65,6 +67,9 @@ export function Origins() {
     [faculty, setFaculty] = useState(""),
     [department, setDepartment] = useState(""),
     [position, setPosition] = useState("");
+  const [scales, setScales] = useState<Record<CompositionView, CompositionScale>>({
+    institution: "share", position: "share", discipline: "share", sector: "share",
+  });
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + "data/world.geo.json")
       .then((r) => {
@@ -150,8 +155,8 @@ export function Origins() {
     return { links, nodes };
   }, [rows, mode]);
 
-  /** 100% stacked horizontal bars of Sri Lankan / overseas / unknown country. */
-  const composition = (splits: Split[], label: string) => ({
+  /** Stacked counts or shares of documented doctorates, with the same population. */
+  const composition = (splits: Split[], label: string, scale: CompositionScale) => ({
     tooltip: {
       trigger: "axis",
       axisPointer: { type: "shadow" },
@@ -165,8 +170,10 @@ export function Origins() {
     grid: { left: 10, right: 18, top: 8, bottom: 22, containLabel: true },
     xAxis: {
       type: "value",
-      max: 100,
-      axisLabel: { formatter: (v: number) => v.toFixed(1) + "%" },
+      max: scale === "share" ? 100 : undefined,
+      minInterval: scale === "count" ? 1 : undefined,
+      splitNumber: 4,
+      axisLabel: { hideOverlap: true, formatter: (v: number) => v.toFixed(1) + (scale === "share" ? "%" : "") },
     },
     yAxis: {
       type: "category",
@@ -174,7 +181,11 @@ export function Origins() {
       data: splits.map((s) => s.label),
       axisLabel: { fontSize: 14, width: 180, overflow: "truncate" },
     },
-    aria: { enabled: true, description: label },
+    aria: { enabled: true, description: `${label}. ${scale === "share" ? "Percentage" : "Number"} of documented doctorates.` },
+    media: [{ query: { maxWidth: 380 }, option: {
+      xAxis: { splitNumber: 2 },
+      yAxis: { axisLabel: { width: 125, overflow: "truncate" } },
+    } }],
     series: (
       [
         ["lk", "Awarded in Sri Lanka", col.lk],
@@ -191,7 +202,7 @@ export function Origins() {
         borderColor: theme === "dark" ? "#161616" : "#fff",
         borderWidth: 1,
       },
-      data: splits.map((s) => (s.total ? (100 * s[k]) / s.total : null)),
+      data: splits.map((s) => scale === "count" ? s[k] : (s.total ? (100 * s[k]) / s.total : null)),
     })),
   });
   const byUniversity = splitBy(documented, (a) => short(a.university));
@@ -222,6 +233,23 @@ export function Origins() {
           {label}
         </span>
       ))}
+    </div>
+  );
+  const compositionControls = (view: CompositionView, label: string) => (
+    <div className="origin-composition-toolbar">
+      {originLegend}
+      <div className="chart-scale-toggle" role="group" aria-label={`${label} chart scale`}>
+        {(["share", "count"] as const).map((scale) => (
+          <button
+            key={scale}
+            type="button"
+            aria-pressed={scales[view] === scale}
+            onClick={() => setScales((current) => ({ ...current, [view]: scale }))}
+          >
+            {scale === "share" ? "Share (%)" : "Count"}
+          </button>
+        ))}
+      </div>
     </div>
   );
   const byDiscipline = splitBy(documented, broadDiscipline);
@@ -550,24 +578,24 @@ export function Origins() {
           <div className="two-columns align-start">
             <Card
               title="Doctorate origins by institution"
-              subtitle="Share of documented doctorates"
+              subtitle={scales.institution === "share" ? "Share of documented doctorates" : "Number of documented doctorates"}
             >
-              {originLegend}
+              {compositionControls("institution", "Institution")}
               <Chart
-                option={composition(byUniversity, "PhD origin by institution")}
+                option={composition(byUniversity, "PhD origin by institution", scales.institution)}
                 height={compHeight(byUniversity.length)}
-                label="Share of Sri Lankan and overseas doctorates by institution"
+                label={`${scales.institution === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates by institution`}
               />
             </Card>
             <Card
               title="By academic position"
               subtitle="Highest positions first"
             >
-              {originLegend}
+              {compositionControls("position", "Academic position")}
               <Chart
-                option={composition(byPosition, "PhD origin by position")}
+                option={composition(byPosition, "PhD origin by position", scales.position)}
                 height={compHeight(byPosition.length)}
-                label="Share of Sri Lankan and overseas doctorates by academic position"
+                label={`${scales.position === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates by academic position`}
               />
             </Card>
           </div>
@@ -576,22 +604,22 @@ export function Origins() {
               title="By discipline"
               subtitle="Discipline inferred from faculty/department names — a descriptive grouping, not a verified classification."
             >
-              {originLegend}
+              {compositionControls("discipline", "Discipline")}
               <Chart
-                option={composition(byDiscipline, "PhD origin by discipline")}
+                option={composition(byDiscipline, "PhD origin by discipline", scales.discipline)}
                 height={compHeight(byDiscipline.length)}
-                label="Share of Sri Lankan and overseas doctorates by discipline"
+                label={`${scales.discipline === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates by discipline`}
               />
             </Card>
             <Card
               title="Public and non-state institutions"
               subtitle="Documented doctorates in each sector."
             >
-              {originLegend}
+              {compositionControls("sector", "Institution type")}
               <Chart
-                option={composition(bySector, "PhD origin by sector")}
+                option={composition(bySector, "PhD origin by sector", scales.sector)}
                 height={compHeight(bySector.length)}
-                label="Share of Sri Lankan and overseas doctorates in public and non-state institutions"
+                label={`${scales.sector === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates in public and non-state institutions`}
               />
             </Card>
           </div>
@@ -699,9 +727,9 @@ export function Origins() {
       )}
       <Card
         title={country ? `Research context · ${country}` : "Research context"}
-        subtitle="Collected metrics of documented PhD holders in this selection. Descriptive only; providers are not combined."
+        subtitle={`Research metrics for ${rows.length} documented PhD holders in this selection.`}
       >
-        <MetricSummaryTable rows={rows} minN={minN} />
+        <MetricSummaryTable rows={rows} minN={minN} presentation="cards" />
       </Card>
       <Card
         title="From doctorate to current institution"
