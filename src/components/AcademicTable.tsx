@@ -41,7 +41,6 @@ export function AcademicTable({
     department: false,
     qualification: false,
     phdCountry: false,
-    experience: false,
     recentCitations: false,
     q1: false,
     recentQ1: false,
@@ -118,7 +117,6 @@ export function AcademicTable({
       { accessorKey: "phdCountry", header: "PhD country" },
       ...(
         [
-          "experience",
           "publications",
           "citations",
           "recentCitations",
@@ -138,7 +136,6 @@ export function AcademicTable({
           );
         }) as any,
         header: {
-          experience: "Experience",
           publications: "Publications",
           citations: "Citations",
           recentCitations: "5-year citations",
@@ -147,7 +144,11 @@ export function AcademicTable({
           recentQ1: "5-year Q1",
         }[key],
         cell: ({ getValue }: any) => (
-          <NumericValue value={getValue()} maximum={Math.max(0, ...rows.map(r => r[key] ?? 0))} digits={key === "experience" ? 1 : 0} />
+          <NumericValue
+            value={getValue()}
+            maximum={Math.max(0, ...rows.map((r) => r[key] ?? 0))}
+            digits={0}
+          />
         ),
       })),
     ],
@@ -233,7 +234,6 @@ export function AcademicTable({
                     {columnFilters &&
                       h.column.getCanFilter() &&
                       ([
-                        "experience",
                         "publications",
                         "citations",
                         "recentCitations",

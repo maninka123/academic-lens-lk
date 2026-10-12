@@ -94,7 +94,6 @@ export function Pinned() {
             ["university", "Same university"],
             ["rank", "Same position in filtered data"],
             ["field", "Same standardised field"],
-            ["experience", "Experience within ±5 years"],
             ["country", "Same PhD country"],
             ["Public", "Public institutions"],
             ["Non-state", "Non-state institutions"],
