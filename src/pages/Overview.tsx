@@ -195,7 +195,7 @@ export function Overview() {
       <div className="two-columns overview-distributions">
         <Card
           title="Collected profiles by institution"
-          subtitle="Collected records, not total staff. Select an institution to explore."
+          subtitle="Click a bar to explore the institution’s collected profiles."
           action={
             <span className="legend-inline institution-key">
               <i className="blue" />

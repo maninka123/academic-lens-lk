@@ -173,7 +173,7 @@ export function Origins() {
       max: scale === "share" ? 100 : undefined,
       minInterval: scale === "count" ? 1 : undefined,
       splitNumber: 4,
-      axisLabel: { hideOverlap: true, formatter: (v: number) => v.toFixed(1) + (scale === "share" ? "%" : "") },
+      axisLabel: { hideOverlap: true, formatter: (v: number) => scale === "share" ? v.toFixed(1) + "%" : fmt(v, 0) },
     },
     yAxis: {
       type: "category",
