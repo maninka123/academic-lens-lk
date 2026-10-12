@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { Config, Filters, CustomGroup } from "../types";
-import { metricLabels, levelLabels } from "../types";
+import { metricLabels, levelLabels, isSelectableMetric } from "../types";
 import { validModes } from "../analytics/engine";
 export const emptyFilters = (): Filters => ({
   types: [],
@@ -83,7 +83,8 @@ export const useAtlas = create<State>()(
       configure: (c) =>
         set((s) => {
           const config = { ...s.config, ...c };
-          if (!Object.hasOwn(metricLabels, config.metric))
+          if (config.peer === "experience") config.peer = defaultConfig.peer;
+          if (!isSelectableMetric(config.metric))
             config.metric = defaultConfig.metric;
           if (!Object.hasOwn(levelLabels, config.level))
             config.level = defaultConfig.level;
@@ -103,7 +104,7 @@ export const useAtlas = create<State>()(
           )
             config.chart = "bar";
           if (
-            !Object.hasOwn(metricLabels, config.xMetric) ||
+            !isSelectableMetric(config.xMetric) ||
             ["count", "phd", "overseas"].includes(config.xMetric)
           )
             config.xMetric = "publications";
@@ -158,27 +159,7 @@ export const useAtlas = create<State>()(
         const p = (
           persisted && typeof persisted === "object" ? persisted : {}
         ) as Partial<State>;
-        const f = emptyFilters();
-        for (const k of Object.keys(f) as (keyof Filters)[]) {
-          const v = p.filters?.[k];
-          if (["query", "interest"].includes(k)) {
-            if (typeof v === "string") (f as any)[k] = v;
-          } else if (
-            ["experience", "phdYear", "citations", "publications"].includes(k)
-          ) {
-            if (
-              Array.isArray(v) &&
-              v.length === 2 &&
-              v.every(
-                (n) =>
-                  n === null ||
-                  (typeof n === "number" && Number.isFinite(n) && n >= 0),
-              )
-            )
-              (f as any)[k] = v;
-          } else if (Array.isArray(v))
-            (f as any)[k] = v.filter((x) => typeof x === "string");
-        }
+        // Saved filters must not silently narrow a new comparison session.
         return {
           ...current,
           theme: p.theme === "dark" ? "dark" : "light",
@@ -187,10 +168,23 @@ export const useAtlas = create<State>()(
             : p.theme === "dark"
               ? "dark"
               : "light",
-          filters: f,
+          filters: emptyFilters(),
           config: {
             ...defaultConfig,
             ...(p.config && typeof p.config === "object" ? p.config : {}),
+            metric: isSelectableMetric(p.config?.metric || "")
+              ? p.config!.metric
+              : defaultConfig.metric,
+            xMetric:
+              isSelectableMetric(p.config?.xMetric || "") &&
+              !["count", "phd", "overseas"].includes(p.config!.xMetric)
+                ? p.config!.xMetric
+                : defaultConfig.xMetric,
+            peer:
+              p.config?.peer === "experience"
+                ? defaultConfig.peer
+                : p.config?.peer || defaultConfig.peer,
+            groups: [],
           },
           pinned: Array.isArray(p.pinned)
             ? [...new Set(p.pinned.filter((x) => typeof x === "string"))]
@@ -284,11 +278,15 @@ export function restoreFromUrl() {
         )
       )
         throw Error("Invalid range");
+    f.experience = [null, null];
+    f.phdYear = [null, null];
     const c = { ...defaultConfig, ...s.config };
+    if (!isSelectableMetric(c.metric)) c.metric = defaultConfig.metric;
+    if (c.peer === "experience") c.peer = defaultConfig.peer;
     if (!validModes(c.metric).includes(c.aggregation))
       c.aggregation = validModes(c.metric)[0];
     if (
-      !Object.hasOwn(metricLabels, c.xMetric) ||
+      !isSelectableMetric(c.xMetric) ||
       ["count", "phd", "overseas"].includes(c.xMetric)
     )
       c.xMetric = defaultConfig.xMetric;
