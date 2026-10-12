@@ -301,8 +301,7 @@ function Shell() {
                   version is {data.metadata.version}; results may differ.
                 </div>
               )}
-              {(location.pathname === "/" ||
-                location.pathname.startsWith("/university/")) && <Filters />}
+              {location.pathname.startsWith("/university/") && <Filters />}
               <Routes>
                 <Route path="/" element={<Overview />} />
                 <Route path="/compare" element={<Compare />} />
