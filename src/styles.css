@@ -2844,3 +2844,13 @@ td:first-child { font-weight: 500; }
 .section-heading:has(.chart-scale-toggle) { flex-wrap: wrap; gap: 12px; }
 .section-heading:has(.chart-scale-toggle) > div:first-child { flex: 1; min-width: min(100%, 260px); }
 .section-heading > .chart-scale-toggle { flex: 0 0 auto; min-width: 0; }
+
+/* Match the content height of the paired overview panels on wide screens. */
+.overview-distributions .position-bars li { margin: 0; }
+@media (min-width: 1351px) {
+  .overview-distributions > .card { display: flex; flex-direction: column; }
+  .overview-distributions .chart-wrap { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+  .overview-distributions .chart-wrap > .chart-body { display: flex; flex-direction: column; flex: 1; }
+  .overview-distributions .chart-wrap > .chart-body > [role="img"] { flex: 1; height: auto !important; min-height: 520px; }
+  .overview-distributions .position-bars { flex: 1; margin: 0; display: flex; flex-direction: column; justify-content: space-between; }
+}

@@ -338,7 +338,7 @@ export function Global() {
 
   // 3 · University ladder (median), only universities with an adequate sample.
   const allLadderUnits = view.units
-    .filter((u) => enough(u) && median(u.values) !== null && (!log || median(u.values)! > 0))
+    .filter((u) => enough(u) && median(u.values) !== null)
     .map((u) => ({ ...u, med: median(u.values)! }))
     .sort((a, b) => b.med - a.med);
   const ladderUnits = showAllUniversities
@@ -351,9 +351,10 @@ export function Global() {
     tooltip: { trigger: "item", confine: true },
     grid: { left: 10, right: 50, top: 10, bottom: 30, containLabel: true },
     xAxis: {
-      type: log ? "log" : "value",
-      min: log ? undefined : 0,
-      name: `Median ${metricNames[metric]}`,
+      type: "value",
+      min: 0,
+      name: `Median ${metricNames[metric]}${log ? " (compressed scale)" : ""}`,
+      axisLabel: log ? { formatter: (v: number) => fmt(10 ** v - 1, 1) } : undefined,
       nameLocation: "middle",
       nameGap: 28,
       splitLine: { lineStyle: { opacity: 0.35 } },
@@ -371,10 +372,11 @@ export function Global() {
         label: {
           show: true,
           position: "right",
-          formatter: (p: any) => Number(p.value).toFixed(1),
+          formatter: (p: any) => fmt(p.data.actual, 1),
         },
         data: ladderUnits.map((u) => ({
-          value: u.med,
+          value: log ? Math.log10(u.med + 1) : u.med,
+          actual: u.med,
           itemStyle: { color: colorOf(u.key), borderRadius: [0, 4, 4, 0] },
           unit: u,
         })),
@@ -389,7 +391,7 @@ export function Global() {
   };
 
   // 4 · QS position vs median metric.
-  const scatterUnits = allLadderUnits.filter((u) => qsNumeric(u.qs) !== null);
+  const scatterUnits = allLadderUnits.filter((u) => qsNumeric(u.qs) !== null && (!log || u.med > 0));
   const scatter = {
     tooltip: { trigger: "item", confine: true },
     legend: { show: false },
@@ -657,7 +659,7 @@ export function Global() {
       </div>
       <Card
         title="Where universities sit"
-        subtitle={`At least ${minN} valid profiles · Sri Lanka highlighted in orange`}
+        subtitle={`${allLadderUnits.filter(u => u.key === "sl").length} Sri Lankan institutions · at least ${minN} valid profiles · orange bars`}
         action={
           <Button
             variant="ghost"
