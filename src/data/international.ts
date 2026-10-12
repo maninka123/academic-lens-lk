@@ -98,7 +98,7 @@ export function loadBenchmarks(): Promise<Benchmarks> {
   cache ??= (async () => {
     const dir = import.meta.env.BASE_URL + "data/international/";
     const text = async (n: string) => {
-      const r = await fetch(dir + n + "?v=" + import.meta.env.VITE_DATA_REVISION);
+      const r = await fetch(dir + n + "?v=" + import.meta.env.VITE_DATA_REVISION, { cache: "no-store" });
       if (!r.ok) throw Error(`Cannot load international ${n} (${r.status}).`);
       return r.text();
     };

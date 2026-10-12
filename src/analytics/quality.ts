@@ -106,11 +106,10 @@ export function quality(
   const dates = [
     ...new Set(
       valid
-        .map(
-          (a) =>
-            a.metricEvidence?.find((e) => e.metric === metric)?.date ||
-            a.collectionDate,
-        )
+        .map((a) => {
+          const evidence = a.metricEvidence?.find((e) => e.metric === metric);
+          return evidence ? evidence.date : a.collectionDate;
+        })
         .filter(Boolean),
     ),
   ].sort();
@@ -136,7 +135,7 @@ export function logSplit(v: (number | null | undefined)[]) {
 /** Coverage indicators for a set of records. */
 export function coverageOf(rows: Academic[]) {
   const verifiedIdentity = rows.filter((a) =>
-    [a.scholarStatus, a.researchgateStatus].some((s) =>
+    isMatched(a.openAlexStatus) || [a.scholarStatus, a.researchgateStatus].some((s) =>
       [
         "verified_official_link",
         "matched_user_supplied_platform_evidence",

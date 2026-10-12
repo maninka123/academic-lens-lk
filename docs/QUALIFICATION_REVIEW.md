@@ -17,3 +17,6 @@ Missing headings were replaced using official faculty directories, university ha
 ## Follow-up
 
 The current dataset has 543 profiles awaiting qualification classification. See the [full list by university](UNRESOLVED_QUALIFICATIONS.md) and [editable follow-up CSV](../Data%20files/qualification_followup.csv). This wider queue is separate from the completed 35-person review above.
+
+
+Additional review, 13 October 2026: person-named university profiles supplied 17 previously missing qualification statements, including six explicit completed research doctorates. The new doctorate evidence covers Damayanthi Herath (Melbourne), Suneth Namal Karunarathna (Oulu, 2014; source also uses Doctor of Science (Tech.)), Swarnalatha Radhakrishnan (UNSW), Meran Keshawa Ediriweera (Colombo), Dineshani Hettiarachchi (Colombo), and Santushi Amarasuriya (Melbourne). Unpublished completion years stay blank. Clinical MD/MRCP statements and the ongoing MD entry remain separate from research PhDs. Country inferred from a named institution is marked accordingly. The sources and field changes are recorded in `Data files/field_evidence.csv` and `change_log.csv`.

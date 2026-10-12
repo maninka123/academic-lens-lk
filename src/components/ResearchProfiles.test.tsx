@@ -4,6 +4,10 @@ import type { Academic } from "../types";
 import { ResearchProfiles } from "./ResearchProfiles";
 
 afterEach(cleanup);
+it("shows a saved OpenAlex author source alongside other research profiles", () => {
+  render(<ResearchProfiles academic={{ openAlexUrl: "https://openalex.org/A123", openAlexStatus: "openalex_matched_name_and_institution" } as Academic} />);
+  expect(screen.getByRole("link", { name: "OpenAlex" })).toHaveAttribute("href", "https://openalex.org/A123");
+});
 it("labels recorded research platforms, including a ResearchGate metrics source", () => {
   render(
     <ResearchProfiles

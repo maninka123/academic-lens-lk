@@ -5,7 +5,19 @@ import {
   linkStatus,
   metricEvidence,
   normaliseRank,
+  openAlexFallback,
 } from "./evidence.mjs";
+test("OpenAlex fills absent app metrics without replacing recorded provider values", () => {
+  const row = { total_publications: "", total_citations: "101", h_index: "0" };
+  const lookup = { openalex_id: "https://openalex.org/A1", status: "openalex_matched_name_and_institution",
+    total_publications: "9", total_citations: "999", h_index: "8", citations_2021_2025: "0" };
+  const result = openAlexFallback(row, lookup);
+  assert.deepEqual(result.fields, { total_publications: "9", citations_2021_2025: "0" });
+  assert.equal(result.evidence[0].source, "OpenAlex");
+  assert.equal(result.evidence[0].date, "");
+  assert.equal(row.total_citations, "101");
+  assert.deepEqual(openAlexFallback(row, { ...lookup, status: "openalex_multiple_candidates_requires_review" }).fields, {});
+});
 test("aliases retain identity and reject cycles", () => {
   assert.equal(
     resolveAlias("old", { old: "middle", middle: "current" }),

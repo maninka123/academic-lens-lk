@@ -417,10 +417,11 @@ export function Institution() {
   const { id, faculty, department } = useParams();
   const d = useData();
   const u = d.universities.find((u) => u.id === id);
-  const { filters, configure, setFilters } = useAtlas();
+  const { configure, setFilters } = useAtlas();
   const nav = useNavigate();
   if (!u) return <Empty title="Institution not found" />;
-  const rows = filterAcademics(d.academics, filters).filter(
+  // The explorer shows the collected institution/unit, independently of saved comparison filters.
+  const rows = d.academics.filter(
     (a) =>
       a.universityId === id &&
       (!faculty || a.facultyId === faculty) &&
@@ -560,7 +561,7 @@ export function Institution() {
       )}
       {!rows.length && (
         <Empty title="No collected profiles">
-          This institution or unit has no records under the current filters.
+          This institution or unit has no collected records in this dataset.
           This does not imply it has no academic staff.
         </Empty>
       )}

@@ -109,9 +109,9 @@ export function CoveragePanel({
       "Published profiles collected — not the total academic population",
     ],
     [
-      "Verified research identity",
+      "Matched research identity",
       c.verifiedIdentity,
-      "Scholar or ResearchGate link confirmed from an official page",
+      "Official-linked Scholar/ResearchGate profile or successful OpenAlex author match",
     ],
     [
       "Verified employment",
