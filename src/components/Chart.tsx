@@ -101,7 +101,7 @@ function ChartCanvas({
           fontSize: 15,
         },
         aria: { enabled: true, description: label },
-        ...formatPlot(option),
+        ...formatPlot(option, theme),
       },
       true,
     );

@@ -19,6 +19,10 @@ export function comparisonChart(
   const labels = groups.map((g) => short(g.label));
   const numeric = !["count", "phd", "overseas"].includes(c.metric);
   const metric = c.metric as NumericMetric;
+  const barReferences = numeric && ["median", "mean", "distribution"].includes(c.aggregation)
+    ? pinned.filter((a) => Number.isFinite(a[metric]) && (!c.log || a[metric]! > 0))
+    : [];
+  const referenceValues = [...new Set(barReferences.map((a) => a[metric]!))];
   const base: any = {
     tooltip: { trigger: "item", renderMode: "richText", confine: true },
     grid: { left: 75, right: 32, top: 85, bottom: 85, containLabel: true },
@@ -161,7 +165,7 @@ export function comparisonChart(
               ? [s.min, s.q1, s.median, s.q3, s.max]
               : { value: [null, null, null, null, null] };
           }),
-          itemStyle: { color: "#e2edf6", borderColor: "#2675b9" },
+          itemStyle: { color: "#e2edf6", borderColor: "#007aff" },
           tooltip: { renderMode: "richText" },
         },
         ...pinSeries("box"),
@@ -387,6 +391,7 @@ export function comparisonChart(
                 : a.rank) === rank,
           ).length;
           return {
+            groupId: g.id,
             value:
               c.chart === "percentStacked"
                 ? g.rows.length
@@ -409,6 +414,13 @@ export function comparisonChart(
       nameLocation: "middle",
       nameGap: 35,
       axisLabel: { fontSize: 14 },
+      ...(referenceValues.length ? {
+        max: (extent: { max: number }) => {
+          const largest = Math.max(extent.max, ...referenceValues);
+          const step = 10 ** Math.floor(Math.log10(largest || 1));
+          return Math.ceil(largest * 1.08 / step) * step || 1;
+        },
+      } : {}),
     },
     yAxis: {
       type: "category",
@@ -458,6 +470,29 @@ export function comparisonChart(
         barMaxWidth: 28,
         itemStyle: { borderRadius: [0, 5, 5, 0] },
         label: { show: c.labels, position: "right", fontSize: 14 },
+        markLine: referenceValues.length ? {
+          symbol: "none",
+          silent: false,
+          animation: false,
+          data: referenceValues.map((value) => {
+            const people = barReferences.filter((a) => a[metric] === value);
+            const indices = people.map((a) => pinned.findIndex((p) => p.id === a.id));
+            return {
+              name: people.map((a) => a.name).join(", "),
+              referenceNames: people.map((a) => a.name).join(", "),
+              xAxis: value,
+              lineStyle: { color: colors[indices[0] % colors.length], width: 2, type: "dashed" },
+              label: {
+                show: true,
+                position: "insideEndTop",
+                formatter: `${indices.map((i) => i + 1).join(", ")} · ${plotNumber(value)}`,
+                fontSize: 12,
+                backgroundColor: "rgba(255,255,255,.94)",
+                padding: [3, 5],
+              },
+            };
+          }),
+        } : undefined,
         data: groups.map((g) => ({
           name: g.label,
           // On a log axis, non-positive values cannot be drawn: they are left
@@ -469,9 +504,9 @@ export function comparisonChart(
               ? "#a9b6c2"
               : c.level === "type"
                 ? g.id === "Public"
-                  ? "#2675b9"
-                  : "#169688"
-                : "#2675b9",
+                  ? "#007aff"
+                  : "#208b80"
+                : "#007aff",
             ...(g.lowN
               ? {
                   decal: {
@@ -489,7 +524,9 @@ export function comparisonChart(
         })),
         tooltip: {
           formatter: (p: any) =>
-            `${p.name}\n${c.aggregation}: ${plotNumber(p.value)}\nValid records: ${p.data.n}${p.data.lowN ? "\nInsufficient sample: shown for reference, not ranked" : ""}\n${c.weight === "equal" && c.level === "type" ? "Each university contributes equally" : ""}`,
+            p.data.referenceNames
+              ? `${p.data.referenceNames}\nIndividual ${metricLabels[c.metric]}: ${plotNumber(p.data.xAxis)}`
+              : `${p.name}\n${c.aggregation}: ${plotNumber(p.value)}\nValid records: ${p.data.n}${p.data.lowN ? "\nInsufficient sample: shown for reference, not ranked" : ""}\n${c.weight === "equal" && c.level === "type" ? "Each university contributes equally" : ""}`,
         },
       },
     ],

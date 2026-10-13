@@ -178,7 +178,7 @@ export const doctorateReview = {
 // Published URLs keep only what identifies the page. Signed tokens, session
 // and tracking parameters are removed before anything reaches public assets.
 const DROP_PARAM =
-  /^(utm_\w+|hl|oi|authuser|gmla|fbclid|gclid|mc_eid|pli|sessionid|session|sid|token|access_token|auth|key|api_key|apikey|sig|signature|password|pass|ved|ei|usg|sa|source|ref|_hs\w+)$/i;
+  /^(utm_\w+|hl|oi|authuser|gmla|fbclid|gclid|mc_eid|pli|sessionid|session|sid|token|access_token|auth|key|api_key|apikey|sig|signature|awsaccesskeyid|expires|x-amz-.*|password|pass|ved|ei|usg|sa|source|ref|_hs\w+)$/i;
 export function sanitizeUrl(value = "") {
   const raw = String(value || "").trim();
   if (!raw) return "";

@@ -12,3 +12,6 @@ Data files/_exports/*.zip
 
 # Local secrets (never commit)
 openalex-api-key.txt
+
+# Private research candidate evidence and curator decisions
+Data files/_research_reviews/

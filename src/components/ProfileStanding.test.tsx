@@ -1,11 +1,14 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import {
-  render,
+  render as renderView,
   screen,
   fireEvent,
   within,
   cleanup,
 } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+const render = (view: Parameters<typeof renderView>[0]) =>
+  renderView(view, { wrapper: MemoryRouter });
 import type { Academic } from "../types";
 import { ProfileStanding } from "./ProfileStanding";
 vi.mock("./Chart", () => ({
@@ -31,6 +34,7 @@ const make = (
     field: "Science",
     type: "Public",
     citations,
+    metricsSource: "Google Scholar",
     ...extra,
   }) as Academic;
 const target = make("person", 4);

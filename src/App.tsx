@@ -253,10 +253,10 @@ function Shell() {
           </div>
           <span className="data-badge">
             <span className="status-dot" />
-            {data?.metadata.collectionDate
+            {(data?.metadata.updatedAt || data?.metadata.collectionDate)
               ? "Data updated " +
                 new Date(
-                  data.metadata.collectionDate.slice(0, 10) + "T00:00:00Z",
+                  (data!.metadata.updatedAt || data!.metadata.collectionDate).slice(0, 10) + "T00:00:00Z",
                 ).toLocaleDateString("en-GB", {
                   day: "numeric",
                   month: "short",
