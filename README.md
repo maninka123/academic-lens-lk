@@ -49,7 +49,7 @@ Missing values stay missing. Comparisons show coverage and source information; c
 
 [Methodology & setup](docs/PROJECT_GUIDE.md) · [Data policy](docs/DATA_POLICY.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
 
-GitHub Pages releases: **Actions → Build, check and deploy GitHub Pages → Run workflow**. Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-atlas).
+GitHub Pages releases automatically after a push to `main` passes all checks. To republish manually: **Actions → Build, check and deploy GitHub Pages → Run workflow** on `main`. Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-atlas).
 
 > [!NOTE]
 > This project uses only publicly available information. Data may be incomplete, outdated or incorrect—please verify details with the original sources.
