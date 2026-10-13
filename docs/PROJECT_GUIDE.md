@@ -81,7 +81,7 @@ OpenAlex responses are cached in `scripts/baselines/_cache/`. Set `OPENALEX_API_
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/deploy.yml` imports the current editable data, checks the public-asset allowlist, validates TypeScript, runs tests, builds, checks the built site for internal files or credentials, and uploads it as the `public-site` artifact on every push and pull request. **Deployment is manual:** inspect the artifact, then run the workflow from the Actions tab ("Run workflow") to publish. Set repository **Settings → Pages → Source → GitHub Actions**.
+The workflow in `.github/workflows/deploy.yml` imports the current editable data, checks the public-asset allowlist, validates TypeScript, runs tests, builds, checks the built site for internal files or credentials, and uploads it as the `public-site` artifact on every push and pull request. **Successful pushes to `main` deploy automatically** after these checks pass. Pull requests never publish. Manual republishing is also available from the Actions tab ("Run workflow") on `main`. Set repository **Settings → Pages → Source → GitHub Actions**.
 
 The site is public even though the repository is private. Only allowlisted files and columns are published; internal evidence and review files stay in `Data files/`. See [docs/DATA_POLICY.md](DATA_POLICY.md) for what is published, attribution, reuse conditions and the correction/removal process, and [docs/ARCHITECTURE.md](ARCHITECTURE.md) for the data flow and how to add country datasets.
 

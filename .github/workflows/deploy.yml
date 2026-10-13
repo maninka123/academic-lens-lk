@@ -1,7 +1,7 @@
 name: Build, check and deploy GitHub Pages
 # Pushes and pull requests build and check the site, including the public-asset
-# allowlist. Publishing is manual: inspect the uploaded `public-site` artifact,
-# then run this workflow with "Run workflow" (workflow_dispatch) to deploy.
+# allowlist. Successful main pushes publish automatically; manual releases remain
+# available through "Run workflow" on main. Pull requests never publish.
 on:
   push:
     branches: [main]
@@ -38,11 +38,11 @@ jobs:
           path: dist
           retention-days: 14
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name == 'workflow_dispatch'
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         with:
           path: dist
   deploy:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     needs: build
     runs-on: ubuntu-latest
     permissions:

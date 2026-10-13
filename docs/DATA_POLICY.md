@@ -20,7 +20,7 @@ The website is static. Although the repository is private, the deployed site and
 
 - `npm run data:import` publishes only allowlisted files and columns, removes stale files from `public/data`, strips signed tokens, session and tracking parameters from every published URL (Google Scholar links keep only `user`), and fails if the public check finds a problem.
 - `node scripts/check-public-assets.mjs` (and `… dist` after a build) fails on any file outside the allowlist, internal evidence columns, or credential-like strings (GitHub, AWS, Slack and API keys, private keys, `token=`/`key=`/`sig=` parameters).
-- The GitHub workflow runs both checks on every push and uploads the built site as an artifact for inspection. **Deployment is manual** (`workflow_dispatch`) so the public output can be inspected first.
+- The GitHub workflow runs both checks and uploads the built site as an artifact for inspection. Successful pushes to `main` automatically deploy to GitHub Pages after all build, test, and public-output checks pass. Pull requests only build and check. Manual republishing remains available (`workflow_dispatch`) on `main`.
 
 ## Source attribution
 
