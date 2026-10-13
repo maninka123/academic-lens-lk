@@ -22,7 +22,17 @@
     "nsbm--faculty-of-computing": "Computing / IT",
     "nsbm--faculty-of-engineering": "Engineering",
     "nsbm--faculty-of-science": "Natural Sciences",
-    "peradeniya--faculty-of-engineering": "Engineering"
+    "peradeniya--faculty-of-engineering": "Engineering",
+    "uwu--faculty-of-management": "Management / Business",
+    "uwu--faculty-of-medicine": "Medicine / Health",
+    "uwu--faculty-of-applied-sciences": "Natural Sciences"
   },
-  "departments": {}
+  "departments": {
+    "colombo--faculty-of-science--department-of-chemistry": "Natural Sciences",
+    "jaffna--faculty-of-science--department-of-chemistry": "Natural Sciences",
+    "uwu--faculty-of-applied-sciences--department-of-computer-science-and-informatics": "Computing / IT",
+    "uwu--faculty-of-technological-studies--department-of-information-and-communication-technology": "Computing / IT",
+    "uwu--faculty-of-technological-studies--department-of-engineering-technology": "Engineering",
+    "uwu--faculty-of-management--department-of-english-language-teaching": "Humanities"
+  }
 }

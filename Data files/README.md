@@ -2,7 +2,7 @@
 
 Authoritative academic rows live only in universities/<university-id>/faculties/<faculty-slug>/academics.csv or its departments/<department-slug>/academics.csv leaves. Faculty-level rows have no published department; unknown parent faculties use unassigned-faculty, including a department below it when published. Each authoritative ID occurs once. Empty CSVs are placeholders, not no-staff assertions. Faculty/department spellings are published evidence, not inferred broad-field mappings.
 
-Current checked population: **1,397 academic records**, 237 additions from the 1,173-ID baseline, 13 documented duplicate aliases retained in review, 14 populated institutions and 14 institutions in scope. Saegis is excluded. This collection remains incomplete and has not achieved 5,000 distinct academics. Read [collection_report.md](collection_report.md) and [APPLICATION_HANDOFF.md](APPLICATION_HANDOFF.md) for actual coverage, limitations and remaining work.
+Current checked population: **1,601 academic records**, 441 additions from the 1,173-ID baseline, 13 documented duplicate aliases retained in review, 15 populated institutions and 15 institutions in scope. Saegis is excluded. This collection remains incomplete and has not achieved 5,000 distinct academics. Read [collection_report.md](collection_report.md) and [APPLICATION_HANDOFF.md](APPLICATION_HANDOFF.md) for actual coverage, limitations and remaining work.
 
 Preserve the exact 32-column academic header, UTF-8 CSV quoting and stable IDs. Numbers are unformatted and nonnegative; blanks mean unknown, not zero. Published qualifications/position titles remain source text. PhD Reading/candidate qualifications are ongoing and have no completion year. Source-reported experience is not extrapolated. SLIIT's accepted academic spelling differs from the unchanged manifest name; institution_aliases.csv maps both to the single sliit ID.
 
@@ -15,3 +15,5 @@ Supporting files:
 - source_pages.csv preserves legacy read observations; source_observations.csv records HTTP retrievals separately. access_issues.csv retains failures. data_dictionary.csv documents field semantics. field-mapping.json remains a manual, evidence-based mapping; unknown units stay Unmapped.
 
 Save CSV replacements atomically and checkpoint each unit. Do not create editable aggregate academic copies. Optional generated/read-only delivery archives are under _exports/. _archive/ is preserved unchanged and excluded from the active ZIP. The application session handles import and publication; no application commands were run in this collection session.
+
+Uva Wellassa University added 13 October 2026: 204 published academic records across five faculties; 29 departments in the inventory, with 20 represented by main academic records. 67 explicitly temporary/visiting appointments remain outside the main population. Read [UWU collection review](universities/uwu/COLLECTION_REVIEW.md) for source and identity caveats.

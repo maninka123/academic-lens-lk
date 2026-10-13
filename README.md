@@ -5,8 +5,8 @@ Explore academics, compare peer groups, and discover where their PhDs were award
 **[Open the app](https://maninka123.github.io/academic-lens-lk/)** · [Dataset guide](Data%20files/README.md) · [Full documentation](docs/PROJECT_GUIDE.md)
 
 <!-- dataset-summary:start -->
-<!-- Snapshot partial-176cdaae3c -->
-**1,397 Sri Lankan profiles · 14 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-12. [Coverage report](reports/validation-report.md).
+<!-- Snapshot partial-2efb9363c6 -->
+**1,601 Sri Lankan profiles · 15 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-13. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
 - Search people and inspect qualifications, research links and peer comparisons.
@@ -45,7 +45,7 @@ Edit the CSVs in `Data files/`, then run `npm run data:import`. Validate with `n
 
 ## Data notes
 
-Missing values stay missing. Comparisons show coverage and source information; citation counts are not a measure of overall academic quality. **Dr Name*** means a documented completed research doctorate; medical qualifications alone do not qualify under this display convention.
+Missing values stay missing. Comparisons show coverage and source information; citation counts are not a measure of overall academic quality. **Prof** takes precedence for documented professorial titles or positions; other completed research doctorate holders use **Dr**. An asterisk denotes a documented completed research doctorate; medical qualifications alone do not qualify.
 
 [Methodology & setup](docs/PROJECT_GUIDE.md) · [Data policy](docs/DATA_POLICY.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
 

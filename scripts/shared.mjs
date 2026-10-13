@@ -28,6 +28,7 @@ export const names = [
   "KIU",
   "Saegis Campus",
   "ICBT Campus",
+  "Uva Wellassa University of Sri Lanka",
 ];
 export const shorts = [
   "Colombo",
@@ -45,12 +46,13 @@ export const shorts = [
   "KIU",
   "Saegis",
   "ICBT",
+  "UWU",
 ];
 export const universities = names.map((name, i) => ({
   id: shorts[i].toLowerCase(),
   name,
   short: shorts[i],
-  type: i < 8 ? "Public" : "Non-state",
+  type: i < 8 || shorts[i] === "UWU" ? "Public" : "Non-state",
 }));
 export const slug = (s) =>
   s

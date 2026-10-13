@@ -18,6 +18,7 @@ import {
 } from "./evidence.mjs";
 import { rankFor, careerStage, COUNTRY_PROFILES } from "./countries.mjs";
 import { lowerQualification } from "./qualifications.mjs";
+import { researchInputs, publicMatch, publicResearch } from "./research-data.mjs";
 import {
   PUBLIC_FILES,
   PUBLIC_ACADEMIC_COLUMNS,
@@ -69,8 +70,11 @@ const n = (v) => {
   return x;
 };
 const openAlexById = new Map(openAlex.map((r) => [resolveAlias(r.academic_id, aliases), r]));
+const research = researchInputs(source, aliases);
 const rows = sourceRows.map((original) => {
-  const fallback = openAlexFallback(original, openAlexById.get(original.academic_id));
+  const lookup = openAlexById.get(original.academic_id);
+  const match = publicMatch(original, lookup, research);
+  const fallback = openAlexFallback(original, match.approved ? lookup : null);
   const r = { ...original, ...fallback.fields };
   const u = universities.find(
     (u) => u.name === r.university.replace(/ \(SLIIT\)$/, ""),
@@ -143,7 +147,8 @@ const rows = sourceRows.map((original) => {
       aliases,
     ),
     openAlexStatus: openAlexById.get(r.academic_id)?.status || "not_attempted",
-    openAlexUrl: sanitizeUrl(openAlexById.get(r.academic_id)?.openalex_id || ""),
+    openAlexUrl: match.url,
+    ...publicResearch(original, lookup, research, aliases, evidence),
     qualificationReview: reviews.join(" "),
     metricEvidence: JSON.stringify(evidence),
     metricsUrl: sanitizeUrl(r.metrics_source_url || fallback.evidence[0]?.url || ""),
