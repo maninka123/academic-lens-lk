@@ -74,6 +74,15 @@ beforeEach(() => {
   });
 });
 describe("academic selection", () => {
+  it("adds a batch of people and keeps the search available for more", () => {
+    render(<Pinned />, { wrapper });
+    fireEvent.change(screen.getByLabelText("Add Academic"), { target: { value: "Academic" } });
+    fireEvent.click(screen.getByRole("button", { name: "Add all 12 shown" }));
+    expect(useAtlas.getState().pinned).toHaveLength(12);
+    expect(screen.getByLabelText("Add Academic")).toHaveValue("Academic");
+    fireEvent.click(screen.getByRole("button", { name: "Add all 4 shown" }));
+    expect(useAtlas.getState().pinned).toHaveLength(16);
+  });
   it("pins, recalculates peers, retains pins across chart changes, and removes", () => {
     render(<Pinned />, { wrapper });
     fireEvent.change(screen.getByLabelText("Add Academic"), {

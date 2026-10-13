@@ -1,11 +1,11 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
 unassigned-faculty,,84,1
-faculty-of-arts,Faculty of Arts,2,46
+faculty-of-arts,Faculty of Arts,8,46
 faculty-of-education,Faculty of Education,0,0
 faculty-of-graduate-studies,Faculty of Graduate Studies,0,0
-faculty-of-law,Faculty of Law,0,32
+faculty-of-law,Faculty of Law,3,32
 faculty-of-management-finance,Faculty of Management & Finance,0,0
-faculty-of-medicine,Faculty of Medicine,0,132
+faculty-of-medicine,Faculty of Medicine,17,132
 faculty-of-nursing,Faculty of Nursing,0,0
 faculty-of-science,Faculty of Science,7,128
 faculty-of-scienceuniversity-of-colombo,Faculty of ScienceUniversity of Colombo,0,0

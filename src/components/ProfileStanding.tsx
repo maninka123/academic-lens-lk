@@ -1,16 +1,17 @@
 import { Select } from "./ui/select";
 import { plotNumber } from "../analytics/plot-format";
-import { useState } from "react";
+import { useState, useId } from "react";
 import type { Academic, NumericMetric } from "../types";
 import { metricLabels } from "../types";
-import { peers, summary, percentile, values } from "../analytics/engine";
 import {
-  MIN_SAMPLE,
-  PROVIDER_METRICS,
-  providerOf,
-  providerCounts,
-  withProvider,
-} from "../analytics/quality";
+  buildPeerGroups,
+  positionLabel as roleLabel,
+  cohortDescription,
+  type PeerCohort,
+} from "../analytics/profile-peers";
+import { PeerDistribution, type PeerChartView } from "./PeerDistribution";
+import { Link } from "react-router-dom";
+import { MIN_SAMPLE, providerOf } from "../analytics/quality";
 import { Card, fmt } from "./common";
 import { Chart } from "./Chart";
 
@@ -22,16 +23,6 @@ const metrics: NumericMetric[] = [
   "q1",
   "recentQ1",
 ];
-const contexts = [
-  ["department", "Department"],
-  ["faculty", "Faculty / school"],
-  ["university", "University"],
-  ["field", "Same field across institutions"],
-  ["rank", "Same position across institutions"],
-  ["qualification", "Same qualification"],
-  ["sector", "Same institution type"],
-  ["all", "Entire collected dataset"],
-] as const;
 export function ProfileStanding({
   academic: a,
   rows,
@@ -42,64 +33,27 @@ export function ProfileStanding({
   const [metric, setMetric] = useState<NumericMetric>("citations");
   const [context, setContext] = useState<string>("university");
   const [log, setLog] = useState(false);
-  const [cohort, setCohort] = useState("position");
-  const positionLabel = ["Other", "Unknown"].includes(a.rank)
-    ? a.position
-    : a.rank;
-  const samePosition = (r: Academic) =>
-    Boolean(positionLabel) &&
-    (["Other", "Unknown"].includes(a.rank)
-      ? r.position === a.position
-      : r.rank === a.rank);
-  const cohortRows = rows.filter(
-    (r) =>
-      cohort === "all" ||
-      (cohort === "position" && samePosition(r)) ||
-      (cohort === "qualification" &&
-        a.qualification !== "Unknown" &&
-        r.qualification === a.qualification) ||
-      (cohort === "both" &&
-        samePosition(r) &&
-        a.qualification !== "Unknown" &&
-        r.qualification === a.qualification) ||
-      (cohort === "phd" && r.qualification === "PhD"),
+  const [cohort, setCohort] = useState<PeerCohort>("position");
+  const [view, setView] = useState<PeerChartView>("benchmarks");
+  const [xMetric, setXMetric] = useState<NumericMetric>(
+    () =>
+      metrics.find(
+        (m) =>
+          m !== "citations" &&
+          Number.isFinite(a[m]) &&
+          providerOf(a, m) === providerOf(a, "citations"),
+      ) || "publications",
   );
-  const provider = PROVIDER_METRICS.includes(metric)
-    ? a[metric] !== null
-      ? providerOf(a, metric)
-      : providerCounts(cohortRows, metric)[0]?.[0]
-    : undefined;
-  const availableContexts = contexts
-    .filter(([key]) => key !== "department" || Boolean(a.departmentId))
-    .filter(([key]) => key !== "faculty" || Boolean(a.facultyId));
-  const groups = availableContexts.map(([key, label]) => {
-    const members =
-      key === "qualification"
-        ? a.qualification === "Unknown"
-          ? []
-          : cohortRows.filter((r) => r.qualification === a.qualification)
-        : key === "sector"
-          ? cohortRows.filter((r) => r.type === a.type)
-          : key === "rank"
-            ? cohortRows.filter(samePosition)
-            : peers(cohortRows, a, key);
-    const measured = provider ? withProvider(members, provider).rows : members;
-    const v = values(measured.map((r) => r[metric]));
-    const enough = v.length >= MIN_SAMPLE;
-    const stats = summary(v);
-    return {
-      key,
-      label,
-      members,
-      v,
-      ...stats,
-      median: enough ? stats.median : null,
-      mean: enough ? stats.mean : null,
-      q1: enough ? stats.q1 : null,
-      q3: enough ? stats.q3 : null,
-      percentile: enough ? percentile(v, a[metric]) : null,
-    };
-  });
+  const helpId = useId();
+  const positionLabel = roleLabel(a);
+  const { provider, groups } = buildPeerGroups(rows, a, metric, cohort);
+  const horizontal =
+    xMetric === metric
+      ? metric === "publications"
+        ? "citations"
+        : "publications"
+      : xMetric;
+  const availableContexts = groups.map((g) => [g.key, g.label]);
   const active =
     groups.find((g) => g.key === context) ||
     groups.find((g) => g.key === "university")!;
@@ -108,7 +62,7 @@ export function ProfileStanding({
   return (
     <Card
       title="Where this person stands"
-      subtitle="Compare peers by institution, position or qualification."
+      subtitle="See how this person compares with the selected group of collected profiles."
     >
       <div className="standing-controls">
         <label>
@@ -130,7 +84,7 @@ export function ProfileStanding({
           <Select
             aria-label="Compare with"
             value={cohort}
-            onChange={(e) => setCohort(e.target.value)}
+            onChange={(e) => setCohort(e.target.value as PeerCohort)}
           >
             <option value="position">
               Same position · {positionLabel || "Unrecorded"}
@@ -157,6 +111,36 @@ export function ProfileStanding({
             ))}
           </Select>
         </label>
+        <label>
+          Chart view
+          <Select
+            aria-label="Peer chart view"
+            value={view}
+            onChange={(e) => setView(e.target.value as PeerChartView)}
+          >
+            <option value="benchmarks">Person, median and mean</option>
+            <option value="distribution">Distribution · individual dots</option>
+            <option value="scatter">Scatter · two measurements</option>
+          </Select>
+        </label>
+        {view === "scatter" && (
+          <label>
+            Horizontal measurement
+            <Select
+              aria-label="Peer horizontal measurement"
+              value={horizontal}
+              onChange={(e) => setXMetric(e.target.value as NumericMetric)}
+            >
+              {metrics
+                .filter((m) => m !== metric)
+                .map((m) => (
+                  <option key={m} value={m}>
+                    {metricLabels[m]}
+                  </option>
+                ))}
+            </Select>
+          </label>
+        )}
         <label className="check">
           <input
             type="checkbox"
@@ -166,59 +150,124 @@ export function ProfileStanding({
           Compress scale (log₁₀ of value + 1)
         </label>
       </div>
+      <div className="peer-scope" aria-live="polite">
+        <strong>
+          {active.label} · {cohortDescription(a, cohort)}
+        </strong>
+        <span>
+          {active.members.length} group profiles · {active.n} with{" "}
+          {metricLabels[metric].toLowerCase()} from {provider}
+        </span>
+        {active.percentile !== null && (
+          <span>
+            Percentile: ({active.v.filter((v) => v < a[metric]!).length} below +
+            ½ × {active.v.filter((v) => v === a[metric]).length} tied) ÷{" "}
+            {active.n} × 100 = {plotNumber(active.percentile)}%
+          </span>
+        )}
+        <details>
+          <summary>What do “peer” and “same” mean?</summary>
+          <p>
+            A peer is a collected profile matching the selected cohort and
+            context. “Same” refers to the documented category, such as position,
+            qualification or institution; it does not imply identical subjects
+            or career histories. Only {provider} values are compared. Missing
+            values are excluded, never counted as zero. Groups include this
+            person when eligible.
+          </p>
+          <p>
+            Median is the middle value; mean is the average and can be pulled up
+            by a few large values. Percentile equals 100 × (values below this
+            person + half of tied values) ÷ valid values. Statistics require at
+            least {MIN_SAMPLE} valid values.
+          </p>
+          <p>{active.description}</p>
+        </details>
+      </div>
       <div className="profile-chart-grid">
         <div>
-          <h3>Person and peer benchmarks</h3>
-          <Chart
-            label={`${a.name}: ${metricLabels[metric]} against ${active.label} mean and median`}
-            height={220}
-            option={{
-              aria: {
-                enabled: true,
-                description: `${a.name}: ${metricLabels[metric]} ${fmt(a[metric], 1)}. ${active.label} has ${active.n} valid values; median ${fmt(active.median, 1)}, mean ${fmt(active.mean, 1)}. The comparison table contains all values.`,
-              },
-              tooltip: {
-                trigger: "axis",
-                renderMode: "richText",
-                confine: true,
-                valueFormatter: (v: number | null) =>
-                  v === null
-                    ? "Not available"
-                    : plotNumber(log ? Math.pow(10, v) - 1 : v),
-              },
-              grid: { left: 100, right: 30, bottom: 55, top: 25 },
-              xAxis: {
-                type: "value",
-                name: log ? "log₁₀(value + 1)" : metricLabels[metric],
-                nameLocation: "middle",
-                nameGap: 35,
-              },
-              yAxis: {
-                type: "category",
-                data: ["Peer mean", "Peer median", "This person"],
-              },
-              series: [
-                {
-                  type: "bar",
-                  barMaxWidth: 30,
-                  data: [
-                    transform(active.mean),
-                    transform(active.median),
-                    transform(a[metric]),
-                  ].map((value, i) => ({
-                    value,
-                    itemStyle: {
-                      color: i === 2 ? "#169688" : "#2675b9",
-                      borderRadius: [0, 5, 5, 0],
+          <h3>
+            {view === "benchmarks"
+              ? "Person and peer benchmarks"
+              : view === "scatter"
+                ? "Two measurements, one profile per dot"
+                : "How values are distributed"}
+          </h3>
+          {view !== "benchmarks" ? (
+            <PeerDistribution
+              academic={a}
+              group={active}
+              metric={metric}
+              horizontal={horizontal}
+              provider={provider}
+              view={view}
+              log={log}
+            />
+          ) : (
+            <>
+              <p className="peer-plot-caption">
+                {active.label} · {cohortDescription(a, cohort)} · {provider}
+              </p>
+              <Chart
+                label={`${a.name}: ${metricLabels[metric]} against ${active.label} mean and median`}
+                height={340}
+                option={{
+                  aria: {
+                    enabled: true,
+                    description: `${a.name}: ${metricLabels[metric]} ${fmt(a[metric], 1)}. ${active.label} has ${active.n} valid values; median ${fmt(active.median, 1)}, mean ${fmt(active.mean, 1)}. The comparison table contains all values.`,
+                  },
+                  tooltip: {
+                    trigger: "axis",
+                    renderMode: "richText",
+                    confine: true,
+                    valueFormatter: (v: number | null) =>
+                      v === null
+                        ? "Not available"
+                        : plotNumber(log ? Math.pow(10, v) - 1 : v),
+                  },
+                  grid: { left: 100, right: 30, bottom: 55, top: 25 },
+                  xAxis: {
+                    type: "value",
+                    name: log ? "log₁₀(value + 1)" : metricLabels[metric],
+                    nameLocation: "middle",
+                    nameGap: 35,
+                  },
+                  yAxis: {
+                    type: "category",
+                    data: ["Peer mean", "Peer median", "This person"],
+                  },
+                  series: [
+                    {
+                      type: "bar",
+                      barMaxWidth: 30,
+                      data: [
+                        transform(active.mean),
+                        transform(active.median),
+                        transform(a[metric]),
+                      ].map((value, i) => ({
+                        value,
+                        itemStyle: {
+                          color: i === 2 ? "#208b80" : "#007aff",
+                          borderRadius: [0, 5, 5, 0],
+                        },
+                      })),
                     },
-                  })),
-                },
-              ],
-            }}
-          />
+                  ],
+                }}
+              />
+              <p className="caption">
+                The median is the middle value. The mean is the average of the
+                same {active.n} available values.
+              </p>
+            </>
+          )}
         </div>
         <div>
           <h3>Standing in each peer group</h3>
+          <p className="peer-plot-caption">
+            Every group uses {cohortDescription(a, cohort).toLowerCase()}. Hover
+            a result for its definition.
+          </p>
           {a[metric] === null ? (
             <div className="standing-empty">
               No recorded value for this person.
@@ -227,7 +276,7 @@ export function ProfileStanding({
           ) : (
             <Chart
               label="Percentile by peer context; shown with at least ten valid values"
-              height={groups.length * 30 + 65}
+              height={340}
               option={{
                 aria: {
                   enabled: true,
@@ -245,7 +294,7 @@ export function ProfileStanding({
                   type: "value",
                   min: 0,
                   max: 100,
-                  name: "Midrank percentile",
+                  name: "Percentile within the group",
                   nameLocation: "middle",
                   nameGap: 30,
                 },
@@ -261,7 +310,8 @@ export function ProfileStanding({
                         rank: "Same position",
                         qualification: "Qualification",
                         sector: "Same type",
-                        all: "All profiles",
+                        all:
+                          cohort === "all" ? "All profiles" : "Selected peers",
                       })[g.key],
                   ),
                 },
@@ -270,7 +320,7 @@ export function ProfileStanding({
                     type: "bar",
                     barMaxWidth: 20,
                     data: groups.map((g) => g.percentile),
-                    itemStyle: { color: "#169688", borderRadius: [0, 4, 4, 0] },
+                    itemStyle: { color: "#208b80", borderRadius: [0, 4, 4, 0] },
                   },
                 ],
               }}
@@ -295,8 +345,21 @@ export function ProfileStanding({
             }
             onClick={() => setContext(g.key)}
             aria-pressed={active.key === g.key}
+            aria-describedby={`${helpId}-${g.key}`}
           >
-            <strong className="peer-result-label">{g.label}</strong>
+            <strong className="peer-result-label">
+              {g.label}
+              <span className="peer-info-icon" aria-hidden="true">
+                ⓘ
+              </span>
+            </strong>
+            <span
+              className="peer-card-tooltip"
+              role="tooltip"
+              id={`${helpId}-${g.key}`}
+            >
+              {g.description}
+            </span>
             <div className="peer-result-main">
               <strong>{g.median === null ? "—" : plotNumber(g.median)}</strong>
               <span>Peer median</span>
@@ -311,16 +374,60 @@ export function ProfileStanding({
             ) : (
               <span className="peer-result-note">
                 {g.n < MIN_SAMPLE
-                  ? "Insufficient data"
+                  ? g.members.length === 0
+                    ? "No eligible profiles"
+                    : `Need ${MIN_SAMPLE} valid values`
                   : "Personal value unavailable"}
               </span>
             )}
             <span className="peer-result-sample">
-              {g.n} valid / {g.members.length} profiles
+              {g.n} with values / {g.members.length} group profiles
             </span>
           </button>
         ))}
       </div>
+      <details className="peer-statistics">
+        <summary>
+          Profiles behind the selected result ({active.n} with values)
+        </summary>
+        <div className="table-scroll">
+          <table>
+            <caption className="sr-only">
+              Records contributing to {active.label} {metricLabels[metric]}{" "}
+              statistics
+            </caption>
+            <thead>
+              <tr>
+                <th>Academic</th>
+                <th>Institution</th>
+                <th>{metricLabels[metric]}</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              {active.measured
+                .filter((r) => Number.isFinite(r[metric]))
+                .sort((x, y) => x[metric]! - y[metric]!)
+                .map((r) => (
+                  <tr
+                    key={r.id}
+                    className={r.id === a.id ? "peer-person-row" : ""}
+                  >
+                    <th scope="row">
+                      <Link to={`/academics/${r.id}`}>{r.name}</Link>
+                      {r.id === a.id && (
+                        <span className="pill">This person</span>
+                      )}
+                    </th>
+                    <td>{r.university}</td>
+                    <td>{plotNumber(r[metric])}</td>
+                    <td>{provider}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
       <details className="peer-statistics">
         <summary>Detailed statistics</summary>
         <div className="table-scroll">
@@ -347,12 +454,12 @@ export function ProfileStanding({
                   <th scope="row">{g.label}</th>
                   <td>{g.members.length}</td>
                   <td>{g.n}</td>
-                  <td>{fmt(a[metric], 1)}</td>
-                  <td>{g.median === null ? "—" : fmt(g.median, 1)}</td>
-                  <td>{g.mean === null ? "—" : fmt(g.mean, 1)}</td>
+                  <td>{a[metric] === null ? "—" : plotNumber(a[metric])}</td>
+                  <td>{g.median === null ? "—" : plotNumber(g.median)}</td>
+                  <td>{g.mean === null ? "—" : plotNumber(g.mean)}</td>
                   <td>
                     {g.q1 !== null && g.q3 !== null
-                      ? `${fmt(g.q1, 1)}–${fmt(g.q3, 1)}`
+                      ? `${plotNumber(g.q1)}–${plotNumber(g.q3)}`
                       : "—"}
                   </td>
                   <td>

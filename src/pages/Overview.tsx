@@ -69,7 +69,7 @@ export function Overview() {
           value: g.rows.length,
           universityId: g.id,
           itemStyle: {
-            color: g.type === "Public" ? "#2675b9" : "#169688",
+            color: g.type === "Public" ? "#007aff" : "#208b80",
             borderRadius: [0, 4, 4, 0],
           },
         })),
@@ -158,7 +158,7 @@ export function Overview() {
         <Stat
           label="Verified research identities"
           value={fmt(cov.verifiedIdentity)}
-          detail={`${pct(cov.verifiedIdentity)} linked from an official page · ${fmt(cov.verifiedEmployment)} verified employment`}
+          detail={`${pct(cov.verifiedIdentity)} with a confirmed research profile · ${fmt(cov.verifiedEmployment)} verified employment`}
         />
         <Stat
           label="Data completeness"

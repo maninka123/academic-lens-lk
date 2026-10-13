@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import type { Academic } from "../types";
 import Papa from "papaparse";
 export const fmt = (v: number | null | undefined, digits = 0) =>
-  v === null || v === undefined
+  v === null || v === undefined || !Number.isFinite(v)
     ? "Not available"
     : new Intl.NumberFormat("en", { maximumFractionDigits: digits }).format(v);
 export const short = (name: string) =>
@@ -134,8 +134,8 @@ export function exportCsv(rows: Academic[]) {
   download("academic-atlas-records.csv", "\uFEFF" + Papa.unparse(safe));
 }
 export const colors = [
-  "#2675b9",
-  "#169688",
+  "#007aff",
+  "#208b80",
   "#b57537",
   "#8966ad",
   "#c65170",

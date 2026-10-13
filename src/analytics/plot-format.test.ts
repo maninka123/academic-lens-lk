@@ -1,5 +1,13 @@
 import { expect, it } from "vitest";
 import { formatPlot, plotNumber, plotTick } from "./plot-format";
+it("keeps axes, tooltips and reference labels readable in both themes without altering data", () => {
+  const option = { xAxis: { type: "value" }, series: [{ data: [0, 12], markLine: { data: [{ xAxis: 10, referenceNames: "Person" }] } }] };
+  const dark = formatPlot(option, "dark");
+  const light = formatPlot(option, "light");
+  expect(dark.xAxis.axisLabel.color).not.toBe(light.xAxis.axisLabel.color);
+  expect(dark.series[0].markLine.data[0].label.backgroundColor).toBe(dark.tooltip.backgroundColor);
+  expect(dark.series[0].data).toEqual([0, 12]);
+});
 it("shows whole counts and one-decimal fractional values without changing source values", () => {
   const option = formatPlot({
     xAxis: { type: "value" },

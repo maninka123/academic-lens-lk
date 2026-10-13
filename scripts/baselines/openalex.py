@@ -17,10 +17,8 @@ class BudgetExhausted(RuntimeError):
     pass
 
 
-# Key from the environment, or from the git-ignored openalex-api-key.txt at the project root.
-_KEY_FILE = Path(__file__).resolve().parents[2] / "openalex-api-key.txt"
-if not os.environ.get("OPENALEX_API_KEY") and _KEY_FILE.exists():
-    os.environ["OPENALEX_API_KEY"] = _KEY_FILE.read_text().strip()
+# Credentials are supplied through the environment only. Never read key files.
+CACHE_ONLY = os.environ.get("OPENALEX_CACHE_ONLY") == "1"
 
 
 def _redact(text):
@@ -28,12 +26,14 @@ def _redact(text):
     return text.replace(k, "[redacted]") if k else text
 
 
-def _get(path, params):
+def _get(path, params, refresh=False):
     CACHE.mkdir(parents=True, exist_ok=True)
     key = hashlib.sha1((path + json.dumps(params, sort_keys=True)).encode()).hexdigest()
     f = CACHE / f"{key}.json"
-    if f.exists():
+    if f.exists() and not refresh:
         return json.loads(f.read_text())
+    if CACHE_ONLY:
+        raise BudgetExhausted("No cached response available (offline mode)")
     if os.environ.get("OPENALEX_API_KEY"):
         params = {**params, "api_key": os.environ["OPENALEX_API_KEY"]}
     for attempt in range(4):
@@ -43,7 +43,12 @@ def _get(path, params):
             time.sleep(5 * (attempt + 1))
             continue
         if r.status_code == 429:
-            raise BudgetExhausted(_redact(r.text[:200]))
+            if attempt < 3:
+                try: delay = min(30, max(1, float(r.headers.get("Retry-After", 2 ** attempt))))
+                except ValueError: delay = 2 ** attempt
+                time.sleep(delay)
+                continue
+            raise BudgetExhausted("OpenAlex rate limit; retry later. Checkpoints preserved.")
         if r.status_code >= 500:
             time.sleep(3 * (attempt + 1))
             continue

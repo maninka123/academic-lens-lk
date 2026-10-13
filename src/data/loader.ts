@@ -54,6 +54,8 @@ export async function loadDataset(): Promise<Dataset> {
         r.qualification === "PhD" ? "completed_documented" : "unknown";
     row.name = academicDisplayName({
       name: r.name,
+      rank: r.rank,
+      position: r.position,
       qualification: r.qualification,
       phdStatus: r.phdStatus,
       qualifications: r.qualifications,
@@ -75,6 +77,10 @@ export async function loadDataset(): Promise<Dataset> {
       )
         throw Error(`Invalid metric evidence for ${r.id}`);
       row.metricEvidence = evidence;
+    }
+    for (const key of ["researchIdentities", "researchObservations"] as const) {
+      row[key] = r[key] ? JSON.parse(r[key]) : [];
+      if (!Array.isArray(row[key])) throw Error(`Invalid ${key} for ${r.id}`);
     }
     for (const k of numeric) {
       const n = r[k]?.trim() === "" ? null : Number(r[k]);

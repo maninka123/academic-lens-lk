@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-13",
+  "profiles": 1397,
+  "processed": 1397,
+  "levels": {
+    "corroborated": 399,
+    "confirmed": 30,
+    "possible": 668,
+    "unresolved": 300
+  },
+  "approved": {
+    "corroborated": 399,
+    "confirmed": 21
+  },
+  "new_staged_matches": 9,
+  "identity_conflicts": 3,
+  "cache_authors": 18355
+}

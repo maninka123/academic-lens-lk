@@ -1,12 +1,12 @@
 import type { Academic } from "../types";
 /**
- * Display name convention: "Dr Name*" only with documented completed-doctorate
- * evidence; otherwise an honorific is shown only when the source itself states
- * one (Mr, Mrs, Ms, Miss). No honorific or gender is ever inferred.
+ * A documented professorial title/position takes precedence over Dr.
+ * The doctorate marker still requires completed research-doctorate evidence.
+ * Other titles follow the source; names and gender are never guessed.
  */
 export function academicDisplayName(
   a: Pick<Academic, "name" | "qualification" | "phdStatus" | "qualifications"> &
-    Partial<Pick<Academic, "doctorateStatus">>,
+    Partial<Pick<Academic, "doctorateStatus" | "rank" | "position">>,
 ) {
   const original = a.name.trim();
   const sourceTitle = original.match(
@@ -35,10 +35,15 @@ export function academicDisplayName(
           /\bD\.?Sc\b|\bD\.?Litt\b|Doctor of (?:Science|Letters)/i.test(
             a.qualifications,
           )));
-  const title = doctorate
-    ? "Dr"
-    : sourceTitle
-      ? sourceTitle[0].toUpperCase() + sourceTitle.slice(1).toLowerCase()
-      : "";
+  const professor = /\b(?:professor|prof)\b/i.test(
+    [original, a.rank, a.position].filter(Boolean).join(" "),
+  );
+  const title = professor
+    ? "Prof"
+    : doctorate
+      ? "Dr"
+      : sourceTitle
+        ? sourceTitle[0].toUpperCase() + sourceTitle.slice(1).toLowerCase()
+        : "";
   return `${title ? title + " " : ""}${name}${doctorate ? "*" : ""}`;
 }

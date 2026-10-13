@@ -14,13 +14,18 @@ import {
 } from "../analytics/engine";
 import { fmt, colors, short } from "./common";
 import { Button } from "./ui/button";
-import { metricLabels, type NumericMetric } from "../types";
-export function Pinned() {
+import { metricLabels, type NumericMetric, type Academic } from "../types";
+export function Pinned({ comparisonRows, referenceAcademics, providerLabel, showHeading = true }: {
+  comparisonRows?: Academic[];
+  referenceAcademics?: Academic[];
+  providerLabel?: string;
+  showHeading?: boolean;
+} = {}) {
   const { academics } = useData();
   const { pinned, pin, unpin, config, configure, filters, custom } = useAtlas();
   const [search, setSearch] = useState("");
   const available = filterAcademics(academics, filters);
-  const selectedRows = compare(available, config, custom).flatMap(
+  const selectedRows = comparisonRows ?? compare(available, config, custom).flatMap(
     (g) => g.rows,
   );
   const current = [...new Map(selectedRows.map((a) => [a.id, a])).values()];
@@ -33,17 +38,17 @@ export function Pinned() {
               .toLowerCase()
               .includes(search.toLowerCase()) && !pinned.includes(a.id),
         )
-        .slice(0, 8)
+        .slice(0, 12)
     : [];
   return (
     <aside className="pinned-panel">
-      <div className="section-heading">
+      {showHeading && <div className="section-heading">
         <h2>
           <Pin size={18} />
           Pinned academics
         </h2>
         <span className="pill">{pinned.length}</span>
-      </div>
+      </div>}
       <p className="muted">
         Keep individuals in view as your comparison changes.
       </p>
@@ -63,7 +68,6 @@ export function Pinned() {
               key={a.id}
               onClick={() => {
                 pin(a.id);
-                setSearch("");
               }}
             >
               <div>
@@ -77,6 +81,14 @@ export function Pinned() {
           ))}
         </div>
       )}
+      {matches.length > 1 && (
+        <Button variant="outline" onClick={() => matches.forEach((a) => pin(a.id))}>
+          <Plus size={16} /> Add all {matches.length} shown
+        </Button>
+      )}
+      <p className="caption" role="status">
+        {pinned.length ? `${pinned.length} ${pinned.length === 1 ? "person" : "people"} pinned. Keep searching to add more.` : "Search by name, university or department to add people."}
+      </p>
       {search && !matches.length && (
         <p className="muted">No matching unpinned profiles.</p>
       )}
@@ -118,8 +130,9 @@ export function Pinned() {
           </p>
         </div>
       )}
+      <div className="pinned-list">
       {pinned.map((id, i) => {
-        const a = academics.find((a) => a.id === id);
+        const a = (referenceAcademics ?? academics).find((a) => a.id === id);
         if (!a) return null;
         const peer = peers(current, a, config.peer);
         const metric = config.metric;
@@ -171,6 +184,7 @@ export function Pinned() {
                   <strong>{fmt(v, 1)}</strong>
                   <span>{metricLabels[metric]}</span>
                 </div>
+                {providerLabel && <p className="caption">{v === null ? `No recorded ${providerLabel} ${metricLabels[metric]} for this person.` : `${providerLabel} · individual value`}</p>}
                 <dl className="peer-stats">
                   <div>
                     <dt>Peer median</dt>
@@ -221,6 +235,7 @@ export function Pinned() {
           </div>
         );
       })}
+      </div>
       <details className="method-note">
         <summary>How percentiles work</summary>
         <p>

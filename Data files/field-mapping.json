@@ -25,7 +25,21 @@
     "peradeniya--faculty-of-engineering": "Engineering",
     "uwu--faculty-of-management": "Management / Business",
     "uwu--faculty-of-medicine": "Medicine / Health",
-    "uwu--faculty-of-applied-sciences": "Natural Sciences"
+    "uwu--faculty-of-applied-sciences": "Natural Sciences",
+    "colombo--faculty-of-science": "Natural Sciences",
+    "jaffna--faculty-of-allied-health-sciences": "Medicine / Health",
+    "jaffna--faculty-of-engineering": "Engineering",
+    "jaffna--faculty-of-medicine": "Medicine / Health",
+    "jaffna--faculty-of-science": "Natural Sciences",
+    "kiu--faculty-of-health-sciences": "Medicine / Health",
+    "moratuwa--faculty-of-business": "Management / Business",
+    "moratuwa--faculty-of-information-technology": "Computing / IT",
+    "peradeniya--faculty-of-allied-health-sciences": "Medicine / Health",
+    "peradeniya--faculty-of-medicine": "Medicine / Health",
+    "peradeniya--faculty-of-science": "Natural Sciences",
+    "ruhuna--faculty-of-engineering": "Engineering",
+    "sliit--faculty-of-computing": "Computing / IT",
+    "sliit--faculty-of-engineering": "Engineering"
   },
   "departments": {
     "colombo--faculty-of-science--department-of-chemistry": "Natural Sciences",
@@ -33,6 +47,14 @@
     "uwu--faculty-of-applied-sciences--department-of-computer-science-and-informatics": "Computing / IT",
     "uwu--faculty-of-technological-studies--department-of-information-and-communication-technology": "Computing / IT",
     "uwu--faculty-of-technological-studies--department-of-engineering-technology": "Engineering",
-    "uwu--faculty-of-management--department-of-english-language-teaching": "Humanities"
+    "uwu--faculty-of-management--department-of-english-language-teaching": "Humanities",
+    "colombo--faculty-of-arts--department-of-english-language-teaching": "Humanities",
+    "jaffna--faculty-of-arts--department-of-english-language-teaching": "Humanities",
+    "peradeniya--faculty-of-agriculture--department-of-english-language-teaching": "Humanities",
+    "peradeniya--faculty-of-allied-health-sciences--department-of-english-language-teaching": "Humanities",
+    "peradeniya--faculty-of-arts--department-of-english-language-teaching": "Humanities",
+    "peradeniya--faculty-of-engineering--department-of-english-language-teaching": "Humanities",
+    "peradeniya--faculty-of-medicine--department-of-english-language-teaching": "Humanities",
+    "peradeniya--faculty-of-science--department-of-english-language-teaching": "Humanities"
   }
 }

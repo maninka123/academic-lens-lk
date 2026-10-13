@@ -28,6 +28,20 @@ const make = (id: string, n: number | null, extra: Partial<Academic> = {}) =>
     ...extra,
   }) as Academic;
 describe("hierarchy and chart edge cases", () => {
+  it("shows pinned individual h-index references beyond the group median, without inventing missing values", () => {
+    const rows = Array.from({ length: 12 }, (_, i) => make(String(i), 10));
+    const pins = [make("outlier", 40), make("same", 40), make("missing", null), make("zero", 0)];
+    const option = comparisonChart(rows, { ...defaultConfig, metric: "hIndex", chart: "bar" }, pins, []);
+    expect(option.series[0].markLine.data.map((r: any) => r.xAxis)).toEqual([40, 0]);
+    expect(option.series[0].markLine.data[0].referenceNames).toBe("outlier, same");
+    expect(option.xAxis.max({ max: 10 })).toBeGreaterThan(40);
+    const log = comparisonChart(rows, { ...defaultConfig, metric: "hIndex", log: true }, pins, []);
+    expect(log.series[0].markLine.data.map((r: any) => r.xAxis)).toEqual([40]);
+  });
+  it("does not compare individual reference lines to combined totals", () => {
+    const option = comparisonChart([make("group", 20)], { ...defaultConfig, aggregation: "total" }, [make("pin", 10)], []);
+    expect(option.series[0].markLine).toBeUndefined();
+  });
   beforeEach(() =>
     useAtlas.setState({
       config: defaultConfig,

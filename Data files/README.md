@@ -17,3 +17,5 @@ Supporting files:
 Save CSV replacements atomically and checkpoint each unit. Do not create editable aggregate academic copies. Optional generated/read-only delivery archives are under _exports/. _archive/ is preserved unchanged and excluded from the active ZIP. The application session handles import and publication; no application commands were run in this collection session.
 
 Uva Wellassa University added 13 October 2026: 204 published academic records across five faculties; 29 departments in the inventory, with 20 represented by main academic records. 67 explicitly temporary/visiting appointments remain outside the main population. Read [UWU collection review](universities/uwu/COLLECTION_REVIEW.md) for source and identity caveats.
+
+Enriched export merged 14 October 2026: 659 existing profiles improved; qualifications now cover 1,210 records and Scholar links 767. Record count remains 1,601. See [merge review](../reports/enriched-merge-2026-10-14/REVIEW.md).

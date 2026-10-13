@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-13",
+  "baseline_profiles": 1397,
+  "baseline_openalex_accepted": 416,
+  "sha256": {
+    "Data files/research_identity_evidence.csv": "b2c64320cf5ed5d70b47e922cadfd5bad39241b2935d24a7bc50f4c2418da766",
+    "Data files/research_metric_observations.csv": "018e4ae9ff2e56d32051b2a1ffcdc26ec938b1961115acb1828281db44d21271",
+    "Data files/research_metrics_snapshots.csv": "5147623f2f6d415cdfe8be65fd6aef47b5a246e1d222464b9eed10f7c8f34ead",
+    "Data files/identity_aliases.csv": "9bf3719f25d6a311f6ed0c5be0b36e77486053bdd97c7dcea951fd1d12a9a722",
+    "Data files/international/sri_lanka_openalex_metrics.csv": "1a4c05996428cdab03a81b17a368852f9f65b890c8db8a938eca96cfb86e7053",
+    "Data files/international/openalex_matches.csv": "ac6d97fc17bea84b86a6c38eb1637a85055f12995dc5ed10779449e5423ea369",
+    "Data files/international/publications.csv": "4d6987cdd450048d1ab164bace099e3b37c8d97caf22574056ca7a1089657772"
+  }
+}

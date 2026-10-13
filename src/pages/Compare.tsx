@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import {
   Share2,
   Download,
-  PanelLeftClose,
   PanelRightClose,
   Plus,
   Trash2,
@@ -33,7 +32,7 @@ import { Chart } from "../components/Chart";
 import { Filters, Multi } from "../components/Filters";
 import { Pinned } from "../components/Pinned";
 import { AcademicTable } from "../components/AcademicTable";
-import { Header, fmt, exportCsv, Empty } from "../components/common";
+import { Header, fmt, exportCsv, Empty, colors } from "../components/common";
 import { Button } from "../components/ui/button";
 import { Dialog } from "../components/ui/dialog";
 import {
@@ -86,21 +85,17 @@ export function Compare() {
     const query = window.matchMedia("(max-width:1100px)");
     const handler = () => {
       setMobile(query.matches);
-      setLeft(!query.matches);
       setRight(!query.matches && useAtlas.getState().pinned.length > 0);
     };
     query.addEventListener("change", handler);
     return () => query.removeEventListener("change", handler);
   }, []);
-  const [left, setLeft] = useState(
+  const [right, setRight] = useState(
       () => !window.matchMedia("(max-width:1100px)").matches,
-    ),
-    [right, setRight] = useState(
-      () =>
-        pinned.length > 0 && !window.matchMedia("(max-width:1100px)").matches,
     ),
     [notice, setNotice] = useState(""),
     [groupName, setGroupName] = useState("");
+  const [inspectedGroup, setInspectedGroup] = useState<string | null>(null);
   const [bench, setBench] = useState<Academic[]>([]);
   const [openAlex, setOpenAlex] = useState<Map<string, SlOpenAlex> | null>(
     null,
@@ -173,6 +168,9 @@ export function Compare() {
   const provided = single
     ? withProvider(filtered, provider, openAlex || undefined)
     : { rows: filtered, excluded: 0 };
+  const excludedMetricValues = providerMetric && single
+    ? filtered.filter((a, i) => a[c.metric as NumericMetric] !== null && provided.rows[i][c.metric as NumericMetric] === null).length
+    : 0;
   const rows = [
       ...provided.rows,
       ...(benchOn
@@ -192,7 +190,14 @@ export function Compare() {
   const logExcluded = ["count", "phd", "overseas"].includes(c.metric)
     ? 0
     : logSplit(selectedRows.map((a) => a[c.metric as NumericMetric])).excluded;
-  const chartOption = comparisonChart(rows, c, selected, custom);
+  const referenceRows = single
+    ? withProvider(selected, provider, openAlex || undefined).rows
+    : selected;
+  const chartOption = comparisonChart(rows, c, referenceRows, custom);
+  const inspected = groups.find((g) => g.id === inspectedGroup);
+  const missingReferenceValues = referenceRows.filter((a) =>
+    !["count", "phd", "overseas"].includes(c.metric) && a[c.metric as NumericMetric] === null,
+  );
   const has =
     c.chart === "grouped" ||
     c.chart === "stacked" ||
@@ -286,8 +291,12 @@ export function Compare() {
     }
   }
   const controls = (
-    <aside className="configuration">
-      <div className="step-label">01 · Define your comparison</div>
+    <section className="comparison-setup" aria-label="Comparison setup">
+      <div className="comparison-setup-heading">
+        <h2>Build your comparison</h2>
+        <span className="caption">Choose your groups, measurement and chart.</span>
+      </div>
+      <div className="comparison-primary-controls">
       <label className="field">
         Comparison level
         <Select
@@ -304,54 +313,14 @@ export function Compare() {
           ))}
         </Select>
       </label>
-      <label className="check">
-        <input
-          type="checkbox"
-          checked={Boolean(c.benchmarks)}
-          onChange={(e) =>
-            configure({ benchmarks: e.target.checked, groups: [] })
-          }
-        />{" "}
-        <span>
-          Add international benchmarks
-          {c.benchmarks && !benchOn && (
-            <small>
-              {" "}
-              (available at the Public vs Non-state or Universities level)
-            </small>
-          )}
-        </span>
-      </label>
-      {benchOn && (
-        <label className="field">
-          Equivalent discipline
-          <Select
-            aria-label="Equivalent discipline"
-            value={discipline}
-            onChange={(e) => setDiscipline(e.target.value as typeof discipline)}
-          >
-            <option value="all">All sampled disciplines</option>
-            {benchmarkFields.map((discipline) => (
-              <option key={discipline} value={discipline}>
-                {discipline}
-              </option>
-            ))}
-          </Select>
-          <small className="caption">
-            Benchmarks cover seven disciplines with uneven university coverage;
-            proxy units are excluded. Sri Lankan academics are matched by
-            department and faculty. Citation metrics are included only for
-            matched research profiles; unresolved values remain blank.
-          </small>
-        </label>
-      )}
+      <div className="field group-picker-field"><span>Groups</span>
       <Multi
-        label="Comparison groups"
+        label="Choose groups"
         options={options.map((g) => ({ value: g.id, label: g.label }))}
         selected={c.groups}
         onChange={(groups) => configure({ groups })}
       />
-      <div className="step-label">02 · Choose the measurement</div>
+      </div>
       <label className="field">
         Measurement
         <Select
@@ -428,22 +397,6 @@ export function Compare() {
           </Select>
         </label>
       )}
-      {c.level === "type" && (
-        <label className="field">
-          University weighting
-          <Select
-            value={c.weight}
-            aria-label="University weighting"
-            onChange={(e) =>
-              configure({ weight: e.target.value as "pooled" | "equal" })
-            }
-          >
-            <option value="pooled">Pooled academics</option>
-            <option value="equal">Equal university weight</option>
-          </Select>
-        </label>
-      )}
-      <div className="step-label">03 · Visualise</div>
       <label className="field">
         Chart type
         <Select
@@ -464,6 +417,71 @@ export function Compare() {
             ))}
         </Select>
       </label>
+      </div>
+      <details className="comparison-options">
+        <summary>More options & profile filters
+          {c.benchmarks && <span className="pill">International benchmarks enabled</span>}
+        </summary>
+        <div className="comparison-options-grid">
+          <section><h3>Scope & benchmarks</h3>
+      <label className="check">
+        <input
+          type="checkbox"
+          checked={Boolean(c.benchmarks)}
+          onChange={(e) =>
+            configure({ benchmarks: e.target.checked, groups: [] })
+          }
+        />{" "}
+        <span>
+          Add international benchmarks
+          {c.benchmarks && !benchOn && (
+            <small>
+              {" "}
+              (available at the Public vs Non-state or Universities level)
+            </small>
+          )}
+        </span>
+      </label>
+      {benchOn && (
+        <label className="field">
+          Equivalent discipline
+          <Select
+            aria-label="Equivalent discipline"
+            value={discipline}
+            onChange={(e) => setDiscipline(e.target.value as typeof discipline)}
+          >
+            <option value="all">All sampled disciplines</option>
+            {benchmarkFields.map((discipline) => (
+              <option key={discipline} value={discipline}>
+                {discipline}
+              </option>
+            ))}
+          </Select>
+          <small className="caption">
+            Benchmarks cover seven disciplines with uneven university coverage;
+            proxy units are excluded. Sri Lankan academics are matched by
+            department and faculty. Citation metrics are included only for
+            matched research profiles; unresolved values remain blank.
+          </small>
+        </label>
+      )}
+      {c.level === "type" && (
+        <label className="field">
+          University weighting
+          <Select
+            value={c.weight}
+            aria-label="University weighting"
+            onChange={(e) =>
+              configure({ weight: e.target.value as "pooled" | "equal" })
+            }
+          >
+            <option value="pooled">Pooled academics</option>
+            <option value="equal">Equal university weight</option>
+          </Select>
+        </label>
+      )}
+          </section>
+          <section><h3>Chart display</h3>
       {["scatter", "bubble"].includes(c.chart) && numeric && (
         <label className="field">
           Horizontal axis
@@ -515,10 +533,9 @@ export function Compare() {
           Logarithmic scale (positive values)
         </label>
       )}
-      <details className="comparison-refinements">
-        <summary>Refine compared profiles</summary>
-        <Filters compact />
-      </details>
+          </section>
+        </div>
+        <div className="comparison-profile-filters"><Filters compact /></div>
       <details className="custom-builder" open={c.level === "custom"}>
         <summary>Custom academic groups</summary>
         <p className="caption">
@@ -565,7 +582,8 @@ export function Compare() {
           </div>
         ))}
       </details>
-    </aside>
+      </details>
+    </section>
   );
   return (
     <>
@@ -640,25 +658,17 @@ export function Compare() {
       </div>
       <div className="studio-toolbar">
         <div className="inline">
-          <Button variant="ghost" onClick={() => setLeft(!left)}>
-            <PanelLeftClose size={18} />
-            {left ? "Hide" : "Show"} controls
-          </Button>
           <Button variant="ghost" onClick={() => setRight(!right)}>
             <PanelRightClose size={18} />
-            {right ? "Hide" : "Show"} pinned academics
+            {right ? "Hide people" : "Add people"} {pinned.length > 0 && `(${pinned.length})`}
           </Button>
         </div>
         <span>
           {selectedRows.length.toLocaleString()} profiles in comparison
         </span>
       </div>
-      <div
-        className={
-          "studio " + (!left ? "no-left " : "") + (!right ? "no-right" : "")
-        }
-      >
-        {left && !mobile && controls}
+      {controls}
+      <div className={"studio comparison-workspace " + (!right || mobile ? "no-right" : "")}>
         <section
           className="studio-main"
           aria-label="Comparison chart and statistics"
@@ -678,7 +688,9 @@ export function Compare() {
               {c.level === "type" && c.weight === "equal"
                 ? "Equal university weight"
                 : "Pooled academics"}{" "}
-              · {d.metadata.window.join("–")} recent window
+              · {(["recentCitations", "recentQ1"].includes(c.metric)
+                ? `${d.metadata.window.join("–")} window`
+                : numeric ? "All-time recorded values" : "Collected profiles")}
             </p>
           </div>
           {providerMetric &&
@@ -686,7 +698,7 @@ export function Compare() {
               <div className="inline-note">
                 Single provider:{" "}
                 <strong>{benchOn ? "OpenAlex" : provider}</strong>.{" "}
-                {provided.excluded} values from other providers are treated as
+                {excludedMetricValues} {metricLabels[c.metric]} {excludedMetricValues === 1 ? "value" : "values"} from other providers are treated as
                 missing, not zero.
                 {(benchOn || provider === "OpenAlex") &&
                   " Sri Lankan OpenAlex values come only from successfully matched researchers; attempted lookups are not matches."}
@@ -750,8 +762,27 @@ export function Compare() {
           {has && c.chart === "bar" && groups.length > 8 && (
             <p className="muted">
               Eight groups per view · drag the scrollbar to see all{" "}
-              {groups.length} groups. Hover or tap a bar for its full name.
+              {groups.length} groups. Click a bar to inspect its data.
             </p>
+          )}
+          {numeric && referenceRows.length > 0 && (
+            <div className="pinned-reference-key" aria-label="Pinned plot references">
+              <p className="caption">
+                {c.chart === "bar" && ["median", "mean", "distribution"].includes(c.aggregation)
+                  ? "Dashed lines show individual values. Numbers match the people below."
+                  : "Pinned individual values"}
+              </p>
+              <div className="reference-chips">
+                {referenceRows.map((a, i) => (
+                  <span key={a.id} className="reference-chip" style={{ borderColor: colors[i % colors.length] }}>
+                    <b style={{ color: colors[i % colors.length] }}>{i + 1}</b>
+                    <span>{a.name}</span>
+                    <strong>{fmt(a[c.metric as NumericMetric], 1)}</strong>
+                  </span>
+                ))}
+              </div>
+              {missingReferenceValues.length > 0 && <p className="caption">{missingReferenceValues.length} pinned {missingReferenceValues.length === 1 ? "person has" : "people have"} no recorded {single ? provider : "selected"} value and {missingReferenceValues.length === 1 ? "is" : "are"} not plotted.</p>}
+            </div>
           )}
           {has ? (
             <Chart
@@ -769,29 +800,7 @@ export function Compare() {
               onClick={(p) => {
                 if (p.data?.academicId)
                   useAtlas.getState().pin(p.data.academicId);
-                else if (p.data?.groupId) {
-                  const g = groups.find((g) => g.id === p.data.groupId);
-                  const a = g?.rows[0];
-                  if (a && c.level === "university") {
-                    setFilters({
-                      universities: [a.universityId],
-                      faculties: [],
-                      departments: [],
-                    });
-                    configure({ level: "faculty", groups: [] });
-                  } else if (
-                    a &&
-                    c.level === "faculty" &&
-                    g?.rows.some((r) => r.departmentId)
-                  ) {
-                    setFilters({
-                      universities: [a.universityId],
-                      faculties: a.facultyId ? [a.facultyId] : [],
-                      departments: [],
-                    });
-                    configure({ level: "department", groups: [] });
-                  }
-                }
+                else if (p.data?.groupId) setInspectedGroup(p.data.groupId);
               }}
               label={`${metricLabels[c.metric]} comparison`}
               exportStats={exportStats}
@@ -909,22 +918,36 @@ export function Compare() {
             </table>
           </div>
         </section>
-        {right && !mobile && <Pinned />}
+        {right && !mobile && <Pinned comparisonRows={selectedRows} referenceAcademics={referenceRows} providerLabel={single ? provider : undefined} />}
       </div>
       {mobile && (
         <>
-          <Dialog
-            open={left}
-            onOpenChange={setLeft}
-            title="Comparison controls"
-          >
-            {controls}
-          </Dialog>
           <Dialog open={right} onOpenChange={setRight} title="Pinned academics">
-            <Pinned />
+            <Pinned showHeading={false} comparisonRows={selectedRows} referenceAcademics={referenceRows} providerLabel={single ? provider : undefined} />
           </Dialog>
         </>
       )}
+      <Dialog open={Boolean(inspected)} onOpenChange={(open) => { if (!open) setInspectedGroup(null); }} title={inspected?.label || "Group details"} className="group-details-dialog">
+        {inspected && <>
+          <div className="group-details-summary">
+            <div><span>{metricLabels[c.metric]} · {composition ? "Composition" : c.aggregation}</span><strong>{composition ? fmt(inspected.total) : fmt(inspected.value, 1)}</strong></div>
+            <div><span>Profiles with a usable value</span><strong>{inspected.n} / {inspected.total}</strong></div>
+            <div><span>Coverage</span><strong>{inspected.total ? fmt(100 * inspected.n / inspected.total, 1) + "%" : "Not available"}</strong></div>
+          </div>
+          {numeric && <MeasurementNote q={quality(inspected.rows, c.metric as NumericMetric, minN)} metricLabel={metricLabels[c.metric]} />}
+          {inspected.lowN && <p className="inline-note">Insufficient sample: this group is shown for reference and is not ranked.</p>}
+          <div className="section-heading"><h3>Contributing profiles</h3>
+            {["university", "faculty"].includes(c.level) && <Button variant="outline" onClick={() => {
+              const a = inspected.rows[0];
+              if (!a) return;
+              setFilters({ universities: [a.universityId], faculties: c.level === "faculty" && a.facultyId ? [a.facultyId] : [], departments: [] });
+              configure({ level: c.level === "university" ? "faculty" : "department", groups: [] });
+              setInspectedGroup(null);
+            }}>Explore this group</Button>}
+          </div>
+          <AcademicTable rows={inspected.rows} />
+        </>}
+      </Dialog>
       <section className="card supporting">
         <div className="section-heading">
           <h2>Profiles behind this comparison</h2>

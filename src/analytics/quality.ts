@@ -135,7 +135,7 @@ export function logSplit(v: (number | null | undefined)[]) {
 /** Coverage indicators for a set of records. */
 export function coverageOf(rows: Academic[]) {
   const verifiedIdentity = rows.filter((a) =>
-    isMatched(a.openAlexStatus) || [a.scholarStatus, a.researchgateStatus].some((s) =>
+    Boolean(a.openAlexUrl) || [a.scholarStatus, a.researchgateStatus].some((s) =>
       [
         "verified_official_link",
         "matched_user_supplied_platform_evidence",

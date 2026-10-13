@@ -12,7 +12,33 @@ cinec--faculty-of-marine-engineering--department-of-marine-engineering,cinec--fa
 cinec--faculty-of-maritime-sciences--department-of-marine-electronic-radio-communication,cinec--faculty-of-maritime-sciences,cinec,Department of Marine Electronic & Radio Communication
 cinec--faculty-of-maritime-sciences--department-of-navigation,cinec--faculty-of-maritime-sciences,cinec,Department of Navigation
 colombo--faculty-of-arts--department-of-communication-and-creative-arts,colombo--faculty-of-arts,colombo,Department of Communication and Creative Arts
+colombo--faculty-of-arts--department-of-communication-creative-arts,colombo--faculty-of-arts,colombo,Department of Communication & Creative Arts
+colombo--faculty-of-arts--department-of-demography,colombo--faculty-of-arts,colombo,Department of Demography
+colombo--faculty-of-arts--department-of-economics,colombo--faculty-of-arts,colombo,Department of Economics
+colombo--faculty-of-arts--department-of-english-language-teaching,colombo--faculty-of-arts,colombo,Department of English Language Teaching
 colombo--faculty-of-arts--department-of-international-relations,colombo--faculty-of-arts,colombo,Department of International Relations
+colombo--faculty-of-arts--department-of-it,colombo--faculty-of-arts,colombo,Department of IT
+colombo--faculty-of-arts--department-of-political-science-public-policy,colombo--faculty-of-arts,colombo,Department of Political Science & Public Policy
+colombo--faculty-of-law--department-of-commercial,colombo--faculty-of-law,colombo,Department of Commercial
+colombo--faculty-of-law--department-of-commercial-law,colombo--faculty-of-law,colombo,Department of Commercial Law
+colombo--faculty-of-law--department-of-public-international-law,colombo--faculty-of-law,colombo,Department of Public & International Law
+colombo--faculty-of-medicine--department-of-allied-health-sciences,colombo--faculty-of-medicine,colombo,Department of Allied Health Sciences
+colombo--faculty-of-medicine--department-of-anaesthesiology-critical-care,colombo--faculty-of-medicine,colombo,Department of Anaesthesiology & Critical Care
+colombo--faculty-of-medicine--department-of-anatomy,colombo--faculty-of-medicine,colombo,Department of Anatomy
+colombo--faculty-of-medicine--department-of-biochemistry-molecular-biology,colombo--faculty-of-medicine,colombo,Department of Biochemistry & Molecular Biology
+colombo--faculty-of-medicine--department-of-clinical-medicine,colombo--faculty-of-medicine,colombo,Department of Clinical Medicine
+colombo--faculty-of-medicine--department-of-community-medicine,colombo--faculty-of-medicine,colombo,Department of Community Medicine
+colombo--faculty-of-medicine--department-of-family-medicine,colombo--faculty-of-medicine,colombo,Department of Family Medicine
+colombo--faculty-of-medicine--department-of-forensic-medicine-toxicology,colombo--faculty-of-medicine,colombo,Department of Forensic Medicine & Toxicology
+colombo--faculty-of-medicine--department-of-medical-education,colombo--faculty-of-medicine,colombo,Department of Medical Education
+colombo--faculty-of-medicine--department-of-medical-microbiology-and-immunology,colombo--faculty-of-medicine,colombo,Department of Medical Microbiology and Immunology
+colombo--faculty-of-medicine--department-of-obstetrics-gynecology,colombo--faculty-of-medicine,colombo,Department of Obstetrics & Gynecology
+colombo--faculty-of-medicine--department-of-paediatrics,colombo--faculty-of-medicine,colombo,Department of Paediatrics
+colombo--faculty-of-medicine--department-of-parasitology,colombo--faculty-of-medicine,colombo,Department of Parasitology
+colombo--faculty-of-medicine--department-of-pharmacology,colombo--faculty-of-medicine,colombo,Department of Pharmacology
+colombo--faculty-of-medicine--department-of-physiology,colombo--faculty-of-medicine,colombo,Department of Physiology
+colombo--faculty-of-medicine--department-of-psychiatry,colombo--faculty-of-medicine,colombo,Department of Psychiatry
+colombo--faculty-of-medicine--department-of-surgery,colombo--faculty-of-medicine,colombo,Department of Surgery
 colombo--faculty-of-science--department-of-chemistry,colombo--faculty-of-science,colombo,Department of Chemistry
 colombo--faculty-of-science--department-of-mathematics,colombo--faculty-of-science,colombo,Department of Mathematics
 colombo--faculty-of-science--department-of-nuclear-science,colombo--faculty-of-science,colombo,Department of Nuclear Science
@@ -25,6 +51,8 @@ horizon--english-language-teaching-unit,,horizon,English Language Teaching Unit
 jaffna--faculty-of-allied-health-sciences--department-of-medical-laboratory-sciences,jaffna--faculty-of-allied-health-sciences,jaffna,Department of Medical Laboratory Sciences
 jaffna--faculty-of-allied-health-sciences--department-of-nursing,jaffna--faculty-of-allied-health-sciences,jaffna,Department of Nursing
 jaffna--faculty-of-allied-health-sciences--department-of-pharmacy,jaffna--faculty-of-allied-health-sciences,jaffna,Department of Pharmacy
+jaffna--faculty-of-arts--department-of-english-language-teaching,jaffna--faculty-of-arts,jaffna,Department of English Language Teaching
+jaffna--faculty-of-arts--department-of-law,jaffna--faculty-of-arts,jaffna,Department of Law
 jaffna--faculty-of-arts--department-of-media-studies,jaffna--faculty-of-arts,jaffna,Department of Media Studies
 jaffna--faculty-of-arts--department-of-political-science,jaffna--faculty-of-arts,jaffna,Department of Political Science
 jaffna--faculty-of-arts--home-economics-unit,jaffna--faculty-of-arts,jaffna,Home Economics Unit
@@ -33,6 +61,7 @@ jaffna--faculty-of-engineering--department-of-computer-engineering,jaffna--facul
 jaffna--faculty-of-engineering--department-of-electrical-and-electronic-engineering,jaffna--faculty-of-engineering,jaffna,Department of Electrical and Electronic Engineering
 jaffna--faculty-of-engineering--department-of-interdisciplinary-studies,jaffna--faculty-of-engineering,jaffna,Department of Interdisciplinary Studies
 jaffna--faculty-of-engineering--department-of-mechanical-engineering,jaffna--faculty-of-engineering,jaffna,Department of Mechanical Engineering
+jaffna--faculty-of-management-studies-and-commerce--department-of-marketing,jaffna--faculty-of-management-studies-and-commerce,jaffna,Department of Marketing
 jaffna--faculty-of-medicine--department-of-anatomy,jaffna--faculty-of-medicine,jaffna,Department of Anatomy
 jaffna--faculty-of-medicine--department-of-biochemistry,jaffna--faculty-of-medicine,jaffna,Department of Biochemistry
 jaffna--faculty-of-medicine--department-of-community-and-family-medicine,jaffna--faculty-of-medicine,jaffna,Department of Community and Family Medicine
@@ -45,11 +74,15 @@ jaffna--faculty-of-medicine--department-of-pharmacology,jaffna--faculty-of-medic
 jaffna--faculty-of-medicine--department-of-physiology,jaffna--faculty-of-medicine,jaffna,Department of Physiology
 jaffna--faculty-of-medicine--department-of-surgery,jaffna--faculty-of-medicine,jaffna,Department of Surgery
 jaffna--faculty-of-science--department-of-chemistry,jaffna--faculty-of-science,jaffna,Department of Chemistry
-jaffna--department-of-law,,jaffna,Department of Law
+jaffna--department-of-botany,,jaffna,Department of Botany
+jaffna--department-of-commerce,,jaffna,Department of Commerce
+jaffna--department-of-financial-management,,jaffna,Department of Financial Management
 jaffna--department-of-philosophy,,jaffna,Department of Philosophy
 jaffna--department-of-tamil,,jaffna,Department of Tamil
 kelaniya--faculty-of-humanities--department-of-hindi-studies,kelaniya--faculty-of-humanities,kelaniya,Department of Hindi Studies
+kelaniya--faculty-of-science--department-of-botany,kelaniya--faculty-of-science,kelaniya,Department of Botany
 kelaniya--faculty-of-science--department-of-industrial-management,kelaniya--faculty-of-science,kelaniya,Department of Industrial Management
+kelaniya--faculty-of-science--department-of-statistics-computer-science,kelaniya--faculty-of-science,kelaniya,Department of Statistics & Computer Science
 kelaniya--faculty-of-social-sciences--department-of-philosophy,kelaniya--faculty-of-social-sciences,kelaniya,Department of Philosophy
 kelaniya--faculty-of-social-sciences--department-of-political-science,kelaniya--faculty-of-social-sciences,kelaniya,Department of Political Science
 moratuwa--faculty-of-architecture--department-of-architecture,moratuwa--faculty-of-architecture,moratuwa,Department of Architecture

@@ -14,9 +14,12 @@ export const metricLabels = {
 export type Metric = keyof typeof metricLabels;
 /** Measurements available in the app; retain legacy fields for source history. */
 export const selectableMetricLabels = Object.fromEntries(
-  Object.entries(metricLabels).filter(([key]) => !["experience", "phdYear"].includes(key)),
+  Object.entries(metricLabels).filter(
+    ([key]) => !["experience", "phdYear"].includes(key),
+  ),
 );
-export const isSelectableMetric = (key: string) => Object.hasOwn(selectableMetricLabels, key);
+export const isSelectableMetric = (key: string) =>
+  Object.hasOwn(selectableMetricLabels, key);
 export type NumericMetric = Exclude<Metric, "count" | "phd" | "overseas">;
 export type DoctorateStatus =
   "completed_documented" | "in_progress" | "contradictory" | "unknown";
@@ -27,6 +30,17 @@ export type Provider =
   | "Mixed"
   | "Other"
   | "Not recorded";
+export type ResearchEvidenceLevel =
+  "confirmed" | "corroborated" | "possible" | "unresolved";
+export type ResearchEvidenceMode = "confirmed" | "expanded" | "exploratory";
+export type ResearchObservation = {
+  metric: string;
+  value: number;
+  provider: Provider;
+  url: string;
+  date: string;
+  identityStatus: ResearchEvidenceLevel;
+};
 export type Academic = {
   id: string;
   name: string;
@@ -65,6 +79,15 @@ export type Academic = {
   researchgateStatus?: string;
   openAlexStatus?: string;
   openAlexUrl?: string;
+  openAlexMatchLevel?: ResearchEvidenceLevel;
+  researchIdentities?: {
+    provider: Provider;
+    status: ResearchEvidenceLevel;
+    url: string;
+    method: string;
+    date: string;
+  }[];
+  researchObservations?: ResearchObservation[];
   qualificationReview?: string;
   metricEvidence?: {
     metric: string;
@@ -134,6 +157,7 @@ export type DatasetSummary = {
   };
 };
 export type Metadata = {
+  updatedAt?: string;
   identityAliases?: Record<string, string>;
   evidenceFiles?: string[];
   version: string;

@@ -210,6 +210,12 @@ describe("small-sample comparisons", () => {
 });
 
 describe("coverage indicators", () => {
+  it("counts approved public OpenAlex identities and excludes staged matches", () => {
+    expect(coverageOf([
+      mk("approved", { openAlexStatus: "openalex_matched_confirmed", openAlexUrl: "https://openalex.org/A1" }),
+      mk("pending", { openAlexStatus: "openalex_matched_confirmed", openAlexUrl: "" }),
+    ] as Academic[]).verifiedIdentity).toBe(1);
+  });
   it("separates verified identity, employment, metrics and review", () => {
     const c = coverageOf([
       mk("a", {

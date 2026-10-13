@@ -209,6 +209,7 @@ if (fs.existsSync(source + "/data_dictionary.csv"))
 
 // --- Coverage indicators (computed from authoritative records only).
 const verifiedIdentity = (r) =>
+  Boolean(r.openAlexUrl) ||
   [
     "verified_official_link",
     "matched_user_supplied_platform_evidence",
@@ -326,6 +327,7 @@ const metadata = {
   country: COUNTRY,
   identityAliases: aliases,
   collectionDate,
+  updatedAt: optionalCsv("change_log.csv").map((r) => r.timestamp?.slice(0, 10)).filter(Boolean).sort().at(-1) || collectionDate,
   window: settings.window || [2021, 2025],
   description:
     settings.description ||
@@ -506,7 +508,7 @@ if (fs.existsSync(readme)) {
   const block = [
     "<!-- dataset-summary:start -->",
     `<!-- Snapshot ${version} -->`,
-    `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles · ${summary.institutionsWithProfiles} institutions · ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${collectionDate}. [Coverage report](reports/validation-report.md).`,
+    `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles · ${summary.institutionsWithProfiles} institutions · ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${metadata.updatedAt}. [Coverage report](reports/validation-report.md).`,
     "<!-- dataset-summary:end -->",
   ].join("\n");
   const text = fs.readFileSync(readme, "utf8");
