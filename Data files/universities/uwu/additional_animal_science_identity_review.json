@@ -1,0 +1,351 @@
+[
+  {
+    "academic_id": "SL-74e70a787703",
+    "name": "Dr. W.M.L.A. Wanasinghe",
+    "university_id": "uwu",
+    "status": "corroborated",
+    "match_method": "two_official_publications_and_university_affiliation",
+    "candidate_ids": [
+      "https://openalex.org/A5034821002"
+    ],
+    "evidence": [
+      {
+        "work_id": "https://openalex.org/W4308541041",
+        "title": "Seasonal changes of gonadal activity of invasive vermiculated sailfin catfish (Pterygoplichthys disjunctivus) from Polgolla reservoir in Sri Lanka",
+        "doi": "https://doi.org/10.1016/j.ejar.2022.10.005",
+        "source_url": "http://anshub.uwu.ac.lk/staff-profile/72"
+      },
+      {
+        "work_id": "https://openalex.org/W2949587244",
+        "title": "Seroprevalence of avian infectious bronchitis virus in Sri Lanka",
+        "doi": null,
+        "source_url": "http://anshub.uwu.ac.lk/staff-profile/72"
+      }
+    ],
+    "author": {
+      "id": "https://openalex.org/A5034821002",
+      "display_name": "W. M. L. A. Wanasinghe",
+      "display_name_alternatives": [
+        "W. M. L. A. Wanasinghe",
+        "W. M. Lakshani Anuradha Wanasinghe",
+        "W.M. Lakshani Anuradha Wanasinghe"
+      ],
+      "works_count": 6,
+      "cited_by_count": 8,
+      "summary_stats": {
+        "2yr_mean_citedness": 0.6666666666666666,
+        "h_index": 1,
+        "i10_index": 0
+      },
+      "counts_by_year": [
+        {
+          "year": 2018,
+          "works_count": 1,
+          "oa_works_count": 0,
+          "cited_by_count": 0
+        },
+        {
+          "year": 2022,
+          "works_count": 2,
+          "oa_works_count": 2,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2025,
+          "works_count": 2,
+          "oa_works_count": 0,
+          "cited_by_count": 2
+        },
+        {
+          "year": 2026,
+          "works_count": 1,
+          "oa_works_count": 1,
+          "cited_by_count": 0
+        }
+      ],
+      "last_known_institutions": [
+        {
+          "id": "https://openalex.org/I19820366",
+          "ror": "https://ror.org/034t30j35",
+          "display_name": "Chinese Academy of Sciences",
+          "country_code": "CN",
+          "type": "government",
+          "lineage": [
+            "https://openalex.org/I19820366"
+          ]
+        },
+        {
+          "id": "https://openalex.org/I4210089584",
+          "ror": "https://ror.org/00b4mx203",
+          "display_name": "Institute of Hydrobiology",
+          "country_code": "CN",
+          "type": "facility",
+          "lineage": [
+            "https://openalex.org/I19820366",
+            "https://openalex.org/I4210089584"
+          ]
+        },
+        {
+          "id": "https://openalex.org/I4210165038",
+          "ror": "https://ror.org/05qbk4x57",
+          "display_name": "University of Chinese Academy of Sciences",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I19820366",
+            "https://openalex.org/I4210165038"
+          ]
+        },
+        {
+          "id": "https://openalex.org/I52004705",
+          "ror": "https://ror.org/05mqkk958",
+          "display_name": "Uva Wellassa University",
+          "country_code": "LK",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I52004705"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "institution": {
+            "id": "https://openalex.org/I111199411",
+            "ror": "https://ror.org/025h79t26",
+            "display_name": "University of Peradeniya",
+            "country_code": "LK",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I111199411"
+            ]
+          },
+          "years": [
+            2022
+          ]
+        },
+        {
+          "institution": {
+            "id": "https://openalex.org/I19820366",
+            "ror": "https://ror.org/034t30j35",
+            "display_name": "Chinese Academy of Sciences",
+            "country_code": "CN",
+            "type": "government",
+            "lineage": [
+              "https://openalex.org/I19820366"
+            ]
+          },
+          "years": [
+            2026,
+            2025
+          ]
+        },
+        {
+          "institution": {
+            "id": "https://openalex.org/I4210089584",
+            "ror": "https://ror.org/00b4mx203",
+            "display_name": "Institute of Hydrobiology",
+            "country_code": "CN",
+            "type": "facility",
+            "lineage": [
+              "https://openalex.org/I19820366",
+              "https://openalex.org/I4210089584"
+            ]
+          },
+          "years": [
+            2026,
+            2025
+          ]
+        },
+        {
+          "institution": {
+            "id": "https://openalex.org/I4210165038",
+            "ror": "https://ror.org/05qbk4x57",
+            "display_name": "University of Chinese Academy of Sciences",
+            "country_code": "CN",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I19820366",
+              "https://openalex.org/I4210165038"
+            ]
+          },
+          "years": [
+            2026,
+            2025
+          ]
+        },
+        {
+          "institution": {
+            "id": "https://openalex.org/I52004705",
+            "ror": "https://ror.org/05mqkk958",
+            "display_name": "Uva Wellassa University",
+            "country_code": "LK",
+            "type": "education",
+            "lineage": [
+              "https://openalex.org/I52004705"
+            ]
+          },
+          "years": [
+            2026,
+            2025,
+            2022
+          ]
+        }
+      ],
+      "orcid": null,
+      "topics": [
+        {
+          "id": "https://openalex.org/T10506",
+          "display_name": "Aquaculture disease management and microbiota",
+          "count": 3,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2403",
+            "display_name": "Immunology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/24",
+            "display_name": "Immunology and Microbiology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T10066",
+          "display_name": "Gut microbiota and health",
+          "count": 2,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1312",
+            "display_name": "Molecular Biology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/13",
+            "display_name": "Biochemistry, Genetics and Molecular Biology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11135",
+          "display_name": "Virology and Viral Diseases",
+          "count": 2,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2713",
+            "display_name": "Epidemiology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11495",
+          "display_name": "Animal Virus Infections Studies",
+          "count": 2,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1103",
+            "display_name": "Animal Science and Zoology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/11",
+            "display_name": "Agricultural and Biological Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11688",
+          "display_name": "Microbial infections and disease research",
+          "count": 2,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2404",
+            "display_name": "Microbiology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/24",
+            "display_name": "Immunology and Microbiology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        }
+      ]
+    },
+    "checked_at": "2026-10-13"
+  },
+  {
+    "academic_id": "SL-0f5019661cc7",
+    "name": "Mr. D.B.O. Malaweera",
+    "university_id": "uwu",
+    "status": "unresolved",
+    "match_method": "insufficient_independent_evidence",
+    "candidate_ids": [],
+    "evidence": [],
+    "author": null,
+    "checked_at": "2026-10-13"
+  },
+  {
+    "academic_id": "SL-10993ef581cd",
+    "name": "Mr. R.G.D.R. Jayawickrama",
+    "university_id": "uwu",
+    "status": "possible",
+    "match_method": "insufficient_independent_evidence",
+    "candidate_ids": [
+      "https://openalex.org/A5119891753",
+      "https://openalex.org/A5134102127"
+    ],
+    "evidence": [],
+    "author": null,
+    "checked_at": "2026-10-13"
+  },
+  {
+    "academic_id": "SL-b75e51a42d37",
+    "name": "Ms. H. A. V. T. D. C. Jayawardhane",
+    "university_id": "uwu",
+    "status": "possible",
+    "match_method": "insufficient_independent_evidence",
+    "candidate_ids": [
+      "https://openalex.org/A5127965079",
+      "https://openalex.org/A5139269920"
+    ],
+    "evidence": [],
+    "author": null,
+    "checked_at": "2026-10-13"
+  },
+  {
+    "academic_id": "SL-efdf354be097",
+    "name": "Ms. V. Anuradha Wijesekara",
+    "university_id": "uwu",
+    "status": "unresolved",
+    "match_method": "insufficient_independent_evidence",
+    "candidate_ids": [],
+    "evidence": [],
+    "author": null,
+    "checked_at": "2026-10-13"
+  },
+  {
+    "academic_id": "SL-6a91a8e7c86e",
+    "name": "Ms. S.G.M.N.J. Senevirathna",
+    "university_id": "uwu",
+    "status": "possible",
+    "match_method": "insufficient_independent_evidence",
+    "candidate_ids": [
+      "https://openalex.org/A5060638757",
+      "https://openalex.org/A5067108592",
+      "https://openalex.org/A5045886131",
+      "https://openalex.org/A5155891175"
+    ],
+    "evidence": [],
+    "author": null,
+    "checked_at": "2026-10-13"
+  }
+]

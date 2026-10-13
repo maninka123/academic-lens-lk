@@ -1,3 +1,5 @@
+Update 13 October 2026: Sri Lankan population is now 1,601 across 15 institutions; UWU adds 204 profiles. Earlier figures below are historical. See universities/uwu/COLLECTION_REVIEW.md.
+
 # Collection handoff — 2026-10-11
 
 The editable hierarchy is structurally validated for import review. This is an expanded, evidence-preserving **partial collection**, not a completed census of all 14 institutions.

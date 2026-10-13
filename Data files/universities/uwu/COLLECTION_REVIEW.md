@@ -1,0 +1,29 @@
+# Uva Wellassa collection review — 13 October 2026
+
+Added 204 published academic records to the authoritative Sri Lankan hierarchy. The complete dataset now has 1,601 academics across 15 institutions. Existing person IDs were preserved; new UWU IDs use the first 12 hex characters of SHA-256 of `uwu|<normalised source name>`. Department transfers and duplicate directory entries were resolved before insertion, with six overlapping entries retained in `overlapping_directory_entries.csv`.
+
+| Faculty | Main academic records | Inventory departments |
+| --- | ---: | ---: |
+| Animal Science and Export Agriculture | 70 | 3 |
+| Applied Sciences | 64 | 3 |
+| Management | 38 | 4 |
+| Technological Studies | 21 | 3 |
+| Medicine | 11 | 16 |
+
+Twenty departments have collected main academic records; the other nine medical departments contain only reviewed temporary staff or no main appointment. Header-only academic CSVs preserve those units. Sixty-seven explicitly temporary, visiting or consultant appointments are in the existing employment review table. Published academic rank is recorded for 203 of 204 main entries, but the directories do not independently prove permanent employment. The university is not claimed complete or a staff census.
+
+All 204 distinct academic names (plus overlap and spelling-variant queries) were submitted as name + Uva Wellassa University + Google Scholar. Personal profiles and 46 official CV links were checked. Qualifications are populated for 176 records, research interests for 155, source-associated Scholar links for 44 and ResearchGate links for 35. Six ORCID identifiers are linked from official sources. Source associations do not establish fresh platform metrics: direct Scholar access returned HTTP 429. Copied Kalpani Senevirathna accounts on Induijaa's page and a Dimuth Pathirana account on Ranasooriya's page were withheld. Other conflicting accounts, wrong CV links and spelling conflicts are recorded in `rejected_profile_links.csv`.
+
+All 204 main UWU profiles were checked against OpenAlex. Fifty-six author identities were accepted based on official ORCID or at least two exact official-publication overlaps plus university affiliation. 148 remain possible or unresolved. Author snapshots and supporting publication evidence are retained in `openalex_identity_review_2026-10-13.json` and `additional_animal_science_identity_review.json`; approved match rows and provider-labelled metrics feed the existing app importer. A broad initials/surname candidate search is discovery only; it never grants metrics by itself. Provider totals describe indexed author records and may be partial or fragmented.
+
+Prof. Wasana Maithree Herath is in Faculty of Management / Department of Management Sciences, Professor in Communication Sciences. The official profile explicitly records BA, MPhil and completed PhD in Communication Skills at the University of Kelaniya. Its 50 original bibliography entries are preserved in `official_bibliography_entries.csv`. OpenAlex returned multiple same-name fragments, so no aggregate citation/h-index values were chosen arbitrarily. The PhD completion year and a fully reconciled career bibliography remain unknown. Employment dates have gaps, so teaching experience was not calculated from the earliest job year.
+
+The same pass repaired 12 current Mechanical Engineering ranks in Moratuwa, including Prof. Y.W.R. Amarasinghe. His official directory/profile establishes Professor, Ritsumeikan research doctorate in Japan (2007), and mechatronics. Three exact official publication overlaps corroborate OpenAlex author A5011618114: 124 indexed works, 789 citations and h-index 15 on the retrieved author snapshot. The separate ResearchGate account is linked as a corroborated external profile; its indexed counters were not presented as fresh measurements.
+
+Added 1,507 deduplicated indexed academic/publication attributions to publication_details.csv for the 53 UWU authors and Amarasinghe. These are not 1,507 distinct papers: coauthors legitimately share works, and two existing per-person entries were retained rather than duplicated. Full indexed lists can differ from author snapshot totals due to provider updates. Another 562 official-page citation entries across 21 people remain in the original-citation sidecar; 47 non-publication or undated template rows were withheld. Bibliographies remain partial, and Q1 values were not inferred.
+
+The newer Animal Science staff hub failed to respond; the publicly served legacy directory was used with an explicit coverage caveat and transfer review. Five linked CVs returned 404. Old directory/current profile inconsistencies should be revisited before claiming exhaustive employment or publication coverage.
+
+Validation: identical academic headers, stable unique IDs, source and app joins, numeric fields and hierarchy checked; 23 Node tests and 59 Vitest tests passed. Production build passed. Local browser previously verified five faculty links and the named profile routes. Final regenerated data contains 204 UWU records and 56 metric profiles; integrity, production build and public/dist asset checks passed. Existing application data paths were regenerated.
+
+Current Animal Science directory reconciliation: the public HTTP hub and its public profile feed yielded 28 current profiles and six additional academics. Six legacy-only directory records remain explicitly flagged for employment review. The current directory provides no rank for H.A.V.T.D.C. Jayawardhane; that value remains blank. J.D.M. Senevirathna and S.G.M.N.J. Senevirathna are distinct people with separate IDs. The extra corroborated author contributes six indexed publication attributions. Public profile projections are retained in current_animal_science_profiles.json; private account metadata is excluded.

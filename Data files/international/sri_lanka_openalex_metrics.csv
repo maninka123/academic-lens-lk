@@ -1,9 +1,9 @@
 ﻿academic_id,university_id,full_name,openalex_id,openalex_display_name,status,candidates,total_publications,total_citations,h_index,citations_2021_2025,checked_at
 SL-422a08078e47,ruhuna,Dr. W. T. G. Samantha,https://openalex.org/A5116070960,W. T. G. Samantha,openalex_matched_surname_initials_and_institution,1,1,1,1,1,
-SL-c699506f2351,ruhuna,Dr. Kumudu Seneviratna,,,openalex_no_name_match_at_institution,0,,,,,
+SL-c699506f2351,ruhuna,Dr. Kumudu Seneviratna,https://openalex.org/A5049121786,D. M. K. N. Seneviratna,openalex_matched_confirmed,16,21,226,8,22,2026-10-13
 SL-655759638d7e,ruhuna,Dr.(Mrs) N.M.Wagarachchi,,,openalex_no_name_match_at_institution,0,,,,,
 SL-f2a3d4223e5a,ruhuna,Mrs. Ranjika Lalani Perera,https://openalex.org/A5044083698,Ranjika Lalani Perera,openalex_matched_surname_initials_and_institution,1,4,29,2,22,
-SL-41bc365dbef2,ruhuna,Dr. Praneeth Wijesinghe,,,openalex_no_name_match_at_institution,0,,,,,
+SL-41bc365dbef2,ruhuna,Dr. Praneeth Wijesinghe,https://openalex.org/A5126753945,D. P. S. Wijesinghe,openalex_matched_confirmed,79,1,0,0,0,2026-10-13
 SL-8e11583e3c35,ruhuna,Ms. Dilini Jayarathna,,,openalex_no_name_match_at_institution,0,,,,,
 SL-2e2c35c99a96,ruhuna,Ms. Swasni Randunu,,,openalex_no_name_match_at_institution,0,,,,,
 SL-613244a1a9f9,ruhuna,Mr. D.M. Sarathchandra Bandara,https://openalex.org/A5090839099,D. M. S. P. Bandara,openalex_matched_surname_initials_and_institution,1,14,35,4,3,
@@ -19,12 +19,12 @@ SL-22b51e88b819,ruhuna,Chatura Seneviratne,https://openalex.org/A5044182686,Chat
 SL-4d2608521622,ruhuna,Iromi Ranaweera,https://openalex.org/A5027868507,Iromi Ranaweera,openalex_matched_surname_initials_and_institution,1,13,365,7,0,
 SL-4ddc9b7b4ebc,ruhuna,Thilina Weerasinghe,https://openalex.org/A5062578724,Thilina N. Weerasinghe,openalex_matched_surname_initials_and_institution,2,21,140,6,47,
 SL-690f48e5257c,ruhuna,Kushan Sudheera,https://openalex.org/A5002072930,Kalupahana Liyanage Kushan Sudheera,openalex_matched_surname_initials_and_institution,2,38,643,13,268,
-SL-aef04eeed1c3,ruhuna,Nadeesha Sandamali,,,openalex_no_name_match_at_institution,0,,,,,
+SL-aef04eeed1c3,ruhuna,Nadeesha Sandamali,https://openalex.org/A5004065644,Gammana Guruge Nadeesha Sandamali,openalex_matched_confirmed,29,16,197,8,83,2026-10-13
 SL-84cb0599227f,ruhuna,Geeth Priyankara,,,openalex_no_name_match_at_institution,0,,,,,
 SL-c6cc385e90d1,ruhuna,Sadun Konara,,,openalex_no_name_match_at_institution,0,,,,,
 SL-8ea665929865,ruhuna,Prabath Weerasinghe,https://openalex.org/A5137369679,P.S.T Weerasinghe,openalex_matched_surname_initials_and_institution,1,1,0,0,0,
 SL-bb627910dde9,ruhuna,Tharindu Gamage,https://openalex.org/A5080607818,Tharindu D. Gamage,openalex_matched_surname_initials_and_institution,3,28,177,8,93,
-SL-8e3676158635,ruhuna,Nilmantha Wijesekara,,,openalex_no_name_match_at_institution,0,,,,,
+SL-8e3676158635,ruhuna,Nilmantha Wijesekara,https://openalex.org/A5050585435,Patikiri Arachchige Don Shehan Nilmantha Wijesekara,openalex_matched_confirmed,10,34,233,8,210,2026-10-13
 SL-c7332087358e,ruhuna,Anuradha Mudalige,,,openalex_no_name_match_at_institution,0,,,,,
 SL-ad463b5f874b,ruhuna,Niranjan Udayanga,,,openalex_no_name_match_at_institution,0,,,,,
 SL-f77b876b4a5d,ruhuna,Gayathri Thilakarathne,https://openalex.org/A5127203683,Gayathri Thilakarathne,openalex_matched_surname_initials_and_institution,1,5,3,1,2,
@@ -39,13 +39,13 @@ SL-baab0fc00658,ruhuna,Heshan Ruhunage,,,openalex_no_name_match_at_institution,0
 SL-3903844105e6,ruhuna,Chamod Dissanayake,,,openalex_no_name_match_at_institution,0,,,,,
 SL-2beef542e770,ruhuna,R. Saahith Ahamed,,,openalex_no_name_match_at_institution,0,,,,,
 SL-fb75ad83c462,ruhuna,Prof. (Mrs.) T.N. Wickramaarachchi,https://openalex.org/A5081635480,T. N. Wickramaarachchi,openalex_matched_surname_initials_and_institution,1,37,109,7,63,
-SL-5b189b28550c,ruhuna,Prof. Sudhira De Silva,,,openalex_multiple_candidates_requires_review,11,,,,,
+SL-5b189b28550c,ruhuna,Prof. Sudhira De Silva,https://openalex.org/A5014316463,Sudhira De Silva,openalex_matched_confirmed,1368,44,377,9,86,2026-10-13
 SL-9d6849ab417c,ruhuna,Prof. (Mrs) G.H.M.J.Subashi De Silva,https://openalex.org/A5055245746,G.H.M.J. Subashi De Silva,openalex_matched_surname_initials_and_institution,5,17,542,12,59,
 SL-91f9fc32e511,ruhuna,Prof. G.G. Tushara Chaminda,https://openalex.org/A5091841073,Tushara Chaminda,openalex_matched_surname_initials_and_institution,3,39,1789,16,267,
 SL-ff1b6c80aa65,ruhuna,Prof. K. S. Wanniarachchi,https://openalex.org/A5034667918,K.S. Wanniarachchi,openalex_matched_surname_initials_and_institution,1,9,72,5,8,
 SL-e52149e06729,ruhuna,Prof. N. H. Priyankara,https://openalex.org/A5011100561,N. H. Priyankara,openalex_matched_surname_initials_and_institution,3,23,40,4,15,
 SL-144e19f3a9cd,ruhuna,Prof. Champika Ellawala,https://openalex.org/A5056902209,Champika Ellawala Kankanamge,openalex_matched_surname_initials_and_institution,2,35,249,10,44,
-SL-4992406addee,ruhuna,Prof. W.M.K.R.T.W. Bandara,,,openalex_multiple_candidates_requires_review,5,,,,,
+SL-4992406addee,ruhuna,Prof. W.M.K.R.T.W. Bandara,https://openalex.org/A5041134875,Wasala M.K.R.T.W. Bandara,openalex_matched_confirmed,264,26,455,9,63,2026-10-13
 SL-ebec42c41062,ruhuna,Prof. W.K.C. Neetha Dayanthi,https://openalex.org/A5040649928,W. K. C. N. Dayanthi,openalex_matched_surname_initials_and_institution,1,24,65,5,40,
 SL-b591c176d5dd,ruhuna,Prof. J. M. R. S. Appuhamy,https://openalex.org/A5074830793,J. M. R. S. Appuhamy,openalex_matched_surname_initials_and_institution,1,28,210,7,49,
 SL-1e978aca8cb1,ruhuna,Prof. (Mrs.) S. N. Malkanthi,https://openalex.org/A5017916209,S. N. Malkanthi,openalex_matched_surname_initials_and_institution,2,21,206,6,65,
@@ -148,7 +148,7 @@ SL-3cf1f71f8360,kelaniya,Mr. P.M.D.S Amarasooriya,https://openalex.org/A50565185
 SL-b411655b95f9,kelaniya,Mr. R.A.R.S Rajapaksha,https://openalex.org/A5114126423,Rasika Rajapaksha,openalex_matched_surname_initials_and_institution,3,20,22,2,22,
 SL-322d9b4ff4a3,kelaniya,Mrs. N.M.T. De Silva,,,openalex_multiple_candidates_requires_review,18,,,,,
 SL-6c1bd2ca76ba,kelaniya,Mrs. W.G.D.M. Samankula,https://openalex.org/A5082760670,W. G. D. M. Samankula,openalex_matched_surname_initials_and_institution,1,4,20,1,0,
-SL-fa5a60d3883d,kelaniya,Ms. D. M. L. M. Dissanayake,,,openalex_multiple_candidates_requires_review,12,,,,,
+SL-fa5a60d3883d,kelaniya,Ms. D. M. L. M. Dissanayake,https://openalex.org/A5041937413,Dharma Dissanayake,openalex_matched_confirmed,308,4,8,2,0,2026-10-13
 SL-e744c0eb6045,kelaniya,Prof. B.M.T. Kumarika,https://openalex.org/A5112019573,B. M. Thosini Kumarika,openalex_matched_surname_initials_and_institution,3,7,3,1,2,
 SL-554c3dc18b13,kelaniya,Prof. D.D.M. Jayasundara,https://openalex.org/A5052649395,D. D. M. Jayasundara,openalex_matched_surname_initials_and_institution,1,19,25,3,4,
 SL-73643d73867b,kelaniya,Prof. N.V. Chandrasekara,https://openalex.org/A5039065521,N. V. Chandrasekara,openalex_matched_surname_initials_and_institution,2,50,75,4,32,
@@ -230,7 +230,7 @@ SL-d036b7eb2371,moratuwa,Prof. S.U. Adikary,,,openalex_multiple_candidates_requi
 SL-0a6922543f72,moratuwa,Dr. D.S.P.A. Baragamage,https://openalex.org/A5093661962,Dilshan S. P. Amarasinghe Baragamage,openalex_matched_surname_initials_and_institution,1,3,25,2,11,
 SL-acb54ace4716,moratuwa,Dr. K.V.D.S. Chathuranga,,,openalex_multiple_candidates_requires_review,2,,,,,
 SL-ad3266db76a1,moratuwa,Prof. V.P.C. Dassanayake,,,openalex_multiple_candidates_requires_review,2,,,,,
-SL-451b7de63d11,moratuwa,Prof. Y.W.R. Amarasinghe,,,openalex_multiple_candidates_requires_review,4,,,,,
+SL-451b7de63d11,moratuwa,Prof. Y.W.R. Amarasinghe,https://openalex.org/A5011618114,Y. W. R. Amarasinghe,openalex_matched_corroborated,0,124,789,15,169,2026-10-13
 SL-dd58210d266c,moratuwa,Dr. Thanuja D. Ambegoda (A.L.A.T.D. Ambegoda),,,openalex_multiple_candidates_requires_review,2,,,,,
 SL-c77688ef27ac,moratuwa,Dr. H.M.C.D. Chitraranjan,,,openalex_no_name_match_at_institution,0,,,,,
 SL-5f3307df328d,moratuwa,Dr. R.P. Abesooriya,,,openalex_no_name_match_at_institution,0,,,,,
@@ -870,7 +870,7 @@ SL-abd850153026,colombo,Ms. T.H.R. Samanmalee,,,openalex_no_name_match_at_instit
 SL-6d2fdf6d800e,colombo,Professor Chathurie Suraweera,,,openalex_multiple_candidates_requires_review,2,,,,,
 SL-6b473f32d436,colombo,Senior Professor Piyanjali Thamesha de Zoysa,,,openalex_multiple_candidates_requires_review,3,,,,,
 SL-b5b3ae785d6d,colombo,Professor S.M. Wijeyaratne,,,openalex_multiple_candidates_requires_review,2,,,,,
-SL-2d79d19937d2,colombo,Professor. Ruwan Gamage,,,openalex_multiple_candidates_requires_review,2,,,,,
+SL-2d79d19937d2,colombo,Professor. Ruwan Gamage,https://openalex.org/A5058112408,Ruwan Janapriya Egoda Gamage,openalex_matched_confirmed,310,18,53,4,30,2026-10-13
 SL-c27d1abefb23,colombo,Dr. Prasanna Ranaweera,,,openalex_multiple_candidates_requires_review,2,,,,,
 SL-0ece31a7c31f,colombo,Prof Dharshani Bandupriya,https://openalex.org/A5039111167,H. D. Dharshani Bandupriya,openalex_matched_surname_initials_and_institution,1,25,287,8,26,
 SL-3dc55f974674,colombo,Prof Tara D Silva,,,openalex_multiple_candidates_requires_review,8,,,,,
@@ -894,7 +894,7 @@ SL-0faabf3323fb,colombo,Ms Omali Ketakela,https://openalex.org/A5133984687,O. W.
 SL-079fa61fb1c5,colombo,Prof Dilushan R Jayasundara,https://openalex.org/A5079299855,Dilushan R. Jayasundara,openalex_matched_surname_initials_and_institution,1,34,536,14,135,
 SL-26921f1f8e66,colombo,Prof Upul Sonnadara,,,openalex_multiple_candidates_requires_review,2,,,,,
 SL-c995d7f0485e,colombo,Prof I M K Fernando,,,openalex_multiple_candidates_requires_review,2,,,,,
-SL-c2cfbe10c5fd,colombo,Prof C. Mahesh Edirisinghe,,,openalex_multiple_candidates_requires_review,3,,,,,
+SL-c2cfbe10c5fd,colombo,Prof C. Mahesh Edirisinghe,https://openalex.org/A5091724317,Mahesh Edirisinghe,openalex_matched_confirmed,82,45,622,10,493,2026-10-13
 SL-da40b1b06811,colombo,Prof Hiran Jayaweera,,,openalex_multiple_candidates_requires_review,4,,,,,
 SL-54e5af81d46f,colombo,Prof Darshana L Weerawarne,,,openalex_multiple_candidates_requires_review,2,,,,,
 SL-4a1736021283,colombo,Prof Siyath Gunawardene,https://openalex.org/A5063894761,Siyath Gunawardene,openalex_matched_surname_initials_and_institution,1,5,14,3,9,
@@ -1395,3 +1395,207 @@ SL-20dccd12dbed,icbt,Mr. P. Prabu Premkumar,https://openalex.org/A5003774659,Pra
 SL-11a000ffcba7,icbt,Dr Sampath Kannangara,https://openalex.org/A5116054435,S. Kannangara,openalex_matched_publication_or_affiliation_corroborated,1,1,26,1,26,2026-10-13
 SL-37bb753f13bd,icbt,Ms. Chamila Aththanayake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
 SL-4c6f4e5253bc,icbt,Dr. Chandru Sandrasekaran,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-3d2df8f0c209,uwu,Prof. D.K.D.D. Jayasena,https://openalex.org/A5009429606,Dinesh Darshaka Jayasena,openalex_matched_corroborated,2,91,2903,24,393,2026-10-13
+SL-e4335c43239b,uwu,Ms. P.B.A.I.K. Bulumulla,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-c3bd023ce37e,uwu,Mr. N.P.P. Liyanage,https://openalex.org/A5070053817,N.P.P. Liyanage,openalex_matched_corroborated,3,29,197,6,29,2026-10-13
+SL-93cbd5d58f24,uwu,Dr. B.V.A.S.M. Bambaranda,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-bd6b0f1ec19d,uwu,Dr S.N.S.L.H.P.Neelawala,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-c20dd6036ffe,uwu,Dr. U.D. Prabuddha Manjula,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-9fc03724e245,uwu,Ms. I.U. Wickramaratne,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-37a25c7d7cd5,uwu,Ms. K.P.G.K.P Guruge,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-b34d50948d05,uwu,Ms. J.M.D.R. Jayawardana,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-744a8bb6458d,uwu,Ms. A.P. Abeygunawardena,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-0ff96082ef98,uwu,Mr. H.M.T.N.B. Herath,,,openalex_candidate_requires_corroboration,17,,,,,2026-10-13
+SL-558b9f2de693,uwu,Mr. E.P.D.N. Thilakarathne,https://openalex.org/A5010648690,E. P. D. N. Thilakarathne,openalex_matched_confirmed,1,17,102,6,100,2026-10-13
+SL-86d1cf22cb8a,uwu,Prof. E.D.N.S. Abeyrathne,https://openalex.org/A5025766415,E.D.N.S. Abeyrathne,openalex_matched_confirmed,2,60,1966,18,919,2026-10-13
+SL-ce974adb06c3,uwu,Dr. N.M.N. Nambapana,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-127c3968a022,uwu,Mr. J.A. Athula,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-c0e3a2476ecc,uwu,Ms. G.G.N. Thushari,https://openalex.org/A5078498680,G.G.N. Thushari,openalex_matched_corroborated,3,31,1542,8,60,2026-10-13
+SL-489a9925a5eb,uwu,Dr. M.S. Kurukulasuriya,https://openalex.org/A5091833717,Maheshika Sandaruwanie Kurukulasuriya,openalex_matched_corroborated,1,16,152,6,10,2026-10-13
+SL-6e8a02679673,uwu,Dr. D.Prasadi N. De Silva,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-ccb3884d49ea,uwu,Dr. R.M.H. Tharangani,https://openalex.org/A5017994644,R.M. Himali Tharangani,openalex_matched_corroborated,2,5,74,4,51,2026-10-13
+SL-5151ffd20deb,uwu,Dr. K.N. Wijayasekara,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-73d8b484de9a,uwu,Dr. T.S.R. Fernando,,,openalex_candidate_requires_corroboration,5,,,,,2026-10-13
+SL-41c3b3756de2,uwu,Ms. R.M.G.N. Rajapaksha,,,openalex_candidate_requires_corroboration,5,,,,,2026-10-13
+SL-b4f50ff5961c,uwu,Mr. J.D.M. Senevirathna,https://openalex.org/A5072012525,Jayan Duminda M Senevirathna,openalex_matched_corroborated,2,39,1449,7,74,2026-10-13
+SL-e65a8b0e5d7d,uwu,Mr. A.S. Mahaliyana,https://openalex.org/A5090893851,A.S. Mahaliyana,openalex_matched_confirmed,1,18,147,6,79,2026-10-13
+SL-31e0fb9ee668,uwu,Mr. J.M.P. Jayasinghe,,,openalex_candidate_requires_corroboration,5,,,,,2026-10-13
+SL-fed0ffdf4a66,uwu,Ms. A.C.W.W.M.C.L.K Coswatte,https://openalex.org/A5035111829,A.C.W.W.M.C.L.K. Coswatte,openalex_matched_corroborated,1,11,4,1,3,2026-10-13
+SL-d3f8973de43e,uwu,Mr. P.C.B. Dias,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-f7e3c86953c1,uwu,Mr. K.K.T.N. Ranaweera,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-2933a6a4908d,uwu,Dr. M.K.S.L.D. Amarathunga,https://openalex.org/A5054820759,M.k.s.l.d. Amarathunga,openalex_matched_corroborated,4,6,3,1,3,2026-10-13
+SL-2de450cc9599,uwu,Prof. A M W K Senevirathna,https://openalex.org/A5112483732,A. M. W. K. Senevirathna,openalex_matched_corroborated,2,20,94,3,5,2026-10-13
+SL-7a01d36d74a2,uwu,Dr. R.A.P.I.S. Dharmadasa,https://openalex.org/A5085987177,R. A. P. I. S. Dharmadasa,openalex_matched_corroborated,1,31,62,5,31,2026-10-13
+SL-a0beba197c28,uwu,Dr. M.G.P.P. Mahindarathne,https://openalex.org/A5089101438,M.G.P.P. Mahindarathne,openalex_matched_corroborated,1,19,53,3,2,2026-10-13
+SL-af1414046879,uwu,Ms. N.S. Withanage,https://openalex.org/A5052761418,N. S. Withanage,openalex_matched_corroborated,1,9,95,3,3,2026-10-13
+SL-ce8fff56b32c,uwu,Dr. A.G.A.W. Alakolanga,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-061e950d37cb,uwu,Dr. G. Abhiram,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-738c3bbe086a,uwu,Ms. C.H.M. Banagala,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-f79c349e2d8f,uwu,Dr. P.D.P.M.D. Silva,,,openalex_candidate_requires_corroboration,7,,,,,2026-10-13
+SL-b770713bdce1,uwu,Ms. G.Y.A.D.D. Perera,,,openalex_candidate_requires_corroboration,5,,,,,2026-10-13
+SL-9d364e6e7093,uwu,Ms. V.P. Ellepola,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-29d366a0193f,uwu,Mr. Chathura Bandara,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-5c26966db0bc,uwu,Mr. R.A.G.C.N.M Nawarathna,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-92601cb76d64,uwu,Prof. H. M. S. K. Herath,,,openalex_candidate_requires_corroboration,17,,,,,2026-10-13
+SL-98b9093e875c,uwu,Prof. P. E. Kaliyadasa,https://openalex.org/A5077108647,P.E. Kaliyadasa,openalex_matched_corroborated,1,18,138,5,86,2026-10-13
+SL-e5fa6c8817b3,uwu,Dr. S.R.W.M.C.J.K. Ranawana,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-8c23751161ff,uwu,Dr. M.K. Meegahakumbura,https://openalex.org/A5065187370,Muditha Kasun Meegahakumbura,openalex_matched_corroborated,1,26,483,11,116,2026-10-13
+SL-3bacec788091,uwu,Dr. M.W.A.C.S. Wijetunga,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-469a018dfbdf,uwu,Dr. U.G.A.T. Premathilake,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-7732a784e410,uwu,Mr. H.G.I.M. Wijesinghe,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-afa4b01ac258,uwu,Dr. A.N.R. Weerawansha,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-70d817b160ce,uwu,Ms. P.W. Jeewanthi,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-cc62f6022909,uwu,Ms. E.A.L. Lochana,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-a598b8107427,uwu,Ms. T.T.D. Dharmarathna,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-4f0f4c92b89f,uwu,Ms. Nilusha perera,https://openalex.org/A5085082057,T.A.N.T. Perera,openalex_matched_corroborated,3,20,280,6,273,2026-10-13
+SL-47fc4b1e27a4,uwu,Mr. R.W.I.B. Priyadarshana,https://openalex.org/A5021768525,R.W.I.B. Priyadarshana,openalex_matched_corroborated,1,3,82,2,31,2026-10-13
+SL-62005490299f,uwu,Dr. A.M. Nishani Abesinghe (Head of the Department),https://openalex.org/A5074664743,A.M.N.L. Abesinghe,openalex_matched_corroborated,1,13,363,5,39,2026-10-13
+SL-30b88d5ff603,uwu,Prof. W. A. J. P. Wijesinghe,https://openalex.org/A5003859459,W.A.J.P. Wijesinghe,openalex_matched_corroborated,3,62,2220,20,6,2026-10-13
+SL-44ed806bba60,uwu,Prof. D.C. Mudannayake,https://openalex.org/A5068372618,Deshani Chirajeevi Mudannayake,openalex_matched_corroborated,2,37,369,8,283,2026-10-13
+SL-dca307f79ef2,uwu,Dr. M.K. Ranasinghe,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-2bbef49c379c,uwu,Dr. G.A.A.R. Perera,https://openalex.org/A5054748537,G.A.A.R. Perera,openalex_matched_corroborated,5,11,0,0,0,2026-10-13
+SL-bf1825f20b60,uwu,Dr. W.M.N.M. Wijesundara,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-eb18fa884d9a,uwu,Dr. M.P.M.Arachchi,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-b2b1e8364f82,uwu,Ms. K.P.M. Kahandage,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-0a9617b1a50e,uwu,Dr. N.E. Wedamulla,https://openalex.org/A5077561466,Nishala Erandi Wedamulla,openalex_matched_corroborated,1,31,441,9,434,2026-10-13
+SL-f272e5ca03bf,uwu,Dr. V. G. G. Chandrajith,https://openalex.org/A5028810769,Gayan Chandrajith Vidana Gamage,openalex_matched_corroborated,1,11,539,9,539,2026-10-13
+SL-7c2435f110ec,uwu,Prof. Tharanga Udagedara,https://openalex.org/A5019379977,D.T. Udagedara,openalex_matched_corroborated,2,17,72,3,2,2026-10-13
+SL-b6582403e41b,uwu,Prof. A. S. Ratnayake,https://openalex.org/A5087835748,Amila Sandaruwan Ratnayake,openalex_matched_corroborated,5,126,3222,25,1938,2026-10-13
+SL-4c4ee93690ce,uwu,Dr. A. M. A. N. B. Attanayake,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-becdb5baf0a6,uwu,Dr. T. H. N. G. Amaraweera,https://openalex.org/A5021114251,T. H. N. G. Amaraweera,openalex_matched_corroborated,1,27,89,6,35,2026-10-13
+SL-b11ae73114d2,uwu,Dr. N.P.Premachandra,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-88b4d4b65fa0,uwu,Dr. J.T. Cooray,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-ac8dcdf3b7f4,uwu,Mr. H.P.T.S. Hewathilake,https://openalex.org/A5060585407,H.P.T.S. Hewathilake,openalex_matched_corroborated,2,15,51,3,1,2026-10-13
+SL-30391b52469e,uwu,Mr. R.G.C. Jaliya,https://openalex.org/A5088346394,R.G.C. Jaliya,openalex_matched_corroborated,3,9,13,2,4,2026-10-13
+SL-0521c22e3a29,uwu,Dr. A. A. G. D. Amarasooriya,https://openalex.org/A5028144090,A. A. G. D. Amarasooriya,openalex_matched_corroborated,1,20,176,6,15,2026-10-13
+SL-a5e0f4a88254,uwu,Mr. W.A.P.P. Christopher,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-e5564c32ebca,uwu,Mr. W.A.P.Weerakoon,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-cc1ff039d0d2,uwu,Dr. D.J. Kottehewa,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-c1b09a40c928,uwu,Ms. H.M.B.N. Wickramasoriya,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-b508b0649b01,uwu,Prof. E.M.U.W.J.B. Ekanayake,https://openalex.org/A5087606411,E.M.U.W.J.B. Ekanayake,openalex_matched_corroborated,2,11,14,3,11,2026-10-13
+SL-6e94834e2563,uwu,Ms. S.D.H.S. Wickramarathne,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-3689551226e9,uwu,Dr. K.P.P.S. Pathirana,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-a24a1d931084,uwu,Dr. H.M.S.N. Ariyadasa,https://openalex.org/A5078668582,Subhash N. Ariyadasa,openalex_matched_confirmed,0,14,143,5,97,2026-10-13
+SL-56ae64eb7a99,uwu,Ms. C.S.D. Ellepola,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-1f049c5d9d76,uwu,Ms. R.S.I. Wilson,https://openalex.org/A5057552197,R. S. I. Wilson,openalex_matched_corroborated,2,9,66,5,64,2026-10-13
+SL-bd344d8d1140,uwu,Dr. S.H.D. Senanayake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-9d7230518a2b,uwu,Dr. N.P. Samarasinghe,https://openalex.org/A5093345158,Nayanthara Samarasinghe,openalex_matched_corroborated,2,2,5,1,5,2026-10-13
+SL-a2d0739c14db,uwu,Dr. J.A.V.M.K. Jayakody,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-dcf8f1ee1745,uwu,Mr. K. Charith,https://openalex.org/A5080134398,Krishnamoorthy Charith,openalex_matched_corroborated,1,6,9,2,8,2026-10-13
+SL-4d5e7bfbbb18,uwu,Ms. D.P. Jayathunga,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-de003deaa33a,uwu,Mr. A.M.B. Ratnayake,,,openalex_candidate_requires_corroboration,5,,,,,2026-10-13
+SL-5bf45d7bfbee,uwu,Mr. M.N.T. Nandasena,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-34e988257559,uwu,Mr. Aruna Withanage,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-1eabc62b386b,uwu,Mr. S. J. M. D. P. Samarakoon,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-75e671050191,uwu,Mr. M. Janotheepan,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-1849bb1869b9,uwu,Ms. Nelum Attanayake,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-e478f6547ebf,uwu,Mr. U.E. Ranasooriya,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-6b6feb25ab74,uwu,Mr. H.P.D.P. Pathirana,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-e85d5f992949,uwu,Ms. R. P. Abeywardhana,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-2acafa9d533e,uwu,Mr. M.R.M Hanan,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-23e0ebd45490,uwu,Ms. J.Jenusiya,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-c14c3485f5aa,uwu,Ms. Anuradha Disanayaka,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-c0fe4dcd8a1b,uwu,Mr. K.A.P.A. Rathnathilake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-193457c2c1a0,uwu,Sr. Prof. Sisira Ediriweera,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-8bf562d8349a,uwu,Prof. Prasad Manjusri Sirimanne,https://openalex.org/A5110216846,Prasad Manjusri Sirimanne,openalex_matched_corroborated,1,57,1785,22,0,2026-10-13
+SL-a0a54659e87f,uwu,Prof. H.M.J.C.Pitawala,https://openalex.org/A5086881417,H.M.J.C. Pitawala,openalex_matched_corroborated,4,34,569,6,38,2026-10-13
+SL-3dd7d669fef7,uwu,prof. K.W.S.N.Kumari,https://openalex.org/A5064895856,K.W.S.N. Kumari,openalex_matched_corroborated,4,24,136,5,22,2026-10-13
+SL-97bd1ba424c8,uwu,Prof. I.D. Singhalage,https://openalex.org/A5044135896,I. D. Singhalage,openalex_matched_corroborated,1,12,36,3,7,2026-10-13
+SL-5568018f1b29,uwu,Prof. A.P.Henagamage,https://openalex.org/A5025873817,A. P. Henagamage,openalex_matched_corroborated,3,10,98,5,84,2026-10-13
+SL-d0aca0b6499d,uwu,Dr. M.M.S.N. Premetilake,https://openalex.org/A5047312709,M.M.S.N. Premetilake,openalex_matched_corroborated,3,3,33,2,32,2026-10-13
+SL-63140143c3c0,uwu,Dr.A.S.R.Senavirathne,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-1e5483bb50bb,uwu,Dr. C.M.Peries,https://openalex.org/A5022163192,Colombage Maheshika Peries,openalex_matched_corroborated,2,6,81,4,80,2026-10-13
+SL-d99bb0cbeecb,uwu,Dr. M. A. Rasanga L. Samaraweera,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-9e4d12da10d5,uwu,Dr. R.M.T.C.B. Ekanayake,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-bdd95b5ae8ee,uwu,Dr. W.D.C.C. Wijerathne,https://openalex.org/A5014705002,W.D.C.C. Wijerathne,openalex_matched_corroborated,2,13,137,4,70,2026-10-13
+SL-c26a063da3b5,uwu,Dr. Nuwan,,,openalex_candidate_requires_corroboration,7,,,,,2026-10-13
+SL-6693d3bf47c5,uwu,Dr. A.R.P.C.C.J. Amarasinghe,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-5e617465743e,uwu,Mr. A.M.P Chandrasiri,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-41509fc70019,uwu,Dr. D.C. Karunathilake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-e2cdb48ba144,uwu,Dr. P. Anushkkaran,https://openalex.org/A5026463510,Periyasamy Anushkkaran,openalex_matched_corroborated,1,50,667,16,664,2026-10-13
+SL-9104054f9dd7,uwu,Dr. Nilmini D. Karunarathne.,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-d0a7e45b7811,uwu,Mr. Roshan Thilakarathna,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-3f65be226a3d,uwu,Ms. Buddhi Liyanapathirana,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-7b6e9fa8f82c,uwu,Ms. M.P.A.M. Rathnakumara,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-8c37c75f8b25,uwu,Ms. R.M.T. Lakmali,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-7b15f91cc5f6,uwu,Mr. R.D.A.U. Pallegama,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-e6db84f919f4,uwu,Mr. S.A. De Silva,,,openalex_candidate_requires_corroboration,5,,,,,2026-10-13
+SL-d2fa55ebc296,uwu,Mr. M.L.Yasiru,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-d97d6aed0e9f,uwu,Ms. T.M.T.D. Thennakoon,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-c891ef3ef6cc,uwu,Prof. Pamoda Ratnaweera,https://openalex.org/A5057460624,Pamoda B. Ratnaweera,openalex_matched_corroborated,1,23,637,12,59,2026-10-13
+SL-850596d4ca7d,uwu,Prof. N.P.R. Deyshappriya,https://openalex.org/A5088895010,N.P. Ravindra Deyshappriya,openalex_matched_corroborated,2,44,275,9,74,2026-10-13
+SL-06894f33c9f3,uwu,Prof. (Ms.) P. I. N. Fernando,https://openalex.org/A5110781288,P. I. N. Fernando,openalex_matched_corroborated,6,16,61,4,34,2026-10-13
+SL-0b001635fb68,uwu,Prof. Wasana Maithree Herath,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-fea042de427e,uwu,Prof. K.M.M.C.B. Kulathunga,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-15a5f001071c,uwu,Dr. J. Siyambalapitiya,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-29eb54d42445,uwu,Ms. Y.M.C. Gunaratne,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-b1443bf2de26,uwu,Mr. C.J.P. Kulathilake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-5a949c33796e,uwu,Dr. H.L.Neel Wasantha,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-d78d805314a4,uwu,Ms.T.G.A.H.C.Amarawansha,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-ecd1924260f8,uwu,Ms. P.G.M.S.K. Gamage,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-257444d2d6ab,uwu,Ms.K.J.T.Perera,,,openalex_candidate_requires_corroboration,7,,,,,2026-10-13
+SL-e09c6fc80579,uwu,Ms.P. O. De Silva,,,openalex_candidate_requires_corroboration,13,,,,,2026-10-13
+SL-388392b04a56,uwu,Ms. A.G.N.K. Fernando,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-24306b8d444a,uwu,Ms. A.S. Munasinghe,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-4f21484ffda3,uwu,Ms. L.V.M.G. Vithana,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-24db9f2d24e3,uwu,Dr. M. Rubavathanan,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-f9b9c5980d8c,uwu,Prof. P.H.T. Kumara,,,openalex_candidate_requires_corroboration,4,,,,,2026-10-13
+SL-81423dbfa1ce,uwu,Prof. H.R.N. Peiris,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-7ef5dfe7ced9,uwu,Mr. T.M.P.S.I. Tennakoon,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-b16f4cecd622,uwu,Ven. Wachissara Thero,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-d476a5bdfeb5,uwu,Mr. Deepal Wijayasekara,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-bbcd00522a57,uwu,Mrs.Onali Jayathilake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-ac672faca21e,uwu,Mr. G.H. Abeyweera,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-f52d7d00aa1f,uwu,Ms. H.H.S.U. Samarakoon,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-b32490c88005,uwu,Ms. H.M.D.N Herath,,,openalex_candidate_requires_corroboration,17,,,,,2026-10-13
+SL-3e0b78803e38,uwu,Ms. A.G.S.M Samarasinghe,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-666b364db04d,uwu,Ms. D.M.R.N Dissanayake,,,openalex_candidate_requires_corroboration,6,,,,,2026-10-13
+SL-c74c5afd0df1,uwu,Ms. W.M.L Nayanahari,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-ebf2c0e9f53b,uwu,Ms. C.P. Danthanarayana,https://openalex.org/A5024726656,Chathuri Piumika Danthanarayana,openalex_matched_corroborated,1,11,37,3,21,2026-10-13
+SL-3528533683fc,uwu,Ms. W.G.S.R. Wijesundara,https://openalex.org/A5022696340,W.G.S.R. Wijesundara,openalex_matched_corroborated,2,13,4,1,2,2026-10-13
+SL-99a28c6ada54,uwu,Ms. A.C.I.D. Karunarathne,https://openalex.org/A5010365361,A.C.I.D. Karunarathne,openalex_matched_corroborated,2,16,66,3,59,2026-10-13
+SL-fcddc4bf636f,uwu,Mr. A.M.D.B. Nawarathna,https://openalex.org/A5052623083,A.M.D.B. Nawarathna,openalex_matched_corroborated,1,29,145,6,115,2026-10-13
+SL-8deb289aed52,uwu,Ms. U.G.O.Sammani,https://openalex.org/A5028438237,U.G.O. Sammani,openalex_matched_corroborated,1,9,61,3,60,2026-10-13
+SL-8690a4ddff41,uwu,Mr. W.M.A.H. Bandara,,,openalex_candidate_requires_corroboration,6,,,,,2026-10-13
+SL-5b9a3f0f24c6,uwu,Ms. P.G.S.S. Pattiyagedara,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-789ef743786f,uwu,Mr. P.B.S.N. Kumara,,,openalex_candidate_requires_corroboration,4,,,,,2026-10-13
+SL-bd8962ba66a7,uwu,Ms. G.H.V. Harshani,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-b69c43ae9deb,uwu,Mr. P.L.K. Lakshan,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-06664b3eff46,uwu,Dr. K.H.I.K. Hewavitharana,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-94465ebbf45c,uwu,Senior Professor Kolitha B. Wijesekara,,,openalex_candidate_requires_corroboration,4,,,,,2026-10-13
+SL-a4ce16db9a40,uwu,Professor K.G.C. Senarathna,,,openalex_candidate_requires_corroboration,4,,,,,2026-10-13
+SL-d269e108a026,uwu,Dr. N.M.C.Nayanakantha,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-831fa3e3a9aa,uwu,Dr (Mrs) D. M. Hunupolagama,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-aecd82db2417,uwu,Dr. K.M.G.M.M.Kariyawasam,,,openalex_candidate_requires_corroboration,3,,,,,2026-10-13
+SL-52630c3979ad,uwu,Dr. P.D. Samanthi Udayangani Kumari,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-37319f906f34,uwu,Dr. D.P.G.S. Kumudumali,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-fa530f63171f,uwu,Dr. R.B.S.D. Rajapakse,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-b73fab2cbe2f,uwu,Dr. Jayani Anurangi,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-4c7e464c428d,uwu,Ms. G.M.M. Dissanayaka,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-27fdac4b1118,uwu,Ms. L.A. Thilini Gunathilake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-5c5b9f8956a4,uwu,Ms. K.M. Sumudu K.A. Dehideniya,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-c3e5f69a6cbc,uwu,Dr. (Eng.) G.W.R. Keerthiwansa,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-6cd999518313,uwu,Prof. Y.N.S. Wijewardana,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-2ac17c976572,uwu,Dr. (Eng.) M.D.S.L. Wimalananda,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-e28942ebdfee,uwu,Dr. (Eng.) U.M.N. Jayawickrema,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-75fe603f90bd,uwu,Dr. (Eng.) T.D. Gunawansha,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-d04aee3e69a7,uwu,Dr. (Eng.) J. M. N. Jayaweera,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-176dd83a4f0d,uwu,Ms. U.W.H.K. Ukgoda,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-f41b47f9c233,uwu,Mr. V.Dishankan,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-4fd5370fbd42,uwu,Dr. Lakmal Hewage,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-96f072d77daf,uwu,Mrs. Nishadi Sachinthani Rodrigo,https://openalex.org/A5101897801,Natassia Rodrigo,openalex_matched_corroborated,1,8,2,1,2,2026-10-13
+SL-95095ec60159,uwu,Dr. Rathnayakelage Gayathri Lakmali Rathnayake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-865d6605becc,uwu,Dr. Dehenak Gedara Pubudu Kalpani Senevirathna,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-e8459cc2996b,uwu,Ms. Sivasuntharam Induijaa,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-22c67e9fdf24,uwu,Dr. Bandusiri Rathnayake,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-4fded5bf8f3f,uwu,Dr. Kodagoda Pathirage Anuththara Sewwandi,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-6fbb6d8b588b,uwu,Dr. S.M.S.P. Bandaranayake,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-b6776b5315d6,uwu,Senior Professor Muditha Vidanapathirana,https://openalex.org/A5045446398,Muditha Vidanapathirana,openalex_matched_corroborated,1,102,136,6,5,2026-10-13
+SL-bdc985ef04f3,uwu,Dr Samira Janaka Jayasinghe,,,openalex_candidate_requires_corroboration,1,,,,,2026-10-13
+SL-219aa615aa54,uwu,Dr Sudath P Abeywickrama,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-74e70a787703,uwu,Dr. W.M.L.A. Wanasinghe,https://openalex.org/A5034821002,W. M. L. A. Wanasinghe,openalex_matched_corroborated,1,6,8,1,8,2026-10-13
+SL-0f5019661cc7,uwu,Mr. D.B.O. Malaweera,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-10993ef581cd,uwu,Mr. R.G.D.R. Jayawickrama,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-b75e51a42d37,uwu,Ms. H. A. V. T. D. C. Jayawardhane,,,openalex_candidate_requires_corroboration,2,,,,,2026-10-13
+SL-efdf354be097,uwu,Ms. V. Anuradha Wijesekara,,,openalex_no_verified_author_match,0,,,,,2026-10-13
+SL-6a91a8e7c86e,uwu,Ms. S.G.M.N.J. Senevirathna,,,openalex_candidate_requires_corroboration,4,,,,,2026-10-13
