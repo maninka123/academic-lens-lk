@@ -498,7 +498,7 @@ export function Global() {
       <Stat
         key={g.key}
         label={g.key === "sl" ? "Sri Lanka" : tierShort[g.key as Tier]}
-        value={m === null ? "—" : m.toFixed(1)}
+        value={m === null ? "—" : fmt(m, 1)}
         detail={`${g.values.length} valid profiles${m === null ? " · insufficient data" : " · median " + metricNames[metric]}`}
       />
     );
@@ -820,7 +820,7 @@ export function GlobalTeaser() {
             className={
               row.key === "sl" ? "benchmark-row is-local" : "benchmark-row"
             }
-            title={`${row.label}: ${row.value === null ? "Insufficient data" : row.value.toFixed(1)} median h-index; ${row.v.length} matched profiles. ${row.hint}.`}
+            title={`${row.label}: ${row.value === null ? "Insufficient data" : fmt(row.value, 1)} median h-index; ${row.v.length} matched profiles. ${row.hint}.`}
           >
             <div className="benchmark-label">
               <strong>{row.label}</strong>
@@ -837,7 +837,7 @@ export function GlobalTeaser() {
               )}
             </div>
             <strong className="benchmark-value">
-              {row.value === null ? "—" : row.value.toFixed(1)}
+              {row.value === null ? "—" : fmt(row.value, 1)}
             </strong>
           </li>
         ))}

@@ -1,0 +1,156 @@
+[
+  {
+    "kind": "faculties",
+    "id": "colombo--faculty-of-science",
+    "published_name": "Faculty of Science",
+    "field": "Natural Sciences",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "jaffna--faculty-of-allied-health-sciences",
+    "published_name": "Faculty of Allied Health Sciences",
+    "field": "Medicine / Health",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "jaffna--faculty-of-engineering",
+    "published_name": "Faculty of Engineering",
+    "field": "Engineering",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "jaffna--faculty-of-medicine",
+    "published_name": "Faculty of Medicine",
+    "field": "Medicine / Health",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "jaffna--faculty-of-science",
+    "published_name": "Faculty of Science",
+    "field": "Natural Sciences",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "kiu--faculty-of-health-sciences",
+    "published_name": "Faculty of Health Sciences",
+    "field": "Medicine / Health",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "moratuwa--faculty-of-business",
+    "published_name": "Faculty of Business",
+    "field": "Management / Business",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "moratuwa--faculty-of-information-technology",
+    "published_name": "Faculty of Information Technology",
+    "field": "Computing / IT",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "peradeniya--faculty-of-allied-health-sciences",
+    "published_name": "Faculty of Allied Health Sciences",
+    "field": "Medicine / Health",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "peradeniya--faculty-of-medicine",
+    "published_name": "Faculty of Medicine",
+    "field": "Medicine / Health",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "peradeniya--faculty-of-science",
+    "published_name": "Faculty of Science",
+    "field": "Natural Sciences",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "ruhuna--faculty-of-engineering",
+    "published_name": "Faculty of Engineering",
+    "field": "Engineering",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "sliit--faculty-of-computing",
+    "published_name": "Faculty of Computing",
+    "field": "Computing / IT",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "faculties",
+    "id": "sliit--faculty-of-engineering",
+    "published_name": "Faculty of Engineering",
+    "field": "Engineering",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "departments",
+    "id": "colombo--faculty-of-arts--department-of-english-language-teaching",
+    "published_name": "Department of English Language Teaching",
+    "field": "Humanities",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "departments",
+    "id": "jaffna--faculty-of-arts--department-of-english-language-teaching",
+    "published_name": "Department of English Language Teaching",
+    "field": "Humanities",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "departments",
+    "id": "peradeniya--faculty-of-agriculture--department-of-english-language-teaching",
+    "published_name": "Department of English Language Teaching",
+    "field": "Humanities",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "departments",
+    "id": "peradeniya--faculty-of-allied-health-sciences--department-of-english-language-teaching",
+    "published_name": "Department of English Language Teaching",
+    "field": "Humanities",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "departments",
+    "id": "peradeniya--faculty-of-arts--department-of-english-language-teaching",
+    "published_name": "Department of English Language Teaching",
+    "field": "Humanities",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "departments",
+    "id": "peradeniya--faculty-of-engineering--department-of-english-language-teaching",
+    "published_name": "Department of English Language Teaching",
+    "field": "Humanities",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "departments",
+    "id": "peradeniya--faculty-of-medicine--department-of-english-language-teaching",
+    "published_name": "Department of English Language Teaching",
+    "field": "Humanities",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  },
+  {
+    "kind": "departments",
+    "id": "peradeniya--faculty-of-science--department-of-english-language-teaching",
+    "published_name": "Department of English Language Teaching",
+    "field": "Humanities",
+    "basis": "Exact published unit title matches existing unambiguous broad-field classification; Allied Health Sciences follows existing Allied Health Science classification."
+  }
+]

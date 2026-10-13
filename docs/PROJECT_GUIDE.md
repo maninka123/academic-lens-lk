@@ -97,10 +97,18 @@ World boundaries: Natural Earth via [world-atlas](https://github.com/topojson/wo
 
 ## Display names and verification
 
-The app displays **Dr Name*** only for a documented completed PhD or higher research doctorate. The asterisk identifies that evidence. Medical qualifications alone, ongoing doctorates and a source’s Dr/Professor title do not qualify under this project’s display convention. Other profiles show an honorific only when the source states one (Mr, Mrs, Ms or Miss); otherwise the plain published name is used. No honorific or gender is inferred. Names contain no position or qualification suffix; published source names and positions remain visible in the profile and unchanged in the editable CSVs.
+The app uses **Prof** when the source name or documented position states a professorial role (including senior, associate and assistant professors). Other documented completed research doctorate holders use **Dr**. The asterisk identifies completed research doctorate evidence; medical qualifications alone, ongoing doctorates and a source title do not establish that evidence. Other profiles retain an explicitly published Mr/Mrs/Ms/Miss or use the plain name. Published source names, qualifications and positions remain unchanged in the editable CSVs.
 
 Research links show their recorded verification status. Metric evidence lists the platform and retrieval date for each populated field. Old profile URLs and pinned identities resolve through documented aliases. The data review notes are in [docs/DATA_UPDATE_REVIEW.md](DATA_UPDATE_REVIEW.md).
 
 Comparison presets provide starting points; chart values use one decimal place while calculations retain full precision. Academic Explorer supports column text filters and numeric ranges, and CSV export respects those filters.
 
 Profile placeholders show initials only; they never depict appearance or imply gender. Each profile shows compact evidence badges (verified, recorded but unverified, needs review, not documented) beside identity, employment, doctorate and metric values, with the last checked date.
+
+### Individual peer comparisons
+
+The selected cohort (position, qualification, both, PhD holders or all) applies to every context card. "All selected peers" spans collected Sri Lankan institutions within that cohort; "All collected profiles" appears only when all positions and qualifications are selected. Groups include the person when eligible. Only values from the same bibliometric provider enter the distribution; missing values are excluded and zero is retained. Median, mean, quartiles and midrank percentile require at least 10 valid values. The percentile is `100 × (below + 0.5 × tied) / valid`.
+
+The distribution view plots each available profile value with a vertical spread used only to separate overlapping dots. The two-measurement scatter includes only profiles with both values from that provider. A green diamond highlights the person when their required values are available. Profile counts, contributing records and hover/focus definitions explain each result.
+
+The 13 October 2026 peer review reproduced the example for Nalin De Silva from the saved Google Scholar values: university median 878, percentile `(9 + 0.5 × 1) / 11 × 100 = 86.4%`; faculty median 1,116.5 and percentile 85%. Identical 606.5 medians across several contexts result from the same 16 available values, despite different eligible profile counts. Missing exact Chemistry department mappings at Colombo and Jaffna were added to Natural Sciences; clinical biochemistry remains in its medical grouping. The resulting Natural Sciences / Senior Professor context has five profiles and three citation values, so summary statistics remain suppressed below the ten-value minimum.

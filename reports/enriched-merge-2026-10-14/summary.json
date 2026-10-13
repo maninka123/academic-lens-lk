@@ -1,0 +1,332 @@
+{
+  "date": "2026-10-14",
+  "applied": true,
+  "input": "Data files/to_user/sri_lankan_academics_enriched.csv",
+  "input_sha256": "56c1258687d7583431ba49730bb7e510a85d755ae8a19b7626c1efc341ae9d0e",
+  "input_records": 1397,
+  "source_records_before": 1601,
+  "source_records_after": 1601,
+  "profiles_changed": 659,
+  "accepted_field_changes": 3136,
+  "filled_missing_fields": 2807,
+  "updated_existing_fields": 329,
+  "accepted_by_field": {
+    "phd_university": 146,
+    "phd_country": 138,
+    "qualifications": 164,
+    "qualification_evidence": 231,
+    "phd_completion_year": 69,
+    "phd_country_basis": 122,
+    "total_citations": 276,
+    "citations_2021_2025": 259,
+    "h_index": 258,
+    "google_scholar_url": 211,
+    "researchgate_url": 120,
+    "phd_status": 67,
+    "experience_evidence": 29,
+    "research_interests": 64,
+    "department": 233,
+    "total_publications": 2,
+    "full_name": 1,
+    "faculty": 31,
+    "academic_position": 103,
+    "research_metrics_source": 320,
+    "metrics_source_url": 292
+  },
+  "decision_counts": {
+    "held": 2812,
+    "already_available": 986,
+    "accepted": 3136
+  },
+  "held_by_reason": {
+    "No field-specific official source receipt": 991,
+    "Doctoral institution absent from supplied degree text; field-specific evidence required": 3,
+    "Doctoral country lacks attributable evidence; MSc institution and ambiguous joint PhD entry cannot establish one awarding country.": 2,
+    "Year not explicitly attributable to completed doctoral entry": 5,
+    "Metric lacks exact field/provider receipt or valid integer": 384,
+    "Link lacks person-specific association evidence": 67,
+    "Official page unavailable or proposed value not corroborated in retrieved text": 95,
+    "Page headings are not research interests": 37,
+    "Metadata derived separately from accepted observations; original dates/employment retained": 926,
+    "Metric profile not independently associated with this academic": 84,
+    "Displayed Scholar name needs identity review": 28,
+    "Scholar display name needs review; avoid misattribution": 6,
+    "Five explicit annual bars required; rolling Since values/omitted years excluded": 57,
+    "Doctorate explicitly marked Reading; do not assign completed doctoral fields.": 15,
+    "Completed research doctorate not established by qualification text": 90,
+    "Current source changed after export; preserve newer value": 9,
+    "Proposed awarding institution contains a non-doctoral degree label": 1,
+    "Blank export value does not erase existing evidence": 12
+  },
+  "coverage": {
+    "full_name": {
+      "before": 1601,
+      "after": 1601
+    },
+    "university": {
+      "before": 1601,
+      "after": 1601
+    },
+    "faculty": {
+      "before": 1466,
+      "after": 1497
+    },
+    "department": {
+      "before": 1069,
+      "after": 1302
+    },
+    "academic_position": {
+      "before": 1288,
+      "after": 1391
+    },
+    "qualifications": {
+      "before": 1055,
+      "after": 1210
+    },
+    "phd_university": {
+      "before": 403,
+      "after": 548
+    },
+    "phd_country": {
+      "before": 430,
+      "after": 567
+    },
+    "phd_completion_year": {
+      "before": 268,
+      "after": 337
+    },
+    "teaching_academic_experience_years": {
+      "before": 2,
+      "after": 2
+    },
+    "research_interests": {
+      "before": 502,
+      "after": 566
+    },
+    "total_publications": {
+      "before": 90,
+      "after": 92
+    },
+    "total_citations": {
+      "before": 329,
+      "after": 570
+    },
+    "citations_2021_2025": {
+      "before": 160,
+      "after": 419
+    },
+    "h_index": {
+      "before": 279,
+      "after": 537
+    },
+    "total_q1_journal_publications": {
+      "before": 0,
+      "after": 0
+    },
+    "q1_publications_2021_2025": {
+      "before": 0,
+      "after": 0
+    },
+    "staff_profile_url": {
+      "before": 1601,
+      "after": 1601
+    },
+    "google_scholar_url": {
+      "before": 562,
+      "after": 767
+    },
+    "researchgate_url": {
+      "before": 274,
+      "after": 394
+    },
+    "research_metrics_source": {
+      "before": 334,
+      "after": 574
+    },
+    "metrics_source_url": {
+      "before": 334,
+      "after": 574
+    },
+    "collected_at": {
+      "before": 1601,
+      "after": 1601
+    },
+    "employment_status": {
+      "before": 1601,
+      "after": 1601
+    },
+    "record_status": {
+      "before": 1601,
+      "after": 1601
+    },
+    "research_lookup_status": {
+      "before": 1601,
+      "after": 1601
+    },
+    "phd_status": {
+      "before": 1601,
+      "after": 1601
+    },
+    "phd_country_basis": {
+      "before": 424,
+      "after": 546
+    },
+    "qualification_evidence": {
+      "before": 1013,
+      "after": 1167
+    },
+    "experience_evidence": {
+      "before": 5,
+      "after": 34
+    }
+  },
+  "official_pages_checked": 663,
+  "official_pages_accessible": 613,
+  "metric_observations_added": 795,
+  "profile_identity_receipts_added": 331,
+  "shared_scholar_profiles": [
+    {
+      "profile": "scholar:uLVpCZYAAAAJ",
+      "academic_ids": [
+        "SL-b4a241985315",
+        "SL-f6f35579b731"
+      ]
+    },
+    {
+      "profile": "scholar:zqIe-IgAAAAJ",
+      "academic_ids": [
+        "SL-2a695563d0c8",
+        "SL-43d756c7bcd8"
+      ]
+    },
+    {
+      "profile": "scholar:nQI6OYIAAAAJ",
+      "academic_ids": [
+        "SL-0dc22b858c76",
+        "SL-9795caf7cffc"
+      ]
+    },
+    {
+      "profile": "scholar:6GMjJA4AAAAJ",
+      "academic_ids": [
+        "SL-4ce8d879cbc4",
+        "SL-888e32368ebb"
+      ]
+    },
+    {
+      "profile": "scholar:HhSqUaIAAAAJ",
+      "academic_ids": [
+        "SL-1fa78683f6a5",
+        "SL-e7bec1009ea7"
+      ]
+    },
+    {
+      "profile": "scholar:Azu5iP8AAAAJ",
+      "academic_ids": [
+        "SL-40c7bc9e6d53",
+        "SL-58905f642d83"
+      ]
+    },
+    {
+      "profile": "scholar:732wEOIAAAAJ",
+      "academic_ids": [
+        "SL-0794ff4eb488",
+        "SL-82f188e307a7"
+      ]
+    },
+    {
+      "profile": "scholar:N5tisn4AAAAJ",
+      "academic_ids": [
+        "SL-852c786635cf",
+        "SL-0d23066489c3"
+      ]
+    },
+    {
+      "profile": "scholar:znldS30AAAAJ",
+      "academic_ids": [
+        "SL-33955ac9a725",
+        "SL-ccd474027aff",
+        "SL-fe7ae35729ee"
+      ]
+    }
+  ],
+  "qualification_qa": "Four Reading doctorate entries corrected before final app publication; one newly explicit ongoing status, three existing ongoing statuses preserved. Completion/awarding fields withheld.",
+  "app_before": {
+    "version": "partial-2efb9363c6",
+    "collectionDate": "2026-10-13",
+    "country": "Sri Lanka",
+    "institutionsInScope": 15,
+    "institutionsWithProfiles": 15,
+    "facultiesRepresented": 66,
+    "departmentsRepresented": 175,
+    "academicRecords": 1601,
+    "verifiedIdentity": 575,
+    "verifiedEmployment": 263,
+    "withAnyMetric": 663,
+    "withQualifications": 1055,
+    "doctorateDocumented": 564,
+    "doctorateInProgress": 34,
+    "doctorateContradictory": 1,
+    "needsReview": 18,
+    "metricAvailability": {
+      "publications": 528,
+      "citations": 660,
+      "recentCitations": 568,
+      "hIndex": 627,
+      "q1": 0,
+      "recentQ1": 0
+    },
+    "careerStages": {
+      "Teaching / other": 90,
+      "Mid-career": 566,
+      "Early-career": 396,
+      "Professor": 236,
+      "Unknown": 313
+    },
+    "identityAliases": 13,
+    "internationalBenchmarks": {
+      "universities": 41,
+      "academics": 1740,
+      "countries": 7
+    }
+  },
+  "app_after": {
+    "version": "partial-9b1bac880d",
+    "collectionDate": "2026-10-13",
+    "country": "Sri Lanka",
+    "institutionsInScope": 15,
+    "institutionsWithProfiles": 15,
+    "facultiesRepresented": 67,
+    "departmentsRepresented": 208,
+    "academicRecords": 1601,
+    "verifiedIdentity": 967,
+    "verifiedEmployment": 263,
+    "withAnyMetric": 826,
+    "withQualifications": 1210,
+    "doctorateDocumented": 630,
+    "doctorateInProgress": 35,
+    "doctorateContradictory": 1,
+    "needsReview": 18,
+    "metricAvailability": {
+      "publications": 529,
+      "citations": 824,
+      "recentCitations": 747,
+      "hIndex": 809,
+      "q1": 0,
+      "recentQ1": 0
+    },
+    "careerStages": {
+      "Teaching / other": 90,
+      "Mid-career": 620,
+      "Early-career": 402,
+      "Professor": 279,
+      "Unknown": 210
+    },
+    "identityAliases": 13,
+    "internationalBenchmarks": {
+      "universities": 41,
+      "academics": 1740,
+      "countries": 7
+    }
+  }
+}

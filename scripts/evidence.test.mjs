@@ -153,6 +153,10 @@ test("published URLs lose tokens, sessions and tracking parameters", () => {
   assert.equal(sanitizeUrl("https://user:pass@x.org/a"), "https://x.org/a");
   assert.equal(sanitizeUrl("javascript:alert(1)"), "");
   assert.equal(
+    sanitizeUrl("https://example.s3.amazonaws.com/paper.pdf?AWSAccessKeyId=example&Signature=temporary&X-Amz-Credential=example&X-Amz-Expires=900&download=1"),
+    "https://example.s3.amazonaws.com/paper.pdf?download=1",
+  );
+  assert.equal(
     sanitizeText("See https://a.org/x?access_token=1 now"),
     "See https://a.org/x now",
   );
