@@ -8,7 +8,7 @@ Work only in `Data files/` and a separate export location for a deliverable ZIP.
 
 ## Scope
 
-Cover Colombo, Peradeniya, Sri Jayewardenepura, Kelaniya, Moratuwa, Jaffna, Ruhuna, General Sir John Kotelawala Defence University, SLIIT, NSBM, CINEC, Horizon, KIU, and ICBT. Exclude Saegis. Use the exact institution names and IDs in `universities.csv`.
+Cover Colombo, Peradeniya, Sri Jayewardenepura, Kelaniya, Moratuwa, Jaffna, Ruhuna, General Sir John Kotelawala Defence University, SLIIT, NSBM, CINEC, Horizon, KIU, ICBT, and Uva Wellassa University of Sri Lanka (uwu). Exclude Saegis. Use the exact institution names and IDs in `universities.csv`.
 
 ## Inspect first
 
