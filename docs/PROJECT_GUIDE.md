@@ -99,7 +99,7 @@ World boundaries: Natural Earth via [world-atlas](https://github.com/topojson/wo
 
 The app uses **Prof** when the source name or documented position states a professorial role (including senior, associate and assistant professors). Other documented completed research doctorate holders use **Dr**. The asterisk identifies completed research doctorate evidence; medical qualifications alone, ongoing doctorates and a source title do not establish that evidence. Other profiles retain an explicitly published Mr/Mrs/Ms/Miss or use the plain name. Published source names, qualifications and positions remain unchanged in the editable CSVs.
 
-Research links show their recorded verification status. Metric evidence lists the platform and retrieval date for each populated field. Old profile URLs and pinned identities resolve through documented aliases. The data review notes are in [docs/DATA_UPDATE_REVIEW.md](DATA_UPDATE_REVIEW.md).
+Research links show their recorded verification status. Metric evidence lists the platform and retrieval date for each populated field. Old profile URLs and pinned identities resolve through documented aliases. The collection evidence and review logs live in `Data files/` (see its README).
 
 Comparison presets provide starting points; chart values use one decimal place while calculations retain full precision. Academic Explorer supports column text filters and numeric ranges, and CSV export respects those filters.
 
