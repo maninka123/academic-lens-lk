@@ -1,46 +1,57 @@
+<div align="center">
+
 # Sri Lanka Academic Atlas
 
-Explore academics, compare peer groups, and discover where their PhDs were awarded.
+**Explore who teaches and researches at Sri Lankan universities, how they compare, and where their PhDs were awarded.**
 
-**[Open the app](https://maninka123.github.io/academic-lens-lk/)** · [Dataset guide](Data%20files/README.md) · [Full documentation](docs/PROJECT_GUIDE.md)
+[**Open the app**](https://maninka123.github.io/academic-lens-lk/) · [Documentation](docs/PROJECT_GUIDE.md) · [Dataset guide](Data%20files/README.md) · [Report a correction](https://github.com/maninka123/academic-lens-lk/issues/new/choose)
+
+![License: MIT](https://img.shields.io/badge/code-MIT-blue) ![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-green) ![Status: partial collection](https://img.shields.io/badge/data-partial%20collection-orange)
+
+</div>
 
 <!-- dataset-summary:start -->
 <!-- Snapshot partial-41bbd4c1a0 -->
 **1,601 Sri Lankan profiles · 15 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-16. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
-- Search people and inspect qualifications, research links and peer comparisons.
-- Compare universities, faculties and departments; explore global benchmarks.
-- Filter, pin, share and export. Desktop-first, mobile-friendly.
+## What you can do
 
-
-## Licence, ethics and data notice
-
-Code: [MIT](LICENSE) · Data: [CC BY 4.0](DATA_LICENSE.md) · [Notice: data may be wrong](NOTICE.md) · [Ethics and data statement](ETHICS_AND_DATA.md)
-
-Anyone named here can request a correction or removal: [open a request](https://github.com/maninka123/academic-lens-lk/issues/new/choose).
+| | |
+|---|---|
+| **Universities** | A card per institution: profiles, PhD share, PhD from abroad, median citations and h-index. |
+| **Academics** | Search profiles, view up to three people side by side, and download a profile report (PDF) or its data (CSV). |
+| **Research standing** | A transparent 0-100% score showing where a person sits among comparable academics. Click it to see the calculation. |
+| **Compare** | Build your own comparisons across universities, faculties, departments, positions and PhD countries. |
+| **PhD origins** | Where doctorates were awarded and how that differs by institution, position and discipline. |
+| **Global benchmarks** | Sri Lanka against elite, middle and lower QS-ranked universities in seven countries, by discipline and seniority. |
 
 ## Run locally
 
-Node.js 22.12+; no backend required.
+Node.js 22.12 or newer. No backend is needed.
 
 ```sh
 npm ci
-npm run dev
+npm run dev        # http://localhost:5173/academic-lens-lk/
 ```
 
-Edit the CSVs in `Data files/`, then run `npm run data:import`. Validate with `npm test` and `npm run build`.
+| Task | Command |
+|---|---|
+| Re-import data after editing the CSVs in `Data files/` | `npm run data:import` |
+| Type-check, unit and script tests | `npm test` |
+| Production build | `npm run build` |
+| End-to-end tests | `npm run test:e2e` |
 
-## Data notes
+GitHub Pages releases automatically after a push to `main` passes all checks. To republish manually: **Actions → Build, check and deploy GitHub Pages → Run workflow**.
 
-Missing values stay missing. Comparisons show coverage and source information; citation counts are not a measure of overall academic quality. **Prof** takes precedence for documented professorial titles or positions; other completed research doctorate holders use **Dr**. An asterisk denotes a documented completed research doctorate; medical qualifications alone do not qualify.
+## How the data works
 
-[Methodology & setup](docs/PROJECT_GUIDE.md) · [Research standing score](docs/STANDING_SCORE.md) · [Scholar yearly citations](docs/SCHOLAR_YEARLY.md) · [Data policy](docs/DATA_POLICY.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
+- Missing values stay missing; they are never treated as zero.
+- Every comparison shows its source, sample size and coverage. Citation counts are not a measure of overall academic quality.
+- **Prof** is used for documented professorial positions; other completed research doctorates use **Dr**. An asterisk marks a documented completed research doctorate; medical qualifications alone do not qualify.
+- Research standing: [how it is calculated](docs/STANDING_SCORE.md). Missing yearly citations: [how to add them](docs/SCHOLAR_YEARLY.md).
 
-GitHub Pages releases automatically after a push to `main` passes all checks. To republish manually: **Actions → Build, check and deploy GitHub Pages → Run workflow** on `main`. Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-atlas).
-
-> [!NOTE]
-> This project uses only publicly available information. Data may be incomplete, outdated or incorrect—please verify details with the original sources.
+More: [Methodology & setup](docs/PROJECT_GUIDE.md) · [Data policy](docs/DATA_POLICY.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
 
 ## Global benchmark method
 
@@ -49,10 +60,10 @@ Research comparisons use matched OpenAlex profiles on both sides, with Computer 
 <details>
 <summary>Method, sampling and substitutions</summary>
 
-- QS World University Rankings 2027, published 18 June 2026. Each country contributes two elite universities (top two with accessible directories), two middle-tier universities (~420–560) and two lower-tier universities (~800–1200). Australia has one lower-tier sample because other directories blocked access.
+- QS World University Rankings 2027, published 18 June 2026. Each country contributes two elite universities (top two with accessible directories), two middle-tier universities (~420-560) and two lower-tier universities (~800-1200). Australia has one lower-tier sample because other directories blocked access.
 - Official staff directories exclude visiting, adjunct, courtesy and emeritus roles. Departments larger than 25 are sampled systematically in directory order. These are samples, not national censuses.
 - OpenAlex matches require name and institution agreement. Ambiguous or implausibly merged profiles remain blank; lookup attempts are not matches. Groups need at least 10 valid values to report a median.
-- Use the career-stage control to compare similar positions. Elite samples often contain more professors than Sri Lankan directories. No overall performance score is produced.
+- Use the career-stage control to compare similar positions. Elite samples often contain more professors than Sri Lankan directories.
 - Data and source rosters: [international dataset](Data%20files/international/). Build scripts: [scripts/baselines](scripts/baselines/).
 
 ### Substitutions
@@ -72,3 +83,23 @@ Research comparisons use matched OpenAlex profiles on both sides, with Computer 
 - **Wuppertal** (Germany, lower): University of Oldenburg (same band) publishes no consolidated professor list; Wuppertal used
 
 </details>
+
+## Please note
+
+> [!IMPORTANT]
+> This project uses only publicly available information. The data is a **partial collection**, may be incomplete, outdated or wrong, and is **not** an assessment of any individual. Verify details with the original sources. Anyone named here can ask for a correction or removal, without giving a reason: [open a request](https://github.com/maninka123/academic-lens-lk/issues/new/choose).
+
+## Acknowledgements
+
+Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-atlas) · Research indexes: [OpenAlex](https://openalex.org) · University rankings: QS World University Rankings 2027 · Flag icons: [country-flag-icons](https://github.com/catamphetamine/country-flag-icons) · Campus photographs are credited to their owners in [docs/CAMPUS_IMAGES.md](docs/CAMPUS_IMAGES.md).
+
+## Licence
+
+| | |
+|---|---|
+| **Code** | [MIT](LICENSE) |
+| **Data** | [CC BY 4.0](DATA_LICENSE.md): free to use with credit |
+| **Notice** | [Data may be wrong, no warranty, third-party material](NOTICE.md) |
+| **Ethics and data statement** | [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md) |
+
+Copyright (c) 2026 Pasindu Ranasinghe.
