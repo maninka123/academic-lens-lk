@@ -1,6 +1,6 @@
 <div align="center">
 
-# Sri Lanka Academic Atlas
+# Lanka Academia
 
 **Explore who teaches and researches at Sri Lankan universities, how they compare, and where their PhDs were awarded.**
 

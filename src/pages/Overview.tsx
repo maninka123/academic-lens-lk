@@ -125,7 +125,7 @@ export function Overview() {
   ];
   return (
     <>
-      <section className="hero" aria-label="Atlas summary">
+      <section className="hero" aria-label="Summary">
         <span
           className="hero-corner"
           title={`Any research metric ${pct(cov.withMetric)} · qualifications ${pct(cov.withQualifications)} · ${fmt(cov.needsReview)} need review`}
@@ -134,7 +134,7 @@ export function Overview() {
           Data completeness {pct(cov.withMetric)}
         </span>
         <div className="hero-copy">
-          <div className="eyebrow">Sri Lanka · Academic research atlas</div>
+          <div className="eyebrow">Sri Lanka · Academic research</div>
           <h1>Sri Lanka’s academic landscape.</h1>
           <p>
             Explore academics, qualifications and research — across Sri Lanka
@@ -196,7 +196,7 @@ export function Overview() {
         />
       </div>
       <section aria-label="Research questions" className="research-questions">
-        <h2>Explore the atlas</h2>
+        <h2>Explore Lanka Academia</h2>
         <div className="question-grid">
           {questions.map(({ icon: Icon, q, sub, go }) => (
             <button key={q} className="question-card" onClick={go}>

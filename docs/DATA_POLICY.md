@@ -26,7 +26,7 @@ The website is static. Although the repository is private, the deployed site and
 
 Academic records are compiled from official university websites (directories and individual profile pages). Research metrics come from Google Scholar, ResearchGate and OpenAlex as recorded with each value, with retrieval dates. International benchmark rosters come from official department directories; benchmark rankings come from the QS World University Rankings 2027. Map boundaries: Natural Earth via world-atlas.
 
-Cite the dataset with its snapshot version (shown on the site and in `dataset_summary.json`), for example: *Sri Lanka Academic Atlas, dataset version partial-xxxxxxxxxx, collected YYYY-MM-DD.*
+Cite the dataset with its snapshot version (shown on the site and in `dataset_summary.json`), for example: *Lanka Academia, dataset version partial-xxxxxxxxxx, collected YYYY-MM-DD.*
 
 ## Limitations that apply to every use
 

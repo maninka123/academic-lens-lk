@@ -1,10 +1,9 @@
-# Sri Lanka Academic Atlas
+# Lanka Academia
 
 Explore Sri Lankan academic profiles, compare peer groups, and keep research data coverage visible.
 
 **[Open the website](https://maninka123.github.io/academic-lens-lk/)** · [Editable dataset guide](../Data%20files/README.md) · [Collection prompt](../DATA_COLLECTION_PROMPT.md)
 
-![Academic Atlas overview](screenshots/overview.png)
 
 ## What you can do
 
@@ -19,9 +18,7 @@ Explore Sri Lankan academic profiles, compare peer groups, and keep research dat
 - Keep people without a documented department at faculty level, with no invented department groups.
 - Use light/dark appearance, keyboard-accessible fullscreen charts, and readable desktop, tablet and mobile layouts.
 
-![Comparison Studio](screenshots/comparison-studio.png)
 
-![Individual profile and peer comparisons](screenshots/person-profile.png)
 
 [Interface audit and edge-case coverage](AUDIT.md)
 
@@ -93,7 +90,7 @@ Missing values are excluded from metric denominators and never treated as zero. 
 
 Combined career publication/citation totals are **not** a university's historical output and may repeat coauthored work. h-index values are never summed. Five-year citations refer to citations received in 2021–2025; five-year Q1 refers to qualifying papers published in that period. Citation position does not measure overall academic or teaching quality. Full definitions and completeness tables are on **Data & Methodology**.
 
-World boundaries: Natural Earth via [world-atlas](https://github.com/topojson/world-atlas), bundled locally. Screenshots show the real collected dataset.
+World boundaries: Natural Earth via [world-atlas](https://github.com/topojson/world-atlas), bundled locally. Figures describe the real collected dataset.
 
 ## Display names and verification
 

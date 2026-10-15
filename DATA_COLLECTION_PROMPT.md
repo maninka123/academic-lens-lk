@@ -1,4 +1,4 @@
-# Continue collecting Sri Lanka Academic Atlas data
+# Continue collecting Lanka Academia data
 
 Continue from the existing **Data files/** directory. Preserve all existing IDs and evidence; do not restart. Inspect the actual files and report their current count instead of assuming the outdated claim of 3,468 records. The initial imported snapshot had 1,173 unique academics.
 

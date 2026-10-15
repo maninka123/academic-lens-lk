@@ -132,7 +132,7 @@ export function exportCsv(rows: Academic[]) {
       ]),
     ),
   );
-  download("academic-atlas-records.csv", "\uFEFF" + Papa.unparse(safe));
+  download("lanka-academia-records.csv", "\uFEFF" + Papa.unparse(safe));
 }
 const COUNTRY_CODES: Record<string, string> = {
   "Sri Lanka": "LK", "United Kingdom": "GB", "United States": "US", Australia: "AU",
