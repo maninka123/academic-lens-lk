@@ -12,7 +12,7 @@ import {
 import { PeerDistribution, type PeerChartView } from "./PeerDistribution";
 import { Link } from "react-router-dom";
 import { MIN_SAMPLE, providerOf } from "../analytics/quality";
-import { Card, fmt } from "./common";
+import { Card, fmt, standingColor, aheadOf } from "./common";
 import { Chart } from "./Chart";
 
 const metrics: NumericMetric[] = [
@@ -23,6 +23,16 @@ const metrics: NumericMetric[] = [
   "q1",
   "recentQ1",
 ];
+const ordinalOf = (v: number) => {
+  const n = Math.round(v),
+    t = n % 100;
+  return (
+    n +
+    (t >= 11 && t <= 13
+      ? "th"
+      : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] || "th")
+  );
+};
 export function ProfileStanding({
   academic: a,
   rows,
@@ -287,40 +297,60 @@ export function ProfileStanding({
                   valueFormatter: (v: number) =>
                     v === null
                       ? "Unavailable"
-                      : `${plotNumber(v)}th percentile`,
+                      : aheadOf(v),
                 },
-                grid: { left: 110, right: 30, top: 15, bottom: 50 },
+                grid: { left: 215, right: 165, top: 15, bottom: 50 },
                 xAxis: {
                   type: "value",
                   min: 0,
                   max: 100,
-                  name: "Percentile within the group",
+                  interval: 50,
+                  axisLabel: { formatter: (v: number) => v + "%" },
+                  name: "Share of peers this person is ahead of",
                   nameLocation: "middle",
                   nameGap: 30,
                 },
                 yAxis: {
                   type: "category",
-                  data: groups.map(
-                    (g) =>
-                      ({
-                        department: "Department",
-                        faculty: "Faculty",
-                        university: "University",
-                        field: "Same field",
-                        rank: "Same position",
-                        qualification: "Qualification",
-                        sector: "Same type",
-                        all:
-                          cohort === "all" ? "All profiles" : "Selected peers",
-                      })[g.key],
-                  ),
+                  inverse: true,
+                  data: groups.map((g) => g.label),
+                  axisLabel: { width: 205, overflow: "truncate" },
                 },
                 series: [
                   {
                     type: "bar",
-                    barMaxWidth: 20,
-                    data: groups.map((g) => g.percentile),
-                    itemStyle: { color: "#208b80", borderRadius: [0, 4, 4, 0] },
+                    barMaxWidth: 22,
+                    tooltip: {
+                      valueFormatter: (v: number | null) =>
+                        v === null ? "Not enough peers" : aheadOf(v),
+                    },
+                    emphasis: { focus: "none" },
+                    // Groups below the minimum sample get a note instead of a bar.
+                    data: groups.map((g) =>
+                      g.percentile === null
+                        ? {
+                            value: 0,
+                            label: {
+                              show: true,
+                              position: "right",
+                              color: "#8a93ab",
+                              formatter:
+                                g.members.length === 0
+                                  ? "No eligible profiles"
+                                  : `Needs ${MIN_SAMPLE} values (has ${g.n})`,
+                            },
+                          }
+                        : {
+                            value: g.percentile,
+                            itemStyle: { color: standingColor(g.percentile) },
+                          },
+                    ),
+                    itemStyle: { borderRadius: [0, 5, 5, 0] },
+                    label: {
+                      show: true,
+                      position: "right",
+                      formatter: (p: any) => aheadOf(p.value),
+                    },
                   },
                 ],
               }}
@@ -345,20 +375,10 @@ export function ProfileStanding({
             }
             onClick={() => setContext(g.key)}
             aria-pressed={active.key === g.key}
-            aria-describedby={`${helpId}-${g.key}`}
           >
-            <strong className="peer-result-label">
-              {g.label}
-              <span className="peer-info-icon" aria-hidden="true">
-                ⓘ
-              </span>
-            </strong>
-            <span
-              className="peer-card-tooltip"
-              role="tooltip"
-              id={`${helpId}-${g.key}`}
-            >
-              {g.description}
+            <strong className="peer-result-label">{g.label}</strong>
+            <span className="peer-result-scope">
+              {g.description.split(" · ")[0]}
             </span>
             <div className="peer-result-main">
               <strong>{g.median === null ? "—" : plotNumber(g.median)}</strong>
@@ -366,9 +386,9 @@ export function ProfileStanding({
             </div>
             {g.percentile !== null ? (
               <div className="peer-percentile">
-                <span>{plotNumber(g.percentile)}th percentile</span>
+                <span style={{ color: standingColor(g.percentile) }}>{aheadOf(g.percentile)}</span>
                 <i aria-hidden="true">
-                  <b style={{ width: `${g.percentile}%` }} />
+                  <b style={{ width: `${g.percentile}%`, background: standingColor(g.percentile) }} />
                 </i>
               </div>
             ) : (

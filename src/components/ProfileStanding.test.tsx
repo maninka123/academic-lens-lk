@@ -53,7 +53,7 @@ const rows = [
 const cells = () => {
   const toggle = screen.getByText("Detailed statistics");
   if (!toggle.parentElement?.hasAttribute("open")) fireEvent.click(toggle);
-  return within(screen.getByRole("row", { name: /^Department / }))
+  return within(screen.getByRole("row", { name: /^Same department / }))
     .getAllByRole("cell")
     .map((c) => c.textContent);
 };
@@ -79,14 +79,14 @@ describe("individual hierarchical standing", () => {
       />,
     );
     expect(
-      screen.queryByRole("row", { name: /^Department / }),
+      screen.queryByRole("row", { name: /^Same department / }),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByRole("option", { name: /^Department$/ }),
+      screen.queryByRole("option", { name: /^Same department$/ }),
     ).not.toBeInTheDocument();
     fireEvent.click(screen.getByText("Detailed statistics"));
     expect(
-      within(screen.getByRole("row", { name: /^Faculty/ }))
+      within(screen.getByRole("row", { name: /^Same faculty/ }))
         .getAllByRole("cell")
         .at(-1)?.textContent,
     ).toBe("—");

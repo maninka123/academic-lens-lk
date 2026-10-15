@@ -12,12 +12,14 @@ import {
   filterAcademics,
   compare,
 } from "../analytics/engine";
-import { fmt, colors, short } from "./common";
+import { fmt, personColors, short, standingColor } from "./common";
 import { Button } from "./ui/button";
 import { metricLabels, type NumericMetric, type Academic } from "../types";
-export function Pinned({ comparisonRows, referenceAcademics, providerLabel, showHeading = true }: {
+export function Pinned({ comparisonRows, referenceAcademics, otherProvider, providerLabel, showHeading = true }: {
   comparisonRows?: Academic[];
   referenceAcademics?: Academic[];
+  /** People whose shown value comes from a provider other than the selected one. */
+  otherProvider?: Map<string, string>;
   providerLabel?: string;
   showHeading?: boolean;
 } = {}) {
@@ -68,6 +70,8 @@ export function Pinned({ comparisonRows, referenceAcademics, providerLabel, show
               key={a.id}
               onClick={() => {
                 pin(a.id);
+                // The person is added: close the suggestion list.
+                setSearch("");
               }}
             >
               <div>
@@ -92,34 +96,6 @@ export function Pinned({ comparisonRows, referenceAcademics, providerLabel, show
       {search && !matches.length && (
         <p className="muted">No matching unpinned profiles.</p>
       )}
-      <label className="field">
-        Compare each person against
-        <Select
-          aria-label="Peer group"
-          value={config.peer}
-          onChange={(e) => configure({ peer: e.target.value })}
-        >
-          {[
-            ["current", "Current comparison groups"],
-            ["department", "Same department"],
-            ["faculty", "Same faculty"],
-            ["university", "Same university"],
-            ["rank", "Same position in filtered data"],
-            ["field", "Same standardised field"],
-            ["country", "Same PhD country"],
-            ["Public", "Public institutions"],
-            ["Non-state", "Non-state institutions"],
-          ].map(([v, l]) => (
-            <option key={v} value={v}>
-              {l}
-            </option>
-          ))}
-        </Select>
-      </label>
-      <p className="caption">
-        Peer groups respect global filters and selected comparison groups.
-        Unmapped fields and unknown units have no inferred peers.
-      </p>
       {!pinned.length && (
         <div className="pin-empty">
           <Pin size={25} />
@@ -134,10 +110,13 @@ export function Pinned({ comparisonRows, referenceAcademics, providerLabel, show
       {pinned.map((id, i) => {
         const a = (referenceAcademics ?? academics).find((a) => a.id === id);
         if (!a) return null;
-        const peer = peers(current, a, config.peer);
+        // Standing is always measured against the profiles in the current comparison.
+        const peer = peers(current, a, "current");
         const metric = config.metric;
         const numeric = !["count", "phd", "overseas"].includes(metric);
-        const v = numeric ? a[metric as NumericMetric] : null;
+        const recordedFrom = otherProvider?.get(id) ?? null;
+        const v = numeric && recordedFrom === null ? a[metric as NumericMetric] : null;
+        const recorded = numeric && recordedFrom !== null ? a[metric as NumericMetric] : null;
         const stats = summary(
           numeric ? values(peer.map((r) => r[metric as NumericMetric])) : [],
         );
@@ -149,7 +128,7 @@ export function Pinned({ comparisonRows, referenceAcademics, providerLabel, show
           <div
             className="pinned-card"
             key={id}
-            style={{ borderLeftColor: colors[i % colors.length] }}
+            style={{ borderLeftColor: personColors[i % personColors.length] }}
           >
             <div className="section-heading">
               <Link to={"/academics/" + id}>{a.name}</Link>
@@ -178,14 +157,20 @@ export function Pinned({ comparisonRows, referenceAcademics, providerLabel, show
               <>
                 <div
                   className={
-                    "person-value" + (v === null ? " unavailable" : "")
+                    "person-value" + (v === null && recorded === null ? " unavailable" : "")
                   }
                 >
-                  <strong>{fmt(v, 1)}</strong>
+                  <strong>{fmt(v ?? recorded, 1)}</strong>
                   <span>{metricLabels[metric]}</span>
                 </div>
-                {providerLabel && <p className="caption">{v === null ? `No recorded ${providerLabel} ${metricLabels[metric]} for this person.` : `${providerLabel} · individual value`}</p>}
-                <dl className="peer-stats">
+                {recorded !== null ? (
+                  <p className="caption">
+                    {recordedFrom} value, not {providerLabel || "the selected provider"}: not ranked against these peers.
+                  </p>
+                ) : providerLabel && (
+                  <p className="caption">{v === null ? `No recorded ${providerLabel} ${metricLabels[metric]} for this person.` : `${providerLabel} · individual value`}</p>
+                )}
+                {recorded === null && <dl className="peer-stats">
                   <div>
                     <dt>Peer median</dt>
                     <dd>{fmt(stats.median, 1)}</dd>
@@ -207,22 +192,25 @@ export function Pinned({ comparisonRows, referenceAcademics, providerLabel, show
                     <dd>{stats.n}</dd>
                   </div>
                   <div>
-                    <dt>From median</dt>
+                    <dt>Vs peer median</dt>
                     <dd>
                       {v === null || stats.median === null
                         ? "—"
-                        : fmt(v - stats.median, 1)}
+                        : v === stats.median
+                          ? "Equal"
+                          : `${fmt(Math.abs(v - stats.median), 1)} ${v > stats.median ? "above" : "below"}`}
                     </dd>
                   </div>
                   <div>
-                    <dt>Percentile</dt>
-                    <dd>{pct === null ? "Suppressed" : fmt(pct, 1) + "%"}</dd>
+                    <dt>Ahead of</dt>
+                    <dd style={pct === null ? undefined : { color: standingColor(pct) }}>
+                      {pct === null ? "Not enough peers" : Math.max(1, Math.round(pct)) + "% of peers"}
+                    </dd>
                   </div>
-                </dl>
-                {stats.n < 5 && (
+                </dl>}
+                {recorded === null && stats.n < 5 && (
                   <p className="caption">
-                    Fewer than five valid peers; percentile interpretation is
-                    suppressed.
+                    Fewer than five valid peers; a position is not shown.
                   </p>
                 )}
               </>

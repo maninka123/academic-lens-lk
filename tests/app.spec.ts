@@ -44,7 +44,6 @@ test("real collection, comparison controls, profiles, exports, and screenshots",
     .selectOption("citations");
   await page.getByLabel("Chart type").selectOption("scatter");
   await expect(page.locator(".pinned-card")).toHaveCount(1);
-  await page.getByLabel("Peer group").selectOption("rank");
   await page.getByLabel("Comparison level").selectOption("type");
   await page.getByLabel("University weighting").selectOption("equal");
   await expect(
@@ -87,7 +86,6 @@ test("fixture comparisons, custom groups, share state and chart exports", async 
   await expect(page.locator(".pinned-card")).toHaveCount(3);
   await page.getByLabel("Chart type").selectOption("scatter");
   await expect(page.locator(".studio-main canvas")).toBeVisible();
-  await page.getByLabel("Peer group").selectOption("rank");
   await page.screenshot({ path: "output/playwright/fixture-comparison.png" });
   const dl = page.waitForEvent("download");
   await page

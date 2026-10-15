@@ -5,6 +5,7 @@ import {
   Globe2,
   Layers,
   Scale,
+  Building2,
 } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
@@ -12,7 +13,7 @@ import { useData } from "../data/context";
 import { useAtlas, emptyFilters } from "../store";
 import { groupRows } from "../analytics/engine";
 import { coverageOf } from "../analytics/quality";
-import { Header, Card, Stat, short, fmt, colors } from "../components/common";
+import { Card, Stat, fmt, colors } from "../components/common";
 import { Chart } from "../components/Chart";
 import { Button } from "../components/ui/button";
 import type { Config } from "../types";
@@ -33,6 +34,7 @@ export function Overview() {
   const ranks = groupRows(rows, "rank").sort((a, b) => positionIndex(a.id) - positionIndex(b.id));
   const rankColor = (rank: string) => rank === "Unknown" ? "#9aa8b5" : rank === "Other" ? "#768591" : colors[positionIndex(rank) % colors.length];
   const cov = coverageOf(rows);
+  const phdCount = rows.filter((a) => a.qualification === "PhD").length;
   const pct = (n: number) =>
     rows.length ? fmt((100 * n) / rows.length, 1) + "%" : "—";
   const preset = (c: Partial<Config>, f?: Parameters<typeof setFilters>[0]) => {
@@ -69,7 +71,7 @@ export function Overview() {
           value: g.rows.length,
           universityId: g.id,
           itemStyle: {
-            color: g.type === "Public" ? "#007aff" : "#208b80",
+            color: g.type === "Public" ? "#3b4fd6" : "#0f9488",
             borderRadius: [0, 4, 4, 0],
           },
         })),
@@ -123,47 +125,65 @@ export function Overview() {
   ];
   return (
     <>
-      <Header
-        eyebrow="Sri Lanka · Academic research atlas"
-        title="Sri Lanka’s academic landscape."
-        description="Explore academics, qualifications and research — across Sri Lanka and beyond."
-        action={
-          <Button onClick={() => preset({})}>
-            Compare institutions
-            <ArrowUpRight size={18} />
-          </Button>
-        }
-      />
-      <div className="overview-band">
-        <Link to="/methodology">
-          How the data were collected <ArrowRight size={16} />
-        </Link>
-      </div>
+      <section className="hero" aria-label="Atlas summary">
+        <span
+          className="hero-corner"
+          title={`Any research metric ${pct(cov.withMetric)} · qualifications ${pct(cov.withQualifications)} · ${fmt(cov.needsReview)} need review`}
+        >
+          <i className="status-dot" />
+          Data completeness {pct(cov.withMetric)}
+        </span>
+        <div className="hero-copy">
+          <div className="eyebrow">Sri Lanka · Academic research atlas</div>
+          <h1>Sri Lanka’s academic landscape.</h1>
+          <p>
+            Explore academics, qualifications and research — across Sri Lanka
+            and beyond.
+          </p>
+          <div className="hero-actions">
+            <Button onClick={() => nav("/universities")}>
+              Browse universities
+              <ArrowUpRight size={18} />
+            </Button>
+            <Button variant="outline" onClick={() => preset({})}>
+              Compare institutions
+            </Button>
+            <Link className="hero-link" to="/methodology">
+              How the data were collected <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+        <div className="hero-facts">
+          <div className="hero-fact lead">
+            <span>Academics collected</span>
+            <strong>{fmt(rows.length)}</strong>
+            <small>Published profiles — not the total academic population</small>
+          </div>
+          <div className="hero-fact">
+            <span>Institutions covered</span>
+            <strong>{`${groups.filter((g) => g.rows.length).length} of ${universities.length}`}</strong>
+          </div>
+          <div className="hero-fact">
+            <span>Documented PhD</span>
+            <strong>{pct(phdCount)}</strong>
+          </div>
+          <div className="hero-fact">
+            <span>Verified research identities</span>
+            <strong>{fmt(cov.verifiedIdentity)}</strong>
+            <small>{pct(cov.verifiedIdentity)} of profiles</small>
+          </div>
+        </div>
+      </section>
       <div className="stats-grid snapshot">
-        <Stat
-          label="Academics collected"
-          value={fmt(rows.length)}
-          detail="Published profiles — not the total academic population"
-        />
-        <Stat
-          label="Institutions covered"
-          value={`${groups.filter((g) => g.rows.length).length} of ${universities.length}`}
-          detail="Institutions in scope with collected profiles"
-        />
         <Stat
           label="Faculties · departments"
           value={`${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} · ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size}`}
           detail="Units represented in the collected profiles"
         />
         <Stat
-          label="Verified research identities"
-          value={fmt(cov.verifiedIdentity)}
-          detail={`${pct(cov.verifiedIdentity)} with a confirmed research profile · ${fmt(cov.verifiedEmployment)} verified employment`}
-        />
-        <Stat
-          label="Data completeness"
-          value={pct(cov.withMetric)}
-          detail={`Any research metric · qualifications ${pct(cov.withQualifications)} · ${fmt(cov.needsReview)} need review`}
+          label="Verified employment"
+          value={fmt(cov.verifiedEmployment)}
+          detail={`${fmt(cov.needsReview)} profiles need review`}
         />
         <Stat
           label="International benchmarks"
@@ -292,40 +312,19 @@ export function Overview() {
         </p>
       </Card>
       <GlobalTeaser />
-      <Card
-        title="Explore an institution"
-        subtitle="Follow the hierarchy from university to faculty, department and academic. Each view shows its own data coverage."
-      >
-        <div className="institution-grid">
-          {groups.map((g) => (
-            <Link
-              key={g.id}
-              to={"/university/" + g.id}
-              className="institution-card"
-            >
-              <span
-                className={
-                  "institution-monogram " +
-                  (g.type === "Non-state" ? "nonstate" : "")
-                }
-              >
-                {g.short.slice(0, 2).toUpperCase()}
-              </span>
-              <div>
-                <strong>{short(g.name)}</strong>
-                <small>
-                  {g.type} ·{" "}
-                  {g.rows.length
-                    ? g.rows.length +
-                      (g.rows.length === 1 ? " profile" : " profiles")
-                    : "No collected profiles"}
-                </small>
-              </div>
-              <ArrowUpRight size={18} />
-            </Link>
-          ))}
-        </div>
-      </Card>
+      <Link to="/universities" className="universities-cta">
+        <span className="preset-icon">
+          <Building2 size={28} strokeWidth={1.8} />
+        </span>
+        <span>
+          <strong>Explore the universities</strong>
+          <small>
+            {universities.length} institutions — profiles, PhD shares and
+            research output side by side.
+          </small>
+        </span>
+        <ArrowRight size={20} />
+      </Link>
     </>
   );
 }

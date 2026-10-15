@@ -1,17 +1,19 @@
 import { useState } from "react";
-import type { Academic } from "../types";
+import type { Academic, Level } from "../types";
 import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
-import { Pin, ExternalLink, ArrowLeft } from "lucide-react";
+import { Pin, ExternalLink, ArrowLeft, Download, FileText } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import { filterAcademics, groupRows } from "../analytics/engine";
-import { Header, Card, fmt, Empty } from "../components/common";
+import { Header, Card, fmt, Empty, CountryName } from "../components/common";
 import campusImages from "../data/campus-images.json";
 import { Filters } from "../components/Filters";
 import { AcademicTable } from "../components/AcademicTable";
+import { SideBySide } from "../components/SideBySide";
 import { Button } from "../components/ui/button";
 import { AcademicPortrait } from "../components/AcademicPortrait";
 import { ProfileStanding } from "../components/ProfileStanding";
+import { StandingScorePanel } from "../components/StandingScore";
 import { ResearchProfiles } from "../components/ResearchProfiles";
 import {
   CoveragePanel,
@@ -20,20 +22,36 @@ import {
   type EvidenceLevel,
 } from "../components/Quality";
 import { MIN_SAMPLE } from "../analytics/quality";
-import { exportCsv } from "../components/common";
+import { download } from "../components/common";
+import { standingScore } from "../analytics/standing-score";
+import { personCsv } from "../reports/person-csv";
 export function Academics() {
-  const { academics } = useData();
-  const { filters } = useAtlas();
+  const { academics, universities } = useData();
   const [query, setQuery] = useState("");
-  const [useFilters, setUseFilters] = useState(false);
-  const rows = (
-    useFilters ? filterAcademics(academics, filters) : academics
-  ).filter((a) =>
-    [a.name, a.sourceName, a.university, a.faculty, a.department, a.interests]
-      .join(" ")
-      .toLowerCase()
-      .includes(query.trim().toLowerCase()),
-  );
+  const [university, setUniversity] = useState("");
+  const [position, setPosition] = useState("");
+  const [columnFilters, setColumnFilters] = useState(false);
+  const [selected, setSelected] = useState<string[]>([]);
+  const chosen = selected
+    .map((id) => academics.find((a) => a.id === id))
+    .filter((a): a is Academic => Boolean(a));
+  const toggle = (id: string) =>
+    setSelected((s) =>
+      s.includes(id) ? s.filter((x) => x !== id) : s.length >= 3 ? s : [...s, id],
+    );
+  const positions = [...new Set(academics.map((a) => a.rank))].filter(Boolean);
+  const rows = academics
+    .filter((a) => !university || a.universityId === university)
+    .filter((a) => !position || a.rank === position)
+    .filter((a) =>
+      [a.name, a.sourceName, a.university, a.faculty, a.department, a.interests]
+        .join(" ")
+        .toLowerCase()
+        .includes(query.trim().toLowerCase()),
+    );
+  const withPhd = rows.filter((a) => a.qualification === "PhD").length;
+  const withMetrics = rows.filter((a) => a.citations !== null).length;
+  const pct = (n: number) => (rows.length ? Math.round((100 * n) / rows.length) + "%" : "—");
   return (
     <>
       <Header
@@ -41,31 +59,69 @@ export function Academics() {
         title="Academic Explorer"
         description="Search profiles, inspect the evidence, and add academics to your comparisons."
       />
+      <section className="directory-facts" aria-label="Directory summary">
+        <div><strong>{fmt(rows.length)}</strong><span>profiles shown</span></div>
+        <div><strong>{pct(withPhd)}</strong><span>with a documented PhD</span></div>
+        <div><strong>{pct(withMetrics)}</strong><span>with citation counts</span></div>
+        <div><strong>{new Set(rows.map((a) => a.universityId)).size}</strong><span>universities</span></div>
+      </section>
+      {chosen.length > 0 && (
+        <SideBySide
+          people={chosen}
+          onRemove={(id) => setSelected((s) => s.filter((x) => x !== id))}
+          onClear={() => setSelected([])}
+        />
+      )}
       <Card
         title="Academic directory"
-        subtitle="Click a name for the full profile. Pin people to keep them in the Comparison Studio."
+        subtitle="Most cited first. Tick up to 3 people to see them side by side, or click a name for the full profile."
       >
-        <div className="people-search">
-          <label>
-            Search people by name
+        <div className="directory-controls">
+          <label className="directory-search">
+            <span>Search</span>
             <input
               type="search"
-              placeholder="Name, university, department, or research interest"
+              aria-label="Search people by name"
+              placeholder="Name, university, department or research interest"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
           </label>
+          <label>
+            <span>University</span>
+            <select value={university} onChange={(e) => setUniversity(e.target.value)}>
+              <option value="">All universities</option>
+              {universities.map((u) => (
+                <option key={u.id} value={u.id}>{u.name}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span>Position</span>
+            <select value={position} onChange={(e) => setPosition(e.target.value)}>
+              <option value="">All positions</option>
+              {positions.map((p) => (
+                <option key={p} value={p}>{p}</option>
+              ))}
+            </select>
+          </label>
           <label className="check">
             <input
               type="checkbox"
-              checked={useFilters}
-              onChange={(e) => setUseFilters(e.target.checked)}
+              checked={columnFilters}
+              onChange={(e) => setColumnFilters(e.target.checked)}
             />
-            Advanced filters
+            Column filters
           </label>
         </div>
-        {useFilters && <Filters />}
-        <AcademicTable rows={rows} columnFilters />
+        <AcademicTable
+          key={String(columnFilters)}
+          rows={rows}
+          columnFilters={columnFilters}
+          sortMetric="citations"
+          selectedIds={selected}
+          onToggleSelect={toggle}
+        />
       </Card>
     </>
   );
@@ -89,15 +145,22 @@ const evidenceLabel = (value: string | number | null) => {
   };
   return typeof value === "string" ? labels[value] || value : value;
 };
-type InfoItem = [string, string | number | null, EvidenceLevel?, string?];
+type InfoItem = [string, string | number | null, EvidenceLevel?, string?, string?];
 function Info({ items }: { items: InfoItem[] }) {
   return (
     <dl className="info-list">
-      {items.map(([k, v, level, title]) => (
+      {items.map(([k, v, level, title, country]) => (
         <div key={k}>
           <dt>{k}</dt>
           <dd>
-            {evidenceLabel(v)}
+            {country ? (
+              <>
+                <CountryName country={country} />
+                {v ? <span className="muted"> · {v}</span> : null}
+              </>
+            ) : (
+              evidenceLabel(v)
+            )}
             {level === "review" && (
               <EvidenceBadge level={level} title={title} />
             )}
@@ -151,8 +214,9 @@ export function Profile() {
   const { id } = useParams();
   const d = useData(),
     a = d.academics.find((a) => a.id === id);
-  const { pin, configure, clear } = useAtlas();
+  const { pin, configure, clear, setFilters } = useAtlas();
   const nav = useNavigate();
+  const [reportBusy, setReportBusy] = useState(false);
   const canonical = id && d.metadata.identityAliases?.[id];
   if (canonical) return <Navigate to={"/academics/" + canonical} replace />;
   if (!a) return <Empty title="Profile not found" />;
@@ -209,13 +273,13 @@ export function Profile() {
       </nav>
       <div className="person-hero">
         <AcademicPortrait academic={a} />
-        <Header
-          eyebrow={a.type + " · " + a.rank}
-          title={a.name}
-          description={a.university}
-          action={
-            <Button
-              onClick={() => {
+        <div className="person-main">
+          <div className="eyebrow">{a.type + " · " + a.rank}</div>
+          <h1>{a.name}</h1>
+          <p>{a.university}</p>
+          <Button
+            className="person-compare"
+            onClick={() => {
                 pin(a.id);
                 clear();
                 configure({
@@ -225,21 +289,67 @@ export function Profile() {
                   level: "university",
                   groups: [],
                   log: false,
-                  peer: a.departmentId
-                    ? "department"
-                    : a.facultyId
-                      ? "faculty"
-                      : "university",
                 });
                 nav("/compare");
               }}
-            >
-              <Pin size={18} />
-              Compare this academic
-            </Button>
-          }
-        />
+          >
+            <Pin size={18} />
+            Compare this academic
+          </Button>
+        </div>
+        <StandingScorePanel person={a} />
       </div>
+      <section className="key-facts" aria-label="Key facts">
+        <div className="key-fact wide">
+          <span>Position</span>
+          <strong>{a.position || "Not recorded"}</strong>
+          <small>{a.faculty || a.university}</small>
+        </div>
+        <div className="key-fact">
+          <span>PhD</span>
+          {(() => {
+            const done = a.doctorateStatus === "completed_documented";
+            const ongoing = a.doctorateStatus === "in_progress";
+            const missing = !done && !ongoing;
+            return (
+              <>
+                <strong className={missing ? "none" : undefined}>
+                  {done ? (a.phdYear ?? "Completed") : ongoing ? "In progress" : "—"}
+                </strong>
+                {done && (a.phdCountry || a.phdUniversity) ? (
+                  <small className="key-fact-detail">
+                    {a.phdCountry && <CountryName country={a.phdCountry} />}
+                    {a.phdUniversity && <span>{a.phdUniversity}</span>}
+                  </small>
+                ) : missing ? (
+                  <small>
+                    {a.qualification !== "Unknown"
+                      ? "Highest: " + a.qualification
+                      : "Not documented"}
+                  </small>
+                ) : null}
+              </>
+            );
+          })()}
+        </div>
+        {(
+          [
+            ["Citations", a.citations],
+            ["h-index", a.hIndex],
+            ["Publications", a.publications],
+          ] as const
+        ).map(([label, v]) => (
+          <div key={label} className={"key-fact" + (v === null ? " unavailable" : "")}>
+            <span>{label}</span>
+            <strong>{v === null ? "—" : fmt(v)}</strong>
+            <small>
+              {v === null
+                ? "Not recorded"
+                : a.metricsSource || "Source not recorded"}
+            </small>
+          </div>
+        ))}
+      </section>
       <ResearchProfiles academic={a} />
       {a.qualificationReview && (
         <p className="notice" role="status">
@@ -278,7 +388,7 @@ export function Profile() {
                   a.interests,
                   a.interests ? "recorded" : "missing",
                 ],
-                ["Standardised field", a.field],
+                ["Broad discipline", a.field],
                 [
                   "Employment status",
                   a.employmentStatus,
@@ -307,6 +417,9 @@ export function Profile() {
                         ] as InfoItem,
                       ]
                     : []),
+                  ...(a.phdYear !== null && a.phdYear !== undefined
+                    ? [["PhD completion year", a.phdYear, "recorded"] as InfoItem]
+                    : []),
                   [
                     "PhD awarding institution",
                     a.phdUniversity,
@@ -319,8 +432,8 @@ export function Profile() {
                   [
                     "PhD awarding country",
                     a.phdCountry && a.phdCountryInferred
-                      ? `${a.phdCountry} (inferred from university name)`
-                      : a.phdCountry,
+                      ? "inferred from university name"
+                      : a.phdCountry ? "" : null,
                     a.phdCountry
                       ? ev.doctorate === "review"
                         ? "review"
@@ -329,6 +442,7 @@ export function Profile() {
                     a.phdCountryInferred
                       ? "Inferred from the awarding institution's name; not stated in the source"
                       : "Country of the awarding institution, not necessarily where the person studied",
+                    a.phdCountry || undefined,
                   ],
                 ]}
               />
@@ -359,23 +473,53 @@ export function Profile() {
           </div>
         </div>
         <div>
-          <div className="card">
+          <div className="card profile-actions">
             <h2>Work with this profile</h2>
-            <Button variant="outline" onClick={() => exportCsv([a])}>
-              Export this person’s record
+            <Button
+              variant="outline"
+              disabled={reportBusy}
+              onClick={async () => {
+                setReportBusy(true);
+                try {
+                  const { buildPersonReport, reportFileName } = await import("../reports/person-pdf");
+                  const doc = await buildPersonReport(a, d.academics, d.metadata);
+                  doc.save(reportFileName(a));
+                } finally {
+                  setReportBusy(false);
+                }
+              }}
+            >
+              <FileText size={18} aria-hidden="true" />
+              {reportBusy ? "Preparing report…" : "Download report (PDF)"}
             </Button>
-            <h3>Explore peer groups</h3>
+            <Button
+              variant="outline"
+              onClick={() => {
+                const score = standingScore(a, d.academics);
+                const stamp = new Date().toISOString().slice(0, 10);
+                download(
+                  "academic-record-" + a.id + ".csv",
+                  personCsv(a, score, stamp),
+                );
+              }}
+            >
+              <Download size={18} aria-hidden="true" />
+              Download data (CSV)
+            </Button>
+            <h3>Compare within a group</h3>
             <p>
-              Open this person's data in the Studio and select a peer
-              definition.
+              Open the Studio showing only the people in the same group as this
+              academic.
             </p>
-            {[
-              ...(a.departmentId ? ["department"] : []),
-              ...(a.facultyId ? ["faculty"] : []),
-              "university",
-              "rank",
-              ...(a.field !== "Unmapped" ? ["field"] : []),
-            ].map((peer) => (
+            {(
+              [
+                ...(a.departmentId ? [["department", "Same department", "department"]] : []),
+                ...(a.facultyId ? [["faculty", "Same faculty", "department"]] : []),
+                ["university", "Same university", "faculty"],
+                ["rank", "Same position", "university"],
+                ...(a.field !== "Unmapped" ? [["field", "Same broad discipline", "university"]] : []),
+              ] as const
+            ).map(([peer, label, level]) => (
               <Button
                 className="peer-button"
                 variant="outline"
@@ -383,10 +527,16 @@ export function Profile() {
                 onClick={() => {
                   pin(a.id);
                   clear();
+                  setFilters({
+                    universities: peer === "rank" || peer === "field" ? [] : [a.universityId],
+                    faculties: peer === "faculty" || peer === "department" ? [a.facultyId] : [],
+                    departments: peer === "department" ? [a.departmentId] : [],
+                    ranks: peer === "rank" ? [a.rank] : [],
+                    fields: peer === "field" ? [a.field] : [],
+                  });
                   configure({
-                    peer,
                     groups: [],
-                    level: "university",
+                    level: level as Level,
                     chart: "bar",
                     aggregation: "median",
                     metric: "citations",
@@ -395,7 +545,7 @@ export function Profile() {
                   nav("/compare");
                 }}
               >
-                Same {peer}
+                {label}
               </Button>
             ))}
           </div>
@@ -484,11 +634,11 @@ export function Institution() {
             ? "/university/" + id + "/faculty/" + faculty
             : faculty
               ? "/university/" + id
-              : "/"
+              : "/universities"
         }
       >
         <ArrowLeft size={17} />
-        {faculty ? "Parent institution" : "Overview"}
+        {faculty ? "Parent institution" : "All universities"}
       </Link>
       <div className="institution-hero">
         {campus && (

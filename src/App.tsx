@@ -21,6 +21,7 @@ import {
   X,
   ArrowUpRight,
   Scale,
+  Building2,
 } from "lucide-react";
 import { useAtlas, restoreFromUrl } from "./store";
 import { loadDataset } from "./data/loader";
@@ -29,6 +30,7 @@ import type { Dataset } from "./types";
 import { Overview } from "./pages/Overview";
 import { Compare } from "./pages/Compare";
 import { Academics, Profile, Institution } from "./pages/Academics";
+import { Universities } from "./pages/Universities";
 import { Origins } from "./pages/Origins";
 import { Methodology } from "./pages/Methodology";
 import { Global } from "./pages/Global";
@@ -133,6 +135,7 @@ function Shell() {
   const sharedDataset = new URLSearchParams(location.search).get("dataset");
   const routes = [
     ["/", "Overview", LayoutDashboard],
+    ["/universities", "Universities", Building2],
     ["/compare", "Compare", ChartNoAxesCombined],
     ["/academics", "Academics", Users],
     ["/origins", "PhD Origins", Globe2],
@@ -247,7 +250,7 @@ function Shell() {
                 ([p]) => p !== "/" && location.pathname.startsWith(p),
               )?.[1] ||
                 (location.pathname.startsWith("/university/")
-                  ? "Institutions"
+                  ? "Universities"
                   : "Overview")}
             </span>
           </div>
@@ -304,6 +307,7 @@ function Shell() {
               {location.pathname.startsWith("/university/") && <Filters />}
               <Routes>
                 <Route path="/" element={<Overview />} />
+                <Route path="/universities" element={<Universities />} />
                 <Route path="/compare" element={<Compare />} />
                 <Route path="/academics" element={<Academics />} />
                 <Route path="/academics/:id" element={<Profile />} />

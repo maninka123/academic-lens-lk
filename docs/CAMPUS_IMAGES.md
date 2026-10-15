@@ -18,3 +18,4 @@ Locally cached photographs used in institution headers. Images remain the proper
 | horizon | [Horizon Campus](https://horizoncampus.edu.lk/) | [Image](https://horizoncampus.edu.lk/assets/images/campus_exploration_gallery/campus1.webp) |
 | kiu | [Daily FT · KIU](https://www.ft.lk/youthcareershigher-education/KIU-Higher-education-opportunities-beyond-traditional-boundaries/30-642295) | [Image](https://bmkltsly13vb.compat.objectstorage.ap-mumbai-1.oraclecloud.com/cdn.ft.lk/assets/uploads/image_8f02770ed6.jpg) |
 | icbt | [NA Group · ICBT Colombo](https://www.nagroup.lk/projects/icbt-colombo-campus/) | [Image](https://www.nagroup.lk/wp-content/uploads/2018/05/YDXJ0041-1024x768.jpg) |
+| uwu | [Uva Wellassa University of Sri Lanka](https://www.uwu.ac.lk/) | [Image](https://www.uwu.ac.lk/wp-content/uploads/1.jpg) |

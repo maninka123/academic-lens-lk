@@ -3,8 +3,9 @@ import { useData } from "../data/context";
 import { filterAcademics, completeness } from "../analytics/engine";
 import { MIN_SAMPLE, WEAK_COVERAGE } from "../analytics/quality";
 import { useAtlas } from "../store";
-import { Header, Card, fmt } from "../components/common";
+import { Header, Card, fmt, short } from "../components/common";
 import { Chart } from "../components/Chart";
+import { heatDatum, heatVisualMap } from "../analytics/heatmap";
 import type { Academic } from "../types";
 
 const PUBLIC_DOWNLOADS = [
@@ -71,112 +72,112 @@ export function Methodology() {
         title="Data & Methodology"
         description="How the collection was built, how statistics are calculated, and where evidence is missing."
       />
-      <Card title="Collection status" subtitle="Partial collection of public profiles—not a staff census.">
-        <dl className="collection-facts">
-          <div><dt>Profiles in view</dt><dd>{fmt(rows.length)}</dd></div>
-          <div><dt>Institutions covered</dt><dd>{d.universities.filter((u) => d.academics.some((a) => a.universityId === u.id)).length} / {d.universities.length}</dd></div>
-          <div><dt>Collected</dt><dd>{d.metadata.collectionDate}</dd></div>
-        </dl>
-      </Card>
+      <section className="method-glance" aria-label="Collection at a glance">
+        <div><strong>{fmt(rows.length)}</strong><span>profiles in view</span></div>
+        <div><strong>{d.universities.filter((u) => d.academics.some((a) => a.universityId === u.id)).length} / {d.universities.length}</strong><span>institutions covered</span></div>
+        <div><strong>{pct(rows.filter((a) => a.researchObservations?.length || a.scholarStatus === "verified_official_link" || a.scholarStatus === "matched_user_supplied_platform_evidence" || a.openAlexUrl).length, rows.length)}</strong><span>research identity linked</span></div>
+        <div><strong>{pct(rows.filter((a) => a.citations !== null || a.hIndex !== null).length, rows.length)}</strong><span>with citation data</span></div>
+        <div><strong>{d.metadata.collectionDate}</strong><span>collected</span></div>
+      </section>
+      <p className="method-lede">A partial collection of public profiles, not a staff census. Missing values are unknown, never zero.</p>
       <Card
-        title="Three kinds of completeness"
-        subtitle="Roster coverage, identity verification and metric availability are separate questions. A high value in one says nothing about the others."
+        title="Coverage by institution"
+        subtitle="Three separate questions: how much of the directory was found, whose research identity is confirmed, and who has research numbers. High in one says nothing about the others."
       >
         <div className="table-scroll">
-          <table className="coverage-table">
+          <table className="coverage-table coverage-v2">
             <thead>
               <tr>
                 <th>Institution</th>
-                <th>Collected records</th>
-                <th>Roster coverage</th>
-                <th>Verified identity</th>
-                <th>Verified employment</th>
-                <th>Any research metric</th>
-                <th>Needs review</th>
+                <th>Profiles</th>
+                <th>Directory visited</th>
+                <th>Identity verified</th>
+                <th>Employment verified</th>
+                <th>Has metrics</th>
+                <th>To review</th>
               </tr>
             </thead>
             <tbody>
-              {d.coverage.map((c) => (
-                <tr key={c.university_id}>
-                  <td>{c.university}</td>
-                  <td>{fmt(c.academic_records)}</td>
-                  <td>
-                    {c.units_discovered
-                      ? `${c.units_visited} of ${c.units_discovered} discovered units visited`
-                      : "No unit inventory"}
-                    <small className="caption"> · {c.roster_status}</small>
-                  </td>
-                  <td>
-                    {pct(c.verified_identity, c.academic_records)} (
-                    {c.verified_identity})
-                  </td>
-                  <td>
-                    {pct(c.verified_employment, c.academic_records)} (
-                    {c.verified_employment})
-                  </td>
-                  <td>
-                    {pct(c.with_any_metric, c.academic_records)} (
-                    {c.with_any_metric})
-                  </td>
-                  <td>{c.needs_review}</td>
-                </tr>
-              ))}
+              {[...d.coverage]
+                .sort((x, y) => y.academic_records - x.academic_records)
+                .map((c) => {
+                  const bar = (n: number) => {
+                    const v = c.academic_records ? (100 * n) / c.academic_records : 0;
+                    return (
+                      <span className="cov-cell" title={`${n} of ${c.academic_records}`}>
+                        <b>{Math.round(v)}%</b>
+                        <i><u style={{ width: `${v}%` }} /></i>
+                      </span>
+                    );
+                  };
+                  return (
+                    <tr key={c.university_id}>
+                      <th scope="row" title={c.university}>{short(c.university)}</th>
+                      <td>{fmt(c.academic_records)}</td>
+                      <td title={c.roster_status}>
+                        {c.units_discovered
+                          ? `${c.units_visited} / ${c.units_discovered} units`
+                          : "No inventory"}
+                      </td>
+                      <td>{bar(c.verified_identity)}</td>
+                      <td>{bar(c.verified_employment)}</td>
+                      <td>{bar(c.with_any_metric)}</td>
+                      <td>{c.needs_review || "—"}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
         <p className="caption">
-          Roster coverage describes how much of each institution's published
-          directory structure was found and visited. The total academic
-          population of each institution is not known, so no census percentage
-          is reported.
+          "Directory visited" is how many of an institution's discovered faculties,
+          departments and units were checked. The size of each institution's whole
+          academic staff is unknown, so no census percentage is given.
         </p>
       </Card>
       <Card
-        title="Field completeness by institution"
-        subtitle="Percentage of collected profiles with an available value. A missing cell has no records as denominator."
+        title="What is filled in, by institution"
+        subtitle="Share of each institution's collected profiles that have a value. Institutions with no records are left blank."
       >
         <Chart
-          height={500}
+          height={Math.max(420, groups.length * 40 + 190)}
+          minWidth={760}
           label="Heatmap of field completeness by institution"
           option={{
             tooltip: {
-              renderMode: "richText",
+              confine: true,
               formatter: (p: any) =>
-                `${groups[p.value[1]].name}\n${fields[p.value[0]][1]}: ${Number(p.value[2]).toFixed(1)}%\nCollected records: ${groups[p.value[1]].rows.length}`,
+                `${groups[p.value[1]].name}\n${fields[p.value[0]][1]}: ${Number(p.data.pct).toFixed(1)}%\nCollected profiles: ${groups[p.value[1]].rows.length}`,
             },
-            grid: { left: 150, right: 30, top: 30, bottom: 135 },
+            grid: { left: 10, right: 20, top: 56, bottom: 70, containLabel: true },
             xAxis: {
               type: "category",
+              position: "top",
               data: fields.map((f) => f[1]),
-              axisLabel: { fontSize: 14, rotate: 40 },
+              axisLabel: { fontSize: 12, rotate: 30, interval: 0 },
+              axisTick: { show: false },
             },
             yAxis: {
               type: "category",
-              data: groups.map((u) => u.short),
-              axisLabel: { fontSize: 14 },
+              inverse: true,
+              data: groups.map((u) => `${u.short} (${u.rows.length})`),
+              axisLabel: { fontSize: 13 },
             },
-            visualMap: {
-              min: 0,
-              max: 100,
-              left: "center",
-              bottom: 0,
-              orient: "horizontal",
-              inRange: { color: ["#eef2f5", "#99cccf", "#126b84"] },
-              text: ["100% available", "0% available"],
-              textStyle: { fontSize: 14 },
-            },
+            visualMap: heatVisualMap(100, ["All filled in", "None"]),
             series: [
               {
                 type: "heatmap",
                 data: groups.flatMap((g, y) =>
                   fields.flatMap(([f], x) =>
-                    g.rows.length ? [[x, y, completeness(g.rows, f)]] : [],
+                    g.rows.length
+                      ? [heatDatum(x, y, completeness(g.rows, f) ?? 0, { pct: completeness(g.rows, f) ?? 0 })]
+                      : [],
                   ),
                 ),
                 label: {
                   show: true,
-                  fontSize: 14,
-                  formatter: (p: any) => Math.round(p.value[2]) + "%",
+                  fontSize: 12,
+                  formatter: (p: any) => (p.data.pct < 0.5 ? "–" : Math.round(p.data.pct) + "%"),
                 },
               },
             ],
@@ -206,11 +207,18 @@ export function Methodology() {
               <li>Substitute disciplines are flagged and excluded by default.</li>
             </ul>
           </Section>
+          <Section title="Research standing score">
+            <ul>
+              <li>0–100%: where a person sits among comparable collected profiles. 50% is typical.</li>
+              <li>Peers: same career stage and discipline, same data source. Blend: h-index 40%, citations 2021–2025 35%, publications 25%.</li>
+              <li>Missing measures are skipped, never zero. Thin data gives a labelled indicative score. Click any score for the full calculation.</li>
+            </ul>
+          </Section>
           <Section title="Read results with care">
             <ul>
               <li>Missing values are not zero. Coverage below {WEAK_COVERAGE}% is flagged.</li>
               <li>Public research profiles may over-represent research-active staff.</li>
-              <li>Citations do not measure overall academic or teaching quality. No composite score is calculated.</li>
+              <li>Citations and the standing score do not measure overall academic or teaching quality.</li>
             </ul>
           </Section>
         </div>
@@ -224,6 +232,7 @@ export function Methodology() {
                 <tr><th scope="row">Mean & quartiles</th><td>Mean = sum ÷ valid count. Quantiles interpolate at (n − 1) × p; whiskers show min–max.</td></tr>
                 <tr><th scope="row">Log scale</th><td>Zeros are omitted and counted beside the plot; statistics still include them.</td></tr>
                 <tr><th scope="row">Percentiles</th><td>100 × (values below + ½ ties) ÷ valid peers. Hidden below five peers.</td></tr>
+                <tr><th scope="row">Research standing</th><td>Weighted blend of percentiles (h-index 40%, citations 2021–2025 35%, publications 25%) within the same career stage × broad discipline and the same source. Missing measures are skipped, never zero; thin data gives a labelled indicative score. Click a score on a profile for the calculation.</td></tr>
                 <tr><th scope="row">PhD share</th><td>Completed doctorates ÷ documented qualifications. Overseas share uses doctorates with a known country.</td></tr>
                 <tr><th scope="row">University weighting</th><td>Equal weight = mean of available university statistics; missing universities are excluded and counted.</td></tr>
                 <tr><th scope="row">h-index</th><td>Never summed across academics.</td></tr>

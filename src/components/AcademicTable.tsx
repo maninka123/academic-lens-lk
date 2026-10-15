@@ -22,28 +22,42 @@ import {
 import type { Academic } from "../types";
 import { useAtlas } from "../store";
 import { Button } from "./ui/button";
-import { fmt, short, exportCsv, NumericValue } from "./common";
+import { fmt, short, exportCsv, NumericValue, CountryName } from "./common";
 export function AcademicTable({
   rows,
   columnFilters = false,
+  sortMetric,
+  selectedIds,
+  onToggleSelect,
+  maxSelect = 3,
 }: {
   rows: Academic[];
   columnFilters?: boolean;
+  /** People ticked for the side-by-side view (shows a tick column when set). */
+  selectedIds?: string[];
+  onToggleSelect?: (id: string) => void;
+  maxSelect?: number;
+  /** Numeric column to show and sort high to low, with missing values last. */
+  sortMetric?: string;
 }) {
   const { pin, unpin, pinned } = useAtlas();
-  const [sorting, setSorting] = useState<SortingState>([
-    { id: "rank", desc: false },
-    { id: "name", desc: false },
-  ]);
+  const [sorting, setSorting] = useState<SortingState>(
+    sortMetric
+      ? [{ id: sortMetric, desc: true }, { id: "name", desc: false }]
+      : [
+          { id: "rank", desc: false },
+          { id: "name", desc: false },
+        ],
+  );
   const [filters, setFilters] = useState<ColumnFiltersState>([]);
   const [visibility, setVisibility] = useState<VisibilityState>({
     faculty: false,
     department: false,
     qualification: false,
     phdCountry: false,
-    recentCitations: false,
-    q1: false,
-    recentQ1: false,
+    recentCitations: sortMetric === "recentCitations",
+    q1: sortMetric === "q1",
+    recentQ1: sortMetric === "recentQ1",
   });
   const cols = useMemo<ColumnDef<Academic>[]>(
     () => [
@@ -73,6 +87,30 @@ export function AcademicTable({
           </Button>
         ),
       },
+      ...(onToggleSelect && selectedIds
+        ? [
+            {
+              id: "select",
+              header: "Side by side",
+              enableSorting: false,
+              enableColumnFilter: false,
+              cell: ({ row }: any) => {
+                const on = selectedIds.includes(row.original.id);
+                return (
+                  <input
+                    type="checkbox"
+                    className="sbs-check"
+                    checked={on}
+                    disabled={!on && selectedIds.length >= maxSelect}
+                    aria-label={`View ${row.original.name} side by side`}
+                    title={!on && selectedIds.length >= maxSelect ? `Up to ${maxSelect} people` : "View side by side"}
+                    onChange={() => onToggleSelect(row.original.id)}
+                  />
+                );
+              },
+            } as ColumnDef<Academic>,
+          ]
+        : []),
       {
         accessorKey: "name",
         header: "Academic",
@@ -114,7 +152,11 @@ export function AcademicTable({
         },
       },
       { accessorKey: "qualification", header: "Qualification" },
-      { accessorKey: "phdCountry", header: "PhD country" },
+      {
+        accessorKey: "phdCountry",
+        header: "PhD country",
+        cell: ({ getValue }) => getValue() ? <CountryName country={String(getValue())} /> : "—",
+      },
       ...(
         [
           "publications",
@@ -125,12 +167,14 @@ export function AcademicTable({
           "recentQ1",
         ] as const
       ).map((key) => ({
-        accessorKey: key,
+        id: key,
+        accessorFn: (r: Academic) => r[key] ?? undefined,
+        sortUndefined: "last" as const,
         filterFn: ((row: any, id: string, range: [string, string]) => {
           const value = row.getValue(id);
           const [min, max] = range;
           return (
-            value !== null &&
+            value != null &&
             (min === "" || value >= Number(min)) &&
             (max === "" || value <= Number(max))
           );
@@ -152,7 +196,7 @@ export function AcademicTable({
         ),
       })),
     ],
-    [pinned, pin, unpin, rows],
+    [pinned, pin, unpin, rows, selectedIds, onToggleSelect, maxSelect],
   );
   const table = useReactTable({
     data: rows,

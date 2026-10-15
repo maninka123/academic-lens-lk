@@ -32,7 +32,7 @@ import { Chart } from "../components/Chart";
 import { Filters, Multi } from "../components/Filters";
 import { Pinned } from "../components/Pinned";
 import { AcademicTable } from "../components/AcademicTable";
-import { Header, fmt, exportCsv, Empty, colors } from "../components/common";
+import { Header, fmt, exportCsv, Empty, colors, personColors, short } from "../components/common";
 import { Button } from "../components/ui/button";
 import { Dialog } from "../components/ui/dialog";
 import {
@@ -45,6 +45,7 @@ import {
 } from "../data/international";
 import {
   withProvider,
+  providerOf,
   providerCounts,
   quality,
   logSplit,
@@ -190,10 +191,22 @@ export function Compare() {
   const logExcluded = ["count", "phd", "overseas"].includes(c.metric)
     ? 0
     : logSplit(selectedRows.map((a) => a[c.metric as NumericMetric])).excluded;
+  // People whose value comes from another provider are still shown, marked with
+  // that provider, but are never ranked against the selected provider's peers.
+  const otherProvider = new Map<string, string>();
   const referenceRows = single
-    ? withProvider(selected, provider, openAlex || undefined).rows
+    ? withProvider(selected, provider, openAlex || undefined).rows.map((r, i) => {
+        const raw = selected[i];
+        const m = c.metric as NumericMetric;
+        if (!["count", "phd", "overseas"].includes(c.metric) && r[m] === null && raw?.[m] != null) {
+          const p = providerOf(raw, m);
+          otherProvider.set(r.id, p === "Not recorded" ? "other provider" : p);
+          return raw;
+        }
+        return r;
+      })
     : selected;
-  const chartOption = comparisonChart(rows, c, referenceRows, custom);
+  const chartOption = comparisonChart(rows, c, referenceRows, custom, otherProvider);
   const inspected = groups.find((g) => g.id === inspectedGroup);
   const missingReferenceValues = referenceRows.filter((a) =>
     !["count", "phd", "overseas"].includes(c.metric) && a[c.metric as NumericMetric] === null,
@@ -694,16 +707,7 @@ export function Compare() {
             </p>
           </div>
           {providerMetric &&
-            (single ? (
-              <div className="inline-note">
-                Single provider:{" "}
-                <strong>{benchOn ? "OpenAlex" : provider}</strong>.{" "}
-                {excludedMetricValues} {metricLabels[c.metric]} {excludedMetricValues === 1 ? "value" : "values"} from other providers are treated as
-                missing, not zero.
-                {(benchOn || provider === "OpenAlex") &&
-                  " Sri Lankan OpenAlex values come only from successfully matched researchers; attempted lookups are not matches."}
-              </div>
-            ) : (
+            (single ? null : (
               <div className="notice" role="note">
                 Exploratory mode: values from different providers are combined.
                 Google Scholar, ResearchGate and OpenAlex report different
@@ -711,12 +715,6 @@ export function Compare() {
                 than the academics. Do not use for conclusions.
               </div>
             ))}
-          {numeric && (
-            <MeasurementNote
-              q={quality(selectedRows, c.metric as NumericMetric, minN)}
-              metricLabel={metricLabels[c.metric]}
-            />
-          )}
           {c.chart === "bubble" && (
             <div className="inline-note">
               Bubbles require recorded horizontal, vertical, and h-index values.
@@ -732,12 +730,6 @@ export function Compare() {
               Equal university weighting also applies to these cells.
             </div>
           )}
-          {omitted > 0 && ["faculty", "department"].includes(c.level) && (
-            <div className="inline-note">
-              {omitted} filtered profiles have no recorded {c.level} and remain
-              at their parent level. They are excluded from this level’s groups.
-            </div>
-          )}
           {c.log && numeric && (
             <div className="inline-note">
               Logarithmic axes show positive values only.{" "}
@@ -746,24 +738,11 @@ export function Compare() {
                 : "No zero values are excluded."}
             </div>
           )}
-          {composition && (
-            <div className="inline-note">
-              Composition charts show record counts or percentages by
-              rank/qualification, including Unknown, rather than the selected
-              research metric.
-            </div>
-          )}
           {["box", "histogram", "scatter", "bubble"].includes(c.chart) && (
             <div className="inline-note">
               Individual distributions use pooled valid values. University
               weighting applies to aggregate statistics in the table.
             </div>
-          )}
-          {has && c.chart === "bar" && groups.length > 8 && (
-            <p className="muted">
-              Eight groups per view · drag the scrollbar to see all{" "}
-              {groups.length} groups. Click a bar to inspect its data.
-            </p>
           )}
           {numeric && referenceRows.length > 0 && (
             <div className="pinned-reference-key" aria-label="Pinned plot references">
@@ -774,24 +753,71 @@ export function Compare() {
               </p>
               <div className="reference-chips">
                 {referenceRows.map((a, i) => (
-                  <span key={a.id} className="reference-chip" style={{ borderColor: colors[i % colors.length] }}>
-                    <b style={{ color: colors[i % colors.length] }}>{i + 1}</b>
+                  <span key={a.id} className="reference-chip" style={{ borderColor: personColors[i % personColors.length] }}>
+                    <b style={{ color: personColors[i % personColors.length] }}>{i + 1}</b>
                     <span>{a.name}</span>
                     <strong>{fmt(a[c.metric as NumericMetric], 1)}</strong>
+                    {otherProvider.has(a.id) && <em className="reference-source">{otherProvider.get(a.id)}</em>}
                   </span>
                 ))}
               </div>
-              {missingReferenceValues.length > 0 && <p className="caption">{missingReferenceValues.length} pinned {missingReferenceValues.length === 1 ? "person has" : "people have"} no recorded {single ? provider : "selected"} value and {missingReferenceValues.length === 1 ? "is" : "are"} not plotted.</p>}
+              {missingReferenceValues.length > 0 && <p className="caption">No recorded value, not plotted: {missingReferenceValues.map((a) => a.name).join(", ")}.</p>}
             </div>
           )}
+          {has && !composition && (() => {
+            const ranked = groups.filter((g) => g.value !== null && !g.lowN);
+            if (ranked.length < 2) return null;
+            const top = ranked.reduce((m, g) => (g.value! > m.value! ? g : m));
+            const bottom = ranked.reduce((m, g) => (g.value! < m.value! ? g : m));
+            const pctMetric = ["phd", "overseas"].includes(c.metric);
+            const agg = c.aggregation === "total" ? "Total" : c.aggregation === "mean" ? "Mean" : "Median";
+            const sub = (g: typeof top) =>
+              c.metric === "count"
+                ? `${fmt(g.value, 0)} profiles`
+                : `${pctMetric ? "" : agg + " "}${fmt(g.value, pctMetric ? 1 : 0)}${pctMetric ? "%" : ""} · ${fmt(g.n)} profiles`;
+            const ratio = top.value! > 0 && bottom.value! > 0;
+            const excluded = groups.length - ranked.length;
+            return (
+              <div className="compare-highlights" aria-label="Headline results">
+                <div className="highlight top"><small>Highest</small><strong>{short(top.label)}</strong><span>{sub(top)}</span></div>
+                <div className="highlight low"><small>Lowest</small><strong>{short(bottom.label)}</strong><span>{sub(bottom)}</span></div>
+                <div className="highlight">
+                  <small>Gap</small>
+                  <strong>{ratio ? `${fmt(top.value! / bottom.value!, 1)}×` : fmt(top.value! - bottom.value!, 1)}</strong>
+                  <span>
+                    {ranked.length} groups
+                    {excluded > 0 ? ` · ${excluded} too small to rank` : ""}
+                  </span>
+                </div>
+              </div>
+            );
+          })()}
+          <details className="data-notes">
+            <summary>About these figures</summary>
+            <div>
+              {providerMetric && single && (
+                <p>Single provider: <strong>{benchOn ? "OpenAlex" : provider}</strong>. {excludedMetricValues} values from other providers are treated as missing, not zero.</p>
+              )}
+              {numeric && (
+                <p>{metricLabels[c.metric]}: {fmt(quality(selectedRows, c.metric as NumericMetric, minN).valid)} valid of {fmt(selectedRows.length)} eligible records.</p>
+              )}
+              {omitted > 0 && ["faculty", "department"].includes(c.level) && (
+                <p>{omitted} filtered profiles have no recorded {c.level} and remain at their parent level.</p>
+              )}
+              {composition && <p>Composition charts show record counts or percentages by position or qualification, including Unknown, rather than the selected research metric.</p>}
+              <p>Groups with fewer than {minN} valid values are shown for reference and are not ranked.</p>
+            </div>
+          </details>
           {has ? (
             <Chart
               option={chartOption}
               height={
                 c.chart === "heatmap"
                   ? Math.max(480, Math.min(900, groups.length * 48 + 150))
-                  : c.chart === "bar"
-                    ? Math.max(320, Math.min(8, groups.length) * 64 + 100)
+                  : composition
+                    ? 580
+                    : c.chart === "bar"
+                    ? Math.max(300, Math.min(14, groups.filter((g) => g.value !== null).length) * 46 + 110)
                     : 500
               }
               minWidth={
@@ -918,12 +944,12 @@ export function Compare() {
             </table>
           </div>
         </section>
-        {right && !mobile && <Pinned comparisonRows={selectedRows} referenceAcademics={referenceRows} providerLabel={single ? provider : undefined} />}
+        {right && !mobile && <Pinned comparisonRows={selectedRows} referenceAcademics={referenceRows} otherProvider={otherProvider} providerLabel={single ? provider : undefined} />}
       </div>
       {mobile && (
         <>
           <Dialog open={right} onOpenChange={setRight} title="Pinned academics">
-            <Pinned showHeading={false} comparisonRows={selectedRows} referenceAcademics={referenceRows} providerLabel={single ? provider : undefined} />
+            <Pinned showHeading={false} comparisonRows={selectedRows} referenceAcademics={referenceRows} otherProvider={otherProvider} providerLabel={single ? provider : undefined} />
           </Dialog>
         </>
       )}
@@ -945,7 +971,7 @@ export function Compare() {
               setInspectedGroup(null);
             }}>Explore this group</Button>}
           </div>
-          <AcademicTable rows={inspected.rows} />
+          <AcademicTable key={inspected.id + c.metric} rows={inspected.rows} sortMetric={numeric ? c.metric : undefined} />
         </>}
       </Dialog>
       <section className="card supporting">

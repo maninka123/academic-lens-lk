@@ -90,11 +90,10 @@ describe("academic selection", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: /Academic 0/ }));
     expect(useAtlas.getState().pinned).toEqual(["a0"]);
+    expect(screen.getByLabelText("Add Academic")).toHaveValue("");
+    expect(screen.queryByRole("button", { name: /^Academic 0/ })).not.toBeInTheDocument();
     expect(screen.getByText("Included in peer group")).toBeInTheDocument();
-    fireEvent.change(screen.getByLabelText("Peer group"), {
-      target: { value: "rank" },
-    });
-    expect(screen.getByText("8")).toBeInTheDocument();
+    expect(screen.queryByLabelText("Peer group")).not.toBeInTheDocument();
     useAtlas.getState().configure({ chart: "scatter" });
     expect(useAtlas.getState().pinned).toEqual(["a0"]);
     fireEvent.click(screen.getByLabelText("Remove Academic 0"));

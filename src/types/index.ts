@@ -194,9 +194,9 @@ export type Level =
 export const levelLabels: Record<Level, string> = {
   type: "Public vs Non-state",
   university: "Universities",
-  faculty: "Actual faculties",
-  department: "Departments",
-  field: "Standardised fields",
+  faculty: "Faculties (each university’s own)",
+  department: "Departments (each university’s own)",
+  field: "Broad disciplines (matched across universities)",
   rank: "Academic positions",
   careerStage: "Career stage (approximate, cross-system)",
   qualification: "Qualifications",

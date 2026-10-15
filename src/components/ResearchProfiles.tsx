@@ -48,58 +48,68 @@ export function researchProfileLinks(academic: Academic) {
   ];
 }
 
+const statusNote = (status?: string) =>
+  status === "openalex_source"
+    ? "Saved author lookup"
+    : status === "verified_official_link"
+      ? "Official link"
+      : status === "matched_user_supplied_platform_evidence"
+        ? "Identity matched"
+        : status?.includes("requires_review")
+          ? "Identity needs review"
+          : "Unverified link";
+const statusTone = (status?: string) =>
+  status === "verified_official_link" ||
+  status === "matched_user_supplied_platform_evidence"
+    ? "verified"
+    : status?.includes("requires_review")
+      ? "review"
+      : "recorded";
+
 export function ResearchProfiles({ academic }: { academic: Academic }) {
   return (
-    <Card title="Sources">
-      <div className="research-profile-links">
+    <Card title="Sources" className="sources-card">
+      <div className="research-profile-links source-tiles">
         {academic.sourceUrl && (
-          <a
-            className="text-link"
-            href={academic.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Official academic source <ExternalLink size={18} />
-          </a>
+          <div className="source-tile verified">
+            <a
+              className="text-link"
+              href={academic.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Official academic source <ExternalLink size={16} />
+            </a>
+            <p className="caption">Staff page</p>
+          </div>
         )}
         {researchProfileLinks(academic).map(({ label, url, status }) => (
-          <div key={label}>
-            <div>
-              {url ? (
-                <a
-                  className="text-link"
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {label}
-                  <ExternalLink size={18} />
-                </a>
-              ) : (
-                <span>
-                  {label}{" "}
-                  <span className="muted">
-                    ·{" "}
-                    {status === "rejected_different_person"
-                      ? "Rejected identity match"
-                      : "Not recorded"}
-                  </span>
+          <div
+            key={label}
+            className={"source-tile " + (url ? statusTone(status) : "missing")}
+          >
+            {url ? (
+              <a
+                className="text-link"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {label}
+                <ExternalLink size={16} />
+              </a>
+            ) : (
+              <span>
+                {label}{" "}
+                <span className="muted">
+                  ·{" "}
+                  {status === "rejected_different_person"
+                    ? "Rejected identity match"
+                    : "Not recorded"}
                 </span>
-              )}
-              {url && (
-                <p className="caption">
-                  {status === "openalex_source"
-                    ? "Author record behind the saved OpenAlex lookup; provider-specific metrics retain their source."
-                    : status === "verified_official_link"
-                    ? "Linked from an official profile"
-                    : status === "matched_user_supplied_platform_evidence"
-                      ? "Matched using supplied platform evidence"
-                      : status?.includes("requires_review")
-                        ? "Identity needs review — check the recorded evidence"
-                        : "Recorded link — identity not independently verified"}
-                </p>
-              )}
-            </div>
+              </span>
+            )}
+            {url && <p className="caption">{statusNote(status)}</p>}
           </div>
         ))}
       </div>

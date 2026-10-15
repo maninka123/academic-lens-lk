@@ -125,6 +125,7 @@ export async function loadDataset(): Promise<Dataset> {
       throw Error("Invalid field mapping");
     for (const a of academics)
       a.field =
+        mapping.academics?.[a.id] ||
         mapping.departments[a.departmentId] ||
         mapping.faculties[a.facultyId] ||
         "Unmapped";
