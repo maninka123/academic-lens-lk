@@ -58,7 +58,6 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 | Production build | `npm run build` |
 | End-to-end tests | `npm run test:e2e` |
 
-GitHub Pages releases automatically after a push to `main` passes all checks. To republish manually: **Actions → Build, check and deploy GitHub Pages → Run workflow**.
 
 ## How the data works
 
