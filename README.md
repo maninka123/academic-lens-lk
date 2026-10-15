@@ -15,6 +15,22 @@
 **1,601 Sri Lankan profiles · 15 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-16. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
+## Screenshots
+
+![Overview](docs/screenshots/overview.png)
+
+| Universities | Academic profile and research standing |
+|---|---|
+| ![Universities](docs/screenshots/universities.png) | ![Academic profile](docs/screenshots/profile.png) |
+
+| Compare | PhD origins |
+|---|---|
+| ![Comparison Studio](docs/screenshots/compare.png) | ![PhD origins](docs/screenshots/origins.png) |
+
+| Global benchmarks | Mobile |
+|---|---|
+| ![Global benchmarks](docs/screenshots/global.png) | <img src="docs/screenshots/mobile.png" alt="Mobile view" width="220" /> |
+
 ## What you can do
 
 | | |
