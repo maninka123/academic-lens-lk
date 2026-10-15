@@ -399,7 +399,7 @@ export async function buildPersonReport(
 
   // ---------- method & limits ----------
   heading("About this report");
-  para("Figures describe the collected profiles in the Sri Lanka Academic Atlas, not all academics, and not a measure of teaching, service or overall academic quality. Citation counts differ by source and field. Missing values are unknown, never zero, and are skipped. Percentiles need at least " + MIN_SAMPLE + " peers with a value from the same source unless the score is marked indicative.", M, CW, 9, MUTED);
+  para("Figures describe the collected profiles in Lanka Academia, not all academics, and not a measure of teaching, service or overall academic quality. Citation counts differ by source and field. Missing values are unknown, never zero, and are skipped. Percentiles need at least " + MIN_SAMPLE + " peers with a value from the same source unless the score is marked indicative.", M, CW, 9, MUTED);
   y += 2;
   para("Method: docs/STANDING_SCORE.md  |  Data dictionary and policy: Data files/README.md  |  Source: https://maninka123.github.io/academic-lens-lk/", M, CW, 8.5, MUTED);
 
@@ -410,7 +410,7 @@ export async function buildPersonReport(
     doc.setDrawColor(LINE);
     doc.setLineWidth(0.3);
     doc.line(M, H - 12, W - M, H - 12);
-    text(`Sri Lanka Academic Atlas  |  ${person.name}`, M, H - 7, 7.5, "normal", MUTED);
+    text(`Lanka Academia  |  ${person.name}`, M, H - 7, 7.5, "normal", MUTED);
     text(`Page ${p} of ${pages}`, W - M, H - 7, 7.5, "normal", MUTED, { align: "right" });
   }
   return doc;

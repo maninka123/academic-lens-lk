@@ -68,7 +68,7 @@ export function statisticsCsv(ctx: ExportContext, rows: ExportRow[]) {
 export function exportStatistics(
   ctx: ExportContext,
   rows: ExportRow[],
-  name = "academic-atlas-statistics.csv",
+  name = "lanka-academia-statistics.csv",
 ) {
   download(name, "﻿" + statisticsCsv(ctx, rows));
 }

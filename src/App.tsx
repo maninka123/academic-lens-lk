@@ -174,7 +174,7 @@ function Shell() {
             <BookOpen size={23} />
           </span>
           <span>
-            Academic Atlas<small>SRI LANKA</small>
+            Lanka Academia<small>UNIVERSITY ACADEMICS</small>
           </span>
         </Link>
         <div className="nav-caption">EXPLORE THE LANDSCAPE</div>
@@ -245,7 +245,7 @@ function Shell() {
               <Menu size={22} />
             </Button>
             <span className="breadcrumb">
-              Academic Atlas <span>/</span>{" "}
+              Lanka Academia <span>/</span>{" "}
               {routes.find(
                 ([p]) => p !== "/" && location.pathname.startsWith(p),
               )?.[1] ||
@@ -343,7 +343,7 @@ function Shell() {
             >
               Notice & corrections
             </a>{" "}
-            <span>Sri Lanka Academic Atlas · 2026</span>
+            <span>Lanka Academia · 2026</span>
           </footer>
         </main>
       </div>

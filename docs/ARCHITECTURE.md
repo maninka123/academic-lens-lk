@@ -1,6 +1,6 @@
 # Architecture and future country datasets
 
-The atlas stays a static React + TypeScript + Vite + ECharts site that reads CSV/JSON files. There is no backend and no database; the extension points below are deliberately lightweight.
+Lanka Academia stays a static React + TypeScript + Vite + ECharts site that reads CSV/JSON files. There is no backend and no database; the extension points below are deliberately lightweight.
 
 ## Data flow
 
