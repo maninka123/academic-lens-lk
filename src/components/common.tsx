@@ -162,7 +162,7 @@ export function CountryName({ country }: { country?: string | null }) {
   const url = flagUrl(country);
   return (
     <span className="country-name">
-      {url && <img className="flag-icon" src={url} alt="" loading="lazy" />}
+      {url && <img className="flag-icon" src={url} alt="" />}
       {country}
     </span>
   );
