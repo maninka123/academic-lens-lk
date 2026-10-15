@@ -1,4 +1,5 @@
 import type { Academic } from "../types";
+import overrides from "../data/portrait-overrides.json";
 
 /** Initials of the published name, without titles. */
 export function initials(name: string) {
@@ -13,9 +14,10 @@ export function initials(name: string) {
 }
 
 export function AcademicPortrait({ academic }: { academic: Academic }) {
-  const longHair = /\b(?:Mrs|Ms|Miss)\b/i.test(
-    academic.sourceName || academic.name,
-  );
+  // Explicit override first; otherwise only a published Mrs/Ms/Miss marker.
+  const longHair =
+    (overrides as Record<string, string>)[academic.id] === "long" ||
+    /\b(?:Mrs|Ms|Miss)\b/i.test(academic.sourceName || academic.name);
   const coat =
     academic.doctorateStatus === "completed_documented" ? "#bd3a43" : "#54788b";
   return (

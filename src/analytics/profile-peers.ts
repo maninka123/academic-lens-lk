@@ -1,6 +1,7 @@
 import type { Academic, NumericMetric, Provider } from "../types";
 import { peers, percentile, summary, values } from "./engine";
 import {
+  equivalentPosition,
   MIN_SAMPLE,
   providerCounts,
   providerOf,
@@ -8,11 +9,11 @@ import {
 } from "./quality";
 
 export const peerContexts = [
-  ["department", "Department"],
-  ["faculty", "Faculty / school"],
-  ["university", "University"],
-  ["field", "Same field across institutions"],
-  ["rank", "Same position across institutions"],
+  ["department", "Same department"],
+  ["faculty", "Same faculty"],
+  ["university", "Same university"],
+  ["field", "Same field · all universities"],
+  ["rank", "Same position · all universities"],
   ["qualification", "Same qualification"],
   ["sector", "Same institution type"],
   ["all", "All collected profiles"],
@@ -24,12 +25,14 @@ const known = (s: string) =>
     s.trim().replace(/[_-]+/g, " "),
   );
 export const positionLabel = (a: Academic) =>
-  ["Other", "Unknown"].includes(a.rank) ? a.position : a.rank;
+  ["Other", "Unknown"].includes(a.rank)
+    ? a.position
+    : equivalentPosition(a.rank);
 export const samePosition = (a: Academic, r: Academic) =>
   known(positionLabel(a)) &&
   (["Other", "Unknown"].includes(a.rank)
     ? r.position === a.position
-    : r.rank === a.rank);
+    : equivalentPosition(r.rank) === equivalentPosition(a.rank));
 export function cohortDescription(a: Academic, cohort: PeerCohort) {
   const role = positionLabel(a) || "unrecorded position";
   return {
@@ -59,6 +62,32 @@ export function contextDescription(a: Academic, key: string) {
       all: "All collected Sri Lankan institutions, within the selected cohort",
     }[key] || ""
   );
+}
+/** Compact label of who is in a peer context, for hover chips ("A · B · C"). */
+export function contextShort(a: Academic, key: string) {
+  const role = positionLabel(a);
+  return (
+    {
+      department: a.department,
+      faculty: a.faculty,
+      university: a.university,
+      field: known(a.field) ? a.field : "No discipline mapped",
+      rank: known(role) ? role : "No usable position",
+      qualification: known(a.qualification) ? a.qualification : "No qualification",
+      sector: a.type,
+      all: "Everyone collected",
+    }[key] || ""
+  );
+}
+export function cohortShort(a: Academic, cohort: PeerCohort) {
+  const role = positionLabel(a) || "Unrecorded position";
+  return {
+    position: `${role} only`,
+    qualification: `${a.qualification} holders only`,
+    both: `${role}, ${a.qualification} only`,
+    phd: "PhD holders only",
+    all: "All positions",
+  }[cohort];
 }
 export function buildPeerGroups(
   rows: Academic[],
@@ -118,7 +147,7 @@ export function buildPeerGroups(
       return {
         key,
         label: key === "all" && cohort !== "all" ? "All selected peers" : label,
-        description: `${contextDescription(a, key)}. ${cohortDescription(a, cohort)}. ${provider} values only. Groups include this person when eligible.`,
+        description: [contextShort(a, key), cohortShort(a, cohort), provider].filter(Boolean).join(" · "),
         members,
         measured,
         v,

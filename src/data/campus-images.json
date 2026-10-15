@@ -14,7 +14,7 @@
   "jayewardenepura": {
     "image": "images/campuses/jayewardenepura.jpg",
     "source": "https://economynext.com/sri-lanka-to-sign-mous-with-foreign-universities-to-improve-local-unis-global-ranking-82774/",
-    "credit": "EconomyNext \u00b7 Sri Jayewardenepura",
+    "credit": "EconomyNext · Sri Jayewardenepura",
     "original": "https://economynext.com/wp-content/uploads/2020/03/New-Entrance-Opening-35-Japura-resized.jpg"
   },
   "kelaniya": {
@@ -44,7 +44,7 @@
   "kdu": {
     "image": "images/campuses/kdu.jpg",
     "source": "https://www.cesl.lk/projects.php?id=7&page=projects&project=Completed",
-    "credit": "CESL \u00b7 KDU Graduate Studies building",
+    "credit": "CESL · KDU Graduate Studies building",
     "original": "https://cesl.lk/images/projects/completed/Faculty%20of%20Graduate%20Studies%20Building%20at%20General%20Sir%20John%20Kotelawala%20Defence%20University_63_cesl.jpg"
   },
   "sliit": {
@@ -74,13 +74,19 @@
   "kiu": {
     "image": "images/campuses/kiu.jpg",
     "source": "https://www.ft.lk/youthcareershigher-education/KIU-Higher-education-opportunities-beyond-traditional-boundaries/30-642295",
-    "credit": "Daily FT \u00b7 KIU",
+    "credit": "Daily FT · KIU",
     "original": "https://bmkltsly13vb.compat.objectstorage.ap-mumbai-1.oraclecloud.com/cdn.ft.lk/assets/uploads/image_8f02770ed6.jpg"
   },
   "icbt": {
     "image": "images/campuses/icbt.jpg",
     "source": "https://www.nagroup.lk/projects/icbt-colombo-campus/",
-    "credit": "NA Group \u00b7 ICBT Colombo",
+    "credit": "NA Group · ICBT Colombo",
     "original": "https://www.nagroup.lk/wp-content/uploads/2018/05/YDXJ0041-1024x768.jpg"
+  },
+  "uwu": {
+    "image": "images/campuses/uwu.jpg",
+    "source": "https://www.uwu.ac.lk/",
+    "credit": "Uva Wellassa University of Sri Lanka",
+    "original": "https://www.uwu.ac.lk/wp-content/uploads/1.jpg"
   }
 }

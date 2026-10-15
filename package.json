@@ -13,6 +13,8 @@
     "test:e2e": "playwright test",
     "data:map": "node scripts/prepare-map.mjs",
     "data:fixtures": "node scripts/generate-test-fixtures.mjs",
+    "data:scholar-worklist": "node scripts/scholar-yearly.mjs worklist",
+    "data:scholar-apply": "node scripts/scholar-yearly.mjs apply",
     "check:public": "node scripts/check-public-assets.mjs && node scripts/check-public-assets.mjs dist"
   },
   "dependencies": {
@@ -21,7 +23,9 @@
     "@tanstack/react-table": "^8.21.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "country-flag-icons": "^1.6.20",
     "echarts": "^6.0.0",
+    "jspdf": "^4.2.1",
     "lucide-react": "^0.468.0",
     "papaparse": "^5.5.3",
     "react": "^19.2.0",

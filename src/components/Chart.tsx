@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import * as echarts from "echarts/core";
 import {
   BarChart,
+  LineChart,
+  CustomChart,
   ScatterChart,
   BoxplotChart,
   HeatmapChart,
@@ -20,6 +22,7 @@ import {
   GeoComponent,
   TitleComponent,
   MarkLineComponent,
+  MarkAreaComponent,
   MarkPointComponent,
   AriaComponent,
 } from "echarts/components";
@@ -31,6 +34,8 @@ import { Dialog } from "./ui/dialog";
 import { formatPlot } from "../analytics/plot-format";
 echarts.use([
   BarChart,
+  LineChart,
+  CustomChart,
   ScatterChart,
   BoxplotChart,
   HeatmapChart,
@@ -47,6 +52,7 @@ echarts.use([
   GeoComponent,
   TitleComponent,
   MarkLineComponent,
+  MarkAreaComponent,
   MarkPointComponent,
   AriaComponent,
   CanvasRenderer,

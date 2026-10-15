@@ -32,11 +32,21 @@ describe("hierarchy and chart edge cases", () => {
     const rows = Array.from({ length: 12 }, (_, i) => make(String(i), 10));
     const pins = [make("outlier", 40), make("same", 40), make("missing", null), make("zero", 0)];
     const option = comparisonChart(rows, { ...defaultConfig, metric: "hIndex", chart: "bar" }, pins, []);
-    expect(option.series[0].markLine.data.map((r: any) => r.xAxis)).toEqual([40, 0]);
-    expect(option.series[0].markLine.data[0].referenceNames).toBe("outlier, same");
-    expect(option.xAxis.max({ max: 10 })).toBeGreaterThan(40);
+    // Each pinned person is a separate marker on their group's row, never merged into one line.
+    const pinned = option.series.find((s: any) => s.name === "Pinned people");
+    expect(pinned.data.map((d: any) => d.name)).toEqual(["outlier", "same", "zero"]);
+    expect(pinned.data.map((d: any) => d.trueValue)).toEqual([40, 40, 0]);
+    // The axis fits the bars; an outlier is marked at the edge, not allowed to flatten them.
+    expect(option.xAxis.max).toBeLessThan(40);
+    expect(pinned.data[0].value[0]).toBe(option.xAxis.max);
+    expect(pinned.data[0].off).toBe(true);
+    expect(pinned.data[0].pctText).toMatch(/Ahead of/);
+    expect(pinned.data[2].off).toBe(false);
+    // People on the same row are spread vertically so neither hides the other.
+    expect(new Set(pinned.data.map((d: any) => d.symbolOffset[1])).size).toBe(3);
+    expect(option.series[0].markLine).toBeUndefined();
     const log = comparisonChart(rows, { ...defaultConfig, metric: "hIndex", log: true }, pins, []);
-    expect(log.series[0].markLine.data.map((r: any) => r.xAxis)).toEqual([40]);
+    expect(log.series.find((s: any) => s.name === "Pinned people").data.map((d: any) => d.trueValue)).toEqual([40, 40]);
   });
   it("does not compare individual reference lines to combined totals", () => {
     const option = comparisonChart([make("group", 20)], { ...defaultConfig, aggregation: "total" }, [make("pin", 10)], []);
