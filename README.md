@@ -62,10 +62,11 @@ GitHub Pages releases automatically after a push to `main` passes all checks. To
 
 ## How the data works
 
-- Missing values stay missing; they are never treated as zero.
-- Every comparison shows its source, sample size and coverage. Citation counts are not a measure of overall academic quality.
-- **Prof** is used for documented professorial positions; other completed research doctorates use **Dr**. An asterisk marks a documented completed research doctorate; medical qualifications alone do not qualify.
-- Research standing: [how it is calculated](docs/STANDING_SCORE.md). Missing yearly citations: [how to add them](docs/SCHOLAR_YEARLY.md).
+- **Missing stays missing.** An unknown value is never treated as zero.
+- **Every comparison shows its source, sample size and coverage.** Citation counts are not a measure of academic quality.
+- **Titles:** **Prof** for documented professorial positions, otherwise **Dr** for a completed research doctorate.
+- **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
+- **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) · **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
 
 More: [Methodology & setup](docs/PROJECT_GUIDE.md) · [Data policy](docs/DATA_POLICY.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
 
