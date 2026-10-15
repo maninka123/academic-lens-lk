@@ -13,24 +13,6 @@ Explore academics, compare peer groups, and discover where their PhDs were award
 - Compare universities, faculties and departments; explore global benchmarks.
 - Filter, pin, share and export. Desktop-first, mobile-friendly.
 
-## Screenshots
-
-![Overview](docs/screenshots/overview.png)
-
-| Compare academics | Individual profiles |
-| --- | --- |
-| ![Comparison Studio](docs/screenshots/comparison-studio.png) | ![Academic profile](docs/screenshots/person-profile.png) |
-
-| PhD origins | Global benchmarks |
-| --- | --- |
-| ![PhD origins map](docs/screenshots/phd-origins.png) | ![Global benchmarks](docs/screenshots/global-benchmarks.png) |
-
-<details>
-<summary>Mobile preview</summary>
-
-<img src="docs/screenshots/mobile.png" alt="Academic Atlas on mobile" width="320" />
-
-</details>
 
 ## Run locally
 
