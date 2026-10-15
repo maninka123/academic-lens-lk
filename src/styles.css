@@ -3577,3 +3577,83 @@ a { color: var(--accent); }
 /* Brand lockup fits the sidebar: name on one line, small caption beneath. */
 .brand > span:last-child { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
 .brand small { font-size: 0.625rem; letter-spacing: 0.1em; white-space: nowrap; }
+
+/* ======================================================================
+   One table style everywhere (matches the coverage table):
+   soft header, 14px/16px cells, hairline rows, gentle stripes, no sticky
+   first-column tint, numbers aligned, rounded bordered container.
+   ====================================================================== */
+.table-scroll {
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  background: var(--surface) !important;
+  overflow-x: auto;
+}
+.table-scroll > table,
+table.academic-records-table,
+table.metric-summary-table,
+table.methods-table,
+table.score-table,
+table.bench-table,
+table.coverage-v2 {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  font-size: 1rem;
+  table-layout: auto;
+}
+.table-scroll table thead th {
+  position: static;
+  padding: 14px 16px !important;
+  background: var(--soft) !important;
+  color: var(--muted) !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border) !important;
+}
+.table-scroll table tbody th,
+.table-scroll table tbody td {
+  padding: 14px 16px !important;
+  font-size: 1rem !important;
+  line-height: 1.4;
+  font-weight: 400;
+  vertical-align: middle;
+  text-align: left;
+  border-bottom: 1px solid var(--border) !important;
+  background: transparent !important;
+  font-variant-numeric: tabular-nums;
+  position: static !important;
+}
+.table-scroll table tbody th,
+.table-scroll table tbody td:first-child { font-weight: 650 !important; color: var(--heading); }
+.table-scroll table tbody tr:nth-child(even) > * { background: color-mix(in srgb, var(--soft) 55%, var(--surface)) !important; }
+.table-scroll table tbody tr:hover > * { background: color-mix(in srgb, var(--accent) 7%, var(--surface)) !important; }
+.table-scroll table tbody tr:last-child > * { border-bottom: 0 !important; }
+.table-scroll table small, .table-scroll table .caption { font-size: 0.8125rem; color: var(--muted); font-weight: 400; }
+/* Dialogs hold the same table, only slightly tighter. */
+.dialog-content .table-scroll table thead th,
+.dialog-content .table-scroll table tbody th,
+.dialog-content .table-scroll table tbody td { padding: 10px 12px !important; font-size: 0.9375rem !important; }
+@media (max-width: 760px) {
+  .table-scroll table thead th, .table-scroll table tbody th, .table-scroll table tbody td { padding: 12px !important; }
+}
+
+/* PhD origins: four filters in one row, equal stat cards, compact status strip. */
+.global-controls { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 16px; }
+.global-controls .field { min-width: 0 !important; margin: 0; }
+.stats-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; }
+.stats-grid.four .stat { display: flex; flex-direction: column; justify-content: flex-start; min-height: 150px; }
+.stats-grid.four .stat > span { min-height: 2.4em; display: block; }
+.stats-grid.four .stat small { margin-top: auto; }
+.status-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 6px 0 16px; }
+.status-strip > span { padding: 5px 12px; border-radius: 999px; background: var(--soft); border: 1px solid var(--border); font-size: 0.875rem; color: var(--muted); }
+.status-strip b { color: var(--heading); font-variant-numeric: tabular-nums; margin-right: 2px; }
+.status-strip details { flex-basis: 100%; font-size: 0.875rem; color: var(--muted); }
+.status-strip summary { cursor: pointer; font-weight: 600; width: fit-content; }
+.status-strip details p { margin: 6px 0 0; line-height: 1.5; }
+@media (max-width: 1100px) { .global-controls, .stats-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .global-controls, .stats-grid.four { grid-template-columns: 1fr; } }

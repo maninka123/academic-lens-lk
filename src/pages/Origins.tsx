@@ -174,13 +174,13 @@ export function Origins() {
       max: scale === "share" ? 100 : undefined,
       minInterval: scale === "count" ? 1 : undefined,
       splitNumber: 4,
-      axisLabel: { hideOverlap: true, formatter: (v: number) => scale === "share" ? v.toFixed(1) + "%" : fmt(v, 0) },
+      axisLabel: { hideOverlap: true, formatter: (v: number) => scale === "share" ? Math.round(v) + "%" : fmt(v, 0) },
     },
     yAxis: {
       type: "category",
       inverse: true,
       data: splits.map((s) => s.label),
-      axisLabel: { fontSize: 14, width: 180, overflow: "truncate" },
+      axisLabel: { fontSize: 14, width: 150, overflow: "break", lineHeight: 16 },
     },
     aria: { enabled: true, description: `${label}. ${scale === "share" ? "Percentage" : "Number"} of documented doctorates.` },
     media: [{ query: { maxWidth: 380 }, option: {
@@ -367,14 +367,14 @@ export function Origins() {
       </div>
       <div className="stats-grid four">
         <Stat
-          label="Documented completed doctorates"
+          label="Documented doctorates"
           value={fmt(documented.length)}
-          detail={`${pct(documented.length, selection.length)} of ${fmt(selection.length)} collected profiles${sel ? " · " + sel : ""}`}
+          detail={`${pct(documented.length, selection.length)} of ${fmt(selection.length)} profiles${sel ? " · " + sel : ""}`}
         />
         <Stat
           label="Awarding country known"
           value={pct(known.length, documented.length)}
-          detail={`${known.length} of ${documented.length} documented doctorates · ${known.filter((a) => a.phdCountryInferred).length} inferred from the university name`}
+          detail={`${known.length} of ${documented.length} · ${known.filter((a) => a.phdCountryInferred).length} inferred from university name`}
         />
         <Stat
           label="Awarding institution known"
@@ -382,24 +382,29 @@ export function Origins() {
             documented.filter((a) => a.phdUniversity).length,
             documented.length,
           )}
-          detail={`${documented.filter((a) => a.phdUniversity).length} of ${documented.length} documented doctorates`}
+          detail={`${documented.filter((a) => a.phdUniversity).length} of ${documented.length}`}
         />
         <Stat
-          label="Awarded in Sri Lanka / overseas"
+          label="Sri Lanka / overseas"
           value={`${pct(lk, known.length)} / ${pct(known.length - lk, known.length)}`}
           detail={`${lk} Sri Lankan · ${known.length - lk} overseas · ${groups.length} countries`}
         />
       </div>
-      <div className="inline-note">
-        Doctorate status across {fmt(selection.length)} profiles:{" "}
-        {Object.entries(statusLabel)
-          .map(([k, l]) => `${l} ${statusCounts[k] || 0}`)
-          .join(" · ")}
-        . Only documented completed doctorates are counted; a title, a doctoral
-        institution or ambiguous text is not treated as completion. Countries
-        identify awarding institutions. These are observed associations: they do
-        not show that where a doctorate was awarded causes differences in
-        research performance.
+      <div className="status-strip" aria-label="Doctorate status">
+        {Object.entries(statusLabel).map(([k, l]) => (
+          <span key={k}>
+            <b>{statusCounts[k] || 0}</b> {l}
+          </span>
+        ))}
+        <details>
+          <summary>How this is counted</summary>
+          <p>
+            Only documented completed doctorates are counted; a title, a doctoral
+            institution or ambiguous text is not treated as completion. These are
+            observed associations, not proof that where a doctorate was awarded
+            changes research performance.
+          </p>
+        </details>
       </div>
       <Card
         title="A world of academic pathways"
