@@ -1,0 +1,43 @@
+name: Correction or removal request
+description: Ask for a correction to, or removal of, a profile in the Sri Lanka Academic Atlas.
+title: "[Correction/Removal] "
+labels: ["data-correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. We aim to respond within **7 days**. You do not need to give a reason for a removal.
+        **Do not post private information** (phone numbers, home address, ID numbers) in this public form. If you would rather not make the request public, use **Security > Report a vulnerability** on this repository instead.
+  - type: dropdown
+    id: type
+    attributes:
+      label: What do you need?
+      options:
+        - Correct an error
+        - Remove my profile
+        - Both / something else
+    validations:
+      required: true
+  - type: input
+    id: person
+    attributes:
+      label: Whose profile is this?
+      description: Name as shown on the site, and the university.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link to the profile (optional)
+      description: The page address from your browser.
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What is wrong and what it should say (for a correction). A public source link helps, but is not required for removal.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I am the person concerned, or I am acting on their behalf.

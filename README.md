@@ -14,6 +14,12 @@ Explore academics, compare peer groups, and discover where their PhDs were award
 - Filter, pin, share and export. Desktop-first, mobile-friendly.
 
 
+## Licence, ethics and data notice
+
+Code: [MIT](LICENSE) · Data: [CC BY 4.0](DATA_LICENSE.md) · [Notice: data may be wrong](NOTICE.md) · [Ethics and data statement](ETHICS_AND_DATA.md)
+
+Anyone named here can request a correction or removal: [open a request](https://github.com/maninka123/academic-lens-lk/issues/new/choose).
+
 ## Run locally
 
 Node.js 22.12+; no backend required.

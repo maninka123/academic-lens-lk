@@ -335,7 +335,14 @@ function Shell() {
             </DataContext.Provider>
           )}
           <footer>
-            Built for exploration, with context.{" "}
+            Built for exploration, with context. Data may contain errors.{" "}
+            <a
+              href="https://github.com/maninka123/academic-lens-lk/blob/main/NOTICE.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Notice & corrections
+            </a>{" "}
             <span>Sri Lanka Academic Atlas · 2026</span>
           </footer>
         </main>
