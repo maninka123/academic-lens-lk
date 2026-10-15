@@ -4,7 +4,8 @@ import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import { filterAcademics, groupRows } from "../analytics/engine";
 import { Chart, echarts } from "../components/Chart";
-import { Header, Card, Stat, fmt, short, Empty } from "../components/common";
+import { Header, Card, Stat, fmt, short, Empty, CountryName } from "../components/common";
+import { heatDatum, HEAT_RAMP } from "../analytics/heatmap";
 import { AcademicTable } from "../components/AcademicTable";
 import { MetricSummaryTable } from "../components/Quality";
 import { Button } from "../components/ui/button";
@@ -275,6 +276,7 @@ export function Origins() {
       return n ? [[x, y, n]] : [];
     }),
   );
+  const heatMax = Math.max(1, ...heat.map((h) => h[2] as number));
   const compHeight = (n: number) => Math.max(200, n * 30 + 70);
   const sel = [
     uni && d.universities.find((u) => u.id === uni)?.short,
@@ -405,7 +407,7 @@ export function Origins() {
         action={
           country && (
             <Button variant="outline" onClick={() => setCountry("")}>
-              Clear {country}
+              Clear <CountryName country={country} />
             </Button>
           )
         }
@@ -548,7 +550,7 @@ export function Origins() {
               key={g.id}
               onClick={() => setCountry(country === g.id ? "" : g.id)}
             >
-              {g.id}
+              <CountryName country={g.id} />
               <span>{g.rows.length}</span>
             </Button>
           ))}
@@ -563,7 +565,7 @@ export function Origins() {
                   variant={country === g.id ? "default" : "outline"}
                   onClick={() => setCountry(country === g.id ? "" : g.id)}
                 >
-                  {g.id}
+                  <CountryName country={g.id} />
                   <span>{g.rows.length}</span>
                 </Button>
               ))}
@@ -676,46 +678,51 @@ export function Origins() {
               subtitle="Number of documented doctorates connecting each awarding country (top 12) with current institutions."
             >
               <Chart
-                height={Math.max(300, heatUnis.length * 30 + 110)}
-                minWidth={620}
+                height={Math.max(320, heatUnis.length * 38 + 150)}
+                minWidth={680}
                 label="Heatmap of awarding countries and current institutions"
                 option={{
                   tooltip: {
                     confine: true,
                     formatter: (p: any) =>
-                      `${heatCountries[p.value[0]]} → ${heatUnis[p.value[1]]}: ${p.value[2]}`,
+                      `${heatCountries[p.value[0]]} -> ${heatUnis[p.value[1]]}\nDoctorates: ${p.data.count}`,
                   },
-                  grid: {
-                    left: 10,
-                    right: 20,
-                    top: 10,
-                    bottom: 90,
-                    containLabel: true,
-                  },
+                  grid: { left: 10, right: 20, top: 10, bottom: 100, containLabel: true },
                   xAxis: {
                     type: "category",
                     data: heatCountries,
-                    axisLabel: { rotate: 40, fontSize: 12, interval: 0 },
+                    axisLabel: { rotate: 35, fontSize: 12, interval: 0 },
+                    splitArea: { show: false },
                   },
                   yAxis: {
                     type: "category",
                     data: heatUnis,
-                    axisLabel: { fontSize: 12 },
+                    axisLabel: { fontSize: 13 },
                   },
                   visualMap: {
-                    min: 1,
-                    max: Math.max(2, ...heat.map((h) => h[2] as number)),
-                    show: false,
-                    inRange: { color: ["#dbe8f5", "#104281"] },
+                    min: 0,
+                    max: 100,
+                    show: true,
+                    calculable: false,
+                    orient: "horizontal",
+                    left: "center",
+                    bottom: 4,
+                    itemWidth: 14,
+                    itemHeight: 200,
+                    inRange: { color: HEAT_RAMP },
+                    text: ["Most doctorates", "Fewest"],
+                    textStyle: { fontSize: 12 },
                   },
                   series: [
                     {
                       type: "heatmap",
-                      data: heat,
+                      data: heat.map((h) =>
+                        heatDatum(h[0] as number, h[1] as number, (100 * (h[2] as number)) / heatMax, { count: h[2] }),
+                      ),
                       label: {
                         show: true,
-                        fontSize: 11,
-                        formatter: (p: any) => String(p.value[2]),
+                        fontSize: 12,
+                        formatter: (p: any) => String(p.data.count),
                       },
                     },
                   ],

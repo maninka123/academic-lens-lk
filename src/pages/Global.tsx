@@ -2,7 +2,7 @@ import { NumericValue } from "../components/common";
 import { Select } from "../components/ui/select";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Download } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import {
@@ -19,13 +19,15 @@ import {
 import { summary, median } from "../analytics/engine";
 import {
   careerStageOf,
+  equivalentPosition,
+  SENIOR_LECTURER_GROUP,
   isMatched,
   logSplit,
   MIN_SAMPLE,
   WEAK_COVERAGE,
 } from "../analytics/quality";
 import { exportStatistics, metricDefinitions } from "../analytics/exports";
-import { Header, Card, Stat, Empty, fmt } from "../components/common";
+import { Header, Card, Stat, Empty, fmt, short, CountryName } from "../components/common";
 import { Chart } from "../components/Chart";
 import { Button } from "../components/ui/button";
 import type { Academic } from "../types";
@@ -57,14 +59,14 @@ const STAGES = ["Professor", "Mid-career", "Early-career"] as const;
 const palette = {
   light: {
     elite: "#104281",
-    middle: "#3987e5",
-    lower: "#86b6ef",
+    middle: "#2f80ed",
+    lower: "#8b5cf6",
     sl: "#eb6834",
   },
   dark: {
     elite: "#9ec5f4",
     middle: "#5598e7",
-    lower: "#1c5cab",
+    lower: "#b79cff",
     sl: "#d95926",
   },
 };
@@ -96,7 +98,14 @@ export function Global() {
     [mode, setMode] = useState<"likeForLike" | "exploratory">("likeForLike"),
     [includeProxy, setIncludeProxy] = useState(false),
     [log, setLog] = useState(true),
-    [showAllUniversities, setShowAllUniversities] = useState(false);
+    [showAllUniversities, setShowAllUniversities] = useState(false),
+    [posField, setPosField] = useState<BenchmarkField | "all">("all"),
+    [posGroup, setPosGroup] = useState<"stage" | "rank">("stage"),
+    [posMetric, setPosMetric] = useState<GMetric>("hIndex"),
+    [posLog, setPosLog] = useState(true),
+    [tableQuery, setTableQuery] = useState(""),
+    [tableTier, setTableTier] = useState<"all" | Tier | "sl">("all"),
+    [tableAll, setTableAll] = useState(false);
   useEffect(() => {
     loadBenchmarks().then(setB, (e) => setError(String(e)));
   }, []);
@@ -190,6 +199,67 @@ export function Global() {
     const attempted = sl.filter((a) => b.slOpenAlex.has(a.id)).length;
     return { intl, sl, slMatched, attempted, tierGroups, units, proxies, labs };
   }, [b, d, metric, field, stage, mode, includeProxy, log]);
+
+  // How the posMetric and the position mix vary by position, per group (Sri Lanka + tiers).
+  const posView = useMemo(() => {
+    if (!b) return null;
+    const fieldOk = (f: string) => posField === "all" || f === posField;
+    const intl = b.academics.filter(
+      (a) => fieldOk(a.field) && (includeProxy || a.unitType !== "proxy"),
+    );
+    const sl = d.academics.filter((a) => {
+      const f = matchedField(a);
+      return f !== "" && fieldOk(f);
+    });
+    const slValue = (a: Academic) => {
+      if (mode === "exploratory") return a[posMetric];
+      const o = b.slOpenAlex.get(a.id);
+      return o && isMatched(o.status) ? (o[posMetric] ?? null) : null;
+    };
+    const cats =
+      posGroup === "stage"
+        ? ["Early-career", "Mid-career", "Professor"]
+        : ["Lecturer", "Assistant Professor", SENIOR_LECTURER_GROUP, "Professor"];
+    const catOf = (rank: string) =>
+      posGroup === "stage"
+        ? careerStageOf(rank)
+        : equivalentPosition(rank === "Senior Professor" ? "Professor" : rank);
+    const sets = [
+      { key: "sl" as const, label: "Sri Lanka", rows: sl.map((a) => ({ cat: catOf(a.rank), v: slValue(a) })) },
+      ...(["elite", "middle", "lower"] as Tier[]).map((t) => ({
+        key: t,
+        label: tierShort[t],
+        rows: intl.filter((a) => a.tier === t).map((a) => ({ cat: catOf(a.rank), v: a[posMetric] })),
+      })),
+    ];
+    return {
+      cats,
+      groups: sets.map((g) => {
+        const total = g.rows.filter((r) => cats.includes(r.cat)).length;
+        return {
+          key: g.key,
+          label: g.label,
+          total,
+          cells: cats.map((c) => {
+            const inCat = g.rows.filter((r) => r.cat === c);
+            const vals = inCat
+              .map((r) => r.v)
+              .filter((v): v is number => typeof v === "number" && Number.isFinite(v));
+            const st = summary(vals);
+            return {
+              cat: c,
+              n: vals.length,
+              all: inCat.length,
+              share: total ? (100 * inCat.length) / total : 0,
+              median: vals.length >= minN ? st.median : null,
+              q1: vals.length >= minN ? st.q1 : null,
+              q3: vals.length >= minN ? st.q3 : null,
+            };
+          }),
+        };
+      }),
+    };
+  }, [b, d, posMetric, posField, posGroup, mode, includeProxy, minN]);
 
   if (error)
     return (
@@ -394,41 +464,72 @@ export function Global() {
   const scatterUnits = allLadderUnits.filter((u) => qsNumeric(u.qs) !== null && (!log || u.med > 0));
   const scatter = {
     tooltip: { trigger: "item", confine: true },
-    legend: { show: false },
-    grid: { left: 60, right: 30, top: 25, bottom: 55, containLabel: true },
+    legend: {
+      show: true,
+      top: 0,
+      left: 0,
+      itemGap: 18,
+      textStyle: { fontSize: 13 },
+      data: ["Elite tier", "Middle tier", "Lower tier", "Sri Lanka"],
+    },
+    grid: { left: 10, right: 24, top: 46, bottom: 56, containLabel: true },
     xAxis: {
       type: "log",
-      name: "QS 2027 rank (log scale)",
+      name: "QS 2027 world rank (log scale; better rank is further right)",
       nameLocation: "middle",
-      nameGap: 32,
+      nameGap: 36,
       inverse: true,
       min: 1,
-      max: 2000,
-      axisLabel: { formatter: (v: number) => String(Math.round(v)) },
-      splitLine: { lineStyle: { opacity: 0.35 } },
+      max: 1600,
+      axisLabel: { fontSize: 12, customValues: [1, 10, 30, 100, 300, 1000], formatter: (v: number) => String(Math.round(v)) },
+      splitLine: { lineStyle: { opacity: 0.25 } },
     },
     yAxis: {
       type: log ? "log" : "value",
       min: log ? Math.pow(10, Math.floor(Math.log10(Math.min(...scatterUnits.map(u => u.med), ...(slMedian !== null && slMedian > 0 ? [slMedian] : []))))) : 0,
       name: `Median ${metricNames[metric]}`,
       nameLocation: "middle",
-      nameGap: 50,
-      splitLine: { lineStyle: { opacity: 0.35 } },
+      nameGap: 44,
+      splitLine: { lineStyle: { opacity: 0.3 } },
     },
     series: (["elite", "middle", "lower", "sl"] as const).map((t) => ({
       type: "scatter",
       name: t === "sl" ? "Sri Lanka" : tierShort[t],
-      markLine: t === "sl" && slMedian !== null && (!log || slMedian > 0) ? { silent: true, symbol: "none", lineStyle: { color: col.sl, type: "dashed", width: 2 }, label: { show: false }, data: [{ yAxis: slMedian }] } : undefined,
-      symbolSize: t === "sl" ? 14 : 11,
+      // Faint bands show where each tier's universities sit on the QS scale.
+      markArea:
+        t === "elite"
+          ? {
+              silent: true,
+              label: { show: true, position: "insideTop", fontSize: 11, color: "#6b7390" },
+              data: [
+                [{ xAxis: 1, name: "Elite", itemStyle: { color: col.elite + "14" } }, { xAxis: 150 }],
+                [{ xAxis: 420, name: "Middle", itemStyle: { color: col.middle + "14" } }, { xAxis: 560 }],
+                [{ xAxis: 800, name: "Lower", itemStyle: { color: col.lower + "14" } }, { xAxis: 1250 }],
+              ],
+            }
+          : undefined,
+      markLine:
+        t === "sl" && slMedian !== null && (!log || slMedian > 0)
+          ? {
+              silent: true,
+              symbol: "none",
+              lineStyle: { color: col.sl, type: "dashed", width: 2 },
+              label: { show: true, position: "insideEndTop", formatter: `Sri Lanka median ${fmt(slMedian, 1)}`, color: col.sl, fontSize: 12, fontWeight: 600 },
+              data: [{ yAxis: slMedian }],
+            }
+          : undefined,
+      symbol: t === "sl" ? "diamond" : "circle",
+      symbolSize: t === "sl" ? 15 : 12,
       itemStyle: {
         color: colorOf(t),
-        borderColor: theme === "dark" ? "#1a1a19" : "#fcfcfb",
+        borderColor: theme === "dark" ? "#1a1a19" : "#ffffff",
         borderWidth: 2,
       },
       label: {
         show: t === "sl",
-        formatter: (p: any) => p.data.unit.label,
-        position: "right",
+        formatter: (p: any) => short(p.data.unit.label),
+        position: "top",
+        fontSize: 11,
         color: "inherit",
       },
       data: scatterUnits
@@ -437,7 +538,7 @@ export function Global() {
       tooltip: {
         formatter: (p: any) => {
           const u: Unit = p.data.unit;
-          return `${u.label} (${u.country})<br/>QS 2027 ${u.qs}<br/>Median ${fmt(median(u.values), 1)} · ${describe(u)}`;
+          return `${u.label} (${u.country})\nQS 2027: ${u.qs}\nMedian ${metricNames[metric]}: ${fmt(median(u.values), 1)}\nBased on ${u.values.length} of ${u.eligible} profiles`;
         },
       },
     })),
@@ -492,6 +593,166 @@ export function Global() {
       "global-benchmarks.csv",
     );
 
+  const filteredRows = tableRows.filter(
+    (u) =>
+      (tableTier === "all" || u.key === tableTier) &&
+      (u.label + " " + u.country).toLowerCase().includes(tableQuery.trim().toLowerCase()),
+  );
+  const shownRows = tableAll || tableQuery || tableTier !== "all" ? filteredRows : filteredRows.slice(0, 12);
+  const tierNotes: Record<Tier, string> = {
+    elite: "Top 2 universities per country",
+    middle: "QS rank about 420-560",
+    lower: "QS rank about 800-1200",
+  };
+  const tierRows = [
+    ...(["elite", "middle", "lower"] as Tier[]).map((t) => {
+      const g = view.tierGroups.find((x) => x.key === t)!;
+      return { key: t as Tier | "sl", name: tierShort[t], note: tierNotes[t], median: medianOf(g), n: g.values.length };
+    }),
+    { key: "sl" as Tier | "sl", name: "Sri Lanka", note: "Collected profiles", median: slMedian, n: sl.values.length },
+  ];
+  const tierMax = Math.max(1, ...tierRows.map((r) => r.median ?? 0));
+  const tierRatios =
+    slMedian === null
+      ? []
+      : tierRows
+          .filter((r) => r.key !== "sl" && r.median !== null && r.median > 0)
+          .reverse()
+          .map((r) => ({ name: r.name.toLowerCase(), pct: Math.round((100 * slMedian) / r.median!) }));
+  const stageNote: Record<string, string> = {
+    "Early-career": "Lecturer, Assistant Professor",
+    "Mid-career": "Senior Lecturer, Associate Professor",
+    Professor: "Professor, Senior Professor",
+  };
+  const stageShort: Record<string, string> = {
+    "Early-career": "Lecturer / Asst. Prof.",
+    "Mid-career": "Sr. Lecturer / Assoc. Prof.",
+    Professor: "Professor",
+  };
+  const posColors =
+    posGroup === "stage"
+      ? ["#c7d2fe", "#6f86e8", "#1f2d8f"]
+      : ["#dbe3ff", "#a9b8f2", "#7388e8", "#3b4fd6", "#1f2d8f"];
+  const posCats = posView?.cats ?? [];
+  const posOffsets = posGroup === "rank" ? [-0.3, -0.1, 0.1, 0.3] : [-0.27, -0.09, 0.09, 0.27];
+  const useLog = posLog;
+  const posChart: any = posView && {
+    legend: { show: false },
+    tooltip: {
+      confine: true,
+      formatter: (p: any) => {
+        const v = p.data?.value;
+        if (!v) return "";
+        return `${p.seriesName} · ${posCats[Math.round(v[0] - p.data.off) - 1]}\nMedian ${metricNames[posMetric]}: ${fmt(v[1], 1)}\nMiddle 50%: ${fmt(v[2], 1)} to ${fmt(v[3], 1)}\nValid profiles: ${v[4]}`;
+      },
+    },
+    grid: { left: 10, right: 20, top: 24, bottom: 52, containLabel: true },
+    xAxis: {
+      type: "value",
+      min: 0,
+      max: posCats.length + 1,
+      interval: 1,
+      splitLine: { show: false },
+      axisLabel: {
+        fontSize: 13,
+        formatter: (v: number) => {
+          const c = Number.isInteger(v) ? posCats[v - 1] : undefined;
+          if (!c) return "";
+          if (posGroup !== "rank") return c;
+          return c === SENIOR_LECTURER_GROUP
+            ? "Senior Lecturer /\nAssociate Professor"
+            : c.replace(" ", "\n");
+        },
+      },
+      axisTick: { show: false },
+    },
+    yAxis: {
+      type: useLog ? "log" : "value",
+      name: metricNames[posMetric],
+      nameLocation: "middle",
+      nameGap: 46,
+      min: useLog ? 0.5 : 0,
+      splitLine: { lineStyle: { opacity: 0.35 } },
+    },
+    series: posView.groups.flatMap((g, gi) => {
+      const color = colorOf(g.key);
+      const cells = g.cells
+        .map((c, i) => ({ c, i }))
+        .filter(({ c }) => c.median !== null && c.q1 !== null && c.q3 !== null);
+      const off = posOffsets[gi];
+      const clamp = (v: number) => (useLog ? Math.max(v, 0.5) : v);
+      return [
+        ...(posGroup === "stage"
+          ? [
+              {
+                type: "line",
+                name: g.label,
+                silent: true,
+                symbol: "none",
+                lineStyle: { color, width: 2.5, opacity: 0.8, type: "dashed" },
+                data: cells.map(({ c, i }) => [i + 1 + off, clamp(c.median as number)]),
+                z: 1,
+              },
+            ]
+          : []),
+        {
+          type: "custom",
+          name: g.label,
+          z: 3,
+          data: cells.map(({ c, i }) => ({
+            off,
+            value: [i + 1 + off, clamp(c.median as number), clamp(c.q1 as number), clamp(c.q3 as number), c.n],
+          })),
+          renderItem: (_: unknown, api: any) => {
+            const x = api.coord([api.value(0), api.value(1)])[0];
+            const ym = api.coord([api.value(0), api.value(1)])[1];
+            const y1 = api.coord([api.value(0), api.value(2)])[1];
+            const y3 = api.coord([api.value(0), api.value(3)])[1];
+            return {
+              type: "group",
+              children: [
+                { type: "line", shape: { x1: x, y1, x2: x, y2: y3 }, style: { stroke: color, lineWidth: 6, opacity: 0.85 } },
+                { type: "line", shape: { x1: x - 7, y1, x2: x + 7, y2: y1 }, style: { stroke: color, lineWidth: 3 } },
+                { type: "line", shape: { x1: x - 7, y1: y3, x2: x + 7, y2: y3 }, style: { stroke: color, lineWidth: 3 } },
+                { type: "circle", shape: { cx: x, cy: ym, r: posGroup === "rank" ? 6 : 8 }, style: { fill: color, stroke: "#ffffff", lineWidth: 2 } },
+              ],
+            };
+          },
+        },
+      ];
+    }),
+  };
+  const posMix: any = posView && {
+    tooltip: { trigger: "item", confine: true, valueFormatter: (v: number) => fmt(v, 0) + "%" },
+    legend: { show: false },
+    grid: { left: 10, right: 20, top: 10, bottom: 10, containLabel: true },
+    xAxis: { type: "value", max: 100, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.3 } } },
+    yAxis: { type: "category", inverse: true, data: posView.groups.map((g) => `${g.label}\nn=${g.total}`), axisLabel: { fontSize: 12 } },
+    series: posCats.map((cat, i) => ({
+      type: "bar",
+      name: cat,
+      stack: "mix",
+      barMaxWidth: 34,
+      itemStyle: { color: posColors[i % posColors.length] },
+      label: { show: true, color: i === 0 ? "#18203a" : "#ffffff", formatter: (p: any) => (p.value >= 8 ? Math.round(p.value) + "%" : "") },
+      data: posView.groups.map((g) => g.cells[i].share),
+    })),
+  };
+  const posInsight = (() => {
+    if (!posView) return "";
+    const top = posCats[posCats.length - 1];
+    const cell = (key: string) => posView.groups.find((g) => g.key === key)?.cells.find((c) => c.cat === top);
+    const s0 = cell("sl")?.median ?? null;
+    const e0 = cell("elite")?.median ?? null;
+    const m0 = cell("middle")?.median ?? null;
+    const l0 = cell("lower")?.median ?? null;
+    if (s0 === null) return `Sri Lanka has too few valid ${top.toLowerCase()} profiles for this discipline to compare (needs ${minN}).`;
+    const others = [["elite", e0], ["middle", m0], ["lower", l0]] as const;
+    const parts = others
+      .filter(([, v]) => v !== null && v > 0)
+      .map(([k, v]) => `${Math.round((100 * s0) / (v as number))}% of the ${k} tier (${fmt(v, 1)})`);
+    return `Among ${top === "Professor" ? "professors" : top.toLowerCase()}, Sri Lanka's median ${metricNames[posMetric].toLowerCase()} is ${fmt(s0, 1)}${parts.length ? ", which is " + parts.join(", ") : ""}.`;
+  })();
   const statFor = (g: Group) => {
     const m = medianOf(g);
     return (
@@ -512,6 +773,7 @@ export function Global() {
         description={`${b.universities.length} universities · 7 countries · QS 2027 tiers`}
         action={
           <Button variant="ghost" onClick={exportTable}>
+            <Download size={17} aria-hidden="true" />
             Export statistics CSV
           </Button>
         }
@@ -541,20 +803,7 @@ export function Global() {
       )}
       <div className="global-controls">
         <label className="field">
-          Comparison
-          <Select
-            aria-label="Comparison provider"
-            value={mode}
-            onChange={(e) => setMode(e.target.value as typeof mode)}
-          >
-            <option value="likeForLike">
-              Like-for-like (OpenAlex both sides)
-            </option>
-            <option value="exploratory">Exploratory: mixed providers</option>
-          </Select>
-        </label>
-        <label className="field">
-          Metric
+          Measure
           <Select
             aria-label="Metric"
             value={metric}
@@ -568,7 +817,7 @@ export function Global() {
           </Select>
         </label>
         <label className="field">
-          Equivalent discipline
+          Discipline
           <Select
             aria-label="Equivalent discipline"
             value={field}
@@ -596,22 +845,40 @@ export function Global() {
             </option>
           </Select>
         </label>
-        <label className="check">
-          <input
-            type="checkbox"
-            checked={includeProxy}
-            onChange={(e) => setIncludeProxy(e.target.checked)}
-          />{" "}
-          Include proxy units ({view.proxies.length})
-        </label>
-        <label className="check">
-          <input
-            type="checkbox"
-            checked={log}
-            onChange={(e) => setLog(e.target.checked)}
-          />{" "}
-          Log scale
-        </label>
+        <details className="global-options">
+          <summary>More options</summary>
+          <div>
+            <label className="field">
+              Comparison
+              <Select
+                aria-label="Comparison provider"
+                value={mode}
+                onChange={(e) => setMode(e.target.value as typeof mode)}
+              >
+                <option value="likeForLike">
+                  Like-for-like (OpenAlex both sides)
+                </option>
+                <option value="exploratory">Exploratory: mixed providers</option>
+              </Select>
+            </label>
+            <label className="check">
+              <input
+                type="checkbox"
+                checked={includeProxy}
+                onChange={(e) => setIncludeProxy(e.target.checked)}
+              />{" "}
+              Include proxy units ({view.proxies.length})
+            </label>
+            <label className="check">
+              <input
+                type="checkbox"
+                checked={log}
+                onChange={(e) => setLog(e.target.checked)}
+              />{" "}
+              Log scale
+            </label>
+          </div>
+        </details>
       </div>
       {(includeProxy || log) && (
         <p className="chart-note">
@@ -621,15 +888,45 @@ export function Global() {
             : ""}
         </p>
       )}
-      <div className="stats-grid">{view.tierGroups.map(statFor)}</div>
-      <div className="benchmark-key">
-        {(["sl", "elite", "middle", "lower"] as const).map((key) => (
-          <span key={key}>
-            <i style={{ background: col[key] }} />
-            {key === "sl" ? "Sri Lanka" : tierShort[key]}
-          </span>
-        ))}
-      </div>
+      <section className="tier-summary" aria-label="Sri Lanka against the QS tiers">
+        <div className="tier-summary-text">
+          <span className="eyebrow">What this shows</span>
+          <h2>
+            {slMedian === null
+              ? `Sri Lanka has too few valid profiles for this selection (${sl.values.length}, minimum ${minN}).`
+              : `Sri Lanka's median ${metricNames[metric].toLowerCase()} is ${fmt(slMedian, 1)}.`}
+          </h2>
+          <p>
+            {slMedian === null
+              ? "Try another measure, discipline or career stage. Missing values are never treated as zero."
+              : tierRatios.length
+                ? "That is " +
+                  tierRatios.map((r) => `${r.pct}% of the ${r.name}`).join(", ") +
+                  ` median for ${field}${stage === "all" ? "" : ", " + stage.toLowerCase()}.`
+                : "The international tiers have too few valid profiles to compare."}
+          </p>
+        </div>
+        <ul className="tier-ladder">
+          {tierRows.map((r) => (
+            <li key={r.key} className={r.key}>
+              <span className="tier-name">
+                <i style={{ background: colorOf(r.key) }} />
+                <b>{r.name}</b>
+                <small>{r.note}</small>
+              </span>
+              <span className="tier-bar" aria-hidden="true">
+                {r.median !== null && (
+                  <span style={{ width: `${(100 * r.median) / tierMax}%`, background: colorOf(r.key) }} />
+                )}
+              </span>
+              <strong className="tier-value">{r.median === null ? "—" : fmt(r.median, 1)}</strong>
+              <small className="tier-n">
+                {r.median === null ? `not enough data (n=${r.n})` : `${fmt(r.n)} profiles`}
+              </small>
+            </li>
+          ))}
+        </ul>
+      </section>
       <div className="two-columns">
         <Card
           title="Sri Lanka against each tier"
@@ -657,6 +954,93 @@ export function Global() {
           />
         </Card>
       </div>
+      {posView && (
+        <Card
+          title="How it varies by position"
+          subtitle={`${metricNames[posMetric]} by seniority. Each dot is a median and each bar the middle 50% of people; a cell needs ${minN}+ valid profiles.`}
+        >
+          <div className="pos-toolbar">
+            <label className="field">
+              Measure
+              <Select
+                aria-label="Position chart measure"
+                value={posMetric}
+                onChange={(e) => setPosMetric(e.target.value as GMetric)}
+              >
+                {Object.entries(metricNames).map(([k, v]) => (
+                  <option key={k} value={k}>{v}</option>
+                ))}
+              </Select>
+            </label>
+            <label className="field">
+              Discipline
+              <Select
+                aria-label="Position chart discipline"
+                value={posField}
+                onChange={(e) => setPosField(e.target.value as typeof posField)}
+              >
+                <option value="all">All disciplines</option>
+                {benchmarkFields.map((f) => (
+                  <option key={f} value={f}>{f}</option>
+                ))}
+              </Select>
+            </label>
+            <div className="field">
+              <span>Scale</span>
+              <div className="chip-group" role="group" aria-label="Chart scale">
+                {([[false, "Linear"], [true, "Log"]] as const).map(([k, l]) => (
+                  <button key={l} type="button" aria-pressed={posLog === k} onClick={() => setPosLog(k)}>
+                    {l}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="field">
+              <span>Group positions by</span>
+              <div className="chip-group" role="group" aria-label="Position grouping">
+                {([["stage", "Career stage"], ["rank", "Exact position"]] as const).map(([k, l]) => (
+                  <button key={k} type="button" aria-pressed={posGroup === k} onClick={() => setPosGroup(k)}>
+                    {l}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p className="pos-insight">{posInsight}</p>
+          <div className="pos-grid">
+            <div className="pos-col">
+              <h3 className="pos-sub">{metricNames[posMetric]} by position</h3>
+              <Chart option={posChart} height={340} label="Median and middle 50% of the metric by position for Sri Lanka and each tier" />
+              <div className="benchmark-key">
+                {(["sl", "elite", "middle", "lower"] as const).map((key) => (
+                  <span key={key}><i style={{ background: col[key] }} />{key === "sl" ? "Sri Lanka" : tierShort[key]}</span>
+                ))}
+              </div>
+            </div>
+            <div className="pos-col">
+              <h3 className="pos-sub">Who is in each group</h3>
+              <Chart option={posMix} height={340} label="Share of people at each position in Sri Lanka and each tier" />
+            </div>
+          </div>
+          <ul className="pos-key pos-key-row" aria-label="What each position group means">
+            {posCats.map((c, i) => (
+              <li key={c}>
+                <i style={{ background: posColors[i % posColors.length] }} />
+                <span>
+                  <b>{c}</b>
+                  {posGroup === "stage" && stageNote[c] ? <small>{stageNote[c]}</small> : null}
+                </span>
+              </li>
+            ))}
+          </ul>
+          {posGroup === "stage" && (
+            <p className="caption">
+              Job titles differ between countries, so people are grouped by seniority:
+              a Sri Lankan "Lecturer" sits with an "Assistant Professor" elsewhere.
+            </p>
+          )}
+        </Card>
+      )}
       <Card
         title="Where universities sit"
         subtitle={`${allLadderUnits.filter(u => u.key === "sl").length} Sri Lankan institutions · at least ${minN} valid profiles · orange bars`}
@@ -688,56 +1072,79 @@ export function Global() {
         </div>
       </Card>
       <Card
-        title="QS position and research metric"
-        subtitle="Better QS rank → · Each dot is a university median"
+        title="Does a better QS rank mean a higher median?"
+        subtitle="Each dot is one university's median. Shaded bands mark the three QS tiers; the dashed line is Sri Lanka's pooled median."
       >
-        <div className="benchmark-reference"><span className="reference-dot" />
-          <strong>Sri Lanka</strong><span>{slMedian !== null ? `Median ${fmt(slMedian, 1)} · ${sl.values.length} valid records` : `Insufficient sample: ${sl.values.length} valid records`}</span>
-          <small>Pooled sample · dashed line; dots require a QS rank and {minN}+ valid records.</small>
-        </div>
         <Chart
           option={scatter}
-          height={430}
+          height={440}
           label="Scatter of QS 2027 position against university median"
         />
       </Card>
       <Card
         title="Benchmark universities"
-        subtitle="Sample size and median for each institution"
+        subtitle={`Median ${metricNames[metric].toLowerCase()} for each university, with how many profiles it rests on.`}
       >
+        <div className="uni-toolbar bench-toolbar">
+          <label className="uni-search">
+            <input
+              type="search"
+              placeholder="Search university or country"
+              aria-label="Search benchmark universities"
+              value={tableQuery}
+              onChange={(e) => setTableQuery(e.target.value)}
+            />
+          </label>
+          <div className="chip-group" role="group" aria-label="Tier">
+            {([["all", "All"], ["elite", "Elite"], ["middle", "Middle"], ["lower", "Lower"], ["sl", "Sri Lanka"]] as const).map(([k, l]) => (
+              <button key={k} type="button" aria-pressed={tableTier === k} onClick={() => setTableTier(k as typeof tableTier)}>
+                {l}
+              </button>
+            ))}
+          </div>
+        </div>
         <div className="table-scroll">
-          <table>
+          <table className="bench-table">
             <thead>
               <tr>
                 <th>University</th>
-                <th>Country</th>
                 <th>Tier</th>
                 <th>QS 2027</th>
-                <th>Eligible</th>
-                <th>Valid</th>
+                <th>Profiles used</th>
                 <th>Median {metricNames[metric]}</th>
               </tr>
             </thead>
             <tbody>
-              {tableRows.map((u) => (
+              {shownRows.map((u) => (
                 <tr key={u.country + u.id}>
-                  <td>{u.label}</td>
-                  <td>{u.country}</td>
-                  <td>{u.key === "sl" ? "Sri Lanka" : u.key}</td>
+                  <td>
+                    <strong>{u.label}</strong>
+                    <small><CountryName country={u.country} /></small>
+                  </td>
+                  <td>
+                    <span className={"tier-badge " + u.key}>{u.key === "sl" ? "Sri Lanka" : tierShort[u.key as Tier].replace(" tier", "")}</span>
+                  </td>
                   <td>{u.qs}</td>
-                  <td>{u.eligible}</td>
-                  <td>{u.values.length}</td>
+                  <td>{u.values.length} <small>of {u.eligible}</small></td>
                   <td className={enough(u) && !weak(u) ? "" : "flag-cell"}>
-                    {enough(u) ? <NumericValue value={median(u.values)} maximum={Math.max(0, ...tableRows.filter(enough).map(x => median(x.values) ?? 0))} /> : `n < ${minN}`}
+                    {enough(u) ? <NumericValue value={median(u.values)} maximum={Math.max(0, ...tableRows.filter(enough).map(x => median(x.values) ?? 0))} /> : `Not enough data (n < ${minN})`}
                     {enough(u) && weak(u) && (
                       <small className="warn-text"> · weak coverage</small>
                     )}
                   </td>
                 </tr>
               ))}
+              {!shownRows.length && (
+                <tr><td colSpan={5} className="muted">No university matches.</td></tr>
+              )}
             </tbody>
           </table>
         </div>
+        {filteredRows.length > 12 && (
+          <Button variant="ghost" onClick={() => setTableAll(!tableAll)}>
+            {tableAll ? "Show fewer" : `Show all ${filteredRows.length}`}
+          </Button>
+        )}
       </Card>
     </>
   );

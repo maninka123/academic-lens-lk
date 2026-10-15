@@ -5,15 +5,18 @@ import type {
   Metric,
   NumericMetric,
 } from "../types";
-import { compare, groupKey, summary, values } from "./engine";
+import { compare, groupKey, percentile, summary, values } from "./engine";
 import { metricLabels } from "../types";
-import { colors, short } from "../components/common";
+import { aheadOf, colors, personColors, short, standingColor } from "../components/common";
 import { plotNumber } from "./plot-format";
+import { heatDatum, heatVisualMap } from "./heatmap";
 export function comparisonChart(
   rows: Academic[],
   c: Config,
   pinned: Academic[],
   custom: CustomGroup[],
+  /** Pinned people whose value comes from another provider: id -> provider. */
+  otherProvider: Map<string, string> = new Map(),
 ) {
   const groups = compare(rows, c, custom);
   const labels = groups.map((g) => short(g.label));
@@ -87,7 +90,7 @@ export function comparisonChart(
           symbol: ["circle", "diamond", "triangle", "rect"][i % 4],
           symbolSize: 15,
           itemStyle: {
-            color: colors[i % colors.length],
+            color: personColors[i % personColors.length],
             borderColor: "#fff",
             borderWidth: 2,
           },
@@ -165,7 +168,7 @@ export function comparisonChart(
               ? [s.min, s.q1, s.median, s.q3, s.max]
               : { value: [null, null, null, null, null] };
           }),
-          itemStyle: { color: "#e2edf6", borderColor: "#007aff" },
+          itemStyle: { color: "#e2edf6", borderColor: "#3b4fd6" },
           tooltip: { renderMode: "richText" },
         },
         ...pinSeries("box"),
@@ -215,9 +218,9 @@ export function comparisonChart(
                       xAxis: a[metric],
                       lineStyle: {
                         color:
-                          colors[
+                          personColors[
                             pinned.findIndex((p) => p.id === a.id) %
-                              colors.length
+                              personColors.length
                           ],
                         width: 2,
                       },
@@ -260,13 +263,7 @@ export function comparisonChart(
       return vals.flatMap((v, y) =>
         v === null
           ? []
-          : [
-              {
-                value: [x, y, (v / max) * 100],
-                actual: v,
-                n: stats[y]?.n ?? 0,
-              },
-            ],
+          : [heatDatum(x, y, (v / max) * 100, { actual: v, n: stats[y]?.n ?? 0 })],
       );
     });
     return {
@@ -288,27 +285,19 @@ export function comparisonChart(
         data: labels,
         axisLabel: { fontSize: 14, width: 200, overflow: "break" },
       },
-      visualMap: {
-        min: 0,
-        max: 100,
-        calculable: true,
-        orient: "horizontal",
-        left: "center",
-        bottom: 5,
-        inRange: { color: ["#ecf2f7", "#237db4"] },
-      },
+      visualMap: heatVisualMap(100, ["Highest in column", "Lowest"]),
       series: [
         {
           type: "heatmap",
           data: cells,
           label: {
             show: true,
-            fontSize: 14,
+            fontSize: 13,
             formatter: (p: any) => plotNumber(p.data.actual),
           },
           tooltip: {
             formatter: (p: any) =>
-              `${labels[p.value[1]]}\n${metricLabels[metrics[p.value[0]]]}: ${p.data.actual.toFixed(1)}\nValid n = ${p.data.n}\nColour normalised within each metric`,
+              `${labels[p.value[1]]}\n${metricLabels[metrics[p.value[0]]]}: ${plotNumber(p.data.actual, 1)}\nValid records: ${p.data.n}\nShade is relative to the highest value in this column`,
           },
         },
       ],
@@ -365,67 +354,171 @@ export function comparisonChart(
       const index = (value: string) => { const i = order.indexOf(value); return i < 0 ? order.length - 1 : i; };
       return index(a) - index(b) || a.localeCompare(b);
     });
+    const percent = c.chart === "percentStacked";
+    const crowded = groups.length > 10;
     return {
       ...base,
-      legend: { ...base.legend, data: categories },
+      // Plain legend that wraps onto as many rows as it needs: nothing is cut off.
+      legend: {
+        data: categories,
+        type: "plain",
+        top: 0,
+        left: 0,
+        right: 0,
+        itemGap: 18,
+        itemWidth: 16,
+        itemHeight: 10,
+        textStyle: { fontSize: 13 },
+      },
+      grid: { left: 70, right: 24, top: 96, bottom: crowded ? 80 : 50, containLabel: true },
+      xAxis: {
+        ...base.xAxis,
+        axisLabel: { ...base.xAxis.axisLabel, rotate: groups.length > 6 ? 35 : 0, width: 100, overflow: "truncate" },
+      },
       yAxis: {
         ...base.yAxis,
         type: "value",
-        max: c.chart === "percentStacked" ? 100 : undefined,
-        name:
-          c.chart === "percentStacked"
-            ? "Percent of group"
-            : "Academic records",
+        max: percent ? 100 : undefined,
+        name: percent ? "Percent of group" : "Academic records",
+      },
+      dataZoom: crowded
+        ? [{ type: "slider", bottom: 12, height: 18, startValue: 0, endValue: 11 }, { type: "inside" }]
+        : [],
+      tooltip: {
+        trigger: "item",
+        renderMode: "richText",
+        confine: true,
+        formatter: (p: any) =>
+          `${p.name}\n${p.seriesName}: ${plotNumber(p.data.count)} (${plotNumber(p.data.share, 1)}%)\nGroup total: ${plotNumber(p.data.n)} records`,
       },
       series: categories.map((rank, i) => ({
         name: rank,
         type: "bar",
         stack: c.chart === "grouped" ? undefined : "composition",
+        barMaxWidth: 90,
         itemStyle: { color: colors[i % colors.length] },
-        label: { show: c.labels, fontSize: 14 },
+        emphasis: { focus: "series" },
+        // Only segments large enough to hold their label are labelled.
+        label: {
+          show: c.labels,
+          fontSize: 13,
+          color: "#fff",
+          formatter: (p: any) =>
+            p.data.share >= 6
+              ? percent
+                ? plotNumber(p.data.share, 0) + "%"
+                : plotNumber(p.data.count)
+              : "",
+        },
         data: groups.map((g) => {
-          const n = g.rows.filter(
+          const count = g.rows.filter(
             (a) =>
               (c.level === "rank" || c.level === "qualification"
                 ? a.qualification
                 : a.rank) === rank,
           ).length;
+          const share = g.rows.length ? (100 * count) / g.rows.length : 0;
           return {
             groupId: g.id,
-            value:
-              c.chart === "percentStacked"
-                ? g.rows.length
-                  ? (100 * n) / g.rows.length
-                  : 0
-                : n,
+            value: percent ? share : count,
+            count,
+            share,
             n: g.rows.length,
           };
         }),
       })),
     };
   }
+  // Groups without a value stay in the statistics table, not as empty rows.
+  const shown = groups
+    .filter((g) => g.value !== null)
+    .sort((a, b) => Number(a.lowN) - Number(b.lowN) || b.value! - a.value!);
+  const shownLabels = shown.map((g) => short(g.label));
+  const topId = shown.find((g) => !g.lowN)?.id;
+  // The axis fits the groups. A pinned person far above them is marked at the
+  // right edge ("off scale") with a percentile, instead of stretching every bar flat.
+  const dataMax = Math.max(0, ...shown.map((g) => g.value ?? 0));
+  const axisMax = c.log
+    ? 10 ** Math.ceil(Math.log10((dataMax || 1) * 1.05))
+    : (() => {
+        const step = 10 ** Math.floor(Math.log10(dataMax || 1)) / 2;
+        return Math.max(step, Math.ceil((dataMax * 1.15) / step) * step);
+      })();
+  const pool = numeric
+    ? values(groups.flatMap((g) => g.rows).map((a) => a[metric])).filter((v) => !c.log || v > 0)
+    : [];
+  const standing = (value: number) => {
+    const pct = percentile(pool, value);
+    return { pct, text: pct === null ? "" : aheadOf(pct) };
+  };
+  // Each pinned person gets their own marker on the row of the group they belong to.
+  // Several people in one row are spread vertically so none hide another.
+  const rowOf = (a: Academic) => {
+    const direct = shown.findIndex((g) => g.rows.some((r) => r.id === a.id));
+    return direct >= 0 ? direct : shown.findIndex((g) => g.id === groupKey(a, c.level));
+  };
+  const placedPeople = barReferences
+    .map((a) => ({ a, row: rowOf(a), i: pinned.findIndex((p) => p.id === a.id) }))
+    .filter((r) => r.row >= 0);
+  const perRow = new Map<number, number>();
+  for (const r of placedPeople) perRow.set(r.row, (perRow.get(r.row) || 0) + 1);
+  const seen = new Map<number, number>();
+  const markers = placedPeople.map((r) => {
+    const k = seen.get(r.row) || 0;
+    seen.set(r.row, k + 1);
+    const n = perRow.get(r.row)!;
+    const value = r.a[metric]!;
+    const off = value > axisMax;
+    const other = otherProvider.get(r.a.id) ?? null;
+    const { pct, text } = other ? { pct: null, text: "" } : standing(value);
+    const tone = personColors[r.i % personColors.length];
+    return {
+      name: r.a.name,
+      value: [Math.min(value, axisMax), shownLabels[r.row]],
+      symbolOffset: [0, (k - (n - 1) / 2) * 20],
+      // A hollow marker means: real value, but from another provider than the bars.
+      itemStyle: other
+        ? { color: "#fff", borderColor: tone, borderWidth: 3 }
+        : { color: tone, borderColor: "#fff", borderWidth: 2 },
+      label: {
+        show: true,
+        position: "right",
+        distance: 10,
+        fontSize: 12,
+        // The standing text carries the same red-yellow-green colour as everywhere else.
+        formatter: `${r.i + 1} · ${plotNumber(value)} · ${other ? `not ranked (${other})` : pct === null ? "too few peers to rank" : `{s|${text}}`}${off ? " ▸" : ""}`,
+        rich: pct === null ? undefined : { s: { color: standingColor(pct), fontWeight: 700, fontSize: 12 } },
+        backgroundColor: "rgba(255,255,255,.94)",
+        borderRadius: 6,
+        padding: [3, 6],
+      },
+      referenceNames: r.a.name,
+      trueValue: value,
+      off,
+      pctText: text,
+      other,
+    };
+  });
+  const placedIds = new Set(placedPeople.map((r) => r.a.id));
+  // Only people with no row in the chart (external references) fall back to a line.
+  const lineRefs = barReferences.filter((a) => !placedIds.has(a.id));
+  const lineValues = [...new Set(lineRefs.map((a) => a[metric]!))];
   return {
     ...base,
     legend: { show: false },
-    grid: { left: 15, right: 70, top: 15, bottom: 65, containLabel: true },
+    grid: { left: 15, right: markers.length ? 210 : 70, top: 15, bottom: 65, containLabel: true },
     xAxis: {
       type: c.log ? "log" : "value",
       name: metricLabels[c.metric],
       nameLocation: "middle",
       nameGap: 35,
       axisLabel: { fontSize: 14 },
-      ...(referenceValues.length ? {
-        max: (extent: { max: number }) => {
-          const largest = Math.max(extent.max, ...referenceValues);
-          const step = 10 ** Math.floor(Math.log10(largest || 1));
-          return Math.ceil(largest * 1.08 / step) * step || 1;
-        },
-      } : {}),
+      max: axisMax,
     },
     yAxis: {
       type: "category",
       inverse: true,
-      data: labels,
+      data: shownLabels,
       axisLabel: {
         fontSize: 14,
         lineHeight: 20,
@@ -442,7 +535,7 @@ export function comparisonChart(
       },
     },
     dataZoom:
-      labels.length > 8
+      shownLabels.length > 14
         ? [
             {
               type: "slider",
@@ -450,9 +543,9 @@ export function comparisonChart(
               right: 5,
               width: 20,
               startValue: 0,
-              endValue: 7,
-              minValueSpan: 7,
-              maxValueSpan: 7,
+              endValue: 13,
+              minValueSpan: 13,
+              maxValueSpan: 13,
               zoomLock: true,
               showDataShadow: false,
               showDetail: false,
@@ -470,30 +563,39 @@ export function comparisonChart(
         barMaxWidth: 28,
         itemStyle: { borderRadius: [0, 5, 5, 0] },
         label: { show: c.labels, position: "right", fontSize: 14 },
-        markLine: referenceValues.length ? {
+        markLine: lineValues.length ? {
           symbol: "none",
           silent: false,
           animation: false,
-          data: referenceValues.map((value) => {
-            const people = barReferences.filter((a) => a[metric] === value);
+          data: lineValues.map((value) => {
+            const people = lineRefs.filter((a) => a[metric] === value);
             const indices = people.map((a) => pinned.findIndex((p) => p.id === a.id));
+            const off = value > axisMax;
+            const pctText = standing(value).text;
             return {
               name: people.map((a) => a.name).join(", "),
               referenceNames: people.map((a) => a.name).join(", "),
-              xAxis: value,
-              lineStyle: { color: colors[indices[0] % colors.length], width: 2, type: "dashed" },
+              xAxis: Math.min(value, axisMax),
+              trueValue: value,
+              off,
+              pctText,
+              lineStyle: { color: personColors[indices[0] % personColors.length], width: 2, type: "dashed" },
               label: {
                 show: true,
                 position: "insideEndTop",
-                formatter: `${indices.map((i) => i + 1).join(", ")} · ${plotNumber(value)}`,
-                fontSize: 12,
+                rotate: 0,
+                align: "right",
+                formatter: `${indices.map((i) => i + 1).join(", ")} · ${plotNumber(value)}${off ? " ▸" : ""}${pctText ? "\n" + pctText : ""}`,
+                fontSize: 13,
+                lineHeight: 18,
                 backgroundColor: "rgba(255,255,255,.94)",
-                padding: [3, 5],
+                borderRadius: 6,
+                padding: [4, 7],
               },
             };
           }),
         } : undefined,
-        data: groups.map((g) => ({
+        data: shown.map((g) => ({
           name: g.label,
           // On a log axis, non-positive values cannot be drawn: they are left
           // out (and reported beside the chart), never shifted to 1.
@@ -504,9 +606,11 @@ export function comparisonChart(
               ? "#a9b6c2"
               : c.level === "type"
                 ? g.id === "Public"
-                  ? "#007aff"
-                  : "#208b80"
-                : "#007aff",
+                  ? "#3b4fd6"
+                  : "#0f9488"
+                : g.id === topId
+                  ? "#0f9488"
+                  : "#3b4fd6",
             ...(g.lowN
               ? {
                   decal: {
@@ -525,10 +629,26 @@ export function comparisonChart(
         tooltip: {
           formatter: (p: any) =>
             p.data.referenceNames
-              ? `${p.data.referenceNames}\nIndividual ${metricLabels[c.metric]}: ${plotNumber(p.data.xAxis)}`
-              : `${p.name}\n${c.aggregation}: ${plotNumber(p.value)}\nValid records: ${p.data.n}${p.data.lowN ? "\nInsufficient sample: shown for reference, not ranked" : ""}\n${c.weight === "equal" && c.level === "type" ? "Each university contributes equally" : ""}`,
+              ? `${p.data.referenceNames}\nIndividual ${metricLabels[c.metric]}: ${plotNumber(p.data.trueValue ?? p.data.xAxis)}${p.data.pctText ? "\n" + p.data.pctText + " in this comparison" : ""}${p.data.other ? "\nFrom " + p.data.other + ", not the bars' provider: not ranked" : ""}${p.data.off ? "\nShown at the chart edge (beyond its scale)" : ""}`
+              : `${p.name}\n${c.aggregation === "total" ? "Total" : c.aggregation[0].toUpperCase() + c.aggregation.slice(1)} ${metricLabels[c.metric].toLowerCase()}: ${plotNumber(p.value)}${["phd", "overseas"].includes(c.metric) ? "%" : ""}\nValid records: ${p.data.n}${p.data.lowN ? "\nNot ranked (fewer than 10 valid values, shown for reference)" : ""}${c.weight === "equal" && c.level === "type" ? "\nEach university contributes equally" : ""}`,
         },
       },
+      ...(markers.length
+        ? [
+            {
+              name: "Pinned people",
+              type: "scatter",
+              symbol: "diamond",
+              symbolSize: 17,
+              z: 10,
+              data: markers,
+              tooltip: {
+                formatter: (p: any) =>
+                  `${p.data.referenceNames}\nIndividual ${metricLabels[c.metric]}: ${plotNumber(p.data.trueValue)}${p.data.pctText ? "\n" + p.data.pctText + " in this comparison" : ""}${p.data.off ? "\nShown at the chart edge (beyond its scale)" : ""}`,
+              },
+            },
+          ]
+        : []),
     ],
   };
 }

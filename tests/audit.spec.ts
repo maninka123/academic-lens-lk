@@ -80,7 +80,7 @@ test("faculty-only membership, correct routes and reference fallback", async ({
   await page.getByLabel("Search people by name").fill("Janaka Liyanagama");
   await page.locator(".academic-name").click();
   await page.getByRole("button", { name: "Compare this academic" }).click();
-  await expect(page.getByLabel("Peer group")).toHaveValue("faculty");
+  await expect(page.locator(".pinned-card")).toHaveCount(1);
   await page.goto("./#/university/cinec/faculty/not-a-faculty");
   await expect(
     page.getByRole("heading", { name: "Unit not found" }),

@@ -187,7 +187,7 @@ export function Filters({ compact = false }: { compact?: boolean }) {
             onChange={(v) => change("countries", v)}
           />
           <Multi
-            label="Standardised fields"
+            label="Broad disciplines"
             options={opts(academics, "field")}
             selected={f.fields}
             onChange={(v) => change("fields", v)}

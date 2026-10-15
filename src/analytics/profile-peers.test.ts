@@ -103,9 +103,7 @@ describe("profile peer calculations", () => {
   });
   it("does not imply all positions when a cohort is selected", () => {
     expect(group("all").label).toBe("All selected peers");
-    expect(group("all").description).toContain(
-      "Senior Professor positions only",
-    );
+    expect(group("all").description).toContain("Senior Professor only");
     expect(
       buildPeerGroups(rows, a, "citations", "all").groups.find(
         (g) => g.key === "all",
