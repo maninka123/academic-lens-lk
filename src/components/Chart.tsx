@@ -126,7 +126,7 @@ function ChartCanvas({
     if (url) {
       const a = document.createElement("a");
       a.href = url;
-      a.download = "academic-atlas-chart.png";
+      a.download = "lanka-academia-chart.png";
       a.click();
     }
   }
