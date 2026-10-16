@@ -9,7 +9,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { useData } from "../data/context";
-import { useAtlas, encodeState } from "../store";
+import { useAtlas, encodeState, emptyFilters } from "../store";
 import {
   metricLabels,
   selectableMetricLabels,
@@ -319,7 +319,7 @@ export function Compare() {
             configure({ level: e.target.value as Level, groups: [] })
           }
         >
-          {Object.entries(levelLabels).map(([v, l]) => (
+          {Object.entries(levelLabels).filter(([v]) => v !== "department" && v !== "experience").map(([v, l]) => (
             <option key={v} value={v}>
               {l}
             </option>
@@ -621,7 +621,22 @@ export function Compare() {
         className="comparison-presets"
         aria-label="Comparison starting points"
       >
-        <span className="caption">Start with a question</span>
+        <span className="caption">Compare faculties within a field</span>
+        <div className="faculty-presets">
+          {["Medicine / Health", "Engineering", "Natural Sciences", "Computing / IT", "Management / Business", "Humanities", "Social Sciences"].map((field) => (
+            <Button
+              key={field}
+              variant="outline"
+              onClick={() => {
+                setFilters({ ...emptyFilters(), fields: [field] });
+                configure({ level: "faculty", groups: [], metric: "citations", aggregation: "median", chart: "bar", log: false, sort: "value", labels: true });
+              }}
+            >
+              {field}
+            </Button>
+          ))}
+        </div>
+        <span className="caption">Or start with a question</span>
         {(
           [
             [

@@ -9,6 +9,7 @@ export default defineConfig({
     watch: {
       ignored: [
         "**/Data files/**",
+        "**/Ethics Approval/**",
         "**/docs/**",
         "**/output/**",
         "**/test-results/**",

@@ -347,7 +347,9 @@ export function comparisonChart(
             : a.rank,
         ),
       ),
-    ].sort((a, b) => {
+    ]
+      .filter((v) => !/^unknown$/i.test(String(v)))
+      .sort((a, b) => {
       const order = c.level === "rank" || c.level === "qualification"
         ? ["PhD", "Masters / MPhil", "Bachelors", "Other documented", "Unknown"]
         : ["Senior Professor", "Professor", "Associate Professor", "Assistant Professor", "Senior Lecturer", "Lecturer", "Assistant Lecturer", "Instructor", "Librarian", "Other", "Unknown"];
@@ -430,8 +432,9 @@ export function comparisonChart(
     };
   }
   // Groups without a value stay in the statistics table, not as empty rows.
+  const isUnknown = (label: string) => /^(unknown|unmapped|unclassified|not recorded)$/i.test(label.trim());
   const shown = groups
-    .filter((g) => g.value !== null)
+    .filter((g) => g.value !== null && !isUnknown(g.label))
     .sort((a, b) => Number(a.lowN) - Number(b.lowN) || b.value! - a.value!);
   const shownLabels = shown.map((g) => short(g.label));
   const topId = shown.find((g) => !g.lowN)?.id;
