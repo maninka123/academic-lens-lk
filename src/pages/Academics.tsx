@@ -718,7 +718,7 @@ export function Institution() {
           title="Standards by position"
           subtitle="How the typical metric changes with seniority in this unit."
         >
-          <PositionStandards rows={rows} minN={d.metadata.minimumSample || MIN_SAMPLE} />
+          <PositionStandards rows={rows} minN={d.metadata.minimumSample || MIN_SAMPLE} scope={{ universities: [u.id], faculties: faculty ? [faculty] : [], departments: department ? [department] : [] }} />
         </Card>
       )}
       {faculty && rows.some((a) => a.field && a.field !== "Unmapped") && (

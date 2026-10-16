@@ -3717,3 +3717,6 @@ table.coverage-v2 {
 .pos-std-empty > * { opacity: .55; }
 .pos-std-low td:not(:first-child) { color: var(--muted); }
 @media (max-width: 600px) { .std-sectors { grid-template-columns: 1fr; } }
+
+.open-compare { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; border-radius: 12px; border: 1px solid var(--control-border); background: var(--surface); color: var(--accent); font-weight: 650; cursor: pointer; }
+.open-compare:hover { border-color: var(--accent); background: var(--soft); }
