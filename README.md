@@ -4,9 +4,11 @@
 
 **Explore who teaches and researches at Sri Lankan universities, how they compare, and where their PhDs were awarded.**
 
+`Ongoing Research | Public Preview`
+
 [**Open the app**](https://maninka123.github.io/academic-lens-lk/) · [Documentation](docs/PROJECT_GUIDE.md) · [Dataset guide](Data%20files/README.md) · [Report a correction](https://github.com/maninka123/academic-lens-lk/issues/new/choose)
 
-![License: MIT](https://img.shields.io/badge/code-MIT-blue) ![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-green) ![Status: partial collection](https://img.shields.io/badge/data-partial%20collection-orange)
+![License: MIT](https://img.shields.io/badge/code-MIT-blue) ![Stats: CC BY 4.0](https://img.shields.io/badge/stats-CC%20BY%204.0-blue) ![Status: partial collection](https://img.shields.io/badge/data-partial%20collection-orange)
 
 </div>
 
@@ -114,8 +116,9 @@ Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-
 | | |
 |---|---|
 | **Code** | [MIT](LICENSE) |
-| **Data** | [CC BY 4.0](DATA_LICENSE.md): free to use with credit |
+| **Aggregate statistics and reports** | [CC BY 4.0](DATA_LICENSE.md): free to use with credit. Individual records are excluded from this licence. |
 | **Notice** | [Data may be wrong, no warranty, third-party material](NOTICE.md) |
+| **Privacy and data use** | [PRIVACY.md](PRIVACY.md): what is collected, why, retention, your rights |
 | **Ethics and data statement** | [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md) |
 
 Copyright (c) 2026 Pasindu Ranasinghe.

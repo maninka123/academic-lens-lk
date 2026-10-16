@@ -135,6 +135,7 @@ export function Overview() {
         </span>
         <div className="hero-copy">
           <div className="eyebrow">Sri Lanka · Academic research</div>
+          <span className="hero-preview">Ongoing Research | Public Preview</span>
           <h1>Sri Lanka’s academic landscape.</h1>
           <p>
             Explore academics, qualifications and research — across Sri Lanka

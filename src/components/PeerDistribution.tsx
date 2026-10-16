@@ -141,7 +141,7 @@ export function PeerDistribution({
               symbolSize: 20,
               z: 5,
               itemStyle: {
-                color: "#208b80",
+                color: "#e8590c",
                 opacity: 1,
                 borderColor: "#fff",
                 borderWidth: 2,

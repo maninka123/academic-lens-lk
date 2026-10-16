@@ -21,11 +21,11 @@ A single 0–100% figure that says where an academic sits **among comparable col
 
 | Score | Label |
 |---|---|
-| 80–100 | High for their group |
-| 60–79 | Above typical |
-| 40–59 | Typical |
-| 20–39 | Below typical |
-| 0–19 | Low for their group |
+| 80–100 | Upper |
+| 60–79 | High-Mid |
+| 40–59 | Middle |
+| 20–39 | Low-Mid |
+| 0–19 | Lower |
 
 ## Missing data and fallbacks
 
@@ -49,6 +49,8 @@ One point each for: same discipline × stage group · all 3 measures · smallest
 
 Profile page (stamp, per-measure bars, click for the full calculation) and the Academics side-by-side view. Every number links back to this calculation panel.
 
-## Limits
+## Interpretation and limitations
 
-Relative to **collected profiles**, not all academics. Citation counts differ by source and field. Q1 journal data are not used. Not a measure of teaching, service or overall quality.
+This percentile is a descriptive statistical measure based on available research indicators and comparable academic profiles. It reflects an individual's position within the collected dataset and does not represent an assessment of overall academic quality, teaching performance, or professional competence.
+
+The results are relative to collected profiles, not the entire academic population. Citation counts differ by source and discipline, and Q1 journal data are not included in the calculation. Missing data, incomplete coverage, and differences between research databases may affect the results.

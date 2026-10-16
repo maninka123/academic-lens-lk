@@ -17,11 +17,11 @@ export const SCORE_MEASURES = [
 }[];
 
 export const SCORE_BANDS = [
-  { min: 80, label: "High for their group" },
-  { min: 60, label: "Above typical" },
-  { min: 40, label: "Typical" },
-  { min: 20, label: "Below typical" },
-  { min: 0, label: "Low for their group" },
+  { min: 80, label: "Upper" },
+  { min: 60, label: "High-Mid" },
+  { min: 40, label: "Middle" },
+  { min: 20, label: "Low-Mid" },
+  { min: 0, label: "Lower" },
 ] as const;
 export const bandOf = (score: number) =>
   SCORE_BANDS.find((b) => score >= b.min)!.label;
