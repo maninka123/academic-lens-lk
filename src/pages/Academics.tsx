@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Academic, Level } from "../types";
 import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
-import { Pin, ExternalLink, ArrowLeft, Download, FileText } from "lucide-react";
+import { Pin, ExternalLink, ArrowLeft, Download, FileText, Link2, Check } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import { filterAcademics, groupRows } from "../analytics/engine";
@@ -217,6 +217,7 @@ export function Profile() {
   const { pin, configure, clear, setFilters } = useAtlas();
   const nav = useNavigate();
   const [reportBusy, setReportBusy] = useState(false);
+  const [copied, setCopied] = useState(false);
   const canonical = id && d.metadata.identityAliases?.[id];
   if (canonical) return <Navigate to={"/academics/" + canonical} replace />;
   if (!a) return <Empty title="Profile not found" />;
@@ -475,6 +476,22 @@ export function Profile() {
         <div>
           <div className="card profile-actions">
             <h2>Work with this profile</h2>
+            <Button
+              variant="outline"
+              onClick={async () => {
+                const link = location.origin + location.pathname + "#/academics/" + a.id;
+                try {
+                  await navigator.clipboard.writeText(link);
+                } catch {
+                  window.prompt("Copy this link", link);
+                }
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2200);
+              }}
+            >
+              {copied ? <Check size={18} aria-hidden="true" /> : <Link2 size={18} aria-hidden="true" />}
+              {copied ? "Link copied" : "Copy profile link"}
+            </Button>
             <Button
               variant="outline"
               disabled={reportBusy}
