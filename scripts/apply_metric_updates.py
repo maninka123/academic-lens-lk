@@ -57,8 +57,7 @@ def main(src):
             index[r["academic_id"]] = (f, r)
     # A profile URL shared by records of the same person (duplicate listings, study-leave copies, name
     # variants) is fine. Reviewed by hand: these pairs point one profile at two *different* people.
-    ambiguous = {"SL-db3c9f7982e9", "SL-faae309a3b85",   # Perera, Dr. M.P. / Perera, Prof. W.L.P. (one OpenAlex author)
-                 "SL-b4a241985315", "SL-f6f35579b731"}   # Dr. HRWP Gunathilake (KDU) / Dr. Wijendra Gunathilake (SJP)
+    ambiguous = {"SL-db3c9f7982e9", "SL-faae309a3b85"}  # Perera, Dr. M.P. / Perera, Prof. W.L.P. (one OpenAlex author)
     stats = Counter()
     skipped, review = [], []
     log, obs = [], []

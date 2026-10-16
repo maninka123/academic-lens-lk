@@ -9185,3 +9185,10 @@ SL-b75e51a42d37,OpenAlex,citations_2022,0,https://openalex.org/A5139269920,2026-
 SL-b75e51a42d37,OpenAlex,citations_2023,0,https://openalex.org/A5139269920,2026-10-16,unambiguous_single_candidate,Calendar-year citations from the Scholar citation graph.
 SL-b75e51a42d37,OpenAlex,citations_2024,0,https://openalex.org/A5139269920,2026-10-16,unambiguous_single_candidate,Calendar-year citations from the Scholar citation graph.
 SL-b75e51a42d37,OpenAlex,citations_2025,0,https://openalex.org/A5139269920,2026-10-16,unambiguous_single_candidate,Calendar-year citations from the Scholar citation graph.
+SL-f6f35579b731,Google Scholar,total_citations,69,https://scholar.google.com/citations?user=uLVpCZYAAAAJ&hl=en,2026-10-16,official_profile_snapshot,"Metrics update 2026-10-16; all-time column, not the rolling 'Since' value."
+SL-f6f35579b731,Google Scholar,citations_2021_2025,36,https://scholar.google.com/citations?user=uLVpCZYAAAAJ&hl=en,2026-10-16,official_profile_snapshot,"Metrics update 2026-10-16; all-time column, not the rolling 'Since' value."
+SL-f6f35579b731,Google Scholar,citations_2021,0,https://scholar.google.com/citations?user=uLVpCZYAAAAJ&hl=en,2026-10-16,official_profile_snapshot,Calendar-year citations from the Scholar citation graph.
+SL-f6f35579b731,Google Scholar,citations_2022,1,https://scholar.google.com/citations?user=uLVpCZYAAAAJ&hl=en,2026-10-16,official_profile_snapshot,Calendar-year citations from the Scholar citation graph.
+SL-f6f35579b731,Google Scholar,citations_2023,2,https://scholar.google.com/citations?user=uLVpCZYAAAAJ&hl=en,2026-10-16,official_profile_snapshot,Calendar-year citations from the Scholar citation graph.
+SL-f6f35579b731,Google Scholar,citations_2024,4,https://scholar.google.com/citations?user=uLVpCZYAAAAJ&hl=en,2026-10-16,official_profile_snapshot,Calendar-year citations from the Scholar citation graph.
+SL-f6f35579b731,Google Scholar,citations_2025,29,https://scholar.google.com/citations?user=uLVpCZYAAAAJ&hl=en,2026-10-16,official_profile_snapshot,Calendar-year citations from the Scholar citation graph.
