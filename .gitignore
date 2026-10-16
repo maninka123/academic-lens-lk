@@ -66,3 +66,9 @@ Ethics Approval/
 
 # Raw metrics exports supplied for review (provenance is in change_log.csv and research_metric_observations.csv)
 Data files/User updates/
+
+# Local secrets and scraper caches
+scripts/scholar_scraper/.env
+scripts/scholar_scraper/__pycache__/
+scripts/scholar_scraper/New updates/
+.env
