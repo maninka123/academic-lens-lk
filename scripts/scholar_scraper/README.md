@@ -23,7 +23,7 @@ python -m pip install -r requirements.txt
 
 # 2. Configure API keys in .env (in this folder or the project root)
 # See .env.example for template:
-OPENALEX_API_KEY=KP8jHmgUSlRrNDDD7eo60Z
+OPENALEX_API_KEY=your_openalex_api_key_here
 SERPAPI_API_KEY=your_optional_serpapi_key_here
 ```
 
