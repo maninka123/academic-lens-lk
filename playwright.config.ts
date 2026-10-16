@@ -10,6 +10,15 @@ export default defineConfig({
     viewport: { width: 1680, height: 1050 },
     launchOptions: { channel: "chrome" },
     trace: "retain-on-failure",
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: "http://127.0.0.1:5173",
+          localStorage: [{ name: "lanka-academia-ack-v1", value: "1" }],
+        },
+      ],
+    },
   },
   webServer: {
     command: "npm run dev -- --port 5173",
