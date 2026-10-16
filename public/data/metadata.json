@@ -1,5 +1,5 @@
 {
-  "version": "partial-b8c03de2d2",
+  "version": "partial-0574e1d6d1",
   "mode": "real",
   "country": "Sri Lanka",
   "identityAliases": {
@@ -15,7 +15,8 @@
     "SL-3578daba6533": "SL-5b189b28550c",
     "SL-9177ae2adf9a": "SL-ebec42c41062",
     "SL-7ac948df90b8": "SL-dd58210d266c",
-    "SL-0ae2ea17bdd1": "SL-b591c176d5dd"
+    "SL-0ae2ea17bdd1": "SL-b591c176d5dd",
+    "SL-b4a241985315": "SL-f6f35579b731"
   },
   "collectionDate": "2026-10-16",
   "updatedAt": "2026-10-16",

@@ -72,8 +72,8 @@
     "matched": 1235
   },
   "sriLankaOpenAlex": {
-    "attempted": 1600,
-    "matched": 486,
+    "attempted": 1599,
+    "matched": 485,
     "note": "Attempted lookups are not matches. Only matched researchers carry OpenAlex values."
   }
 }
