@@ -72,3 +72,5 @@ scripts/scholar_scraper/.env
 scripts/scholar_scraper/__pycache__/
 scripts/scholar_scraper/New updates/
 .env
+scripts/New updates/
+scripts/scholar_scraper/scholar_output/
