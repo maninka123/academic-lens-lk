@@ -13,6 +13,7 @@ import { SideBySide } from "../components/SideBySide";
 import { Button } from "../components/ui/button";
 import { AcademicPortrait } from "../components/AcademicPortrait";
 import { ProfileStanding } from "../components/ProfileStanding";
+import { PositionStandards } from "../components/PositionStandards";
 import { StandingScorePanel } from "../components/StandingScore";
 import { ResearchProfiles } from "../components/ResearchProfiles";
 import {
@@ -712,6 +713,14 @@ export function Institution() {
           minN={d.metadata.minimumSample || MIN_SAMPLE}
         />
       </Card>
+      {rows.length > 0 && (
+        <Card
+          title="Standards by position"
+          subtitle="How the typical metric changes with seniority in this unit."
+        >
+          <PositionStandards rows={rows} minN={d.metadata.minimumSample || MIN_SAMPLE} />
+        </Card>
+      )}
       {faculty && rows.some((a) => a.field && a.field !== "Unmapped") && (
         <Button variant="outline" onClick={() => openCompare(true)}>
           Compare equivalent fields across institutions

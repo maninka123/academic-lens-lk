@@ -18,6 +18,7 @@ import { Chart } from "../components/Chart";
 import { Button } from "../components/ui/button";
 import type { Config } from "../types";
 import { GlobalTeaser } from "./Global";
+import { StandardsOverview } from "../components/StandardsOverview";
 
 export function Overview() {
   const [qualificationScale, setQualificationScale] = useState<"share" | "count">("share");
@@ -312,6 +313,7 @@ export function Overview() {
           mean they have no academic staff.
         </p>
       </Card>
+      <StandardsOverview />
       <GlobalTeaser />
       <Link to="/universities" className="universities-cta">
         <span className="preset-icon">
