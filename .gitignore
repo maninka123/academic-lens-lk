@@ -63,3 +63,6 @@ scripts/baselines/international_verification_audit.ipynb
 
 # Ethics application documents (private)
 Ethics Approval/
+
+# Raw metrics exports supplied for review (provenance is in change_log.csv and research_metric_observations.csv)
+Data files/User updates/
