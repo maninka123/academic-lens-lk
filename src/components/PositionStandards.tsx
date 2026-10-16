@@ -1,10 +1,24 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ChartNoAxesCombined } from "lucide-react";
+import { useAtlas, emptyFilters } from "../store";
 import type { Academic, Provider } from "../types";
 import { positionStandards, STANDARD_METRICS } from "../analytics/position-standards";
 import { fmt } from "./common";
 
 /** Table of how a metric changes with seniority inside any group of academics. */
-export function PositionStandards({ rows, minN = 10 }: { rows: Academic[]; minN?: number }) {
+export function PositionStandards({
+  rows,
+  minN = 10,
+  scope,
+}: {
+  rows: Academic[];
+  minN?: number;
+  /** Unit this table describes; lets the button open the same view in Compare. */
+  scope?: { universities?: string[]; faculties?: string[]; departments?: string[] };
+}) {
+  const nav = useNavigate();
+  const { configure, setFilters } = useAtlas();
   const [metric, setMetric] = useState(STANDARD_METRICS[0].key);
   const [provider, setProvider] = useState<Provider>("Google Scholar");
   const data = useMemo(() => positionStandards(rows, metric, provider), [rows, metric, provider]);
@@ -20,6 +34,19 @@ export function PositionStandards({ rows, minN = 10 }: { rows: Academic[]; minN?
             </button>
           ))}
         </div>
+        {scope && (
+          <button
+            type="button"
+            className="open-compare"
+            onClick={() => {
+              setFilters({ ...emptyFilters(), universities: scope.universities ?? [], faculties: scope.faculties ?? [], departments: scope.departments ?? [] });
+              configure({ level: "rank", groups: [], metric, aggregation: "median", chart: "box", log: false, sort: "value", labels: true, providerMode: "single", provider });
+              nav("/compare");
+            }}
+          >
+            <ChartNoAxesCombined size={16} aria-hidden="true" /> Plot in Compare
+          </button>
+        )}
         <div className="chip-group" role="group" aria-label="Source">
           {(["Google Scholar", "OpenAlex"] as Provider[]).map((p) => (
             <button key={p} type="button" aria-pressed={provider === p} onClick={() => setProvider(p)}>
