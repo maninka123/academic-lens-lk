@@ -18,7 +18,11 @@ export function comparisonChart(
   /** Pinned people whose value comes from another provider: id -> provider. */
   otherProvider: Map<string, string> = new Map(),
 ) {
-  const groups = compare(rows, c, custom);
+  // Unknown / unmapped (and the catch-all "Other" position) are not shown as plot items.
+  const hidden = /^(unknown|unmapped|unclassified|not recorded)$/i;
+  const groups = compare(rows, c, custom).filter(
+    (g) => !hidden.test(g.label.trim()) && !(c.level === "rank" && g.label === "Other"),
+  );
   const labels = groups.map((g) => short(g.label));
   const numeric = !["count", "phd", "overseas"].includes(c.metric);
   const metric = c.metric as NumericMetric;
