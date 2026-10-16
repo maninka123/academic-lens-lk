@@ -148,7 +148,9 @@ export function groupKey(a: Academic, level: Level) {
     case "field":
       return a.field;
     case "rank":
-      return a.rank;
+      return a.rank === "Senior Lecturer" || a.rank === "Associate Professor"
+        ? "Senior Lecturer / Associate Professor"
+        : a.rank;
     case "careerStage":
       return careerStageOf(a.rank);
     case "qualification":

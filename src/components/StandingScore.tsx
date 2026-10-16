@@ -276,11 +276,21 @@ export function ScoreDialog({
         </section>
       )}
 
-      <p className="caption score-foot">
-        Relative to collected profiles (minimum {MIN_SAMPLE} peers per measure), not a
-        measure of teaching, service or overall academic quality. 50% is typical for the
-        group. <a href={DOCS} target="_blank" rel="noopener noreferrer">Full method</a>
-      </p>
+      <div className="score-limits">
+        <p>
+          This percentile is a descriptive statistical measure based on available research
+          indicators and comparable academic profiles. It reflects an individual's position
+          within the collected dataset and does not represent an assessment of overall academic
+          quality, teaching performance, or professional competence.
+        </p>
+        <p>
+          The results are relative to collected profiles, not the entire academic population.
+          Citation counts differ by source and discipline, and Q1 journal data are not included
+          in the calculation. Missing data, incomplete coverage, and differences between research
+          databases may affect the results.{" "}
+          <a href={DOCS} target="_blank" rel="noopener noreferrer">Full method</a>
+        </p>
+      </div>
     </Dialog>
   );
 }
