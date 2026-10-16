@@ -26,4 +26,4 @@ Anyone named in this dataset can ask for a correction or removal, no reason need
 
 We aim to respond within **7 days** and to publish a correction or removal in the next data release. Requests are honoured on the person's word; evidence is not demanded for a removal.
 
-Licences: code [MIT](LICENSE) · data [CC BY 4.0](DATA_LICENSE.md). Ethics statement: [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md).
+Licences: code [MIT](LICENSE) · aggregate statistics and reports [CC BY 4.0](DATA_LICENSE.md) · individual records are not covered by a Creative Commons licence. Ethics statement: [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md). Privacy and data use: [PRIVACY.md](PRIVACY.md).

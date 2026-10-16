@@ -20,7 +20,6 @@ Explore Sri Lankan academic profiles, compare peer groups, and keep research dat
 
 
 
-[Interface audit and edge-case coverage](AUDIT.md)
 
 ## Run locally
 

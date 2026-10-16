@@ -23,7 +23,7 @@ describe("standing score", () => {
     expect(r.measuresUsed).toBe(3);
     expect(r.components.every((c) => c.percentile === 97.5)).toBe(true);
     expect(r.score).toBe(98);
-    expect(r.band).toBe("High for their group");
+    expect(r.band).toBe("Upper");
     expect(r.groupSize).toBe(20);
   });
   it("skips missing measures and rescales weights; zero is a real value", () => {
@@ -90,9 +90,9 @@ describe("standing score", () => {
   });
   it("labels bands at their boundaries", () => {
     expect([0, 19, 20, 39, 40, 59, 60, 79, 80, 100].map(bandOf)).toEqual([
-      "Low for their group", "Low for their group", "Below typical", "Below typical",
-      "Typical", "Typical", "Above typical", "Above typical",
-      "High for their group", "High for their group",
+      "Lower", "Lower", "Low-Mid", "Low-Mid",
+      "Middle", "Middle", "High-Mid", "High-Mid",
+      "Upper", "Upper",
     ]);
   });
 });

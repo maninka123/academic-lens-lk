@@ -202,17 +202,17 @@ export const personColors = [
 ];
 export const colors = [
   "#3b4fd6",
-  "#0f9488",
-  "#b57537",
-  "#8966ad",
-  "#c65170",
-  "#54865d",
-  "#8b743e",
-  "#607a9d",
-  "#c86842",
-  "#7288b4",
-  "#2d8cbe",
-  "#934863",
+  "#d97706",
+  "#7c3aed",
+  "#0284c7",
+  "#be185d",
+  "#92400e",
+  "#6366f1",
+  "#9f1239",
+  "#475569",
+  "#a855f7",
+  "#b45309",
+  "#4338ca",
 ];
 
 /** A relative bar within one column; missing values never become zero. */

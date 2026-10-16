@@ -609,7 +609,7 @@ export function comparisonChart(
                   ? "#3b4fd6"
                   : "#0f9488"
                 : g.id === topId
-                  ? "#0f9488"
+                  ? "#f59e0b"
                   : "#3b4fd6",
             ...(g.lowN
               ? {

@@ -257,7 +257,7 @@ export function ProfileStanding({
                       ].map((value, i) => ({
                         value,
                         itemStyle: {
-                          color: i === 2 ? "#208b80" : "#007aff",
+                          color: i === 2 ? "#e8590c" : "#3b4fd6",
                           borderRadius: [0, 5, 5, 0],
                         },
                       })),

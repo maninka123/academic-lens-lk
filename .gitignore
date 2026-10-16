@@ -15,3 +15,48 @@ openalex-api-key.txt
 
 # Private research candidate evidence and curator decisions
 Data files/_research_reviews/
+
+# Internal verification, investigation and review files (kept locally, not published)
+Data files/APPLICATION_HANDOFF.md
+Data files/MISSING_INSTITUTIONS_RESEARCH.md
+Data files/PROFILE_COMPLETION_REPORT.md
+Data files/_exports/
+Data files/_scholar_link_completion_*.json
+Data files/academic_affiliations.csv
+Data files/access_issues.csv
+Data files/baseline_records.csv
+Data files/collection_checkpoints.csv
+Data files/collection_report.md
+Data files/coverage_dimensions.csv
+Data files/employment_review_main_overlap_history.csv
+Data files/field_completeness.csv
+Data files/field_quality_review.csv
+Data files/identity_duplicate_records.csv
+Data files/institution_aliases.csv
+Data files/international/_*.json
+Data files/international/research_search_attempts.csv
+Data files/inventory_excluded_rows.csv
+Data files/journal_quartile_evidence.csv
+Data files/missing_field_resolutions.csv
+Data files/profile_completion_review.csv
+Data files/profile_verification.csv
+Data files/publication_coverage.csv
+Data files/publication_duplicate_records.csv
+Data files/publication_extraction_review.csv
+Data files/publication_identity_review.csv
+Data files/q1_partial_counts.csv
+Data files/qualification_review_*.csv
+Data files/research_search_attempts.csv
+Data files/research_search_log.csv
+Data files/scholar_link_review_*.csv
+Data files/scholar_review_*.csv
+Data files/scholar_yearly_worklist.csv
+Data files/source_observations.csv
+Data files/source_pages.csv
+Data files/supporting_data_dictionary.csv
+Data files/validation_report.json
+Data files/web_source_checks.csv
+docs/AUDIT.md
+docs/KIU_ICBT_VERIFICATION.md
+reports/enriched-merge-*/
+scripts/baselines/international_verification_audit.ipynb

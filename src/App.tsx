@@ -37,6 +37,7 @@ import { Global } from "./pages/Global";
 import { Filters } from "./components/Filters";
 import { Button } from "./components/ui/button";
 import { Empty } from "./components/common";
+import { AckGate } from "./components/AckGate";
 useAtlas.getState().configure({});
 restoreFromUrl();
 function Shell() {
@@ -144,6 +145,7 @@ function Shell() {
   ] as const;
   return (
     <div className="app-shell">
+      <AckGate />
       <a
         className="skip-link"
         href="#main-content"
@@ -254,6 +256,7 @@ function Shell() {
                   : "Overview")}
             </span>
           </div>
+          <span className="preview-pill">Ongoing Research | Public Preview</span>
           <span className="data-badge">
             <span className="status-dot" />
             {(data?.metadata.updatedAt || data?.metadata.collectionDate)
@@ -342,6 +345,14 @@ function Shell() {
               rel="noreferrer"
             >
               Notice & corrections
+            </a>{" "}
+            ·{" "}
+            <a
+              href="https://github.com/maninka123/academic-lens-lk/blob/main/PRIVACY.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Privacy
             </a>{" "}
             <span>Lanka Academia · 2026</span>
           </footer>
