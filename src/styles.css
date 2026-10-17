@@ -3892,3 +3892,9 @@ table.coverage-v2 {
 @media (max-width: 760px) { .topbar { padding: 8px 14px; } .topbar .data-badge { display: none; } }
 @media (max-width: 900px) and (min-width: 761px) { .topbar .data-badge { display: none; } }
 @media (max-width: 760px) { .topbar > .inline { flex: 1 1 100%; } .topbar .preview-pill { margin: 0 auto 0 0; } .topbar { gap: 8px; } }
+.compare-sector-key { margin: 0 0 6px 4px; }
+/* Compare field tiles must fit one row on a normal laptop screen */
+.field-tiles .quick-tile { padding: 7px 9px; gap: 7px; }
+.field-tiles .quick-icon { width: 28px; height: 28px; }
+.field-tiles .quick-tile > span:last-child { font-size: .78rem; }
+.quick-tiles.field-tiles { gap: 6px; }
