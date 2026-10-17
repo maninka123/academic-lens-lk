@@ -4018,3 +4018,13 @@ table.coverage-v2 {
 .flow-controls .chip-group button { min-height: 0; padding: 0 14px; font: inherit; font-size: .9375rem; font-weight: 600; line-height: 1; white-space: nowrap; }
 .flow-controls .flow-qs { font-size: .9375rem; align-self: flex-end; height: 44px; display: inline-flex; align-items: center; gap: 8px; }
 .flow-controls { flex-direction: column; align-items: flex-start; }
+@media (max-width: 900px) {
+  .flow-controls, .flow-controls .field { max-width: 100%; width: 100%; }
+  .flow-controls .field { grid-template-rows: 20px auto; }
+  .flow-controls .chip-group { flex-wrap: wrap; height: auto; max-width: 100%; }
+  .flow-controls .chip-group button { min-height: 38px; white-space: normal; }
+  .phd-impact .impact-controls .chip-group, .phd-impact .impact-controls select { max-width: 100%; }
+  .phd-impact .impact-tabs button { white-space: normal; height: auto; min-height: 42px; }
+  .origin-split-card .os-bar u { min-width: 0; }
+}
+.chart-note { margin: 6px 0 0; font-size: .8125rem; line-height: 1.45; color: var(--muted); }
