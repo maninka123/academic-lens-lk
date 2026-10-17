@@ -1,5 +1,5 @@
 {
-  "version": "partial-926aae2194",
+  "version": "partial-23221303ba",
   "collectionDate": "2026-10-17",
   "country": "Sri Lanka",
   "institutionsInScope": 15,
@@ -11,10 +11,10 @@
   "verifiedEmployment": 279,
   "withAnyMetric": 1276,
   "withQualifications": 1427,
-  "doctorateDocumented": 733,
-  "doctorateInProgress": 35,
-  "doctorateContradictory": 8,
-  "needsReview": 25,
+  "doctorateDocumented": 730,
+  "doctorateInProgress": 45,
+  "doctorateContradictory": 0,
+  "needsReview": 17,
   "metricAvailability": {
     "publications": 1008,
     "citations": 1266,

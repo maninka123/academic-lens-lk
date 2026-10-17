@@ -162,9 +162,16 @@ export function doctorateStatus({ phd_status = "", qualifications = "" }) {
     READING_UNIVERSITY,
     "University of R.",
   );
-  const ongoing = ONGOING.test(q);
+  // Sri Lankan convention: a "(Reading)" closing an entry that names a doctorate means "reading for" it
+  // ("PhD in X, University of Y, Spain (Reading)"), whatever the university is.
+  const readingEntries = q
+    .split(/[;\n]/)
+    .map((s) => s.trim())
+    .filter((s) => /\(\s*reading\s*\)\s*$/i.test(s) && DOCTORATE.test(s));
+  const ongoing = ONGOING.test(q) || readingEntries.length > 0;
   // A doctorate named outside the ongoing phrase (e.g. "PhD (Colombo); reading DSc").
-  const withoutOngoing = q.replace(new RegExp(ONGOING.source, "gi"), " ");
+  let withoutOngoing = q.replace(new RegExp(ONGOING.source, "gi"), " ");
+  for (const entry of readingEntries) withoutOngoing = withoutOngoing.replace(entry, " ");
   const completedText = DOCTORATE.test(withoutOngoing) && !HONORARY.test(q);
   const status = String(phd_status || "");
   if (status === "in_progress")
