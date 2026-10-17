@@ -149,7 +149,7 @@ export function groupKey(a: Academic, level: Level) {
       return a.field;
     case "rank":
       return a.rank === "Senior Lecturer" || a.rank === "Associate Professor"
-        ? "Senior Lecturer / Associate Professor"
+        ? "Senior Lecturer"
         : a.rank;
     case "careerStage":
       return careerStageOf(a.rank);
@@ -171,6 +171,11 @@ export function groupKey(a: Academic, level: Level) {
       return "";
   }
 }
+/** Faculty type shared across universities ("Faculty of Medicine" and "School of Medicine" are both "Medicine"). */
+export const facultyType = (faculty: string) => {
+  const name = (faculty || "").replace(/^(the\s+)?(faculty|school|college|institute|department)\s+of\s+/i, "").replace(/^the\s+/i, "").trim();
+  return name ? name.charAt(0).toUpperCase() + name.slice(1) : "";
+};
 export function groupLabel(a: Academic, l: Level) {
   return l === "university"
     ? a.university
@@ -222,7 +227,13 @@ export function compare(
   minN = 10,
 ) {
   return groupRows(rows, c.level, custom)
-    .filter((g) => !c.groups.length || c.groups.includes(g.id))
+    .filter(
+      (g) =>
+        !c.groups.length ||
+        c.groups.includes(g.id) ||
+        // At faculty level the picker offers faculty types, e.g. "Medicine".
+        (c.level === "faculty" && c.groups.includes(facultyType(g.rows[0]?.faculty ?? ""))),
+    )
     .map((g) => {
       let stats = aggregate(g.rows, c.metric, c.aggregation);
       let universityN: number | undefined;

@@ -7,7 +7,6 @@ import {
   Scale,
   Building2,
 } from "lucide-react";
-import { PreviewBadge } from "../components/PreviewBadge";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useData } from "../data/context";
@@ -133,14 +132,13 @@ export function Overview() {
           title={`Any research metric ${pct(cov.withMetric)} | qualifications ${pct(cov.withQualifications)} | ${fmt(cov.needsReview)} need review`}
         >
           <span className="hc-label">Data completeness</span>
-          <b>{pct(cov.withMetric)}</b>
-          <i className="hc-bar" aria-hidden="true">
+          <span className="battery" role="img" aria-label={`Data completeness ${pct(cov.withMetric)}`}>
             <u style={{ width: `${Math.min(100, Math.max(0, parseFloat(pct(cov.withMetric)) || 0))}%` }} />
-          </i>
+            <b>{pct(cov.withMetric)}</b>
+          </span>
         </span>
         <div className="hero-copy">
           <div className="eyebrow">Sri Lanka | Academic research</div>
-          <PreviewBadge className="hero-preview" />
           <h1>Sri Lanka’s academic landscape.</h1>
           <p>
             Explore academics, qualifications and research — across Sri Lanka

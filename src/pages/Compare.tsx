@@ -43,6 +43,7 @@ import {
   filterAcademics,
   compare,
   groupRows,
+  facultyType,
   validModes,
 } from "../analytics/engine";
 import { comparisonChart } from "../analytics/charts";
@@ -230,9 +231,18 @@ export function Compare() {
       const a = d.academics.find((a) => a.id === id);
       return a ? [a] : [];
     }),
-    options = groupRows(rows, c.level, custom).sort((x, y) =>
-      x.label.localeCompare(y.label),
-    );
+    options = (
+      c.level === "faculty"
+        ? [
+            ...rows
+              .filter((a) => a.facultyId)
+              .reduce((m, a) => {
+                const t = facultyType(a.faculty);
+                return t ? m.set(t, (m.get(t) ?? 0) + 1) : m;
+              }, new Map<string, number>()),
+          ].map(([t, n]) => ({ id: t, label: `${t} (${n})` }))
+        : groupRows(rows, c.level, custom)
+    ).sort((x, y) => x.label.localeCompare(y.label));
   const noun = levelGroupNouns[c.level].replace(/^(?!PhD)(.)/, (m) => m.toLowerCase());
   const selectedRows = [
     ...new Map(groups.flatMap((g) => g.rows).map((a) => [a.id, a])).values(),
@@ -380,6 +390,7 @@ export function Compare() {
       <Multi
         label={`Choose ${noun}`}
         noun={noun}
+        bare
         options={options.map((g) => ({ value: g.id, label: g.label }))}
         selected={c.groups}
         onChange={(groups) => configure({ groups })}

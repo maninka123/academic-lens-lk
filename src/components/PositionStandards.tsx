@@ -95,8 +95,7 @@ export function PositionStandards({
         </table>
       </div>
       <p className="caption">
-        {provider} values only; missing values are skipped, never counted as zero. Senior Lecturer and
-        Associate Professor are treated as one position.
+        {provider} values only; missing values are skipped, never counted as zero.
       </p>
     </div>
   );

@@ -88,7 +88,7 @@ export function StandardsOverview() {
         <div className="chip-group" role="group" aria-label="Position">
           {POSITIONS.map((p) => (
             <button key={p} type="button" aria-pressed={position === p} onClick={() => setPosition(p)}>
-              {p === SENIOR_LECTURER_GROUP ? "Senior Lecturer / Assoc. Prof." : p}
+              {p}
             </button>
           ))}
         </div>

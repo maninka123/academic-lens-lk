@@ -189,7 +189,7 @@ export const CAREER_STAGES = [
  * Titles that mean the same seniority in different systems are one position:
  * Sri Lankan "Senior Lecturer" and an international "Associate Professor".
  */
-export const SENIOR_LECTURER_GROUP = "Senior Lecturer / Associate Professor";
+export const SENIOR_LECTURER_GROUP = "Senior Lecturer";
 export const equivalentPosition = (rank: string) =>
   rank === "Senior Lecturer" || rank === "Associate Professor"
     ? SENIOR_LECTURER_GROUP

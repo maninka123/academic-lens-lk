@@ -626,7 +626,7 @@ export function Global() {
   };
   const stageShort: Record<string, string> = {
     "Early-career": "Lecturer / Asst. Prof.",
-    "Mid-career": "Sr. Lecturer / Assoc. Prof.",
+    "Mid-career": "Senior Lecturer",
     Professor: "Professor",
   };
   const posColors =
@@ -660,7 +660,7 @@ export function Global() {
           if (!c) return "";
           if (posGroup !== "rank") return c;
           return c === SENIOR_LECTURER_GROUP
-            ? "Senior Lecturer /\nAssociate Professor"
+            ? "Senior Lecturer"
             : c.replace(" ", "\n");
         },
       },

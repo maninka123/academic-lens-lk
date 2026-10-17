@@ -3841,3 +3841,28 @@ table.coverage-v2 {
 .hero-corner b { font-size: .875rem; color: #fff; font-variant-numeric: tabular-nums; }
 .hero-corner .hc-bar { display: block; width: 54px; height: 5px; border-radius: 99px; background: #ffffff2e; overflow: hidden; }
 .hero-corner .hc-bar u { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #34d399, #6ee7b7); text-decoration: none; }
+
+/* Data completeness as a battery: fill and percentage inside a rounded rectangle */
+.hero-corner { padding: 6px 8px 6px 14px; gap: 10px; }
+.hero-corner .battery { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 96px; height: 26px; border-radius: 8px; border: 1.5px solid #ffffff80; background: #0b123d66; overflow: hidden; }
+.hero-corner .battery::after { content: none; }
+.hero-corner .battery u { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, #10b981, #34d399); border-radius: 6px 0 0 6px; text-decoration: none; }
+.hero-corner .battery b { position: relative; z-index: 1; font-size: .8125rem; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.45); letter-spacing: .01em; }
+.hero-corner { position: absolute; }
+.hero-corner .battery { margin-right: 4px; }
+.hero-corner .battery + .tip { display: none; }
+
+/* University cards: sector colour on hover, room for the lift */
+.uni-grid { padding: 8px 4px 4px; }
+.uni-card:hover { border-color: #3b4fd6; box-shadow: 0 22px 40px -22px #3b4fd68c; }
+.uni-card.nonstate:hover { border-color: #0f9488; box-shadow: 0 22px 40px -22px #0f9488a6; }
+.uni-card.nonstate:hover .uni-open, .uni-card.nonstate .uni-open { color: #0f766e; }
+.uni-card.nonstate:focus-visible { outline: 2px solid #0f9488; outline-offset: 2px; }
+
+/* Field tiles: leave space so the hover border is never clipped */
+.quick-tiles.field-tiles { padding: 6px 4px 8px; margin: -6px -4px 0; }
+.field-tiles .quick-tile:hover { transform: none; }
+
+/* Compare pickers: the box shows only its value, same height as the other selects */
+.multi > summary.multi-bare { justify-content: space-between; min-height: 46px; }
+.multi > summary.multi-bare span { color: var(--text); font-size: .9375rem; font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 22px; }
