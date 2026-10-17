@@ -211,7 +211,7 @@ export function AcademicTable({
       <div className="table-toolbar">
         <span>
           {table.getFilteredRowModel().rows.length.toLocaleString()} matching
-          profiles · — means unavailable
+          profiles | — means unavailable
         </span>
         <div className="inline">
           {filters.length > 0 && (
