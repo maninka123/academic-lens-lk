@@ -6,6 +6,7 @@ import { useAtlas, emptyFilters } from "../store";
 import type { Academic, Dataset } from "../types";
 import { Institution } from "./Academics";
 
+vi.mock("../components/Chart", () => ({ Chart: () => <div data-testid="chart" /> }));
 vi.mock("../components/AcademicTable", () => ({ AcademicTable: ({ rows }: { rows: Academic[] }) => <div>{rows.map(a => <span key={a.id}>{a.name}</span>)}</div> }));
 afterEach(() => { cleanup(); useAtlas.setState({ filters: emptyFilters() }); });
 

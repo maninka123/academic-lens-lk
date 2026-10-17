@@ -4033,3 +4033,15 @@ table.coverage-v2 {
 .point-list li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: .7; }
 .tier-summary-text .point-list { font-size: 1rem; }
 .phd-impact .point-list.caption { margin-top: 14px; }
+.unit-controls { margin-bottom: 14px; }
+.unit-grid { margin-top: 4px; }
+.unit-note { margin-top: 14px; }
+.pos-key i.diamond { width: 10px; height: 10px; border-radius: 2px; transform: rotate(45deg); }
+.unit-controls { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 20px; }
+.unit-controls .field { display: grid; grid-template-rows: 20px 44px; row-gap: 6px; margin: 0; min-width: 0; font-size: .875rem; font-weight: 600; color: var(--muted); }
+.unit-controls .field > span { line-height: 20px; }
+.unit-controls select { height: 44px; min-width: 190px; font-size: .9375rem; }
+.unit-controls .chip-group { height: 44px; box-sizing: border-box; padding: 3px; align-items: stretch; }
+.unit-controls .chip-group button { min-height: 0; padding: 0 16px; font: inherit; font-size: .9375rem; font-weight: 600; white-space: nowrap; }
+.unit-grid .pos-head { min-height: 62px; align-items: flex-start; }
+@media (max-width: 1000px) { .unit-grid .pos-head { min-height: 0; } }
