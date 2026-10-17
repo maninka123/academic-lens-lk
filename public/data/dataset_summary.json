@@ -1,32 +1,32 @@
 {
-  "version": "partial-a886be607d",
+  "version": "partial-a35bf870d1",
   "collectionDate": "2026-10-17",
   "country": "Sri Lanka",
   "institutionsInScope": 15,
   "institutionsWithProfiles": 15,
   "facultiesRepresented": 66,
-  "departmentsRepresented": 236,
-  "academicRecords": 2126,
+  "departmentsRepresented": 240,
+  "academicRecords": 2344,
   "verifiedIdentity": 978,
   "verifiedEmployment": 279,
-  "withAnyMetric": 1276,
-  "withQualifications": 1427,
-  "doctorateDocumented": 730,
-  "doctorateInProgress": 45,
+  "withAnyMetric": 1277,
+  "withQualifications": 1607,
+  "doctorateDocumented": 780,
+  "doctorateInProgress": 64,
   "doctorateContradictory": 0,
   "needsReview": 17,
   "metricAvailability": {
-    "publications": 1012,
-    "citations": 1266,
-    "recentCitations": 1176,
-    "hIndex": 1254
+    "publications": 1013,
+    "citations": 1267,
+    "recentCitations": 1177,
+    "hIndex": 1255
   },
   "careerStages": {
-    "Teaching / other": 92,
-    "Mid-career": 876,
-    "Early-career": 509,
-    "Professor": 528,
-    "Unknown": 121
+    "Teaching / other": 106,
+    "Mid-career": 931,
+    "Early-career": 624,
+    "Professor": 563,
+    "Unknown": 120
   },
   "identityAliases": 23,
   "internationalBenchmarks": {

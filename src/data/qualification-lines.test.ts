@@ -43,3 +43,17 @@ it("joins pipe-separated details and drops trailing research-interest text", () 
     "Reading for PhD (Kings College, London)",
   ]);
 });
+
+it("splits entries that run together without any separator", () => {
+  expect(
+    qualificationLines("PhD in Civil Engineering from Saitama University, Japan (2008) M. Eng in Structural Engineering from Saitama University, Japan (2005)"),
+  ).toEqual([
+    "PhD in Civil Engineering from Saitama University, Japan (2008)",
+    "M. Eng in Structural Engineering from Saitama University, Japan (2005)",
+  ]);
+  expect(qualificationLines("Ph.D. in Structural Engineering, Ehime University, Japan M.Sc. in Earthquake Engineering, ROSE School, Italy")).toEqual([
+    "Ph.D. in Structural Engineering, Ehime University, Japan",
+    "M.Sc. in Earthquake Engineering, ROSE School, Italy",
+  ]);
+  expect(qualificationLines("BA (Hons), Reading for PhD (Kings College, London)")).toEqual(["BA (Hons)", "Reading for PhD (Kings College, London)"]);
+});
