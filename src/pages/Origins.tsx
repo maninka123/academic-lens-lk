@@ -407,27 +407,21 @@ export function Origins() {
         />
         <div className="stat origin-split-card" style={{ "--lk": col.lk, "--ov": col.overseas } as React.CSSProperties}>
           <span className="os-label"><Globe2 size={16} aria-hidden="true" /><em>Sri Lanka vs overseas</em></span>
-          <div className="os-figures">
-            <div className="os-fig lk">
-              <i aria-hidden="true"><MapPin size={16} /></i>
-              <strong>{pct(lk, known.length)}</strong>
-              <small>Sri Lanka</small>
-              <small className="os-count">{fmt(lk)} doctorates</small>
-            </div>
-            <div className="os-fig ov">
-              <i aria-hidden="true"><Plane size={16} /></i>
-              <strong>{pct(known.length - lk, known.length)}</strong>
-              <small>Overseas</small>
-              <small className="os-count">{fmt(known.length - lk)} doctorates</small>
-            </div>
-          </div>
           <div
             className="os-bar"
             role="img"
-            aria-label={`${pct(lk, known.length)} Sri Lanka, ${pct(known.length - lk, known.length)} overseas`}
+            aria-label={`${pct(lk, known.length)} Sri Lanka (${fmt(lk)}), ${pct(known.length - lk, known.length)} overseas (${fmt(known.length - lk)})`}
           >
-            <u className="lk" style={{ width: `${known.length ? (100 * lk) / known.length : 0}%` }} />
-            <u className="ov" style={{ width: `${known.length ? (100 * (known.length - lk)) / known.length : 0}%` }} />
+            <u className="lk" style={{ width: `${known.length ? (100 * lk) / known.length : 0}%` }}>
+              <MapPin size={14} aria-hidden="true" />
+              <b>{pct(lk, known.length)}</b>
+              <small>Sri Lanka {fmt(lk)}</small>
+            </u>
+            <u className="ov" style={{ width: `${known.length ? (100 * (known.length - lk)) / known.length : 0}%` }}>
+              <Plane size={14} aria-hidden="true" />
+              <b>{pct(known.length - lk, known.length)}</b>
+              <small>Overseas {fmt(known.length - lk)}</small>
+            </u>
           </div>
           <small className="os-foot">{groups.length} awarding countries</small>
         </div>

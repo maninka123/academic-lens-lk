@@ -217,7 +217,7 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
   const spreadOption = {
     tooltip: { trigger: "item", confine: true, formatter: (p: any) => tip(origin[p.dataIndex]) },
     grid: { left: 8, right: 24, top: 10, bottom: 34, containLabel: true },
-    xAxis: { type: "value", name: `${measure}: middle 50% of people (white line = median)`, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { opacity: 0.35 } } },
+    xAxis: { type: "value", name: `${measure}: middle 50% of people`, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { opacity: 0.35 } } },
     yAxis: axisY,
     series: [
       { type: "bar", stack: "r", silent: true, itemStyle: { color: "transparent" }, data: origin.map((g) => g.q1 ?? 0) },
