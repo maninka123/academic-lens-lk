@@ -54,7 +54,7 @@ function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number; mi
         )}
         <span className="uni-rank">#{rank}</span>
         <span className="uni-type">{s.type}</span>
-        <span className="uni-mono">{(s.short.length <= 5 ? s.short : s.short.slice(0, 2)).toUpperCase()}</span>
+        <span className="uni-mono">{/^sliit$/i.test(s.short) ? "ST" : (s.short.length <= 5 ? s.short : s.short.slice(0, 2)).toUpperCase()}</span>
       </div>
       <div className="uni-body">
         <h3>{short(s.name)}</h3>

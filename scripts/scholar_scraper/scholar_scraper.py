@@ -281,7 +281,7 @@ def convert_serpapi_to_profile(scholar_id: str, data: dict, publications: bool =
 
 
 def fetch_profile_serpapi(scholar_id: str, api_key: str, publications: bool = True, publication_limit: int = 100) -> dict:
-    url = f"https://serpapi.com/search.json?engine=google_scholar_author&author_id={scholar_id}&api_key={api_key}"
+    url = f"https://serpapi.com/search.json?engine=google_scholar_author&author_id={scholar_id}&num=100&api_key={api_key}"
     req = urllib.request.Request(url, headers={"User-Agent": "LankaAcademia/1.0 (Mozilla/5.0)"})
     with urllib.request.urlopen(req, timeout=30) as resp:
         data = json.loads(resp.read().decode())
@@ -296,18 +296,24 @@ def fetch_profile_serpapi(scholar_id: str, api_key: str, publications: bool = Tr
     # If publication_limit == 0 (all) or > len(articles) and next page exists, paginate
     while publications and (publication_limit == 0 or len(articles) < publication_limit) and pagination.get("next"):
         next_url = f"{pagination['next']}&api_key={api_key}"
-        try:
-            next_req = urllib.request.Request(next_url, headers={"User-Agent": "LankaAcademia/1.0"})
-            with urllib.request.urlopen(next_req, timeout=25) as n_resp:
-                next_data = json.loads(n_resp.read().decode())
+        more_articles = None
+        for attempt in range(4):
+            try:
+                next_req = urllib.request.Request(next_url, headers={"User-Agent": "LankaAcademia/1.0"})
+                with urllib.request.urlopen(next_req, timeout=25) as n_resp:
+                    next_data = json.loads(n_resp.read().decode())
                 more_articles = next_data.get("articles", [])
-                if not more_articles:
-                    break
-                articles.extend(more_articles)
-                pagination = next_data.get("serpapi_pagination", {})
-                time.sleep(0.5)
-        except Exception:
+                break
+            except Exception:
+                time.sleep(2 * (attempt + 1))
+        if more_articles is None:
+            # Never report a partial first page as the total.
+            raise RuntimeError("Publication list stopped before the end; not reporting a partial count")
+        if not more_articles:
             break
+        articles.extend(more_articles)
+        pagination = next_data.get("serpapi_pagination", {})
+        time.sleep(0.5)
 
     data["articles"] = articles
     return convert_serpapi_to_profile(scholar_id, data, publications=publications, publication_limit=publication_limit)
