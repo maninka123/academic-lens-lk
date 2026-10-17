@@ -15,8 +15,6 @@ const numeric = [
   "citations",
   "recentCitations",
   "hIndex",
-  "q1",
-  "recentQ1",
 ];
 export async function loadDataset(): Promise<Dataset> {
   const dir = import.meta.env.BASE_URL + "data/";
@@ -82,6 +80,9 @@ export async function loadDataset(): Promise<Dataset> {
       row[key] = r[key] ? JSON.parse(r[key]) : [];
       if (!Array.isArray(row[key])) throw Error(`Invalid ${key} for ${r.id}`);
     }
+    // Q1 publication counts are not collected or published; the fields stay empty.
+    row.q1 = null;
+    row.recentQ1 = null;
     for (const k of numeric) {
       const n = r[k]?.trim() === "" ? null : Number(r[k]);
       if (n !== null && (!Number.isFinite(n) || n < 0))
