@@ -3766,3 +3766,32 @@ table.coverage-v2 {
 .compare-banner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 4px 0 20px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
 .compare-banner > span { display: grid; gap: 2px; }
 .compare-banner small { color: var(--muted); }
+
+/* Footer: note on the left, notices and copyright grouped on the right */
+.site-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding: 18px 4px 6px; margin-top: 24px; border-top: 1px solid var(--border); font-size: .8125rem; color: var(--muted); }
+.site-footer p { margin: 0; }
+.footer-links { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 0; }
+.footer-links > * { padding: 0 14px; border-left: 1px solid var(--border); line-height: 1.2; }
+.footer-links > :first-child { border-left: 0; }
+.footer-links > :last-child { padding-right: 0; }
+.footer-links a { color: var(--accent); }
+@media (max-width: 700px) { .site-footer { flex-direction: column; align-items: flex-start; } .footer-links > :first-child { padding-left: 0; } }
+
+/* Filter panel: one flat surface, two compact columns, menus open inline */
+.global-filter-panel { width: min(640px, 94vw); padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.global-filter-panel > .caption { margin: 0; padding: 12px 16px 0; font-size: .8125rem; }
+.global-filter-panel .filters { border: 0; background: transparent; border-radius: 0; margin: 0; display: flex; flex-direction: column; min-height: 0; overflow: auto; padding: 4px 16px 16px; }
+.global-filter-panel .filter-heading { position: sticky; top: 0; z-index: 2; background: var(--surface); padding: 10px 0; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+.global-filter-panel .filter-heading .button { padding: 0; font-weight: 700; font-size: .9375rem; background: transparent; gap: 8px; }
+.global-filter-panel .filter-heading .button:hover { background: transparent; }
+.global-filter-panel .filter-heading .pill { background: #eef2ff; color: #3b4fd6; font-size: .75rem; padding: 2px 9px; }
+.global-filter-panel .filter-content { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 0; align-items: start; }
+.global-filter-panel .filter-content > .field, .global-filter-panel .filter-content > details:not(.multi) { grid-column: 1 / -1; }
+.global-filter-panel .multi[open] { grid-column: 1 / -1; }
+.global-filter-panel .multi > summary { padding: 8px 12px; font-size: .875rem; min-height: 38px; background: var(--surface); }
+.global-filter-panel .multi-menu { position: static; width: auto; margin-top: 6px; max-height: 220px; overflow: auto; box-shadow: none; border: 1px solid var(--border); border-radius: 10px; }
+.global-filter-panel .field { font-size: .8125rem; font-weight: 600; color: var(--muted); }
+.global-filter-panel input:not([type="checkbox"]) { min-height: 38px; font-size: .875rem; }
+@media (max-width: 560px) { .global-filter-panel .filter-content { grid-template-columns: 1fr; } }
+.global-filter-panel .multi > summary { padding-right: 34px; }
+.global-filter-panel .multi > summary span { margin-right: 0; white-space: nowrap; }

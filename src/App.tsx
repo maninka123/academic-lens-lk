@@ -341,24 +341,25 @@ function Shell() {
               </Routes>
             </DataContext.Provider>
           )}
-          <footer>
-            Built for exploration, with context. Data may contain errors.{" "}
-            <a
-              href="https://github.com/maninka123/academic-lens-lk/blob/main/NOTICE.md"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Notice & corrections
-            </a>{" "}
-            |{" "}
-            <a
-              href="https://github.com/maninka123/academic-lens-lk/blob/main/PRIVACY.md"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Privacy
-            </a>{" "}
-            <span>Lanka Academia | 2026</span>
+          <footer className="site-footer">
+            <p>Built for exploration, with context. Data may contain errors.</p>
+            <nav className="footer-links" aria-label="Notices">
+              <a
+                href="https://github.com/maninka123/academic-lens-lk/blob/main/NOTICE.md"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Notice &amp; corrections
+              </a>
+              <a
+                href="https://github.com/maninka123/academic-lens-lk/blob/main/PRIVACY.md"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Privacy
+              </a>
+              <span>Lanka Academia | 2026</span>
+            </nav>
           </footer>
         </main>
       </div>
