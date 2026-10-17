@@ -8,7 +8,14 @@ export function academicDisplayName(
   a: Pick<Academic, "name" | "qualification" | "phdStatus" | "qualifications"> &
     Partial<Pick<Academic, "doctorateStatus" | "rank" | "position">>,
 ) {
-  const original = a.name.trim();
+  // "Surname, Title Initials" (as some directories list it) reads as "Title Initials Surname".
+  const reorder = (value: string) => {
+    const m = value.trim().match(
+      /^([^,]+?)\s*,\s*((?:(?:senior|snr\.?|emeritus|chair|rev\.?|ven\.?)\s+)?(?:professor|prof|dr|mrs|mr|ms|miss)\.?\s*)(.*)$/i,
+    );
+    return m ? `${m[2].trim()} ${m[3].trim()} ${m[1].trim()}`.replace(/\s+/g, " ") : value.trim();
+  };
+  const original = reorder(a.name);
   const sourceTitle = original.match(
     /(?:^|[\s.(])(Mrs|Ms|Miss|Mr)\.?\s*(?:\)|\s|(?=[A-Z]))/i,
   )?.[1];

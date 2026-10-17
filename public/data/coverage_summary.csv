@@ -1,14 +1,14 @@
 university_id,university,type,academic_records,verified_identity,verified_employment,with_any_metric,with_qualifications,doctorate_documented,doctorate_in_progress,doctorate_contradictory,needs_review,faculties_represented,departments_represented,units_discovered,units_visited,roster_status
-colombo,University of Colombo,Public,341,270,140,273,273,158,1,1,6,5,35,178,139,incomplete — collected profiles are not a staff census
+colombo,University of Colombo,Public,341,270,140,273,273,158,1,1,6,5,34,178,139,incomplete — collected profiles are not a staff census
 peradeniya,University of Peradeniya,Public,599,27,49,211,224,95,2,7,7,6,61,106,84,incomplete — collected profiles are not a staff census
 jayewardenepura,University of Sri Jayewardenepura,Public,14,3,0,8,10,9,0,0,1,2,0,5,5,incomplete — collected profiles are not a staff census
-kelaniya,University of Kelaniya,Public,89,62,15,65,69,33,1,0,0,3,6,18,15,incomplete — collected profiles are not a staff census
-moratuwa,University of Moratuwa,Public,352,218,5,227,277,213,0,0,0,6,37,91,82,incomplete — collected profiles are not a staff census
+kelaniya,University of Kelaniya,Public,86,60,15,63,67,33,1,0,0,3,6,18,15,incomplete — collected profiles are not a staff census
+moratuwa,University of Moratuwa,Public,346,213,5,222,273,209,0,0,0,5,32,91,82,incomplete — collected profiles are not a staff census
 jaffna,University of Jaffna,Public,133,64,12,73,92,25,2,0,0,7,31,118,109,incomplete — collected profiles are not a staff census
 ruhuna,University of Ruhuna,Public,59,47,58,47,59,34,6,0,1,1,3,4,4,incomplete — collected profiles are not a staff census
 kdu,General Sir John Kotelawala Defence University,Public,64,46,0,49,40,23,2,0,0,3,0,32,9,incomplete — collected profiles are not a staff census
 sliit,Sri Lanka Institute of Information Technology,Non-state,48,44,0,46,39,37,0,0,0,10,11,0,0,incomplete — collected profiles are not a staff census
-nsbm,NSBM Green University,Non-state,111,104,0,106,73,20,16,0,4,5,27,37,37,incomplete — collected profiles are not a staff census
+nsbm,NSBM Green University,Non-state,111,104,0,106,73,20,16,0,4,5,24,37,37,incomplete — collected profiles are not a staff census
 cinec,CINEC Campus,Non-state,71,13,0,24,57,6,1,0,0,6,12,55,35,incomplete — collected profiles are not a staff census
 horizon,Horizon Campus,Non-state,46,3,0,11,42,4,2,0,0,6,2,15,15,incomplete — collected profiles are not a staff census
 kiu,KIU,Non-state,1,0,0,1,0,0,0,0,0,1,0,24,24,incomplete — collected profiles are not a staff census

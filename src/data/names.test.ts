@@ -58,3 +58,9 @@ it("uses documented professorial roles and does not turn a lecturer into Prof", 
     }),
   ).toBe("Prof A. Perera");
 });
+
+it("reads a surname-first directory name in the usual order", () => {
+  expect(name("Seneviratne, Prof. S.D.S.")).toBe("Prof S.D.S. Seneviratne");
+  expect(name("Herath, Dr. K.", "PhD", "completed")).toBe("Prof K. Herath".replace("Prof", "Dr") + "*");
+  expect(name("Prof. A. Perera")).toBe("Prof A. Perera");
+});

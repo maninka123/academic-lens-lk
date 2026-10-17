@@ -163,7 +163,7 @@ export type Metadata = {
   collectionDate: string;
   window: [number, number];
   description: string;
-  q1Methodology: string;
+  q1Methodology?: string;
   limitations: string[];
   scopeNote: string;
   minimumSample?: number;

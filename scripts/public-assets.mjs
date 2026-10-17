@@ -56,8 +56,6 @@ export const PUBLIC_ACADEMIC_COLUMNS = [
   "citations",
   "recentCitations",
   "hIndex",
-  "q1",
-  "recentQ1",
   "sourceUrl",
   "scholarUrl",
   "researchgateUrl",

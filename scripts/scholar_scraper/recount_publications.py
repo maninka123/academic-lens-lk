@@ -8,13 +8,16 @@ results in scripts/New updates/newly_updated_academics.csv. Apply them afterward
   python3 scripts/apply_metric_updates.py "scripts/New updates/newly_updated_academics.csv"
 Stops early when Google Scholar keeps refusing; run it again later to continue.
 """
-import csv, glob, io, os, subprocess, sys, tempfile
+import csv, glob, io, os, random, subprocess, sys, tempfile, time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent
 SUSPECT = {"20", "100"}
-MAX_CONSECUTIVE_FAILURES = 5
+MAX_CONSECUTIVE_FAILURES = 3
+PAUSE_BETWEEN_PEOPLE = (90, 180)   # seconds; slow and polite so Google Scholar is not hammered
+PAUSE_AFTER_BLOCK = 30 * 60        # wait this long when Scholar refuses, then carry on
+MAX_BLOCK_WAITS = 24               # about 12 hours of patience in total
 
 
 def load_targets():
@@ -34,7 +37,7 @@ def load_targets():
             if r["google_scholar_url"] and r["academic_id"] not in done
             and (
                 r["total_publications"] in SUSPECT  # one page of "Show more"
-                or (r["h_index"] == "" and r["total_citations"] == "" and r["academic_id"] in reverted)  # all-zero read removed
+                or (r["academic_id"] in reverted and "" in (r["total_publications"], r["h_index"], r["total_citations"]))
             )
         ]
     return rows, header, tracked
@@ -44,6 +47,7 @@ def main():
     rows, header, tracked = load_targets()
     print(f"{len(rows)} people to re-count")
     failures = 0
+    waits = 0
     for i, r in enumerate(rows, 1):
         r = dict(r, total_publications="")
         with tempfile.TemporaryDirectory() as tmp:
@@ -68,8 +72,14 @@ def main():
         else:
             failures += 1
             if failures >= MAX_CONSECUTIVE_FAILURES:
-                print("Google Scholar keeps refusing; stopping. Run again later.")
-                return 1
+                waits += 1
+                if waits > MAX_BLOCK_WAITS:
+                    print("Google Scholar keeps refusing; stopping. Run again later.")
+                    return 1
+                print(f"Google Scholar is refusing; waiting {PAUSE_AFTER_BLOCK // 60} minutes (wait {waits}/{MAX_BLOCK_WAITS}).", flush=True)
+                time.sleep(PAUSE_AFTER_BLOCK)
+                failures = 0
+        time.sleep(random.uniform(*PAUSE_BETWEEN_PEOPLE))
     return 0
 
 

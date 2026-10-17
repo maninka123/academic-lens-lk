@@ -333,7 +333,6 @@ const metadata = {
   scopeNote:
     settings.scopeNote ||
     `${inScope.length} institutions are in scope (Saegis excluded); ${coverage.filter((c) => c.academic_records).length} have collected profiles. An institution or unit without collected profiles is not an institution without academic staff, and collected profiles are not the total academic population.`,
-  q1Methodology: q1Policy,
   minimumSample: settings.minimumSample || 10,
   correctionContact: settings.correctionContact || "",
   limitations: settings.limitations || [
@@ -400,8 +399,6 @@ const metricAvailability = Object.fromEntries(
     "citations",
     "recentCitations",
     "hIndex",
-    "q1",
-    "recentQ1",
   ].map((k) => [k, rows.filter((r) => r[k] !== null).length]),
 );
 const stageCounts = rows.reduce((m, r) => {

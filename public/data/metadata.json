@@ -1,6 +1,6 @@
 {
   "correctionContact": "pmranasinghe97@gmail.com",
-  "version": "partial-7a25462bec",
+  "version": "partial-f8b1bb8992",
   "mode": "real",
   "country": "Sri Lanka",
   "identityAliases": {
@@ -17,7 +17,16 @@
     "SL-9177ae2adf9a": "SL-ebec42c41062",
     "SL-7ac948df90b8": "SL-dd58210d266c",
     "SL-0ae2ea17bdd1": "SL-b591c176d5dd",
-    "SL-b4a241985315": "SL-f6f35579b731"
+    "SL-b4a241985315": "SL-f6f35579b731",
+    "SL-33955ac9a725": "SL-ccd474027aff",
+    "SL-fe7ae35729ee": "SL-ccd474027aff",
+    "SL-82f188e307a7": "SL-0794ff4eb488",
+    "SL-40c7bc9e6d53": "SL-58905f642d83",
+    "SL-0d23066489c3": "SL-852c786635cf",
+    "SL-aad827a4babb": "SL-785681e2a343",
+    "SL-e7bec1009ea7": "SL-1fa78683f6a5",
+    "SL-37854c13adee": "SL-05c63d84714e",
+    "SL-bfafd0abee77": "SL-8b37bf3db3ae"
   },
   "collectionDate": "2026-10-17",
   "updatedAt": "2026-10-17",
@@ -27,7 +36,6 @@
   ],
   "description": "Partial collection with documented corrections and source-specific research evidence. Counts are calculated from authoritative academic records; archives, aliases and evidence rows are excluded.",
   "scopeNote": "15 institutions are in scope (Saegis excluded); 15 have collected profiles. An institution or unit without collected profiles is not an institution without academic staff, and collected profiles are not the total academic population.",
-  "q1Methodology": "# Q1 journal article methodology\n\nDeclared 11 October 2026. Window: complete calendar years 2021–2025.\n\nProvider: SCImago Journal & Country Rank (SJR). Use each article publication year's journal ranking, identified by journal title and ISSN. The chosen quartile is the best quartile across the journal's subject categories for that ranking year; retain all category results in journal_quartile_evidence.csv. This convention does not equate disciplines or faculty curricula.\n\nEligible types: verified research articles and review articles published in journals. Exclude conference proceedings/papers, books, chapters, editorials, letters, corrections, preprints and unknown types. Retain evidence for publication type and publication year. Do not infer eligibility from a Scholar or ResearchGate item total.\n\nDeduplicate within an academic by normalised DOI, then conservative normalised title plus year where DOI is absent. A coauthored article may have one legitimate link to each verified academic author. Do not deduplicate across people.\n\nMissing publication-year or category evidence stays unresolved. Never substitute the current quartile, an institutional ranking, or another provider. Keep provider-specific evidence separate.\n\nPopulate total_q1_journal_publications only when the person's journal-article list is demonstrably complete and historical quartile evidence covers every eligible article. Apply the same standard within 2021–2025 for q1_publications_2021_2025. Otherwise both complete-total fields stay blank as appropriate. Verified partial counts belong in q1_partial_counts.csv with the known denominator and coverage limitations. Blank partial counts mean not assessed; zero requires an assessed eligible set. No Q1 percentages without a valid journal-article denominator.\n\nCitations received during 2021–2025 are a different metric from citations to articles published in those years. The citation window requires all five annual citation values; rolling since values are ineligible.\n",
   "minimumSample": 10,
   "limitations": [
     "Not an exhaustive national census: collected profiles are a subset of the academic population, and directory coverage is incomplete for every institution.",

@@ -30,7 +30,7 @@ test("academic records are unique and placed in a valid hierarchy", opts, () => 
 });
 test("missing metrics stay blank and numbers are non-negative", opts, () => {
   for (const r of csvRead("public/data/academics.csv"))
-    for (const k of ["publications", "citations", "recentCitations", "hIndex", "q1", "recentQ1", "experience"])
+    for (const k of ["publications", "citations", "recentCitations", "hIndex", "experience"])
       if (r[k] !== "") assert.ok(Number(r[k]) >= 0 && Number.isFinite(Number(r[k])), `${k} for ${r.id}`);
 });
 test("PhD qualification is only given for documented completed doctorates", opts, () => {

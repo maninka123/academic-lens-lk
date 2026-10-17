@@ -3866,3 +3866,29 @@ table.coverage-v2 {
 /* Compare pickers: the box shows only its value, same height as the other selects */
 .multi > summary.multi-bare { justify-content: space-between; min-height: 46px; }
 .multi > summary.multi-bare span { color: var(--text); font-size: .9375rem; font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 22px; }
+
+/* Fallback notice: everything on one left edge */
+.score-fallback { display: grid; gap: 4px; padding: 14px 18px; text-align: left; }
+.score-fallback strong { display: block; font-size: .9375rem; }
+.score-fallback ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+.score-fallback li { margin: 0; padding: 0; line-height: 1.45; }
+.score-fallback span { display: block; font-size: .8125rem; line-height: 1.4; }
+
+/* Audit fixes: nothing may push the page wider than the screen */
+.brand small { font-size: .6875rem; letter-spacing: .12em; white-space: nowrap; }
+.score-bar-value { min-width: 44px; white-space: nowrap; }
+.quickstart, .quickstart-group, .comparison-setup, .comparison-workspace { min-width: 0; max-width: 100%; }
+@media (max-width: 760px) {
+  .chip-group { display: flex; flex-wrap: wrap; max-width: 100%; }
+  .pos-toolbar .chip-group, .pos-std-controls .chip-group { height: auto; }
+  .pos-std-controls, .pos-toolbar { flex-wrap: wrap; max-width: 100%; }
+}
+
+/* Top bar wraps instead of overflowing on tablet widths */
+.topbar { flex-wrap: wrap; row-gap: 6px; height: auto; min-height: 56px; }
+.topbar .data-badge { margin-left: auto; }
+@media (max-width: 1100px) { .topbar .preview-pill { margin-left: 0; } }
+@media (max-width: 1100px) and (min-width: 761px) { .topbar .breadcrumb { display: none; } .topbar { padding: 0 20px; flex-wrap: nowrap; } .topbar > .inline { margin-right: auto; } .topbar .preview-pill { margin: 0; } }
+@media (max-width: 760px) { .topbar { padding: 8px 14px; } .topbar .data-badge { display: none; } }
+@media (max-width: 900px) and (min-width: 761px) { .topbar .data-badge { display: none; } }
+@media (max-width: 760px) { .topbar > .inline { flex: 1 1 100%; } .topbar .preview-pill { margin: 0 auto 0 0; } .topbar { gap: 8px; } }
