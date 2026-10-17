@@ -158,7 +158,7 @@ function Info({ items }: { items: InfoItem[] }) {
             {country ? (
               <>
                 <CountryName country={country} />
-                {v ? <span className="muted"> · {v}</span> : null}
+                {v ? <span className="muted"> | {v}</span> : null}
               </>
             ) : (
               evidenceLabel(v)
@@ -235,7 +235,7 @@ export function Profile() {
         : ev.identity === "review"
           ? "review"
           : "recorded",
-      `${e?.source || a.metricsSource || "Source not recorded"}${e?.date ? " · " + e.date : ""}${ev.identity === "verified" ? " · identity linked from an official page" : " · identity not independently verified"}`,
+      `${e?.source || a.metricsSource || "Source not recorded"}${e?.date ? " | " + e.date : ""}${ev.identity === "verified" ? " | identity linked from an official page" : " | identity not independently verified"}`,
     ];
   };
   return (
@@ -277,7 +277,7 @@ export function Profile() {
       <div className="person-hero">
         <AcademicPortrait academic={a} />
         <div className="person-main">
-          <div className="eyebrow">{a.type + " · " + a.rank}</div>
+          <div className="eyebrow">{a.type + " | " + a.rank}</div>
           <h1>{a.name}</h1>
           <p>{a.university}</p>
           <Button
@@ -668,7 +668,7 @@ export function Institution() {
         <Header
           eyebrow={
             u.type +
-            " · " +
+            " | " +
             (department
               ? "Department"
               : faculty
@@ -688,7 +688,7 @@ export function Institution() {
             target="_blank"
             rel="noreferrer"
           >
-            Photo · {campus.credit} ↗
+            Photo | {campus.credit} ↗
           </a>
         )}
       </div>
@@ -697,7 +697,7 @@ export function Institution() {
         rosterNote={
           (d.coverage.find((c) => c.university_id === u.id)?.roster_status ||
             "Directory coverage not assessed.") +
-          ` · ${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties and ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments represented in the collected profiles.`
+          ` | ${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties and ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments represented in the collected profiles.`
         }
       />
       <Card

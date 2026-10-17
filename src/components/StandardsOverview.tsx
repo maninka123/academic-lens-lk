@@ -95,9 +95,9 @@ export function StandardsOverview() {
       </div>
       <div className="std-sectors">
         <div className="std-sector public"><small>Public universities</small>
-          <strong>{pub.median === null ? "—" : fmt(pub.median, 1)}</strong><span>median {label} · {pub.n} profiles</span></div>
+          <strong>{pub.median === null ? "—" : fmt(pub.median, 1)}</strong><span>median {label} | {pub.n} profiles</span></div>
         <div className="std-sector private"><small>Non-state institutions</small>
-          <strong>{pri.median === null ? "—" : fmt(pri.median, 1)}</strong><span>median {label} · {pri.n} profiles{pri.median === null ? " (fewer than 10)" : ""}</span></div>
+          <strong>{pri.median === null ? "—" : fmt(pri.median, 1)}</strong><span>median {label} | {pri.n} profiles{pri.median === null ? " (fewer than 10)" : ""}</span></div>
       </div>
       {unis.length ? (
         <Chart option={option} height={Math.max(220, unis.length * 44 + 30)} label={`Median ${label} by university for ${position}`} />

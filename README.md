@@ -6,7 +6,7 @@
 
 `Ongoing Research | Public Preview`
 
-[**Open the app**](https://maninka123.github.io/academic-lens-lk/) · [Documentation](docs/PROJECT_GUIDE.md) · [Dataset guide](Data%20files/README.md) · [Report a correction](https://github.com/maninka123/academic-lens-lk/issues/new/choose)
+[**Open the app**](https://maninka123.github.io/academic-lens-lk/) | [Documentation](docs/PROJECT_GUIDE.md) | [Dataset guide](Data%20files/README.md) | [Report a correction](https://github.com/maninka123/academic-lens-lk/issues/new/choose)
 
 ![License: MIT](https://img.shields.io/badge/code-MIT-blue) ![Stats: CC BY 4.0](https://img.shields.io/badge/stats-CC%20BY%204.0-blue) ![Status: partial collection](https://img.shields.io/badge/data-partial%20collection-orange)
 
@@ -14,7 +14,7 @@
 
 <!-- dataset-summary:start -->
 <!-- Snapshot partial-5e57b595a9 -->
-**2,136 Sri Lankan profiles · 15 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-17. [Coverage report](reports/validation-report.md).
+**2,136 Sri Lankan profiles | 15 institutions | 1,740 international benchmark profiles.** Partial collection, updated 2026-10-17. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
 ## Screenshots
@@ -67,9 +67,9 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 - **Every comparison shows its source, sample size and coverage.** Citation counts are not a measure of academic quality.
 - **Titles:** **Prof** for documented professorial positions, otherwise **Dr** for a completed research doctorate.
 - **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
-- **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) · **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
+- **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
 
-More: [Methodology & setup](docs/PROJECT_GUIDE.md) · [Data policy](docs/DATA_POLICY.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
+More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](DATA_COLLECTION_PROMPT.md)
 
 ## Global benchmark method
 
@@ -109,7 +109,7 @@ Research comparisons use matched OpenAlex profiles on both sides, with Computer 
 
 ## Acknowledgements
 
-Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-atlas) · Research indexes: [OpenAlex](https://openalex.org) · University rankings: QS World University Rankings 2027 · Flag icons: [country-flag-icons](https://github.com/catamphetamine/country-flag-icons) · Campus photographs are credited to their owners in [docs/CAMPUS_IMAGES.md](docs/CAMPUS_IMAGES.md).
+Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-atlas) | Research indexes: [OpenAlex](https://openalex.org) | University rankings: QS World University Rankings 2027 | Flag icons: [country-flag-icons](https://github.com/catamphetamine/country-flag-icons) | Campus photographs are credited to their owners in [docs/CAMPUS_IMAGES.md](docs/CAMPUS_IMAGES.md).
 
 ## Licence
 

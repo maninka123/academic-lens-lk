@@ -81,7 +81,7 @@ export function PeerDistribution({
             confine: true,
             formatter: (p: any) => {
               const d = p.data;
-              return `${d.name}${d.id === academic.id ? " · This person" : ""}\n${d.university}\n${d.position}\n${paired ? metricLabels[horizontal] + ": " + plotNumber(d.rawX) + "\n" : ""}${metricLabels[metric]}: ${plotNumber(d.rawY)}\n${provider}`;
+              return `${d.name}${d.id === academic.id ? " | This person" : ""}\n${d.university}\n${d.position}\n${paired ? metricLabels[horizontal] + ": " + plotNumber(d.rawX) + "\n" : ""}${metricLabels[metric]}: ${plotNumber(d.rawY)}\n${provider}`;
             },
           },
           xAxis: {

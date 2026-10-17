@@ -175,9 +175,9 @@ export function groupLabel(a: Academic, l: Level) {
   return l === "university"
     ? a.university
     : l === "faculty"
-      ? `${a.faculty || "Faculty unavailable"} · ${a.university}`
+      ? `${a.faculty || "Faculty unavailable"} | ${a.university}`
       : l === "department"
-        ? `${a.department || "Department unavailable"} · ${a.university}`
+        ? `${a.department || "Department unavailable"} | ${a.university}`
         : groupKey(a, l);
 }
 export function groupRows(

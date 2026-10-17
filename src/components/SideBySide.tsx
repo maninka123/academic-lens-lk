@@ -75,7 +75,7 @@ function Column({
             {person.doctorateStatus === "completed_documented" ? (
               <>
                 {person.phdYear ?? "Completed"}
-                {person.phdCountry && <> · <CountryName country={person.phdCountry} /></>}
+                {person.phdCountry && <> | <CountryName country={person.phdCountry} /></>}
                 {person.phdUniversity && <small>{person.phdUniversity}</small>}
               </>
             ) : person.doctorateStatus === "in_progress" ? "In progress" : "Not documented"}

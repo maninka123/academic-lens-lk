@@ -506,7 +506,7 @@ if (fs.existsSync(readme)) {
   const block = [
     "<!-- dataset-summary:start -->",
     `<!-- Snapshot ${version} -->`,
-    `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles · ${summary.institutionsWithProfiles} institutions · ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${metadata.updatedAt}. [Coverage report](reports/validation-report.md).`,
+    `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles | ${summary.institutionsWithProfiles} institutions | ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${metadata.updatedAt}. [Coverage report](reports/validation-report.md).`,
     "<!-- dataset-summary:end -->",
   ].join("\n");
   const text = fs.readFileSync(readme, "utf8");

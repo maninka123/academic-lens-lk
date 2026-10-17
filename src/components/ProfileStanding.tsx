@@ -95,10 +95,10 @@ export function ProfileStanding({
             onChange={(e) => setCohort(e.target.value as PeerCohort)}
           >
             <option value="position">
-              Same position · {positionLabel || "Unrecorded"}
+              Same position | {positionLabel || "Unrecorded"}
             </option>
             <option value="qualification">
-              Same qualification · {a.qualification}
+              Same qualification | {a.qualification}
             </option>
             <option value="both">Same position and qualification</option>
             <option value="phd">PhD holders</option>
@@ -127,8 +127,8 @@ export function ProfileStanding({
             onChange={(e) => setView(e.target.value as PeerChartView)}
           >
             <option value="benchmarks">Person, median and mean</option>
-            <option value="distribution">Distribution · individual dots</option>
-            <option value="scatter">Scatter · two measurements</option>
+            <option value="distribution">Distribution | individual dots</option>
+            <option value="scatter">Scatter | two measurements</option>
           </Select>
         </label>
         {view === "scatter" && (
@@ -160,10 +160,10 @@ export function ProfileStanding({
       </div>
       <div className="peer-scope" aria-live="polite">
         <strong>
-          {active.label} · {cohortDescription(a, cohort)}
+          {active.label} | {cohortDescription(a, cohort)}
         </strong>
         <span>
-          {active.members.length} group profiles · {active.n} with{" "}
+          {active.members.length} group profiles | {active.n} with{" "}
           {metricLabels[metric].toLowerCase()} from {provider}
         </span>
         {active.percentile !== null && (
@@ -214,7 +214,7 @@ export function ProfileStanding({
           ) : (
             <>
               <p className="peer-plot-caption">
-                {active.label} · {cohortDescription(a, cohort)} · {provider}
+                {active.label} | {cohortDescription(a, cohort)} | {provider}
               </p>
               <Chart
                 label={`${a.name}: ${metricLabels[metric]} against ${active.label} mean and median`}
@@ -376,7 +376,7 @@ export function ProfileStanding({
           >
             <strong className="peer-result-label">{g.label}</strong>
             <span className="peer-result-scope">
-              {g.description.split(" · ")[0]}
+              {g.description.split(" | ")[0]}
             </span>
             <div className="peer-result-main">
               <strong>{g.median === null ? "—" : plotNumber(g.median)}</strong>
@@ -498,8 +498,8 @@ export function ProfileStanding({
         </div>
       </details>
       <p className="chart-note">
-        {provider && provider !== "Not recorded" ? provider + " · " : ""}At
-        least {MIN_SAMPLE} valid values per group · Descriptive comparisons of
+        {provider && provider !== "Not recorded" ? provider + " | " : ""}At
+        least {MIN_SAMPLE} valid values per group | Descriptive comparisons of
         collected profiles
       </p>
     </Card>

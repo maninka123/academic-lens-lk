@@ -290,10 +290,10 @@ export function Global() {
   };
   const describe = (g: Group) =>
     `${g.values.length} valid of ${g.eligible} eligible` +
-    (weak(g) ? ` · weak coverage (${fmt(coverage(g), 1)}%)` : "");
+    (weak(g) ? ` | weak coverage (${fmt(coverage(g), 1)}%)` : "");
   const zeroCount = view.tierGroups.reduce((s, g) => s + g.zeros, 0);
 
-  // 1 · Box plot: Sri Lanka vs each tier (insufficient groups are not drawn).
+  // 1 | Box plot: Sri Lanka vs each tier (insufficient groups are not drawn).
   const box = {
     tooltip: { trigger: "item", confine: true },
     grid: { left: 70, right: 30, top: 30, bottom: 60, containLabel: true },
@@ -336,14 +336,14 @@ export function Global() {
             if (!enough(g))
               return `${g.label}<br/>Insufficient sample: ${describe(g)} (minimum ${minN})`;
             const s = summary(g.values);
-            return `${g.label}<br/>Median ${fmt(s.median, 1)} · IQR ${fmt(s.q1, 1)}–${fmt(s.q3, 1)}<br/>${describe(g)}${log && g.zeros ? `<br/>${g.zeros} zero values not drawn` : ""}`;
+            return `${g.label}<br/>Median ${fmt(s.median, 1)} | IQR ${fmt(s.q1, 1)}–${fmt(s.q3, 1)}<br/>${describe(g)}${log && g.zeros ? `<br/>${g.zeros} zero values not drawn` : ""}`;
           },
         },
       },
     ],
   };
 
-  // 2 · Country × tier medians with the Sri Lanka median as a reference line.
+  // 2 | Country × tier medians with the Sri Lanka median as a reference line.
   const byCountry = {
     tooltip: { trigger: "item", confine: true },
     legend: { show: false },
@@ -389,8 +389,8 @@ export function Global() {
       tooltip: {
         formatter: (p: any) =>
           p.data.n >= minN
-            ? `${p.name} · ${tierShort[t]}<br/>Median ${fmt(p.value, 1)} (${p.data.n} valid of ${p.data.eligible})`
-            : `${p.name} · ${tierShort[t]}<br/>Insufficient sample (${p.data.n} valid; minimum ${minN})`,
+            ? `${p.name} | ${tierShort[t]}<br/>Median ${fmt(p.value, 1)} (${p.data.n} valid of ${p.data.eligible})`
+            : `${p.name} | ${tierShort[t]}<br/>Insufficient sample (${p.data.n} valid; minimum ${minN})`,
       },
       ...(i === 0 && slMedian !== null
         ? {
@@ -406,7 +406,7 @@ export function Global() {
     })),
   };
 
-  // 3 · University ladder (median), only universities with an adequate sample.
+  // 3 | University ladder (median), only universities with an adequate sample.
   const allLadderUnits = view.units
     .filter((u) => enough(u) && median(u.values) !== null)
     .map((u) => ({ ...u, med: median(u.values)! }))
@@ -453,14 +453,14 @@ export function Global() {
         tooltip: {
           formatter: (p: any) => {
             const u: Unit = p.data.unit;
-            return `${u.label} (${u.country})<br/>${u.key === "sl" ? "Sri Lanka" : tierLabels[u.key as Tier]} · QS 2027 ${u.qs}<br/>Median ${fmt(median(u.values), 1)} · ${describe(u)}`;
+            return `${u.label} (${u.country})<br/>${u.key === "sl" ? "Sri Lanka" : tierLabels[u.key as Tier]} | QS 2027 ${u.qs}<br/>Median ${fmt(median(u.values), 1)} | ${describe(u)}`;
           },
         },
       },
     ],
   };
 
-  // 4 · QS position vs median metric.
+  // 4 | QS position vs median metric.
   const scatterUnits = allLadderUnits.filter((u) => qsNumeric(u.qs) !== null && (!log || u.med > 0));
   const scatter = {
     tooltip: { trigger: "item", confine: true },
@@ -554,7 +554,7 @@ export function Global() {
   const exportTable = () =>
     exportStatistics(
       {
-        title: `Global benchmarks · ${metricNames[metric]}`,
+        title: `Global benchmarks | ${metricNames[metric]}`,
         population:
           "Sri Lankan collected profiles in matched disciplines and international QS-tier samples (seven covered disciplines)",
         filters: {
@@ -643,7 +643,7 @@ export function Global() {
       formatter: (p: any) => {
         const v = p.data?.value;
         if (!v) return "";
-        return `${p.seriesName} · ${posCats[Math.round(v[0] - p.data.off) - 1]}\nMedian ${metricNames[posMetric]}: ${fmt(v[1], 1)}\nMiddle 50%: ${fmt(v[2], 1)} to ${fmt(v[3], 1)}\nValid profiles: ${v[4]}`;
+        return `${p.seriesName} | ${posCats[Math.round(v[0] - p.data.off) - 1]}\nMedian ${metricNames[posMetric]}: ${fmt(v[1], 1)}\nMiddle 50%: ${fmt(v[2], 1)} to ${fmt(v[3], 1)}\nValid profiles: ${v[4]}`;
       },
     },
     grid: { left: 10, right: 20, top: 24, bottom: 52, containLabel: true },
@@ -760,7 +760,7 @@ export function Global() {
         key={g.key}
         label={g.key === "sl" ? "Sri Lanka" : tierShort[g.key as Tier]}
         value={m === null ? "—" : fmt(m, 1)}
-        detail={`${g.values.length} valid profiles${m === null ? " · insufficient data" : " · median " + metricNames[metric]}`}
+        detail={`${g.values.length} valid profiles${m === null ? " | insufficient data" : " | median " + metricNames[metric]}`}
       />
     );
   };
@@ -768,9 +768,9 @@ export function Global() {
   return (
     <>
       <Header
-        eyebrow="Sri Lanka · International benchmarks"
+        eyebrow="Sri Lanka | International benchmarks"
         title="Global benchmarks"
-        description={`${b.universities.length} universities · 7 countries · QS 2027 tiers`}
+        description={`${b.universities.length} universities | 7 countries | QS 2027 tiers`}
         action={
           <Button variant="ghost" onClick={exportTable}>
             <Download size={17} aria-hidden="true" />
@@ -781,8 +781,8 @@ export function Global() {
       {mode === "likeForLike" ? (
         <div className="benchmark-method-note" role="note">
           <span>
-            OpenAlex on both sides · {view.slMatched.length} Sri Lankan matches
-            · Minimum {minN} valid profiles per group
+            OpenAlex on both sides | {view.slMatched.length} Sri Lankan matches
+            | Minimum {minN} valid profiles per group
           </span>
           <a
             href="https://github.com/maninka123/academic-lens-lk#global-benchmark-method"
@@ -882,7 +882,7 @@ export function Global() {
       </div>
       {(includeProxy || log) && (
         <p className="chart-note">
-          {includeProxy ? "Proxy disciplines included · " : ""}
+          {includeProxy ? "Proxy disciplines included | " : ""}
           {log
             ? `Log scale: ${zeroCount} zero values remain in summaries but are not plotted.`
             : ""}
@@ -930,7 +930,7 @@ export function Global() {
       <div className="two-columns">
         <Card
           title="Sri Lanka against each tier"
-          subtitle="Box: middle 50% · Line: median · Whiskers: observed range"
+          subtitle="Box: middle 50% | Line: median | Whiskers: observed range"
         >
           <Chart
             option={box}
@@ -1043,7 +1043,7 @@ export function Global() {
       )}
       <Card
         title="Where universities sit"
-        subtitle={`${allLadderUnits.filter(u => u.key === "sl").length} Sri Lankan institutions · at least ${minN} valid profiles · orange bars`}
+        subtitle={`${allLadderUnits.filter(u => u.key === "sl").length} Sri Lankan institutions | at least ${minN} valid profiles | orange bars`}
         action={
           <Button
             variant="ghost"
@@ -1059,7 +1059,7 @@ export function Global() {
           <details className="benchmark-missing">
             <summary>{hiddenSl.length} Sri Lankan universities need more usable metric values</summary>
             <p>Each median needs {minN} valid values for the selected filters and provider. Missing values are not zero.</p>
-            <ul>{hiddenSl.map(u => <li key={u.id}><strong>{u.label}</strong><span>{mode === "likeForLike" && u.attempted === 0 ? `OpenAlex lookup pending · ${u.eligible} matching profiles` : `${u.values.length} usable values / ${u.eligible} matching profiles`}</span></li>)}</ul>
+            <ul>{hiddenSl.map(u => <li key={u.id}><strong>{u.label}</strong><span>{mode === "likeForLike" && u.attempted === 0 ? `OpenAlex lookup pending | ${u.eligible} matching profiles` : `${u.values.length} usable values / ${u.eligible} matching profiles`}</span></li>)}</ul>
           </details>
         )}
         <div className="benchmark-ladder-window">
@@ -1129,7 +1129,7 @@ export function Global() {
                   <td className={enough(u) && !weak(u) ? "" : "flag-cell"}>
                     {enough(u) ? <NumericValue value={median(u.values)} maximum={Math.max(0, ...tableRows.filter(enough).map(x => median(x.values) ?? 0))} /> : `Not enough data (n < ${minN})`}
                     {enough(u) && weak(u) && (
-                      <small className="warn-text"> · weak coverage</small>
+                      <small className="warn-text"> | weak coverage</small>
                     )}
                   </td>
                 </tr>
@@ -1205,7 +1205,7 @@ export function GlobalTeaser() {
     <Card
       className="global-preview"
       title="Sri Lanka & global benchmarks"
-      subtitle="Median h-index · selected disciplines"
+      subtitle="Median h-index | selected disciplines"
       action={
         <Link className="text-link" to="/global">
           Explore benchmarks →
@@ -1250,7 +1250,7 @@ export function GlobalTeaser() {
         ))}
       </ul>
       <p className="benchmark-caption">
-        OpenAlex · QS 2027 samples · 7 countries · Matched profiles only
+        OpenAlex | QS 2027 samples | 7 countries | Matched profiles only
       </p>
     </Card>
   );

@@ -350,7 +350,7 @@ function Shell() {
             >
               Notice & corrections
             </a>{" "}
-            ·{" "}
+            |{" "}
             <a
               href="https://github.com/maninka123/academic-lens-lk/blob/main/PRIVACY.md"
               target="_blank"
@@ -358,7 +358,7 @@ function Shell() {
             >
               Privacy
             </a>{" "}
-            <span>Lanka Academia · 2026</span>
+            <span>Lanka Academia | 2026</span>
           </footer>
         </main>
       </div>

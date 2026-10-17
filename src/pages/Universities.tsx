@@ -66,12 +66,12 @@ function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number; mi
             ? [
                 s.faculties ? `${s.faculties} faculties` : "",
                 s.departments ? `${s.departments} departments` : "",
-              ].filter(Boolean).join(" · ") || "Units not recorded"
+              ].filter(Boolean).join(" | ") || "Units not recorded"
             : "No collected profiles"}
         </p>
         <div className="uni-headline">
           <strong>{fmt(s.profiles)}</strong>
-          <span>profiles · {s.share.toFixed(1)}% of Lanka Academia</span>
+          <span>profiles | {s.share.toFixed(1)}% of Lanka Academia</span>
         </div>
         <dl className="uni-facts">
           <div>
@@ -94,7 +94,7 @@ function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number; mi
           </div>
         </dl>
         {thin && s.profiles > 0 && (
-          <p className="uni-flag">Small sample · figures indicative only</p>
+          <p className="uni-flag">Small sample | figures indicative only</p>
         )}
         <span className="uni-open">
           Open institution <ArrowUpRight size={16} />

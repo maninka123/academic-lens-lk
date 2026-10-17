@@ -12,8 +12,8 @@ export const peerContexts = [
   ["department", "Same department"],
   ["faculty", "Same faculty"],
   ["university", "Same university"],
-  ["field", "Same field · all universities"],
-  ["rank", "Same position · all universities"],
+  ["field", "Same field | all universities"],
+  ["rank", "Same position | all universities"],
   ["qualification", "Same qualification"],
   ["sector", "Same institution type"],
   ["all", "All collected profiles"],
@@ -63,7 +63,7 @@ export function contextDescription(a: Academic, key: string) {
     }[key] || ""
   );
 }
-/** Compact label of who is in a peer context, for hover chips ("A · B · C"). */
+/** Compact label of who is in a peer context, for hover chips ("A | B | C"). */
 export function contextShort(a: Academic, key: string) {
   const role = positionLabel(a);
   return (
@@ -147,7 +147,7 @@ export function buildPeerGroups(
       return {
         key,
         label: key === "all" && cohort !== "all" ? "All selected peers" : label,
-        description: [contextShort(a, key), cohortShort(a, cohort), provider].filter(Boolean).join(" · "),
+        description: [contextShort(a, key), cohortShort(a, cohort), provider].filter(Boolean).join(" | "),
         members,
         measured,
         v,
