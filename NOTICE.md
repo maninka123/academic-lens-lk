@@ -20,10 +20,10 @@ Provided "as is". The authors accept no liability for errors, omissions or any u
 - **Map boundaries**: Natural Earth. Flag icons: country-flag-icons (MIT).
 
 ## Corrections and removal
-Anyone named in this dataset can ask for a correction or removal, no reason needed.
+Requests for a correction or removal can be made through the routes below.
 1. **Public request:** open a *Correction or removal request* issue: https://github.com/maninka123/academic-lens-lk/issues/new/choose
 2. **Private request:** use **Security → Report a vulnerability** on the repository (https://github.com/maninka123/academic-lens-lk/security/advisories/new) if you do not want your request to be public.
 
-We aim to respond within **7 days** and to publish a correction or removal in the next data release. Requests are honoured on the person's word; evidence is not demanded for a removal.
+We aim to review requests within a reasonable time and, where a request is accepted, to apply it in a later data release.
 
 Licences: code [MIT](LICENSE) · aggregate statistics and reports [CC BY 4.0](DATA_LICENSE.md) · individual records are not covered by a Creative Commons licence. Ethics statement: [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md). Privacy and data use: [PRIVACY.md](PRIVACY.md).

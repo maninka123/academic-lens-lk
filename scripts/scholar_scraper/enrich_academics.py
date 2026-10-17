@@ -135,7 +135,7 @@ def enrich_record(
             profile = cached
         else:
             try:
-                profile = gs.fetch_profile(scholar_id, publications=True, publication_limit=100, engine=scholar_engine)
+                profile = gs.fetch_profile(scholar_id, publications=True, publication_limit=0, engine=scholar_engine)
                 gs.save_cache(cache_dir, scholar_id, profile)
             except Exception as e:
                 print(f"    [Scholar] {scholar_id} fetch failed: {e}")

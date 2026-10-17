@@ -20,7 +20,7 @@ A descriptive, public-interest overview of academic capacity in Sri Lanka: who w
 - **Accuracy:** unknown values stay unknown; low-confidence matches are labelled "unverified" or left blank; groups below a minimum sample are not reported.
 - **Context:** every comparison states its source, sample size and limits.
 - **Individual figures:** shown only on a person's own profile, never as a ranked public list, and described as relative to collected profiles only.
-- **Correction and removal:** see [NOTICE.md](NOTICE.md). Requests are honoured without requiring a reason, with a 7-day response target.
+- **Correction and removal:** see [NOTICE.md](NOTICE.md). Requests are reviewed as soon as reasonably practicable.
 - **Provenance:** each value keeps its source and retrieval date in a private audit trail.
 
 ## Limitations

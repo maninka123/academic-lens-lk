@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you. We aim to respond within **7 days**. You do not need to give a reason for a removal.
+        Thank you. We aim to review requests within a reasonable time.
         **Do not post private information** (phone numbers, home address, ID numbers) in this public form. If you would rather not make the request public, use **Security > Report a vulnerability** on this repository instead.
   - type: dropdown
     id: type
