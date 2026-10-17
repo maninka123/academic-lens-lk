@@ -37,7 +37,7 @@ def load_targets():
             if r["google_scholar_url"] and r["academic_id"] not in done
             and (
                 r["total_publications"] in SUSPECT  # one page of "Show more"
-                or (r["academic_id"] in reverted and "" in (r["total_publications"], r["h_index"], r["total_citations"]))
+                or (r["academic_id"] in reverted and "" in (r["total_publications"], r["h_index"], r["total_citations"], r["citations_2021_2025"]))
             )
         ]
     return rows, header, tracked
