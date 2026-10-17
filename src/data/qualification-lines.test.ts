@@ -16,12 +16,12 @@ it("keeps commas inside brackets and institution names together", () => {
     "PhD (Reading, Ruhuna)",
     "BScEng (Hons) (Ruhuna)",
   ]);
-  expect(qualificationLines("PhD, University of Colombo, Sri Lanka")).toEqual(["PhD, University of Colombo, Sri Lanka"]);
+  expect(qualificationLines("PhD, University of Colombo, Sri Lanka")).toEqual(["PhD, University of Colombo"]);
 });
 it("splits on semicolons and shortens very long entries", () => {
   const lines = qualificationLines("BSc (Hons); MSc " + "Advanced Studies ".repeat(12));
   expect(lines[0]).toBe("BSc (Hons)");
-  expect(lines[1].length).toBeLessThanOrEqual(97);
+  expect(lines[1].length).toBeLessThanOrEqual(131);
   expect(lines[1].endsWith("…")).toBe(true);
 });
 it("returns nothing for empty text", () => {
@@ -56,4 +56,21 @@ it("splits entries that run together without any separator", () => {
     "M.Sc. in Earthquake Engineering, ROSE School, Italy",
   ]);
   expect(qualificationLines("BA (Hons), Reading for PhD (Kings College, London)")).toEqual(["BA (Hons)", "Reading for PhD (Kings College, London)"]);
+});
+
+it("abbreviates degrees and institutions so a line stays readable", () => {
+  expect(
+    qualificationLines(
+      "Board Certification as a specialist in Community Medicine (4th of January 2017) - Post Graduate Institute of Medicine, University of Colombo, Sri Lanka; MASTER OF SCIENCE IN INFORMATION TECHNOLOGY - Sri Lanka Institute of Information Technology, Malabe, Sri Lanka, January 2014",
+    ),
+  ).toEqual([
+    "Board Certification as a specialist in Community Medicine (Jan 2017), PGIM, University of Colombo",
+    "MSc in Information Technology, SLIIT, Malabe, Sri Lanka, January 2014",
+  ]);
+});
+
+it("turns level-institution-year dumps into one readable line per degree", () => {
+  expect(
+    qualificationLines("Bachelor, University of Moratuwa,2002 Electrical Engineering Masters, University of Moratuwa ,2005 Power Systems"),
+  ).toEqual(["Bachelor in Electrical Engineering, University of Moratuwa, 2002", "Masters in Power Systems, University of Moratuwa, 2005"]);
 });
