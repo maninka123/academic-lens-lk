@@ -43,7 +43,7 @@ How to reach us:
 - **Public request:** https://github.com/maninka123/academic-lens-lk/issues/new/choose (use the "Correction or removal request" form; do not post private details)
 - **Private request:** https://github.com/maninka123/academic-lens-lk/security/advisories/new
 
-Our target is to respond to requests within 14 days; this is a target, not a guarantee. Where a removal is accepted, we aim to apply it in a later data release. Where a profile is removed, we keep only a minimal record that a request was made, so it is not re-added.
+Our target is to respond to requests within 14 days. Where a removal is accepted, we aim to apply it in a later data release. Where a profile is removed, we keep only a minimal record that a request was made, so it is not re-added.
 
 ## 8. How long we keep information
 - **Published profiles:** for as long as the project is active, or until you ask for removal.

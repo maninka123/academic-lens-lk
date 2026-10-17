@@ -25,6 +25,6 @@ Requests for a correction or removal can be made through the routes below.
 2. **Public request:** open a *Correction or removal request* issue: https://github.com/maninka123/academic-lens-lk/issues/new/choose
 3. **Private request:** use **Security → Report a vulnerability** on the repository (https://github.com/maninka123/academic-lens-lk/security/advisories/new) if you do not want your request to be public.
 
-Our target is to respond within 14 days; this is a target, not a guarantee. Where a request is accepted, we aim to apply it in a later data release.
+Our target is to respond within 14 days. Where a request is accepted, we aim to apply it in a later data release.
 
 Licences: code [MIT](LICENSE) | aggregate statistics and reports [CC BY 4.0](DATA_LICENSE.md) | individual records are not covered by a Creative Commons licence. Ethics statement: [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md). Privacy and data use: [PRIVACY.md](PRIVACY.md).

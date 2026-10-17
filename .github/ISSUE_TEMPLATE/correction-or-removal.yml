@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you. Our target is to respond within 14 days (a target, not a guarantee).
+        Thank you. Our target is to respond within 14 days.
         **Do not post private information** (phone numbers, home address, ID numbers) in this public form. If you would rather not make the request public, use **Security > Report a vulnerability** on this repository instead.
   - type: dropdown
     id: type
