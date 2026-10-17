@@ -3960,3 +3960,13 @@ table.coverage-v2 {
 .flow-controls { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 18px; justify-content: flex-end; }
 .flow-controls .field { display: grid; gap: 4px; font-size: .75rem; font-weight: 600; color: var(--muted); }
 .flow-controls .flow-qs { align-self: center; font-size: .875rem; font-weight: 500; color: var(--text); }
+
+/* PhD impact: aligned chart rows */
+.pos-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+.pos-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 34px; flex-wrap: wrap; }
+.pos-head .pos-sub { margin: 0; }
+.pos-head .pos-key { margin: 0; }
+.pos-grid-even { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line, rgba(255,255,255,.08)); row-gap: 26px; }
+@media (max-width: 1000px) { .pos-grid { grid-template-columns: 1fr; } }
+.origin-split-card { min-width: 0; overflow: hidden; }
+.origin-split-card .os-label em { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
