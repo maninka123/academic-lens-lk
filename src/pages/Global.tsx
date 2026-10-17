@@ -100,7 +100,7 @@ export function Global() {
     [log, setLog] = useState(true),
     [showAllUniversities, setShowAllUniversities] = useState(false),
     [posField, setPosField] = useState<BenchmarkField | "all">("all"),
-    [posGroup, setPosGroup] = useState<"stage" | "rank">("stage"),
+    [posBy, setPosBy] = useState<"tier" | "country">("tier"),
     [posMetric, setPosMetric] = useState<GMetric>("hIndex"),
     [posLog, setPosLog] = useState(true),
     [tableQuery, setTableQuery] = useState(""),
@@ -216,21 +216,31 @@ export function Global() {
       const o = b.slOpenAlex.get(a.id);
       return o && isMatched(o.status) ? (o[posMetric] ?? null) : null;
     };
-    const cats =
-      posGroup === "stage"
-        ? ["Early-career", "Mid-career", "Professor"]
-        : ["Lecturer", "Assistant Professor", SENIOR_LECTURER_GROUP, "Professor"];
+    // Positions that mean the same seniority are grouped: a Lecturer sits with an Assistant Professor
+    // elsewhere, a Senior Lecturer with an Associate Professor.
+    const cats = ["Lecturer", SENIOR_LECTURER_GROUP, "Professor"];
     const catOf = (rank: string) =>
-      posGroup === "stage"
-        ? careerStageOf(rank)
-        : equivalentPosition(rank === "Senior Professor" ? "Professor" : rank);
-    const sets = [
-      { key: "sl" as const, label: "Sri Lanka", rows: sl.map((a) => ({ cat: catOf(a.rank), v: slValue(a) })) },
-      ...(["elite", "middle", "lower"] as Tier[]).map((t) => ({
-        key: t,
-        label: tierShort[t],
-        rows: intl.filter((a) => a.tier === t).map((a) => ({ cat: catOf(a.rank), v: a[posMetric] })),
-      })),
+      rank === "Senior Professor" || rank === "Professor"
+        ? "Professor"
+        : equivalentPosition(rank) === SENIOR_LECTURER_GROUP
+          ? SENIOR_LECTURER_GROUP
+          : ["Lecturer", "Assistant Professor", "Assistant Lecturer"].includes(rank)
+            ? "Lecturer"
+            : "";
+    const countries = [...new Set(intl.map((a) => a.country).filter(Boolean))].sort();
+    const sets: { key: string; label: string; rows: { cat: string; v: number | null | undefined }[] }[] = [
+      { key: "sl", label: "Sri Lanka", rows: sl.map((a) => ({ cat: catOf(a.rank), v: slValue(a) })) },
+      ...(posBy === "tier"
+        ? (["elite", "middle", "lower"] as Tier[]).map((t) => ({
+            key: t as string,
+            label: tierShort[t],
+            rows: intl.filter((a) => a.tier === t).map((a) => ({ cat: catOf(a.rank), v: a[posMetric] })),
+          }))
+        : countries.map((c) => ({
+            key: c as string,
+            label: c,
+            rows: intl.filter((a) => a.country === c).map((a) => ({ cat: catOf(a.rank), v: a[posMetric] })),
+          }))),
     ];
     return {
       cats,
@@ -259,7 +269,7 @@ export function Global() {
         };
       }),
     };
-  }, [b, d, posMetric, posField, posGroup, mode, includeProxy, minN]);
+  }, [b, d, posMetric, posField, posBy, mode, includeProxy, minN]);
 
   if (error)
     return (
@@ -619,22 +629,21 @@ export function Global() {
           .filter((r) => r.key !== "sl" && r.median !== null && r.median > 0)
           .reverse()
           .map((r) => ({ name: r.name.toLowerCase(), pct: Math.round((100 * slMedian) / r.median!) }));
-  const stageNote: Record<string, string> = {
-    "Early-career": "Lecturer, Assistant Professor",
-    "Mid-career": "Senior Lecturer, Associate Professor",
-    Professor: "Professor, Senior Professor",
+  const posColors = ["#c7d2fe", "#6f86e8", "#1f2d8f"];
+  const countryColors: Record<string, string> = {
+    "United States": "#1e3a8a",
+    Australia: "#16a34a",
+    China: "#0284c7",
+    India: "#be123c",
+    Canada: "#db2777",
+    France: "#475569",
+    Germany: "#9333ea",
   };
-  const stageShort: Record<string, string> = {
-    "Early-career": "Lecturer / Asst. Prof.",
-    "Mid-career": "Senior Lecturer",
-    Professor: "Professor",
-  };
-  const posColors =
-    posGroup === "stage"
-      ? ["#c7d2fe", "#6f86e8", "#1f2d8f"]
-      : ["#dbe3ff", "#a9b8f2", "#7388e8", "#3b4fd6", "#1f2d8f"];
+  const posColor = (key: string) =>
+    key === "sl" ? col.sl : key in col ? (col as Record<string, string>)[key] : countryColors[key] ?? "#64748b";
   const posCats = posView?.cats ?? [];
-  const posOffsets = posGroup === "rank" ? [-0.3, -0.1, 0.1, 0.3] : [-0.27, -0.09, 0.09, 0.27];
+  const posN = posView?.groups.length ?? 4;
+  const posOffsets = Array.from({ length: posN }, (_, i) => (posN === 1 ? 0 : -0.32 + (0.64 * i) / (posN - 1)));
   const useLog = posLog;
   const posChart: any = posView && {
     legend: { show: false },
@@ -658,10 +667,7 @@ export function Global() {
         formatter: (v: number) => {
           const c = Number.isInteger(v) ? posCats[v - 1] : undefined;
           if (!c) return "";
-          if (posGroup !== "rank") return c;
-          return c === SENIOR_LECTURER_GROUP
-            ? "Senior Lecturer"
-            : c.replace(" ", "\n");
+          return c;
         },
       },
       axisTick: { show: false },
@@ -675,26 +681,22 @@ export function Global() {
       splitLine: { lineStyle: { opacity: 0.35 } },
     },
     series: posView.groups.flatMap((g, gi) => {
-      const color = colorOf(g.key);
+      const color = posColor(g.key);
       const cells = g.cells
         .map((c, i) => ({ c, i }))
         .filter(({ c }) => c.median !== null && c.q1 !== null && c.q3 !== null);
       const off = posOffsets[gi];
       const clamp = (v: number) => (useLog ? Math.max(v, 0.5) : v);
       return [
-        ...(posGroup === "stage"
-          ? [
-              {
-                type: "line",
-                name: g.label,
-                silent: true,
-                symbol: "none",
-                lineStyle: { color, width: 2.5, opacity: 0.8, type: "dashed" },
-                data: cells.map(({ c, i }) => [i + 1 + off, clamp(c.median as number)]),
-                z: 1,
-              },
-            ]
-          : []),
+        {
+          type: "line",
+          name: g.label,
+          silent: true,
+          symbol: "none",
+          lineStyle: { color, width: 2.5, opacity: 0.8, type: "dashed" },
+          data: cells.map(({ c, i }) => [i + 1 + off, clamp(c.median as number)]),
+          z: 1,
+        },
         {
           type: "custom",
           name: g.label,
@@ -714,7 +716,7 @@ export function Global() {
                 { type: "line", shape: { x1: x, y1, x2: x, y2: y3 }, style: { stroke: color, lineWidth: 6, opacity: 0.85 } },
                 { type: "line", shape: { x1: x - 7, y1, x2: x + 7, y2: y1 }, style: { stroke: color, lineWidth: 3 } },
                 { type: "line", shape: { x1: x - 7, y1: y3, x2: x + 7, y2: y3 }, style: { stroke: color, lineWidth: 3 } },
-                { type: "circle", shape: { cx: x, cy: ym, r: posGroup === "rank" ? 6 : 8 }, style: { fill: color, stroke: "#ffffff", lineWidth: 2 } },
+                { type: "circle", shape: { cx: x, cy: ym, r: posN > 4 ? 5 : 7 }, style: { fill: color, stroke: "#ffffff", lineWidth: 2 } },
               ],
             };
           },
@@ -743,14 +745,17 @@ export function Global() {
     const top = posCats[posCats.length - 1];
     const cell = (key: string) => posView.groups.find((g) => g.key === key)?.cells.find((c) => c.cat === top);
     const s0 = cell("sl")?.median ?? null;
-    const e0 = cell("elite")?.median ?? null;
-    const m0 = cell("middle")?.median ?? null;
-    const l0 = cell("lower")?.median ?? null;
     if (s0 === null) return `Sri Lanka has too few valid ${top.toLowerCase()} profiles for this discipline to compare (needs ${minN}).`;
-    const others = [["elite", e0], ["middle", m0], ["lower", l0]] as const;
+    const others = posView.groups
+      .filter((g) => g.key !== "sl")
+      .map((g) => [g.key, cell(g.key)?.median ?? null] as const);
     const parts = others
       .filter(([, v]) => v !== null && v > 0)
-      .map(([k, v]) => `${Math.round((100 * s0) / (v as number))}% of the ${k} tier (${fmt(v, 1)})`);
+      .map(([k, v]) =>
+        posBy === "tier"
+          ? `${Math.round((100 * s0) / (v as number))}% of the ${k} tier (${fmt(v, 1)})`
+          : `${Math.round((100 * s0) / (v as number))}% of ${k} (${fmt(v, 1)})`,
+      );
     return `Among ${top === "Professor" ? "professors" : top.toLowerCase()}, Sri Lanka's median ${metricNames[posMetric].toLowerCase()} is ${fmt(s0, 1)}${parts.length ? ", which is " + parts.join(", ") : ""}.`;
   })();
   const statFor = (g: Group) => {
@@ -1006,10 +1011,10 @@ export function Global() {
               </div>
             </div>
             <div className="field">
-              <span>Group positions by</span>
-              <div className="chip-group" role="group" aria-label="Position grouping">
-                {([["stage", "Career stage"], ["rank", "Exact position"]] as const).map(([k, l]) => (
-                  <button key={k} type="button" aria-pressed={posGroup === k} onClick={() => setPosGroup(k)}>
+              <span>Compare Sri Lanka with</span>
+              <div className="chip-group" role="group" aria-label="Comparison groups">
+                {([["tier", "QS tiers"], ["country", "Countries"]] as const).map(([k, l]) => (
+                  <button key={k} type="button" aria-pressed={posBy === k} onClick={() => setPosBy(k)}>
                     {l}
                   </button>
                 ))}
@@ -1020,16 +1025,16 @@ export function Global() {
           <div className="pos-grid">
             <div className="pos-col">
               <h3 className="pos-sub">{metricNames[posMetric]} by position</h3>
-              <Chart option={posChart} height={340} label="Median and middle 50% of the metric by position for Sri Lanka and each tier" />
+              <Chart option={posChart} height={340} label="Median and middle 50% of the metric by position for Sri Lanka and each comparison group" />
               <div className="benchmark-key">
-                {(["sl", "elite", "middle", "lower"] as const).map((key) => (
-                  <span key={key}><i style={{ background: col[key] }} />{key === "sl" ? "Sri Lanka" : tierShort[key]}</span>
+                {posView.groups.map((g) => (
+                  <span key={g.key}><i style={{ background: posColor(g.key) }} />{g.label}</span>
                 ))}
               </div>
             </div>
             <div className="pos-col">
               <h3 className="pos-sub">Who is in each group</h3>
-              <Chart option={posMix} height={340} label="Share of people at each position in Sri Lanka and each tier" />
+              <Chart option={posMix} height={340} label="Share of people at each position in Sri Lanka and each comparison group" />
             </div>
           </div>
           <ul className="pos-key pos-key-row" aria-label="What each position group means">
@@ -1038,17 +1043,14 @@ export function Global() {
                 <i style={{ background: posColors[i % posColors.length] }} />
                 <span>
                   <b>{c}</b>
-                  {posGroup === "stage" && stageNote[c] ? <small>{stageNote[c]}</small> : null}
                 </span>
               </li>
             ))}
           </ul>
-          {posGroup === "stage" && (
-            <p className="caption">
-              Job titles differ between countries, so people are grouped by seniority:
-              a Sri Lankan "Lecturer" sits with an "Assistant Professor" elsewhere.
-            </p>
-          )}
+          <p className="caption">
+            Job titles differ between countries, so people are grouped by seniority:
+            a Sri Lankan "Lecturer" sits with an "Assistant Professor" elsewhere.
+          </p>
         </Card>
       )}
       <Card
