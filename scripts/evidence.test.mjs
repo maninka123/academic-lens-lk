@@ -115,6 +115,9 @@ test("a completed doctorate needs explicit evidence", () => {
   );
   assert.equal(s("", "Hon. DSc"), "unknown");
   assert.equal(s("in_progress", "PhD (Reading)"), "in_progress");
+  // A closing "(Reading)" after a named university still means reading for the degree.
+  assert.equal(s("in_progress", "PhD of Computer Science – University of Murcia , Spain (Reading); Master of Philosophy, University of Moratuwa"), "in_progress");
+  assert.equal(s("in_progress", "Doctor of Philosophy Degree – University of Sri Jayewardenepura (Reading); Master of Philosophy – University of Moratuwa"), "in_progress");
   assert.equal(s("", "MSc; Reading for PhD"), "in_progress");
   // A doctorate being pursued is never a completed doctorate.
   assert.equal(s("", "B.A (Hons) (UOJ), M.Phil (UOJ), Ph.D (R) (Aberdeen)"), "in_progress");
