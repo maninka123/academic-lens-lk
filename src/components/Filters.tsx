@@ -7,11 +7,14 @@ import { Button } from "./ui/button";
 import type { Filters as FilterType } from "../types";
 export function Multi({
   label,
+  noun,
   options,
   selected,
   onChange,
 }: {
   label: string;
+  /** Plural name of the options (for example "faculties"), used in the hints. */
+  noun?: string;
   options: { value: string; label: string }[];
   selected: string[];
   onChange: (v: string[]) => void;
@@ -40,12 +43,12 @@ export function Multi({
     <details className="multi" ref={menu}>
       <summary>
         {label}
-        <span>{selected.length ? `${selected.length} selected` : "All"}</span>
+        <span>{selected.length ? `${selected.length} selected` : noun ? `All ${noun}` : "All"}</span>
       </summary>
       <div className="multi-menu">
         <input
           aria-label={"Search " + label}
-          placeholder="Search options…"
+          placeholder={noun ? `Search ${noun}…` : "Search options…"}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -67,7 +70,7 @@ export function Multi({
               <span>{o.label}</span>
             </label>
           ))}
-        {!options.length && <p>No available groups</p>}
+        {!options.length && <p>{noun ? `No ${noun} available` : "No available groups"}</p>}
       </div>
     </details>
   );

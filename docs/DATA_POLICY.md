@@ -43,11 +43,11 @@ Aggregate statistics and original research reports are licensed under CC BY 4.0:
 
 ## Corrections and removal requests
 
-Anyone can request a factual correction, and any academic can ask for their own record to be removed from the published site.
+Requests for a factual correction or for removal of a record can be made through the project repository.
 
-1. Send the profile link (or the academic ID), the field concerned and, for corrections, an official source supporting the change. Use the contact in `Data files/metadata.json` (`correctionContact`, shown on the Methodology page) — **add a public contact address before publishing** — or the project repository.
+1. Send the profile link (or the academic ID), the field concerned and, for corrections, an official source supporting the change. Use the project repository (GitHub issue form or private advisory), as linked on the Methodology page.
 2. The maintainer checks the evidence against official sources. Corrections are applied to the authoritative CSV in `Data files/universities/…`; the previous value, source and date are logged privately in `change_log.csv`/`field_evidence.csv`. Academic IDs never change.
 3. Removal requests: the record is removed from the published files at the next import and recorded privately (ID, date, reason) so it is not re-collected. Evidence needed for research integrity is retained privately.
 4. Re-run `npm run data:import`, check the public output, and deploy manually.
 
-Requests should be acknowledged within 14 days and resolved within 30 days.
+We aim to review requests within a reasonable time.

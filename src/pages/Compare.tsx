@@ -14,6 +14,7 @@ import {
   metricLabels,
   selectableMetricLabels,
   levelLabels,
+  levelGroupNouns,
   type Level,
   type Metric,
   type ChartType,
@@ -183,7 +184,10 @@ export function Compare() {
       const a = d.academics.find((a) => a.id === id);
       return a ? [a] : [];
     }),
-    options = groupRows(rows, c.level, custom);
+    options = groupRows(rows, c.level, custom).sort((x, y) =>
+      x.label.localeCompare(y.label),
+    );
+  const noun = levelGroupNouns[c.level].replace(/^(?!PhD)(.)/, (m) => m.toLowerCase());
   const selectedRows = [
     ...new Map(groups.flatMap((g) => g.rows).map((a) => [a.id, a])).values(),
   ];
@@ -326,9 +330,10 @@ export function Compare() {
           ))}
         </Select>
       </label>
-      <div className="field group-picker-field"><span>Groups</span>
+      <div className="field group-picker-field"><span>{levelGroupNouns[c.level]}</span>
       <Multi
-        label="Choose groups"
+        label={`Choose ${noun}`}
+        noun={noun}
         options={options.map((g) => ({ value: g.id, label: g.label }))}
         selected={c.groups}
         onChange={(groups) => configure({ groups })}

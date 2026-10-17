@@ -1,6 +1,6 @@
 university_id,university,type,academic_records,verified_identity,verified_employment,with_any_metric,with_qualifications,doctorate_documented,doctorate_in_progress,doctorate_contradictory,needs_review,faculties_represented,departments_represented,units_discovered,units_visited,roster_status
 colombo,University of Colombo,Public,341,270,140,297,273,158,1,1,6,5,35,178,139,incomplete — collected profiles are not a staff census
-peradeniya,University of Peradeniya,Public,504,27,49,119,224,95,2,7,7,6,56,106,84,incomplete — collected profiles are not a staff census
+peradeniya,University of Peradeniya,Public,599,27,49,212,224,95,2,7,7,6,61,106,84,incomplete — collected profiles are not a staff census
 jayewardenepura,University of Sri Jayewardenepura,Public,14,3,0,8,10,9,0,0,1,2,0,5,5,incomplete — collected profiles are not a staff census
 kelaniya,University of Kelaniya,Public,89,62,15,66,69,33,1,0,0,3,6,18,15,incomplete — collected profiles are not a staff census
 moratuwa,University of Moratuwa,Public,352,218,5,233,277,213,0,0,0,6,37,91,82,incomplete — collected profiles are not a staff census

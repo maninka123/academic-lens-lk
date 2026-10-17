@@ -204,6 +204,20 @@ export const levelLabels: Record<Level, string> = {
   experience: "Experience groups",
   custom: "Custom academic groups",
 };
+/** Plural noun for the groups picker, matching the chosen comparison level. */
+export const levelGroupNouns: Record<Level, string> = {
+  type: "Sectors",
+  university: "Universities",
+  faculty: "Faculties",
+  department: "Departments",
+  field: "Disciplines",
+  rank: "Positions",
+  careerStage: "Career stages",
+  qualification: "Qualifications",
+  phdCountry: "PhD countries",
+  experience: "Experience groups",
+  custom: "Custom groups",
+};
 export type Aggregation =
   "median" | "mean" | "total" | "per10" | "distribution" | "percentage";
 export type ChartType =

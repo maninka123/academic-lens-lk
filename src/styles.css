@@ -3666,8 +3666,9 @@ table.coverage-v2 {
 .ack-card h2 { font-size: 1.35rem; margin: 4px 0 0; }
 .ack-card p { margin: 0; font-size: .9375rem; line-height: 1.5; }
 .ack-lead { font-weight: 700; color: var(--heading) !important; }
-.ack-card ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 4px; }
-.ack-card li { font-size: .9375rem; line-height: 1.45; margin: 0; }
+.ack-card ul { margin: 0; padding-left: 1.4rem; display: grid; gap: 6px; list-style: disc outside; }
+.ack-card li { font-size: .9375rem; line-height: 1.45; margin: 0; display: list-item; list-style: disc outside; }
+.ack-card li::marker { color: var(--accent); }
 .ack-check { display: flex; align-items: flex-start; gap: 10px; margin-top: 6px; font-size: .9375rem; cursor: pointer; }
 .ack-check input { width: 20px; min-height: 0; height: 20px; margin-top: 2px; flex: none; accent-color: var(--accent); }
 .ack-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
