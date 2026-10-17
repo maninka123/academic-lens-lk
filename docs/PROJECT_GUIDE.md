@@ -12,7 +12,7 @@ Explore Sri Lankan academic profiles, compare peer groups, and keep research dat
 - Switch between appropriate totals, means, medians and distributions; compare pooled academics with equal university weighting.
 - Explore scatter/bubble plots, boxes, histograms, composition charts, heatmaps and treemaps.
 - Search every person by name, open their full profile, and follow their university → faculty → department hierarchy. Profile charts compare the same position, qualification, both, or PhD holders at every level.
-- Benchmark Sri Lanka internationally on **Global Benchmarks**: 1,630 sampled Computer Science and Physics academics from 41 universities in seven countries (USA, Australia, China, India, Canada, France, Germany), grouped into QS 2027 elite, middle and lower tiers. Compare Sri Lanka against each tier, by country and university, and against QS position; the Comparison Studio can add the tiers or the benchmark universities as extra groups.
+- Benchmark Sri Lanka internationally on **Global Benchmarks**: 1,740 sampled academics from 41 universities in seven countries (USA, Australia, China, India, Canada, France, Germany), grouped into QS 2027 elite, middle and lower tiers. Compare Sri Lanka against each tier, by country and university, and against QS position; the Comparison Studio can add the tiers or the benchmark universities as extra groups.
 - Explore a locally bundled world map and PhD Sankey. Profile placeholders use initials, with no gender inference.
 - Save custom groups in your browser, share configurations by URL, and export charts as PNG or records as CSV.
 - Keep people without a documented department at faculty level, with no invented department groups.
@@ -52,12 +52,12 @@ npm test
 npm run build
 ```
 
-Optional `Data files/metadata.json` can configure collection dates and the metric window; `q1_methodology.md` documents any verified Q1 policy.
+Optional `Data files/metadata.json` can configure collection dates and the metric window.
 
 The importer discovers new academic CSVs recursively and regenerates `public/data/{academics,universities,faculties,departments}.csv` and metadata. Duplicate IDs, malformed CSVs and invalid numeric values stop import. Update `Data files/field-mapping.json` for manual field classifications; ambiguous units stay Unmapped. See the [dataset guide](../Data%20files/README.md) for folder rules and the [collection prompt](../DATA_COLLECTION_PROMPT.md) for independent research work.
 
 <!-- dataset-summary:start -->
-**Snapshot partial-3dc1b1eb7d (collected 2026-10-11):** 1,393 collected academic profiles from 12 of 14 institutions in scope, across 59 faculties and 155 departments. 311 have a verified research identity, 264 verified employment and 297 at least one research metric; 16 need manual review. International benchmarks: 1,630 sampled academics from 41 universities in 7 countries. Collected profiles are not the total academic population. Full report: [reports/validation-report.md](../reports/validation-report.md).
+**Current snapshot:** the counts of profiles, institutions, faculties, departments and research coverage are regenerated at every import; see [reports/validation-report.md](../reports/validation-report.md) and the Overview page. Collected profiles are not the total academic population.
 <!-- dataset-summary:end -->
 
 The website always uses the collected dataset. Visitors cannot switch datasets, and shared links cannot change the data source. Synthetic records live only in `tests/fixtures/` for browser testing and are excluded from production.

@@ -12,7 +12,6 @@ cinec--faculty-of-marine-engineering--department-of-marine-engineering,cinec--fa
 cinec--faculty-of-maritime-sciences--department-of-marine-electronic-radio-communication,cinec--faculty-of-maritime-sciences,cinec,Department of Marine Electronic & Radio Communication
 cinec--faculty-of-maritime-sciences--department-of-navigation,cinec--faculty-of-maritime-sciences,cinec,Department of Navigation
 colombo--faculty-of-arts--department-of-communication-and-creative-arts,colombo--faculty-of-arts,colombo,Department of Communication and Creative Arts
-colombo--faculty-of-arts--department-of-communication-creative-arts,colombo--faculty-of-arts,colombo,Department of Communication & Creative Arts
 colombo--faculty-of-arts--department-of-demography,colombo--faculty-of-arts,colombo,Department of Demography
 colombo--faculty-of-arts--department-of-economics,colombo--faculty-of-arts,colombo,Department of Economics
 colombo--faculty-of-arts--department-of-english-language-teaching,colombo--faculty-of-arts,colombo,Department of English Language Teaching
@@ -96,20 +95,15 @@ moratuwa--faculty-of-business--department-of-management-of-technology-faculty-of
 moratuwa--faculty-of-engineering--department-of-chemical-and-process-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Chemical and Process Engineering
 moratuwa--faculty-of-engineering--department-of-civil-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Civil Engineering
 moratuwa--faculty-of-engineering--department-of-computer-science-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Computer Science & Engineering
-moratuwa--faculty-of-engineering--department-of-computer-science-and-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Computer Science and Engineering
 moratuwa--faculty-of-engineering--department-of-earth-resources-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Earth Resources Engineering
 moratuwa--faculty-of-engineering--department-of-electrical-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Electrical Engineering
 moratuwa--faculty-of-engineering--department-of-electronic-telecommunication-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Electronic & Telecommunication Engineering
-moratuwa--faculty-of-engineering--department-of-electronic-and-telecommunication-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Electronic and Telecommunication Engineering
 moratuwa--faculty-of-engineering--department-of-languages,moratuwa--faculty-of-engineering,moratuwa,Department of Languages
 moratuwa--faculty-of-engineering--department-of-materials-science-and-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Materials Science and Engineering
 moratuwa--faculty-of-engineering--department-of-mathematics,moratuwa--faculty-of-engineering,moratuwa,Department of Mathematics
 moratuwa--faculty-of-engineering--department-of-mechanical-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Mechanical Engineering
 moratuwa--faculty-of-engineering--department-of-textile-apparel-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Textile & Apparel Engineering
-moratuwa--faculty-of-engineering--department-of-textile-and-apparel-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Textile and Apparel Engineering
 moratuwa--faculty-of-engineering--department-of-transport-management-logistics-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Transport Management & Logistics Engineering
-moratuwa--faculty-of-engineering--department-of-transport-management-and-logistics-engineering,moratuwa--faculty-of-engineering,moratuwa,Department of Transport Management and Logistics Engineering
-moratuwa--faculty-of-engineering-university-of-moratuwa--department-of-electronic-and-telecommunication-engineering,moratuwa--faculty-of-engineering-university-of-moratuwa,moratuwa,Department of Electronic and Telecommunication Engineering
 moratuwa--faculty-of-information-technology--department-of-computational-mathematics,moratuwa--faculty-of-information-technology,moratuwa,Department of Computational Mathematics
 moratuwa--faculty-of-information-technology--department-of-information-technology,moratuwa--faculty-of-information-technology,moratuwa,Department of Information Technology
 moratuwa--faculty-of-information-technology--department-of-interdisciplinary-studies,moratuwa--faculty-of-information-technology,moratuwa,Department of Interdisciplinary Studies
@@ -125,7 +119,6 @@ moratuwa--faculty-of-medicine--department-of-surgery-and-anesthesia,moratuwa--fa
 nsbm--faculty-of-business--department-of-accounting-and-finance,nsbm--faculty-of-business,nsbm,Department of Accounting and Finance
 nsbm--faculty-of-business--department-of-economics-and-decision-sciences,nsbm--faculty-of-business,nsbm,Department of Economics and Decision Sciences
 nsbm--faculty-of-business--department-of-english-and-modern-languages,nsbm--faculty-of-business,nsbm,Department of English and Modern Languages
-nsbm--faculty-of-business--department-of-english-modern-languages,nsbm--faculty-of-business,nsbm,Department of English & Modern Languages
 nsbm--faculty-of-business--department-of-legal-studies,nsbm--faculty-of-business,nsbm,Department of Legal Studies
 nsbm--faculty-of-business--department-of-management,nsbm--faculty-of-business,nsbm,Department of Management
 nsbm--faculty-of-business--department-of-marketing-and-tourism,nsbm--faculty-of-business,nsbm,Department of Marketing and Tourism
@@ -135,15 +128,13 @@ nsbm--faculty-of-computing--department-of-computer-and-data-science,nsbm--facult
 nsbm--faculty-of-computing--department-of-computer-science-software-engineering,nsbm--faculty-of-computing,nsbm,Department of Computer Science & Software Engineering
 nsbm--faculty-of-computing--department-of-computer-security-and-network-systems,nsbm--faculty-of-computing,nsbm,Department of Computer Security and Network Systems
 nsbm--faculty-of-computing--department-of-data-science,nsbm--faculty-of-computing,nsbm,Department of Data Science
-nsbm--faculty-of-computing--department-of-english-modern-languages,nsbm--faculty-of-computing,nsbm,Department of English & Modern Languages
+nsbm--faculty-of-computing--department-of-english-and-modern-languages,nsbm--faculty-of-computing,nsbm,Department of English and Modern Languages
 nsbm--faculty-of-computing--department-of-software-engineering,nsbm--faculty-of-computing,nsbm,Department of Software Engineering
 nsbm--faculty-of-computing--department-of-software-engineering-and-computer-security,nsbm--faculty-of-computing,nsbm,Department of Software Engineering and Computer Security
-nsbm--faculty-of-computing--department-of-software-engineering-computer-security,nsbm--faculty-of-computing,nsbm,Department of Software Engineering & Computer Security
 nsbm--faculty-of-computing--department-of-sofware-engineering-and-computer-security,nsbm--faculty-of-computing,nsbm,Department of Sofware Engineering and Computer Security
 nsbm--faculty-of-engineering--department-of-design-studies,nsbm--faculty-of-engineering,nsbm,Department of Design Studies
 nsbm--faculty-of-engineering--department-of-electrical-electronic-and-systems-engineering,nsbm--faculty-of-engineering,nsbm,"Department of Electrical, Electronic and Systems Engineering"
 nsbm--faculty-of-engineering--department-of-mechatronic-and-industrial-engineering,nsbm--faculty-of-engineering,nsbm,Department of Mechatronic and Industrial Engineering
-nsbm--faculty-of-engineering--department-of-mechatronic-and-industry-engineering,nsbm--faculty-of-engineering,nsbm,Department of Mechatronic and Industry Engineering
 nsbm--faculty-of-science--department-of-biomedical-science,nsbm--faculty-of-science,nsbm,Department of Biomedical Science
 nsbm--faculty-of-science--department-of-health-sciences,nsbm--faculty-of-science,nsbm,Department of Health Sciences
 nsbm--faculty-of-science--department-of-legal-studies,nsbm--faculty-of-science,nsbm,Department of Legal Studies
@@ -156,24 +147,24 @@ peradeniya--faculty-of-agriculture--department-of-english-language-teaching,pera
 peradeniya--faculty-of-agriculture--department-of-food-science-and-technology,peradeniya--faculty-of-agriculture,peradeniya,Department of Food Science and Technology
 peradeniya--faculty-of-agriculture--department-of-soil-science,peradeniya--faculty-of-agriculture,peradeniya,Department of Soil Science
 peradeniya--faculty-of-allied-health-sciences--department-of-english-language-teaching,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of English Language Teaching
-peradeniya--faculty-of-arts--arabic-islamic-civilization,peradeniya--faculty-of-arts,peradeniya,Arabic & Islamic Civilization
-peradeniya--faculty-of-arts--archaeology,peradeniya--faculty-of-arts,peradeniya,Archaeology
-peradeniya--faculty-of-arts--classical-languages,peradeniya--faculty-of-arts,peradeniya,Classical Languages
+peradeniya--faculty-of-arts--department-of-arabic-islamic-civilization,peradeniya--faculty-of-arts,peradeniya,Department of Arabic & Islamic Civilization
+peradeniya--faculty-of-arts--department-of-archaeology,peradeniya--faculty-of-arts,peradeniya,Department of Archaeology
+peradeniya--faculty-of-arts--department-of-classical-languages,peradeniya--faculty-of-arts,peradeniya,Department of Classical Languages
 peradeniya--faculty-of-arts--department-of-english-language-teaching,peradeniya--faculty-of-arts,peradeniya,Department of English Language Teaching
 peradeniya--faculty-of-arts--department-of-law,peradeniya--faculty-of-arts,peradeniya,Department of Law
-peradeniya--faculty-of-arts--economics-statistics,peradeniya--faculty-of-arts,peradeniya,Economics & Statistics
-peradeniya--faculty-of-arts--education,peradeniya--faculty-of-arts,peradeniya,Education
-peradeniya--faculty-of-arts--english,peradeniya--faculty-of-arts,peradeniya,English
-peradeniya--faculty-of-arts--fine-arts,peradeniya--faculty-of-arts,peradeniya,Fine Arts
-peradeniya--faculty-of-arts--geography,peradeniya--faculty-of-arts,peradeniya,Geography
-peradeniya--faculty-of-arts--history,peradeniya--faculty-of-arts,peradeniya,History
-peradeniya--faculty-of-arts--pali-buddhist-studies,peradeniya--faculty-of-arts,peradeniya,Pali & Buddhist Studies
-peradeniya--faculty-of-arts--philosphy,peradeniya--faculty-of-arts,peradeniya,Philosphy
-peradeniya--faculty-of-arts--political-science,peradeniya--faculty-of-arts,peradeniya,Political Science
-peradeniya--faculty-of-arts--psychology,peradeniya--faculty-of-arts,peradeniya,Psychology
-peradeniya--faculty-of-arts--sinhala,peradeniya--faculty-of-arts,peradeniya,Sinhala
-peradeniya--faculty-of-arts--sociology,peradeniya--faculty-of-arts,peradeniya,Sociology
-peradeniya--faculty-of-arts--tamil,peradeniya--faculty-of-arts,peradeniya,Tamil
+peradeniya--faculty-of-arts--department-of-economics-statistics,peradeniya--faculty-of-arts,peradeniya,Department of Economics & Statistics
+peradeniya--faculty-of-arts--department-of-education,peradeniya--faculty-of-arts,peradeniya,Department of Education
+peradeniya--faculty-of-arts--department-of-english,peradeniya--faculty-of-arts,peradeniya,Department of English
+peradeniya--faculty-of-arts--department-of-fine-arts,peradeniya--faculty-of-arts,peradeniya,Department of Fine Arts
+peradeniya--faculty-of-arts--department-of-geography,peradeniya--faculty-of-arts,peradeniya,Department of Geography
+peradeniya--faculty-of-arts--department-of-history,peradeniya--faculty-of-arts,peradeniya,Department of History
+peradeniya--faculty-of-arts--department-of-pali-buddhist-studies,peradeniya--faculty-of-arts,peradeniya,Department of Pali & Buddhist Studies
+peradeniya--faculty-of-arts--department-of-philosophy,peradeniya--faculty-of-arts,peradeniya,Department of Philosophy
+peradeniya--faculty-of-arts--department-of-political-science,peradeniya--faculty-of-arts,peradeniya,Department of Political Science
+peradeniya--faculty-of-arts--department-of-psychology,peradeniya--faculty-of-arts,peradeniya,Department of Psychology
+peradeniya--faculty-of-arts--department-of-sinhala,peradeniya--faculty-of-arts,peradeniya,Department of Sinhala
+peradeniya--faculty-of-arts--department-of-sociology,peradeniya--faculty-of-arts,peradeniya,Department of Sociology
+peradeniya--faculty-of-arts--department-of-tamil,peradeniya--faculty-of-arts,peradeniya,Department of Tamil
 peradeniya--faculty-of-engineering--department-of-civil-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Civil Engineering
 peradeniya--faculty-of-engineering--department-of-chemical-and-process-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Chemical and Process Engineering
 peradeniya--faculty-of-engineering--department-of-computer-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Computer Engineering
@@ -182,26 +173,26 @@ peradeniya--faculty-of-engineering--department-of-electrical-and-electronic-engi
 peradeniya--faculty-of-engineering--department-of-engineering-mathematics,peradeniya--faculty-of-engineering,peradeniya,Department of Engineering Mathematics
 peradeniya--faculty-of-engineering--department-of-manufacturing-and-industrial-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Manufacturing and Industrial Engineering
 peradeniya--faculty-of-engineering--department-of-mechanical-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Mechanical Engineering
-peradeniya--faculty-of-medicine--anaesthesiology-critical-care,peradeniya--faculty-of-medicine,peradeniya,Anaesthesiology & Critical Care
-peradeniya--faculty-of-medicine--anatomy,peradeniya--faculty-of-medicine,peradeniya,Anatomy
-peradeniya--faculty-of-medicine--biochemistry,peradeniya--faculty-of-medicine,peradeniya,Biochemistry
+peradeniya--faculty-of-medicine--department-of-anaesthesiology-critical-care,peradeniya--faculty-of-medicine,peradeniya,Department of Anaesthesiology & Critical Care
+peradeniya--faculty-of-medicine--department-of-anatomy,peradeniya--faculty-of-medicine,peradeniya,Department of Anatomy
+peradeniya--faculty-of-medicine--department-of-biochemistry,peradeniya--faculty-of-medicine,peradeniya,Department of Biochemistry
 peradeniya--faculty-of-medicine--community-medicine,peradeniya--faculty-of-medicine,peradeniya,Community Medicine
 peradeniya--faculty-of-medicine--department-of-english-language-teaching,peradeniya--faculty-of-medicine,peradeniya,Department of English Language Teaching
-peradeniya--faculty-of-medicine--family-medicine,peradeniya--faculty-of-medicine,peradeniya,Family Medicine
-peradeniya--faculty-of-medicine--forensic-medicine,peradeniya--faculty-of-medicine,peradeniya,Forensic Medicine
-peradeniya--faculty-of-medicine--medical-education,peradeniya--faculty-of-medicine,peradeniya,Medical Education
-peradeniya--faculty-of-medicine--medicine,peradeniya--faculty-of-medicine,peradeniya,Medicine
-peradeniya--faculty-of-medicine--microbiology,peradeniya--faculty-of-medicine,peradeniya,Microbiology
+peradeniya--faculty-of-medicine--department-of-family-medicine,peradeniya--faculty-of-medicine,peradeniya,Department of Family Medicine
+peradeniya--faculty-of-medicine--department-of-forensic-medicine,peradeniya--faculty-of-medicine,peradeniya,Department of Forensic Medicine
+peradeniya--faculty-of-medicine--department-of-medical-education,peradeniya--faculty-of-medicine,peradeniya,Department of Medical Education
+peradeniya--faculty-of-medicine--department-of-medicine,peradeniya--faculty-of-medicine,peradeniya,Department of Medicine
+peradeniya--faculty-of-medicine--department-of-microbiology,peradeniya--faculty-of-medicine,peradeniya,Department of Microbiology
 peradeniya--faculty-of-medicine--nuclear-medicine-unit,peradeniya--faculty-of-medicine,peradeniya,Nuclear Medicine Unit
-peradeniya--faculty-of-medicine--obstetrics-and-gynaecology,peradeniya--faculty-of-medicine,peradeniya,Obstetrics and Gynaecology
-peradeniya--faculty-of-medicine--paediatrics,peradeniya--faculty-of-medicine,peradeniya,Paediatrics
-peradeniya--faculty-of-medicine--parasitology,peradeniya--faculty-of-medicine,peradeniya,Parasitology
-peradeniya--faculty-of-medicine--pathology,peradeniya--faculty-of-medicine,peradeniya,Pathology
-peradeniya--faculty-of-medicine--pharmacology,peradeniya--faculty-of-medicine,peradeniya,Pharmacology
-peradeniya--faculty-of-medicine--physiology,peradeniya--faculty-of-medicine,peradeniya,Physiology
-peradeniya--faculty-of-medicine--psychiatry,peradeniya--faculty-of-medicine,peradeniya,Psychiatry
-peradeniya--faculty-of-medicine--radiology,peradeniya--faculty-of-medicine,peradeniya,Radiology
-peradeniya--faculty-of-medicine--surgery,peradeniya--faculty-of-medicine,peradeniya,Surgery
+peradeniya--faculty-of-medicine--department-of-obstetrics-and-gynaecology,peradeniya--faculty-of-medicine,peradeniya,Department of Obstetrics and Gynaecology
+peradeniya--faculty-of-medicine--department-of-paediatrics,peradeniya--faculty-of-medicine,peradeniya,Department of Paediatrics
+peradeniya--faculty-of-medicine--department-of-parasitology,peradeniya--faculty-of-medicine,peradeniya,Department of Parasitology
+peradeniya--faculty-of-medicine--department-of-pathology,peradeniya--faculty-of-medicine,peradeniya,Department of Pathology
+peradeniya--faculty-of-medicine--department-of-pharmacology,peradeniya--faculty-of-medicine,peradeniya,Department of Pharmacology
+peradeniya--faculty-of-medicine--department-of-physiology,peradeniya--faculty-of-medicine,peradeniya,Department of Physiology
+peradeniya--faculty-of-medicine--department-of-psychiatry,peradeniya--faculty-of-medicine,peradeniya,Department of Psychiatry
+peradeniya--faculty-of-medicine--department-of-radiology,peradeniya--faculty-of-medicine,peradeniya,Department of Radiology
+peradeniya--faculty-of-medicine--department-of-surgery,peradeniya--faculty-of-medicine,peradeniya,Department of Surgery
 peradeniya--faculty-of-science--department-of-botany,peradeniya--faculty-of-science,peradeniya,Department of Botany
 peradeniya--faculty-of-science--department-of-chemistry,peradeniya--faculty-of-science,peradeniya,Department of Chemistry
 peradeniya--faculty-of-science--department-of-english-language-teaching,peradeniya--faculty-of-science,peradeniya,Department of English Language Teaching

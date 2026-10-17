@@ -44,6 +44,7 @@ import {
   compare,
   groupRows,
   facultyType,
+  facultyTypeKey,
   validModes,
 } from "../analytics/engine";
 import { comparisonChart } from "../analytics/charts";
@@ -237,10 +238,18 @@ export function Compare() {
             ...rows
               .filter((a) => a.facultyId)
               .reduce((m, a) => {
-                const t = facultyType(a.faculty);
-                return t ? m.set(t, (m.get(t) ?? 0) + 1) : m;
-              }, new Map<string, number>()),
-          ].map(([t, n]) => ({ id: t, label: `${t} (${n})` }))
+                const key = facultyTypeKey(a.faculty);
+                if (!key) return m;
+                const cur = m.get(key) ?? { n: 0, names: new Map<string, number>() };
+                cur.n += 1;
+                const name = facultyType(a.faculty);
+                cur.names.set(name, (cur.names.get(name) ?? 0) + 1);
+                return m.set(key, cur);
+              }, new Map<string, { n: number; names: Map<string, number> }>()),
+          ].map(([key, { n, names }]) => ({
+            id: key,
+            label: `${[...names].sort((a, b) => b[1] - a[1])[0][0]} (${n})`,
+          }))
         : groupRows(rows, c.level, custom)
     ).sort((x, y) => x.label.localeCompare(y.label));
   const noun = levelGroupNouns[c.level].replace(/^(?!PhD)(.)/, (m) => m.toLowerCase());
