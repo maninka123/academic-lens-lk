@@ -1,22 +1,34 @@
-import { Award } from "lucide-react";
 import type { Academic } from "../types";
 
-/** Text for a person's awarding-university ranking, or null when the rank was not located. */
-export function qsText(a: Pick<Academic, "phdQsRank" | "phdQsStatus">): string | null {
-  if (a.phdQsStatus === "ranked" && a.phdQsRank) return `Uni ranking ${a.phdQsRank} (QS 2027)`;
-  if (a.phdQsStatus === "not_ranked") return "Not in the QS 2027 ranking";
-  return null;
+type Qs = Pick<Academic, "phdQsRank" | "phdQsStatus">;
+
+/** "QS #22" for a position (ties keep the = in the tooltip), "QS 1001–1200" for a band. */
+export function qsMain(a: Qs): string | null {
+  if (a.phdQsStatus === "not_ranked") return "Not in QS";
+  if (a.phdQsStatus !== "ranked" || !a.phdQsRank) return null;
+  const r = a.phdQsRank.trim();
+  if (/^=?\d+$/.test(r)) return "QS #" + r.replace("=", "");
+  return "QS " + r.replace("-", "–");
 }
 
-/** Small ranking pill shown beside a PhD-awarding university. */
-export function QsRank({ academic, short = false }: { academic: Pick<Academic, "phdQsRank" | "phdQsStatus">; short?: boolean }) {
-  const full = qsText(academic);
-  const text = !full ? null : short ? (academic.phdQsStatus === "ranked" ? `QS 2027: ${academic.phdQsRank}` : "Not in QS 2027") : full;
-  if (!text) return null;
+/** Plain-text version, for tables and exports. */
+export function qsText(a: Qs): string | null {
+  const m = qsMain(a);
+  return m ? `${m} · 2027` : null;
+}
+
+/** Ranking of the PhD-awarding university: "QS #4 · 2027". */
+export function QsRank({ academic }: { academic: Qs }) {
+  const main = qsMain(academic);
+  if (!main) return null;
+  const tied = /^=/.test(academic.phdQsRank ?? "");
   return (
-    <span className={"qs-rank" + (academic.phdQsStatus === "ranked" ? "" : " unranked")} title={full ?? "QS World University Rankings 2027"}>
-      <Award size={13} aria-hidden="true" />
-      {text}
+    <span
+      className={"qs-rank" + (academic.phdQsStatus === "ranked" ? "" : " unranked")}
+      title={`QS World University Rankings 2027${academic.phdQsStatus === "ranked" ? `: ${tied ? "joint " : ""}${academic.phdQsRank!.replace("=", "")}` : ": not ranked"}`}
+    >
+      <b>{main}</b>
+      <i>· 2027</i>
     </span>
   );
 }
