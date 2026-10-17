@@ -174,9 +174,6 @@ SL-575e74e2aa22,,,,,,openalex_no_name_match_at_institution
 SL-e532859cf704,31,24,2,3,https://openalex.org/A5111921011,openalex_matched_surname_initials_and_institution
 SL-e38ea06cd74d,2,1,1,1,https://openalex.org/A5035062991,openalex_matched_surname_initials_and_institution
 SL-05c63d84714e,1,0,0,0,https://openalex.org/A5138248955,openalex_matched_surname_initials_and_institution
-SL-37854c13adee,1,0,0,0,https://openalex.org/A5138248955,openalex_matched_surname_initials_and_institution
-SL-e7bec1009ea7,,,,,,openalex_no_name_match_at_institution
-SL-bfafd0abee77,,,,,,openalex_no_name_match_at_institution
 SL-6705df21c0a0,1,0,0,0,https://openalex.org/A5147436032,openalex_matched_surname_initials_and_institution
 SL-13918112fd34,,,,,,openalex_no_name_match_at_institution
 SL-6e30b3c098ea,48,1735,349,19,https://openalex.org/A5020844782,openalex_matched_surname_initials_and_institution
@@ -249,7 +246,6 @@ SL-9ba76595fdec,,,,,,openalex_multiple_candidates_requires_review
 SL-1e4ce581c259,1,0,0,0,https://openalex.org/A5130922687,openalex_matched_surname_initials_and_institution
 SL-0609d312cade,,,,,,openalex_no_name_match_at_institution
 SL-d8d74d150784,,,,,,openalex_no_name_match_at_institution
-SL-33955ac9a725,,,,,,openalex_no_name_match_at_institution
 SL-89f10b79c791,,,,,,openalex_multiple_candidates_requires_review
 SL-93db821406e9,,,,,,openalex_multiple_candidates_requires_review
 SL-7306f2af580e,,,,,,openalex_no_name_match_at_institution
@@ -274,7 +270,7 @@ SL-e152509b7356,5,1,1,1,https://openalex.org/A5091818770,openalex_matched_surnam
 SL-f58078322b71,,,,,,openalex_no_name_match_at_institution
 SL-a70e800dc4d2,,,,,,openalex_multiple_candidates_requires_review
 SL-7a319815c99b,2,21,21,1,https://openalex.org/A5026143888,openalex_matched_surname_initials_and_institution
-SL-aad827a4babb,12,25,25,3,https://openalex.org/A5063379876,openalex_matched_surname_initials_and_institution
+SL-785681e2a343,12,25,25,3,https://openalex.org/A5063379876,openalex_matched_surname_initials_and_institution
 SL-504f20c29a10,1,1,0,1,https://openalex.org/A5039420225,openalex_matched_surname_initials_and_institution
 SL-e95e72684fb4,,,,,,openalex_multiple_candidates_requires_review
 SL-5dae6d3f394f,,,,,,openalex_multiple_candidates_requires_review
@@ -320,7 +316,6 @@ SL-5ee51fc83285,5,22,22,2,https://openalex.org/A5056506885,openalex_matched_surn
 SL-3829b7ab12de,,,,,,openalex_multiple_candidates_requires_review
 SL-7abbc3db65df,,,,,,openalex_multiple_candidates_requires_review
 SL-898f15c5be1c,,,,,,openalex_multiple_candidates_requires_review
-SL-40c7bc9e6d53,94,3078,52,25,https://openalex.org/A5089055936,openalex_matched_surname_initials_and_institution
 SL-1f305ca8625c,,,,,,openalex_multiple_candidates_requires_review
 SL-1c594a5abb65,,,,,,openalex_multiple_candidates_requires_review
 SL-e9df019885f5,178,906,142,15,https://openalex.org/A5007858948,openalex_matched_surname_initials_and_institution
@@ -422,7 +417,6 @@ SL-ad8f0a60928d,2,0,0,0,https://openalex.org/A5118573097,openalex_matched_surnam
 SL-bb1a8e9074f0,,,,,,openalex_no_name_match_at_institution
 SL-cdcd1ed37268,,,,,,openalex_multiple_candidates_requires_review
 SL-81d1cefd771d,1,0,0,0,https://openalex.org/A5153753513,openalex_matched_surname_initials_and_institution
-SL-82f188e307a7,,,,,,openalex_multiple_candidates_requires_review
 SL-0719f1b6aa5e,6,13,0,2,https://openalex.org/A5024078250,openalex_matched_surname_initials_and_institution
 SL-7fe37ec9acb9,,,,,,openalex_multiple_candidates_requires_review
 SL-b7536874db4b,,,,,,openalex_no_name_match_at_institution
@@ -442,8 +436,6 @@ SL-7cde1eca2acc,,,,,,openalex_multiple_candidates_requires_review
 SL-d10ec5611b6a,,,,,,openalex_multiple_candidates_requires_review
 SL-a52a6d07d271,,,,,,openalex_no_name_match_at_institution
 SL-105f4549afd6,,,,,,openalex_no_name_match_at_institution
-SL-0d23066489c3,,,,,,openalex_multiple_candidates_requires_review
-SL-fe7ae35729ee,,,,,,openalex_multiple_candidates_requires_review
 SL-9e0a067c5ad8,,,,,,openalex_multiple_candidates_requires_review
 SL-5672a9e74436,13,125,3,5,https://openalex.org/A5005706936,openalex_matched_surname_initials_and_institution
 SL-433a32280a79,,,,,,openalex_multiple_candidates_requires_review

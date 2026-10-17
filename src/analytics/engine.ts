@@ -176,6 +176,9 @@ export const facultyType = (faculty: string) => {
   const name = (faculty || "").replace(/^(the\s+)?(faculty|school|college|institute|department)\s+of\s+/i, "").replace(/^the\s+/i, "").trim();
   return name ? name.charAt(0).toUpperCase() + name.slice(1) : "";
 };
+/** Spelling-insensitive key for a faculty type ("Allied Health Science" and "Allied Health Sciences" match). */
+export const facultyTypeKey = (faculty: string) =>
+  facultyType(faculty).toLowerCase().replace(/&/g, "and").replace(/\bsciences\b/g, "science").replace(/\s+/g, " ");
 export function groupLabel(a: Academic, l: Level) {
   return l === "university"
     ? a.university
@@ -232,7 +235,7 @@ export function compare(
         !c.groups.length ||
         c.groups.includes(g.id) ||
         // At faculty level the picker offers faculty types, e.g. "Medicine".
-        (c.level === "faculty" && c.groups.includes(facultyType(g.rows[0]?.faculty ?? ""))),
+        (c.level === "faculty" && c.groups.includes(facultyTypeKey(g.rows[0]?.faculty ?? ""))),
     )
     .map((g) => {
       let stats = aggregate(g.rows, c.metric, c.aggregation);
