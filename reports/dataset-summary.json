@@ -1,17 +1,17 @@
 {
-  "version": "partial-c6fcdf9ce4",
+  "version": "partial-35959f7190",
   "collectionDate": "2026-10-17",
   "country": "Sri Lanka",
   "institutionsInScope": 15,
   "institutionsWithProfiles": 15,
   "facultiesRepresented": 66,
   "departmentsRepresented": 236,
-  "academicRecords": 2127,
+  "academicRecords": 2126,
   "verifiedIdentity": 978,
   "verifiedEmployment": 279,
   "withAnyMetric": 1275,
-  "withQualifications": 1428,
-  "doctorateDocumented": 734,
+  "withQualifications": 1427,
+  "doctorateDocumented": 733,
   "doctorateInProgress": 35,
   "doctorateContradictory": 8,
   "needsReview": 25,
@@ -25,8 +25,8 @@
     "Teaching / other": 92,
     "Mid-career": 876,
     "Early-career": 509,
-    "Professor": 491,
-    "Unknown": 159
+    "Professor": 528,
+    "Unknown": 121
   },
   "identityAliases": 23,
   "internationalBenchmarks": {
