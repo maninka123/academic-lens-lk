@@ -3751,3 +3751,18 @@ table.coverage-v2 {
 .global-filter-panel { position: absolute; right: 0; top: calc(100% + 8px); z-index: 60; width: min(520px, 92vw); max-height: min(70vh, 640px); overflow: auto; padding: 14px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); box-shadow: 0 24px 60px -20px rgba(0,0,0,.35); }
 .global-filter-panel .caption { margin: 0 0 8px; }
 @media (max-width: 760px) { .global-filter-panel { position: fixed; left: 8px; right: 8px; top: 64px; width: auto; } }
+
+/* Faculty and department cards: name on the left, subject icon on the right */
+.institution-card { --hue: 232; justify-content: space-between; border-radius: 14px; padding: 16px 16px 16px 18px; min-height: 92px; background: var(--surface); transition: transform .15s, box-shadow .15s, border-color .15s; }
+.institution-card:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -14px rgba(20, 30, 80, .45); }
+.institution-card .unit-icon { flex: none; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 14px; background: hsl(var(--hue) 65% 92%); color: hsl(var(--hue) 58% 34%); }
+.institution-card:hover .unit-icon { background: hsl(var(--hue) 65% 88%); }
+:root[data-theme="dark"] .institution-card .unit-icon { background: hsl(var(--hue) 35% 24%); color: hsl(var(--hue) 70% 80%); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .institution-card .unit-icon { background: hsl(var(--hue) 35% 24%); color: hsl(var(--hue) 70% 80%); } }
+.unit-icon { --hue: 232; }
+@media (max-width: 900px) { .institution-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .institution-grid { grid-template-columns: 1fr; } }
+
+.compare-banner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 4px 0 20px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.compare-banner > span { display: grid; gap: 2px; }
+.compare-banner small { color: var(--muted); }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { UnitIcon } from "../components/unit-icons";
 import type { Academic, Level } from "../types";
 import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
 import { Pin, ExternalLink, ArrowLeft, Download, FileText, Link2, Check } from "lucide-react";
@@ -717,9 +718,15 @@ export function Institution() {
         </Card>
       )}
       {faculty && rows.some((a) => a.field && a.field !== "Unmapped") && (
-        <Button variant="outline" onClick={() => openCompare(true)}>
-          Compare equivalent fields across institutions
-        </Button>
+        <div className="compare-banner">
+          <span>
+            <strong>See how this faculty compares</strong>
+            <small>Match equivalent fields across institutions in the Comparison Studio.</small>
+          </span>
+          <Button variant="outline" onClick={() => openCompare(true)}>
+            Compare equivalent fields
+          </Button>
+        </div>
       )}
       {!rows.length && (
         <Empty title="No collected profiles">
@@ -759,6 +766,10 @@ export function Institution() {
                     {g.rows.length === 1 ? "profile" : "profiles"}
                   </small>
                 </div>
+                <UnitIcon
+                  kind={faculty ? "department" : "faculty"}
+                  name={(faculty ? g.rows[0]?.department : g.rows[0]?.faculty) || ""}
+                />
               </Link>
             ))}
           </div>
