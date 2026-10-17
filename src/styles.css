@@ -3955,3 +3955,8 @@ table.coverage-v2 {
 .qs-rank.unranked i { display: none; }
 .key-fact-detail .qs-rank { margin-left: 0; margin-top: 2px; width: fit-content; }
 .key-fact-detail { flex-wrap: wrap; }
+.flow-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; justify-content: flex-end; }
+.flow-chart { padding-top: 0; }
+.flow-controls { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 18px; justify-content: flex-end; }
+.flow-controls .field { display: grid; gap: 4px; font-size: .75rem; font-weight: 600; color: var(--muted); }
+.flow-controls .flow-qs { align-self: center; font-size: .875rem; font-weight: 500; color: var(--text); }
