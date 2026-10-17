@@ -491,7 +491,7 @@ export function comparisonChart(
         distance: 10,
         fontSize: 12,
         // The standing text carries the same red-yellow-green colour as everywhere else.
-        formatter: `${r.i + 1} · ${plotNumber(value)} · ${other ? `not ranked (${other})` : pct === null ? "too few peers to rank" : `{s|${text}}`}${off ? " ▸" : ""}`,
+        formatter: `${r.i + 1} | ${plotNumber(value)} | ${other ? `not ranked (${other})` : pct === null ? "too few peers to rank" : `{s|${text}}`}${off ? " ▸" : ""}`,
         rich: pct === null ? undefined : { s: { color: standingColor(pct), fontWeight: 700, fontSize: 12 } },
         backgroundColor: "rgba(255,255,255,.94)",
         borderRadius: 6,
@@ -530,11 +530,11 @@ export function comparisonChart(
         width: 210,
         overflow: "truncate",
         formatter: (value: string) => {
-          const [unit, ...parents] = value.split(" · ");
+          const [unit, ...parents] = value.split(" | ");
           return parents.length
             ? unit.replace(/^Faculty of /, "") +
                 "\n" +
-                short(parents.join(" · "))
+                short(parents.join(" | "))
             : value;
         },
       },
@@ -590,7 +590,7 @@ export function comparisonChart(
                 position: "insideEndTop",
                 rotate: 0,
                 align: "right",
-                formatter: `${indices.map((i) => i + 1).join(", ")} · ${plotNumber(value)}${off ? " ▸" : ""}${pctText ? "\n" + pctText : ""}`,
+                formatter: `${indices.map((i) => i + 1).join(", ")} | ${plotNumber(value)}${off ? " ▸" : ""}${pctText ? "\n" + pctText : ""}`,
                 fontSize: 13,
                 lineHeight: 18,
                 backgroundColor: "rgba(255,255,255,.94)",

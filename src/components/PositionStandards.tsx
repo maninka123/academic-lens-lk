@@ -86,7 +86,7 @@ export function PositionStandards({
                         <b>{fmt(r.q1, 0)}–{fmt(r.q3, 0)}</b>
                       </span>
                     )}
-                    {low && <small className="warn-text"> · fewer than {minN}, indicative</small>}
+                    {low && <small className="warn-text"> | fewer than {minN}, indicative</small>}
                   </td>
                 </tr>
               );

@@ -179,7 +179,7 @@ export function ScoreDialog({
           </h3>
           <p>
             {scored
-              ? `${CONFIDENCE_TEXT[result.confidence!]} · ${result.measuresUsed} of 3 measures`
+              ? `${CONFIDENCE_TEXT[result.confidence!]} | ${result.measuresUsed} of 3 measures`
               : result.reason}
           </p>
         </div>
@@ -201,7 +201,7 @@ export function ScoreDialog({
         <section className="score-step">
           <h4><span>1</span> Who they are compared with</h4>
           <p>
-            <strong>{result.groupLabel}</strong> · {fmt(result.groupSize)} collected profiles
+            <strong>{result.groupLabel}</strong> | {fmt(result.groupSize)} collected profiles
             {result.level === "stage" && result.discipline
               ? ` (the ${result.discipline} group had too few peers, so all disciplines at this stage are used)`
               : result.level === "stage"

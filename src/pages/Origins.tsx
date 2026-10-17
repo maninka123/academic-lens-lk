@@ -281,13 +281,13 @@ export function Origins() {
   const sel = [
     uni && d.universities.find((u) => u.id === uni)?.short,
     faculty &&
-      facultyOptions.find((f) => f.id === faculty)?.label.split(" · ")[0],
+      facultyOptions.find((f) => f.id === faculty)?.label.split(" | ")[0],
     department &&
-      departmentOptions.find((f) => f.id === department)?.label.split(" · ")[0],
+      departmentOptions.find((f) => f.id === department)?.label.split(" | ")[0],
     position,
   ]
     .filter(Boolean)
-    .join(" · ");
+    .join(" | ");
 
   return (
     <>
@@ -369,12 +369,12 @@ export function Origins() {
         <Stat
           label="Documented doctorates"
           value={fmt(documented.length)}
-          detail={`${pct(documented.length, selection.length)} of ${fmt(selection.length)} profiles${sel ? " · " + sel : ""}`}
+          detail={`${pct(documented.length, selection.length)} of ${fmt(selection.length)} profiles${sel ? " | " + sel : ""}`}
         />
         <Stat
           label="Awarding country known"
           value={pct(known.length, documented.length)}
-          detail={`${known.length} of ${documented.length} · ${known.filter((a) => a.phdCountryInferred).length} inferred from university name`}
+          detail={`${known.length} of ${documented.length} | ${known.filter((a) => a.phdCountryInferred).length} inferred from university name`}
         />
         <Stat
           label="Awarding institution known"
@@ -387,7 +387,7 @@ export function Origins() {
         <Stat
           label="Sri Lanka / overseas"
           value={`${pct(lk, known.length)} / ${pct(known.length - lk, known.length)}`}
-          detail={`${lk} Sri Lankan · ${known.length - lk} overseas · ${groups.length} countries`}
+          detail={`${lk} Sri Lankan | ${known.length - lk} overseas | ${groups.length} countries`}
         />
       </div>
       <div className="status-strip" aria-label="Doctorate status">
@@ -431,7 +431,7 @@ export function Origins() {
                       typeof p.value === "number" && Number.isFinite(p.value)
                         ? p.value
                         : 0;
-                    return `${mapCountry(p.name)}\n${n > 0 ? `${fmt(n)} recorded doctorates · ${pct(n, known.length)} of mapped profiles` : "No recorded profiles in this selection"}`;
+                    return `${mapCountry(p.name)}\n${n > 0 ? `${fmt(n)} recorded doctorates | ${pct(n, known.length)} of mapped profiles` : "No recorded profiles in this selection"}`;
                   },
                 },
                 visualMap: {
@@ -738,7 +738,7 @@ export function Origins() {
         </>
       )}
       <Card
-        title={country ? `Research context · ${country}` : "Research context"}
+        title={country ? `Research context | ${country}` : "Research context"}
         subtitle={`Research metrics for ${rows.length} documented PhD holders in this selection.`}
       >
         <MetricSummaryTable rows={rows} minN={minN} presentation="cards" />
@@ -746,7 +746,7 @@ export function Origins() {
       <Card
         title="From doctorate to current institution"
         subtitle={
-          (country ? country + " · " : "") +
+          (country ? country + " | " : "") +
           (mode === "full"
             ? "PhD country → awarding university → current institution"
             : "PhD country → current institution")

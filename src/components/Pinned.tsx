@@ -77,7 +77,7 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
               <div>
                 <strong>{a.name}</strong>
                 <small>
-                  {short(a.university)} · {a.rank}
+                  {short(a.university)} | {a.rank}
                 </small>
               </div>
               <Plus size={18} />
@@ -142,7 +142,7 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
               </Button>
             </div>
             <p>
-              {short(a.university)} · {a.rank}
+              {short(a.university)} | {a.rank}
             </p>
             <span
               className={
@@ -168,7 +168,7 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
                     {recordedFrom} value, not {providerLabel || "the selected provider"}: not ranked against these peers.
                   </p>
                 ) : providerLabel && (
-                  <p className="caption">{v === null ? `No recorded ${providerLabel} ${metricLabels[metric]} for this person.` : `${providerLabel} · individual value`}</p>
+                  <p className="caption">{v === null ? `No recorded ${providerLabel} ${metricLabels[metric]} for this person.` : `${providerLabel} | individual value`}</p>
                 )}
                 {recorded === null && <dl className="peer-stats">
                   <div>

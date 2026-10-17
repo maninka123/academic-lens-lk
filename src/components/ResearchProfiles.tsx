@@ -102,7 +102,7 @@ export function ResearchProfiles({ academic }: { academic: Academic }) {
               <span>
                 {label}{" "}
                 <span className="muted">
-                  ·{" "}
+                  |{" "}
                   {status === "rejected_different_person"
                     ? "Rejected identity match"
                     : "Not recorded"}

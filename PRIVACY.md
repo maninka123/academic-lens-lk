@@ -1,6 +1,6 @@
 # Privacy and data-use notice
 
-*Lanka Academia · Ongoing Research | Public Preview · Last updated 16 October 2026*
+*Lanka Academia | Ongoing Research | Public Preview | Last updated 16 October 2026*
 
 This notice explains what information Lanka Academia publishes, where it comes from, why it is used, how long it is kept, and how to contact us.
 

@@ -128,12 +128,12 @@ export function standingScore(
   type Level = { level: StandingScore["level"]; members: Academic[]; label: string; note?: string };
   const stagedLevels: Level[] = stageKnown
     ? [
-        ...(field ? [{ level: "discipline-stage" as const, members: sameStage.filter((p) => p.field === field), label: `${stage} · ${field}` }] : []),
+        ...(field ? [{ level: "discipline-stage" as const, members: sameStage.filter((p) => p.field === field), label: `${stage} | ${field}` }] : []),
         { level: "stage" as const, members: sameStage, label: `All ${stage.toLowerCase()} academics` },
       ]
     : [];
   const unstagedLevels: Level[] = [
-    ...(field ? [{ level: "discipline" as const, members: sameField, label: `${field} · all career stages`, note: "Career stage not recognised: compared with the whole discipline across all stages." }] : []),
+    ...(field ? [{ level: "discipline" as const, members: sameField, label: `${field} | all career stages`, note: "Career stage not recognised: compared with the whole discipline across all stages." }] : []),
     { level: "everyone" as const, members: everyone, label: "All collected academics", note: "Career stage and discipline not available: compared with everyone collected." },
   ];
 

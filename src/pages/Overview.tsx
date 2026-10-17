@@ -129,13 +129,13 @@ export function Overview() {
       <section className="hero" aria-label="Summary">
         <span
           className="hero-corner"
-          title={`Any research metric ${pct(cov.withMetric)} · qualifications ${pct(cov.withQualifications)} · ${fmt(cov.needsReview)} need review`}
+          title={`Any research metric ${pct(cov.withMetric)} | qualifications ${pct(cov.withQualifications)} | ${fmt(cov.needsReview)} need review`}
         >
           <i className="status-dot" />
           Data completeness {pct(cov.withMetric)}
         </span>
         <div className="hero-copy">
-          <div className="eyebrow">Sri Lanka · Academic research</div>
+          <div className="eyebrow">Sri Lanka | Academic research</div>
           <span className="hero-preview">Ongoing Research | Public Preview</span>
           <h1>Sri Lanka’s academic landscape.</h1>
           <p>
@@ -178,8 +178,8 @@ export function Overview() {
       </section>
       <div className="stats-grid snapshot">
         <Stat
-          label="Faculties · departments"
-          value={`${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} · ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size}`}
+          label="Faculties | departments"
+          value={`${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} | ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size}`}
           detail="Units represented in the collected profiles"
         />
         <Stat
@@ -192,7 +192,7 @@ export function Overview() {
           value={fmt(summary?.internationalBenchmarks.academics ?? null)}
           detail={
             summary
-              ? `Sampled academics · ${summary.internationalBenchmarks.universities} universities · ${summary.internationalBenchmarks.countries} countries`
+              ? `Sampled academics | ${summary.internationalBenchmarks.universities} universities | ${summary.internationalBenchmarks.countries} countries`
               : "Not loaded"
           }
         />
@@ -237,7 +237,7 @@ export function Overview() {
         </Card>
         <Card
           title="Academic positions"
-          subtitle="Senior to junior · collected profiles"
+          subtitle="Senior to junior | collected profiles"
         >
           <ul className="position-bars" aria-label="Academic positions, senior to junior">
             {ranks.map((g) => {

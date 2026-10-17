@@ -100,9 +100,9 @@ export function Filters({ compact = false }: { compact?: boolean }) {
               value: String(a[k]),
               label:
                 labelKey === "faculty"
-                  ? `${a.faculty} · ${a.university}`
+                  ? `${a.faculty} | ${a.university}`
                   : labelKey === "department"
-                    ? `${a.department} · ${a.faculty || "Faculty unrecorded"} · ${a.university}`
+                    ? `${a.department} | ${a.faculty || "Faculty unrecorded"} | ${a.university}`
                     : String(a[labelKey || k]),
             },
           ]),

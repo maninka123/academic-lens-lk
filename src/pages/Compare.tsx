@@ -186,8 +186,8 @@ export function Compare() {
                 ({
                   ...a,
                   universityId: "intl-" + a.universityId,
-                  university: `${a.universityShort} · ${a.country} (${a.tier})`,
-                  type: `International · ${tierLabels[a.tier]}`,
+                  university: `${a.universityShort} | ${a.country} (${a.tier})`,
+                  type: `International | ${tierLabels[a.tier]}`,
                   facultyId: "",
                   departmentId: "",
                   qualifications: a.qualifications,
@@ -632,7 +632,7 @@ export function Compare() {
         {custom.map((g) => (
           <div className="group-item" key={g.id}>
             <span>
-              {g.name} · {g.ids.length}
+              {g.name} | {g.ids.length}
             </span>
             <Button
               variant="ghost"
@@ -719,7 +719,7 @@ export function Compare() {
         <span className="toolbar-counts">
           {activeFilterCount(filters) > 0 && (
             <button type="button" className="filter-chip" onClick={() => setFilters(emptyFilters())} title="Clear the dataset filters set from the Filters button">
-              <SlidersHorizontal size={14} aria-hidden="true" /> {activeFilterCount(filters)} filter{activeFilterCount(filters) > 1 ? "s" : ""} on · Clear
+              <SlidersHorizontal size={14} aria-hidden="true" /> {activeFilterCount(filters)} filter{activeFilterCount(filters) > 1 ? "s" : ""} on | Clear
             </button>
           )}
           {selectedRows.length.toLocaleString()} profiles in comparison
@@ -733,7 +733,7 @@ export function Compare() {
         >
           <div className="chart-title">
             <div className="eyebrow">
-              {levelLabels[c.level]} ·{" "}
+              {levelLabels[c.level]} |{" "}
               {composition ? "Academic composition" : c.aggregation}
             </div>
             <h2>
@@ -742,11 +742,11 @@ export function Compare() {
                 : metricLabels[c.metric]}
             </h2>
             <p>
-              {groups.length} groups ·{" "}
+              {groups.length} groups |{" "}
               {c.level === "type" && c.weight === "equal"
                 ? "Equal university weight"
                 : "Pooled academics"}{" "}
-              · {(c.metric === "recentCitations"
+              | {(c.metric === "recentCitations"
                 ? `${d.metadata.window.join("–")} window`
                 : numeric ? "All-time recorded values" : "Collected profiles")}
             </p>
@@ -819,7 +819,7 @@ export function Compare() {
             const sub = (g: typeof top) =>
               c.metric === "count"
                 ? `${fmt(g.value, 0)} profiles`
-                : `${pctMetric ? "" : agg + " "}${fmt(g.value, pctMetric ? 1 : 0)}${pctMetric ? "%" : ""} · ${fmt(g.n)} profiles`;
+                : `${pctMetric ? "" : agg + " "}${fmt(g.value, pctMetric ? 1 : 0)}${pctMetric ? "%" : ""} | ${fmt(g.n)} profiles`;
             const ratio = top.value! > 0 && bottom.value! > 0;
             const excluded = groups.length - ranked.length;
             return (
@@ -831,7 +831,7 @@ export function Compare() {
                   <strong>{ratio ? `${fmt(top.value! / bottom.value!, 1)}×` : fmt(top.value! - bottom.value!, 1)}</strong>
                   <span>
                     {ranked.length} groups
-                    {excluded > 0 ? ` · ${excluded} too small to rank` : ""}
+                    {excluded > 0 ? ` | ${excluded} too small to rank` : ""}
                   </span>
                 </div>
               </div>
@@ -929,7 +929,7 @@ export function Compare() {
                 <tr>
                   <th>Comparison group</th>
                   <th>
-                    {metricLabels[c.metric]} ·{" "}
+                    {metricLabels[c.metric]} |{" "}
                     {c.aggregation === "distribution"
                       ? "median"
                       : c.aggregation}
@@ -1001,7 +1001,7 @@ export function Compare() {
       <Dialog open={Boolean(inspected)} onOpenChange={(open) => { if (!open) setInspectedGroup(null); }} title={inspected?.label || "Group details"} className="group-details-dialog">
         {inspected && <>
           <div className="group-details-summary">
-            <div><span>{metricLabels[c.metric]} · {composition ? "Composition" : c.aggregation}</span><strong>{composition ? fmt(inspected.total) : fmt(inspected.value, 1)}</strong></div>
+            <div><span>{metricLabels[c.metric]} | {composition ? "Composition" : c.aggregation}</span><strong>{composition ? fmt(inspected.total) : fmt(inspected.value, 1)}</strong></div>
             <div><span>Profiles with a usable value</span><strong>{inspected.n} / {inspected.total}</strong></div>
             <div><span>Coverage</span><strong>{inspected.total ? fmt(100 * inspected.n / inspected.total, 1) + "%" : "Not available"}</strong></div>
           </div>

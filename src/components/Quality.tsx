@@ -22,7 +22,7 @@ import { fmt } from "./common";
 export type EvidenceLevel = "verified" | "recorded" | "review" | "missing";
 const badgeText: Record<EvidenceLevel, string> = {
   verified: "Verified",
-  recorded: "Recorded · unverified",
+  recorded: "Recorded | unverified",
   review: "Needs review",
   missing: "Not documented",
 };
@@ -70,7 +70,7 @@ export function MeasurementNote({
       <span>
         <strong>{metricLabel}:</strong> {fmt(q.valid)} valid of{" "}
         {fmt(q.eligible)} eligible records (
-        {q.completeness === null ? "—" : fmt(q.completeness, 1) + "%"}) ·
+        {q.completeness === null ? "—" : fmt(q.completeness, 1) + "%"}) |
         Source: {providers || "none"}
       </span>
       {q.lowN && (
@@ -156,7 +156,7 @@ export function CoveragePanel({
 
 const metricNames: Record<string, string> = {
   citations: "Citations",
-  recentCitations: "Citations · 2021–2025",
+  recentCitations: "Citations | 2021–2025",
   publications: "Publications",
   hIndex: "h-index",
   experience: "Academic experience (years)",
@@ -252,7 +252,7 @@ export function MetricSummaryTable({
     <div className="table-scroll">
       <table className="metric-summary-table">
         <caption className="caption">
-          Median = middle value · One source per metric · Missing values
+          Median = middle value | One source per metric | Missing values
           excluded
         </caption>
         <thead>
