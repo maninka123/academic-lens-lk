@@ -613,9 +613,13 @@ export function comparisonChart(
                 ? g.id === "Public"
                   ? "#3b4fd6"
                   : "#0f9488"
-                : g.id === topId
-                  ? "#f59e0b"
-                  : "#3b4fd6",
+                : c.level === "university"
+                  ? g.rows?.[0]?.type === "Non-state"
+                    ? "#0f9488"
+                    : "#3b4fd6"
+                  : g.id === topId
+                    ? "#f59e0b"
+                    : "#3b4fd6",
             ...(g.lowN
               ? {
                   decal: {

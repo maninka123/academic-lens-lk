@@ -873,6 +873,13 @@ export function Compare() {
               <p>Groups with fewer than {minN} valid values are shown for reference and are not ranked.</p>
             </div>
           </details>
+          {c.level === "university" && has && ["bar", "grouped"].includes(c.chart) && (
+            <span className="legend-inline institution-key compare-sector-key">
+              <i className="blue" />
+              Public <i className="teal" />
+              Non-state
+            </span>
+          )}
           {has ? (
             <Chart
               option={chartOption}

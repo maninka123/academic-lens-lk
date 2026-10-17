@@ -32,7 +32,11 @@ export function Overview() {
   }));
   const positionOrder = ["Senior Professor", "Professor", "Associate Professor", "Assistant Professor", "Senior Lecturer", "Lecturer", "Assistant Lecturer", "Instructor", "Librarian", "Other", "Unknown"];
   const positionIndex = (rank: string) => { const index = positionOrder.indexOf(rank); return index < 0 ? positionOrder.length - 2 : index; };
-  const ranks = groupRows(rows, "rank").sort((a, b) => positionIndex(a.id) - positionIndex(b.id));
+  // Profiles without a recorded position ("Unknown", "Other") are not drawn as a position.
+  const ranks = groupRows(rows, "rank")
+    .filter((g) => g.id !== "Unknown" && g.id !== "Other")
+    .sort((a, b) => positionIndex(a.id) - positionIndex(b.id));
+  const unplaced = rows.filter((a) => a.rank === "Unknown" || a.rank === "Other").length;
   const rankColor = (rank: string) => rank === "Unknown" ? "#9aa8b5" : rank === "Other" ? "#768591" : colors[positionIndex(rank) % colors.length];
   const cov = coverageOf(rows);
   const phdCount = rows.filter((a) => a.qualification === "PhD").length;
@@ -239,7 +243,7 @@ export function Overview() {
         </Card>
         <Card
           title="Academic positions"
-          subtitle="Senior to junior | collected profiles"
+          subtitle={`Senior to junior | collected profiles${unplaced ? ` | ${unplaced.toLocaleString()} without a recorded position not shown` : ""}`}
         >
           <ul className="position-bars" aria-label="Academic positions, senior to junior">
             {ranks.map((g) => {
