@@ -13,8 +13,8 @@
 </div>
 
 <!-- dataset-summary:start -->
-<!-- Snapshot partial-998e17e0da -->
-**2,041 Sri Lankan profiles · 15 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-17. [Coverage report](reports/validation-report.md).
+<!-- Snapshot partial-5ea7564b3d -->
+**2,136 Sri Lankan profiles · 15 institutions · 1,740 international benchmark profiles.** Partial collection, updated 2026-10-17. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
 ## Screenshots
@@ -118,7 +118,7 @@ Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-
 | **Code** | [MIT](LICENSE) |
 | **Aggregate statistics and reports** | [CC BY 4.0](DATA_LICENSE.md): free to use with credit. Individual records are excluded from this licence. |
 | **Notice** | [Data may be wrong, no warranty, third-party material](NOTICE.md) |
-| **Privacy and data use** | [PRIVACY.md](PRIVACY.md): what is collected, why, retention, your rights |
+| **Privacy and data use** | [PRIVACY.md](PRIVACY.md): what is collected, why and how long it is kept |
 | **Ethics and data statement** | [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md) |
 
 Copyright (c) 2026 Pasindu Ranasinghe.
