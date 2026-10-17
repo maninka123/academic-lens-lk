@@ -609,7 +609,7 @@ export function Global() {
       const g = view.tierGroups.find((x) => x.key === t)!;
       return { key: t as Tier | "sl", name: tierShort[t], note: tierNotes[t], median: medianOf(g), n: g.values.length };
     }),
-    { key: "sl" as Tier | "sl", name: "Sri Lanka", note: "Collected profiles", median: slMedian, n: sl.values.length },
+    { key: "sl" as Tier | "sl", name: "Sri Lanka", note: `${fmt(sl.eligible)} collected profiles in this selection`, median: slMedian, n: sl.values.length },
   ];
   const tierMax = Math.max(1, ...tierRows.map((r) => r.median ?? 0));
   const tierRatios =
@@ -904,6 +904,12 @@ export function Global() {
                   tierRatios.map((r) => `${r.pct}% of the ${r.name}`).join(", ") +
                   ` median for ${field}${stage === "all" ? "" : ", " + stage.toLowerCase()}.`
                 : "The international tiers have too few valid profiles to compare."}
+            {slMedian !== null && mode === "likeForLike" && sl.eligible > 0 && (
+              <>
+                {" "}
+                This rests on {fmt(sl.values.length)} of {fmt(sl.eligible)} Sri Lankan profiles ({Math.round((100 * sl.values.length) / sl.eligible)}%) with a verified OpenAlex match; the rest are not matched yet. OpenAlex h-indices usually run lower than Google Scholar&rsquo;s, so compare Sri Lanka with the tiers here, not with the Scholar figures elsewhere.
+              </>
+            )}
           </p>
         </div>
         <ul className="tier-ladder">
@@ -921,7 +927,11 @@ export function Global() {
               </span>
               <strong className="tier-value">{r.median === null ? "—" : fmt(r.median, 1)}</strong>
               <small className="tier-n">
-                {r.median === null ? `not enough data (n=${r.n})` : `${fmt(r.n)} profiles`}
+                {r.median === null
+                  ? `not enough data (n=${r.n})`
+                  : r.key === "sl" && mode === "likeForLike"
+                    ? `${fmt(r.n)} of ${fmt(sl.eligible)} matched`
+                    : `${fmt(r.n)} profiles`}
               </small>
             </li>
           ))}
