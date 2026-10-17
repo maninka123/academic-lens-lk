@@ -1,4 +1,5 @@
 // A4 profile report drawn with vector shapes (no screenshots), so charts stay sharp.
+import { qualificationLines } from "../data/qualification-lines";
 import type { jsPDF } from "jspdf";
 import type { Academic, Metadata, NumericMetric } from "../types";
 import { metricLabels } from "../types";
@@ -360,7 +361,7 @@ export async function buildPersonReport(
   text("Education", M, y + 2, 10.5, "bold");
   y += 6;
   detail([
-    ["Published qualifications", person.qualifications],
+    ["Published qualifications", qualificationLines(person.qualifications).map((l) => "- " + l).join("\n") || person.qualifications],
     ["Highest qualification", person.qualification],
     ["PhD completion year", person.phdYear ? String(person.phdYear) : ""],
     ["PhD institution", person.phdUniversity],
