@@ -2,7 +2,7 @@ import { useState } from "react";
 import { UnitIcon } from "../components/unit-icons";
 import type { Academic, Level } from "../types";
 import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
-import { Pin, ExternalLink, ArrowLeft, Download, FileText, Link2, Check } from "lucide-react";
+import { Pin, ExternalLink, ArrowLeft, Download, FileText, Link2, Check, TriangleAlert } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import { filterAcademics, groupRows } from "../analytics/engine";
@@ -302,6 +302,15 @@ export function Profile() {
         </div>
         <StandingScorePanel person={a} />
       </div>
+      {a.caution && (
+        <div className="profile-caution" role="note">
+          <TriangleAlert size={18} aria-hidden="true" />
+          <div>
+            <strong>Read these figures with care</strong>
+            <p>{a.caution}</p>
+          </div>
+        </div>
+      )}
       <section className="key-facts" aria-label="Key facts">
         <div className="key-fact wide">
           <span>Position</span>

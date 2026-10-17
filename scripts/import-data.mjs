@@ -52,6 +52,10 @@ const observations = optionalCsv("research_metric_observations.csv");
 const openAlex = optionalCsv("international/sri_lanka_openalex_metrics.csv");
 const identities = optionalCsv("research_identity_evidence.csv");
 const aliasRows = optionalCsv("identity_aliases.csv");
+// Short maintainer cautions shown on a profile above its metrics (for example mass-collaboration citation counts).
+const cautionById = Object.fromEntries(
+  optionalCsv("profile_cautions.csv").map((r) => [r.academic_id, r.caution]),
+);
 const aliases = Object.fromEntries(
   aliasRows.map((r) => [r.alias_academic_id, r.canonical_academic_id]),
 );
@@ -161,6 +165,7 @@ const rows = sourceRows.map((original) => {
     employmentStatus: r.employment_status,
     field: "Unmapped",
     notes: sanitizeText(r.notes),
+    caution: sanitizeText(cautionById[r.academic_id] || ""),
   };
 });
 if (rows.some((r) => !r.id || !r.name))

@@ -103,6 +103,8 @@ export type Academic = {
   employmentStatus: string;
   field: string;
   notes: string;
+  /** Optional maintainer caution about reading this person's metrics. */
+  caution?: string;
 };
 export type University = {
   id: string;

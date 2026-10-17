@@ -76,6 +76,7 @@ export const PUBLIC_ACADEMIC_COLUMNS = [
   "employmentStatus",
   "field",
   "notes",
+  "caution",
 ];
 
 /** Headers that only occur in internal review/evidence files. */
