@@ -44,6 +44,12 @@ export function openAlexFallback(row, lookup) {
   const fields = {}, evidence = [];
   if (!lookup?.openalex_id || !/(^|_)matched(_|$)/.test(lookup.status || "") ||
       /(^|_)(not|no|un)_?matched/.test(lookup.status || "")) return { fields, evidence };
+  // Providers are never mixed within one person: when the recorded figures come from Google
+  // Scholar or ResearchGate, OpenAlex does not top up the missing ones (its publication
+  // counts sit on a different scale and would sit beside, say, a Scholar h-index).
+  const recorded = Object.values(metricFields).some((c) => row[c] !== "" && row[c] != null);
+  if (recorded && row.research_metrics_source && !/openalex/i.test(row.research_metrics_source))
+    return { fields, evidence };
   for (const [metric, column] of Object.entries(metricFields)) {
     if (row[column] !== "" && row[column] != null) continue;
     const raw = lookup[column];
