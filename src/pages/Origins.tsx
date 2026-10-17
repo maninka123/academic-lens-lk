@@ -139,7 +139,8 @@ export function Origins() {
       >(),
       nodes = new Set<string>();
     // Bands first, in rank order, so the diagram reads from the highest ranked universities down.
-    if (leftBy === "qs") for (const b of [...QS_BANDS, "QS rank not located"]) nodes.add("Band: " + b);
+    const bandsUsed = leftBy === "qs" || mode === "band";
+    if (bandsUsed) for (const b of [...QS_BANDS, "QS rank not located"]) nodes.add("Band: " + b);
     for (const a of rows) {
       const c =
           leftBy === "qs"
@@ -147,13 +148,15 @@ export function Origins() {
             : "Country: " + a.phdCountry,
         u = "Current: " + short(a.university),
         p =
-          "PhD: " +
+          mode === "band"
+            ? "Band: " + (qsBandOf(a) ?? "QS rank not located")
+            : "PhD: " +
           (mode === "fullqs"
             ? (a.phdInstitution || a.phdUniversity || "Institution unavailable") +
               (qsMain(a) ? " (" + qsMain(a) + ")" : "")
             : a.phdUniversity || "Institution unavailable");
       const pairs =
-        mode === "full" || mode === "fullqs"
+        mode === "full" || mode === "fullqs" || mode === "band"
           ? [
               [c, p],
               [p, u],
@@ -170,7 +173,7 @@ export function Origins() {
         });
       }
     }
-    if (leftBy === "qs") for (const n of [...nodes]) if (n.startsWith("Band: ") && ![...links.values()].some((l) => l.source === n)) nodes.delete(n);
+    if (bandsUsed) for (const n of [...nodes]) if (n.startsWith("Band: ") && ![...links.values()].some((l) => l.source === n)) nodes.delete(n);
     return { links, nodes };
   }, [rows, mode, leftBy]);
 
@@ -787,7 +790,9 @@ export function Origins() {
         subtitle={
           (country ? country + " | " : "") +
           (leftBy === "qs" ? "University ranking (QS 2027)" : "PhD country") +
-          (mode === "full" || mode === "fullqs"
+          (mode === "band"
+            ? " → university ranking (QS 2027) → current institution"
+            : mode === "full" || mode === "fullqs"
             ? " → awarding university" + (mode === "fullqs" ? " (with its QS 2027 rank)" : "") + " → current institution"
             : " → current institution")
         }
@@ -797,7 +802,10 @@ export function Origins() {
               <span>Left side</span>
               <div className="chip-group" role="group" aria-label="Left side of the flow">
                 {([["country", "Awarding country"], ["qs", "University ranking (QS 2027)"]] as const).map(([k, l]) => (
-                  <button key={k} type="button" aria-pressed={leftBy === k} onClick={() => setLeftBy(k)}>
+                  <button key={k} type="button" aria-pressed={leftBy === k} onClick={() => {
+                    setLeftBy(k);
+                    if (k === "qs" && mode === "band") setMode("simple");
+                  }}>
                     {l}
                   </button>
                 ))}
@@ -806,19 +814,25 @@ export function Origins() {
             <div className="field">
               <span>Middle step</span>
               <div className="chip-group" role="group" aria-label="Middle step">
-                {([["simple", "None"], ["university", "Awarding university"]] as const).map(([k, l]) => (
+                {(
+                  [
+                    ["simple", "None"],
+                    ["university", "Awarding university"],
+                    ...(leftBy === "country" ? [["band", "University ranking (QS 2027)"]] : []),
+                  ] as [string, string][]
+                ).map(([k, l]) => (
                   <button
                     key={k}
                     type="button"
-                    aria-pressed={(mode === "simple") === (k === "simple")}
-                    onClick={() => setMode(k === "simple" ? "simple" : middleQs ? "fullqs" : "full")}
+                    aria-pressed={k === "university" ? mode === "full" || mode === "fullqs" : mode === k}
+                    onClick={() => setMode(k === "university" ? (middleQs ? "fullqs" : "full") : k)}
                   >
                     {l}
                   </button>
                 ))}
               </div>
             </div>
-            {mode !== "simple" && (
+            {(mode === "full" || mode === "fullqs") && (
               <label className="check flow-qs">
                 <input
                   type="checkbox"
@@ -859,7 +873,7 @@ export function Origins() {
                     left: 20,
                     right: 270,
                     // In the QS view keep the bands in rank order instead of sorting by size.
-                    layoutIterations: leftBy === "qs" ? 0 : 32,
+                    layoutIterations: leftBy === "qs" || mode === "band" ? 0 : 32,
                     top: 4,
                     bottom: 8,
                     nodeGap: 12,
