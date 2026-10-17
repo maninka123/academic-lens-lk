@@ -1,5 +1,5 @@
 {
-  "version": "partial-f8b1bb8992",
+  "version": "partial-c6fcdf9ce4",
   "collectionDate": "2026-10-17",
   "country": "Sri Lanka",
   "institutionsInScope": 15,
@@ -16,10 +16,10 @@
   "doctorateContradictory": 8,
   "needsReview": 25,
   "metricAvailability": {
-    "publications": 1067,
-    "citations": 1267,
-    "recentCitations": 1221,
-    "hIndex": 1259
+    "publications": 1007,
+    "citations": 1265,
+    "recentCitations": 1175,
+    "hIndex": 1253
   },
   "careerStages": {
     "Teaching / other": 92,
