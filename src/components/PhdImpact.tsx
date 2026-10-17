@@ -74,13 +74,6 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
     .sort((a, b) => b.people - a.people || a.label.localeCompare(b.label))
     .slice(0, 14);
   const bands = stats((a) => qsBandOf(a)).sort((a, b) => QS_BANDS.indexOf(a.label as never) - QS_BANDS.indexOf(b.label as never));
-  const values = (a: Academic) => a[metric];
-  const allVals = rows.map(values).filter((v): v is number => typeof v === "number" && Number.isFinite(v)).sort((x, y) => x - y);
-  const overallMedian = allVals.length ? (allVals[Math.floor((allVals.length - 1) / 2)] + allVals[Math.ceil((allVals.length - 1) / 2)]) / 2 : null;
-  const shareAbove = origin.map((g) => {
-    const vs = rows.filter((a) => originKey(a) === g.label).map(values).filter((v): v is number => typeof v === "number" && Number.isFinite(v));
-    return { g, share: vs.length && overallMedian !== null ? (100 * vs.filter((v) => v > overallMedian).length) / vs.length : null };
-  });
   const unlocated = rows.filter((a) => a.phdUniversity && qsBandOf(a) === null).length;
   const noUniversity = rows.filter((a) => !a.phdUniversity).length;
 
@@ -240,33 +233,6 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
     ],
   };
 
-  const shareOption = {
-    tooltip: { trigger: "item", confine: true, valueFormatter: (v: number) => fmt(v, 0) + "%" },
-    grid: { left: 8, right: 56, top: 10, bottom: 34, containLabel: true },
-    xAxis: { type: "value", max: 100, name: `Share above the overall median (${overallMedian === null ? "—" : fmt(overallMedian, 1)})`, nameLocation: "middle", nameGap: 28, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.35 } } },
-    yAxis: axisY,
-    series: [
-      {
-        type: "bar",
-        barMaxWidth: 34,
-        data: shareAbove.map(({ g, share }) => ({ value: share, itemStyle: { color: colorOf(g), opacity: g.lowN ? 0.5 : 1, decal: g.lowN ? hatch : undefined } })),
-        label: { show: true, position: "right", fontSize: 13, formatter: (p: any) => (p.value === null || p.value === undefined ? "—" : Math.round(p.value) + "%") },
-      },
-    ],
-  };
-
-  const coverageOption = {
-    tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, confine: true },
-    legend: { top: 0, icon: "roundRect" },
-    grid: { left: 8, right: 16, top: 34, bottom: 24, containLabel: true },
-    xAxis: { type: "category", data: oLabels, axisLabel: { fontSize: 13 } },
-    yAxis: { type: "value", name: "People", nameLocation: "middle", nameGap: 40, splitLine: { lineStyle: { opacity: 0.35 } } },
-    series: [
-      { type: "bar", name: `With ${measure}`, stack: "c", barMaxWidth: 60, itemStyle: { color: col.lk }, data: origin.map((g) => g.n) },
-      { type: "bar", name: "No value on file", stack: "c", barMaxWidth: 60, itemStyle: { color: col.unknown }, data: origin.map((g) => g.people - g.n) },
-    ],
-  };
-
   return (
     <Card
       title="Does where the doctorate was earned matter?"
@@ -362,14 +328,6 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
           <div className="pos-col">
             <div className="pos-head"><h3 className="pos-sub">Spread within each group</h3></div>
             <Chart option={spreadOption as any} height={300} label={`Middle half of ${measure} in each group`} />
-          </div>
-          <div className="pos-col">
-            <div className="pos-head"><h3 className="pos-sub">Share above the overall median</h3></div>
-            <Chart option={shareOption} height={300} label={`Share of each group above the overall median ${measure}`} />
-          </div>
-          <div className="pos-col">
-            <div className="pos-head"><h3 className="pos-sub">People behind each group</h3></div>
-            <Chart option={coverageOption} height={300} label="People with and without a value in each group" />
           </div>
         </div>
       )}
