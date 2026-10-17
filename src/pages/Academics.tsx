@@ -344,7 +344,7 @@ export function Profile() {
                   <small className="key-fact-detail">
                     {a.phdCountry && <CountryName country={a.phdCountry} />}
                     {a.phdUniversity && <span>{a.phdUniversity}</span>}
-                    <QsRank academic={a} short />
+                    <QsRank academic={a} />
                   </small>
                 ) : missing ? (
                   <small>
