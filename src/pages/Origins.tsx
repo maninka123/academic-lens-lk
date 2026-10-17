@@ -219,7 +219,7 @@ export function Origins() {
     "Other",
     "Unknown",
   ];
-  const byPosition = splitBy(documented, (a) => a.rank).sort(
+  const byPosition = splitBy(documented.filter((a) => a.rank !== "Instructor"), (a) => a.rank).sort(
     (a, b) => positionOrder.indexOf(a.label) - positionOrder.indexOf(b.label),
   );
   const originLegend = (

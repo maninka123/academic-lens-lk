@@ -671,7 +671,7 @@ export function Compare() {
         <div className="quickstart-group">
           <h3>Compare faculties in a field</h3>
           <p className="caption">Picks every faculty in that field across universities. Change the faculties in the picker below.</p>
-          <div className="quick-tiles">
+          <div className="quick-tiles field-tiles">
             {fieldPresets.map(({ field, icon: Icon, hue }) => (
               <button
                 key={field}
