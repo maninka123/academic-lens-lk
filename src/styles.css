@@ -4028,3 +4028,8 @@ table.coverage-v2 {
   .origin-split-card .os-bar u { min-width: 0; }
 }
 .chart-note { margin: 6px 0 0; font-size: .8125rem; line-height: 1.45; color: var(--muted); }
+.point-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.point-list li { position: relative; padding-left: 16px; line-height: 1.5; }
+.point-list li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: .7; }
+.tier-summary-text .point-list { font-size: 1rem; }
+.phd-impact .point-list.caption { margin-top: 14px; }
