@@ -3832,3 +3832,12 @@ table.coverage-v2 {
 .field-tiles .quick-icon { width: 30px; height: 30px; border-radius: 9px; }
 .field-tiles .quick-tile > span:last-child { font-size: .8125rem; white-space: nowrap; }
 .field-tiles .quick-tile { flex: 1 1 auto; min-width: max-content; }
+
+/* Hero: quieter methodology link, tidier completeness chip */
+.hero-link { font-size: .8125rem; font-weight: 500; color: #c3cbff; opacity: .9; margin-left: 6px; text-underline-offset: 3px; }
+.hero-link:hover { text-decoration: underline; opacity: 1; }
+.hero-corner { gap: 10px; padding: 6px 14px 6px 12px; background: #0b123d55; border-color: #ffffff2e; backdrop-filter: blur(6px); font-size: .75rem; font-weight: 500; color: #dfe4ff; }
+.hero-corner .hc-label { letter-spacing: .02em; }
+.hero-corner b { font-size: .875rem; color: #fff; font-variant-numeric: tabular-nums; }
+.hero-corner .hc-bar { display: block; width: 54px; height: 5px; border-radius: 99px; background: #ffffff2e; overflow: hidden; }
+.hero-corner .hc-bar u { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #34d399, #6ee7b7); text-decoration: none; }

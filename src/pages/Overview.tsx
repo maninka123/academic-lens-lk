@@ -132,8 +132,11 @@ export function Overview() {
           className="hero-corner"
           title={`Any research metric ${pct(cov.withMetric)} | qualifications ${pct(cov.withQualifications)} | ${fmt(cov.needsReview)} need review`}
         >
-          <i className="status-dot" />
-          Data completeness {pct(cov.withMetric)}
+          <span className="hc-label">Data completeness</span>
+          <b>{pct(cov.withMetric)}</b>
+          <i className="hc-bar" aria-hidden="true">
+            <u style={{ width: `${Math.min(100, Math.max(0, parseFloat(pct(cov.withMetric)) || 0))}%` }} />
+          </i>
         </span>
         <div className="hero-copy">
           <div className="eyebrow">Sri Lanka | Academic research</div>
@@ -152,7 +155,7 @@ export function Overview() {
               Compare institutions
             </Button>
             <Link className="hero-link" to="/methodology">
-              How the data were collected <ArrowRight size={16} />
+              How the data were collected <ArrowRight size={14} />
             </Link>
           </div>
         </div>
