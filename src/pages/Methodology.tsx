@@ -245,7 +245,7 @@ export function Methodology() {
         </details>
         <div className="method-corrections">
           <strong>Corrections or removal</strong>
-          <p>Contact {d.metadata.correctionContact || "the project maintainer through the repository"}. Changes retain their source and history privately. <a href="https://github.com/maninka123/academic-lens-lk/blob/main/docs/DATA_POLICY.md" target="_blank" rel="noreferrer">Data policy</a></p>
+          <p>Contact {d.metadata.correctionContact ? <a href={`mailto:${d.metadata.correctionContact}`}>{d.metadata.correctionContact}</a> : "the project maintainer through the repository"}. Changes retain their source and history privately. <a href="https://github.com/maninka123/academic-lens-lk/blob/main/docs/DATA_POLICY.md" target="_blank" rel="noreferrer">Data policy</a></p>
         </div>
       </Card>
       <Card title="Published files">
