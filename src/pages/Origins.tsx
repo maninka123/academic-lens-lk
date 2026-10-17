@@ -219,7 +219,7 @@ export function Origins() {
     "Other",
     "Unknown",
   ];
-  const byPosition = splitBy(documented.filter((a) => a.rank !== "Instructor"), (a) => a.rank).sort(
+  const byPosition = splitBy(documented.filter((a) => !["Instructor", "Unknown", "Other"].includes(a.rank)), (a) => a.rank).sort(
     (a, b) => positionOrder.indexOf(a.label) - positionOrder.indexOf(b.label),
   );
   const originLegend = (
@@ -253,7 +253,7 @@ export function Origins() {
       </div>
     </div>
   );
-  const byDiscipline = splitBy(documented, broadDiscipline);
+  const byDiscipline = splitBy(documented, broadDiscipline).filter((g) => !/^(unclassified|unmapped|unknown)$/i.test(g.label));
   const bySector = splitBy(documented, (a) => a.type);
   const topInstitutions = [
     ...documented
