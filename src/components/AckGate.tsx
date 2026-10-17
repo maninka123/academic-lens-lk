@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { PreviewBadge } from "./PreviewBadge";
 import { BookOpen } from "lucide-react";
 
 const KEY = "lanka-academia-ack-v1";
@@ -27,7 +28,7 @@ export function AckGate() {
       <div className="ack-card">
         <div className="ack-brand">
           <BookOpen size={18} aria-hidden="true" /> Lanka Academia
-          <span className="ack-preview">Ongoing Research | Public Preview</span>
+          <PreviewBadge className="ack-preview" />
         </div>
         <h2 id="ack-title">Research data and responsible use</h2>
         <p>

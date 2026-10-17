@@ -7,6 +7,7 @@ import {
   Scale,
   Building2,
 } from "lucide-react";
+import { PreviewBadge } from "../components/PreviewBadge";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useData } from "../data/context";
@@ -136,7 +137,7 @@ export function Overview() {
         </span>
         <div className="hero-copy">
           <div className="eyebrow">Sri Lanka | Academic research</div>
-          <span className="hero-preview">Ongoing Research | Public Preview</span>
+          <PreviewBadge className="hero-preview" />
           <h1>Sri Lanka’s academic landscape.</h1>
           <p>
             Explore academics, qualifications and research — across Sri Lanka
