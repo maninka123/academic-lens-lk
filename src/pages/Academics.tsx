@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { UnitIcon } from "../components/unit-icons";
+import { qualificationLines } from "../data/qualification-lines";
 import type { Academic, Level } from "../types";
 import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
 import { Pin, ExternalLink, ArrowLeft, Download, FileText, Link2, Check, TriangleAlert } from "lucide-react";
@@ -160,6 +161,12 @@ function Info({ items }: { items: InfoItem[] }) {
                 <CountryName country={country} />
                 {v ? <span className="muted"> | {v}</span> : null}
               </>
+            ) : k === "Published qualifications" && typeof v === "string" && qualificationLines(v).length ? (
+              <ul className="qual-lines" title={v}>
+                {qualificationLines(v).map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
             ) : (
               evidenceLabel(v)
             )}
