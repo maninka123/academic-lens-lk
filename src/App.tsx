@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PreviewBadge } from "./components/PreviewBadge";
 import {
   HashRouter,
   NavLink,
@@ -256,7 +257,7 @@ function Shell() {
                   : "Overview")}
             </span>
           </div>
-          <span className="preview-pill">Ongoing Research | Public Preview</span>
+          <PreviewBadge className="preview-pill" />
           {data && (
             <DataContext.Provider value={data}>
               <GlobalFilterButton />
