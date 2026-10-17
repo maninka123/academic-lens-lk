@@ -1,5 +1,8 @@
 import { Select } from "../components/ui/select";
 import { Globe2, MapPin, Plane } from "lucide-react";
+import { PhdImpact } from "../components/PhdImpact";
+import { useQsTable, qsLabelFor } from "../data/qs-table";
+import { QS_BANDS, qsBandOf } from "../analytics/phd-impact";
 import { useEffect, useMemo, useState } from "react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
@@ -126,23 +129,30 @@ export function Origins() {
     s === "United States" ? "United States of America" : s;
   const mapCountry = (s: string) =>
     s === "United States of America" ? "United States" : s;
+  const qsTable = useQsTable();
   const sankey = useMemo(() => {
     const links = new Map<
         string,
         { source: string; target: string; value: number }
       >(),
       nodes = new Set<string>();
+    // Bands first, in rank order, so the diagram reads from the highest ranked universities down.
+    if (mode === "qs") for (const b of [...QS_BANDS, "QS rank not located"]) nodes.add("Band: " + b);
     for (const a of rows) {
+      const qs = qsLabelFor(a.universityId, qsTable);
       const c = "Country: " + a.phdCountry,
-        u = "Current: " + short(a.university),
-        p = "PhD: " + (a.phdUniversity || "Institution unavailable");
+        u = "Current: " + short(a.university) + (qs ? " (" + qs + ")" : ""),
+        p = "PhD: " + (a.phdUniversity || "Institution unavailable"),
+        band = "Band: " + (qsBandOf(a) ?? "QS rank not located");
       const pairs =
         mode === "full"
           ? [
               [c, p],
               [p, u],
             ]
-          : [[c, u]];
+          : mode === "qs"
+            ? [[band, u]]
+            : [[c, u]];
       for (const [source, target] of pairs) {
         nodes.add(source);
         nodes.add(target);
@@ -154,8 +164,9 @@ export function Origins() {
         });
       }
     }
+    if (mode === "qs") for (const n of [...nodes]) if (n.startsWith("Band: ") && ![...links.values()].some((l) => l.source === n)) nodes.delete(n);
     return { links, nodes };
-  }, [rows, mode]);
+  }, [rows, mode, qsTable]);
 
   /** Stacked counts or shares of documented doctorates, with the same population. */
   const composition = (splits: Split[], label: string, scale: CompositionScale) => ({
@@ -771,7 +782,9 @@ export function Origins() {
           (country ? country + " | " : "") +
           (mode === "full"
             ? "PhD country → awarding university → current institution"
-            : "PhD country → current institution")
+            : mode === "qs"
+              ? "QS 2027 band of the awarding university → current institution (with its own QS band)"
+              : "PhD country → current institution")
         }
         action={
           <Select
@@ -781,6 +794,7 @@ export function Origins() {
           >
             <option value="simple">Country → current institution</option>
             <option value="full">Include PhD university</option>
+            <option value="qs">University ranking (QS 2027) → current institution</option>
           </Select>
         }
       >
@@ -790,7 +804,7 @@ export function Origins() {
               height={Math.max(
                 360,
                 Math.max(
-                  ...["Country: ", "Current: ", "PhD: "].map(
+                  ...["Country: ", "Current: ", "PhD: ", "Band: "].map(
                     (prefix) =>
                       [...sankey.nodes].filter((n) => n.startsWith(prefix))
                         .length,
@@ -807,14 +821,16 @@ export function Origins() {
                   {
                     type: "sankey",
                     left: 20,
-                    right: 200,
+                    right: 270,
+                    // In the QS view keep the bands in rank order instead of sorting by size.
+                    layoutIterations: mode === "qs" ? 0 : 32,
                     top: 20,
                     bottom: 20,
                     nodeGap: 12,
                     label: {
                       fontSize: 14,
                       formatter: (p: any) =>
-                        p.name.replace(/^(Country|Current|PhD): /, ""),
+                        p.name.replace(/^(Country|Current|PhD|Band): /, ""),
                     },
                     data: [...sankey.nodes].map((name) => ({ name })),
                     links: [...sankey.links.values()],
@@ -829,6 +845,7 @@ export function Origins() {
           <Empty />
         )}
       </Card>
+      <PhdImpact documented={documented} minN={minN} col={col} />
       <Card
         title={
           country
