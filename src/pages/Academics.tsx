@@ -17,6 +17,7 @@ import { Button } from "../components/ui/button";
 import { AcademicPortrait } from "../components/AcademicPortrait";
 import { ProfileStanding } from "../components/ProfileStanding";
 import { PositionStandards } from "../components/PositionStandards";
+import { UnitOverview } from "../components/UnitOverview";
 import { StandingScorePanel } from "../components/StandingScore";
 import { ResearchProfiles } from "../components/ResearchProfiles";
 import {
@@ -756,6 +757,18 @@ export function Institution() {
           This institution or unit has no collected records in this dataset.
           This does not imply it has no academic staff.
         </Empty>
+      )}
+      {rows.length > 0 && (
+        <Card
+          title={department ? "Department overview" : faculty ? "Overview of departments" : "Overview of faculties and schools"}
+          subtitle={
+            department
+              ? "Who works in this department and how their research output is spread."
+              : "How the units compare: research output, the mix of positions and the share with a documented doctorate."
+          }
+        >
+          <UnitOverview rows={rows} level={faculty ? "department" : "faculty"} minN={d.metadata.minimumSample || MIN_SAMPLE} />
+        </Card>
       )}
       {!department && units.length > 0 && (
         <Card
