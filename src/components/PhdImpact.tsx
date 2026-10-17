@@ -74,6 +74,13 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
     .sort((a, b) => b.people - a.people || a.label.localeCompare(b.label))
     .slice(0, 14);
   const bands = stats((a) => qsBandOf(a)).sort((a, b) => QS_BANDS.indexOf(a.label as never) - QS_BANDS.indexOf(b.label as never));
+  const values = (a: Academic) => a[metric];
+  const allVals = rows.map(values).filter((v): v is number => typeof v === "number" && Number.isFinite(v)).sort((x, y) => x - y);
+  const overallMedian = allVals.length ? (allVals[Math.floor((allVals.length - 1) / 2)] + allVals[Math.ceil((allVals.length - 1) / 2)]) / 2 : null;
+  const shareAbove = origin.map((g) => {
+    const vs = rows.filter((a) => originKey(a) === g.label).map(values).filter((v): v is number => typeof v === "number" && Number.isFinite(v));
+    return { g, share: vs.length && overallMedian !== null ? (100 * vs.filter((v) => v > overallMedian).length) / vs.length : null };
+  });
   const unlocated = rows.filter((a) => a.phdUniversity && qsBandOf(a) === null).length;
   const noUniversity = rows.filter((a) => !a.phdUniversity).length;
 
@@ -204,40 +211,61 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
     ],
   };
 
-  const insight = (() => {
-    if (tab === "origin") {
-      const sl = origin.find((g) => g.label === "Sri Lanka"),
-        ov = origin.find((g) => g.label === "Overseas");
-      if (!sl || !ov || sl.value === null || ov.value === null)
-        return `Not enough ${measure} values in both groups for this selection (at least ${minN} each are needed).`;
-      const within = byPosition
-        .map((b) => ({ p: b.position, s: b.groups.find((g) => g.label === "Sri Lanka"), o: b.groups.find((g) => g.label === "Overseas") }))
-        .filter((x) => x.s && x.o && !x.s.lowN && !x.o.lowN && x.s.value !== null && x.o.value !== null);
-      const higher = within.filter((x) => x.o!.value! > x.s!.value!).length;
-      return `${statName} ${measure}: ${fmt(ov.value, 1)} for academics with an overseas PhD (n=${ov.n}) and ${fmt(sl.value, 1)} for Sri Lankan PhDs (n=${sl.n}).${
-        within.length && position === "all"
-          ? ` Within the same position, the overseas group is higher in ${higher} of ${within.length} positions with enough data.`
-          : ""
-      }`;
-    }
-    if (tab === "country") {
-      const ok = countries.filter((g) => !g.lowN && g.value !== null).sort((a, b) => b.value! - a.value!);
-      return ok.length
-        ? `Highest ${statName.toLowerCase()} ${measure} among countries with ${minN}+ values: ${ok[0].label} (${fmt(ok[0].value, 1)}, n=${ok[0].n})${ok.length > 1 ? `; lowest: ${ok[ok.length - 1].label} (${fmt(ok[ok.length - 1].value, 1)}, n=${ok[ok.length - 1].n})` : ""}.`
-        : `No country has ${minN}+ values for this selection; bars shown are indicative.`;
-    }
-    const ok = bands.filter((g) => !g.lowN && g.value !== null && g.label !== "Not ranked");
-    return ok.length > 1
-      ? `${statName} ${measure} runs from ${fmt(ok[0].value!, 1)} (${ok[0].label}, n=${ok[0].n}) to ${fmt(ok[ok.length - 1].value!, 1)} (${ok[ok.length - 1].label}, n=${ok[ok.length - 1].n}) across QS 2027 bands with ${minN}+ values.`
-      : `Too few ranked groups with ${minN}+ values for this selection.`;
-  })();
-
   const tabs: [Tab, string, typeof Globe2][] = [
     ["origin", "Sri Lanka vs overseas", MapPin],
     ["country", "By country", Globe2],
     ["qs", "By university ranking (QS 2027)", Award],
   ];
   const main = tab === "origin" ? origin : tab === "country" ? countries : bands;
+  const chartH = Math.max(220, main.length * 52 + 70);
+  const oLabels = origin.map((g) => g.label);
+  const axisY = { type: "category", inverse: true, data: oLabels, axisLabel: { fontSize: 13, width: 140, overflow: "break" } };
+
+  const spreadOption = {
+    tooltip: { trigger: "item", confine: true, formatter: (p: any) => tip(origin[p.dataIndex]) },
+    grid: { left: 8, right: 24, top: 10, bottom: 34, containLabel: true },
+    xAxis: { type: "value", name: `${measure}: middle 50% of people (white line = median)`, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { opacity: 0.35 } } },
+    yAxis: axisY,
+    series: [
+      { type: "bar", stack: "r", silent: true, itemStyle: { color: "transparent" }, data: origin.map((g) => g.q1 ?? 0) },
+      {
+        type: "bar",
+        stack: "r",
+        barMaxWidth: 34,
+        data: origin.map((g) => ({
+          value: g.q1 === null || g.q3 === null ? null : g.q3 - g.q1,
+          itemStyle: { color: colorOf(g), opacity: g.lowN ? 0.5 : 0.9, decal: g.lowN ? hatch : undefined },
+        })),
+      },
+    ],
+  };
+
+  const shareOption = {
+    tooltip: { trigger: "item", confine: true, valueFormatter: (v: number) => fmt(v, 0) + "%" },
+    grid: { left: 8, right: 56, top: 10, bottom: 34, containLabel: true },
+    xAxis: { type: "value", max: 100, name: `Share above the overall median (${overallMedian === null ? "—" : fmt(overallMedian, 1)})`, nameLocation: "middle", nameGap: 28, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.35 } } },
+    yAxis: axisY,
+    series: [
+      {
+        type: "bar",
+        barMaxWidth: 34,
+        data: shareAbove.map(({ g, share }) => ({ value: share, itemStyle: { color: colorOf(g), opacity: g.lowN ? 0.5 : 1, decal: g.lowN ? hatch : undefined } })),
+        label: { show: true, position: "right", fontSize: 13, formatter: (p: any) => (p.value === null || p.value === undefined ? "—" : Math.round(p.value) + "%") },
+      },
+    ],
+  };
+
+  const coverageOption = {
+    tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, confine: true },
+    legend: { top: 0, icon: "roundRect" },
+    grid: { left: 8, right: 16, top: 34, bottom: 24, containLabel: true },
+    xAxis: { type: "category", data: oLabels, axisLabel: { fontSize: 13 } },
+    yAxis: { type: "value", name: "People", nameLocation: "middle", nameGap: 40, splitLine: { lineStyle: { opacity: 0.35 } } },
+    series: [
+      { type: "bar", name: `With ${measure}`, stack: "c", barMaxWidth: 60, itemStyle: { color: col.lk }, data: origin.map((g) => g.n) },
+      { type: "bar", name: "No value on file", stack: "c", barMaxWidth: 60, itemStyle: { color: col.unknown }, data: origin.map((g) => g.people - g.n) },
+    ],
+  };
 
   return (
     <Card
@@ -294,7 +322,6 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
           </div>
         )}
       </div>
-      <p className="pos-insight">{insight}</p>
       {tab === "qs" && qsView === "universities" ? (
         <div>
           <h3 className="pos-sub">{measure} by awarding university and its QS 2027 rank</h3>
@@ -308,24 +335,42 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
       ) : (
         <div className="pos-grid">
           <div className="pos-col">
-            <h3 className="pos-sub">{statName} {measure}</h3>
-            <Chart option={barOption(main)} height={Math.max(220, main.length * 52 + 70)} label={`${statName} ${measure} by group`} />
+            <div className="pos-head"><h3 className="pos-sub">{statName} {measure}</h3></div>
+            <Chart option={barOption(main)} height={chartH} label={`${statName} ${measure} by group`} />
           </div>
           <div className="pos-col">
-            <h3 className="pos-sub">Positions in each group</h3>
-            <Chart option={mixOption(main)} height={Math.max(220, main.length * 52 + 70)} label="Share of lecturers, senior lecturers and professors in each group" />
-            <ul className="pos-key pos-key-row" aria-label="Positions">
-              {SENIORITY.map((s, i) => (
-                <li key={s}><i style={{ background: MIX_COLORS[i] }} /><span><b>{s}</b></span></li>
-              ))}
-            </ul>
+            <div className="pos-head">
+              <h3 className="pos-sub">Positions in each group</h3>
+              <ul className="pos-key pos-key-row" aria-label="Positions">
+                {SENIORITY.map((s, i) => (
+                  <li key={s}><i style={{ background: MIX_COLORS[i] }} /><span><b>{s}</b></span></li>
+                ))}
+              </ul>
+            </div>
+            <Chart option={mixOption(main)} height={chartH} label="Share of lecturers, senior lecturers and professors in each group" />
           </div>
         </div>
       )}
-      {tab === "origin" && position === "all" && (
-        <div className="impact-within">
-          <h3 className="pos-sub">Same position, different origin</h3>
-          <Chart option={positionOption} height={300} label={`${statName} ${measure} by position for Sri Lankan and overseas PhDs`} />
+      {tab === "origin" && (
+        <div className="pos-grid pos-grid-even">
+          {position === "all" && (
+            <div className="pos-col">
+              <div className="pos-head"><h3 className="pos-sub">Same position, different origin</h3></div>
+              <Chart option={positionOption} height={300} label={`${statName} ${measure} by position for Sri Lankan and overseas PhDs`} />
+            </div>
+          )}
+          <div className="pos-col">
+            <div className="pos-head"><h3 className="pos-sub">Spread within each group</h3></div>
+            <Chart option={spreadOption as any} height={300} label={`Middle half of ${measure} in each group`} />
+          </div>
+          <div className="pos-col">
+            <div className="pos-head"><h3 className="pos-sub">Share above the overall median</h3></div>
+            <Chart option={shareOption} height={300} label={`Share of each group above the overall median ${measure}`} />
+          </div>
+          <div className="pos-col">
+            <div className="pos-head"><h3 className="pos-sub">People behind each group</h3></div>
+            <Chart option={coverageOption} height={300} label="People with and without a value in each group" />
+          </div>
         </div>
       )}
       <p className="caption">
