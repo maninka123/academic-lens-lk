@@ -3970,3 +3970,5 @@ table.coverage-v2 {
 @media (max-width: 1000px) { .pos-grid { grid-template-columns: 1fr; } }
 .origin-split-card { min-width: 0; overflow: hidden; }
 .origin-split-card .os-label em { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.flow-controls .chip-group button { font: inherit; font-size: .9375rem; font-weight: 600; line-height: 1.2; }
+.flow-controls .field > span { font-size: .9375rem; }
