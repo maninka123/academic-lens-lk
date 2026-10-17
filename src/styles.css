@@ -4009,3 +4009,12 @@ table.coverage-v2 {
 .origin-split-card .os-bar u { grid-template-columns: minmax(0, 1fr); padding: 8px 10px; min-width: 112px; }
 .origin-split-card .os-bar u svg { display: none; }
 .origin-split-card .os-bar u small { grid-column: 1; }
+
+/* Flow diagram controls: same sizing as the PhD impact controls */
+.flow-controls { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: flex-start; gap: 12px 20px; }
+.flow-controls .field { display: grid; grid-template-rows: 20px 44px; row-gap: 6px; margin: 0; min-width: 0; }
+.flow-controls .field > span { font-size: .875rem; font-weight: 600; line-height: 20px; color: var(--muted); }
+.flow-controls .chip-group { height: 44px; box-sizing: border-box; padding: 3px; align-items: stretch; gap: 3px; }
+.flow-controls .chip-group button { min-height: 0; padding: 0 14px; font: inherit; font-size: .9375rem; font-weight: 600; line-height: 1; white-space: nowrap; }
+.flow-controls .flow-qs { font-size: .9375rem; align-self: flex-end; height: 44px; display: inline-flex; align-items: center; gap: 8px; }
+.flow-controls { flex-direction: column; align-items: flex-start; }
