@@ -392,6 +392,7 @@ export async function buildPersonReport(
     ["Identity status", [person.scholarStatus, person.researchgateStatus].filter(Boolean).join("; ").replace(/_/g, " ")],
     ["Doctorate status", (person.doctorateStatus || "").replace(/_/g, " ")],
     ["Record collected", person.collectionDate],
+    ["Caution", person.caution || ""],
     ["Notes", person.notes],
   ]);
 
