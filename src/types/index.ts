@@ -57,6 +57,11 @@ export type Academic = {
   qualifications: string;
   qualification: string;
   phdUniversity: string;
+  /** Awarding institution with spelling variants merged. */
+  phdInstitution?: string;
+  /** QS World University Rankings 2027 position as published ("=22", "1001-1200"); empty when unranked or not located. */
+  phdQsRank?: string;
+  phdQsStatus?: "ranked" | "not_ranked" | "not_located" | "";
   phdCountry: string;
   /** Country inferred from the awarding institution's name, not published. */
   phdCountryInferred?: boolean;
