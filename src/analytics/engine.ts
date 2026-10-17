@@ -198,7 +198,9 @@ export function groupRows(
   for (const a of rows) {
     if (
       (level === "department" && !a.departmentId) ||
-      (level === "faculty" && !a.facultyId)
+      (level === "faculty" && !a.facultyId) ||
+      // Instructors stay in the data and tables but are not charted as a position.
+      (level === "rank" && a.rank === "Instructor")
     )
       continue;
     const key = groupKey(a, level);

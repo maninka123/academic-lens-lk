@@ -350,7 +350,7 @@ export function comparisonChart(
         ),
       ),
     ]
-      .filter((v) => !/^unknown$/i.test(String(v)))
+      .filter((v) => !/^unknown$/i.test(String(v)) && v !== "Instructor")
       .sort((a, b) => {
       const order = c.level === "rank" || c.level === "qualification"
         ? ["PhD", "Masters / MPhil", "Bachelors", "Other documented", "Unknown"]
