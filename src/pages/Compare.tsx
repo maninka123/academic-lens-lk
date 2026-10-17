@@ -7,6 +7,23 @@ import {
   PanelRightClose,
   Plus,
   Trash2,
+  Stethoscope,
+  Cog,
+  FlaskConical,
+  Cpu,
+  Briefcase,
+  BookOpen,
+  Users,
+  Building2,
+  TrendingUp,
+  Landmark,
+  GraduationCap,
+  Plane,
+  Layers,
+  Globe2,
+  Award,
+  ChartScatter,
+  SlidersHorizontal,
 } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas, encodeState, emptyFilters } from "../store";
@@ -20,6 +37,7 @@ import {
   type ChartType,
   type Aggregation,
   type NumericMetric,
+  type Config,
 } from "../types";
 import {
   filterAcademics,
@@ -30,7 +48,8 @@ import {
 import { comparisonChart } from "../analytics/charts";
 import { metricDefinitions } from "../analytics/exports";
 import { Chart } from "../components/Chart";
-import { Filters, Multi } from "../components/Filters";
+import { Multi } from "../components/Filters";
+import { activeFilterCount } from "../components/GlobalFilterButton";
 import { Pinned } from "../components/Pinned";
 import { AcademicTable } from "../components/AcademicTable";
 import { Header, fmt, exportCsv, Empty, colors, personColors, short } from "../components/common";
@@ -68,6 +87,33 @@ const charts: Record<ChartType, string> = {
   heatmap: "Heatmap",
   treemap: "Treemap",
 };
+const fieldPresets = [
+  { field: "Medicine / Health", icon: Stethoscope, hue: "346" },
+  { field: "Engineering", icon: Cog, hue: "28" },
+  { field: "Natural Sciences", icon: FlaskConical, hue: "142" },
+  { field: "Computing / IT", icon: Cpu, hue: "262" },
+  { field: "Management / Business", icon: Briefcase, hue: "215" },
+  { field: "Humanities", icon: BookOpen, hue: "18" },
+  { field: "Social Sciences", icon: Users, hue: "320" },
+];
+const questionPresets: {
+  label: string;
+  hint: string;
+  icon: typeof Users;
+  hue: string;
+  settings: Partial<Config>;
+}[] = [
+  { label: "How big is each institution?", hint: "Academic records per university", icon: Building2, hue: "232", settings: { metric: "count", aggregation: "total", chart: "bar" } },
+  { label: "Who has typical citations?", hint: "Median citations per university", icon: TrendingUp, hue: "262", settings: { metric: "citations", aggregation: "median", chart: "bar" } },
+  { label: "Public vs Non-state", hint: "Median citations by sector", icon: Landmark, hue: "232", settings: { level: "type", metric: "citations", aggregation: "median", chart: "bar" } },
+  { label: "What is the mix of positions?", hint: "Share of each academic position", icon: Layers, hue: "38", settings: { metric: "count", aggregation: "total", chart: "percentStacked" } },
+  { label: "Who holds a PhD?", hint: "Recorded PhD percentage", icon: GraduationCap, hue: "168", settings: { metric: "phd", aggregation: "percentage", chart: "bar" } },
+  { label: "Who trained overseas?", hint: "Recorded overseas PhD percentage", icon: Plane, hue: "200", settings: { metric: "overseas", aggregation: "percentage", chart: "bar" } },
+  { label: "Where were PhDs earned?", hint: "Academics by PhD country", icon: Globe2, hue: "190", settings: { level: "phdCountry", metric: "count", aggregation: "total", chart: "bar" } },
+  { label: "Which disciplines publish most?", hint: "Median publications by discipline", icon: FlaskConical, hue: "142", settings: { level: "field", metric: "publications", aggregation: "median", chart: "bar" } },
+  { label: "How does output grow with career stage?", hint: "Median citations by career stage", icon: Award, hue: "28", settings: { level: "careerStage", metric: "citations", aggregation: "median", chart: "bar" } },
+  { label: "Explore individual academics", hint: "Citations against h-index", icon: ChartScatter, hue: "320", settings: { metric: "citations", aggregation: "median", chart: "scatter", xMetric: "hIndex" } },
+];
 export function Compare() {
   const d = useData();
   const {
@@ -437,7 +483,7 @@ export function Compare() {
       </label>
       </div>
       <details className="comparison-options">
-        <summary>More options & profile filters
+        <summary>More options
           {c.benchmarks && <span className="pill">International benchmarks enabled</span>}
         </summary>
         <div className="comparison-options-grid">
@@ -553,7 +599,6 @@ export function Compare() {
       )}
           </section>
         </div>
-        <div className="comparison-profile-filters"><Filters compact /></div>
       <details className="custom-builder" open={c.level === "custom"}>
         <summary>Custom academic groups</summary>
         <p className="caption">
@@ -622,73 +667,48 @@ export function Compare() {
           <button onClick={() => setNotice("")}>Dismiss</button>
         </div>
       )}
-      <div
-        className="comparison-presets"
-        aria-label="Comparison starting points"
-      >
-        <span className="caption">Compare faculties within a field</span>
-        <div className="faculty-presets">
-          {["Medicine / Health", "Engineering", "Natural Sciences", "Computing / IT", "Management / Business", "Humanities", "Social Sciences"].map((field) => (
-            <Button
-              key={field}
-              variant="outline"
-              onClick={() => {
-                setFilters({ ...emptyFilters(), fields: [field] });
-                configure({ level: "faculty", groups: [], metric: "citations", aggregation: "median", chart: "bar", log: false, sort: "value", labels: true });
-              }}
-            >
-              {field}
-            </Button>
-          ))}
+      <section className="quickstart" aria-label="Comparison starting points">
+        <div className="quickstart-group">
+          <h3>Compare faculties in a field</h3>
+          <p className="caption">Picks every faculty in that field across universities. Change the faculties in the picker below.</p>
+          <div className="quick-tiles">
+            {fieldPresets.map(({ field, icon: Icon, hue }) => (
+              <button
+                key={field}
+                type="button"
+                className="quick-tile"
+                style={{ "--hue": hue } as React.CSSProperties}
+                onClick={() => {
+                  setFilters({ ...emptyFilters(), fields: [field] });
+                  configure({ level: "faculty", groups: [], metric: "citations", aggregation: "median", chart: "bar", log: false, sort: "value", labels: true });
+                }}
+              >
+                <span className="quick-icon"><Icon size={18} aria-hidden="true" /></span>
+                <span>{field}</span>
+              </button>
+            ))}
+          </div>
         </div>
-        <span className="caption">Or start with a question</span>
-        {(
-          [
-            [
-              "Compare institution sizes",
-              { metric: "count", aggregation: "total", chart: "bar" },
-            ],
-            [
-              "Compare typical citations",
-              { metric: "citations", aggregation: "median", chart: "bar" },
-            ],
-            [
-              "Explore individual academics",
-              {
-                metric: "citations",
-                aggregation: "median",
-                chart: "scatter",
-                xMetric: "hIndex",
-              },
-            ],
-            [
-              "Compare academic positions",
-              {
-                metric: "count",
-                aggregation: "total",
-                chart: "percentStacked",
-              },
-            ],
-          ] as const
-        ).map(([label, settings]) => (
-          <Button
-            key={label}
-            variant="outline"
-            onClick={() =>
-              configure({
-                level: "university",
-                groups: [],
-                log: false,
-                sort: "value",
-                labels: true,
-                ...settings,
-              })
-            }
-          >
-            {label}
-          </Button>
-        ))}
-      </div>
+        <div className="quickstart-group">
+          <h3>Or start with a question</h3>
+          <div className="quick-tiles">
+            {questionPresets.map(({ label, hint, icon: Icon, hue, settings }) => (
+              <button
+                key={label}
+                type="button"
+                className="quick-tile question"
+                style={{ "--hue": hue } as React.CSSProperties}
+                onClick={() =>
+                  configure({ level: "university", groups: [], log: false, sort: "value", labels: true, ...settings })
+                }
+              >
+                <span className="quick-icon"><Icon size={18} aria-hidden="true" /></span>
+                <span><b>{label}</b><small>{hint}</small></span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
       <div className="studio-toolbar">
         <div className="inline">
           <Button variant="ghost" onClick={() => setRight(!right)}>
@@ -696,7 +716,12 @@ export function Compare() {
             {right ? "Hide people" : "Add people"} {pinned.length > 0 && `(${pinned.length})`}
           </Button>
         </div>
-        <span>
+        <span className="toolbar-counts">
+          {activeFilterCount(filters) > 0 && (
+            <button type="button" className="filter-chip" onClick={() => setFilters(emptyFilters())} title="Clear the dataset filters set from the Filters button">
+              <SlidersHorizontal size={14} aria-hidden="true" /> {activeFilterCount(filters)} filter{activeFilterCount(filters) > 1 ? "s" : ""} on · Clear
+            </button>
+          )}
           {selectedRows.length.toLocaleString()} profiles in comparison
         </span>
       </div>
@@ -721,7 +746,7 @@ export function Compare() {
               {c.level === "type" && c.weight === "equal"
                 ? "Equal university weight"
                 : "Pooled academics"}{" "}
-              · {(["recentCitations", "recentQ1"].includes(c.metric)
+              · {(c.metric === "recentCitations"
                 ? `${d.metadata.window.join("–")} window`
                 : numeric ? "All-time recorded values" : "Collected profiles")}
             </p>

@@ -56,8 +56,6 @@ export function Methodology() {
     ["citations", "Citations"],
     ["recentCitations", "5-year citations"],
     ["hIndex", "h-index"],
-    ["q1", "Q1"],
-    ["recentQ1", "5-year Q1"],
   ];
   const groups = d.universities.map((u) => ({
     ...u,
@@ -241,10 +239,9 @@ export function Methodology() {
           </div>
         </section>
         <details className="method-details">
-          <summary>Collection limitations & Q1 policy</summary>
+          <summary>Collection limitations</summary>
           <ul>{d.metadata.limitations.map((l) => <li key={l}>{l}</li>)}</ul>
           <p>Awarding country identifies the institution, not necessarily where the person studied.</p>
-          <p className="method-policy">{d.metadata.q1Methodology.replace(/^#+\s*/gm, "")}</p>
         </details>
         <div className="method-corrections">
           <strong>Corrections or removal</strong>

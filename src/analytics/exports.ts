@@ -87,6 +87,4 @@ export const metricDefinitions: Record<string, string> = {
     "Citations received in the measurement window (all annual values verified).",
   hIndex:
     "Individual h-index reported by the provider; never summed across people.",
-  q1: "Journal articles in Q1 journals (publication-year quartiles).",
-  recentQ1: "Q1 journal articles published in the measurement window.",
 };

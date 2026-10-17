@@ -51,6 +51,4 @@ Profile page (stamp, per-measure bars, click for the full calculation) and the A
 
 ## Interpretation and limitations
 
-This percentile is a descriptive statistical measure based on available research indicators and comparable academic profiles. It reflects an individual's position within the collected dataset and does not represent an assessment of overall academic quality, teaching performance, or professional competence.
-
-The results are relative to collected profiles, not the entire academic population. Citation counts differ by source and discipline, and Q1 journal data are not included in the calculation. Missing data, incomplete coverage, and differences between research databases may affect the results.
+This percentile shows an academic's relative position among comparable profiles in the collected dataset, based on available research indicators. It does not assess overall academic quality, teaching, or professional competence. Results may be affected by incomplete data, differences between research sources and disciplines, and limited coverage.

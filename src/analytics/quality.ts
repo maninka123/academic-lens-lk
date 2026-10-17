@@ -13,8 +13,6 @@ export const PROVIDER_METRICS: NumericMetric[] = [
   "citations",
   "recentCitations",
   "hIndex",
-  "q1",
-  "recentQ1",
 ];
 
 export function normaliseProvider(source = ""): Provider {

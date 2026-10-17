@@ -8,8 +8,6 @@ export const metricLabels = {
   citations: "Citations",
   recentCitations: "Five-year citations",
   hIndex: "h-index",
-  q1: "Q1 publications",
-  recentQ1: "Five-year Q1 publications",
 };
 export type Metric = keyof typeof metricLabels;
 /** Measurements available in the app; retain legacy fields for source history. */

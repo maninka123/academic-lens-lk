@@ -464,11 +464,6 @@ export function Profile() {
                     ...metricLevel("recentCitations"),
                   ],
                   ["h-index", a.hIndex, ...metricLevel("hIndex")],
-                  ["Q1 journal publications", a.q1],
-                  [
-                    `Q1 publications published ${d.metadata.window.join("–")}`,
-                    a.recentQ1,
-                  ],
                 ]}
               />
             </Card>
