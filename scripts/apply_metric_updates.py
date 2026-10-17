@@ -72,6 +72,12 @@ def main(src):
             continue
         f, r = index[rid]
         platform, url, date = u["platform"], u["profile_url"], u["retrieved_at"]
+        zero_read = platform == "Google Scholar" and all(
+            (u[k] or "").strip() in ("", "0") for k in ("total_citations", "citations_2021_2025", "h_index", "total_publications")
+        ) and any((u[k] or "").strip() == "0" for k in ("total_citations", "h_index"))
+        if zero_read:
+            skipped.append((rid, u["full_name"], "all-zero Google Scholar read treated as a failed read; not stored, re-check later"))
+            continue
         scholar_owned = "google scholar" in (r["research_metrics_source"] or "").lower() and platform == "OpenAlex"
         old_src = (r["research_metrics_source"] or "")
         for fld in FIELDS:

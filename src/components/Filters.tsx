@@ -8,6 +8,7 @@ import type { Filters as FilterType } from "../types";
 export function Multi({
   label,
   noun,
+  bare = false,
   options,
   selected,
   onChange,
@@ -15,6 +16,8 @@ export function Multi({
   label: string;
   /** Plural name of the options (for example "faculties"), used in the hints. */
   noun?: string;
+  /** Show only the current value in the box (the field label sits above it). */
+  bare?: boolean;
   options: { value: string; label: string }[];
   selected: string[];
   onChange: (v: string[]) => void;
@@ -41,8 +44,8 @@ export function Multi({
   }, []);
   return (
     <details className="multi" ref={menu}>
-      <summary>
-        {label}
+      <summary aria-label={bare ? label : undefined} className={bare ? "multi-bare" : undefined}>
+        {!bare && label}
         <span>{selected.length ? `${selected.length} selected` : noun ? `All ${noun}` : "All"}</span>
       </summary>
       <div className="multi-menu">

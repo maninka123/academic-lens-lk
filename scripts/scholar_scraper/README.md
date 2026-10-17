@@ -150,3 +150,7 @@ python test_scraper.py
 ```
 Outputs:
 `ALL OFFLINE SMOKE TESTS PASSED (scholar_scraper, openalex_scraper, enrich_academics)!`
+
+## Publication counts
+
+Google Scholar lists 20 publications at a time and the real total only appears after pressing "Show more" until the list ends. The tool therefore reads every page (`publication_limit=0`) and, with SerpApi, requests 100 per page and retries; if the list stops early it raises an error instead of reporting a partial count. A recorded total of exactly 20 should be treated as suspect and re-run.
