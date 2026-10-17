@@ -38,7 +38,8 @@ Lanka Academia has **no accounts, no analytics and no advertising**. Your browse
 ## 7. Contact and requests
 Requests to correct or remove a profile can be sent through the routes below.
 
-How to reach us (we deliberately use GitHub, not a personal email):
+How to reach us:
+- **Email:** pmranasinghe97@gmail.com
 - **Public request:** https://github.com/maninka123/academic-lens-lk/issues/new/choose (use the "Correction or removal request" form; do not post private details)
 - **Private request:** https://github.com/maninka123/academic-lens-lk/security/advisories/new
 
