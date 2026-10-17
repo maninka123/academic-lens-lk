@@ -5,7 +5,7 @@
 This notice explains what information Lanka Academia publishes, where it comes from, why it is used, how long it is kept, and how to contact us.
 
 ## 1. Who is responsible
-Lanka Academia is an independent, personal research project run by Pasindu Ranasinghe. It is not an institution and has not undergone formal institutional ethics review (see [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md)). The project is the "controller" of the compiled dataset. There is no company, office or staff.
+Lanka Academia is an independent, personal research project. It is not an institution and has not undergone formal institutional ethics review (see [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md)). The project is the "controller" of the compiled dataset. There is no company, office or staff.
 
 ## 2. What information we hold
 About academics at Sri Lankan universities and higher-education campuses, **professional information only**:
