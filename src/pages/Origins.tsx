@@ -871,7 +871,7 @@ export function Origins() {
                   {
                     type: "sankey",
                     left: 20,
-                    right: 270,
+                    right: 150,
                     // In the QS view keep the bands in rank order instead of sorting by size.
                     layoutIterations: leftBy === "qs" || mode === "band" ? 0 : 32,
                     top: 4,
