@@ -1176,7 +1176,7 @@ export function GlobalTeaser() {
       ? [
           {
             label: "Sri Lanka",
-            hint: "Collected profiles",
+            hint: `${sl.length} matched profiles`,
             key: "sl" as const,
             v: sl,
           },
