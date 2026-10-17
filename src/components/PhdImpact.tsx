@@ -328,6 +328,9 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
           <div className="pos-col">
             <div className="pos-head"><h3 className="pos-sub">Spread within each group</h3></div>
             <Chart option={spreadOption as any} height={300} label={`Middle half of ${measure} in each group`} />
+            <p className="chart-note">
+              Each bar covers the middle half of people: a quarter score below its left end, a quarter above its right end. A longer bar means more variation within the group.
+            </p>
           </div>
         </div>
       )}
