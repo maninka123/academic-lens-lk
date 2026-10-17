@@ -4045,3 +4045,15 @@ table.coverage-v2 {
 .unit-controls .chip-group button { min-height: 0; padding: 0 16px; font: inherit; font-size: .9375rem; font-weight: 600; white-space: nowrap; }
 .unit-grid .pos-head { min-height: 62px; align-items: flex-start; }
 @media (max-width: 1000px) { .unit-grid .pos-head { min-height: 0; } }
+.unit-grid3 { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.15fr) minmax(0, .6fr); gap: 4px 18px; align-items: start; }
+.unit-grid3 .pos-head { min-height: 72px; align-items: flex-start; }
+@media (max-width: 1100px) { .unit-grid3 { grid-template-columns: 1fr; } .unit-grid3 .pos-head { min-height: 0; } }
+
+/* Chart tools sit on the title row instead of adding an empty strip above each plot */
+.pos-col { position: relative; }
+.pos-col .chart-actions { position: absolute; top: -4px; right: 0; margin: 0; z-index: 3; }
+.pos-col .pos-head { padding-right: 76px; min-height: 30px; }
+.unit-grid .pos-head { min-height: 30px; }
+.unit-grid3 .pos-head { min-height: 64px; }
+@media (max-width: 1000px) { .unit-grid3 .pos-head { min-height: 30px; } }
+.pos-col .chart-wrap, .pos-col .chart-body { position: static; }

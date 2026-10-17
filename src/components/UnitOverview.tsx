@@ -66,8 +66,8 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
     const s = summary(v);
     return { n: v.length, value: v.length ? (statistic === "median" ? s.median : s.mean) : null, q1: s.q1, q3: s.q3 };
   };
-  const axisLabel = { fontSize: 13, lineHeight: 16, width: 170, overflow: "break" as const };
-  const shortLabel = (s: string) => s;
+  const axisLabel = { fontSize: 12, width: 262, overflow: "truncate" as const };
+  const shortLabel = (s: string) => s.replace(/^(Faculty|Department|School) of\s+/i, "");
 
   const metricTip = (label: string, list: Academic[]) => {
     const v = valuesOf(list).sort((a, b) => a - b);
@@ -76,13 +76,13 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
   };
 
   /* ---------- several sub-units: compare them ---------- */
-  const heightFor = Math.max(240, groups.length * 46 + 80);
+  const heightFor = Math.max(240, groups.length * 44 + 70);
   const stats = groups.map((g) => stat(g.rows));
   const metricOption = {
     tooltip: { trigger: "item", confine: true, formatter: (p: any) => metricTip(groups[p.dataIndex].label, groups[p.dataIndex].rows) },
-    grid: { left: 8, right: 70, top: 10, bottom: 34, containLabel: true },
+    grid: { left: 272, right: 56, top: 8, bottom: 34, containLabel: false },
     xAxis: { type: "value", name: `${statName} ${measure}`, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { opacity: 0.35 } } },
-    yAxis: { type: "category", inverse: true, data: groups.map((g, i) => `${shortLabel(g.label)}\nn=${stats[i].n} of ${g.rows.length}`), axisLabel },
+    yAxis: { type: "category", inverse: true, data: groups.map((g, i) => `${shortLabel(g.label)} (${stats[i].n}/${g.rows.length})`), axisLabel },
     series: [
       {
         type: "bar",
@@ -109,34 +109,36 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
       confine: true,
       formatter: (p: any) => {
         const i = p.dataIndex;
-        if (p.seriesType === "scatter") return `${groups[i].label}<br/>With a documented doctorate: <b>${Math.round(phdShare[i])}%</b> of ${groups[i].rows.length} profiles`;
         const n = mixes[i][p.seriesName as PositionName];
-        return `${groups[i].label}<br/>${p.seriesName}: <b>${n}</b> (${Math.round(pct(n, groups[i].rows.length))}%)`;
+        return `${groups[i].label}<br/>${p.seriesName}: <b>${n}</b> of ${groups[i].rows.length} (${Math.round(pct(n, groups[i].rows.length))}%)`;
       },
     },
     legend: { show: false },
-    grid: { left: 8, right: 22, top: 10, bottom: 34, containLabel: true },
+    grid: { left: 8, right: 16, top: 8, bottom: 34, containLabel: false },
     xAxis: { type: "value", min: 0, max: 100, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.3 } } },
-    yAxis: { type: "category", inverse: true, data: groups.map((g) => `${shortLabel(g.label)}\nn=${g.rows.length}`), axisLabel },
+    yAxis: { type: "category", inverse: true, data: groups.map((g) => g.label), axisLabel: { show: false }, axisTick: { show: false } },
+    series: POSITIONS.map((p, i) => ({
+      type: "bar",
+      name: p,
+      stack: "mix",
+      barMaxWidth: 28,
+      itemStyle: { color: POSITION_COLORS[i] },
+      label: { show: true, position: "inside", color: i === 0 || i === 3 ? "#18203a" : "#fff", fontSize: 12, formatter: (q: any) => (q.value >= 12 ? Math.round(q.value) + "%" : "") },
+      data: groups.map((g, k) => pct(mixes[k][p], g.rows.length)),
+    })),
+  };
+  const phdOption = {
+    tooltip: { trigger: "item", confine: true, formatter: (p: any) => `${groups[p.dataIndex].label}<br/>Documented doctorate: <b>${Math.round(phdShare[p.dataIndex])}%</b> of ${groups[p.dataIndex].rows.length} profiles` },
+    grid: { left: 8, right: 44, top: 8, bottom: 34, containLabel: false },
+    xAxis: { type: "value", min: 0, max: 100, interval: 50, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.3 } } },
+    yAxis: { type: "category", inverse: true, data: groups.map((g) => g.label), axisLabel: { show: false }, axisTick: { show: false } },
     series: [
-      ...POSITIONS.map((p, i) => ({
-        type: "bar",
-        name: p,
-        stack: "mix",
-        barMaxWidth: 36,
-        itemStyle: { color: POSITION_COLORS[i] },
-        label: { show: true, position: "insideTop", color: i === 0 || i === 3 ? "#18203a" : "#fff", fontSize: 12, formatter: (q: any) => (q.value >= 9 ? Math.round(q.value) + "%" : "") },
-        data: groups.map((g, k) => pct(mixes[k][p], g.rows.length)),
-      })),
       {
-        type: "scatter",
-        name: "Documented doctorate",
-        symbol: "diamond",
-        symbolSize: 12,
-        symbolOffset: [0, 9],
-        z: 10,
-        itemStyle: { color: accent, borderColor: "#fff", borderWidth: 1.5 },
-        data: groups.map((_, k) => [phdShare[k], k]),
+        type: "bar",
+        barMaxWidth: 28,
+        itemStyle: { color: "#2f9e77" },
+        data: phdShare,
+        label: { show: true, position: "right", fontSize: 12, formatter: (q: any) => Math.round(q.value) + "%" },
       },
     ],
   };
@@ -259,22 +261,25 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
     return (
       <>
         {controls}
-        <div className="pos-grid unit-grid">
+        <div className="unit-grid3">
           <div className="pos-col">
-            <div className="pos-head"><h3 className="pos-sub">{statName} {measure} by {level}</h3></div>
+            <div className="pos-head"><h3 className="pos-sub">{statName} {measure}</h3></div>
             <Chart option={metricOption} height={heightFor} label={`${statName} ${measure} for each ${level}`} />
           </div>
           <div className="pos-col">
             <div className="pos-head">
-              <h3 className="pos-sub">Staff mix and doctorates</h3>
+              <h3 className="pos-sub">Staff mix</h3>
               <ul className="pos-key pos-key-row" aria-label="Positions">
                 {POSITIONS.map((p, i) => (
                   <li key={p}><i style={{ background: POSITION_COLORS[i] }} /><span><b>{p}</b></span></li>
                 ))}
-                <li><i className="diamond" style={{ background: accent }} /><span><b>Documented doctorate</b></span></li>
               </ul>
             </div>
-            <Chart option={mixOption} height={heightFor} label={`Position mix and share with a documented doctorate for each ${level}`} />
+            <Chart option={mixOption} height={heightFor} label={`Position mix for each ${level}`} />
+          </div>
+          <div className="pos-col">
+            <div className="pos-head"><h3 className="pos-sub">With doctorate</h3></div>
+            <Chart option={phdOption} height={heightFor} label={`Share with a documented doctorate for each ${level}`} />
           </div>
         </div>
         {note}
