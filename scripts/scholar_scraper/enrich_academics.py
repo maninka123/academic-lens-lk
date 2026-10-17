@@ -116,6 +116,8 @@ def enrich_record(
     faculty = academic.get("faculty", "")
     dept = academic.get("department", "")
     scholar_url = academic.get("google_scholar_url") or academic.get("scholar_url", "")
+    if os.environ.get("SKIP_SCHOLAR"):  # Scholar is blocking: go straight to OpenAlex
+        scholar_url = ""
     existing_tot = academic.get("total_citations", "").strip()
     existing_h = academic.get("h_index", "").strip()
     existing_pubs = academic.get("total_publications", "").strip()
