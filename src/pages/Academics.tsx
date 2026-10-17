@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UnitIcon } from "../components/unit-icons";
 import { qualificationLines } from "../data/qualification-lines";
+import { QsRank } from "../components/QsRank";
 import type { Academic, Level } from "../types";
 import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
 import { Pin, ExternalLink, ArrowLeft, Download, FileText, Link2, Check, TriangleAlert } from "lucide-react";
@@ -149,7 +150,7 @@ const evidenceLabel = (value: string | number | null) => {
   return typeof value === "string" ? labels[value] || value : value;
 };
 type InfoItem = [string, string | number | null, EvidenceLevel?, string?, string?];
-function Info({ items }: { items: InfoItem[] }) {
+function Info({ items, qsAcademic }: { items: InfoItem[]; qsAcademic?: Academic }) {
   return (
     <dl className="info-list">
       {items.map(([k, v, level, title, country]) => (
@@ -160,6 +161,10 @@ function Info({ items }: { items: InfoItem[] }) {
               <>
                 <CountryName country={country} />
                 {v ? <span className="muted"> | {v}</span> : null}
+              </>
+            ) : k === "PhD awarding institution" && typeof v === "string" && v && qsAcademic ? (
+              <>
+                {v} <QsRank academic={qsAcademic} />
               </>
             ) : k === "Published qualifications" && typeof v === "string" && qualificationLines(v).length ? (
               <ul className="qual-lines" title={v}>
@@ -339,6 +344,7 @@ export function Profile() {
                   <small className="key-fact-detail">
                     {a.phdCountry && <CountryName country={a.phdCountry} />}
                     {a.phdUniversity && <span>{a.phdUniversity}</span>}
+                    <QsRank academic={a} short />
                   </small>
                 ) : missing ? (
                   <small>
@@ -420,6 +426,7 @@ export function Profile() {
           <div className="two-columns">
             <Card title="Education">
               <Info
+                qsAcademic={a}
                 items={[
                   [
                     "Published qualifications",

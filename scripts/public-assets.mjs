@@ -11,6 +11,7 @@ import path from "node:path";
 export const PUBLIC_FILES = [
   "academics.csv",
   "universities.csv",
+  "qs_rankings_2027.csv",
   "faculties.csv",
   "departments.csv",
   "metadata.json",
@@ -46,6 +47,9 @@ export const PUBLIC_ACADEMIC_COLUMNS = [
   "qualification",
   "doctorateStatus",
   "phdUniversity",
+  "phdInstitution",
+  "phdQsRank",
+  "phdQsStatus",
   "phdCountry",
   "phdCountryInferred",
   "phdYear",

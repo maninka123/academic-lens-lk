@@ -51,6 +51,12 @@ const snapshots = optionalCsv("research_metrics_snapshots.csv");
 const observations = optionalCsv("research_metric_observations.csv");
 const openAlex = optionalCsv("international/sri_lanka_openalex_metrics.csv");
 const identities = optionalCsv("research_identity_evidence.csv");
+// QS World University Rankings 2027 for PhD-awarding institutions (recorded spellings are mapped to one name).
+const qsRows = optionalCsv("qs_rankings_phd_institutions_2027.csv");
+const qsByInstitution = Object.fromEntries(qsRows.map((r) => [r.institution, r]));
+const phdAlias = Object.fromEntries(
+  optionalCsv("phd_institution_aliases.csv").map((r) => [r.recorded_name.trim(), r.canonical_institution]),
+);
 const aliasRows = optionalCsv("identity_aliases.csv");
 // Short maintainer cautions shown on a profile above its metrics (for example mass-collaboration citation counts).
 const cautionById = Object.fromEntries(
@@ -117,6 +123,17 @@ const rows = sourceRows.map((original) => {
       doctorate === "completed_documented" ? "PhD" : lowerQualification(q),
     doctorateStatus: doctorate,
     phdUniversity: r.phd_university,
+    ...(() => {
+      const recorded = (r.phd_university || "").trim();
+      if (!recorded) return { phdInstitution: "", phdQsRank: "", phdQsStatus: "" };
+      const phdInstitution = phdAlias[recorded] || recorded;
+      const qs = qsByInstitution[phdInstitution];
+      return {
+        phdInstitution,
+        phdQsRank: qs && qs.qs_status === "ranked" ? qs.qs_rank_2027 : "",
+        phdQsStatus: qs ? qs.qs_status : "not_located",
+      };
+    })(),
     phdCountry: r.phd_country,
     // Labels countries inferred from the awarding institution's name.
     phdCountryInferred: /^inferred/.test(r.phd_country_basis || "")
@@ -175,6 +192,17 @@ if (new Set(rows.map((r) => r.id)).size !== rows.length)
 
 // --- Publish: clear anything not on the allowlist, then write public files.
 fs.mkdirSync(out, { recursive: true });
+csvWrite(
+  out + "/qs_rankings_2027.csv",
+  qsRows.map((r) => ({
+    institution: r.institution,
+    country: r.country,
+    qsRank: r.qs_status === "ranked" ? r.qs_rank_2027 : "",
+    qsStatus: r.qs_status,
+    basis: r.basis,
+    universityId: universities.find((u) => r.country === "Sri Lanka" && (u.name === r.institution || u.name.replace(/ \(SLIIT\)$/, "") === r.institution))?.id || "",
+  })),
+);
 const keepStatic = new Set(["world.geo.json"]);
 for (const f of fs.readdirSync(out, { withFileTypes: true }))
   if (f.isFile() && !keepStatic.has(f.name) && !PUBLIC_FILES.includes(f.name))
