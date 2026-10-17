@@ -285,14 +285,12 @@ csvWrite(out + "/coverage_summary.csv", coverage);
 const settings = fs.existsSync(source + "/metadata.json")
   ? JSON.parse(fs.readFileSync(source + "/metadata.json", "utf8"))
   : {};
-const missing = ["hIndex", "recentCitations", "q1", "recentQ1"].filter((k) =>
+const missing = ["hIndex", "recentCitations"].filter((k) =>
   rows.every((r) => r[k] === null),
 );
 const names = {
   hIndex: "h-index",
   recentCitations: "exact five-year citations",
-  q1: "Q1 publications",
-  recentQ1: "five-year Q1 publications",
 };
 const q1Policy = fs.existsSync(source + "/q1_methodology.md")
   ? fs.readFileSync(source + "/q1_methodology.md", "utf8")

@@ -50,4 +50,4 @@ Requests for a factual correction or for removal of a record can be made through
 3. Removal requests: the record is removed from the published files at the next import and recorded privately (ID, date, reason) so it is not re-collected. Evidence needed for research integrity is retained privately.
 4. Re-run `npm run data:import`, check the public output, and deploy manually.
 
-We aim to review requests within a reasonable time.
+Our target is to respond to requests within 14 days; this is a target, not a guarantee.

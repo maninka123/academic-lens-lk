@@ -278,17 +278,12 @@ export function ScoreDialog({
 
       <div className="score-limits">
         <p>
-          This percentile is a descriptive statistical measure based on available research
-          indicators and comparable academic profiles. It reflects an individual's position
-          within the collected dataset and does not represent an assessment of overall academic
-          quality, teaching performance, or professional competence.
-        </p>
-        <p>
-          The results are relative to collected profiles, not the entire academic population.
-          Citation counts differ by source and discipline, and Q1 journal data are not included
-          in the calculation. Missing data, incomplete coverage, and differences between research
-          databases may affect the results.{" "}
-          <a href={DOCS} target="_blank" rel="noopener noreferrer">Full method</a>
+          This percentile shows an academic&rsquo;s relative position among comparable profiles in
+          the collected dataset, based on available research indicators. It does not assess overall
+          academic quality, teaching, or professional competence. Results may be affected by
+          incomplete data, differences between research sources and disciplines, and limited
+          coverage.{" "}
+          <a href={DOCS} target="_blank" rel="noopener noreferrer">Full methodology</a>
         </p>
       </div>
     </Dialog>
