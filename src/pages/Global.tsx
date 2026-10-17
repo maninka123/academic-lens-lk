@@ -901,21 +901,27 @@ export function Global() {
               ? `Sri Lanka has too few valid profiles for this selection (${sl.values.length}, minimum ${minN}).`
               : `Sri Lanka's median ${metricNames[metric].toLowerCase()} is ${fmt(slMedian, 1)}.`}
           </h2>
-          <p>
-            {slMedian === null
-              ? "Try another measure, discipline or career stage. Missing values are never treated as zero."
-              : tierRatios.length
-                ? "That is " +
-                  tierRatios.map((r) => `${r.pct}% of the ${r.name}`).join(", ") +
-                  ` median for ${field}${stage === "all" ? "" : ", " + stage.toLowerCase()}.`
-                : "The international tiers have too few valid profiles to compare."}
+          <ul className="point-list">
+            <li>
+              {slMedian === null
+                ? "Try another measure, discipline or career stage. Missing values are never treated as zero."
+                : tierRatios.length
+                  ? "That is " +
+                    tierRatios.map((r) => `${r.pct}% of the ${r.name}`).join(", ") +
+                    ` median for ${field}${stage === "all" ? "" : ", " + stage.toLowerCase()}.`
+                  : "The international tiers have too few valid profiles to compare."}
+            </li>
             {slMedian !== null && mode === "likeForLike" && sl.eligible > 0 && (
               <>
-                {" "}
-                This rests on {fmt(sl.values.length)} of {fmt(sl.eligible)} Sri Lankan profiles ({Math.round((100 * sl.values.length) / sl.eligible)}%) with a verified OpenAlex match; the rest are not matched yet. OpenAlex h-indices usually run lower than Google Scholar&rsquo;s, so compare Sri Lanka with the tiers here, not with the Scholar figures elsewhere.
+                <li>
+                  Based on {fmt(sl.values.length)} of {fmt(sl.eligible)} Sri Lankan profiles ({Math.round((100 * sl.values.length) / sl.eligible)}%) with a verified OpenAlex match; the rest are not matched yet.
+                </li>
+                <li>
+                  OpenAlex h-indices usually run lower than Google Scholar&rsquo;s, so compare Sri Lanka with the tiers here, not with the Scholar figures elsewhere.
+                </li>
               </>
             )}
-          </p>
+          </ul>
         </div>
         <ul className="tier-ladder">
           {tierRows.map((r) => (

@@ -334,13 +334,17 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
           </div>
         </div>
       )}
-      <p className="caption">
-        One provider only (Google Scholar); people without a value are not counted, never treated as zero. Groups with fewer than {minN} values are hatched and indicative.
-        {tab === "qs" && unlocated + noUniversity > 0
-          ? ` Left out: ${unlocated.toLocaleString()} whose awarding university has no QS 2027 rank located${noUniversity ? ` and ${noUniversity.toLocaleString()} with no awarding university recorded` : ""}.`
-          : ""}
-        {position !== "all" ? ` Showing ${position.toLowerCase()}s only (${rows.length.toLocaleString()} of ${scholar.length.toLocaleString()}).` : ""}
-      </p>
+      <ul className="point-list caption">
+        <li>One provider only (Google Scholar); people without a value are not counted, never treated as zero.</li>
+        <li>Groups with fewer than {minN} values are hatched and indicative.</li>
+        {tab === "qs" && unlocated + noUniversity > 0 && (
+          <li>
+            Left out: {unlocated.toLocaleString()} whose awarding university has no QS 2027 rank located
+            {noUniversity ? ` and ${noUniversity.toLocaleString()} with no awarding university recorded` : ""}.
+          </li>
+        )}
+        {position !== "all" && <li>Showing {position.toLowerCase()}s only ({rows.length.toLocaleString()} of {scholar.length.toLocaleString()}).</li>}
+      </ul>
     </Card>
   );
 }
