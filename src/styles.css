@@ -3913,3 +3913,31 @@ table.coverage-v2 {
 @media (max-width: 760px) { .hero { padding: 84px 22px 28px; } .hero .hero-corner { right: 22px; } }
 @media (max-width: 1100px) and (min-width: 761px) { .hero .hero-corner { right: 28px; } }
 @media (max-width: 760px) { .hero .hero-corner { right: 22px; } }
+
+/* PhD Origins: Sri Lanka / overseas split card */
+.origin-split-card { display: flex; flex-direction: column; gap: 10px; }
+.origin-split-card .os-label { display: inline-flex; align-items: center; gap: 7px; }
+.origin-split-card .os-figures { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 2px; }
+.origin-split-card .os-fig { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: center; }
+.origin-split-card .os-fig i { grid-row: span 2; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 10px; color: #fff; }
+.origin-split-card .os-fig.lk i { background: var(--lk); }
+.origin-split-card .os-fig.ov i { background: var(--ov); }
+.origin-split-card .os-fig strong { font-size: 1.5rem; line-height: 1.05; letter-spacing: -0.02em; }
+.origin-split-card .os-fig small { font-size: .75rem; color: var(--muted); grid-column: 2; }
+.origin-split-card .os-bar { display: flex; height: 12px; border-radius: 999px; overflow: hidden; background: var(--soft); gap: 2px; }
+.origin-split-card .os-bar u { display: block; height: 100%; text-decoration: none; }
+.origin-split-card .os-bar .lk { background: var(--lk); border-radius: 999px 0 0 999px; }
+.origin-split-card .os-bar .ov { background: var(--ov); border-radius: 0 999px 999px 0; }
+.origin-split-card .os-foot { color: var(--muted); font-size: .8125rem; }
+.stats-grid.four .origin-split-card { justify-content: flex-start; }
+.origin-split-card .os-label { display: flex; align-items: flex-start; gap: 8px; }
+.origin-split-card .os-label svg { flex: none; margin-top: 1px; }
+.origin-split-card .os-label em { font-style: normal; }
+.origin-split-card .os-figures { gap: 10px; }
+.origin-split-card .os-fig { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-width: 0; }
+.origin-split-card .os-fig i { width: 28px; height: 28px; border-radius: 9px; grid-row: auto; }
+.origin-split-card .os-fig strong { font-size: 1.45rem; margin-top: 4px; white-space: nowrap; }
+.origin-split-card .os-fig small { grid-column: auto; line-height: 1.25; }
+.origin-split-card .os-fig .os-count { color: var(--muted); font-variant-numeric: tabular-nums; }
+.origin-split-card .os-foot { margin-top: auto; }
+.stats-grid.four .origin-split-card > .os-label { display: flex; align-items: center; min-height: 0; }
