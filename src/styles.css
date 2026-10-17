@@ -3808,3 +3808,12 @@ table.coverage-v2 {
 .uni-facts dd { line-height: 1.2; }
 .uni-flag { margin-top: 4px; }
 .uni-open { padding-top: 10px; }
+
+/* Preview badge: calm amber capsule with a live dot */
+.preview-badge, .preview-pill, .hero-preview, .ack-preview { display: inline-flex; align-items: center; gap: 7px; padding: 5px 13px 5px 11px; border-radius: 999px; border: 1px solid #f3d3a8; background: linear-gradient(180deg, #fffaf2, #fdf0dc); color: #9a4a0e; font-size: .6875rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; white-space: nowrap; line-height: 1; box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 4px 10px -8px #b45309; }
+.preview-dot { width: 7px; height: 7px; border-radius: 50%; background: #f59e0b; box-shadow: 0 0 0 0 #f59e0b88; animation: preview-pulse 2.4s ease-out infinite; flex: none; }
+.preview-sep { font-weight: 400; opacity: .45; letter-spacing: 0; margin: 0 -1px; }
+@keyframes preview-pulse { 0% { box-shadow: 0 0 0 0 #f59e0b88; } 70% { box-shadow: 0 0 0 7px #f59e0b00; } 100% { box-shadow: 0 0 0 0 #f59e0b00; } }
+@media (prefers-reduced-motion: reduce) { .preview-dot { animation: none; } }
+:root[data-theme="dark"] .preview-badge, :root[data-theme="dark"] .preview-pill, :root[data-theme="dark"] .hero-preview, :root[data-theme="dark"] .ack-preview { background: #3a2a14; border-color: #6b4a1f; color: #fbbf6a; box-shadow: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .preview-badge, :root:not([data-theme="light"]) .preview-pill, :root:not([data-theme="light"]) .hero-preview, :root:not([data-theme="light"]) .ack-preview { background: #3a2a14; border-color: #6b4a1f; color: #fbbf6a; box-shadow: none; } }
