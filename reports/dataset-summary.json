@@ -1,5 +1,5 @@
 {
-  "version": "partial-23221303ba",
+  "version": "partial-8500bdf6ec",
   "collectionDate": "2026-10-17",
   "country": "Sri Lanka",
   "institutionsInScope": 15,
@@ -16,7 +16,7 @@
   "doctorateContradictory": 0,
   "needsReview": 17,
   "metricAvailability": {
-    "publications": 1008,
+    "publications": 1012,
     "citations": 1266,
     "recentCitations": 1176,
     "hIndex": 1254

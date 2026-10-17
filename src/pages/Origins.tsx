@@ -1,8 +1,8 @@
 import { Select } from "../components/ui/select";
 import { Globe2, MapPin, Plane } from "lucide-react";
 import { PhdImpact } from "../components/PhdImpact";
-import { useQsTable, qsLabelFor } from "../data/qs-table";
 import { QS_BANDS, qsBandOf } from "../analytics/phd-impact";
+import { qsMain } from "../components/QsRank";
 import { useEffect, useMemo, useState } from "react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
@@ -129,7 +129,9 @@ export function Origins() {
     s === "United States" ? "United States of America" : s;
   const mapCountry = (s: string) =>
     s === "United States of America" ? "United States" : s;
-  const qsTable = useQsTable();
+  // Left column of the flow: the awarding country (default) or the QS 2027 band of the awarding university.
+  const [leftBy, setLeftBy] = useState<"country" | "qs">("country");
+  const [middleQs, setMiddleQs] = useState(false);
   const sankey = useMemo(() => {
     const links = new Map<
         string,
@@ -137,22 +139,26 @@ export function Origins() {
       >(),
       nodes = new Set<string>();
     // Bands first, in rank order, so the diagram reads from the highest ranked universities down.
-    if (mode === "qs") for (const b of [...QS_BANDS, "QS rank not located"]) nodes.add("Band: " + b);
+    if (leftBy === "qs") for (const b of [...QS_BANDS, "QS rank not located"]) nodes.add("Band: " + b);
     for (const a of rows) {
-      const qs = qsLabelFor(a.universityId, qsTable);
-      const c = "Country: " + a.phdCountry,
-        u = "Current: " + short(a.university) + (qs ? " (" + qs + ")" : ""),
-        p = "PhD: " + (a.phdUniversity || "Institution unavailable"),
-        band = "Band: " + (qsBandOf(a) ?? "QS rank not located");
+      const c =
+          leftBy === "qs"
+            ? "Band: " + (qsBandOf(a) ?? "QS rank not located")
+            : "Country: " + a.phdCountry,
+        u = "Current: " + short(a.university),
+        p =
+          "PhD: " +
+          (mode === "fullqs"
+            ? (a.phdInstitution || a.phdUniversity || "Institution unavailable") +
+              (qsMain(a) ? " (" + qsMain(a) + ")" : "")
+            : a.phdUniversity || "Institution unavailable");
       const pairs =
-        mode === "full"
+        mode === "full" || mode === "fullqs"
           ? [
               [c, p],
               [p, u],
             ]
-          : mode === "qs"
-            ? [[band, u]]
-            : [[c, u]];
+          : [[c, u]];
       for (const [source, target] of pairs) {
         nodes.add(source);
         nodes.add(target);
@@ -164,9 +170,9 @@ export function Origins() {
         });
       }
     }
-    if (mode === "qs") for (const n of [...nodes]) if (n.startsWith("Band: ") && ![...links.values()].some((l) => l.source === n)) nodes.delete(n);
+    if (leftBy === "qs") for (const n of [...nodes]) if (n.startsWith("Band: ") && ![...links.values()].some((l) => l.source === n)) nodes.delete(n);
     return { links, nodes };
-  }, [rows, mode, qsTable]);
+  }, [rows, mode, leftBy]);
 
   /** Stacked counts or shares of documented doctorates, with the same population. */
   const composition = (splits: Split[], label: string, scale: CompositionScale) => ({
@@ -780,22 +786,52 @@ export function Origins() {
         title="From doctorate to current institution"
         subtitle={
           (country ? country + " | " : "") +
-          (mode === "full"
-            ? "PhD country → awarding university → current institution"
-            : mode === "qs"
-              ? "QS 2027 band of the awarding university → current institution (with its own QS band)"
-              : "PhD country → current institution")
+          (leftBy === "qs" ? "University ranking (QS 2027)" : "PhD country") +
+          (mode === "full" || mode === "fullqs"
+            ? " → awarding university" + (mode === "fullqs" ? " (with its QS 2027 rank)" : "") + " → current institution"
+            : " → current institution")
         }
         action={
-          <Select
-            aria-label="Sankey detail"
-            value={mode}
-            onChange={(e) => setMode(e.target.value)}
-          >
-            <option value="simple">Country → current institution</option>
-            <option value="full">Include PhD university</option>
-            <option value="qs">University ranking (QS 2027) → current institution</option>
-          </Select>
+          <div className="flow-controls">
+            <div className="field">
+              <span>Left side</span>
+              <div className="chip-group" role="group" aria-label="Left side of the flow">
+                {([["country", "Awarding country"], ["qs", "University ranking (QS 2027)"]] as const).map(([k, l]) => (
+                  <button key={k} type="button" aria-pressed={leftBy === k} onClick={() => setLeftBy(k)}>
+                    {l}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="field">
+              <span>Middle step</span>
+              <div className="chip-group" role="group" aria-label="Middle step">
+                {([["simple", "None"], ["university", "Awarding university"]] as const).map(([k, l]) => (
+                  <button
+                    key={k}
+                    type="button"
+                    aria-pressed={(mode === "simple") === (k === "simple")}
+                    onClick={() => setMode(k === "simple" ? "simple" : middleQs ? "fullqs" : "full")}
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {mode !== "simple" && (
+              <label className="check flow-qs">
+                <input
+                  type="checkbox"
+                  checked={middleQs}
+                  onChange={(e) => {
+                    setMiddleQs(e.target.checked);
+                    setMode(e.target.checked ? "fullqs" : "full");
+                  }}
+                />
+                Show each university&rsquo;s QS 2027 rank
+              </label>
+            )}
+          </div>
         }
       >
         {rows.length ? (
@@ -823,9 +859,9 @@ export function Origins() {
                     left: 20,
                     right: 270,
                     // In the QS view keep the bands in rank order instead of sorting by size.
-                    layoutIterations: mode === "qs" ? 0 : 32,
-                    top: 20,
-                    bottom: 20,
+                    layoutIterations: leftBy === "qs" ? 0 : 32,
+                    top: 4,
+                    bottom: 8,
                     nodeGap: 12,
                     label: {
                       fontSize: 14,

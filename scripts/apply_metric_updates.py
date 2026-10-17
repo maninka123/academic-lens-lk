@@ -79,6 +79,11 @@ def main(src):
             skipped.append((rid, u["full_name"], "all-zero Google Scholar read treated as a failed read; not stored, re-check later"))
             continue
         scholar_owned = "google scholar" in (r["research_metrics_source"] or "").lower() and platform == "OpenAlex"
+        if scholar_owned:
+            # Providers are never mixed: a person whose figures come from Google Scholar gets no OpenAlex values,
+            # not even for blank fields (an OpenAlex works count beside a Scholar h-index is not comparable).
+            skipped.append((rid, u["full_name"], "OpenAlex values not added to a person whose figures come from Google Scholar"))
+            continue
         old_src = (r["research_metrics_source"] or "")
         for fld in FIELDS:
             new = u[fld].strip()

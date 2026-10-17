@@ -61,7 +61,7 @@ def main():
                     [sys.executable, "enrich_academics.py", str(src), "--out", str(Path(tmp) / "out.csv"), "--limit", "2"],
                     cwd=HERE, capture_output=True, text=True, timeout=240,
                 )
-                ok = out.returncode == 0 and "citations=" in out.stdout
+                ok = out.returncode == 0 and "[Google Scholar]" in out.stdout  # an OpenAlex fallback is not a Scholar recount
             except subprocess.TimeoutExpired:
                 ok = False
         print(f"[{i}/{len(rows)}] {r['full_name']}: {'ok' if ok else 'failed'}", flush=True)
