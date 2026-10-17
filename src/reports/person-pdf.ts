@@ -375,8 +375,6 @@ export async function buildPersonReport(
         ["citations", "Citations (all time)"],
         ["recentCitations", `Citations ${metadata.window?.join("-") ?? "2021-2025"}`],
         ["hIndex", "h-index"],
-        ["q1", "Q1 journal publications"],
-        ["recentQ1", "Q1 publications in window"],
       ] as [NumericMetric, string][]
     ).map(([k, label]) => {
       const e = person.metricEvidence?.find((x) => x.metric === k);

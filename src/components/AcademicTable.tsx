@@ -56,8 +56,6 @@ export function AcademicTable({
     qualification: false,
     phdCountry: false,
     recentCitations: sortMetric === "recentCitations",
-    q1: sortMetric === "q1",
-    recentQ1: sortMetric === "recentQ1",
   });
   const cols = useMemo<ColumnDef<Academic>[]>(
     () => [
@@ -163,8 +161,6 @@ export function AcademicTable({
           "citations",
           "recentCitations",
           "hIndex",
-          "q1",
-          "recentQ1",
         ] as const
       ).map((key) => ({
         id: key,
@@ -184,8 +180,6 @@ export function AcademicTable({
           citations: "Citations",
           recentCitations: "5-year citations",
           hIndex: "h-index",
-          q1: "Q1",
-          recentQ1: "5-year Q1",
         }[key],
         cell: ({ getValue }: any) => (
           <NumericValue
@@ -282,8 +276,6 @@ export function AcademicTable({
                         "citations",
                         "recentCitations",
                         "hIndex",
-                        "q1",
-                        "recentQ1",
                       ].includes(h.column.id) ? (
                         <div className="column-range">
                           {["Minimum", "Maximum"].map((label, index) => (

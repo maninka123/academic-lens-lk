@@ -34,7 +34,7 @@ import { Universities } from "./pages/Universities";
 import { Origins } from "./pages/Origins";
 import { Methodology } from "./pages/Methodology";
 import { Global } from "./pages/Global";
-import { Filters } from "./components/Filters";
+import { GlobalFilterButton } from "./components/GlobalFilterButton";
 import { Button } from "./components/ui/button";
 import { Empty } from "./components/common";
 import { AckGate } from "./components/AckGate";
@@ -257,6 +257,11 @@ function Shell() {
             </span>
           </div>
           <span className="preview-pill">Ongoing Research | Public Preview</span>
+          {data && (
+            <DataContext.Provider value={data}>
+              <GlobalFilterButton />
+            </DataContext.Provider>
+          )}
           <span className="data-badge">
             <span className="status-dot" />
             {(data?.metadata.updatedAt || data?.metadata.collectionDate)
@@ -307,7 +312,6 @@ function Shell() {
                   version is {data.metadata.version}; results may differ.
                 </div>
               )}
-              {location.pathname.startsWith("/university/") && <Filters />}
               <Routes>
                 <Route path="/" element={<Overview />} />
                 <Route path="/universities" element={<Universities />} />

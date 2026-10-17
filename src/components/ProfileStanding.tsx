@@ -20,8 +20,6 @@ const metrics: NumericMetric[] = [
   "publications",
   "hIndex",
   "recentCitations",
-  "q1",
-  "recentQ1",
 ];
 const ordinalOf = (v: number) => {
   const n = Math.round(v),

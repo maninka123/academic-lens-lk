@@ -243,8 +243,6 @@ export function comparisonChart(
           "citations",
           "recentCitations",
           "hIndex",
-          "q1",
-          "recentQ1",
         ]
       : ["count", "phd", "overseas"];
     const cells = metrics.flatMap((m, x) => {
