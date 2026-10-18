@@ -4075,3 +4075,14 @@ table.coverage-v2 {
 .uni-warning svg { flex: none; margin-top: 1px; }
 .uni-warn-note { color: #8e1f14; display: flex; gap: 6px; align-items: flex-start; }
 .uni-warn-note svg { flex: none; margin-top: 2px; }
+
+/* Three aligned unit charts: fixed header height so the rows line up, plus faint guides across all three. */
+.unit-grid3 { position: relative; }
+.unit-grid3 .pos-head { height: 96px; min-height: 96px; align-content: flex-start; }
+.unit-grid3 .pos-col { position: relative; z-index: 1; }
+.unit-grid3::before {
+  content: ""; position: absolute; left: 0; right: 0; top: var(--gl-top, 0); height: calc(var(--gl-row, 0px) * var(--gl-n, 0)); z-index: 0; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, var(--line, rgba(128,128,128,.35)) 0, var(--line, rgba(128,128,128,.35)) 1px, transparent 1px, transparent var(--gl-row, 0px));
+  border-bottom: 1px solid var(--line, rgba(128,128,128,.35)); opacity: .45;
+}
+@media (max-width: 1100px) { .unit-grid3 .pos-head { height: auto; min-height: 30px; } .unit-grid3::before { display: none; } }

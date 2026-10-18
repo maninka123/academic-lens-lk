@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Academic, NumericMetric } from "../types";
 import { Chart } from "./Chart";
 import { fmt } from "./common";
@@ -39,6 +39,25 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
   const accent = theme === "dark" ? "#d95926" : "#eb6834";
   const [metric, setMetric] = useState<NumericMetric>("hIndex");
   const [statistic, setStatistic] = useState<"median" | "mean">("median");
+  const gridRef = useRef<HTMLDivElement>(null);
+  /* Faint row guides drawn once across all three charts: measured from the first chart so they line up with every row. */
+  useLayoutEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const place = () => {
+      const first = grid.querySelector<HTMLElement>(".chart-wrap");
+      const n = Number(grid.dataset.n), h = Number(grid.dataset.h);
+      if (!first || !n || !h) return;
+      const top = first.getBoundingClientRect().top - grid.getBoundingClientRect().top + 8;
+      grid.style.setProperty("--gl-top", `${top}px`);
+      grid.style.setProperty("--gl-row", `${(h - 8 - 34) / n}px`);
+      grid.style.setProperty("--gl-n", String(n));
+    };
+    place();
+    const ro = new ResizeObserver(place);
+    ro.observe(grid);
+    return () => ro.disconnect();
+  });
   const measure = MEASURES.find(([k]) => k === metric)![1];
   const statName = statistic === "median" ? "Median" : "Mean";
 
@@ -250,6 +269,9 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
     <ul className="point-list caption unit-note">
       <li>Research figures use Google Scholar only; people without a value are not counted, never treated as zero. Hatched bars rest on fewer than {minN} values.</li>
       <li>Doctorates are counted only when documented on the profile; “not documented” does not mean no doctorate.</li>
+      {compare && stats.some((s) => s.n > 0) && stats.every((s) => s.n <= 2) && (
+        <li>Every {level} here has only one or two values, and with one or two values the mean and the median are the same number, so the bars do not change between them.</li>
+      )}
       {compare && rows.length > groups.reduce((s, g) => s + g.rows.length, 0) && (
         <li>{rows.length - groups.reduce((s, g) => s + g.rows.length, 0)} profiles without a named {level} are not shown.</li>
       )}
@@ -261,7 +283,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
     return (
       <>
         {controls}
-        <div className="unit-grid3">
+        <div className="unit-grid3" ref={gridRef} data-n={groups.length} data-h={heightFor}>
           <div className="pos-col">
             <div className="pos-head"><h3 className="pos-sub">{statName} {measure}</h3></div>
             <Chart option={metricOption} height={heightFor} label={`${statName} ${measure} for each ${level}`} />
