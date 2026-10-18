@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useData } from "../data/context";
+import { useData, comparableUniversities } from "../data/context";
 import { Card, fmt, short } from "./common";
 import { Chart } from "./Chart";
 import { positionStandards, POSITION_ORDER } from "../analytics/position-standards";
@@ -15,7 +15,8 @@ const POSITIONS = ["Professor", SENIOR_LECTURER_GROUP, "Lecturer"] as const;
 
 /** How the standard for each seniority differs between universities, public and non-state side by side. */
 export function StandardsOverview() {
-  const { academics, universities } = useData();
+  const { academics, universities: allUniversities } = useData();
+  const universities = comparableUniversities(allUniversities);
   const [metric, setMetric] = useState<NumericMetric>("hIndex");
   const [position, setPosition] = useState<string>("Professor");
   const scoped = useMemo(() => withProvider(academics, "Google Scholar").rows, [academics]);

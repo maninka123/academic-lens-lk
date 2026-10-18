@@ -91,7 +91,20 @@ export async function loadDataset(): Promise<Dataset> {
     }
     return row as Academic;
   });
-  const universities = parse(u) as University[];
+  const universities = parse(u).map((r) => {
+    const { exclude_from_comparison, notice_severity, notice_title, notice_text, notice_source, notice_status, ...rest } = r;
+    const uni: Record<string, unknown> = { ...rest };
+    if (exclude_from_comparison === "yes") uni.excludeFromComparison = true;
+    if (notice_title || notice_text)
+      uni.notice = {
+        severity: notice_severity || "warning",
+        title: notice_title,
+        text: notice_text,
+        source: notice_source,
+        status: notice_status,
+      };
+    return uni as University;
+  });
   const metadata = JSON.parse(m) as Metadata;
   if (
     !Array.isArray(metadata.window) ||
@@ -144,5 +157,14 @@ export async function loadDataset(): Promise<Dataset> {
     return row as Coverage;
   });
   const summary = sum ? (JSON.parse(sum) as DatasetSummary) : null;
-  return { academics, universities, metadata, coverage, summary };
+  // Institutions flagged as not comparable stay in the directory but are left out of every comparison.
+  const excluded = new Set(universities.filter((x) => x.excludeFromComparison).map((x) => x.id));
+  return {
+    academics: excluded.size ? academics.filter((a) => !excluded.has(a.universityId)) : academics,
+    allAcademics: academics,
+    universities,
+    metadata,
+    coverage,
+    summary,
+  };
 }

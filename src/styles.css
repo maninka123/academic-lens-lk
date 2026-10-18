@@ -4057,3 +4057,21 @@ table.coverage-v2 {
 .unit-grid3 .pos-head { min-height: 64px; }
 @media (max-width: 1000px) { .unit-grid3 .pos-head { min-height: 30px; } }
 .pos-col .chart-wrap, .pos-col .chart-body { position: static; }
+
+/* Institutions with too little public data: warning banner, card badge, no ranking */
+.institution-notice { display: flex; gap: 14px; align-items: flex-start; margin: 0 0 20px; padding: 16px 18px; border: 1px solid #e3a7a0; border-left: 5px solid #c0392b; border-radius: 12px; background: #fdf0ee; color: #5c1a14; }
+.institution-notice svg { flex: none; margin-top: 2px; color: #c0392b; }
+.institution-notice strong { display: block; font-size: 1.0625rem; margin-bottom: 4px; color: #8e1f14; }
+.institution-notice p { margin: 0 0 8px; line-height: 1.5; }
+.institution-notice small { display: block; color: #7a3a33; font-size: .8125rem; }
+.institution-notice .notice-flag { margin-top: 6px; font-weight: 700; color: #8e1f14; }
+:root[data-theme="dark"] .institution-notice { background: #3a1d1a; border-color: #7b3a33; color: #f3d3cf; }
+:root[data-theme="dark"] .institution-notice strong, :root[data-theme="dark"] .institution-notice .notice-flag { color: #ff9b8f; }
+:root[data-theme="dark"] .institution-notice small { color: #e2b2ac; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .institution-notice { background: #3a1d1a; border-color: #7b3a33; color: #f3d3cf; } :root:not([data-theme="light"]) .institution-notice strong, :root:not([data-theme="light"]) .institution-notice .notice-flag { color: #ff9b8f; } :root:not([data-theme="light"]) .institution-notice small { color: #e2b2ac; } }
+.uni-rank.warn { display: inline-flex; align-items: center; gap: 5px; background: #c0392b; color: #fff; }
+.uni-card.excluded { border-color: #e3a7a0; }
+.uni-warning { display: flex; align-items: flex-start; gap: 6px; margin: 8px 0 0; padding: 8px 10px; border-radius: 10px; background: #fdf0ee; color: #8e1f14; font-size: .8125rem; line-height: 1.35; font-weight: 600; }
+.uni-warning svg { flex: none; margin-top: 1px; }
+.uni-warn-note { color: #8e1f14; display: flex; gap: 6px; align-items: flex-start; }
+.uni-warn-note svg { flex: none; margin-top: 2px; }
