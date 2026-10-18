@@ -1,10 +1,11 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
-unassigned-faculty,,23,0
+unassigned-faculty,,1,4
 faculty-of-computing,Faculty of Computing,0,0
-faculty-of-engineering,Faculty of Engineering,3,20
-faculty-of-health-sciences,Faculty of Health Sciences,5,4
-faculty-of-humanities-and-education,Faculty of Humanities and Education,4,17
-faculty-of-management-and-social-sciences,Faculty of Management and Social Sciences,0,5
-faculty-of-marine-engineering,Faculty of Marine Engineering,3,16
-faculty-of-maritime-sciences,Faculty of Maritime Sciences,2,9
-faculty-of-science,Faculty of Science,1,0
+faculty-of-engineering,Faculty of Engineering,3,26
+faculty-of-health-sciences,Faculty of Health Sciences,2,4
+faculty-of-humanities-and-education,Faculty of Humanities and Education,5,19
+faculty-of-management-and-social-sciences,Faculty of Management and Social Sciences,2,5
+faculty-of-marine-engineering,Faculty of Marine Engineering,3,19
+faculty-of-maritime-sciences,Faculty of Maritime Sciences,2,11
+faculty-of-science,Faculty of Science,0,0
+research-division-and-learning-resource-centre,Research Division and Learning Resource Centre,0,2
