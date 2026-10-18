@@ -207,9 +207,24 @@ const keepStatic = new Set(["world.geo.json"]);
 for (const f of fs.readdirSync(out, { withFileTypes: true }))
   if (f.isFile() && !keepStatic.has(f.name) && !PUBLIC_FILES.includes(f.name))
     fs.rmSync(out + "/" + f.name);
+// Per-institution notices (for example "public staff directory not located") and the rule that such an
+// institution is shown but never used in comparisons.
+const notices = optionalCsv("institution_notices.csv");
 const inScope = universities
   .filter((u) => u.id !== "saegis")
-  .map((u) => ({ ...u, country: COUNTRY }));
+  .map((u) => {
+    const n = notices.find((x) => x.university_id === u.id);
+    return {
+      ...u,
+      country: COUNTRY,
+      exclude_from_comparison: n && /^yes$/i.test(n.exclude_from_comparison) ? "yes" : "",
+      notice_severity: n?.severity ?? "",
+      notice_title: n?.title ?? "",
+      notice_text: n?.message ?? "",
+      notice_source: n?.source ?? "",
+      notice_status: n?.status ?? "",
+    };
+  });
 hierarchy(
   rows.map((r) =>
     Object.fromEntries(PUBLIC_ACADEMIC_COLUMNS.map((c) => [c, r[c] ?? ""])),

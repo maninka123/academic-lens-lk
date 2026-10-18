@@ -7,9 +7,10 @@ import {
   Globe2,
   Quote,
   Search,
+  TriangleAlert,
   Users,
 } from "lucide-react";
-import { useData } from "../data/context";
+import { useData, directoryAcademics } from "../data/context";
 import { universityStats, leader } from "../analytics/universities";
 import type { UniversityStats } from "../analytics/universities";
 import { MIN_SAMPLE } from "../analytics/quality";
@@ -36,11 +37,14 @@ function Meter({ value, tone }: { value: number | null; tone: string }) {
   );
 }
 
-function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number; min: number }) {
+function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number | null; min: number }) {
   const campus = campusImages[s.id as keyof typeof campusImages];
   const thin = s.profiles < min;
   return (
-    <Link to={"/university/" + s.id} className={"uni-card " + (s.type === "Non-state" ? "nonstate" : "public")}>
+    <Link
+      to={"/university/" + s.id}
+      className={"uni-card " + (s.type === "Non-state" ? "nonstate" : "public") + (s.excludeFromComparison ? " excluded" : "")}
+    >
       <div className="uni-cover">
         {campus && (
           <img
@@ -52,7 +56,13 @@ function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number; mi
             }}
           />
         )}
-        <span className="uni-rank">#{rank}</span>
+        {rank !== null ? (
+          <span className="uni-rank">#{rank}</span>
+        ) : (
+          <span className="uni-rank warn">
+            <TriangleAlert size={13} aria-hidden="true" /> Not compared
+          </span>
+        )}
         <span className="uni-type">{s.type}</span>
         <span className="uni-mono">{/^sliit$/i.test(s.short) ? "ST" : (s.short.length <= 5 ? s.short : s.short.slice(0, 2)).toUpperCase()}</span>
       </div>
@@ -93,7 +103,13 @@ function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number; mi
             <dd>{s.hN < 5 ? "—" : num(s.medianH)}</dd>
           </div>
         </dl>
-        {thin && s.profiles > 0 && (
+        {s.notice && (
+          <p className="uni-warning">
+            <TriangleAlert size={14} aria-hidden="true" /> {s.notice.title}
+            {s.notice.status ? ` | ${s.notice.status}` : ""}
+          </p>
+        )}
+        {thin && s.profiles > 0 && !s.notice && (
           <p className="uni-flag">Small sample | figures indicative only</p>
         )}
         <span className="uni-open">
@@ -105,7 +121,9 @@ function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number; mi
 }
 
 export function Universities() {
-  const { academics, universities, metadata } = useData();
+  const dataset = useData();
+  const { universities, metadata } = dataset;
+  const academics = directoryAcademics(dataset);
   const min = metadata?.minimumSample || MIN_SAMPLE;
   const stats = useMemo(
     () => universityStats(academics, universities),
@@ -115,29 +133,30 @@ export function Universities() {
   const [type, setType] = useState<"All" | "Public" | "Non-state">("All");
   const [sort, setSort] = useState<Sort>("profiles");
 
+  const comparableStats = stats.filter((x) => !x.excludeFromComparison);
   const spotlight = [
     {
       icon: Users,
       label: "Largest collection",
-      s: leader(stats, (x) => x.profiles, (x) => x.profiles, 1),
+      s: leader(comparableStats, (x) => x.profiles, (x) => x.profiles, 1),
       value: (x: UniversityStats) => fmt(x.profiles) + " profiles",
     },
     {
       icon: GraduationCap,
       label: "Highest PhD share",
-      s: leader(stats, (x) => x.phd, (x) => x.phdKnown, min),
+      s: leader(comparableStats, (x) => x.phd, (x) => x.phdKnown, min),
       value: (x: UniversityStats) => pct(x.phd) + " hold a PhD",
     },
     {
       icon: Quote,
       label: "Highest median citations",
-      s: leader(stats, (x) => x.medianCitations, (x) => x.citationsN, min),
+      s: leader(comparableStats, (x) => x.medianCitations, (x) => x.citationsN, min),
       value: (x: UniversityStats) => num(x.medianCitations) + " citations",
     },
     {
       icon: Globe2,
       label: "Most internationally trained",
-      s: leader(stats, (x) => x.overseas, (x) => x.overseasKnown, min),
+      s: leader(comparableStats, (x) => x.overseas, (x) => x.overseasKnown, min),
       value: (x: UniversityStats) => pct(x.overseas) + " PhD from abroad",
     },
   ];
@@ -156,6 +175,8 @@ export function Universities() {
         (s.name + " " + s.short).toLowerCase().includes(query.trim().toLowerCase()),
     )
     .sort((a, b) => {
+      // Institutions that are not used in comparisons always come last.
+      if (!!a.excludeFromComparison !== !!b.excludeFromComparison) return a.excludeFromComparison ? 1 : -1;
       if (sort === "name") return a.name.localeCompare(b.name);
       const av = key[sort](a),
         bv = key[sort](b);
@@ -164,7 +185,7 @@ export function Universities() {
       if (bv === null) return -1;
       return bv - av;
     });
-  const covered = stats.filter((s) => s.profiles).length;
+  const covered = comparableStats.filter((s) => s.profiles).length;
 
   return (
     <>
@@ -223,11 +244,17 @@ export function Universities() {
       {visible.length ? (
         <div className="uni-grid">
           {visible.map((s, i) => (
-            <UniversityCard key={s.id} s={s} rank={i + 1} min={min} />
+            <UniversityCard key={s.id} s={s} rank={s.excludeFromComparison ? null : i + 1} min={min} />
           ))}
         </div>
       ) : (
         <p className="caption">No university matches this search.</p>
+      )}
+      {stats.some((x) => x.excludeFromComparison) && (
+        <p className="caption uni-note uni-warn-note">
+          <TriangleAlert size={14} aria-hidden="true" /> {stats.filter((x) => x.excludeFromComparison).map((x) => short(x.name)).join(", ")}{" "}
+          {stats.filter((x) => x.excludeFromComparison).length > 1 ? "are" : "is"} listed with a warning and not used in any comparison: a complete public staff directory could not be found.
+        </p>
       )}
       <p className="caption uni-note">
         <Building2 size={14} aria-hidden="true" /> Figures describe collected profiles, not whole

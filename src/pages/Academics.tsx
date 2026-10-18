@@ -5,7 +5,7 @@ import { QsRank } from "../components/QsRank";
 import type { Academic, Level } from "../types";
 import { useNavigate, useParams, Link, Navigate } from "react-router-dom";
 import { Pin, ExternalLink, ArrowLeft, Download, FileText, Link2, Check, TriangleAlert } from "lucide-react";
-import { useData } from "../data/context";
+import { useData, directoryAcademics } from "../data/context";
 import { useAtlas } from "../store";
 import { filterAcademics, groupRows } from "../analytics/engine";
 import { Header, Card, fmt, Empty, CountryName } from "../components/common";
@@ -18,6 +18,7 @@ import { AcademicPortrait } from "../components/AcademicPortrait";
 import { ProfileStanding } from "../components/ProfileStanding";
 import { PositionStandards } from "../components/PositionStandards";
 import { UnitOverview } from "../components/UnitOverview";
+import { InstitutionNotice } from "../components/InstitutionNotice";
 import { StandingScorePanel } from "../components/StandingScore";
 import { ResearchProfiles } from "../components/ResearchProfiles";
 import {
@@ -31,7 +32,9 @@ import { download } from "../components/common";
 import { standingScore } from "../analytics/standing-score";
 import { personCsv } from "../reports/person-csv";
 export function Academics() {
-  const { academics, universities } = useData();
+  const dataset = useData();
+  const { universities } = dataset;
+  const academics = directoryAcademics(dataset);
   const [query, setQuery] = useState("");
   const [university, setUniversity] = useState("");
   const [position, setPosition] = useState("");
@@ -228,7 +231,7 @@ const doctorateText: Record<string, string> = {
 export function Profile() {
   const { id } = useParams();
   const d = useData(),
-    a = d.academics.find((a) => a.id === id);
+    a = directoryAcademics(d).find((a) => a.id === id);
   const { pin, configure, clear, setFilters } = useAtlas();
   const nav = useNavigate();
   const [reportBusy, setReportBusy] = useState(false);
@@ -600,13 +603,14 @@ export function Institution() {
   const nav = useNavigate();
   if (!u) return <Empty title="Institution not found" />;
   // The explorer shows the collected institution/unit, independently of saved comparison filters.
-  const rows = d.academics.filter(
+  const everyone = directoryAcademics(d);
+  const rows = everyone.filter(
     (a) =>
       a.universityId === id &&
       (!faculty || a.facultyId === faculty) &&
       (!department || a.departmentId === department),
   );
-  const raw = d.academics.filter((a) => a.universityId === id);
+  const raw = everyone.filter((a) => a.universityId === id);
   const units = groupRows(rows, faculty ? "department" : "faculty");
   const directRows = rows.filter((a) =>
     faculty ? !a.departmentId : !a.facultyId,
@@ -702,7 +706,9 @@ export function Institution() {
           title={label || "Unit unavailable"}
           description={faculty ? u.name : "People, faculties & research"}
           action={
-            <Button onClick={() => openCompare()}>Compare institution</Button>
+            u.excludeFromComparison ? undefined : (
+              <Button onClick={() => openCompare()}>Compare institution</Button>
+            )
           }
         />
         {campus && (
@@ -716,6 +722,7 @@ export function Institution() {
           </a>
         )}
       </div>
+      <InstitutionNotice university={u} />
       <CoveragePanel
         rows={rows}
         rosterNote={
@@ -741,7 +748,7 @@ export function Institution() {
           <PositionStandards rows={rows} minN={d.metadata.minimumSample || MIN_SAMPLE} scope={{ universities: [u.id], faculties: faculty ? [faculty] : [], departments: department ? [department] : [] }} />
         </Card>
       )}
-      {faculty && rows.some((a) => a.field && a.field !== "Unmapped") && (
+      {faculty && !u.excludeFromComparison && rows.some((a) => a.field && a.field !== "Unmapped") && (
         <div className="compare-banner">
           <span>
             <strong>See how this faculty compares</strong>

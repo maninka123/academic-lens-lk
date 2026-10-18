@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
-import { useData } from "../data/context";
+import { useData, comparableUniversities } from "../data/context";
 import { useAtlas, emptyFilters } from "../store";
 import { groupRows } from "../analytics/engine";
 import { coverageOf } from "../analytics/quality";
@@ -22,7 +22,8 @@ import { StandardsOverview } from "../components/StandardsOverview";
 
 export function Overview() {
   const [qualificationScale, setQualificationScale] = useState<"share" | "count">("share");
-  const { academics, universities, summary } = useData();
+  const { academics, universities: allUniversities, summary } = useData();
+  const universities = comparableUniversities(allUniversities);
   const { configure, setFilters } = useAtlas();
   const nav = useNavigate(),
     rows = academics;

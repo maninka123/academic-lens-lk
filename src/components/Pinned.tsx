@@ -2,7 +2,7 @@ import { Select } from "./ui/select";
 import { useState } from "react";
 import { Pin, Search, X, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useData } from "../data/context";
+import { useData, directoryAcademics } from "../data/context";
 import { useAtlas } from "../store";
 import {
   peers,
@@ -23,7 +23,7 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
   providerLabel?: string;
   showHeading?: boolean;
 } = {}) {
-  const { academics } = useData();
+  const academics = directoryAcademics(useData());
   const { pinned, pin, unpin, config, configure, filters, custom } = useAtlas();
   const [search, setSearch] = useState("");
   const available = filterAcademics(academics, filters);

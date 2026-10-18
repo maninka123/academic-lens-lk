@@ -26,5 +26,13 @@ it("loads the real generated dataset", async () => {
     if (a.hIndex !== null && a.publications !== null) expect(a.hIndex).toBeLessThanOrEqual(a.publications);
     if (a.citations !== null && a.citations > 0 && a.hIndex !== null) expect(a.hIndex).toBeGreaterThan(0);
   }
+  // An institution flagged in institution_notices.csv stays in the directory but never enters comparisons.
+  const flagged = data.universities.filter((u) => u.excludeFromComparison);
+  expect(flagged.map((u) => u.id)).toContain("icbt");
+  expect(flagged.every((u) => u.notice?.title)).toBe(true);
+  for (const u of flagged) {
+    expect(data.academics.some((a) => a.universityId === u.id)).toBe(false);
+    expect((data.allAcademics ?? []).some((a) => a.universityId === u.id)).toBe(true);
+  }
   vi.unstubAllGlobals();
 });

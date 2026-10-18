@@ -111,12 +111,23 @@ export type Academic = {
   /** Optional maintainer caution about reading this person's metrics. */
   caution?: string;
 };
+/** A published caveat about an institution's coverage (for example: no public staff directory was found). */
+export type UniversityNotice = {
+  severity: string;
+  title: string;
+  text: string;
+  source: string;
+  status: string;
+};
 export type University = {
   id: string;
   name: string;
   short: string;
   type: "Public" | "Non-state";
   country?: string;
+  /** Shown in the directory but never used in comparisons. */
+  excludeFromComparison?: boolean;
+  notice?: UniversityNotice;
 };
 /** Per-institution coverage indicators published by the importer. */
 export type Coverage = {
@@ -178,7 +189,10 @@ export type Metadata = {
   country?: string;
 };
 export type Dataset = {
+  /** Profiles used in comparisons and statistics (institutions flagged `excludeFromComparison` are left out). */
   academics: Academic[];
+  /** Every collected profile, for the directory and institution pages. */
+  allAcademics?: Academic[];
   universities: University[];
   metadata: Metadata;
   coverage: Coverage[];

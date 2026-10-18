@@ -181,7 +181,7 @@ export function Global() {
           qs: u.qsRank,
         };
       }),
-      ...d.universities.map((u) => {
+      ...d.universities.filter((u) => !u.excludeFromComparison).map((u) => {
         const rows = sl.filter((a) => a.universityId === u.id);
         return {
           ...build("sl", u.name, rows.map(slValue), rows.length),

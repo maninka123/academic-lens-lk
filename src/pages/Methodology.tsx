@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { useData } from "../data/context";
+import { useData, comparableUniversities } from "../data/context";
+import { InstitutionNotice } from "../components/InstitutionNotice";
 import { filterAcademics, completeness } from "../analytics/engine";
 import { MIN_SAMPLE, WEAK_COVERAGE } from "../analytics/quality";
 import { useAtlas } from "../store";
@@ -72,11 +73,14 @@ export function Methodology() {
       />
       <section className="method-glance" aria-label="Collection at a glance">
         <div><strong>{fmt(rows.length)}</strong><span>profiles in view</span></div>
-        <div><strong>{d.universities.filter((u) => d.academics.some((a) => a.universityId === u.id)).length} / {d.universities.length}</strong><span>institutions covered</span></div>
+        <div><strong>{comparableUniversities(d.universities).filter((u) => d.academics.some((a) => a.universityId === u.id)).length} / {comparableUniversities(d.universities).length}</strong><span>institutions covered</span></div>
         <div><strong>{pct(rows.filter((a) => a.researchObservations?.length || a.scholarStatus === "verified_official_link" || a.scholarStatus === "matched_user_supplied_platform_evidence" || a.openAlexUrl).length, rows.length)}</strong><span>research identity linked</span></div>
         <div><strong>{pct(rows.filter((a) => a.citations !== null || a.hIndex !== null).length, rows.length)}</strong><span>with citation data</span></div>
         <div><strong>{d.metadata.collectionDate}</strong><span>collected</span></div>
       </section>
+      {d.universities.filter((u) => u.notice).map((u) => (
+        <InstitutionNotice key={u.id} university={u} />
+      ))}
       <p className="method-lede">A partial collection of public profiles, not a staff census. Missing values are unknown, never zero.</p>
       <Card
         title="Coverage by institution"

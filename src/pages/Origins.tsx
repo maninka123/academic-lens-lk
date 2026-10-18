@@ -4,7 +4,7 @@ import { PhdImpact } from "../components/PhdImpact";
 import { QS_BANDS, qsBandOf } from "../analytics/phd-impact";
 import { qsMain } from "../components/QsRank";
 import { useEffect, useMemo, useState } from "react";
-import { useData } from "../data/context";
+import { useData, comparableUniversities } from "../data/context";
 import { useAtlas } from "../store";
 import { filterAcademics, groupRows } from "../analytics/engine";
 import { Chart, echarts } from "../components/Chart";
@@ -330,7 +330,7 @@ export function Origins() {
             }}
           >
             <option value="">All institutions</option>
-            {d.universities.map((u) => (
+            {comparableUniversities(d.universities).map((u) => (
               <option key={u.id} value={u.id}>
                 {u.short}
               </option>

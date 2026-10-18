@@ -116,3 +116,12 @@ The site shows the Sri Lankan title **Senior Lecturer** everywhere. Internally, 
 ## PhD-awarding universities and QS 2027 ranks
 
 `Data files/qs_rankings_phd_institutions_2027.csv` holds, for each awarding institution (spelling variants merged through `Data files/phd_institution_aliases.csv`) and for every Sri Lankan university, its QS World University Rankings 2027 position as published ("=22", "1001-1200", "1401+"), a status (`ranked`, `not_ranked` or `not_located`), the source and how it was read. A `not_located` row means the rank was not found, never that the university is unranked. The importer adds `phdInstitution`, `phdQsRank` and `phdQsStatus` to each profile and publishes `qs_rankings_2027.csv`. When adding academics, check their awarding university here and add the institution, any alias, and its QS 2027 rank. topuniversities.com blocks automated page fetches; ranks were read from QS profile summaries returned by search, Wikipedia infoboxes showing the 2027 value, and university announcements. Never record another year's figure as 2027.
+
+## Institution notices and comparison exclusions
+
+`Data files/institution_notices.csv` lists institutions whose public staff data is too thin to trust. Columns: `university_id`, `severity` (`warning`), `exclude_from_comparison` (`yes` or blank), `title`, `message`, `source`, `status`.
+
+- The importer copies them into `public/data/universities.csv` (`notice_*` and `exclude_from_comparison` columns), so adding a row and running `npm run data:import` is all that is needed.
+- A notice is shown as a red warning on the institution page, on its card in Universities and in Methodology.
+- With `exclude_from_comparison = yes` the institution keeps its page, directory entries and profiles, but its people are left out of every comparison, ranking, national statistic and filter list (`Dataset.academics`); `Dataset.allAcademics` still holds them for the directory.
+- Current entry: ICBT Campus (no public academic staff directory could be located).
