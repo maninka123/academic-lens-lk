@@ -105,8 +105,7 @@ function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number | n
         </dl>
         {s.notice && (
           <p className="uni-warning">
-            <TriangleAlert size={14} aria-hidden="true" /> {s.notice.title}
-            {s.notice.status ? ` | ${s.notice.status}` : ""}
+            <TriangleAlert size={14} aria-hidden="true" /> Staff directory not verified | Not used in comparisons
           </p>
         )}
         {thin && s.profiles > 0 && !s.notice && (
