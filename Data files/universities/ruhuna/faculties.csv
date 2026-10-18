@@ -1,3 +1,4 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
-unassigned-faculty,,1,0
-faculty-of-engineering,Faculty of Engineering,3,59
+unassigned-faculty,,0,0
+faculty-of-engineering,Faculty of Engineering,4,88
+faculty-of-allied-health-sciences,Faculty of Allied Health Sciences,3,52
