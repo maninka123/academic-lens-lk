@@ -1,16 +1,16 @@
-id,name,short,type,country
-colombo,University of Colombo,Colombo,Public,Sri Lanka
-peradeniya,University of Peradeniya,Peradeniya,Public,Sri Lanka
-jayewardenepura,University of Sri Jayewardenepura,Jayewardenepura,Public,Sri Lanka
-kelaniya,University of Kelaniya,Kelaniya,Public,Sri Lanka
-moratuwa,University of Moratuwa,Moratuwa,Public,Sri Lanka
-jaffna,University of Jaffna,Jaffna,Public,Sri Lanka
-ruhuna,University of Ruhuna,Ruhuna,Public,Sri Lanka
-kdu,General Sir John Kotelawala Defence University,KDU,Public,Sri Lanka
-sliit,Sri Lanka Institute of Information Technology,SLIIT,Non-state,Sri Lanka
-nsbm,NSBM Green University,NSBM,Non-state,Sri Lanka
-cinec,CINEC Campus,CINEC,Non-state,Sri Lanka
-horizon,Horizon Campus,Horizon,Non-state,Sri Lanka
-kiu,KIU,KIU,Non-state,Sri Lanka
-icbt,ICBT Campus,ICBT,Non-state,Sri Lanka
-uwu,Uva Wellassa University of Sri Lanka,UWU,Public,Sri Lanka
+id,name,short,type,country,exclude_from_comparison,notice_severity,notice_title,notice_text,notice_source,notice_status
+colombo,University of Colombo,Colombo,Public,Sri Lanka,,,,,,
+peradeniya,University of Peradeniya,Peradeniya,Public,Sri Lanka,,,,,,
+jayewardenepura,University of Sri Jayewardenepura,Jayewardenepura,Public,Sri Lanka,,,,,,
+kelaniya,University of Kelaniya,Kelaniya,Public,Sri Lanka,,,,,,
+moratuwa,University of Moratuwa,Moratuwa,Public,Sri Lanka,,,,,,
+jaffna,University of Jaffna,Jaffna,Public,Sri Lanka,,,,,,
+ruhuna,University of Ruhuna,Ruhuna,Public,Sri Lanka,,,,,,
+kdu,General Sir John Kotelawala Defence University,KDU,Public,Sri Lanka,,,,,,
+sliit,Sri Lanka Institute of Information Technology,SLIIT,Non-state,Sri Lanka,,,,,,
+nsbm,NSBM Green University,NSBM,Non-state,Sri Lanka,,,,,,
+cinec,CINEC Campus,CINEC,Non-state,Sri Lanka,,,,,,
+horizon,Horizon Campus,Horizon,Non-state,Sri Lanka,,,,,,
+kiu,KIU,KIU,Non-state,Sri Lanka,,,,,,
+icbt,ICBT Campus,ICBT,Non-state,Sri Lanka,yes,warning,Academic Staff Data Unavailable,"A comprehensive, publicly accessible academic staff directory could not be located on ICBT's official website during data collection. As a result, academic staff coverage could not be independently verified, and the institution's academic profiles may be incomplete or unavailable. The few profiles shown here are not enough to compare ICBT with other institutions, so ICBT is not used in any comparison.",Official institutional website (https://icbt.lk/),Public directory not located
+uwu,Uva Wellassa University of Sri Lanka,UWU,Public,Sri Lanka,,,,,,

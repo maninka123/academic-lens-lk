@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Filter, RotateCcw } from "lucide-react";
-import { useData } from "../data/context";
+import { useData, comparableUniversities } from "../data/context";
 import { useAtlas } from "../store";
 import { filterAcademics } from "../analytics/engine";
 import { Button } from "./ui/button";
@@ -152,7 +152,7 @@ export function Filters({ compact = false }: { compact?: boolean }) {
           />
           <Multi
             label="Universities"
-            options={universities.map((u) => ({ value: u.id, label: u.name }))}
+            options={comparableUniversities(universities).map((u) => ({ value: u.id, label: u.name }))}
             selected={f.universities}
             onChange={(v) => change("universities", v)}
           />
