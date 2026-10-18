@@ -2,15 +2,21 @@ id,facultyId,universityId,name
 cinec--faculty-of-engineering--department-of-civil-engineering,cinec--faculty-of-engineering,cinec,Department of Civil Engineering
 cinec--faculty-of-engineering--department-of-electrical-and-electronic-engineering,cinec--faculty-of-engineering,cinec,Department of Electrical and Electronic Engineering
 cinec--faculty-of-engineering--department-of-mechanical-and-automotive-engineering,cinec--faculty-of-engineering,cinec,Department of Mechanical and Automotive Engineering
+cinec--faculty-of-health-sciences--department-of-biomedical-sciences,cinec--faculty-of-health-sciences,cinec,Department of Biomedical Sciences
+cinec--faculty-of-health-sciences--department-of-pharmaceutical-and-cosmetic-sciences,cinec--faculty-of-health-sciences,cinec,Department of Pharmaceutical and Cosmetic Sciences
 cinec--faculty-of-humanities-and-education--department-of-aviation,cinec--faculty-of-humanities-and-education,cinec,Department of Aviation
+cinec--faculty-of-humanities-and-education--department-of-education,cinec--faculty-of-humanities-and-education,cinec,Department of Education
 cinec--faculty-of-humanities-and-education--department-of-interdisciplinary-studies,cinec--faculty-of-humanities-and-education,cinec,Department of Interdisciplinary Studies
 cinec--faculty-of-humanities-and-education--department-of-marine-simulation,cinec--faculty-of-humanities-and-education,cinec,Department of Marine Simulation
-cinec--faculty-of-humanities-and-education--department-of-safety-survival-training,cinec--faculty-of-humanities-and-education,cinec,Department of Safety & Survival Training
+cinec--faculty-of-humanities-and-education--department-of-safety-and-survival-training,cinec--faculty-of-humanities-and-education,cinec,Department of Safety and Survival Training
+cinec--faculty-of-management-and-social-sciences--department-of-logistics-and-transport,cinec--faculty-of-management-and-social-sciences,cinec,Department of Logistics and Transport
+cinec--faculty-of-management-and-social-sciences--department-of-management-and-business-studies,cinec--faculty-of-management-and-social-sciences,cinec,Department of Management and Business Studies
 cinec--faculty-of-marine-engineering--department-of-industrial-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Industrial Engineering
 cinec--faculty-of-marine-engineering--department-of-marine-electrical-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Marine Electrical Engineering
 cinec--faculty-of-marine-engineering--department-of-marine-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Marine Engineering
-cinec--faculty-of-maritime-sciences--department-of-marine-electronic-radio-communication,cinec--faculty-of-maritime-sciences,cinec,Department of Marine Electronic & Radio Communication
+cinec--faculty-of-maritime-sciences--department-of-marine-electronic-and-radio-communication,cinec--faculty-of-maritime-sciences,cinec,Department of Marine Electronic and Radio Communication
 cinec--faculty-of-maritime-sciences--department-of-navigation,cinec--faculty-of-maritime-sciences,cinec,Department of Navigation
+cinec--department-of-examinations,,cinec,Department of Examinations
 colombo--faculty-of-arts--department-of-communication-and-creative-arts,colombo--faculty-of-arts,colombo,Department of Communication and Creative Arts
 colombo--faculty-of-arts--department-of-demography,colombo--faculty-of-arts,colombo,Department of Demography
 colombo--faculty-of-arts--department-of-economics,colombo--faculty-of-arts,colombo,Department of Economics
@@ -125,24 +131,19 @@ nsbm--faculty-of-business--department-of-economics-and-decision-sciences,nsbm--f
 nsbm--faculty-of-business--department-of-english-and-modern-languages,nsbm--faculty-of-business,nsbm,Department of English and Modern Languages
 nsbm--faculty-of-business--department-of-legal-studies,nsbm--faculty-of-business,nsbm,Department of Legal Studies
 nsbm--faculty-of-business--department-of-management,nsbm--faculty-of-business,nsbm,Department of Management
-nsbm--faculty-of-business--department-of-marketing-and-tourism,nsbm--faculty-of-business,nsbm,Department of Marketing and Tourism
 nsbm--faculty-of-business--department-of-marketing-and-tourism-management,nsbm--faculty-of-business,nsbm,Department of Marketing and Tourism Management
 nsbm--faculty-of-business--department-of-operations-and-logistics,nsbm--faculty-of-business,nsbm,Department of Operations and Logistics
 nsbm--faculty-of-computing--department-of-computer-and-data-science,nsbm--faculty-of-computing,nsbm,Department of Computer and Data Science
-nsbm--faculty-of-computing--department-of-computer-science-software-engineering,nsbm--faculty-of-computing,nsbm,Department of Computer Science & Software Engineering
 nsbm--faculty-of-computing--department-of-computer-security-and-network-systems,nsbm--faculty-of-computing,nsbm,Department of Computer Security and Network Systems
-nsbm--faculty-of-computing--department-of-data-science,nsbm--faculty-of-computing,nsbm,Department of Data Science
 nsbm--faculty-of-computing--department-of-english-and-modern-languages,nsbm--faculty-of-computing,nsbm,Department of English and Modern Languages
-nsbm--faculty-of-computing--department-of-software-engineering,nsbm--faculty-of-computing,nsbm,Department of Software Engineering
 nsbm--faculty-of-computing--department-of-software-engineering-and-computer-security,nsbm--faculty-of-computing,nsbm,Department of Software Engineering and Computer Security
-nsbm--faculty-of-computing--department-of-sofware-engineering-and-computer-security,nsbm--faculty-of-computing,nsbm,Department of Sofware Engineering and Computer Security
+nsbm--faculty-of-computing--english-language-teaching-unit,nsbm--faculty-of-computing,nsbm,English Language Teaching Unit
 nsbm--faculty-of-engineering--department-of-design-studies,nsbm--faculty-of-engineering,nsbm,Department of Design Studies
 nsbm--faculty-of-engineering--department-of-electrical-electronic-and-systems-engineering,nsbm--faculty-of-engineering,nsbm,"Department of Electrical, Electronic and Systems Engineering"
 nsbm--faculty-of-engineering--department-of-mechatronic-and-industrial-engineering,nsbm--faculty-of-engineering,nsbm,Department of Mechatronic and Industrial Engineering
 nsbm--faculty-of-science--department-of-biomedical-science,nsbm--faculty-of-science,nsbm,Department of Biomedical Science
 nsbm--faculty-of-science--department-of-health-sciences,nsbm--faculty-of-science,nsbm,Department of Health Sciences
 nsbm--faculty-of-science--department-of-legal-studies,nsbm--faculty-of-science,nsbm,Department of Legal Studies
-nsbm--faculty-of-science--department-of-life-science,nsbm--faculty-of-science,nsbm,Department of Life Science
 nsbm--faculty-of-science--department-of-life-sciences,nsbm--faculty-of-science,nsbm,Department of Life Sciences
 peradeniya--faculty-of-agriculture--department-of-agriculture-biology,peradeniya--faculty-of-agriculture,peradeniya,Department of Agriculture Biology
 peradeniya--faculty-of-agriculture--department-of-animal-science,peradeniya--faculty-of-agriculture,peradeniya,Department of Animal Science
