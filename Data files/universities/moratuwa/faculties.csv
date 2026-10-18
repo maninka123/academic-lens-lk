@@ -1,10 +1,10 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
-unassigned-faculty,,3,13
-faculty-of-architecture,Faculty of Architecture,5,35
+unassigned-faculty,,0,11
+faculty-of-architecture,Faculty of Architecture,5,103
 faculty-of-architecture-research-unit-faru,Faculty of Architecture Research Unit - FARU,5,0
-faculty-of-business,Faculty of Business,3,11
-faculty-of-engineering,Faculty of Engineering,12,139
+faculty-of-business,Faculty of Business,3,23
+faculty-of-engineering,Faculty of Engineering,12,244
 faculty-of-engineering-university-of-moratuwa,"Faculty of Engineering, University of Moratuwa",1,1
 faculty-of-graduate-studies,Faculty of Graduate Studies,0,0
-faculty-of-information-technology,Faculty of Information Technology,3,13
-faculty-of-medicine,Faculty of Medicine,9,33
+faculty-of-information-technology,Faculty of Information Technology,3,37
+faculty-of-medicine,Faculty of Medicine,13,53
