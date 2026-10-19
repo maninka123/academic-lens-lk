@@ -3,7 +3,7 @@
 ## Status
 Lanka Academia is an independent research project. It uses only publicly available professional and research information, and involves no surveys, interviews, or confidential records.
 
-In October 2026, the Research Ethics Committee for Social Sciences and Humanities (RECSSH), Faculty of Arts, University of Colombo, confirmed in writing that it does not review work based on publicly available data intended for public use. The project has therefore had no formal ethics review, and no approval or institutional endorsement is claimed. The reply is not a finding on legal compliance.
+In October 2026, the Research Ethics Committee for Social Sciences and Humanities (RECSSH), Faculty of Arts, University of Colombo, confirmed in writing that it does not review work based on publicly available data intended for public use. The project has therefore had no formal ethics review, and no approval or institutional endorsement is claimed.
 
 If the scope changes (for example, new data types, surveys, or contact with individuals), institutional advice will be sought first.
 
