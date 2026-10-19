@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "ClaudeInChromeDomain(www.bot.jfn.ac.lk)",
+      "ClaudeInChromeDomain(bot.jfn.ac.lk)",
+      "ClaudeInChromeDomain(sci.jfn.ac.lk)",
+      "ClaudeInChromeDomain(www.che.jfn.ac.lk)",
+      "ClaudeInChromeDomain(che.jfn.ac.lk)",
+      "ClaudeInChromeDomain(www.csc.jfn.ac.lk)"
+    ]
+  }
+}

@@ -66,6 +66,9 @@ jaffna--faculty-of-engineering--department-of-computer-engineering,jaffna--facul
 jaffna--faculty-of-engineering--department-of-electrical-and-electronic-engineering,jaffna--faculty-of-engineering,jaffna,Department of Electrical and Electronic Engineering
 jaffna--faculty-of-engineering--department-of-interdisciplinary-studies,jaffna--faculty-of-engineering,jaffna,Department of Interdisciplinary Studies
 jaffna--faculty-of-engineering--department-of-mechanical-engineering,jaffna--faculty-of-engineering,jaffna,Department of Mechanical Engineering
+jaffna--faculty-of-hindu-studies--department-of-hindu-civilization,jaffna--faculty-of-hindu-studies,jaffna,Department of Hindu Civilization
+jaffna--faculty-of-hindu-studies--department-of-saiva-siddhanta,jaffna--faculty-of-hindu-studies,jaffna,Department of Saiva Siddhanta
+jaffna--faculty-of-hindu-studies--department-of-sanskrit,jaffna--faculty-of-hindu-studies,jaffna,Department of Sanskrit
 jaffna--faculty-of-management-studies-and-commerce--department-of-marketing,jaffna--faculty-of-management-studies-and-commerce,jaffna,Department of Marketing
 jaffna--faculty-of-medicine--department-of-anatomy,jaffna--faculty-of-medicine,jaffna,Department of Anatomy
 jaffna--faculty-of-medicine--department-of-biochemistry,jaffna--faculty-of-medicine,jaffna,Department of Biochemistry
@@ -78,7 +81,13 @@ jaffna--faculty-of-medicine--department-of-pathology,jaffna--faculty-of-medicine
 jaffna--faculty-of-medicine--department-of-pharmacology,jaffna--faculty-of-medicine,jaffna,Department of Pharmacology
 jaffna--faculty-of-medicine--department-of-physiology,jaffna--faculty-of-medicine,jaffna,Department of Physiology
 jaffna--faculty-of-medicine--department-of-surgery,jaffna--faculty-of-medicine,jaffna,Department of Surgery
+jaffna--faculty-of-science--department-of-botany,jaffna--faculty-of-science,jaffna,Department of Botany
 jaffna--faculty-of-science--department-of-chemistry,jaffna--faculty-of-science,jaffna,Department of Chemistry
+jaffna--faculty-of-science--department-of-computer-science,jaffna--faculty-of-science,jaffna,Department of Computer Science
+jaffna--faculty-of-science--department-of-fisheries,jaffna--faculty-of-science,jaffna,Department of Fisheries
+jaffna--faculty-of-science--department-of-mathematics-and-statistics,jaffna--faculty-of-science,jaffna,Department of Mathematics and Statistics
+jaffna--faculty-of-science--department-of-physics,jaffna--faculty-of-science,jaffna,Department of Physics
+jaffna--faculty-of-science--department-of-zoology,jaffna--faculty-of-science,jaffna,Department of Zoology
 jaffna--department-of-botany,,jaffna,Department of Botany
 jaffna--department-of-commerce,,jaffna,Department of Commerce
 jaffna--department-of-financial-management,,jaffna,Department of Financial Management
@@ -90,6 +99,7 @@ kdu--faculty-of-allied-health-sciences--department-of-nursing-midwifery,kdu--fac
 kdu--faculty-of-allied-health-sciences--department-of-pharmacy,kdu--faculty-of-allied-health-sciences,kdu,Department of Pharmacy
 kdu--faculty-of-allied-health-sciences--department-of-physiotherapy-occupational-therapy,kdu--faculty-of-allied-health-sciences,kdu,Department of Physiotherapy & Occupational Therapy
 kdu--faculty-of-allied-health-sciences--department-of-radiography-radiotherapy,kdu--faculty-of-allied-health-sciences,kdu,Department of Radiography & Radiotherapy
+kdu--faculty-of-built-environment-spatial-sciences--department-of-architecture,kdu--faculty-of-built-environment-spatial-sciences,kdu,Department of Architecture
 kdu--faculty-of-built-environment-spatial-sciences--department-of-spatial-sciences,kdu--faculty-of-built-environment-spatial-sciences,kdu,Department of Spatial Sciences
 kdu--faculty-of-computing--department-of-computational-mathematics,kdu--faculty-of-computing,kdu,Department of Computational Mathematics
 kdu--faculty-of-computing--department-of-computer-engineering,kdu--faculty-of-computing,kdu,Department of Computer Engineering
