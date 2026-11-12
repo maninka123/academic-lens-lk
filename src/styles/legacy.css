@@ -557,11 +557,6 @@ footer {
 /* Published qualifications as short dash lines */
 
 /* QS 2027 rank beside the PhD awarding university: "QS #4 | 2027" */
-.qs-rank { display: inline-flex; align-items: baseline; gap: 6px; margin-left: 10px; white-space: nowrap; }
-.qs-rank b { font-weight: 590; color: var(--heading, var(--color-link)); }
-.qs-rank i { font-style: normal; font-size: .8125rem; color: var(--muted); }
-.qs-rank.unranked b { font-weight: 510; color: var(--muted); }
-.qs-rank.unranked i { display: none; }
 .flow-chart { padding-top: 0; }
 
 /* PhD impact: aligned chart rows */
