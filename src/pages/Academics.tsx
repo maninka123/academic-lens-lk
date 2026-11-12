@@ -726,8 +726,10 @@ export function Institution() {
       <CoveragePanel
         rows={rows}
         rosterNote={
-          (d.coverage.find((c) => c.university_id === u.id)?.roster_status ||
-            "Directory coverage not assessed.") +
+          (() => {
+            const status = d.coverage.find((c) => c.university_id === u.id)?.roster_status;
+            return status ? "Directory coverage: " + status : "Directory coverage not assessed.";
+          })() +
           ` | ${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties and ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments represented in the collected profiles.`
         }
       />

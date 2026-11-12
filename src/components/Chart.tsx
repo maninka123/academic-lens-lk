@@ -80,12 +80,12 @@ function ChartCanvas({
   const ref = useRef<HTMLDivElement>(null),
     instance = useRef<echarts.ECharts | null>(null);
   const theme = useAtlas((s) => s.theme);
+  const lastShape = useRef("");
   useEffect(() => {
+    lastShape.current = "";
     if (!ref.current) return;
-    const chart = echarts.init(
-      ref.current,
-      theme === "dark" ? "dark" : undefined,
-    );
+    // Colours come from formatPlot, so no built-in ECharts theme is used.
+    const chart = echarts.init(ref.current);
     instance.current = chart;
     const ro = new ResizeObserver(() => chart.resize());
     ro.observe(ref.current);
@@ -98,18 +98,22 @@ function ChartCanvas({
   useEffect(() => {
     const chart = instance.current;
     if (!chart) return;
+    const formatted = formatPlot(option, theme);
+    const shape = JSON.stringify([
+      (formatted.series || []).map((x: any) => [x.type, x.stack, x.name]),
+      [formatted.xAxis, formatted.yAxis].flat().map((a: any) => [a?.type, a?.inverse, a?.name]),
+      theme,
+      full,
+    ]);
+    const sameShape = shape === lastShape.current;
+    lastShape.current = shape;
     chart.setOption(
       {
         backgroundColor: "transparent",
-        animation: false,
-        textStyle: {
-          fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
-          fontSize: 15,
-        },
         aria: { enabled: true, description: label },
-        ...formatPlot(option, theme),
+        ...formatted,
       },
-      true,
+      !sameShape,
     );
     chart.off("click");
     if (onClick) chart.on("click", onClick);
@@ -121,7 +125,7 @@ function ChartCanvas({
     const url = instance.current?.getDataURL({
       type: "png",
       pixelRatio: 2,
-      backgroundColor: theme === "dark" ? "#161616" : "#fff",
+      backgroundColor: theme === "dark" ? "#0e1220" : "#fff",
     });
     if (url) {
       const a = document.createElement("a");
