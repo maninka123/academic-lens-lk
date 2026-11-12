@@ -92,16 +92,26 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
   };
   const hover = columns.find((c) => c.g.id === active);
   const hoverInfo = hover ? detail(hover.g) : null;
-  // Names go on the first free row, so neighbouring thin columns never collide.
+  // Each name is centred under its column, or right-aligned when that would run off the panel.
+  // Names take the first free row, so thin neighbouring columns never collide.
   const LANE = 26;
   const laneEnds: number[] = [];
-  const lanes = columns.map((c) => {
-    const centre = offset + c.x + c.w / 2, half = Math.max(16, c.g.short.length * 3.4);
-    let lane = laneEnds.findIndex((end) => centre - half >= end + 6);
+  // A long name under a thin column becomes initials (the full name stays in the card and aria-label).
+  const labelFor = (c: { g: Group; w: number }) =>
+    c.g.short.length > 9 && c.w < c.g.short.length * 6.6 * 0.6
+      ? c.g.name.split(/\s+/).filter((w) => /^[A-Z]/.test(w)).map((w) => w[0]).join("")
+      : c.g.short;
+  const places = columns.map((c) => {
+    const w = Math.max(30, labelFor(c).length * 6.6);
+    const mid = offset + c.x + c.w / 2;
+    const atEdge = mid + w / 2 > width - 2;
+    const start = atEdge ? width - 2 - w : mid - w / 2;
+    let lane = laneEnds.findIndex((end) => start >= end + 3);
     if (lane < 0) lane = laneEnds.length;
-    laneEnds[lane] = centre + half;
-    return lane;
+    laneEnds[lane] = start + w;
+    return { mid, text: labelFor(c), lx: atEdge ? width - 2 : mid, anchor: atEdge ? ("end" as const) : ("middle" as const), lane };
   });
+  const lanes = places.map((p) => p.lane);
   const laneCount = Math.max(1, laneEnds.length);
   const height = ROWS * pitch + 16 + laneCount * LANE;
 
@@ -144,16 +154,13 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
                     return <circle key={i} className={"ls-dot c" + cat} cx={cx + col * pitch + pitch / 2} cy={(ROWS - 1 - row) * pitch + pitch / 2 + 4} r={radius} />;
                   })}
                   {(() => {
-                    // Names near the right edge are right-aligned so they are never clipped.
-                    const half = Math.max(16, c.g.short.length * 3.4);
-                    const mid = cx + c.w / 2;
-                    const atEdge = mid + half > width - 2;
-                    const lx = atEdge ? width - 2 : mid;
-                    const anchor = atEdge ? "end" : "middle";
+                    const pl = places[ci];
+                    const y = ROWS * pitch + 26 + pl.lane * LANE;
                     return (
                       <>
-                        <text x={lx} y={ROWS * pitch + 26 + lanes[ci] * LANE} textAnchor={anchor} className="ls-label">{c.g.short}</text>
-                        <text x={lx} y={ROWS * pitch + 26 + lanes[ci] * LANE + 12} textAnchor={anchor} className="ls-count">{fmt(c.g.rows.length)}</text>
+                        {pl.lane > 0 && <line className="ls-tick" x1={pl.mid} x2={pl.mid} y1={ROWS * pitch + 6} y2={y - 12} />}
+                        <text x={pl.lx} y={y} textAnchor={pl.anchor} className="ls-label">{pl.text}</text>
+                        <text x={pl.lx} y={y + 12} textAnchor={pl.anchor} className="ls-count">{fmt(c.g.rows.length)}</text>
                       </>
                     );
                   })()}
