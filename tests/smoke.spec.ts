@@ -30,10 +30,10 @@ for (const width of [1440, 820, 390]) {
   });
 }
 
-test("universities show two-letter monograms and a card per institution", async ({ page }) => {
+test("universities show monograms and a row per institution", async ({ page }) => {
   await page.goto("./#/universities");
-  await expect(page.locator(".uni-card")).toHaveCount(15);
-  await expect(page.locator(".uni-card .uni-mono", { hasText: /^ST$/ })).toHaveCount(1);
+  await expect(page.locator(".uni-row")).toHaveCount(15);
+  await expect(page.locator(".uni-row .uni-thumb b", { hasText: /^ST$/ })).toHaveCount(1);
 });
 
 test("faculty and department cards carry subject icons", async ({ page }) => {

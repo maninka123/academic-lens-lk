@@ -113,7 +113,7 @@ export function PeerDistribution({
               type: "scatter",
               data: others,
               symbolSize: 9,
-              itemStyle: { color: "#007aff", opacity: 0.6 },
+              itemStyle: { color: "#5d6cf0", opacity: 0.6 },
               markLine:
                 group.median == null
                   ? undefined
@@ -123,9 +123,9 @@ export function PeerDistribution({
                       label: {
                         formatter: () => `Median ${plotNumber(group.median)}`,
                         position: "insideEndTop",
-                        color: "#007aff",
+                        color: "#5d6cf0",
                       },
-                      lineStyle: { color: "#007aff", type: "dashed" },
+                      lineStyle: { color: "#5d6cf0", type: "dashed" },
                       data: [
                         paired
                           ? { yAxis: convert(group.median) }
@@ -141,7 +141,7 @@ export function PeerDistribution({
               symbolSize: 20,
               z: 5,
               itemStyle: {
-                color: "#e8590c",
+                color: "#e0a02e",
                 opacity: 1,
                 borderColor: "#fff",
                 borderWidth: 2,

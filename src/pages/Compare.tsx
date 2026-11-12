@@ -128,21 +128,8 @@ export function Compare() {
     saveGroup,
     deleteGroup,
   } = useAtlas();
-  const [mobile, setMobile] = useState(
-    () => window.matchMedia("(max-width:1100px)").matches,
-  );
-  useEffect(() => {
-    const query = window.matchMedia("(max-width:1100px)");
-    const handler = () => {
-      setMobile(query.matches);
-      setRight(!query.matches && useAtlas.getState().pinned.length > 0);
-    };
-    query.addEventListener("change", handler);
-    return () => query.removeEventListener("change", handler);
-  }, []);
-  const [right, setRight] = useState(
-      () => !window.matchMedia("(max-width:1100px)").matches,
-    ),
+  // The people drawer starts closed; it is opened from the toolbar.
+  const [right, setRight] = useState(false),
     [notice, setNotice] = useState(""),
     [groupName, setGroupName] = useState("");
   const [inspectedGroup, setInspectedGroup] = useState<string | null>(null);
@@ -687,68 +674,65 @@ export function Compare() {
           <button onClick={() => setNotice("")}>Dismiss</button>
         </div>
       )}
-      <section className="quickstart" aria-label="Comparison starting points">
-        <div className="quickstart-group">
-          <h3>Compare faculties in a field</h3>
-          <p className="caption">Picks every faculty in that field across universities. Change the faculties in the picker below.</p>
-          <div className="quick-tiles field-tiles">
-            {fieldPresets.map(({ field, icon: Icon, hue }) => (
+      <div className="compare-layout">
+        <aside className="compare-rail" aria-label="Comparison controls">
+          {controls}
+      <details className="rail-block starts" open>
+        <summary>Start from a question</summary>
+        <div className="starts-body">
+          <p className="caption">Each one sets the groups, measurement and chart for you. Change anything afterwards.</p>
+          <ul className="starts-list">
+            {questionPresets.map(({ label, hint, settings }) => (
+              <li key={label}>
+                <button
+                  type="button"
+                  onClick={() =>
+                    configure({ level: "university", groups: [], log: false, sort: "value", labels: true, ...settings })
+                  }
+                >
+                  <b>{label}</b>
+                  <small>{hint}</small>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <h4>Compare faculties in a field</h4>
+          <div className="starts-chips">
+            {fieldPresets.map(({ field }) => (
               <button
                 key={field}
                 type="button"
-                className="quick-tile"
-                style={{ "--hue": hue } as React.CSSProperties}
+                className="start-chip"
                 onClick={() => {
                   setFilters({ ...emptyFilters(), fields: [field] });
                   configure({ level: "faculty", groups: [], metric: "citations", aggregation: "median", chart: "bar", log: false, sort: "value", labels: true });
                 }}
               >
-                <span className="quick-icon"><Icon size={18} aria-hidden="true" /></span>
-                <span>{field}</span>
+                {field}
               </button>
             ))}
           </div>
         </div>
-        <div className="quickstart-group">
-          <h3>Or start with a question</h3>
-          <div className="quick-tiles">
-            {questionPresets.map(({ label, hint, icon: Icon, hue, settings }) => (
-              <button
-                key={label}
-                type="button"
-                className="quick-tile question"
-                style={{ "--hue": hue } as React.CSSProperties}
-                onClick={() =>
-                  configure({ level: "university", groups: [], log: false, sort: "value", labels: true, ...settings })
-                }
-              >
-                <span className="quick-icon"><Icon size={18} aria-hidden="true" /></span>
-                <span><b>{label}</b><small>{hint}</small></span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      </details>
+        </aside>
+        <div className="compare-stage">
       <div className="studio-toolbar">
         <div className="inline">
-          <Button variant="ghost" onClick={() => setRight(!right)}>
-            <PanelRightClose size={18} />
+          <Button variant="outline" onClick={() => setRight(!right)}>
+            <PanelRightClose size={16} />
             {right ? "Hide people" : "Add people"} {pinned.length > 0 && `(${pinned.length})`}
           </Button>
-        </div>
-        <span className="toolbar-counts">
           {activeFilterCount(filters) > 0 && (
             <button type="button" className="filter-chip" onClick={() => setFilters(emptyFilters())} title="Clear the dataset filters set from the Filters button">
               <SlidersHorizontal size={14} aria-hidden="true" /> {activeFilterCount(filters)} filter{activeFilterCount(filters) > 1 ? "s" : ""} on | Clear
             </button>
           )}
-          {selectedRows.length.toLocaleString()} profiles in comparison
-        </span>
+        </div>
+        <span className="toolbar-counts">{selectedRows.length.toLocaleString()} profiles in comparison</span>
       </div>
-      {controls}
-      <div className={"studio comparison-workspace " + (!right || mobile ? "no-right" : "")}>
+      <div className="comparison-workspace">
         <section
-          className="studio-main"
+          className="studio-main card"
           aria-label="Comparison chart and statistics"
         >
           <div className="chart-title">
@@ -1016,15 +1000,12 @@ export function Compare() {
             </table>
           </div>
         </section>
-        {right && !mobile && <Pinned comparisonRows={selectedRows} referenceAcademics={referenceRows} otherProvider={otherProvider} providerLabel={single ? provider : undefined} />}
       </div>
-      {mobile && (
-        <>
-          <Dialog open={right} onOpenChange={setRight} title="Pinned academics">
-            <Pinned showHeading={false} comparisonRows={selectedRows} referenceAcademics={referenceRows} otherProvider={otherProvider} providerLabel={single ? provider : undefined} />
-          </Dialog>
-        </>
-      )}
+        </div>
+      </div>
+      <Dialog open={right} onOpenChange={setRight} title="People in this comparison" className="drawer">
+        <Pinned showHeading={false} comparisonRows={selectedRows} referenceAcademics={referenceRows} otherProvider={otherProvider} providerLabel={single ? provider : undefined} />
+      </Dialog>
       <Dialog open={Boolean(inspected)} onOpenChange={(open) => { if (!open) setInspectedGroup(null); }} title={inspected?.label || "Group details"} className="group-details-dialog">
         {inspected && <>
           <div className="group-details-summary">
