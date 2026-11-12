@@ -9,7 +9,6 @@ import {
   Link,
 } from "react-router-dom";
 import {
-  BookOpen,
   LayoutDashboard,
   ChartNoAxesCombined,
   Users,
@@ -37,6 +36,7 @@ import { Methodology } from "./pages/Methodology";
 import { Global } from "./pages/Global";
 import { GlobalFilterButton } from "./components/GlobalFilterButton";
 import { Button } from "./components/ui/button";
+import { BrandMark } from "./components/BrandMark";
 import { Empty } from "./components/common";
 import { AckGate } from "./components/AckGate";
 useAtlas.getState().configure({});
@@ -170,21 +170,21 @@ function Shell() {
             document.querySelector<HTMLButtonElement>(".mobile-menu")?.focus();
           }}
         >
-          <X size={22} />
+          <X size={20} />
         </Button>
         <Link className="brand" to="/">
           <span className="brand-mark">
-            <BookOpen size={23} />
+            <BrandMark size={30} />
           </span>
-          <span>
-            Lanka Academia<small>UNIVERSITY ACADEMICS</small>
+          <span className="brand-name">
+            Lanka Academia<small>Research atlas of Sri Lankan universities</small>
           </span>
         </Link>
-        <div className="nav-caption">EXPLORE THE LANDSCAPE</div>
+        <div className="nav-caption">Explore</div>
         <nav>
           {routes.map(([path, label, Icon]) => (
             <NavLink key={path} to={path} end={path === "/"}>
-              <Icon size={21} />
+              <Icon size={17} strokeWidth={1.6} aria-hidden="true" />
               <span>{label}</span>
               {path === "/compare" && pinned.length > 0 && (
                 <b>{pinned.length}</b>
@@ -209,7 +209,7 @@ function Shell() {
                 aria-pressed={themeMode === mode}
                 onClick={() => setTheme(mode)}
               >
-                <Icon size={23} aria-hidden="true" />
+                <Icon size={16} strokeWidth={1.7} aria-hidden="true" />
               </button>
             ))}
           </div>
@@ -220,7 +220,7 @@ function Shell() {
             rel="noreferrer"
           >
             Project on GitHub
-            <ArrowUpRight size={16} />
+            <ArrowUpRight size={14} />
           </a>
         </div>
       </aside>
@@ -245,7 +245,7 @@ function Shell() {
               aria-expanded={menu}
               onClick={() => setMenu(!menu)}
             >
-              <Menu size={22} />
+              <Menu size={20} />
             </Button>
             <span className="breadcrumb">
               Lanka Academia <span>/</span>{" "}

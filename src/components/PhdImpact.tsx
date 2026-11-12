@@ -26,14 +26,14 @@ const MEASURES: [NumericMetric, string][] = [
   ["recentCitations", "Citations 2021–2025"],
   ["publications", "Publications"],
 ];
-const MIX_COLORS = ["#c7d2fe", "#6f86e8", "#1f2d8f"];
+const MIX_COLORS = ["#c5ccfa", "#6f7df0", "#2b3aa8"];
 const BAND_COLORS: Record<string, string> = {
-  "Top 100": "#1f2d8f",
-  "101–250": "#3b4fd6",
-  "251–500": "#6f86e8",
-  "501–1000": "#a5b4f5",
-  "1001+": "#cdd6fb",
-  "Not ranked": "#9aa8b5",
+  "Top 100": "#2b3aa8",
+  "101–250": "#4b5ae0",
+  "251–500": "#7886f2",
+  "501–1000": "#a6b0f7",
+  "1001+": "#d0d5fb",
+  "Not ranked": "#aab1c2",
 };
 
 const hatch = {
@@ -127,7 +127,7 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
       stack: "mix",
       barMaxWidth: 34,
       itemStyle: { color: MIX_COLORS[i] },
-      label: { show: true, color: i === 0 ? "#18203a" : "#fff", formatter: (p: any) => (p.value >= 9 ? Math.round(p.value) + "%" : "") },
+      label: { show: true, color: i === 0 ? "#0b1020" : "#fff", formatter: (p: any) => (p.value >= 9 ? Math.round(p.value) + "%" : "") },
       data: groups.map((g) => {
         const total = Object.values(g.mix).reduce((x, y) => x + y, 0);
         return total ? (100 * g.mix[s]) / total : 0;

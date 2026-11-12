@@ -55,19 +55,19 @@ const COUNTRIES = [
   "Germany",
 ];
 const STAGES = ["Professor", "Mid-career", "Early-career"] as const;
-// Ordinal one-hue ramp for tiers (validated) + an accent for Sri Lanka.
+// Ordinal one-hue ramp (amber) for overseas tiers, and the primary indigo for Sri Lanka.
 const palette = {
   light: {
-    elite: "#104281",
-    middle: "#2f80ed",
-    lower: "#8b5cf6",
-    sl: "#eb6834",
+    elite: "#9a5b08",
+    middle: "#d99a2b",
+    lower: "#f0cc85",
+    sl: "#5d6cf0",
   },
   dark: {
-    elite: "#9ec5f4",
-    middle: "#5598e7",
-    lower: "#b79cff",
-    sl: "#d95926",
+    elite: "#f3c46f",
+    middle: "#d99a2b",
+    lower: "#9d6a1c",
+    sl: "#8e9cff",
   },
 };
 type Group = {
@@ -510,7 +510,7 @@ export function Global() {
         t === "elite"
           ? {
               silent: true,
-              label: { show: true, position: "insideTop", fontSize: 11, color: "#6b7390" },
+              label: { show: true, position: "insideTop", fontSize: 11, color: "#8189a0" },
               data: [
                 [{ xAxis: 1, name: "Elite", itemStyle: { color: col.elite + "14" } }, { xAxis: 150 }],
                 [{ xAxis: 420, name: "Middle", itemStyle: { color: col.middle + "14" } }, { xAxis: 560 }],
@@ -532,7 +532,7 @@ export function Global() {
       symbolSize: t === "sl" ? 15 : 12,
       itemStyle: {
         color: colorOf(t),
-        borderColor: theme === "dark" ? "#1a1a19" : "#ffffff",
+        borderColor: theme === "dark" ? "#0e1220" : "#ffffff",
         borderWidth: 2,
       },
       label: {
@@ -629,18 +629,18 @@ export function Global() {
           .filter((r) => r.key !== "sl" && r.median !== null && r.median > 0)
           .reverse()
           .map((r) => ({ name: r.name.toLowerCase(), pct: Math.round((100 * slMedian) / r.median!) }));
-  const posColors = ["#c7d2fe", "#6f86e8", "#1f2d8f"];
+  const posColors = ["#c5ccfa", "#6f7df0", "#2b3aa8"];
   const countryColors: Record<string, string> = {
-    "United States": "#1e3a8a",
-    Australia: "#16a34a",
-    China: "#0284c7",
-    India: "#be123c",
-    Canada: "#db2777",
-    France: "#475569",
-    Germany: "#9333ea",
+    "United States": "#2b3aa8",
+    Australia: "#1ea896",
+    China: "#8b6df0",
+    India: "#e0586f",
+    Canada: "#d99a2b",
+    France: "#6b8ab8",
+    Germany: "#4aa3df",
   };
   const posColor = (key: string) =>
-    key === "sl" ? col.sl : key in col ? (col as Record<string, string>)[key] : countryColors[key] ?? "#64748b";
+    key === "sl" ? col.sl : key in col ? (col as Record<string, string>)[key] : countryColors[key] ?? "#8a8fa3";
   const posCats = posView?.cats ?? [];
   const posN = posView?.groups.length ?? 4;
   const posOffsets = Array.from({ length: posN }, (_, i) => (posN === 1 ? 0 : -0.32 + (0.64 * i) / (posN - 1)));
@@ -736,7 +736,7 @@ export function Global() {
       stack: "mix",
       barMaxWidth: 34,
       itemStyle: { color: posColors[i % posColors.length] },
-      label: { show: true, color: i === 0 ? "#18203a" : "#ffffff", formatter: (p: any) => (p.value >= 8 ? Math.round(p.value) + "%" : "") },
+      label: { show: true, color: i === 0 ? "#0b1020" : "#ffffff", formatter: (p: any) => (p.value >= 8 ? Math.round(p.value) + "%" : "") },
       data: posView.groups.map((g) => g.cells[i].share),
     })),
   };
@@ -965,7 +965,7 @@ export function Global() {
           subtitle={
             slMedian === null
               ? `Sri Lankan median not shown: only ${sl.values.length} valid values (minimum ${minN}).`
-              : `Orange dashed line: Sri Lankan median (${fmt(slMedian, 1)}) for the same selection.`
+              : `Dashed line: Sri Lankan median (${fmt(slMedian, 1)}) for the same selection.`
           }
         >
           <Chart
@@ -1061,7 +1061,7 @@ export function Global() {
       )}
       <Card
         title="Where universities sit"
-        subtitle={`${allLadderUnits.filter(u => u.key === "sl").length} Sri Lankan institutions | at least ${minN} valid profiles | orange bars`}
+        subtitle={`${allLadderUnits.filter(u => u.key === "sl").length} Sri Lankan institutions | at least ${minN} valid profiles | indigo bars`}
         action={
           <Button
             variant="ghost"

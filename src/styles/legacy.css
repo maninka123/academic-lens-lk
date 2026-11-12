@@ -1,0 +1,603 @@
+@layer legacy {
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+summary {
+  touch-action: manipulation;
+}
+.blue {
+  background: var(--blue);
+}
+.teal {
+  background: var(--teal);
+}
+.pinned-panel {
+  padding: 25px 19px;
+  border-left: 1px solid var(--border);
+  min-height: 100%;
+  background: var(--surface);
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0 9px;
+  gap: 7px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  background: var(--surface);
+}
+.search-results {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  max-height: 300px;
+  overflow: auto;
+  margin-bottom: 17px;
+}
+.search-results button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  background: var(--surface);
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.search-results button:hover {
+  background: var(--soft);
+}
+.search-results strong,
+.search-results small {
+  display: block;
+}
+.search-results strong {
+  font-size: 0.9375rem;
+}
+.pinned-panel > .caption {
+  margin: 10px 0 15px;
+}
+.pin-empty {
+  margin-top: 25px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 27px 15px;
+  text-align: center;
+  color: var(--muted);
+}
+.pin-empty h3 {
+  margin: 12px 0 7px;
+}
+.pin-empty p {
+  font-size: 0.9375rem;
+}
+.pinned-card {
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: var(--radius-md);
+  padding: 15px 12px;
+  margin: 18px 0;
+  background: var(--surface);
+}
+.pinned-card a {
+  font-size: 0.9375rem;
+  font-weight: 590;
+}
+.pinned-card > p {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+.reference {
+  display: inline-block;
+  font-size: 0.8125rem;
+  letter-spacing: 0.015em;
+  background: color-mix(in srgb, var(--color-warning) 10%, var(--color-surface));
+  color: color-mix(in srgb, var(--color-warning) 80%, var(--color-heading));
+  padding: 3px 7px;
+  border-radius: var(--radius-xs);
+}
+.reference.included {
+  background: color-mix(in srgb, var(--color-success) 10%, var(--color-surface));
+  color: color-mix(in srgb, var(--color-teal) 85%, var(--color-heading));
+}
+.academic-name {
+  font-weight: 590;
+  display: inline-block;
+  min-width: 165px;
+  max-width: 300px;
+}
+.columns-menu {
+  position: relative;
+}
+.columns-menu summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+}
+.columns-menu > div {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: var(--surface);
+  padding: 17px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  z-index: 10;
+  width: 230px;
+}
+.country-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.limitations {
+  color: var(--muted);
+}
+@keyframes shimmer {
+  to {
+    background-position: -250% 0;
+  }
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  padding: 30px 0 6px;
+  border-top: 1px solid var(--border);
+  margin-top: 34px;
+}
+@media (max-width: 1350px) {
+  .pinned-panel {
+    grid-column: 1/-1;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    display: block;
+  }
+  .pinned-panel .pinned-card {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(50% - 18px);
+    margin: 12px 8px;
+  }
+  .pinned-panel > .search-box {
+    max-width: 500px;
+  }
+}
+@media (max-width: 760px) {
+  .pinned-panel {
+    grid-column: auto;
+    padding: 20px;
+  }
+  .pinned-panel .pinned-card {
+    width: 100%;
+    margin: 12px 0;
+  }
+  footer {
+    flex-direction: column;
+    font-size: 0.875rem;
+  }
+  .country-pills {
+    gap: 7px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Individual profiles keep readable type and direct, touch-friendly controls. */
+
+/* Consistent chart tools, safe wrapping, and tablet comparison panels. */
+
+/* Native selects retain keyboard behavior with consistently positioned arrows. */
+.column-filter {
+  margin-top: 8px;
+  min-width: 150px;
+}
+.column-range {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  min-width: 180px;
+}
+.flow-chart {
+  max-height: 780px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+/* Compact reading rhythm without reducing body text or touch targets. */
+@media (min-width: 1101px) and (max-width: 1600px) {
+  .pinned-panel {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* Column filters sit below their heading instead of beside it. */
+
+/* ---- Evidence, measurement and coverage transparency ---- */
+/* Wide enough to stay legible; scrolls inside .table-scroll on phones. */
+
+/* Fixed PhD origins map and accessible country shortcuts. */
+.origins-map-surface { background: var(--color-primary-soft); border-radius: var(--radius-lg); padding: 4px 12px 16px; }
+.origins-top-countries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.origins-more-countries { margin-top: 14px; }
+.origins-more-countries summary { cursor: pointer; padding: 12px 0; font-weight: 590; }
+@media (max-width: 600px) { .origins-top-countries { grid-template-columns: repeat(2, minmax(0, 1fr)); } .origins-map-surface { padding-inline: 0; } }
+.origins-map-surface [role="img"] { height: auto !important; aspect-ratio: 2.25; }
+
+/* Balance overview charts without reducing the type size. */
+
+/* Concise exploration shortcuts: clear pictograms and full-width text. */
+
+/* Concise methodology with readable full-width statistical rules. */
+
+/* Neutral dark surfaces; semantic and chart colours remain accents. */
+
+/* Compact comparison: shared scale, direct values, restrained context. */
+.benchmark-bars { list-style: none; padding: 0; margin: 0; display: grid; gap: .25rem; }
+.benchmark-row { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr) 3.5rem; align-items: center; gap: 1rem; padding: .55rem .75rem; border-radius: var(--radius-lg); }
+.benchmark-row.is-local { background: var(--soft); }
+.benchmark-label { display: grid; line-height: 1.3; gap: .15rem; }
+.benchmark-label strong { font-size: 1rem; font-weight: 590; }
+.benchmark-label span, .benchmark-caption { color: var(--muted); font-size: .875rem; }
+.benchmark-track { height: .75rem; background: var(--soft); border-radius: var(--radius-lg); overflow: hidden; }
+.is-local .benchmark-track { background: var(--border); }
+.benchmark-track > span { display: block; height: 100%; border-radius: inherit; }
+.benchmark-value { text-align: right; font-size: 1.4rem; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.benchmark-caption { margin: .75rem .75rem 0; }
+@media (max-width: 600px) {
+  .benchmark-row { grid-template-columns: 7.5rem minmax(0, 1fr) 2.75rem; gap: .5rem; padding: .6rem .4rem; }
+  .benchmark-value { font-size: 1.2rem; }
+  .benchmark-caption { margin-inline: .4rem; }
+}
+.benchmark-row + .benchmark-row { margin-top: 0; }
+
+/* Readable, quiet surfaces and aligned data across the app. */
+
+/* A restrained type hierarchy: readable content, proportionate headings. */
+.origins-map-surface { position: relative; padding-bottom: 6px; }
+.origins-map-scale { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: .9rem; padding: .6rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); font-size: .875rem; color: var(--muted); white-space: nowrap; box-shadow: var(--shadow-sm); pointer-events: none; }
+.origins-map-scale > div { width: 150px; }
+.origins-map-scale > div > i { height: 7px; display: block; border-radius: var(--radius-md); background: linear-gradient(to right, #a9d5dc 0% 25%, #55a8b8 25% 50%, #237e96 50% 75%, #13516f 75%); }
+.map-scale-ticks { display: flex; justify-content: space-between; margin-top: .2rem; font-variant-numeric: tabular-nums; }
+.map-no-records { display: inline-flex; align-items: center; gap: .4rem; }
+.map-no-records i { width: 10px; height: 10px; border-radius: var(--radius-xs); background: var(--color-primary-soft); }
+.origin-composition-key { display: flex; flex-wrap: wrap; gap: .45rem 1rem; font-size: .875rem; color: var(--muted); margin: .25rem 0 .5rem; }
+.origin-composition-key span { display: inline-flex; align-items: center; gap: .4rem; }
+.origin-composition-key i { width: 10px; height: 10px; border-radius: var(--radius-xs); }
+@media (max-width: 600px) {
+  .origins-map-scale { gap: .5rem; padding: .5rem; white-space: normal; width: calc(100% - 16px); justify-content: center; }
+  .origins-map-scale > div { flex: 0 0 110px; }
+}
+.benchmark-method-note { display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; padding: .75rem 1rem; margin-bottom: 1rem; border: 1px solid var(--border); border-radius: var(--radius-lg); font-size: .9375rem; color: var(--muted); background: var(--surface); }
+.benchmark-method-note a { font-weight: 510; }
+.benchmark-key { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: .25rem 0 1rem; color: var(--muted); font-size: .9375rem; }
+.benchmark-key span { display: inline-flex; align-items: center; gap: .45rem; }
+.benchmark-key i { width: 11px; height: 11px; border-radius: var(--radius-xs); }
+.benchmark-ladder-window { max-height: 600px; overflow: auto; overscroll-behavior: contain; }
+
+/* Shared Apple-inspired visual system: quiet chrome, clear content, consistent controls. */
+/* Every native select shares one height, arrow, surface, type and focus treatment. */
+/* Progressive native popups keep browser keyboard and touch behavior. */
+
+/* Quiet, comparable numeric columns and touch-friendly role bars. */
+
+.benchmark-missing { margin-bottom: 16px; color: var(--muted); font-size: .9375rem; }
+.benchmark-missing summary { cursor: pointer; padding: 10px 0; }
+.benchmark-missing ul { padding: 0; list-style: none; display: grid; gap: 8px; }
+.benchmark-missing li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 8px 12px; background: var(--soft); border-radius: var(--radius-md); }
+
+/* Chart scales stay beside the legend, with readable touch targets. */
+.origin-composition-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+.origin-composition-toolbar .origin-composition-key { margin: 0; }
+
+/* About 30% denser rows; pin buttons retain their 44px touch area. */
+
+/* Match the content height of the paired overview panels on wide screens. */
+
+/* Comparison setup stays above the data at every screen size. */
+.pinned-list { max-height: 72vh; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; margin-top: 14px; }
+.pinned-list .pinned-card { margin-right: 4px; }
+/* Shared data surfaces: stable type, alignment and focus in both themes. */
+.pin-empty { border-color: var(--border); color: var(--muted); }
+@media (max-width: 760px) {
+  .pinned-list { max-height: 55vh; }
+}
+
+/* ======================================================================
+   Lanka Academia visual system. Ink, indigo and teal; generous radii; one
+   highlighted fact per surface. Loaded last so it wins the cascade.
+   ====================================================================== */
+
+/* Chrome */
+
+/* Surfaces */
+
+/* Overview hero */
+
+/* Universities tab */
+
+/* Chart tooltips: title, aligned label/value rows, muted notes. */
+
+/* Compare: headline results, quiet notes, calmer setup. */
+
+/* Academics: directory summary, tidy controls, profile key facts. */
+.directory-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 18px; }
+.directory-facts div { display: flex; align-items: baseline; gap: 10px; padding: 14px 18px; border-radius: var(--radius-xl); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.directory-facts strong { font-size: 1.7rem; letter-spacing: -0.03em; color: var(--heading); font-variant-numeric: tabular-nums; }
+.directory-facts span { color: var(--muted); font-size: 0.875rem; }
+@media (max-width: 1100px) { .directory-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Pinned people: every card fully visible, compact stats, no inner clipping. */
+.pinned-list { max-height: none !important; overflow: visible !important; margin-top: 12px; display: grid; gap: 12px; }
+.pinned-list .pinned-card { margin: 0 !important; padding: 14px 14px 12px; border-radius: var(--radius-lg); }
+.pinned-card .caption { font-size: 0.8125rem; line-height: 1.4; margin: 2px 0 8px; }
+
+/* Profile controls: four equal selects, the log toggle on its own quiet row. */
+
+/* Sources: one tile per platform instead of a wide, ragged row. */
+
+/* Pinned-count badge in the sidebar: a small round pill, not a square block. */
+
+/* Sources: compact, left-aligned chips in one tidy row. */
+
+/* Sources tiles: everything left-aligned on one baseline (overrides the old row layout). */
+
+/* Country names carry a small real flag icon. */
+
+/* Country text inside key facts keeps normal case and weight. */
+
+/* "Work with this profile": even spacing, full-width left-aligned actions. */
+
+/* ---- Research standing: stamp, bars, calculation panel ---- */
+.pct-cell { display: inline-flex; align-items: center; gap: 8px; font-weight: 590; font-variant-numeric: tabular-nums; }
+.pct-cell i { display: block; width: 64px; height: 8px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.pct-cell b { display: block; height: 100%; border-radius: 99px; }
+
+/* ---- Side by side (up to 3 people) ---- */
+.sbs { margin-bottom: 20px; }
+.sbs-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sbs-grid.cols-1 { grid-template-columns: minmax(0, 420px); }
+.sbs-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sbs-col { display: flex; flex-direction: column; gap: 14px; padding: 16px; border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: var(--radius-xl); background: var(--surface); min-width: 0; }
+.sbs-col header { display: flex; justify-content: space-between; gap: 8px; }
+.sbs-name { font-size: 1.05rem; font-weight: 590; line-height: 1.25; overflow-wrap: anywhere; }
+.sbs-col header p { margin: 2px 0 0; font-size: 0.875rem; }
+.sbs-uni { font-weight: 590; color: var(--text) !important; }
+.sbs-score { display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: var(--radius-lg); background: var(--soft); }
+.sbs-measures { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.sbs-measures div { padding: 10px 12px; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.sbs-measures div.best { border-color: #6bd601; background: #6bd60114; }
+.sbs-measures dt { font-size: 0.6875rem; text-transform: none; font-weight: 590; color: var(--muted); }
+.sbs-measures dd { margin: 2px 0 0; font-size: 1.35rem; font-weight: 590; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 6px; }
+.sbs-measures .best svg { color: color-mix(in srgb, var(--color-teal) 85%, var(--color-heading)); }
+.sbs-facts { margin: 0; display: grid; gap: 0; }
+.sbs-facts div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px; padding: 8px 0; border-top: 1px solid var(--border); font-size: 0.875rem; }
+.sbs-facts dt { color: var(--muted); font-weight: 590; }
+.sbs-facts dd { margin: 0; overflow-wrap: anywhere; }
+.sbs-facts dd small { display: block; color: var(--muted); }
+.sbs-interests { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.sbs-links { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.sbs-links a { display: inline-flex; align-items: center; gap: 4px; font-weight: 590; }
+.sbs-check { width: 18px; height: 18px; min-height: 0; accent-color: var(--accent); cursor: pointer; }
+@media (max-width: 1100px) { .sbs-grid, .sbs-grid.cols-2 { grid-template-columns: 1fr; } .sbs-grid.cols-1 { grid-template-columns: 1fr; } }
+
+/* Profile hero: portrait and name align at the top; score stamp sits on the right. */
+
+/* Score value: "~", number and "%" read as one figure on one line. */
+
+/* Stamp v2: figure is one inline unit; "How is this calculated?" has its own row. */
+.score-num { display: inline-flex; align-items: baseline; justify-content: center; white-space: nowrap; line-height: 1; }
+.score-num small { font-size: 0.5em; font-weight: 590; margin: 0 0 0 2px; align-self: auto; vertical-align: baseline; letter-spacing: 0; }
+.score-num em { font-size: 0.55em; font-style: normal; font-weight: 590; opacity: 0.6; margin: 0 2px 0 0; align-self: auto; }
+
+/* Profile hero v3: portrait | name + action | compact score card, all aligned at the top. */
+
+/* Figure: colour and weight carried through "~" and "%". */
+.score-num, .score-num small, .score-num em { color: inherit !important; }
+.score-num small { opacity: 0.85; font-size: 0.48em; margin-left: 3px; }
+.score-num em { opacity: 0.55; }
+
+/* Profile hero v4: one contained header card; score on the right behind a divider. */
+
+/* PhD tile detail: country on one line, institution beneath it, no leading dot. */
+
+/* Peer card hover: a few short chips, not a paragraph; sits under the title. */
+
+/* Peer cards: the group is a quiet line under the title; no hover popup. */
+.peer-result-scope { display: block; margin-top: 2px; font-size: 0.8125rem; line-height: 1.3; color: var(--muted); }
+
+/* ---- Global benchmarks v2 ---- */
+.tier-summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 28px; align-items: center; margin: 4px 0 20px; padding: 24px 26px; border-radius: var(--radius-xl); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.tier-summary-text h2 { font-size: 1.45rem; line-height: 1.25; letter-spacing: -0.02em; margin: 6px 0 8px; }
+.tier-summary-text p { font-size: 1rem; line-height: 1.5; }
+.tier-ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.tier-ladder li { margin: 0; display: grid; grid-template-columns: 170px minmax(0, 1fr) 56px; grid-template-rows: auto auto; column-gap: 12px; align-items: center; }
+.tier-name { display: grid; grid-template-columns: 12px 1fr; column-gap: 8px; align-items: center; grid-row: 1 / span 2; }
+.tier-name i { width: 12px; height: 12px; border-radius: var(--radius-xs); grid-row: 1 / span 2; }
+.tier-name b { font-size: 0.95rem; }
+.tier-name small { font-size: 0.75rem; color: var(--muted); }
+.tier-bar { height: 14px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.tier-bar span { display: block; height: 100%; border-radius: 99px; }
+.tier-value { text-align: right; font-size: 1.25rem; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.tier-n { grid-column: 2 / span 2; font-size: 0.75rem; color: var(--muted); }
+.tier-ladder li.sl .tier-name b { color: #eb6834; }
+.global-options { grid-column: 1 / -1; font-size: 0.875rem; }
+.global-options > summary { cursor: pointer; font-weight: 590; color: var(--muted); width: fit-content; }
+.global-options > div { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 24px; margin-top: 10px; padding: 12px 14px; border-radius: var(--radius-lg); background: var(--soft); }
+.bench-toolbar { margin-bottom: 12px; }
+.tier-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 590; color: #fff; background: var(--muted); }
+.tier-badge.elite { background: #104281; }
+.tier-badge.middle { background: #3987e5; }
+.tier-badge.lower { background: #5f8fcf; }
+.tier-badge.sl { background: #eb6834; }
+@media (max-width: 1000px) { .tier-summary { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .tier-ladder li { grid-template-columns: 120px minmax(0, 1fr) 46px; } }
+
+/* ---- Methodology v2 ---- */
+
+/* ---- Global: position view ---- */
+
+/* Position card v2: toolbar row, equal columns, one key row under both charts. */
+
+.tier-badge.lower { background: #7b859a; }
+.tier-badge.lower { background: #14a38f; }
+.tier-badge.lower { background: #8b5cf6; }
+
+/* Position toolbar: three controls, same label style, same control height, one baseline. */
+
+/* Position toolbar v3: equal-width columns, labels on one line, every control 46px tall. */
+
+/* Position toolbar v4: every field is a fixed 2-row grid (label 20px, control 46px). */
+
+/* Brand lockup fits the sidebar: name on one line, small caption beneath. */
+
+/* ======================================================================
+   One table style everywhere (matches the coverage table):
+   soft header, 14px/16px cells, hairline rows, gentle stripes, no sticky
+   first-column tint, numbers aligned, rounded bordered container.
+   ====================================================================== */
+/* Dialogs hold the same table, only slightly tighter. */
+
+/* PhD origins: four filters in one row, equal stat cards, compact status strip. */
+.status-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 6px 0 16px; }
+.status-strip > span { padding: 5px 12px; border-radius: 999px; background: var(--soft); border: 1px solid var(--border); font-size: 0.875rem; color: var(--muted); }
+.status-strip b { color: var(--heading); font-variant-numeric: tabular-nums; margin-right: 2px; }
+.status-strip details { flex-basis: 100%; font-size: 0.875rem; color: var(--muted); }
+.status-strip summary { cursor: pointer; font-weight: 590; width: fit-content; }
+.status-strip details p { margin: 6px 0 0; line-height: 1.5; }
+
+/* First-visit acknowledgement and preview labels */
+
+.score-limits { margin-top: 8px; padding: 10px 12px; border-radius: var(--radius-lg); background: #dc26260d; border: 1px solid #dc262633; }
+.score-limits p { margin: 0 0 6px; font-size: 0.8125rem; line-height: 1.5; color: var(--color-danger); font-weight: 400; }
+.score-limits p:last-child { margin: 0; }
+.score-limits a { color: var(--color-danger); text-decoration: underline; font-weight: 400; }
+
+/* Tables ~30% tighter and identical everywhere. */
+/* Long tooltip and label text never spills out of its box. */
+.sbs-name { overflow-wrap: anywhere; }
+
+/* Standards by position */
+
+.open-compare { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; border-radius: var(--radius-lg); border: 1px solid var(--control-border); background: var(--surface); color: var(--accent); font-weight: 590; cursor: pointer; }
+.open-compare:hover { border-color: var(--accent); background: var(--soft); }
+
+/* Compare starting points: coloured tiles with icons */
+
+/* Global filters live in the top bar corner */
+
+/* Faculty and department cards: name on the left, subject icon on the right */
+
+/* Footer: note on the left, notices and copyright grouped on the right */
+
+/* Filter panel: one flat surface, two compact columns, menus open inline */
+
+/* University cards: tighter vertical rhythm */
+
+/* Preview badge: calm amber capsule with a live dot */
+@keyframes preview-pulse { 0% { box-shadow: 0 0 0 0 #f59e0b88; } 70% { box-shadow: 0 0 0 7px #f59e0b00; } 100% { box-shadow: 0 0 0 0 #f59e0b00; } }
+
+/* Keep the "|" in warning notes away from the figure beside it */
+
+/* Range bars sit inside a light framed track */
+
+/* Field tiles: one row, scrolls sideways instead of wrapping */
+
+/* Hero: quieter methodology link, tidier completeness chip */
+
+/* Data completeness as a battery: fill and percentage inside a rounded rectangle */
+
+/* University cards: sector colour on hover, room for the lift */
+
+/* Field tiles: leave space so the hover border is never clipped */
+
+/* Compare pickers: the box shows only its value, same height as the other selects */
+
+/* Fallback notice: everything on one left edge */
+
+/* Audit fixes: nothing may push the page wider than the screen */
+
+/* Top bar wraps instead of overflowing on tablet widths */
+/* Compare field tiles must fit one row on a normal laptop screen */
+
+/* Maintainer caution above a profile's metrics */
+
+/* Data completeness chip: right edge on the stat cards' edge, clear gap above them */
+
+/* PhD Origins: Sri Lanka / overseas split card */
+.origin-split-card { display: flex; flex-direction: column; gap: 10px; }
+.origin-split-card .os-label { display: inline-flex; align-items: center; gap: 7px; }
+.origin-split-card .os-bar { display: flex; height: 12px; border-radius: 999px; overflow: hidden; background: var(--soft); gap: 2px; }
+.origin-split-card .os-bar u { display: block; height: 100%; text-decoration: none; }
+.origin-split-card .os-bar .lk { background: var(--lk); border-radius: 999px 0 0 999px; }
+.origin-split-card .os-bar .ov { background: var(--ov); border-radius: 0 999px 999px 0; }
+.origin-split-card .os-foot { color: var(--muted); font-size: .8125rem; }
+.origin-split-card .os-label { display: flex; align-items: flex-start; gap: 8px; }
+.origin-split-card .os-label svg { flex: none; margin-top: 1px; }
+.origin-split-card .os-label em { font-style: normal; }
+.origin-split-card .os-foot { margin-top: auto; }
+
+/* Published qualifications as short dash lines */
+
+/* QS 2027 rank beside the PhD awarding university: "QS #4 | 2027" */
+.qs-rank { display: inline-flex; align-items: baseline; gap: 6px; margin-left: 10px; white-space: nowrap; }
+.qs-rank b { font-weight: 590; color: var(--heading, var(--color-link)); }
+.qs-rank i { font-style: normal; font-size: .8125rem; color: var(--muted); }
+.qs-rank.unranked b { font-weight: 510; color: var(--muted); }
+.qs-rank.unranked i { display: none; }
+.flow-chart { padding-top: 0; }
+
+/* PhD impact: aligned chart rows */
+.origin-split-card { min-width: 0; overflow: hidden; }
+.origin-split-card .os-label em { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Origins: compact, equal stat tiles */
+.origin-split-card { gap: 8px; }
+
+/* PhD impact controls: tabs and filters on one line */
+.phd-impact .impact-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
+.phd-impact .impact-tabs button { display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; height: 42px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); color: var(--text); font: inherit; font-size: .9375rem; font-weight: 590; white-space: nowrap; cursor: pointer; }
+.phd-impact .impact-tabs button.active { background: var(--soft); color: var(--accent); border-color: var(--accent); }
+.origin-split-card .os-bar { height: auto; gap: 3px; background: transparent; overflow: visible; margin-top: 4px; }
+.origin-split-card .os-bar u { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 7px; align-items: center; padding: 8px 12px; min-width: 0; color: #fff; overflow: hidden; }
+.origin-split-card .os-bar u svg { grid-row: span 2; }
+.origin-split-card .os-bar u b { font-size: 1.15rem; line-height: 1.1; font-weight: 590; }
+.origin-split-card .os-bar u small { font-size: .75rem; color: rgba(255,255,255,.92); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; grid-column: 2; }
+.origin-split-card .os-bar .lk { border-radius: var(--radius-lg) var(--radius-xs) var(--radius-xs) var(--radius-lg); }
+.origin-split-card .os-bar .ov { border-radius: var(--radius-xs) var(--radius-lg) var(--radius-lg) var(--radius-xs); }
+.origin-split-card .os-bar u { flex: 0 1 auto; min-width: 118px; box-sizing: border-box; }
+.origin-split-card .os-bar { align-items: stretch; }
+.origin-split-card .os-bar u { grid-template-columns: minmax(0, 1fr); padding: 8px 10px; min-width: 112px; }
+.origin-split-card .os-bar u svg { display: none; }
+.origin-split-card .os-bar u small { grid-column: 1; }
+
+/* Flow diagram controls: same sizing as the PhD impact controls */
+@media (max-width: 900px) {
+  .phd-impact .impact-tabs button { white-space: normal; height: auto; min-height: 42px; }
+  .origin-split-card .os-bar u { min-width: 0; }
+}
+
+/* Chart tools sit on the title row instead of adding an empty strip above each plot */
+
+/* Institutions with too little public data: warning banner, card badge, no ranking */
+
+/* Three aligned unit charts: fixed header height so the rows line up, plus faint guides across all three. */
+
+}

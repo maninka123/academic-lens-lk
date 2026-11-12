@@ -168,20 +168,13 @@ export function CountryName({ country }: { country?: string | null }) {
   );
 }
 
-/** One scale for every percentile in the app: red (behind most peers) → yellow → green. */
+/** One scale for every percentile in the app: quiet slate for behind most peers, deepening to indigo for ahead of most.
+ *  Hex (not CSS colour functions): chart libraries cannot lift or darken them on hover. Deliberately not red/green:
+ *  a standing is a description of the collected profiles, not a verdict. */
 export const standingColor = (p: number) => {
-  // Hex (not CSS hsl()): chart libraries cannot lift/darken space-separated hsl on hover.
-  const h = (Math.min(100, Math.max(0, p)) * 1.2) / 360,
-    sat = 0.78,
-    lig = 0.37;
-  const q = lig < 0.5 ? lig * (1 + sat) : lig + sat - lig * sat,
-    t = 2 * lig - q;
-  const f = (x: number) => {
-    x = (x + 1) % 1;
-    const v = x < 1 / 6 ? t + (q - t) * 6 * x : x < 1 / 2 ? q : x < 2 / 3 ? t + (q - t) * (2 / 3 - x) * 6 : t;
-    return Math.round(Math.min(1, Math.max(0, v)) * 255).toString(16).padStart(2, "0");
-  };
-  return `#${f(h + 1 / 3)}${f(h)}${f(h - 1 / 3)}`;
+  const t = Math.min(100, Math.max(0, p)) / 100;
+  const lo = [138, 147, 171], hi = [70, 88, 216];
+  return "#" + lo.map((c, i) => Math.round(c + (hi[i] - c) * t).toString(16).padStart(2, "0")).join("");
 };
 /** Plain-language standing: how many peers the person is ahead of. */
 export const aheadOf = (p: number) => {
@@ -200,19 +193,20 @@ export const personColors = [
   "#c92a2a",
   "#74b816",
 ];
+/** Categorical series colours: mid-tone so they read on both the light and the dark canvas. The first is the highlight. */
 export const colors = [
-  "#3b4fd6",
-  "#d97706",
-  "#7c3aed",
-  "#0284c7",
-  "#be185d",
-  "#92400e",
-  "#6366f1",
-  "#9f1239",
-  "#475569",
-  "#a855f7",
-  "#b45309",
-  "#4338ca",
+  "#5d6cf0",
+  "#1ea896",
+  "#8b6df0",
+  "#d99a2b",
+  "#e0586f",
+  "#6b8ab8",
+  "#4aa3df",
+  "#a3b34b",
+  "#c27ba0",
+  "#8a8fa3",
+  "#2b3aa8",
+  "#b0690b",
 ];
 
 /** A relative bar within one column; missing values never become zero. */

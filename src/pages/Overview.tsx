@@ -1,21 +1,14 @@
-import {
-  ArrowUpRight,
-  ArrowRight,
-  GraduationCap,
-  Globe2,
-  Layers,
-  Scale,
-  Building2,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useData, comparableUniversities } from "../data/context";
 import { useAtlas, emptyFilters } from "../store";
 import { groupRows } from "../analytics/engine";
 import { coverageOf } from "../analytics/quality";
-import { Card, Stat, fmt, colors } from "../components/common";
+import { Card, fmt, colors } from "../components/common";
 import { Chart } from "../components/Chart";
 import { Button } from "../components/ui/button";
+import { OverviewLandscape } from "../components/OverviewLandscape";
 import type { Config } from "../types";
 import { GlobalTeaser } from "./Global";
 import { StandardsOverview } from "../components/StandardsOverview";
@@ -38,7 +31,6 @@ export function Overview() {
     .filter((g) => g.id !== "Unknown" && g.id !== "Other")
     .sort((a, b) => positionIndex(a.id) - positionIndex(b.id));
   const unplaced = rows.filter((a) => a.rank === "Unknown" || a.rank === "Other").length;
-  const rankColor = (rank: string) => rank === "Unknown" ? "#9aa8b5" : rank === "Other" ? "#768591" : colors[positionIndex(rank) % colors.length];
   const cov = coverageOf(rows);
   const phdCount = rows.filter((a) => a.qualification === "PhD").length;
   const pct = (n: number) =>
@@ -55,104 +47,27 @@ export function Overview() {
     setFilters({ ...emptyFilters(), ...f });
     nav("/compare");
   };
-  const barOption = {
-    tooltip: { trigger: "axis", renderMode: "richText" },
-    grid: { left: 135, right: 45, top: 15, bottom: 35 },
-    xAxis: {
-      type: "value",
-      minInterval: 1,
-      axisLabel: { fontSize: 14, formatter: (v: number) => fmt(v) },
-    },
-    yAxis: {
-      type: "category",
-      inverse: true,
-      data: groups.map((g) => g.short),
-      axisLabel: { fontSize: 15 },
-    },
-    series: [
-      {
-        type: "bar",
-        barMaxWidth: 18,
-        data: groups.map((g) => ({
-          value: g.rows.length,
-          universityId: g.id,
-          itemStyle: {
-            color: g.type === "Public" ? "#3b4fd6" : "#0f9488",
-            borderRadius: [0, 4, 4, 0],
-          },
-        })),
-        label: {
-          show: true,
-          position: "right",
-          fontSize: 14,
-          formatter: (p: any) => fmt(p.value),
-        },
-      },
-    ],
-  };
-  const questions = [
-    {
-      icon: GraduationCap,
-      q: "Qualifications",
-      sub: "Compare documented PhD shares.",
-      go: () =>
-        preset({
-          level: "university",
-          metric: "phd",
-          aggregation: "percentage",
-          chart: "bar",
-          sort: "value",
-        }),
-    },
-    {
-      icon: Globe2,
-      q: "PhD origins",
-      sub: "Explore countries and universities.",
-      go: () => nav("/origins"),
-    },
-    {
-      icon: Layers,
-      q: "Academic positions",
-      sub: "Compare roles across institutions.",
-      go: () =>
-        preset({
-          level: "university",
-          metric: "count",
-          aggregation: "total",
-          chart: "percentStacked",
-        }),
-    },
-    {
-      icon: Scale,
-      q: "Global benchmarks",
-      sub: "Compare equivalent fields worldwide.",
-      go: () => nav("/global"),
-    },
+  const pathways = [
+    { to: "/universities", title: "Universities", text: `${universities.length} institutions: profiles, PhD shares and research output side by side.` },
+    { to: "/academics", title: "Academics", text: "Search the directory, inspect the evidence behind a profile, compare people." },
+    { to: "/origins", title: "PhD origins", text: "Where documented doctorates were awarded, by country, university and discipline." },
+    { to: "/global", title: "Global benchmarks", text: "Sri Lankan research output beside equivalent fields at overseas universities." },
+    { to: "/methodology", title: "Data and methodology", text: "Sources, collection, coverage and how to request a correction." },
   ];
   return (
     <>
-      <section className="hero" aria-label="Summary">
-        <span
-          className="hero-corner"
-          title={`Any research metric ${pct(cov.withMetric)} | qualifications ${pct(cov.withQualifications)} | ${fmt(cov.needsReview)} need review`}
-        >
-          <span className="hc-label">Data completeness</span>
-          <span className="battery" role="img" aria-label={`Data completeness ${pct(cov.withMetric)}`}>
-            <u style={{ width: `${Math.min(100, Math.max(0, parseFloat(pct(cov.withMetric)) || 0))}%` }} />
-            <b>{pct(cov.withMetric)}</b>
-          </span>
-        </span>
+      <section className="overview-hero" aria-label="Introduction">
         <div className="hero-copy">
           <div className="eyebrow">Sri Lanka | Academic research</div>
           <h1>Sri Lanka’s academic landscape.</h1>
           <p>
-            Explore academics, qualifications and research — across Sri Lanka
-            and beyond.
+            A research atlas of academics at {universities.length} institutions: their qualifications, positions and
+            public research records, drawn from published staff lists.
           </p>
           <div className="hero-actions">
             <Button onClick={() => nav("/universities")}>
               Browse universities
-              <ArrowUpRight size={18} />
+              <ArrowUpRight size={16} />
             </Button>
             <Button variant="outline" onClick={() => preset({})}>
               Compare institutions
@@ -162,179 +77,143 @@ export function Overview() {
             </Link>
           </div>
         </div>
-        <div className="hero-facts">
-          <div className="hero-fact lead">
-            <span>Academics collected</span>
-            <strong>{fmt(rows.length)}</strong>
-            <small>Published profiles — not the total academic population</small>
-          </div>
-          <div className="hero-fact">
-            <span>Institutions covered</span>
-            <strong>{`${groups.filter((g) => g.rows.length).length} of ${universities.length}`}</strong>
-          </div>
-          <div className="hero-fact">
-            <span>Documented PhD</span>
-            <strong>{pct(phdCount)}</strong>
-          </div>
-          <div className="hero-fact">
-            <span>Verified research identities</span>
-            <strong>{fmt(cov.verifiedIdentity)}</strong>
-            <small>{pct(cov.verifiedIdentity)} of profiles</small>
-          </div>
-        </div>
       </section>
-      <div className="stats-grid snapshot">
-        <Stat
-          label="Faculties | departments"
-          value={`${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} | ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size}`}
-          detail="Units represented in the collected profiles"
-        />
-        <Stat
-          label="Verified employment"
-          value={fmt(cov.verifiedEmployment)}
-          detail={`${fmt(cov.needsReview)} profiles need review`}
-        />
-        <Stat
-          label="International benchmarks"
-          value={fmt(summary?.internationalBenchmarks.academics ?? null)}
-          detail={
-            summary
-              ? `Sampled academics | ${summary.internationalBenchmarks.universities} universities | ${summary.internationalBenchmarks.countries} countries`
-              : "Not loaded"
-          }
-        />
-      </div>
-      <section aria-label="Research questions" className="research-questions">
-        <h2>Explore Lanka Academia</h2>
-        <div className="question-grid">
-          {questions.map(({ icon: Icon, q, sub, go }) => (
-            <button key={q} className="question-card" onClick={go}>
-              <span className="preset-icon">
-                <Icon size={28} strokeWidth={1.8} />
-              </span>
-              <span>
-                <strong>{q}</strong>
-                <small>{sub}</small>
-              </span>
-              <ArrowRight size={18} />
-            </button>
-          ))}
+
+      <OverviewLandscape groups={groups} />
+
+      <dl className="fact-strip" aria-label="Collection at a glance">
+        <div className="fact">
+          <dt>Academics collected</dt>
+          <dd>{fmt(rows.length)}</dd>
+          <small>Published profiles, not the total academic population</small>
         </div>
-      </section>
-      <div className="two-columns overview-distributions">
-        <Card
-          title="Collected profiles by institution"
-          subtitle="Click a bar to explore the institution’s collected profiles."
-          action={
-            <span className="legend-inline institution-key">
-              <i className="blue" />
-              Public <i className="teal" />
-              Non-state
-            </span>
-          }
-        >
-          <Chart
-            option={barOption}
-            height={520}
-            label="Collected academic profiles by institution"
-            onClick={(p) =>
-              p.data?.universityId && nav("/university/" + p.data.universityId)
+        <div className="fact">
+          <dt>Institutions covered</dt>
+          <dd>{`${groups.filter((g) => g.rows.length).length} of ${universities.length}`}</dd>
+          <small>{`${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties | ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments`}</small>
+        </div>
+        <div className="fact">
+          <dt>Documented PhD</dt>
+          <dd>{pct(phdCount)}</dd>
+          <small>{`${fmt(cov.needsReview)} profiles need review`}</small>
+        </div>
+        <div className="fact">
+          <dt>With research data</dt>
+          <dd>{pct(cov.withMetric)}</dd>
+          <small>{`${fmt(cov.verifiedIdentity)} verified research identities`}</small>
+        </div>
+      </dl>
+
+      <div className="overview-block">
+        <header className="block-head">
+          <div className="eyebrow">People</div>
+          <h2>Who is in the collection</h2>
+          <p>Positions and qualifications as published. Institutions with no collected profiles show no bars; this does not mean they have no academic staff.</p>
+        </header>
+        <div className="two-columns overview-distributions">
+          <Card
+            title="Academic positions"
+            subtitle={`Senior to junior | collected profiles${unplaced ? ` | ${unplaced.toLocaleString()} without a recorded position not shown` : ""}`}
+          >
+            <ul className="position-bars" aria-label="Academic positions, senior to junior">
+              {ranks.map((g) => {
+                const share = rows.length ? 100 * g.rows.length / rows.length : 0;
+                const largest = Math.max(1, ...ranks.map(r => r.rows.length));
+                return <li key={g.id}><button onClick={() => preset({ level: "rank", groups: [g.id] })}>
+                  <span className="position-bar-label">{g.label}</span>
+                  <strong>{g.rows.length.toLocaleString()}</strong><span className="position-share">{share.toFixed(1)}%</span>
+                  <span className="position-track"><span style={{ width: `${100 * g.rows.length / largest}%` }} /></span>
+                </button></li>;
+              })}
+            </ul>
+          </Card>
+          <Card
+            title="Qualifications across institutions"
+            subtitle="Highest recorded qualification. PhD means a documented completed doctorate."
+            action={
+              <div className="chart-scale-toggle" role="group" aria-label="Qualification chart scale">
+                {(["share", "count"] as const).map((scale) => (
+                  <button type="button" key={scale} aria-pressed={qualificationScale === scale} onClick={() => setQualificationScale(scale)}>
+                    {scale === "share" ? "Share (%)" : "Count"}
+                  </button>
+                ))}
+              </div>
             }
-          />
-        </Card>
-        <Card
-          title="Academic positions"
-          subtitle={`Senior to junior | collected profiles${unplaced ? ` | ${unplaced.toLocaleString()} without a recorded position not shown` : ""}`}
-        >
-          <ul className="position-bars" aria-label="Academic positions, senior to junior">
-            {ranks.map((g) => {
-              const share = rows.length ? 100 * g.rows.length / rows.length : 0;
-              const largest = Math.max(1, ...ranks.map(r => r.rows.length));
-              return <li key={g.id}><button onClick={() => preset({ level: "rank", groups: [g.id] })}>
-                <span className="position-bar-label">{g.label}</span>
-                <strong>{g.rows.length.toLocaleString()}</strong><span className="position-share">{share.toFixed(1)}%</span>
-                <span className="position-track"><span style={{ width: `${100 * g.rows.length / largest}%`, background: rankColor(g.id) }} /></span>
-              </button></li>;
-            })}
-          </ul>
-        </Card>
+          >
+            <Chart
+              height={360}
+              label={`Qualification ${qualificationScale === "share" ? "share (%)" : "count"} by institution`}
+              option={{
+                tooltip: {
+                  trigger: "axis", renderMode: "richText", confine: true,
+                  formatter: (params: any[]) => {
+                    const group = groups[params[0]?.dataIndex];
+                    if (!group) return "";
+                    return `${group.name}: ${group.rows.length} profiles\n` + params.map((p) => {
+                      const count = group.rows.filter((a) => a.qualification === p.seriesName).length;
+                      return `${p.seriesName}: ${count} (${group.rows.length ? (100 * count / group.rows.length).toFixed(1) : "0.0"}%)`;
+                    }).join("\n");
+                  },
+                },
+                legend: { top: 0, itemGap: 12, padding: [0, 56, 0, 0] },
+                grid: { left: 64, right: 12, top: 60, bottom: 74 },
+                xAxis: {
+                  type: "category",
+                  data: groups.map((g) => `${g.short}`),
+                  axisLabel: { rotate: 35 },
+                },
+                yAxis: { type: "value", max: qualificationScale === "share" ? 100 : undefined, minInterval: qualificationScale === "count" ? 1 : undefined, name: qualificationScale === "share" ? "Percent" : "Profiles", nameLocation: "middle", nameGap: 44 },
+                series: [
+                  "PhD",
+                  "Masters / MPhil",
+                  "Bachelors",
+                  "Other documented",
+                  "Unknown",
+                ].map((q, i) => ({
+                  type: "bar",
+                  name: q,
+                  stack: "qualifications",
+                  itemStyle: { color: q === "Unknown" ? "#aab1c2" : colors[i] },
+                  data: groups.map((g) =>
+                    g.rows.length
+                      ? g.rows.filter((a) => a.qualification === q).length *
+                        (qualificationScale === "share" ? 100 / g.rows.length : 1)
+                      : null,
+                  ),
+                })),
+              }}
+            />
+          </Card>
+        </div>
       </div>
-      <Card
-        title="Qualifications across institutions"
-        subtitle="Highest recorded qualification. PhD means a documented completed doctorate."
-        action={
-          <div className="chart-scale-toggle" role="group" aria-label="Qualification chart scale">
-            {(["share", "count"] as const).map((scale) => (
-              <button type="button" key={scale} aria-pressed={qualificationScale === scale} onClick={() => setQualificationScale(scale)}>
-                {scale === "share" ? "Share (%)" : "Count"}
-              </button>
-            ))}
-          </div>
-        }
-      >
-        <Chart
-          height={350}
-          label={`Qualification ${qualificationScale === "share" ? "share (%)" : "count"} by institution`}
-          option={{
-            tooltip: {
-              trigger: "axis", renderMode: "richText", confine: true,
-              formatter: (params: any[]) => {
-                const group = groups[params[0]?.dataIndex];
-                if (!group) return "";
-                return `${group.name}: ${group.rows.length} profiles\n` + params.map((p) => {
-                  const count = group.rows.filter((a) => a.qualification === p.seriesName).length;
-                  return `${p.seriesName}: ${count} (${group.rows.length ? (100 * count / group.rows.length).toFixed(1) : "0.0"}%)`;
-                }).join("\n");
-              },
-            },
-            legend: { top: 0, textStyle: { fontSize: 14 } },
-            grid: { left: 60, right: 20, top: 55, bottom: 80 },
-            xAxis: {
-              type: "category",
-              data: groups.map((g) => `${g.short}`),
-              axisLabel: { fontSize: 14, rotate: 35 },
-            },
-            yAxis: { type: "value", max: qualificationScale === "share" ? 100 : undefined, minInterval: qualificationScale === "count" ? 1 : undefined, name: qualificationScale === "share" ? "Percent" : "Profiles" },
-            series: [
-              "PhD",
-              "Masters / MPhil",
-              "Bachelors",
-              "Other documented",
-              "Unknown",
-            ].map((q, i) => ({
-              type: "bar",
-              name: q,
-              stack: "qualifications",
-              itemStyle: { color: q === "Unknown" ? "#d3dce4" : colors[i] },
-              data: groups.map((g) =>
-                g.rows.length
-                  ? g.rows.filter((a) => a.qualification === q).length *
-                    (qualificationScale === "share" ? 100 / g.rows.length : 1)
-                  : null,
-              ),
-            })),
-          }}
-        />
-        <p className="caption">
-          Institutions with no collected profiles show no bars; this does not
-          mean they have no academic staff.
-        </p>
-      </Card>
-      <StandardsOverview />
-      <GlobalTeaser />
-      <Link to="/universities" className="universities-cta">
-        <span className="preset-icon">
-          <Building2 size={28} strokeWidth={1.8} />
-        </span>
-        <span>
-          <strong>Explore the universities</strong>
-          <small>
-            {universities.length} institutions — profiles, PhD shares and
-            research output side by side.
-          </small>
-        </span>
-        <ArrowRight size={20} />
-      </Link>
+
+      <div className="overview-block">
+        <header className="block-head">
+          <div className="eyebrow">Research</div>
+          <h2>Research output and international context</h2>
+          <p>
+            Output varies with seniority, discipline and how much of a person’s record is public. Read these as
+            descriptions of the collected profiles, not as judgements of quality.
+            {summary ? ` Benchmarks sample ${fmt(summary.internationalBenchmarks.academics)} academics at ${summary.internationalBenchmarks.universities} overseas universities.` : ""}
+          </p>
+        </header>
+        <StandardsOverview />
+        <GlobalTeaser />
+      </div>
+
+      <nav className="pathways" aria-label="Continue exploring">
+        <h2>Continue exploring</h2>
+        <ul>
+          {pathways.map((p) => (
+            <li key={p.to}>
+              <Link to={p.to}>
+                <span><strong>{p.title}</strong><small>{p.text}</small></span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </>
   );
 }

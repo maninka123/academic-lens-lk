@@ -16,11 +16,11 @@ const MEASURES: [NumericMetric, string][] = [
 ];
 const POSITIONS = [...SENIORITY, "Other roles"] as const;
 type PositionName = (typeof POSITIONS)[number];
-const POSITION_COLORS = ["#c7d2fe", "#6f86e8", "#1f2d8f", "#aab4bd"];
+const POSITION_COLORS = ["#c5ccfa", "#6f7df0", "#2b3aa8", "#aab1c2"];
 const DOCTORATE: [string, string, string][] = [
-  ["completed_documented", "Documented", "#2f9e77"],
-  ["in_progress", "In progress", "#e0a526"],
-  ["none", "Not documented", "#aab4bd"],
+  ["completed_documented", "Documented", "#1ea896"],
+  ["in_progress", "In progress", "#d99a2b"],
+  ["none", "Not documented", "#aab1c2"],
 ];
 const hatch = { symbol: "rect", dashArrayX: [1, 0], dashArrayY: [3, 3], rotation: -Math.PI / 4, color: "rgba(255,255,255,.6)" };
 
@@ -35,8 +35,8 @@ const pct = (n: number, d: number) => (d ? (100 * n) / d : 0);
  */
 export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "faculty" | "department"; minN: number }) {
   const theme = useAtlas((s) => s.theme);
-  const bar = theme === "dark" ? "#3987e5" : "#2a78d6";
-  const accent = theme === "dark" ? "#d95926" : "#eb6834";
+  const bar = theme === "dark" ? "#8e9cff" : "#5d6cf0";
+  const accent = theme === "dark" ? "#e4a73f" : "#e0a02e";
   const [metric, setMetric] = useState<NumericMetric>("hIndex");
   const [statistic, setStatistic] = useState<"median" | "mean">("median");
   const gridRef = useRef<HTMLDivElement>(null);
@@ -142,7 +142,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
       stack: "mix",
       barMaxWidth: 28,
       itemStyle: { color: POSITION_COLORS[i] },
-      label: { show: true, position: "inside", color: i === 0 || i === 3 ? "#18203a" : "#fff", fontSize: 12, formatter: (q: any) => (q.value >= 12 ? Math.round(q.value) + "%" : "") },
+      label: { show: true, position: "inside", color: i === 0 || i === 3 ? "#0b1020" : "#fff", fontSize: 12, formatter: (q: any) => (q.value >= 12 ? Math.round(q.value) + "%" : "") },
       data: groups.map((g, k) => pct(mixes[k][p], g.rows.length)),
     })),
   };
@@ -155,7 +155,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
       {
         type: "bar",
         barMaxWidth: 28,
-        itemStyle: { color: "#2f9e77" },
+        itemStyle: { color: "#1ea896" },
         data: phdShare,
         label: { show: true, position: "right", fontSize: 12, formatter: (q: any) => Math.round(q.value) + "%" },
       },
@@ -174,7 +174,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
       {
         type: "bar",
         barMaxWidth: 28,
-        data: POSITIONS.map((p, i) => ({ value: positionCounts[p], itemStyle: { color: POSITION_COLORS[i] === "#c7d2fe" ? "#8fa3ee" : POSITION_COLORS[i] } })),
+        data: POSITIONS.map((p, i) => ({ value: positionCounts[p], itemStyle: { color: POSITION_COLORS[i] === "#c5ccfa" ? "#9ca8f5" : POSITION_COLORS[i] } })),
         label: { show: true, position: "right", fontSize: 13 },
       },
     ],
@@ -189,7 +189,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
         radius: ["52%", "78%"],
         center: ["50%", "52%"],
         label: { formatter: (p: any) => `${p.name}\n${p.value} (${Math.round(pct(p.value, all.length))}%)`, fontSize: 12 },
-        itemStyle: { borderColor: theme === "dark" ? "#161616" : "#fff", borderWidth: 2 },
+        itemStyle: { borderColor: theme === "dark" ? "#0e1220" : "#fff", borderWidth: 2 },
         data: DOCTORATE.map(([, name, color], i) => ({ name, value: docCounts[i], itemStyle: { color } })),
       },
     ],

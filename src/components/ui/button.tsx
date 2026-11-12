@@ -5,7 +5,7 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 const variants = cva("button", {
   variants: {
-    variant: { default: "primary", outline: "outline", ghost: "ghost" },
+    variant: { default: "primary", outline: "btn-outline", ghost: "ghost" },
     size: { default: "", icon: "icon-button" },
   },
   defaultVariants: { variant: "default", size: "default" },

@@ -1,0 +1,17 @@
+/* Lanka Academia stylesheet entry point.
+   Layer order (lowest to highest): Tailwind's reset, the legacy rules still being retired, then the design system.
+   Everything in `ds` is built from design-system/tokens.css; read DESIGN.md before changing it. */
+@layer theme, base, components, utilities, legacy, ds;
+@import "tailwindcss";
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource-variable/newsreader/opsz.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "../../design-system/tokens.css" layer(ds);
+@import "./aliases.css" layer(ds);
+@import "./legacy.css";
+@import "./base.css" layer(ds);
+@import "./shell.css" layer(ds);
+@import "./controls.css" layer(ds);
+@import "./surfaces.css" layer(ds);
+@import "./pages.css" layer(ds);
