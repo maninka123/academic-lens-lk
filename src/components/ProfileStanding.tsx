@@ -165,16 +165,18 @@ export function ProfileStanding({
             </Select>
           </label>
         )}
-        <label className="check">
+        <label className="check" title="Compress the scale: log₁₀(value + 1)">
           <input
             type="checkbox"
             checked={log}
             onChange={(e) => setLog(e.target.checked)}
           />
-          Compress scale (log₁₀ of value + 1)
+          Log scale
         </label>
       </div>
-      <div className="peer-scope" aria-live="polite">
+      <details className="peer-scope">
+        <summary>How this comparison is calculated</summary>
+        <div className="peer-scope-body" aria-live="polite">
         <strong>
           {active.label} | {cohortDescription(a, cohort)}
         </strong>
@@ -189,8 +191,7 @@ export function ProfileStanding({
             {active.n} × 100 = {plotNumber(active.percentile)}%
           </span>
         )}
-        <details>
-          <summary>What do “peer” and “same” mean?</summary>
+        <div className="peer-scope-notes">
           <p>
             A peer is a collected profile matching the selected cohort and
             context. “Same” refers to the documented category, such as position,
@@ -206,8 +207,9 @@ export function ProfileStanding({
             least {MIN_SAMPLE} valid values.
           </p>
           <p>{active.description}</p>
-        </details>
-      </div>
+        </div>
+        </div>
+      </details>
       <div className="profile-chart-grid">
         <div>
           <h3>
