@@ -3,10 +3,10 @@
 /* Card: one white surface with a hairline border. Nothing else about it changes between pages. */
 .card {
   position: relative; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
-  padding: var(--space-6); box-shadow: var(--shadow-xs); min-width: 0;
+  padding: var(--space-5); box-shadow: var(--shadow-xs); min-width: 0;
 }
 .card > p { margin-top: var(--space-2); }
-.section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-5); }
+.section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-4); }
 .section-heading > div { min-width: 0; flex: 1; }
 @media (max-width: 760px) { .section-heading { flex-wrap: wrap; } .section-heading > div:last-child:not(:first-child) { flex: 1 1 100%; } }
 .section-heading h2 { font-size: 22px; line-height: 1.2; letter-spacing: -0.014em; }
@@ -14,9 +14,9 @@
 .section-heading:has(.chart-scale-toggle) { flex-wrap: wrap; }
 .dialog-content .section-heading h2, .dialog-content [role="heading"], .dialog-content > .section-heading > h2 { font-size: 20px; }
 
-.two-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4); }
+.two-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); margin-bottom: var(--space-3); }
 .two-columns.align-start { align-items: start; }
-.card + .card, .stats-grid + .card, .card + .two-columns, .two-columns + .card, .stats-grid + .two-columns { margin-top: var(--space-4); }
+.card + .card, .stats-grid + .card, .card + .two-columns, .two-columns + .card, .stats-grid + .two-columns { margin-top: var(--space-3); }
 
 /* Statistics: quiet figures, no coloured edges. */
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4); }
@@ -31,7 +31,8 @@
 .table-scroll { overflow: auto; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); scrollbar-color: var(--color-border-strong) transparent; }
 table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13.5px; }
 thead th { position: sticky; top: 0; z-index: 1; padding: 10px var(--space-4); text-align: left; font-size: 12px; font-weight: 510; letter-spacing: 0.005em; color: var(--color-text-muted); background: var(--color-surface-raised); border-bottom: 1px solid var(--color-border); white-space: nowrap; vertical-align: middle; }
-tbody th { text-align: left; font-weight: 510; color: var(--color-heading); }
+tbody th { padding: 11px var(--space-4); text-align: left; font-weight: 510; color: var(--color-heading); border-bottom: 1px solid var(--color-hairline); line-height: 1.4; vertical-align: middle; }
+tbody tr:last-child th { border-bottom: 0; }
 th > button { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; }
 th > button:hover { color: var(--color-heading); }
 td { padding: 11px var(--space-4); border-bottom: 1px solid var(--color-hairline); line-height: 1.4; vertical-align: middle; color: var(--color-text); font-variant-numeric: tabular-nums; }

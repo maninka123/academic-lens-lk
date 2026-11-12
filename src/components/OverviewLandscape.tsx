@@ -93,7 +93,7 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
   const hover = columns.find((c) => c.g.id === active);
   const hoverInfo = hover ? detail(hover.g) : null;
   // Names go on the first free row, so neighbouring thin columns never collide.
-  const LANE = 28;
+  const LANE = 26;
   const laneEnds: number[] = [];
   const lanes = columns.map((c) => {
     const centre = offset + c.x + c.w / 2, half = Math.max(16, c.g.short.length * 3.4);
@@ -103,7 +103,7 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
     return lane;
   });
   const laneCount = Math.max(1, laneEnds.length);
-  const height = ROWS * pitch + 22 + laneCount * LANE + 8;
+  const height = ROWS * pitch + 16 + laneCount * LANE;
 
   return (
     <section className="landscape" aria-label="Every collected profile, by institution">
