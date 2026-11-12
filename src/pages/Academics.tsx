@@ -256,7 +256,7 @@ export function Profile() {
   };
   return (
     <>
-      <Link className="text-link" to="/academics">
+      <Link className="text-link back" to="/academics">
         <ArrowLeft size={17} />
         Academic directory
       </Link>
@@ -290,6 +290,7 @@ export function Profile() {
           </>
         )}
       </nav>
+      <section className="dossier" aria-label="Profile summary">
       <div className="person-hero">
         <AcademicPortrait academic={a} />
         <div className="person-main">
@@ -318,15 +319,6 @@ export function Profile() {
         </div>
         <StandingScorePanel person={a} />
       </div>
-      {a.caution && (
-        <div className="profile-caution" role="note">
-          <TriangleAlert size={18} aria-hidden="true" />
-          <div>
-            <strong>Read these figures with care</strong>
-            <p>{a.caution}</p>
-          </div>
-        </div>
-      )}
       <section className="key-facts" aria-label="Key facts">
         <div className="key-fact wide">
           <span>Position</span>
@@ -380,6 +372,16 @@ export function Profile() {
         ))}
       </section>
       <ResearchProfiles academic={a} />
+      </section>
+      {a.caution && (
+        <div className="profile-caution" role="note">
+          <TriangleAlert size={18} aria-hidden="true" />
+          <div>
+            <strong>Read these figures with care</strong>
+            <p>{a.caution}</p>
+          </div>
+        </div>
+      )}
       {a.qualificationReview && (
         <p className="notice" role="status">
           {a.qualificationReview}
