@@ -29,19 +29,13 @@ export function useStandingScore(person: Academic) {
 function Ring({ score, size }: { score: number | null; size: number }) {
   const r = 50,
     c = 2 * Math.PI * r,
-    color = score === null ? "var(--border)" : standingColor(score);
+    color = score === null ? "var(--color-border)" : standingColor(score);
   // Near-complete rings use flat caps so the end does not overlap the start.
   const full = score !== null && score >= 97;
   return (
     <svg viewBox="0 0 120 120" width={size} height={size} aria-hidden="true">
-      <defs>
-        <linearGradient id="ring-sheen" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#fff" stopOpacity="0.35" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <circle cx="60" cy="60" r="57" fill="none" stroke="var(--border)" strokeWidth="1.5" strokeDasharray="2 4" />
-      <circle cx="60" cy="60" r={r} fill="none" stroke="var(--soft)" strokeWidth="9" />
+      <circle cx="60" cy="60" r="57" fill="none" stroke="var(--color-border-strong)" strokeWidth="1.5" strokeDasharray="2 4" />
+      <circle cx="60" cy="60" r={r} fill="none" stroke="var(--color-fill-strong)" strokeWidth="9" />
       {score !== null && (
         <circle
           cx="60" cy="60" r={r} fill="none" stroke={color} strokeWidth="9"
@@ -51,8 +45,7 @@ function Ring({ score, size }: { score: number | null; size: number }) {
         />
       )}
       {/* "Typical" (50%) tick at the bottom of the ring. */}
-      <line x1="60" y1="104" x2="60" y2="116" stroke="var(--muted)" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
-      <circle cx="60" cy="60" r="38" fill="url(#ring-sheen)" />
+      <line x1="60" y1="104" x2="60" y2="116" stroke="var(--color-text-muted)" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
     </svg>
   );
 }

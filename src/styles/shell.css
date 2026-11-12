@@ -50,8 +50,9 @@
 .topbar > .inline { flex: 1; min-width: 0; flex-wrap: nowrap; }
 .breadcrumb { font-size: 13px; color: var(--color-text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .breadcrumb span { padding: 0 6px; color: var(--color-border-strong); }
-.data-badge { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; font-size: 12.5px; color: var(--color-text-muted); background: none; padding: 0; border-radius: 0; font-weight: 400; }
-.status-dot { width: 6px; height: 6px; margin: 0; border-radius: 50%; background: var(--color-success); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) 22%, transparent); }
+/* Top-bar chips share one language: 28px tall, fully rounded, hairline border, 12.5px. */
+.data-badge { display: inline-flex; align-items: center; gap: 7px; height: 28px; padding: 0 11px; white-space: nowrap; font-size: 12.5px; font-weight: 400; color: var(--color-text-muted); background: transparent; border: 1px solid var(--color-border); border-radius: var(--radius-full); }
+.status-dot { width: 6px; height: 6px; margin: 0; border-radius: 50%; background: var(--color-success); box-shadow: none; flex: none; }
 .main-content { width: min(100%, 1640px); margin: 0 auto; padding: 0 var(--space-6) var(--space-8); }
 .main-content:focus { outline: none; }
 
@@ -70,22 +71,24 @@
 
 /* Status labels in the top bar */
 .preview-badge, .preview-pill, .hero-preview, .ack-preview {
-  display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: var(--radius-full);
-  border: 1px solid color-mix(in srgb, var(--color-amber) 35%, var(--color-border)); background: color-mix(in srgb, var(--color-amber) 9%, transparent);
-  color: color-mix(in srgb, var(--color-amber) 80%, var(--color-heading)); font-size: 11.5px; font-weight: 510; letter-spacing: 0; text-transform: none; white-space: nowrap; line-height: 1.3; box-shadow: none;
+  display: inline-flex; align-items: center; gap: 7px; height: 28px; padding: 0 11px; border-radius: var(--radius-full);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 24%, var(--color-border)); background: var(--color-primary-soft);
+  color: var(--color-link); font-size: 12.5px; font-weight: 510; letter-spacing: 0; text-transform: none; white-space: nowrap; line-height: 1; box-shadow: none;
 }
 .preview-pill { margin: 0; }
-.preview-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-amber); animation: none; box-shadow: none; }
-.preview-sep { opacity: 0.45; margin: 0; }
+.preview-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); animation: none; box-shadow: none; flex: none; }
+.preview-sep { opacity: 0.35; margin: 0; }
 
 /* Global filter control */
 .global-filter { position: relative; }
 .global-filter-button {
-  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 var(--space-3); border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-strong); background: var(--color-surface); color: var(--color-heading); font: inherit; font-size: 12.5px; font-weight: 510;
+  display: inline-flex; align-items: center; gap: 7px; height: 28px; padding: 0 12px 0 10px; border-radius: var(--radius-full);
+  border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-heading); font: inherit; font-size: 12.5px; font-weight: 510;
   transition: background-color var(--duration-fast), border-color var(--duration-fast);
 }
-.global-filter-button:hover { background: var(--color-fill); }
+.global-filter-button svg { width: 15px; height: 15px; color: var(--color-text-muted); }
+.global-filter-button:hover { background: var(--color-fill); border-color: var(--color-border-strong); }
+.global-filter-button.active svg { color: inherit; }
 .global-filter-button.active { border-color: var(--color-primary); color: var(--color-primary); background: var(--color-primary-soft); }
 .global-filter-count { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--color-primary); color: var(--color-primary-foreground); font-size: 11px; }
 .global-filter-panel {
