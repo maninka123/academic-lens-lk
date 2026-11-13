@@ -47,6 +47,20 @@ Light theme shown. Every page and popup also has a dark theme (Appearance switch
 | **Global benchmarks** | Sri Lanka against elite, middle and lower QS-ranked universities in seven countries, by discipline and seniority. |
 | **Light and dark** | One design system across every page, chart, popup and drawer; light, dark or follow the device. |
 
+## Repository layout
+
+| Path | What is in it |
+|---|---|
+| `src/` | The web app (React, TypeScript, ECharts) and its styles |
+| `design-system/`, `DESIGN.md` | Design tokens and the written design reference |
+| `Data files/` | The editable dataset: one CSV per department, plus rankings and review files |
+| `public/` | Files served by the site (generated data, images, map) |
+| `scripts/` | Data import, metric collection (OpenAlex, Google Scholar) and checks |
+| `tests/` | Browser tests |
+| `docs/` | Guides and policies; legal notices are in `docs/legal/` |
+| `reports/` | Generated coverage and validation reports |
+| `private/` | Local only, never committed (API keys, ethics documents) |
+
 ## Run locally
 
 Node.js 22.12 or newer. No backend is needed.
@@ -77,7 +91,7 @@ The interface is built from one set of design tokens (colour, type, spacing, rad
 - **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
 - **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
 
-More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](DATA_COLLECTION_PROMPT.md)
+More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md)
 
 ## Global benchmark method
 
@@ -124,9 +138,9 @@ Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-
 | | |
 |---|---|
 | **Code** | [MIT](LICENSE) |
-| **Aggregate statistics and reports** | [CC BY 4.0](DATA_LICENSE.md): free to use with credit. Individual records are excluded from this licence. |
-| **Notice** | [Data may be wrong, no warranty, third-party material](NOTICE.md) |
-| **Privacy and data use** | [PRIVACY.md](PRIVACY.md): what is collected, why and how long it is kept |
-| **Ethics and data statement** | [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md) |
+| **Aggregate statistics and reports** | [CC BY 4.0](docs/legal/DATA_LICENSE.md): free to use with credit. Individual records are excluded from this licence. |
+| **Notice** | [Data may be wrong, no warranty, third-party material](docs/legal/NOTICE.md) |
+| **Privacy and data use** | [PRIVACY.md](docs/legal/PRIVACY.md): what is collected, why and how long it is kept |
+| **Ethics and data statement** | [ETHICS_AND_DATA.md](docs/legal/ETHICS_AND_DATA.md) |
 
 Copyright (c) 2026 Pasindu Ranasinghe.

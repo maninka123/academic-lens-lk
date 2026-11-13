@@ -346,14 +346,14 @@ function Shell() {
             <p>Built for exploration, with context. Data may contain errors.</p>
             <nav className="footer-links" aria-label="Notices">
               <a
-                href="https://github.com/maninka123/academic-lens-lk/blob/main/NOTICE.md"
+                href="https://github.com/maninka123/academic-lens-lk/blob/main/docs/legal/NOTICE.md"
                 target="_blank"
                 rel="noreferrer"
               >
                 Notice &amp; corrections
               </a>
               <a
-                href="https://github.com/maninka123/academic-lens-lk/blob/main/PRIVACY.md"
+                href="https://github.com/maninka123/academic-lens-lk/blob/main/docs/legal/PRIVACY.md"
                 target="_blank"
                 rel="noreferrer"
               >

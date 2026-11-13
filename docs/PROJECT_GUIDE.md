@@ -2,7 +2,7 @@
 
 Explore Sri Lankan academic profiles, compare peer groups, and keep research data coverage visible.
 
-**[Open the website](https://maninka123.github.io/academic-lens-lk/)** · [Editable dataset guide](../Data%20files/README.md) · [Collection prompt](../DATA_COLLECTION_PROMPT.md)
+**[Open the website](https://maninka123.github.io/academic-lens-lk/)** · [Editable dataset guide](../Data%20files/README.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
 
 
 ## What you can do
@@ -54,7 +54,7 @@ npm run build
 
 Optional `Data files/metadata.json` can configure collection dates and the metric window.
 
-The importer discovers new academic CSVs recursively and regenerates `public/data/{academics,universities,faculties,departments}.csv` and metadata. Duplicate IDs, malformed CSVs and invalid numeric values stop import. Update `Data files/field-mapping.json` for manual field classifications; ambiguous units stay Unmapped. See the [dataset guide](../Data%20files/README.md) for folder rules and the [collection prompt](../DATA_COLLECTION_PROMPT.md) for independent research work.
+The importer discovers new academic CSVs recursively and regenerates `public/data/{academics,universities,faculties,departments}.csv` and metadata. Duplicate IDs, malformed CSVs and invalid numeric values stop import. Update `Data files/field-mapping.json` for manual field classifications; ambiguous units stay Unmapped. See the [dataset guide](../Data%20files/README.md) for folder rules and the [collection prompt](DATA_COLLECTION_PROMPT.md) for independent research work.
 
 <!-- dataset-summary:start -->
 **Current snapshot:** the counts of profiles, institutions, faculties, departments and research coverage are regenerated at every import; see [reports/validation-report.md](../reports/validation-report.md) and the Overview page. Collected profiles are not the total academic population.
