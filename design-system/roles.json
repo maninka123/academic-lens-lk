@@ -1,0 +1,381 @@
+{
+  "$comment": "Measured from https://linear.app/ on 2026-11-08. Edit names or values here, then run extract.mjs --rebuild to regenerate tokens.css, theme.css, tokens.json and preview.html.",
+  "name": "Lanka Academia",
+  "source": "Original system, informed by measurements of https://linear.app/ (typography scale, 4px grid, hairline borders, restrained motion). No Linear brand assets are used.",
+  "colors": {
+    "background": "#f6f7f9",
+    "text": "#3a4357",
+    "heading": "#0b1020",
+    "text-muted": "#5f697d",
+    "border": "#e2e5ec",
+    "border-strong": "#c9cfda",
+    "surface": "#ffffff",
+    "surface-raised": "#fbfbfd",
+    "surface-inverse": "#0b1020",
+    "primary": "#4658d8",
+    "primary-foreground": "#ffffff",
+    "primary-hover": "#3647c4",
+    "primary-soft": "#e9ecfd",
+    "link": "#3647c4",
+    "focus": "#4658d8",
+    "teal": "#14937f",
+    "violet": "#7a5ad9",
+    "amber": "#b9770e",
+    "rose": "#c4344d",
+    "success": "#23844d",
+    "warning": "#b9770e",
+    "danger": "#c4344d",
+    "sidebar": "#0b1020",
+    "sidebar-border": "#1b2136",
+    "sidebar-text": "#98a1b8",
+    "sidebar-heading": "#f3f5fa",
+    "sidebar-active": "#1a2040"
+  },
+  "chart": [
+    "#4658d8",
+    "#14937f",
+    "#7a5ad9",
+    "#d08a1a",
+    "#c4344d",
+    "#5b7aa8"
+  ],
+  "dark": {
+    "background": "#080b14",
+    "text": "#a5adc0",
+    "heading": "#f3f5fa",
+    "text-muted": "#8189a0",
+    "border": "#212638",
+    "border-strong": "#323951",
+    "surface": "#0e1220",
+    "surface-raised": "#141a2c",
+    "surface-inverse": "#f3f5fa",
+    "primary": "#7b8cff",
+    "primary-foreground": "#0a0d18",
+    "primary-hover": "#95a2ff",
+    "primary-soft": "#1a2146",
+    "link": "#9aa8ff",
+    "focus": "#8e9cff",
+    "teal": "#3ccbb4",
+    "violet": "#a58cf5",
+    "amber": "#e4a73f",
+    "rose": "#f06a80",
+    "success": "#47c47a",
+    "warning": "#e4a73f",
+    "danger": "#f06a80",
+    "sidebar": "#070a12",
+    "sidebar-border": "#161b2b",
+    "sidebar-text": "#8b93a9",
+    "sidebar-heading": "#f3f5fa",
+    "sidebar-active": "#161d3c"
+  },
+  "palette": {},
+  "fonts": {
+    "sans": {
+      "family": "Inter",
+      "measured": "Inter Variable",
+      "free": true,
+      "stack": "\"Inter Variable\", \"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+      "load": "Inter",
+      "source": "Self-hosted (@fontsource-variable/inter)",
+      "note": "Inter is free (open licence). Interface, labels, data, tables."
+    },
+    "display": {
+      "family": "Newsreader",
+      "free": true,
+      "stack": "\"Newsreader Variable\", \"Newsreader\", \"Iowan Old Style\", Georgia, serif",
+      "load": "Newsreader",
+      "source": "Self-hosted (@fontsource-variable/newsreader)",
+      "note": "Newsreader is free (open licence). Page titles and the hero only: the editorial voice."
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "free": true,
+      "stack": "\"IBM Plex Mono\", ui-monospace, SFMono-Regular, Menlo, monospace",
+      "load": "IBM Plex Mono",
+      "source": "Self-hosted (@fontsource/ibm-plex-mono)",
+      "weights": {
+        "400": 400
+      },
+      "note": "IBM Plex Mono is free (open licence). Identifiers, source references, code."
+    }
+  },
+  "text": {
+    "display": {
+      "size": 56,
+      "lh": 1.04,
+      "ls": -0.022,
+      "weight": "420",
+      "font": "display",
+      "phone": 36
+    },
+    "h1": {
+      "size": 40,
+      "lh": 1.1,
+      "ls": -0.02,
+      "weight": "430",
+      "font": "display",
+      "phone": 30
+    },
+    "h2": {
+      "size": 26,
+      "lh": 1.2,
+      "ls": -0.016,
+      "weight": "440",
+      "font": "display",
+      "phone": 22
+    },
+    "h3": {
+      "size": 17,
+      "lh": 1.35,
+      "ls": -0.012,
+      "weight": "590",
+      "font": "sans"
+    },
+    "h4": {
+      "size": 14,
+      "lh": 1.4,
+      "ls": -0.008,
+      "weight": "590",
+      "font": "sans"
+    },
+    "body-lg": {
+      "size": 17,
+      "lh": 1.6,
+      "ls": -0.011,
+      "weight": "400",
+      "font": "sans"
+    },
+    "body": {
+      "size": 15,
+      "lh": 1.6,
+      "ls": -0.01,
+      "weight": "400",
+      "font": "sans"
+    },
+    "body-sm": {
+      "size": 13.5,
+      "lh": 1.5,
+      "ls": -0.006,
+      "weight": "400",
+      "font": "sans"
+    },
+    "label": {
+      "size": 12.5,
+      "lh": 1.4,
+      "ls": 0,
+      "weight": "510",
+      "font": "sans"
+    },
+    "caption": {
+      "size": 12,
+      "lh": 1.5,
+      "ls": 0.002,
+      "weight": "400",
+      "font": "sans"
+    },
+    "code": {
+      "size": 12.5,
+      "lh": 1.6,
+      "ls": 0,
+      "weight": "400",
+      "font": "mono"
+    },
+    "numeral": {
+      "size": 28,
+      "lh": 1.1,
+      "ls": -0.02,
+      "weight": "510",
+      "font": "sans"
+    }
+  },
+  "space": {
+    "base": 4,
+    "scale": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      32,
+      48,
+      64,
+      96
+    ],
+    "section": [
+      64,
+      96
+    ],
+    "sectionPhone": 40
+  },
+  "radius": {
+    "xs": 3,
+    "sm": 5,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "full": 9999
+  },
+  "shadow": {
+    "xs": "0 1px 0 rgba(11, 16, 32, 0.04)",
+    "sm": "0 1px 2px rgba(11, 16, 32, 0.05), 0 0 0 1px rgba(11, 16, 32, 0.04)",
+    "md": "0 4px 12px rgba(11, 16, 32, 0.08), 0 0 0 1px rgba(11, 16, 32, 0.05)",
+    "lg": "0 12px 32px rgba(11, 16, 32, 0.14), 0 0 0 1px rgba(11, 16, 32, 0.06)",
+    "xl": "0 24px 64px rgba(11, 16, 32, 0.22)",
+    "ring": "0 0 0 3px rgba(70, 88, 216, 0.28)"
+  },
+  "border": {
+    "width": 1
+  },
+  "container": {
+    "page": 1280,
+    "wide": 1440,
+    "narrow": 760
+  },
+  "breakpoint": {
+    "sm": 640,
+    "md": 768,
+    "lg": 1024,
+    "xl": 1280
+  },
+  "duration": {
+    "fast": 120,
+    "base": 200,
+    "slow": 360
+  },
+  "ease": {
+    "standard": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+    "emphasized": "cubic-bezier(0.2, 0, 0, 1)"
+  },
+  "components": {
+    "$comment": "Lanka Academia recipes.",
+    "buttons": [
+      {
+        "variant": "primary",
+        "label": "Compare",
+        "bg": "primary",
+        "fg": "primary-foreground",
+        "border": {
+          "width": 1,
+          "style": "solid",
+          "color": "primary"
+        },
+        "radius": 8,
+        "padding": [
+          0,
+          14
+        ],
+        "height": 36,
+        "font": {
+          "size": 13.5,
+          "weight": 510
+        },
+        "shadow": "0 1px 2px rgba(11, 16, 32, 0.12)",
+        "hover": {
+          "bg": "primary-hover"
+        }
+      },
+      {
+        "variant": "outline",
+        "label": "Export",
+        "bg": "surface",
+        "fg": "heading",
+        "border": {
+          "width": 1,
+          "style": "solid",
+          "color": "border-strong"
+        },
+        "radius": 8,
+        "padding": [
+          0,
+          14
+        ],
+        "height": 36,
+        "font": {
+          "size": 13.5,
+          "weight": 510
+        },
+        "hover": {
+          "bg": "surface-raised"
+        }
+      },
+      {
+        "variant": "subtle",
+        "label": "Reset",
+        "bg": "primary-soft",
+        "fg": "link",
+        "border": null,
+        "radius": 8,
+        "padding": [
+          0,
+          12
+        ],
+        "height": 32,
+        "font": {
+          "size": 13,
+          "weight": 510
+        },
+        "hover": {
+          "bg": "primary-soft"
+        }
+      }
+    ],
+    "card": {
+      "bg": "surface",
+      "on": "background",
+      "border": {
+        "width": 1,
+        "style": "solid",
+        "color": "border"
+      },
+      "radius": 12,
+      "padding": 20,
+      "shadow": "0 1px 2px rgba(11, 16, 32, 0.04)"
+    },
+    "input": {
+      "bg": "surface",
+      "fg": "heading",
+      "border": {
+        "width": 1,
+        "style": "solid",
+        "color": "border-strong"
+      },
+      "radius": 8,
+      "padding": [
+        0,
+        12
+      ],
+      "height": 38,
+      "font": {
+        "size": 14,
+        "weight": 400
+      }
+    },
+    "badge": {
+      "label": "Scholar",
+      "bg": "primary-soft",
+      "fg": "link",
+      "border": null,
+      "radius": 5,
+      "padding": [
+        2,
+        7
+      ],
+      "font": {
+        "size": 12,
+        "weight": 510
+      }
+    },
+    "nav": {
+      "bg": "surface-inverse",
+      "height": 56,
+      "position": "sticky",
+      "backdrop": "blur(16px)",
+      "border": {
+        "width": 1,
+        "style": "solid",
+        "color": "border"
+      }
+    }
+  }
+}

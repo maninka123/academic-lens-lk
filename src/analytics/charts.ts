@@ -172,7 +172,7 @@ export function comparisonChart(
               ? [s.min, s.q1, s.median, s.q3, s.max]
               : { value: [null, null, null, null, null] };
           }),
-          itemStyle: { color: "#e2edf6", borderColor: "#3b4fd6" },
+          itemStyle: { color: "#e4e8fd", borderColor: "#5d6cf0" },
           tooltip: { renderMode: "richText" },
         },
         ...pinSeries("box"),
@@ -608,18 +608,18 @@ export function comparisonChart(
           groupId: g.id,
           itemStyle: {
             color: g.lowN
-              ? "#a9b6c2"
+              ? "#aab1c2"
               : c.level === "type"
                 ? g.id === "Public"
-                  ? "#3b4fd6"
-                  : "#0f9488"
+                  ? "#5d6cf0"
+                  : "#1ea896"
                 : c.level === "university"
                   ? g.rows?.[0]?.type === "Non-state"
-                    ? "#0f9488"
-                    : "#3b4fd6"
+                    ? "#1ea896"
+                    : "#5d6cf0"
                   : g.id === topId
-                    ? "#f59e0b"
-                    : "#3b4fd6",
+                    ? "#e0a02e"
+                    : "#5d6cf0",
             ...(g.lowN
               ? {
                   decal: {

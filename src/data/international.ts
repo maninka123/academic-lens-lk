@@ -12,10 +12,10 @@ export const tierLabels: Record<Tier, string> = {
   lower: "Lower (QS ~800–1200)",
 };
 export const tierColors: Record<Tier | "sri-lanka", string> = {
-  elite: "#8966ad",
-  middle: "#007aff",
-  lower: "#208b80",
-  "sri-lanka": "#c65170",
+  elite: "#9a5b08",
+  middle: "#d99a2b",
+  lower: "#f0cc85",
+  "sri-lanka": "#5d6cf0",
 };
 export type BenchmarkAcademic = {
   id: string;

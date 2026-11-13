@@ -31,4 +31,4 @@ A descriptive, public-interest overview of academic capacity in Sri Lanka: who w
 Partial coverage, possible errors and mismatches, and metrics that differ between providers. Presence or absence in the dataset says nothing about a person's merit.
 
 ## Contact
-Use the repository: https://github.com/maninka123/academic-lens-lk/issues/new/choose (public) or https://github.com/maninka123/academic-lens-lk/security/advisories/new (private).
+Use the repository: https://github.com/maninka123/academic-lens-lk/issues/new/choose (public) or https://github.com/maninka123/academic-lens-lk/security/advisories/new (private; a [box-by-box guide with text to copy](https://github.com/maninka123/academic-lens-lk/blob/main/SECURITY.md) explains the form).

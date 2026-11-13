@@ -7,8 +7,8 @@ import { SENIOR_LECTURER_GROUP, equivalentPosition, withProvider } from "../anal
 import { summary, values } from "../analytics/engine";
 import type { NumericMetric } from "../types";
 
-const PUBLIC = "#3b4fd6";
-const PRIVATE = "#0f9488";
+const PUBLIC = "#5d6cf0";
+const PRIVATE = "#1ea896";
 const MIN = 10;
 const SHOW = 5;
 const POSITIONS = ["Professor", SENIOR_LECTURER_GROUP, "Lecturer"] as const;

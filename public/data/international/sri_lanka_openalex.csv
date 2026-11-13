@@ -1590,3 +1590,4 @@ SL-10993ef581cd,,,,,,openalex_candidate_requires_corroboration
 SL-b75e51a42d37,,,,,,openalex_candidate_requires_corroboration
 SL-efdf354be097,,,,,,openalex_no_verified_author_match
 SL-6a91a8e7c86e,,,,,,openalex_candidate_requires_corroboration
+SL-3a803492686d,,,,,https://openalex.org/A5023945964,openalex_matched_confirmed

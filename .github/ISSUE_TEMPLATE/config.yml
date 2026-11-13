@@ -2,4 +2,4 @@ blank_issues_enabled: true
 contact_links:
   - name: Private correction or removal request
     url: https://github.com/maninka123/academic-lens-lk/security/advisories/new
-    about: Use this if you do not want your request to be public.
+    about: Not public. Confusing form? Follow the box-by-box guide with copy-and-paste text in SECURITY.md.

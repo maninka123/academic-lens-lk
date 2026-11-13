@@ -36,6 +36,8 @@ it("opens a bar-details popup while preserving the current comparison", () => {
 });
 it("uses the selected provider for both pinned values and plot references", () => {
   render(<MemoryRouter><DataContext.Provider value={data}><Compare /></DataContext.Provider></MemoryRouter>);
+  // The people panel is a drawer opened from the toolbar.
+  fireEvent.click(screen.getByRole("button", { name: /Add people/ }));
   expect(screen.getByText(/ResearchGate value, not Google Scholar/)).toBeInTheDocument();
   expect(screen.getAllByText("ResearchGate").length).toBeGreaterThan(0);
   expect(screen.getByLabelText("Comparison setup")).toBeInTheDocument();

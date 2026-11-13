@@ -17,10 +17,10 @@ import { broadDiscipline } from "../data/disciplines";
 import { MIN_SAMPLE } from "../analytics/quality";
 import type { Academic } from "../types";
 
-// Validated two-hue pair (blue/orange) plus a neutral for "not recorded".
+// Two-hue pair (indigo for Sri Lanka, amber for overseas) plus a neutral for "not recorded".
 const ORIGIN = {
-  light: { lk: "#2a78d6", overseas: "#eb6834", unknown: "#c5ced6" },
-  dark: { lk: "#3987e5", overseas: "#d95926", unknown: "#4a5d6d" },
+  light: { lk: "#5d6cf0", overseas: "#e0a02e", unknown: "#c5cad8" },
+  dark: { lk: "#8e9cff", overseas: "#e4a73f", unknown: "#3a4258" },
 };
 const statusLabel: Record<string, string> = {
   completed_documented: "Completed (documented)",
@@ -221,7 +221,7 @@ export function Origins() {
       barMaxWidth: 18,
       itemStyle: {
         color,
-        borderColor: theme === "dark" ? "#161616" : "#fff",
+        borderColor: theme === "dark" ? "#0e1220" : "#fff",
         borderWidth: 1,
       },
       data: splits.map((s) => scale === "count" ? s[k] : (s.total ? (100 * s[k]) / s.total : null)),
@@ -474,13 +474,13 @@ export function Origins() {
                   type: "piecewise",
                   show: false,
                   pieces: [
-                    { min: 1, max: 5, color: "#a9d5dc" },
-                    { min: 6, max: 20, color: "#55a8b8" },
-                    { min: 21, max: 50, color: "#237e96" },
-                    { min: 51, color: "#13516f" },
+                    { min: 1, max: 5, color: "#cfd5fb" },
+                    { min: 6, max: 20, color: "#9aa6f6" },
+                    { min: 21, max: 50, color: "#5d6cf0" },
+                    { min: 51, color: "#2b3aa8" },
                   ],
                   outOfRange: {
-                    color: theme === "dark" ? "#363636" : "#e3e9ee",
+                    color: theme === "dark" ? "#232a40" : "#e8ebf3",
                   },
                 },
                 series: [
@@ -501,7 +501,7 @@ export function Origins() {
                       symbol: "circle",
                       symbolSize: 11,
                       itemStyle: {
-                        color: "#e47a30",
+                        color: "#e0a02e",
                         borderColor: "#fff",
                         borderWidth: 2,
                       },
@@ -510,7 +510,7 @@ export function Origins() {
                         formatter: "Sri Lanka",
                         position: "bottom",
                         distance: 6,
-                        color: theme === "dark" ? "#f5f5f7" : "#1d1d1f",
+                        color: theme === "dark" ? "#f3f5fa" : "#0b1020",
                         fontSize: 14,
                         fontWeight: 600,
                       },
@@ -520,15 +520,15 @@ export function Origins() {
                       data: [{ name: "Sri Lanka", coord: [80.77, 7.87] }],
                     },
                     itemStyle: {
-                      areaColor: theme === "dark" ? "#363636" : "#e3e9ee",
-                      borderColor: theme === "dark" ? "#1b1b1b" : "#fff",
+                      areaColor: theme === "dark" ? "#232a40" : "#e8ebf3",
+                      borderColor: theme === "dark" ? "#0e1220" : "#fff",
                       borderWidth: 0.5,
                     },
                     label: { show: false },
                     emphasis: {
                       label: { show: false },
                       itemStyle: {
-                        borderColor: theme === "dark" ? "#f5f5f7" : "#607b83",
+                        borderColor: theme === "dark" ? "#f3f5fa" : "#6b7490",
                         borderWidth: 1,
                       },
                     },
@@ -538,8 +538,8 @@ export function Origins() {
                       itemStyle:
                         g.id === country
                           ? {
-                              areaColor: "#d68129",
-                              borderColor: "#a95a13",
+                              areaColor: "#e0a02e",
+                              borderColor: "#9a5b08",
                               borderWidth: 2,
                             }
                           : undefined,
@@ -720,7 +720,7 @@ export function Origins() {
             >
               <Chart
                 height={Math.max(320, heatUnis.length * 38 + 150)}
-                minWidth={680}
+                minWidth={560}
                 label="Heatmap of awarding countries and current institutions"
                 option={{
                   tooltip: {

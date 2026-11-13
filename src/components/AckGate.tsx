@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { PreviewBadge } from "./PreviewBadge";
-import { BookOpen } from "lucide-react";
+import { BrandMark } from "./BrandMark";
 
 const KEY = "lanka-academia-ack-v1";
 const read = () => {
@@ -27,7 +27,7 @@ export function AckGate() {
     <div className="ack-overlay" role="dialog" aria-modal="true" aria-labelledby="ack-title">
       <div className="ack-card">
         <div className="ack-brand">
-          <BookOpen size={18} aria-hidden="true" /> Lanka Academia
+          <BrandMark size={22} /> Lanka Academia
           <PreviewBadge className="ack-preview" />
         </div>
         <h2 id="ack-title">Research data and responsible use</h2>
@@ -71,7 +71,7 @@ export function AckGate() {
           >
             Enter platform
           </button>
-          <button type="button" className="button outline" onClick={() => (window.location.href = "about:blank")}>
+          <button type="button" className="button btn-outline" onClick={() => (window.location.href = "about:blank")}>
             Exit
           </button>
         </div>

@@ -13,11 +13,13 @@
 </div>
 
 <!-- dataset-summary:start -->
-<!-- Snapshot partial-9f452b448e -->
-**3,325 Sri Lankan profiles | 15 institutions | 1,740 international benchmark profiles.** Partial collection, updated 2026-10-20. [Coverage report](reports/validation-report.md).
+<!-- Snapshot partial-18e14cdacc -->
+**3,656 Sri Lankan profiles | 15 institutions | 1,740 international benchmark profiles.** Partial collection, updated 2026-11-14. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
 ## Screenshots
+
+Light theme shown. Every page and popup also has a dark theme (Appearance switch in the sidebar), and works from phone to wide desktop.
 
 ![Overview](docs/screenshots/overview.png)
 
@@ -43,6 +45,7 @@
 | **Compare** | Build your own comparisons across universities, faculties, departments, positions and PhD countries. |
 | **PhD origins** | Where doctorates were awarded and how that differs by institution, position and discipline. |
 | **Global benchmarks** | Sri Lanka against elite, middle and lower QS-ranked universities in seven countries, by discipline and seniority. |
+| **Light and dark** | One design system across every page, chart, popup and drawer; light, dark or follow the device. |
 
 ## Run locally
 
@@ -61,10 +64,15 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 | End-to-end tests | `npm run test:e2e` |
 
 
+## Design system
+
+The interface is built from one set of design tokens (colour, type, spacing, radius, shadow, motion) so every page, chart and dialog looks the same in light and dark. [DESIGN.md](DESIGN.md) is the reference; tokens live in `design-system/` and are loaded through `src/styles/`. Change a value in `design-system/roles.json`, rebuild the tokens, and the whole app follows. The first-visit data-use notice (with its agree checkbox) is part of the design and is kept.
+
 ## How the data works
 
 - **Missing stays missing.** An unknown value is never treated as zero.
 - **Every comparison shows its source, sample size and coverage.** Citation counts are not a measure of academic quality.
+- **Adding people:** list pages give names and positions; each person's own profile page gives their Google Scholar and ResearchGate links, which are then used for metrics before any name search.
 - **Titles:** **Prof** for documented professorial positions, otherwise **Dr** for a completed research doctorate.
 - **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
 - **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
