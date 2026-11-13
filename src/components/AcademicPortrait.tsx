@@ -4,7 +4,7 @@ import type { Academic } from "../types";
 export function initials(name: string) {
   const words = name
     .replace(/\*/g, "")
-    .replace(/^(?:Dr|Mr|Mrs|Ms|Miss)\s+/i, "")
+    .replace(/^(?:(?:Vidya Jyothi|Senior|Associate|Assistant|Emeritus|Chair|Prof(?:essor)?|Dr|Mr|Mrs|Ms|Miss|Rev|Ven)\b\.?\s*(?:\([^)]*\)\s*)?)+/i, "")
     .split(/[\s.]+/)
     .filter((w) => /^[A-Za-zÀ-ÿ]/.test(w));
   return ((words[0]?.[0] || "") + (words.length > 1 ? words.at(-1)![0] : ""))
