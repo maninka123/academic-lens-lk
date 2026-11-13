@@ -23,7 +23,7 @@ Provided "as is". The authors accept no liability for errors, omissions or any u
 Requests for a correction or removal can be made through the routes below.
 1. **Email:** pmranasinghe97@gmail.com
 2. **Public request:** open a *Correction or removal request* issue: https://github.com/maninka123/academic-lens-lk/issues/new/choose
-3. **Private request:** use **Security → Report a vulnerability** on the repository (https://github.com/maninka123/academic-lens-lk/security/advisories/new) if you do not want your request to be public.
+3. **Private request:** use **Security → Report a vulnerability** on the repository (https://github.com/maninka123/academic-lens-lk/security/advisories/new) if you do not want your request to be public. The form looks technical, so there is a [box-by-box guide with text to copy](https://github.com/maninka123/academic-lens-lk/blob/main/SECURITY.md).
 
 Our target is to respond within 14 days. Where a request is accepted, we aim to apply it in a later data release.
 

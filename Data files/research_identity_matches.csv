@@ -801,9 +801,9 @@ SL-876ea99a54f9,OpenAlex,,possible,candidate_review_needed,{},automatic,,2026-10
 SL-f881478704c5,OpenAlex,,possible,candidate_review_needed,{},automatic,,2026-10-13,pending
 SL-a8a7290d537d,OpenAlex,,possible,candidate_review_needed,{},automatic,,2026-10-13,pending
 SL-3d11485042d1,OpenAlex,,possible,candidate_review_needed,{},automatic,,2026-10-13,pending
-SL-c82502ef02ce,OpenAlex,,possible,candidate_review_needed,{},automatic,,2026-10-13,pending
+SL-c82502ef02ce,OpenAlex,https://openalex.org/A5074210001,corroborated,name_institution_and_field,"{""source"": ""https://openalex.org/authors/A5074210001"", ""official_profile"": ""https://www.res.cmb.ac.lk/medicine/indika-karunathilake/"", ""basis"": ""Name, University of Colombo affiliation, medical education publications.""}",reviewed,2026-11-14,2026-11-14,approved
 SL-470a77950b56,OpenAlex,,possible,candidate_review_needed,{},automatic,,2026-10-13,pending
-SL-a69e988dbd5e,OpenAlex,,possible,candidate_review_needed,{},automatic,,2026-10-13,pending
+SL-a69e988dbd5e,OpenAlex,https://openalex.org/A5016977219,corroborated,name_institution_and_field,"{""source"": ""https://openalex.org/A5016977219"", ""official_profile"": ""https://www.res.cmb.ac.lk/medicine/santushi-amarasuriya/"", ""basis"": ""Exact name, affiliation and research area.""}",reviewed,2026-11-14,2026-11-14,approved
 SL-18952250922d,OpenAlex,,possible,candidate_review_needed,{},automatic,,2026-10-13,pending
 SL-bc31ede9c234,OpenAlex,https://openalex.org/A5084343876,corroborated,legacy_accepted_name_and_institution,"{""legacy_accepted"": true, ""review_recommended"": true}",automatic,,2026-10-13,approved
 SL-76596d1d0616,OpenAlex,https://openalex.org/A5000778690,corroborated,legacy_accepted_name_and_institution,"{""legacy_accepted"": true, ""review_recommended"": true}",automatic,,2026-10-13,approved
@@ -1600,3 +1600,6 @@ SL-10993ef581cd,OpenAlex,,possible,insufficient_independent_evidence,[],reviewed
 SL-b75e51a42d37,OpenAlex,,possible,insufficient_independent_evidence,[],reviewed_official_identifier_or_exact_publication_evidence,2026-10-13,2026-10-13,pending
 SL-efdf354be097,OpenAlex,,unresolved,insufficient_independent_evidence,[],reviewed_official_identifier_or_exact_publication_evidence,2026-10-13,2026-10-13,pending
 SL-6a91a8e7c86e,OpenAlex,,possible,insufficient_independent_evidence,[],reviewed_official_identifier_or_exact_publication_evidence,2026-10-13,2026-10-13,pending
+SL-bf1c085a30f4,OpenAlex,https://openalex.org/A5023463448,corroborated,name_institution_and_thesis_corroborated,"{""source"": ""https://adscientificindex.com/scientist/lakshman-wedikkarage/5732642/"", ""official_profile"": ""https://www.res.cmb.ac.lk/social.science.education/lakshman.wedikkarage/"", ""basis"": ""Exact name and Colombo affiliation; index lists thesis corresponding to official PhD profile; OpenAlex endpoint inaccessible.""}",reviewed,2026-11-14,2026-11-14,approved
+SL-94383dbbde08,OpenAlex,https://openalex.org/A5029563308,corroborated,name_institution_and_field,"{""openalex"": ""https://openalex.org/authors/A5029563308"", ""official"": ""https://www.res.cmb.ac.lk/medicine/wasantha-gunathunga/"", ""basis"": ""Exact name, institution and community medicine research.""}",reviewed,2026-11-14,2026-11-14,approved
+SL-e87f83746671,OpenAlex,https://openalex.org/A5075070727,corroborated,name_institution_and_field,"{""source"": ""https://openalex.org/A5075070727"", ""official_profile"": ""https://www.res.cmb.ac.lk/medicine/enoka-corea/"", ""basis"": ""Exact name, affiliation and research area.""}",reviewed,2026-11-14,2026-11-14,approved

@@ -41,7 +41,7 @@ Requests to correct or remove a profile can be sent through the routes below.
 How to reach us:
 - **Email:** pmranasinghe97@gmail.com
 - **Public request:** https://github.com/maninka123/academic-lens-lk/issues/new/choose (use the "Correction or removal request" form; do not post private details)
-- **Private request:** https://github.com/maninka123/academic-lens-lk/security/advisories/new
+- **Private request:** https://github.com/maninka123/academic-lens-lk/security/advisories/new (the form looks technical: [box-by-box guide with text to copy](https://github.com/maninka123/academic-lens-lk/blob/main/SECURITY.md))
 
 Our target is to respond to requests within 14 days. Where a removal is accepted, we aim to apply it in a later data release. Where a profile is removed, we keep only a minimal record that a request was made, so it is not re-added.
 
