@@ -48,7 +48,7 @@ export function AckGate() {
             disciplinary, or other decisions affecting individuals.
           </li>
           <li>Verify information against original sources and acknowledge the dataset's limitations.</li>
-          <li>Individuals may request corrections or removal of their published profiles. See the <a href="https://github.com/maninka123/academic-lens-lk/blob/main/PRIVACY.md" target="_blank" rel="noreferrer">privacy and data-use notice</a>.</li>
+          <li>Individuals may request corrections or removal of their published profiles. See the <a href="https://github.com/maninka123/academic-lens-lk/blob/main/docs/legal/PRIVACY.md" target="_blank" rel="noreferrer">privacy and data-use notice</a>.</li>
         </ul>
         <label className="ack-check">
           <input type="checkbox" checked={checked} onChange={(e) => setChecked(e.target.checked)} />

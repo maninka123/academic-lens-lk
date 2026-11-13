@@ -39,7 +39,7 @@ Cite the dataset with its snapshot version (shown on the site and in `dataset_su
 
 ## Reuse conditions
 
-Aggregate statistics and original research reports are licensed under CC BY 4.0: reuse them with attribution and the dataset version (see [DATA_LICENSE.md](../DATA_LICENSE.md)). Individual-level records are not covered by that licence. Individual-level records describe identifiable people: reuse them only for research or educational purposes consistent with the limitations above, do not use them to rank or evaluate named individuals, and do not republish them outside their source context. Respect the terms of the original sources.
+Aggregate statistics and original research reports are licensed under CC BY 4.0: reuse them with attribution and the dataset version (see [DATA_LICENSE.md](legal/DATA_LICENSE.md)). Individual-level records are not covered by that licence. Individual-level records describe identifiable people: reuse them only for research or educational purposes consistent with the limitations above, do not use them to rank or evaluate named individuals, and do not republish them outside their source context. Respect the terms of the original sources.
 
 ## Corrections and removal requests
 
