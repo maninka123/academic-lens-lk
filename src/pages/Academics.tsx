@@ -256,7 +256,7 @@ export function Profile() {
   };
   return (
     <>
-      <Link className="text-link" to="/academics">
+      <Link className="text-link back" to="/academics">
         <ArrowLeft size={17} />
         Academic directory
       </Link>
@@ -290,6 +290,7 @@ export function Profile() {
           </>
         )}
       </nav>
+      <section className="dossier" aria-label="Profile summary">
       <div className="person-hero">
         <AcademicPortrait academic={a} />
         <div className="person-main">
@@ -318,15 +319,6 @@ export function Profile() {
         </div>
         <StandingScorePanel person={a} />
       </div>
-      {a.caution && (
-        <div className="profile-caution" role="note">
-          <TriangleAlert size={18} aria-hidden="true" />
-          <div>
-            <strong>Read these figures with care</strong>
-            <p>{a.caution}</p>
-          </div>
-        </div>
-      )}
       <section className="key-facts" aria-label="Key facts">
         <div className="key-fact wide">
           <span>Position</span>
@@ -380,6 +372,16 @@ export function Profile() {
         ))}
       </section>
       <ResearchProfiles academic={a} />
+      </section>
+      {a.caution && (
+        <div className="profile-caution" role="note">
+          <TriangleAlert size={18} aria-hidden="true" />
+          <div>
+            <strong>Read these figures with care</strong>
+            <p>{a.caution}</p>
+          </div>
+        </div>
+      )}
       {a.qualificationReview && (
         <p className="notice" role="status">
           {a.qualificationReview}
@@ -726,8 +728,10 @@ export function Institution() {
       <CoveragePanel
         rows={rows}
         rosterNote={
-          (d.coverage.find((c) => c.university_id === u.id)?.roster_status ||
-            "Directory coverage not assessed.") +
+          (() => {
+            const status = d.coverage.find((c) => c.university_id === u.id)?.roster_status;
+            return status ? "Directory coverage: " + status : "Directory coverage not assessed.";
+          })() +
           ` | ${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties and ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments represented in the collected profiles.`
         }
       />

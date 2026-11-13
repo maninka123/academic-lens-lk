@@ -94,7 +94,7 @@ it("exposes cohort definitions and the contributing profiles", () => {
     </MemoryRouter>,
   );
   expect(
-    screen.getByText("What do “peer” and “same” mean?"),
+    screen.getByText("How this comparison is calculated"),
   ).toBeInTheDocument();
   expect(
     screen.getByText(/^A peer is a collected profile/, {

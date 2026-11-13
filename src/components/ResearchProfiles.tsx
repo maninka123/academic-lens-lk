@@ -1,6 +1,5 @@
 import { ExternalLink } from "lucide-react";
 import type { Academic } from "../types";
-import { Card } from "./common";
 
 export function researchProfileLinks(academic: Academic) {
   const candidates = [
@@ -67,52 +66,41 @@ const statusTone = (status?: string) =>
       : "recorded";
 
 export function ResearchProfiles({ academic }: { academic: Academic }) {
+  const links = researchProfileLinks(academic);
   return (
-    <Card title="Sources" className="sources-card">
-      <div className="research-profile-links source-tiles">
+    <section className="dossier-sources" aria-label="Sources">
+      <h2>Sources</h2>
+      <div className="source-chips">
         {academic.sourceUrl && (
-          <div className="source-tile verified">
-            <a
-              className="text-link"
-              href={academic.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Official academic source <ExternalLink size={16} />
+          <span className="source-chip verified">
+            <i className="source-dot" aria-hidden="true" />
+            <a href={academic.sourceUrl} target="_blank" rel="noopener noreferrer">
+              Official academic source <ExternalLink size={13} aria-hidden="true" />
             </a>
-            <p className="caption">Staff page</p>
-          </div>
+            <span className="source-note">Staff page</span>
+          </span>
         )}
-        {researchProfileLinks(academic).map(({ label, url, status }) => (
-          <div
-            key={label}
-            className={"source-tile " + (url ? statusTone(status) : "missing")}
-          >
-            {url ? (
-              <a
-                className="text-link"
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+        {links.map(({ label, url, status }) =>
+          url ? (
+            <span key={label} className={"source-chip " + statusTone(status)}>
+              <i className="source-dot" aria-hidden="true" />
+              <a href={url} target="_blank" rel="noopener noreferrer">
                 {label}
-                <ExternalLink size={16} />
+                <ExternalLink size={13} aria-hidden="true" />
               </a>
-            ) : (
-              <span>
-                {label}{" "}
-                <span className="muted">
-                  |{" "}
-                  {status === "rejected_different_person"
-                    ? "Rejected identity match"
-                    : "Not recorded"}
-                </span>
+              <span className="source-note">{statusNote(status)}</span>
+            </span>
+          ) : (
+            <span key={label} className="source-chip is-missing">
+              <i className="source-dot" aria-hidden="true" />
+              {label}{" "}
+              <span className="source-note">
+                {status === "rejected_different_person" ? "Rejected identity match" : "Not recorded"}
               </span>
-            )}
-            {url && <p className="caption">{statusNote(status)}</p>}
-          </div>
-        ))}
+            </span>
+          ),
+        )}
       </div>
-    </Card>
+    </section>
   );
 }

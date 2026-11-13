@@ -75,3 +75,6 @@ scripts/scholar_scraper/New updates/
 scripts/New updates/
 scripts/scholar_scraper/scholar_output/
 .vscode/
+
+# Third-party reference screenshots from design extraction (local only)
+design-system/source/

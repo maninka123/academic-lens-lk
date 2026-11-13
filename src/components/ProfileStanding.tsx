@@ -1,6 +1,6 @@
 import { Select } from "./ui/select";
 import { plotNumber } from "../analytics/plot-format";
-import { useState, useId } from "react";
+import { useState, useId, useEffect } from "react";
 import type { Academic, NumericMetric } from "../types";
 import { metricLabels } from "../types";
 import {
@@ -31,6 +31,21 @@ const ordinalOf = (v: number) => {
       : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] || "th")
   );
 };
+function useNarrow(max = 640) {
+  const q = `(max-width: ${max}px)`;
+  const canMatch = typeof window !== "undefined" && typeof window.matchMedia === "function";
+  const [narrow, setNarrow] = useState(() => canMatch && window.matchMedia(q).matches);
+  useEffect(() => {
+    if (!canMatch) return;
+    const m = window.matchMedia(q);
+    const on = () => setNarrow(m.matches);
+    on();
+    m.addEventListener("change", on);
+    return () => m.removeEventListener("change", on);
+  }, [q, canMatch]);
+  return narrow;
+}
+
 export function ProfileStanding({
   academic: a,
   rows,
@@ -38,6 +53,7 @@ export function ProfileStanding({
   academic: Academic;
   rows: Academic[];
 }) {
+  const narrow = useNarrow();
   const [metric, setMetric] = useState<NumericMetric>("citations");
   const [context, setContext] = useState<string>("university");
   const [log, setLog] = useState(false);
@@ -149,16 +165,18 @@ export function ProfileStanding({
             </Select>
           </label>
         )}
-        <label className="check">
+        <label className="check" title="Compress the scale: log₁₀(value + 1)">
           <input
             type="checkbox"
             checked={log}
             onChange={(e) => setLog(e.target.checked)}
           />
-          Compress scale (log₁₀ of value + 1)
+          Log scale
         </label>
       </div>
-      <div className="peer-scope" aria-live="polite">
+      <details className="peer-scope">
+        <summary>How this comparison is calculated</summary>
+        <div className="peer-scope-body" aria-live="polite">
         <strong>
           {active.label} | {cohortDescription(a, cohort)}
         </strong>
@@ -173,8 +191,7 @@ export function ProfileStanding({
             {active.n} × 100 = {plotNumber(active.percentile)}%
           </span>
         )}
-        <details>
-          <summary>What do “peer” and “same” mean?</summary>
+        <div className="peer-scope-notes">
           <p>
             A peer is a collected profile matching the selected cohort and
             context. “Same” refers to the documented category, such as position,
@@ -190,8 +207,9 @@ export function ProfileStanding({
             least {MIN_SAMPLE} valid values.
           </p>
           <p>{active.description}</p>
-        </details>
-      </div>
+        </div>
+        </div>
+      </details>
       <div className="profile-chart-grid">
         <div>
           <h3>
@@ -255,7 +273,7 @@ export function ProfileStanding({
                       ].map((value, i) => ({
                         value,
                         itemStyle: {
-                          color: i === 2 ? "#e8590c" : "#3b4fd6",
+                          color: i === 2 ? "#e0a02e" : "#5d6cf0",
                           borderRadius: [0, 5, 5, 0],
                         },
                       })),
@@ -297,7 +315,7 @@ export function ProfileStanding({
                       ? "Unavailable"
                       : aheadOf(v),
                 },
-                grid: { left: 215, right: 165, top: 15, bottom: 50 },
+                grid: narrow ? { left: 8, right: 12, top: 15, bottom: 50, containLabel: true } : { left: 215, right: 165, top: 15, bottom: 50 },
                 xAxis: {
                   type: "value",
                   min: 0,
@@ -312,7 +330,7 @@ export function ProfileStanding({
                   type: "category",
                   inverse: true,
                   data: groups.map((g) => g.label),
-                  axisLabel: { width: 205, overflow: "truncate" },
+                  axisLabel: narrow ? { width: 110, overflow: "break" } : { width: 205, overflow: "truncate" },
                 },
                 series: [
                   {
@@ -335,7 +353,9 @@ export function ProfileStanding({
                               formatter:
                                 g.members.length === 0
                                   ? "No eligible profiles"
-                                  : `Needs ${MIN_SAMPLE} values (has ${g.n})`,
+                                  : narrow
+                                    ? `n=${g.n}`
+                                    : `Needs ${MIN_SAMPLE} values (has ${g.n})`,
                             },
                           }
                         : {
@@ -347,7 +367,7 @@ export function ProfileStanding({
                     label: {
                       show: true,
                       position: "right",
-                      formatter: (p: any) => aheadOf(p.value),
+                      formatter: (p: any) => (narrow ? `${fmt(p.value, 0)}%` : aheadOf(p.value)),
                     },
                   },
                 ],

@@ -3,12 +3,8 @@ import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   Building2,
-  GraduationCap,
-  Globe2,
-  Quote,
   Search,
   TriangleAlert,
-  Users,
 } from "lucide-react";
 import { useData, directoryAcademics } from "../data/context";
 import { universityStats, leader } from "../analytics/universities";
@@ -37,84 +33,38 @@ function Meter({ value, tone }: { value: number | null; tone: string }) {
   );
 }
 
-function UniversityCard({ s, rank, min }: { s: UniversityStats; rank: number | null; min: number }) {
+function UniversityRow({ s, rank, min }: { s: UniversityStats; rank: number | null; min: number }) {
   const campus = campusImages[s.id as keyof typeof campusImages];
   const thin = s.profiles < min;
+  const units = s.profiles
+    ? [s.faculties ? `${s.faculties} faculties` : "", s.departments ? `${s.departments} departments` : ""].filter(Boolean).join(" | ") || "Units not recorded"
+    : "No collected profiles";
   return (
     <Link
       to={"/university/" + s.id}
-      className={"uni-card " + (s.type === "Non-state" ? "nonstate" : "public") + (s.excludeFromComparison ? " excluded" : "")}
+      className={"uni-row " + (s.type === "Non-state" ? "nonstate" : "public") + (s.excludeFromComparison ? " excluded" : "")}
     >
-      <div className="uni-cover">
-        {campus && (
-          <img
-            src={import.meta.env.BASE_URL + campus.image}
-            alt=""
-            loading="lazy"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
-          />
-        )}
-        {rank !== null ? (
-          <span className="uni-rank">#{rank}</span>
-        ) : (
-          <span className="uni-rank warn">
-            <TriangleAlert size={13} aria-hidden="true" /> Not compared
-          </span>
-        )}
-        <span className="uni-type">{s.type}</span>
-        <span className="uni-mono">{/^sliit$/i.test(s.short) ? "ST" : (s.short.length <= 5 ? s.short : s.short.slice(0, 2)).toUpperCase()}</span>
-      </div>
-      <div className="uni-body">
-        <h3>{short(s.name)}</h3>
-        {short(s.name) !== s.name && !s.name.startsWith("University of ") && (
-          <p className="uni-full">{s.name}</p>
-        )}
-        <p className="uni-sub">
-          {s.profiles
-            ? [
-                s.faculties ? `${s.faculties} faculties` : "",
-                s.departments ? `${s.departments} departments` : "",
-              ].filter(Boolean).join(" | ") || "Units not recorded"
-            : "No collected profiles"}
-        </p>
-        <div className="uni-headline">
-          <strong>{fmt(s.profiles)}</strong>
-          <span>profiles</span>
-        </div>
-        <dl className="uni-facts">
-          <div>
-            <dt>PhD share</dt>
-            <dd>{thin || s.phdKnown < 5 ? "—" : pct(s.phd)}</dd>
-            <Meter value={thin ? null : s.phd} tone="blue" />
-          </div>
-          <div>
-            <dt>PhD from abroad</dt>
-            <dd>{s.overseasKnown < 5 ? "—" : pct(s.overseas)}</dd>
-            <Meter value={s.overseasKnown < 5 ? null : s.overseas} tone="teal" />
-          </div>
-          <div>
-            <dt>Median citations</dt>
-            <dd>{s.citationsN < 5 ? "—" : num(s.medianCitations)}</dd>
-          </div>
-          <div>
-            <dt>Median h-index</dt>
-            <dd>{s.hN < 5 ? "—" : num(s.medianH)}</dd>
-          </div>
-        </dl>
-        {s.notice && (
-          <p className="uni-warning">
-            <TriangleAlert size={14} aria-hidden="true" /> Staff directory not verified | Not used in comparisons
-          </p>
-        )}
-        {thin && s.profiles > 0 && !s.notice && (
-          <p className="uni-flag">Small sample | figures indicative only</p>
-        )}
-        <span className="uni-open">
-          Open institution <ArrowUpRight size={16} />
+      <span className="uni-rank-col">{rank !== null ? <span className="uni-rank">{rank}</span> : <span className="uni-rank warn" title="Not used in comparisons"><TriangleAlert size={13} aria-hidden="true" /></span>}</span>
+      <span className="uni-ident">
+        <span className="uni-thumb" aria-hidden="true">
+          {campus && <img src={import.meta.env.BASE_URL + campus.image} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} />}
+          <b>{/^sliit$/i.test(s.short) ? "ST" : (s.short.length <= 4 ? s.short : s.short.slice(0, 2)).toUpperCase()}</b>
         </span>
-      </div>
+        <span className="uni-name">
+          <strong>{short(s.name)}</strong>
+          <small>{units}<span className={"uni-type " + (s.type === "Non-state" ? "nonstate" : "public")}>{s.type}</span></small>
+        </span>
+      </span>
+      <span className="uni-cell uni-profiles"><span className="uni-label">Profiles</span><strong>{fmt(s.profiles)}</strong></span>
+      <span className="uni-cell"><span className="uni-label">PhD share</span><strong>{thin || s.phdKnown < 5 ? "—" : pct(s.phd)}</strong><Meter value={thin ? null : s.phd} tone="blue" /></span>
+      <span className="uni-cell"><span className="uni-label">PhD from abroad</span><strong>{s.overseasKnown < 5 ? "—" : pct(s.overseas)}</strong><Meter value={s.overseasKnown < 5 ? null : s.overseas} tone="teal" /></span>
+      <span className="uni-cell"><span className="uni-label">Median citations</span><strong>{s.citationsN < 5 ? "—" : num(s.medianCitations)}</strong></span>
+      <span className="uni-cell"><span className="uni-label">Median h-index</span><strong>{s.hN < 5 ? "—" : num(s.medianH)}</strong></span>
+      <ArrowUpRight className="uni-go" size={16} aria-hidden="true" />
+      {s.notice && (
+        <span className="uni-warning"><TriangleAlert size={14} aria-hidden="true" /> Staff directory not verified | Not used in comparisons</span>
+      )}
+      {thin && s.profiles > 0 && !s.notice && <span className="uni-flag">Small sample | figures indicative only</span>}
     </Link>
   );
 }
@@ -135,25 +85,21 @@ export function Universities() {
   const comparableStats = stats.filter((x) => !x.excludeFromComparison);
   const spotlight = [
     {
-      icon: Users,
       label: "Largest collection",
       s: leader(comparableStats, (x) => x.profiles, (x) => x.profiles, 1),
       value: (x: UniversityStats) => fmt(x.profiles) + " profiles",
     },
     {
-      icon: GraduationCap,
       label: "Highest PhD share",
       s: leader(comparableStats, (x) => x.phd, (x) => x.phdKnown, min),
       value: (x: UniversityStats) => pct(x.phd) + " hold a PhD",
     },
     {
-      icon: Quote,
       label: "Highest median citations",
       s: leader(comparableStats, (x) => x.medianCitations, (x) => x.citationsN, min),
       value: (x: UniversityStats) => num(x.medianCitations) + " citations",
     },
     {
-      icon: Globe2,
       label: "Most internationally trained",
       s: leader(comparableStats, (x) => x.overseas, (x) => x.overseasKnown, min),
       value: (x: UniversityStats) => pct(x.overseas) + " PhD from abroad",
@@ -193,24 +139,15 @@ export function Universities() {
         title="Every institution, at a glance."
         description={`${covered} institutions with collected profiles. Open one to follow its faculties, departments and academics.`}
       />
-      <section className="spotlight" aria-label="Highlights">
-        {spotlight.map(({ icon: Icon, label, s, value }) => (
-          <div key={label} className="spotlight-card">
-            <span className="spotlight-icon">
-              <Icon size={22} strokeWidth={1.9} />
-            </span>
-            <small>{label}</small>
-            {s ? (
-              <>
-                <strong>{short(s.name)}</strong>
-                <span>{value(s)}</span>
-              </>
-            ) : (
-              <strong>—</strong>
-            )}
+      <dl className="fact-strip spotlight" aria-label="Highlights">
+        {spotlight.map(({ label, s, value }) => (
+          <div key={label} className="fact">
+            <dt>{label}</dt>
+            <dd className="fact-name">{s ? short(s.name) : "—"}</dd>
+            {s && <small>{value(s)}</small>}
           </div>
         ))}
-      </section>
+      </dl>
       <div className="uni-toolbar">
         <label className="uni-search">
           <Search size={18} aria-hidden="true" />
@@ -241,9 +178,19 @@ export function Universities() {
         </label>
       </div>
       {visible.length ? (
-        <div className="uni-grid">
+        <div className="uni-list" role="list">
+          <div className="uni-head" aria-hidden="true">
+            <span />
+            <span>Institution</span>
+            <span>Profiles</span>
+            <span>PhD share</span>
+            <span>PhD from abroad</span>
+            <span>Median citations</span>
+            <span>Median h-index</span>
+            <span />
+          </div>
           {visible.map((s, i) => (
-            <UniversityCard key={s.id} s={s} rank={s.excludeFromComparison ? null : i + 1} min={min} />
+            <UniversityRow key={s.id} s={s} rank={s.excludeFromComparison ? null : i + 1} min={min} />
           ))}
         </div>
       ) : (
