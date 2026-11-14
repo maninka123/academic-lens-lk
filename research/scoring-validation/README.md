@@ -64,6 +64,6 @@ MPLCONFIGDIR=/tmp/lanka-score-mpl /tmp/lanka-score-venv/bin/python -m unittest d
 
 **Outputs:** aggregate tables in `results/` and figures in `figures/`. The cross-check against the live scorer reports 3,651 profiles checked, 0 mismatches. Per-record scores are written only to `/tmp`.
 
-> **Restricted input.** The record-level file `data/snapshot.csv` is **not published**. It has no names, IDs or links, but institution, rank and metrics together could be matched to public profiles. Its SHA-256 is in [manifest.json](data/manifest.json).
+> **Restricted input.** The record-level file `data/snapshot.csv` is not published. It has no names, IDs or links, but institution, rank and metrics together could be matched to public profiles. Its SHA-256 is in `manifest.json`.
 >
-> **Reproducibility limit:** without that file you can read and test the scripts and see every aggregate result, but cannot rerun the pipeline end to end. A researcher with a legitimate need can request it from the maintainer. `snapshot.py` cannot rebuild it from a clean checkout, because the public data had uncommitted changes when it was captured.
+> **Reproducibility limit:** Without that file, the scripts and aggregate results can be examined, but the full pipeline cannot be rerun. Researchers may request access from the maintainer, subject to privacy considerations. The snapshot includes uncommitted changes from the time it was captured.

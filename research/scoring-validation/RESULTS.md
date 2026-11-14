@@ -4,9 +4,23 @@ Snapshot **partial-e191f13547**, 3,651 application-eligible Sri Lankan records; 
 
 ## Coverage and quality
 
-2,535 profiles received a score: 2,368 standard and 167 indicative. 1,116 were not scored. Of scores, 2,121 use three indicators, 375 use two, and 39 use one. On input, 2,172 records had all three indicators, 1,116 had none, and 1,065 satisfied the application's broad identity proxy.
-1,748 profiles have an unmapped field and 280 have an unknown or other stage. Among scored profiles, 1,296 used field × stage, 1,109 stage alone, 74 field across stages, and 56 the full collection. Mixed-provider fallback was used for 0 scores. A field × stage label is not proof of scientific comparability.
-Across the full public input before exclusions: 0 duplicate ID keys, 10 repeated preferred research-profile keys, and 2 repeated normalized-name/institution keys. These are candidate issues, not confirmed duplicate people: multi-affiliations and same names are possible. Some records lack profile links, so these checks cannot rule out duplicates.
+**Scores**
+- 2,535 profiles scored: 2,368 standard, 167 indicative. 1,116 not scored.
+- Indicators behind each score: three for 2,121, two for 375, one for 39.
+
+**Input data**
+- All three indicators present: 2,172 records. None: 1,116.
+- Pass the app's broad identity proxy: 1,065.
+- No mapped field: 1,748. Unknown or other stage: 280.
+
+**Peer group used for scored profiles**
+- Field × stage: 1,296. Stage only: 1,109. Field across stages: 74. Full collection: 56.
+- Mixed-provider fallback: 0 scores.
+- A field × stage label does not prove scientific comparability.
+
+**Possible duplicates** (candidates, not confirmed people)
+- Repeated IDs: 0. Repeated research-profile keys: 10. Repeated name + institution keys: 2.
+- Multi-affiliations and shared names are possible; records without profile links cannot be checked.
 
 ![Data availability and scored distribution](figures/availability-and-scores.png)
 *Figure 1. Number of available input indicators (all eligible profiles) and distribution of rounded scores among scored profiles. Zero is a recorded value, not missing.*
