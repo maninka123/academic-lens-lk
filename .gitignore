@@ -81,3 +81,6 @@ scripts/scholar_scraper/scholar_output/
 
 # Third-party reference screenshots from design extraction (local only)
 design-system/source/
+
+# Study record-level input (pseudonymised, not published)
+research/scoring-validation/data/snapshot.csv
