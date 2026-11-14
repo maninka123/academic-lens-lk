@@ -850,40 +850,37 @@ export function Global() {
             </option>
           </Select>
         </label>
-        <details className="global-options">
-          <summary>More options</summary>
-          <div>
-            <label className="field">
-              Comparison
-              <Select
-                aria-label="Comparison provider"
-                value={mode}
-                onChange={(e) => setMode(e.target.value as typeof mode)}
-              >
-                <option value="likeForLike">
-                  Like-for-like (OpenAlex both sides)
-                </option>
-                <option value="exploratory">Exploratory: mixed providers</option>
-              </Select>
-            </label>
-            <label className="check">
-              <input
-                type="checkbox"
-                checked={includeProxy}
-                onChange={(e) => setIncludeProxy(e.target.checked)}
-              />{" "}
-              Include proxy units ({view.proxies.length})
-            </label>
-            <label className="check">
-              <input
-                type="checkbox"
-                checked={log}
-                onChange={(e) => setLog(e.target.checked)}
-              />{" "}
-              Log scale
-            </label>
-          </div>
-        </details>
+        <label className="field">
+          Comparison
+          <Select
+            aria-label="Comparison provider"
+            value={mode}
+            onChange={(e) => setMode(e.target.value as typeof mode)}
+          >
+            <option value="likeForLike">
+              Like-for-like (OpenAlex both sides)
+            </option>
+            <option value="exploratory">Exploratory: mixed providers</option>
+          </Select>
+        </label>
+        <div className="global-checks">
+          <label className="check">
+            <input
+              type="checkbox"
+              checked={includeProxy}
+              onChange={(e) => setIncludeProxy(e.target.checked)}
+            />{" "}
+            Include proxy units ({view.proxies.length})
+          </label>
+          <label className="check">
+            <input
+              type="checkbox"
+              checked={log}
+              onChange={(e) => setLog(e.target.checked)}
+            />{" "}
+            Log scale
+          </label>
+        </div>
       </div>
       {(includeProxy || log) && (
         <p className="chart-note">

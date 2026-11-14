@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Database, ShieldCheck, Globe2, Gauge, TriangleAlert, type LucideIcon } from "lucide-react";
 import { useData, comparableUniversities } from "../data/context";
 import { InstitutionNotice } from "../components/InstitutionNotice";
 import { filterAcademics, completeness } from "../analytics/engine";
@@ -28,14 +29,19 @@ const PUBLIC_DOWNLOADS = [
 
 function Section({
   title,
+  icon: Icon,
   children,
 }: {
   title: string;
+  icon: LucideIcon;
   children: ReactNode;
 }) {
   return (
     <div className="method-section">
-      <h3>{title}</h3>
+      <h3>
+        <span className="method-icon" aria-hidden="true"><Icon size={16} /></span>
+        {title}
+      </h3>
       {children}
     </div>
   );
@@ -188,39 +194,41 @@ export function Methodology() {
       </Card>
       <Card title="Research methodology">
         <div className="method-sections concise-methods">
-          <Section title="Scope & collection">
+          <Section title="Scope & collection" icon={Database}>
             <ul>
-              <li>14 Sri Lankan institutions in scope; public and non-state shown separately.</li>
-              <li>Official staff directories and profiles, with source links and dates. Coverage is partial.</li>
-              <li>Published names and qualifications are retained; confirmed duplicates use stable ID aliases.</li>
+              <li><b>14</b> Sri Lankan institutions; public and non-state shown separately</li>
+              <li><b>Official</b> staff pages only, with source links and dates</li>
+              <li><b>Partial</b> coverage; confirmed duplicates share one ID</li>
             </ul>
           </Section>
-          <Section title="Verification">
+          <Section title="Verification" icon={ShieldCheck}>
             <ul>
-              <li>Research identity: linked from an official university page. Ambiguous OpenAlex matches stay blank.</li>
-              <li>Employment: an official source must state a permanent or emeritus appointment.</li>
-              <li>Completed PhDs need explicit evidence. Titles alone do not count; conflicting records need review.</li>
+              <li><b>Identity:</b> research profile linked from an official page; unclear matches stay blank</li>
+              <li><b>Employment:</b> official source must state permanent or emeritus</li>
+              <li><b>PhD:</b> explicit evidence needed; a title alone does not count</li>
             </ul>
           </Section>
-          <Section title="Sources & benchmarks">
+          <Section title="Sources & benchmarks" icon={Globe2}>
             <ul>
-              <li>Google Scholar, ResearchGate and OpenAlex. Primary comparisons use one provider at a time.</li>
-              <li>International sample: seven countries, three QS 2027 tiers, Computer Science, Physics, Medicine, Engineering, Law, Management and Business; up to 25 people per department. The five newer disciplines currently cover selected Stanford and McGill units, with uneven country and tier coverage. The newer profiles require official ORCID or publication corroboration and subject consistency checks before OpenAlex metrics are included; unresolved identities remain blank. Future appointments are excluded from current-staff benchmarks.</li>
-              <li>Substitute disciplines are flagged and excluded by default.</li>
+              <li><b>Metrics:</b> Google Scholar, ResearchGate, OpenAlex, one provider at a time</li>
+              <li><b>International:</b> 7 countries, 3 QS 2027 tiers, up to 25 people per department</li>
+              <li><b>Newer disciplines</b> (Medicine, Engineering, Law, Management, Business) cover selected units only</li>
+              <li>Unverified identities stay blank; substitute disciplines are flagged and excluded by default</li>
             </ul>
           </Section>
-          <Section title="Research standing score">
+          <Section title="Research standing score" icon={Gauge}>
             <ul>
-              <li>0–100%: where a person sits among comparable collected profiles. 50% is typical.</li>
-              <li>Peers: same career stage and discipline, same data source. Blend: h-index 40%, citations 2021–2025 35%, publications 25%.</li>
-              <li>Missing measures are skipped, never zero. Thin data gives a labelled indicative score. Click any score for the full calculation.</li>
+              <li><b>0–100:</b> position among comparable collected profiles</li>
+              <li><b>Peers:</b> same career stage, discipline and data source</li>
+              <li><b>Blend:</b> h-index 40%, citations 2021–2025 35%, publications 25%</li>
+              <li>Missing measures are skipped; thin data is labelled indicative</li>
             </ul>
           </Section>
-          <Section title="Read results with care">
+          <Section title="Read results with care" icon={TriangleAlert}>
             <ul>
-              <li>Missing values are not zero. Coverage below {WEAK_COVERAGE}% is flagged.</li>
-              <li>Public research profiles may over-represent research-active staff.</li>
-              <li>Citations and the standing score do not measure overall academic or teaching quality.</li>
+              <li>Missing is never zero; coverage below {WEAK_COVERAGE}% is flagged</li>
+              <li>Public profiles may over-represent research-active staff</li>
+              <li>Scores do not measure teaching or overall quality</li>
             </ul>
           </Section>
         </div>

@@ -1,7 +1,9 @@
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Academic, NumericMetric } from "../types";
 import { Chart } from "./Chart";
-import { fmt } from "./common";
+import { LayoutGrid } from "lucide-react";
+import { facultyIcon } from "./unit-icons";
+import { Card, fmt } from "./common";
 import { Select } from "./ui/select";
 import { useAtlas } from "../store";
 import { groupRows, summary } from "../analytics/engine";
@@ -33,7 +35,45 @@ const pct = (n: number, d: number) => (d ? (100 * n) / d : 0);
  * Plots shown above a unit's table. With several sub-units (faculties of a university, departments of a
  * faculty) it compares them; with a single department it summarises that department.
  */
-export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "faculty" | "department"; minN: number }) {
+export function facultyOptions(rows: Academic[]) {
+  const m = new Map<string, string>();
+  for (const a of rows) if (a.facultyId && !m.has(a.facultyId)) m.set(a.facultyId, a.faculty);
+  return [...m].sort((a, b) => a[1].localeCompare(b[1]));
+}
+
+/** Faculty dropdown shared by the overview and the table; both read and write the same value. */
+export function FacultySelect({ rows, value, onChange }: { rows: Academic[]; value: string; onChange: (v: string) => void }) {
+  const faculties = useMemo(() => facultyOptions(rows), [rows]);
+  if (faculties.length < 2) return null;
+  return (
+    <label className="field unit-focus">
+      <span className="sr-only">Faculty</span>
+      <Select aria-label="Faculty" value={faculties.some(([id]) => id === value) ? value : "all"} onChange={(e) => onChange(e.target.value)}>
+        <option value="all"><LayoutGrid className="opt-icon" size={16} aria-hidden="true" /><span>All faculties</span></option>
+        {faculties.map(([id, name]) => {
+          const { Icon } = facultyIcon(name);
+          return (
+            <option key={id} value={id}><Icon className="opt-icon" size={16} aria-hidden="true" /><span>{name}</span></option>
+          );
+        })}
+      </Select>
+    </label>
+  );
+}
+
+export function UnitOverviewCard({
+  rows, title, subtitle, minN, focus, onFocus,
+}: { rows: Academic[]; title: string; subtitle: string; minN: number; focus: string; onFocus: (v: string) => void }) {
+  const picked = rows.some((a) => a.facultyId === focus) ? focus : "all";
+  const shown = picked === "all" ? rows : rows.filter((a) => a.facultyId === picked);
+  return (
+    <Card title={picked === "all" ? title : "Overview of departments"} subtitle={subtitle} action={<FacultySelect rows={rows} value={picked} onChange={onFocus} />}>
+      <UnitOverview rows={shown} level={picked === "all" ? "faculty" : "department"} minN={minN} overall={picked === "all" ? undefined : rows} />
+    </Card>
+  );
+}
+
+export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[]; level: "faculty" | "department"; minN: number; overall?: Academic[] }) {
   const theme = useAtlas((s) => s.theme);
   const bar = theme === "dark" ? "#8e9cff" : "#5d6cf0";
   const accent = theme === "dark" ? "#e4a73f" : "#e0a02e";
@@ -45,12 +85,12 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
     const grid = gridRef.current;
     if (!grid) return;
     const place = () => {
-      const first = grid.querySelector<HTMLElement>(".chart-wrap");
+      const first = grid.querySelector<HTMLElement>(".chart-wrap [role='img']");
       const n = Number(grid.dataset.n), h = Number(grid.dataset.h);
       if (!first || !n || !h) return;
-      const top = first.getBoundingClientRect().top - grid.getBoundingClientRect().top + 8;
+      const top = first.getBoundingClientRect().top - grid.getBoundingClientRect().top + 24;
       grid.style.setProperty("--gl-top", `${top}px`);
-      grid.style.setProperty("--gl-row", `${(h - 8 - 34) / n}px`);
+      grid.style.setProperty("--gl-row", `${(h - 24 - 34) / n}px`);
       grid.style.setProperty("--gl-n", String(n));
     };
     place();
@@ -61,7 +101,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
   const measure = MEASURES.find(([k]) => k === metric)![1];
   const statName = statistic === "median" ? "Median" : "Mean";
 
-  const scholar = useMemo(() => withProvider(rows, "Google Scholar").rows, [rows]);
+  const scholar = useMemo(() => withProvider(overall ?? rows, "Google Scholar").rows, [overall, rows]);
   const scholarById = useMemo(() => new Map(scholar.map((a) => [a.id, a])), [scholar]);
 
   const groups = useMemo(
@@ -95,11 +135,23 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
   };
 
   /* ---------- several sub-units: compare them ---------- */
+  const overallStat = overall ? stat(overall) : null;
+  const overallPhd = overall ? pct(overall.filter((a) => doctorateOf(a) === "completed_documented").length, overall.length) : null;
+  const marker = (v: number | null, text: string) =>
+    v === null
+      ? undefined
+      : {
+          silent: true,
+          symbol: "none",
+          lineStyle: { color: accent, type: "dashed", width: 1.5 },
+          label: { show: true, position: "start", distance: 4, formatter: text, color: theme === "dark" ? "#f1f3fa" : "#0b1020", fontSize: 12, fontWeight: 600 },
+          data: [{ xAxis: v }],
+        };
   const heightFor = Math.max(240, groups.length * 44 + 70);
   const stats = groups.map((g) => stat(g.rows));
   const metricOption = {
     tooltip: { trigger: "item", confine: true, formatter: (p: any) => metricTip(groups[p.dataIndex].label, groups[p.dataIndex].rows) },
-    grid: { left: 272, right: 56, top: 8, bottom: 34, containLabel: false },
+    grid: { left: 272, right: 56, top: 24, bottom: 34, containLabel: false },
     xAxis: { type: "value", name: `${statName} ${measure}`, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { opacity: 0.35 } } },
     yAxis: { type: "category", inverse: true, data: groups.map((g, i) => `${shortLabel(g.label)} (${stats[i].n}/${g.rows.length})`), axisLabel },
     series: [
@@ -111,6 +163,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
           itemStyle: { color: bar, opacity: stats[i].n < minN ? 0.55 : 1, decal: stats[i].n && stats[i].n < minN ? hatch : undefined },
         })),
         label: { show: true, position: "right", fontSize: 13, formatter: (p: any) => (p.value === null || p.value === undefined ? "no data" : fmt(p.value, 1)) },
+        markLine: marker(overallStat?.value ?? null, `All faculties ${overallStat?.value == null ? "" : fmt(overallStat.value, 1)}`),
       },
     ],
   };
@@ -133,7 +186,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
       },
     },
     legend: { show: false },
-    grid: { left: 8, right: 16, top: 8, bottom: 34, containLabel: false },
+    grid: { left: 8, right: 16, top: 24, bottom: 34, containLabel: false },
     xAxis: { type: "value", min: 0, max: 100, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.3 } } },
     yAxis: { type: "category", inverse: true, data: groups.map((g) => g.label), axisLabel: { show: false }, axisTick: { show: false } },
     series: POSITIONS.map((p, i) => ({
@@ -148,7 +201,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
   };
   const phdOption = {
     tooltip: { trigger: "item", confine: true, formatter: (p: any) => `${groups[p.dataIndex].label}<br/>Documented doctorate: <b>${Math.round(phdShare[p.dataIndex])}%</b> of ${groups[p.dataIndex].rows.length} profiles` },
-    grid: { left: 8, right: 44, top: 8, bottom: 34, containLabel: false },
+    grid: { left: 8, right: 44, top: 24, bottom: 34, containLabel: false },
     xAxis: { type: "value", min: 0, max: 100, interval: 50, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.3 } } },
     yAxis: { type: "category", inverse: true, data: groups.map((g) => g.label), axisLabel: { show: false }, axisTick: { show: false } },
     series: [
@@ -158,6 +211,7 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
         itemStyle: { color: "#1ea896" },
         data: phdShare,
         label: { show: true, position: "right", fontSize: 12, formatter: (q: any) => Math.round(q.value) + "%" },
+        markLine: marker(overallPhd, overallPhd === null ? "" : `All ${Math.round(overallPhd)}%`),
       },
     ],
   };
@@ -267,13 +321,9 @@ export function UnitOverview({ rows, level, minN }: { rows: Academic[]; level: "
   );
   const note = (
     <ul className="point-list caption unit-note">
-      <li>Research figures use Google Scholar only; people without a value are not counted, never treated as zero. Hatched bars rest on fewer than {minN} values.</li>
-      <li>Doctorates are counted only when documented on the profile; “not documented” does not mean no doctorate.</li>
+      <li>Google Scholar figures only. Missing values are left out, never zero. Hatched bars: under {minN} values.</li>
       {compare && stats.some((s) => s.n > 0) && stats.every((s) => s.n <= 2) && (
-        <li>Every {level} here has only one or two values, and with one or two values the mean and the median are the same number, so the bars do not change between them.</li>
-      )}
-      {compare && rows.length > groups.reduce((s, g) => s + g.rows.length, 0) && (
-        <li>{rows.length - groups.reduce((s, g) => s + g.rows.length, 0)} profiles without a named {level} are not shown.</li>
+        <li>Only one or two values per {level}, so mean and median are the same.</li>
       )}
     </ul>
   );
