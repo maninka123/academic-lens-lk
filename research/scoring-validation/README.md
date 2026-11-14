@@ -1,18 +1,41 @@
 # Research scoring: methodological evaluation
 
-**Status:** internal research study, 14 November 2026; not peer-reviewed, externally validated or endorsed. **Version:** evaluation 1.0; live score implementation at base commit `ab0ad8ac72d7d668b66331c938e166a528048fd4`. The input snapshot is `partial-e191f13547` and includes pre-existing uncommitted public data changes; its exact hashes are in [manifest.json](data/manifest.json).
+**Status:** ongoing methodological research · public working paper · not externally peer reviewed, validated or endorsed. **Version:** 1.0 (14 November 2026); live score implementation at base commit `ab0ad8ac72d7d668b66331c938e166a528048fd4`. The input snapshot is `partial-e191f13547` and includes pre-existing uncommitted public data changes; its exact hashes are in [manifest.json](data/manifest.json).
 
 ## Objective and questions
 
-This independent-of-implementation evaluation asks what the live composite actually calculates, how complete and comparable its inputs are, how sensitive scores are to weights and peer-group choices, and whether the evidence supports the intended interpretation. It aims to enable criticism and responsible interpretation, not to confirm predetermined results.
+**Questions asked**
 
-The live score averages same-provider midrank percentiles of h-index (40%), citations in 2021–2025 (35%) and publications (25%), with weights rescaled when measures are unavailable. It is **not the percentile of a composite score**, and it cannot measure overall academic quality. Its target is a limited position within collected bibliometric records, with broad and sometimes fallback peer groups. See [methodology](METHODOLOGY.md) for exact conditions.
+- What does the live score actually calculate?
+- How complete and comparable are its inputs?
+- How sensitive is it to weights and peer-group choices?
+- Does the evidence support the intended interpretation?
 
-The study is informed by the [Leiden Manifesto](REFERENCES.md), [DORA's quantitative-indicator guidance](REFERENCES.md), the [OECD/JRC handbook](REFERENCES.md), and bibliometric literature. They do not approve this implementation or its chosen weights. We compare named alternative weights and a simplex grid, provider and identity restrictions, completeness, field and stage definitions, minimum peer thresholds, winsorisation and a different tie convention. Calculations are cross-checked against the live scorer.
+The aim is to enable criticism and responsible interpretation, not to confirm a predetermined result.
+
+**The live score**
+
+- Weighted average of same-provider midrank percentiles: h-index (40%), citations 2021–2025 (35%), publications (25%). Weights are rescaled when a measure is missing.
+- It is **not** the percentile of a composite score, and it cannot measure overall academic quality.
+- It shows a limited position within collected bibliometric records, using broad and sometimes fallback peer groups. Exact conditions: [methodology](METHODOLOGY.md).
+
+**What we tested**
+
+- Named alternative weights and a simplex grid.
+- Provider and identity restrictions, and completeness.
+- Field and stage definitions, and minimum peer sizes.
+- Winsorisation and a different tie rule.
+- Results are cross-checked against the live scorer.
+
+**Informed by** the [Leiden Manifesto](REFERENCES.md), [DORA's quantitative-indicator guidance](REFERENCES.md), the [OECD/JRC handbook](REFERENCES.md) and bibliometric literature. None of them approves this implementation or its weights.
 
 ## Findings
 
-The snapshot contains 3,651 app-eligible profiles, of which 2,535 received a score. Field classification is missing for 1,748 profiles. The tested named weight alternatives have high overall rank correlation with the baseline but change 134–221 score bands and can shift individual scores by 8–15 points; wider grid changes can be larger. The indicators are strongly correlated. Broader peer grouping, identity restrictions and tie treatment also change scores and coverage. These findings are conditional on the collected sample and do not establish fair or valid individual assessment. The 40/35/25 weights remain an unvalidated assumption, and no optimal weights can be identified here.
+- **Coverage:** 3,651 eligible profiles, 2,535 scored. 1,748 profiles have no mapped field.
+- **Weights:** swapping in the four alternative weightings keeps overall ranks very similar, but changes 134–221 score bands and moves individual scores by up to 8–15 points. A wider weight grid moves some scores more.
+- **Overlap:** the three indicators are strongly correlated, so they partly count the same thing.
+- **Other choices matter too:** broader peer groups, identity restrictions and the tie rule all change scores and coverage.
+- **Conclusion:** the 40/35/25 weights remain an unvalidated assumption, and no optimal weighting can be identified from this data. The results hold for this collected sample and do not show the score is a fair or valid assessment of an individual.
 
 ### Key figures
 
@@ -63,6 +86,8 @@ MPLCONFIGDIR=/tmp/lanka-score-mpl /tmp/lanka-score-venv/bin/python research/scor
 MPLCONFIGDIR=/tmp/lanka-score-mpl /tmp/lanka-score-venv/bin/python -m unittest discover -s research/scoring-validation/tests
 ```
 
-The analysis generates aggregate JSON and CSV tables in `results/` and PNG figures in `figures/`; the TypeScript comparison writes per-record temporary scores only to `/tmp`, not the repository. A successful cross-check reports 3,651 checked and zero mismatches. `snapshot.py` can reconstruct the minimal input **only** if all current public input hashes match the manifest; it overwrites the snapshot and manifest and should not be run on newer data when reproducing this study. No raw source file is altered by analysis. Small groups in subgroup tables are suppressed; values and charts are not proof of individual validity.
+**Outputs:** aggregate tables in `results/` and figures in `figures/`. The cross-check against the live scorer reports 3,651 profiles checked, 0 mismatches. Per-record scores are written only to `/tmp`.
 
-**The record-level analysis input (`data/snapshot.csv`) is not published.** It is a pseudonymised extract (no names, IDs, links or emails), but combinations of institution, rank and metrics could be linked back to public profiles, so it is kept out of the repository (git-ignored; its SHA-256 is recorded in [manifest.json](data/manifest.json)). The published outputs are aggregates only: tables in `results/`, figures in `figures/`. To rerun the steps above you need that file placed at `data/snapshot.csv`; a researcher with a legitimate need can request it from the maintainer. A clean checkout of the base commit alone cannot reconstruct the input either, because the public data had uncommitted changes when it was captured; the hashes in the manifest are the provenance for this exact run.
+> **Restricted input.** The record-level file `data/snapshot.csv` is **not published**. It has no names, IDs or links, but institution, rank and metrics together could be matched to public profiles. Its SHA-256 is in [manifest.json](data/manifest.json).
+>
+> **Reproducibility limit:** without that file you can read and test the scripts and see every aggregate result, but cannot rerun the pipeline end to end. A researcher with a legitimate need can request it from the maintainer. `snapshot.py` cannot rebuild it from a clean checkout, because the public data had uncommitted changes when it was captured.

@@ -1,6 +1,6 @@
 # Limitations
 
-- This is an internal methodological investigation, not peer review or external validation. Leiden, DORA and OECD/JRC do not certify or endorse this model or its weights.
+- This is a public working paper by the project maintainer, not peer review or external validation. Leiden, DORA and OECD/JRC do not certify or endorse this model or its weights.
 - The dataset is a partial, nonrandom collection of Sri Lankan profiles. It does not represent the full national academic population; results are not national estimates. The international benchmark is not the peer universe of the scored application panels, so it is excluded from these tests.
 - Public records can contain duplicates, identity mismatches, incorrect metrics, stale employment, incomplete qualifications, heterogeneous years and provider-specific gaps. A platform link or accepted OpenAlex match does not independently verify the values. We count candidate duplicates but do not assert actual duplicates.
 - The record-level analysis input is **pseudonymised, not anonymous**, so it is not published; only aggregate tables and figures are. This limits independent exact reproduction: the input must be requested from the maintainer. Small aggregate groups are suppressed in breakdown CSVs.

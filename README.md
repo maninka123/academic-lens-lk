@@ -13,7 +13,7 @@
 </div>
 
 <!-- dataset-summary:start -->
-<!-- Snapshot partial-18e14cdacc -->
+<!-- Snapshot partial-e191f13547 -->
 **3,656 Sri Lankan profiles | 15 institutions | 1,740 international benchmark profiles.** Partial collection, updated 2026-11-14. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
@@ -58,7 +58,6 @@ Light theme shown. Every page and popup also has a dark theme (Appearance switch
 | `scripts/` | Data import, metric collection (OpenAlex, Google Scholar) and checks |
 | `tests/` | Browser tests |
 | `docs/` | Guides and policies; legal notices are in `docs/legal/` |
-| `research/scoring-validation/` | Methodological evaluation of the research score: [study](research/scoring-validation/README.md) |
 | `reports/` | Generated coverage and validation reports |
 | `private/` | Local only, never committed (API keys, ethics documents) |
 
@@ -79,10 +78,6 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 | End-to-end tests | `npm run test:e2e` |
 
 
-## Design system
-
-The interface is built from one set of design tokens (colour, type, spacing, radius, shadow, motion) so every page, chart and dialog looks the same in light and dark. [DESIGN.md](DESIGN.md) is the reference; tokens live in `design-system/` and are loaded through `src/styles/`. Change a value in `design-system/roles.json`, rebuild the tokens, and the whole app follows. The first-visit data-use notice (with its agree checkbox) is part of the design and is kept.
-
 ## How the data works
 
 - **Missing stays missing.** An unknown value is never treated as zero.
@@ -93,6 +88,12 @@ The interface is built from one set of design tokens (colour, type, spacing, rad
 - **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
 
 More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md)
+
+## Research score methodology
+
+The [research standing score](docs/STANDING_SCORE.md) is a descriptive weighted blend of bibliometric percentiles, not a combined percentile or an assessment of academic quality. Its methodology is informed by the Leiden Manifesto, DORA's guidance on quantitative indicators, and the OECD/JRC handbook on composite indicators; none endorses the project or its weights. An ongoing [methodological evaluation](research/scoring-validation/README.md) and its [results](research/scoring-validation/RESULTS.md) examine coverage, sensitivity and limitations.
+
+**3,656 vs 3,651:** 3,656 is every Sri Lankan profile in the dataset; the study's fixed snapshot counted 3,651 eligible for comparison, of which 2,535 were scored.
 
 ## Global benchmark method
 
@@ -145,7 +146,3 @@ Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-
 | **Ethics and data statement** | [ETHICS_AND_DATA.md](docs/legal/ETHICS_AND_DATA.md) |
 
 Copyright (c) 2026 Pasindu Ranasinghe.
-
-## Research score methodology
-
-The [research standing score](docs/STANDING_SCORE.md) is a descriptive weighted blend of bibliometric percentiles, not an assessment of overall academic quality. Its methodology is informed by the Leiden Manifesto, DORA's guidance on quantitative indicators, and the OECD/JRC handbook on composite indicators; none endorses the project or its weights. An ongoing [methodological evaluation](research/scoring-validation/README.md) and its [results](research/scoring-validation/RESULTS.md) examine coverage, sensitivity and limitations.

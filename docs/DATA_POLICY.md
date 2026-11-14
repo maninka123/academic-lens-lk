@@ -2,7 +2,7 @@
 
 ## What is published
 
-The website is static. Although the repository is private, the deployed site and every file under `public/data/` (copied to `dist/data/`) can be read by anyone with the link. Only the files and columns listed in [`scripts/public-assets.mjs`](../scripts/public-assets.mjs) are published:
+The website is static. The repository is public, and the deployed site and every file under `public/data/` (copied to `dist/data/`) can be read by anyone with the link. Only the files and columns listed in [`scripts/public-assets.mjs`](../scripts/public-assets.mjs) are published:
 
 | File | Content |
 |---|---|
@@ -14,7 +14,7 @@ The website is static. Although the repository is private, the deployed site and
 | `international/*` | International benchmark samples, benchmark universities and departments, and matched OpenAlex values for Sri Lankan academics |
 | `world.geo.json` | Natural Earth boundaries (world-atlas) |
 
-**Kept private** (in `Data files/`, never published): identity review and duplicate records, employment and unit reviews, unresolved research searches, research identity evidence, field-level evidence and correction logs (`field_evidence.csv`, `missing_field_resolutions.csv`, `change_log.csv`), profile verification logs, access issues, source page logs, collection notes and handoff reports.
+**Internal evidence and review files** (identity and employment reviews, unresolved searches, correction logs such as `change_log.csv`, collection notes) are not published on the website. Several are still tracked in the public repository and its history; moving them to private storage is planned. Until then, treat them as publicly readable.
 
 ### Automated safeguards
 
