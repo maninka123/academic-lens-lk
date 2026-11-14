@@ -98,6 +98,7 @@ export function ScoreStamp({
             {CONFIDENCE_TEXT[result.confidence!]}
           </span>
         )}
+        {scored && <span className="score-note">Position among collected profiles, not a quality rating.</span>}
         <button type="button" className="score-info" onClick={onOpen}>
           <Info size={14} aria-hidden="true" />
           How it’s calculated

@@ -71,7 +71,7 @@ export function Academics() {
         <div><strong>{fmt(rows.length)}</strong><span>profiles shown</span></div>
         <div><strong>{pct(withPhd)}</strong><span>with a documented PhD</span></div>
         <div><strong>{pct(withMetrics)}</strong><span>with citation counts</span></div>
-        <div><strong>{new Set(rows.map((a) => a.universityId)).size}</strong><span>universities</span></div>
+        <div><strong>{new Set(rows.map((a) => a.universityId)).size}</strong><span>institutions</span></div>
       </section>
       {chosen.length > 0 && (
         <SideBySide
@@ -371,7 +371,7 @@ export function Profile() {
           </div>
         ))}
       </section>
-      <ResearchProfiles academic={a} />
+      <ResearchProfiles academic={a} snapshot={d.metadata} />
       </section>
       {a.caution && (
         <div className="profile-caution" role="note">
@@ -732,7 +732,7 @@ export function Institution() {
       />
       <Card
         title="Research metrics"
-        subtitle="Collected profiles in this unit. Each median uses a single bibliometric provider; groups below the minimum sample are not reported."
+        subtitle={`Median of collected profiles, one source per metric. Under ${d.metadata.minimumSample || MIN_SAMPLE} values: not reported.`}
       >
         <MetricSummaryTable
           rows={rows}

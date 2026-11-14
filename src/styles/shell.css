@@ -27,6 +27,7 @@
 .sidebar nav a:hover { background: color-mix(in srgb, #fff 6%, transparent); color: var(--color-sidebar-heading); text-decoration: none; }
 .sidebar nav a.active { background: var(--color-sidebar-active); color: var(--color-sidebar-heading); }
 .sidebar nav a.active::before { content: ""; position: absolute; left: -12px; top: 9px; bottom: 9px; width: 2px; border-radius: 2px; background: var(--color-primary); }
+.sidebar nav .nav-sep { display: block; height: 1px; margin: var(--space-2) var(--space-3); background: var(--color-sidebar-border); }
 .sidebar nav a svg { opacity: 0.85; }
 .sidebar nav a.active svg { opacity: 1; color: #aab6ff; }
 .sidebar nav b { margin-left: auto; min-width: 20px; height: 20px; padding: 0 6px; display: inline-grid; place-items: center; border-radius: 10px; background: var(--color-primary); color: var(--color-primary-foreground); font-size: 11.5px; font-weight: 590; }

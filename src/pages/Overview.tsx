@@ -61,8 +61,7 @@ export function Overview() {
           <div className="eyebrow">Sri Lanka | Academic research</div>
           <h1>Sri Lanka’s academic landscape.</h1>
           <p>
-            A research atlas of academics at {universities.length} institutions: their qualifications, positions and
-            public research records, drawn from published staff lists.
+            Explore Sri Lanka’s academic landscape through qualifications, research output and institutional insights, drawn from publicly available sources.
           </p>
           <div className="hero-actions">
             <Button onClick={() => nav("/universities")}>
@@ -192,9 +191,8 @@ export function Overview() {
           <div className="eyebrow">Research</div>
           <h2>Research output and international context</h2>
           <p>
-            Output varies with seniority, discipline and how much of a person’s record is public. Read these as
-            descriptions of the collected profiles, not as judgements of quality.
-            {summary ? ` Benchmarks sample ${fmt(summary.internationalBenchmarks.academics)} academics at ${summary.internationalBenchmarks.universities} overseas universities.` : ""}
+            Descriptions of the collected profiles, not judgements of quality.
+            {summary ? ` Benchmarks: ${fmt(summary.internationalBenchmarks.academics)} academics at ${summary.internationalBenchmarks.universities} overseas universities.` : ""}
           </p>
         </header>
         <StandardsOverview />

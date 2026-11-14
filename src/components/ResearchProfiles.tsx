@@ -65,8 +65,11 @@ const statusTone = (status?: string) =>
       ? "review"
       : "recorded";
 
-export function ResearchProfiles({ academic }: { academic: Academic }) {
+export function ResearchProfiles({ academic, snapshot }: { academic: Academic; snapshot?: { version: string; collectionDate: string } }) {
   const links = researchProfileLinks(academic);
+  const report =
+    "https://github.com/maninka123/academic-lens-lk/issues/new?template=correction-or-removal.yml&title=" +
+    encodeURIComponent("[Correction/Removal] " + academic.id);
   return (
     <section className="dossier-sources" aria-label="Sources">
       <h2>Sources</h2>
@@ -101,6 +104,14 @@ export function ResearchProfiles({ academic }: { academic: Academic }) {
           ),
         )}
       </div>
+      {snapshot && (
+        <p className="source-foot">
+          Snapshot {snapshot.version}, collected {snapshot.collectionDate}.{" "}
+          <a href={report} target="_blank" rel="noopener noreferrer">
+            Report an error or request removal <ExternalLink size={12} aria-hidden="true" />
+          </a>
+        </p>
+      )}
     </section>
   );
 }

@@ -10,7 +10,7 @@
 .section-heading > div { min-width: 0; flex: 1; }
 @media (max-width: 760px) { .section-heading { flex-wrap: wrap; } .section-heading > div:last-child:not(:first-child) { flex: 1 1 100%; } }
 .section-heading h2 { font-size: 22px; line-height: 1.2; letter-spacing: -0.014em; }
-.section-heading p { margin-top: 6px; font-size: 13.5px; line-height: 1.5; max-width: 70ch; }
+.section-heading p { margin-top: 6px; font-size: 13.5px; line-height: 1.5; max-width: 110ch; }
 .section-heading:has(.chart-scale-toggle) { flex-wrap: wrap; }
 .dialog-content .section-heading h2, .dialog-content [role="heading"], .dialog-content > .section-heading > h2 { font-size: 20px; }
 

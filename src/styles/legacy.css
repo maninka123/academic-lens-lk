@@ -574,7 +574,7 @@ footer {
 .origin-split-card .os-bar u { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 7px; align-items: center; padding: 8px 12px; min-width: 0; color: #fff; overflow: hidden; }
 .origin-split-card .os-bar u svg { grid-row: span 2; }
 .origin-split-card .os-bar u b { font-size: 1.15rem; line-height: 1.1; font-weight: 590; }
-.origin-split-card .os-bar u small { font-size: .75rem; color: rgba(255,255,255,.92); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; grid-column: 2; }
+.origin-split-card .os-bar u small { font-size: .75rem; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; grid-column: 2; }
 .origin-split-card .os-bar .lk { border-radius: var(--radius-lg) var(--radius-xs) var(--radius-xs) var(--radius-lg); }
 .origin-split-card .os-bar .ov { border-radius: var(--radius-xs) var(--radius-lg) var(--radius-lg) var(--radius-xs); }
 .origin-split-card .os-bar u { flex: 0 1 auto; min-width: 118px; box-sizing: border-box; }

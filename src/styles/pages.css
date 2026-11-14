@@ -67,7 +67,7 @@
 .fact small { font-size: 12.5px; }
 
 .overview-block { margin-top: var(--space-10, 40px); }
-.block-head { max-width: 72ch; margin-bottom: var(--space-4); }
+.block-head { max-width: none; margin-bottom: var(--space-4); }
 .block-head h2 { font-size: 30px; }
 .block-head p { margin-top: var(--space-3); font-size: 14.5px; line-height: 1.55; }
 .overview-block > .card { margin-top: var(--space-4); }
@@ -311,7 +311,9 @@ details[open] > summary::after { content: "–" !important; }
 .pos-key small { display: none; }
 .pos-grid-even { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); row-gap: var(--space-6); }
 .unit-grid3 { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.15fr) minmax(0, 0.6fr); gap: 4px var(--space-5); align-items: start; position: relative; }
-.unit-grid3 .pos-head { height: 80px; min-height: 80px; align-content: flex-start; align-items: flex-start; }
+.unit-grid3 .pos-head { height: 56px; min-height: 56px; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; align-items: flex-start; gap: var(--space-2); }
+.unit-grid3 .pos-key { flex-wrap: nowrap; gap: 4px 10px; }
+.unit-grid3 .pos-key li { font-size: 12px; gap: 5px; white-space: nowrap; }
 .unit-grid3 .chart-wrap, .unit-grid3 .chart-body { position: static; }
 .unit-focus { min-width: 14rem; max-width: 100%; }
 .unit-focus option, .unit-focus selectedcontent { display: flex; align-items: center; gap: var(--space-2); }
@@ -367,6 +369,9 @@ details[open] > summary::after { content: "–" !important; }
 .score-sub { font-size: 12.5px; color: var(--color-text-muted); }
 .score-tag { padding: 1px 7px; border-radius: var(--radius-full); background: color-mix(in srgb, var(--color-warning) 12%, transparent); color: color-mix(in srgb, var(--color-warning) 85%, var(--color-heading)); font-size: 11.5px; font-weight: 510; }
 .score-conf { font-size: 12px; color: var(--color-text-muted); }
+.score-note { font-size: 12px; line-height: 1.4; color: var(--color-text-muted); max-width: 22ch; }
+.source-foot { margin: var(--space-3) 0 0; font-size: 12.5px; color: var(--color-text-muted); }
+.source-foot a { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 .score-info { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; padding: 0; border: 0; background: none; color: var(--color-link); font-size: 12.5px; font-weight: 510; white-space: nowrap; }
 .score-info:hover { text-decoration: underline; }
 .score-stamp.unscored .score-ring-value { color: var(--color-text-muted); }

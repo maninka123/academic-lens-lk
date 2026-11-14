@@ -86,11 +86,11 @@ export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[];
     if (!grid) return;
     const place = () => {
       const first = grid.querySelector<HTMLElement>(".chart-wrap [role='img']");
-      const n = Number(grid.dataset.n), h = Number(grid.dataset.h);
+      const n = Number(grid.dataset.n), h = Number(grid.dataset.h), gt = Number(grid.dataset.top ?? 8);
       if (!first || !n || !h) return;
-      const top = first.getBoundingClientRect().top - grid.getBoundingClientRect().top + 24;
+      const top = first.getBoundingClientRect().top - grid.getBoundingClientRect().top + gt;
       grid.style.setProperty("--gl-top", `${top}px`);
-      grid.style.setProperty("--gl-row", `${(h - 24 - 34) / n}px`);
+      grid.style.setProperty("--gl-row", `${(h - gt - 46) / n}px`);
       grid.style.setProperty("--gl-n", String(n));
     };
     place();
@@ -135,6 +135,7 @@ export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[];
   };
 
   /* ---------- several sub-units: compare them ---------- */
+  const gridTop = overall ? 24 : 8;
   const overallStat = overall ? stat(overall) : null;
   const overallPhd = overall ? pct(overall.filter((a) => doctorateOf(a) === "completed_documented").length, overall.length) : null;
   const marker = (v: number | null, text: string) =>
@@ -151,8 +152,8 @@ export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[];
   const stats = groups.map((g) => stat(g.rows));
   const metricOption = {
     tooltip: { trigger: "item", confine: true, formatter: (p: any) => metricTip(groups[p.dataIndex].label, groups[p.dataIndex].rows) },
-    grid: { left: 272, right: 56, top: 24, bottom: 34, containLabel: false },
-    xAxis: { type: "value", name: `${statName} ${measure}`, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { opacity: 0.35 } } },
+    grid: { left: 272, right: 56, top: gridTop, bottom: 46, containLabel: false },
+    xAxis: { type: "value", name: `${statName} ${measure}`, nameLocation: "middle", nameGap: 34, axisLabel: { margin: 12 }, splitLine: { lineStyle: { opacity: 0.35 } } },
     yAxis: { type: "category", inverse: true, data: groups.map((g, i) => `${shortLabel(g.label)} (${stats[i].n}/${g.rows.length})`), axisLabel },
     series: [
       {
@@ -186,8 +187,8 @@ export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[];
       },
     },
     legend: { show: false },
-    grid: { left: 8, right: 16, top: 24, bottom: 34, containLabel: false },
-    xAxis: { type: "value", min: 0, max: 100, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.3 } } },
+    grid: { left: 8, right: 16, top: gridTop, bottom: 46, containLabel: false },
+    xAxis: { type: "value", min: 0, max: 100, axisLabel: { formatter: "{value}%", margin: 12 }, splitLine: { lineStyle: { opacity: 0.3 } } },
     yAxis: { type: "category", inverse: true, data: groups.map((g) => g.label), axisLabel: { show: false }, axisTick: { show: false } },
     series: POSITIONS.map((p, i) => ({
       type: "bar",
@@ -201,8 +202,8 @@ export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[];
   };
   const phdOption = {
     tooltip: { trigger: "item", confine: true, formatter: (p: any) => `${groups[p.dataIndex].label}<br/>Documented doctorate: <b>${Math.round(phdShare[p.dataIndex])}%</b> of ${groups[p.dataIndex].rows.length} profiles` },
-    grid: { left: 8, right: 44, top: 24, bottom: 34, containLabel: false },
-    xAxis: { type: "value", min: 0, max: 100, interval: 50, axisLabel: { formatter: "{value}%" }, splitLine: { lineStyle: { opacity: 0.3 } } },
+    grid: { left: 8, right: 44, top: gridTop, bottom: 46, containLabel: false },
+    xAxis: { type: "value", min: 0, max: 100, interval: 50, axisLabel: { formatter: "{value}%", margin: 12 }, splitLine: { lineStyle: { opacity: 0.3 } } },
     yAxis: { type: "category", inverse: true, data: groups.map((g) => g.label), axisLabel: { show: false }, axisTick: { show: false } },
     series: [
       {
@@ -333,7 +334,7 @@ export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[];
     return (
       <>
         {controls}
-        <div className="unit-grid3" ref={gridRef} data-n={groups.length} data-h={heightFor}>
+        <div className="unit-grid3" ref={gridRef} data-n={groups.length} data-h={heightFor} data-top={gridTop}>
           <div className="pos-col">
             <div className="pos-head"><h3 className="pos-sub">{statName} {measure}</h3></div>
             <Chart option={metricOption} height={heightFor} label={`${statName} ${measure} for each ${level}`} />

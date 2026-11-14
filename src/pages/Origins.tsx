@@ -395,7 +395,7 @@ export function Origins() {
         <Stat
           label="Awarding country known"
           value={pct(known.length, documented.length)}
-          detail={`${known.length} of ${documented.length} | ${known.filter((a) => a.phdCountryInferred).length} inferred from university name`}
+          detail={`${fmt(known.length)} of ${fmt(documented.length)} | ${fmt(known.filter((a) => a.phdCountryInferred).length)} inferred from university name`}
         />
         <Stat
           label="Awarding institution known"
@@ -403,7 +403,7 @@ export function Origins() {
             documented.filter((a) => a.phdUniversity).length,
             documented.length,
           )}
-          detail={`${documented.filter((a) => a.phdUniversity).length} of ${documented.length}`}
+          detail={`${fmt(documented.filter((a) => a.phdUniversity).length)} of ${fmt(documented.length)}`}
         />
         <div className="stat origin-split-card" style={{ "--lk": col.lk, "--ov": col.overseas } as React.CSSProperties}>
           <span className="os-label"><Globe2 size={16} aria-hidden="true" /><em>Sri Lanka vs overseas</em></span>
@@ -429,7 +429,7 @@ export function Origins() {
       <div className="status-strip" aria-label="Doctorate status">
         {Object.entries(statusLabel).map(([k, l]) => (
           <span key={k}>
-            <b>{statusCounts[k] || 0}</b> {l}
+            <b>{fmt(statusCounts[k] || 0)}</b> {l}
           </span>
         ))}
         <details>

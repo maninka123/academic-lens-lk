@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { PreviewBadge } from "./components/PreviewBadge";
 import {
   HashRouter,
@@ -183,13 +183,16 @@ function Shell() {
         <div className="nav-caption">Explore</div>
         <nav>
           {routes.map(([path, label, Icon]) => (
-            <NavLink key={path} to={path} end={path === "/"}>
+            <Fragment key={path}>
+            {path === "/methodology" && <span className="nav-sep" aria-hidden="true" />}
+            <NavLink to={path} end={path === "/"}>
               <Icon size={17} strokeWidth={1.6} aria-hidden="true" />
               <span>{label}</span>
               {path === "/compare" && pinned.length > 0 && (
                 <b>{pinned.length}</b>
               )}
             </NavLink>
+            </Fragment>
           ))}
         </nav>
         <div className="sidebar-bottom">
@@ -263,7 +266,7 @@ function Shell() {
               <GlobalFilterButton />
             </DataContext.Provider>
           )}
-          <span className="data-badge">
+          <span className="data-badge" title={data ? "Dataset snapshot " + data.metadata.version : undefined}>
             <span className="status-dot" />
             {(data?.metadata.updatedAt || data?.metadata.collectionDate)
               ? "Data updated " +

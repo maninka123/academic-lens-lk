@@ -78,7 +78,7 @@ export function StandardsOverview() {
   return (
     <Card
       title="Standards by position"
-      subtitle="How the typical h-index or citation count for each seniority differs between universities. Public and non-state shown separately."
+      subtitle="Typical h-index or citations by seniority, per university."
     >
       <div className="std-controls">
         <div className="chip-group" role="group" aria-label="Measure">
