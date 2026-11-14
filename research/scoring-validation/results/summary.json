@@ -1,0 +1,704 @@
+{
+  "correlations": [
+    {
+      "a": "hIndex",
+      "b": "recentCitations",
+      "kendall_tau_b": 0.7289,
+      "n": 2425,
+      "spearman": 0.8571
+    },
+    {
+      "a": "hIndex",
+      "b": "publications",
+      "kendall_tau_b": 0.7208,
+      "n": 2174,
+      "spearman": 0.8703
+    },
+    {
+      "a": "recentCitations",
+      "b": "publications",
+      "kendall_tau_b": 0.5774,
+      "n": 2124,
+      "spearman": 0.7504
+    }
+  ],
+  "counts": {
+    "available_metrics": {
+      "0": 1116,
+      "1": 39,
+      "2": 324,
+      "3": 2172
+    },
+    "basis": {
+      "indicative": 167,
+      "standard": 2368
+    },
+    "complete": 2172,
+    "confidence_identity_proxies": 1065,
+    "duplicates_row_keys": 0,
+    "level": {
+      "all": 56,
+      "both": 1296,
+      "field": 74,
+      "stage": 1109
+    },
+    "measures": {
+      "1": 39,
+      "2": 375,
+      "3": 2121
+    },
+    "mixed_source_scores": 0,
+    "n": 3651,
+    "providers": {
+      "hIndex": {
+        "Google Scholar": 1020,
+        "OpenAlex": 1497
+      },
+      "publications": {
+        "Google Scholar": 684,
+        "OpenAlex": 1497,
+        "ResearchGate": 76
+      },
+      "recentCitations": {
+        "Google Scholar": 931,
+        "OpenAlex": 1498
+      }
+    },
+    "scored": 2535,
+    "unknown_stage": 280,
+    "unmapped": 1748,
+    "verified": 1065
+  },
+  "dates": {
+    "hIndex": {
+      "2026-10": 2205,
+      "2026-11": 290,
+      "missing": 22
+    },
+    "publications": {
+      "2026-10": 1947,
+      "2026-11": 288,
+      "missing": 22
+    },
+    "recentCitations": {
+      "2026-10": 2127,
+      "2026-11": 280,
+      "missing": 22
+    }
+  },
+  "scenarios": {
+    "complete_case": {
+      "band_changed": 81,
+      "excluded_or_unscored": 1479,
+      "kendall_tau_b": 0.97304,
+      "max_abs": 30,
+      "mean_abs": 0.8,
+      "median_abs": 0.0,
+      "n": 2172,
+      "scored": 2172,
+      "spearman": 0.99676
+    },
+    "minimum_20": {
+      "band_changed": 47,
+      "excluded_or_unscored": 1116,
+      "kendall_tau_b": 0.98459,
+      "max_abs": 31,
+      "mean_abs": 0.37,
+      "median_abs": 0.0,
+      "n": 2535,
+      "scored": 2535,
+      "spearman": 0.9959
+    },
+    "minimum_30": {
+      "band_changed": 77,
+      "excluded_or_unscored": 1116,
+      "kendall_tau_b": 0.9746,
+      "max_abs": 31,
+      "mean_abs": 0.622,
+      "median_abs": 0.0,
+      "n": 2535,
+      "scored": 2535,
+      "spearman": 0.99367
+    },
+    "provider_Google_Scholar": {
+      "band_changed": 12,
+      "excluded_or_unscored": 2622,
+      "kendall_tau_b": 0.98732,
+      "max_abs": 31,
+      "mean_abs": 0.314,
+      "median_abs": 0.0,
+      "n": 1029,
+      "scored": 1029,
+      "spearman": 0.99579
+    },
+    "provider_OpenAlex": {
+      "band_changed": 0,
+      "excluded_or_unscored": 2153,
+      "kendall_tau_b": 1.0,
+      "max_abs": 0,
+      "mean_abs": 0.0,
+      "median_abs": 0.0,
+      "n": 1498,
+      "scored": 1498,
+      "spearman": 1.0
+    },
+    "same_provider_only": {
+      "band_changed": 0,
+      "excluded_or_unscored": 1116,
+      "kendall_tau_b": 1.0,
+      "max_abs": 0,
+      "mean_abs": 0.0,
+      "median_abs": 0.0,
+      "n": 2535,
+      "scored": 2535,
+      "spearman": 1.0
+    },
+    "stage_only": {
+      "band_changed": 363,
+      "excluded_or_unscored": 1116,
+      "kendall_tau_b": 0.90604,
+      "max_abs": 31,
+      "mean_abs": 3.006,
+      "median_abs": 0.0,
+      "n": 2535,
+      "scored": 2535,
+      "spearman": 0.9818
+    },
+    "strict_field_stage": {
+      "band_changed": 0,
+      "excluded_or_unscored": 2384,
+      "kendall_tau_b": 1.0,
+      "max_abs": 0,
+      "mean_abs": 0.0,
+      "median_abs": 0.0,
+      "n": 1267,
+      "scored": 1267,
+      "spearman": 1.0
+    },
+    "upper_ecdf": {
+      "band_changed": 599,
+      "excluded_or_unscored": 1116,
+      "kendall_tau_b": 0.93313,
+      "max_abs": 28,
+      "mean_abs": 4.735,
+      "median_abs": 3.0,
+      "n": 2535,
+      "scored": 2535,
+      "spearman": 0.98959
+    },
+    "verified_identity": {
+      "band_changed": 178,
+      "excluded_or_unscored": 2629,
+      "kendall_tau_b": 0.88498,
+      "max_abs": 29,
+      "mean_abs": 3.984,
+      "median_abs": 3.0,
+      "n": 1022,
+      "scored": 1022,
+      "spearman": 0.97707
+    },
+    "winsor_95": {
+      "band_changed": 1,
+      "excluded_or_unscored": 1116,
+      "kendall_tau_b": 0.99921,
+      "max_abs": 5,
+      "mean_abs": 0.061,
+      "median_abs": 0.0,
+      "n": 2535,
+      "scored": 2535,
+      "spearman": 0.99998
+    }
+  },
+  "snapshot_sha256": "a5ef95f5ed58bad95df4d6c94ae654a8cee44f42276a06265bf561a0034a6ea7",
+  "weight_grid": [
+    {
+      "band_changed": 793,
+      "h_index": 0.1,
+      "kendall_tau_b": 0.79064,
+      "max_abs": 40,
+      "mean_abs": 6.809,
+      "median_abs": 5.0,
+      "n": 2535,
+      "publications": 0.8,
+      "recent_citations": 0.1,
+      "spearman": 0.93481
+    },
+    {
+      "band_changed": 699,
+      "h_index": 0.1,
+      "kendall_tau_b": 0.82958,
+      "max_abs": 39,
+      "mean_abs": 5.665,
+      "median_abs": 4.0,
+      "n": 2535,
+      "publications": 0.7,
+      "recent_citations": 0.2,
+      "spearman": 0.95556
+    },
+    {
+      "band_changed": 567,
+      "h_index": 0.1,
+      "kendall_tau_b": 0.86568,
+      "max_abs": 37,
+      "mean_abs": 4.515,
+      "median_abs": 3.0,
+      "n": 2535,
+      "publications": 0.6,
+      "recent_citations": 0.3,
+      "spearman": 0.97133
+    },
+    {
+      "band_changed": 455,
+      "h_index": 0.1,
+      "kendall_tau_b": 0.89383,
+      "max_abs": 35,
+      "mean_abs": 3.6,
+      "median_abs": 3.0,
+      "n": 2535,
+      "publications": 0.5,
+      "recent_citations": 0.4,
+      "spearman": 0.98124
+    },
+    {
+      "band_changed": 405,
+      "h_index": 0.1,
+      "kendall_tau_b": 0.90807,
+      "max_abs": 33,
+      "mean_abs": 3.166,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.4,
+      "recent_citations": 0.5,
+      "spearman": 0.98515
+    },
+    {
+      "band_changed": 413,
+      "h_index": 0.1,
+      "kendall_tau_b": 0.9021,
+      "max_abs": 29,
+      "mean_abs": 3.415,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.3,
+      "recent_citations": 0.6,
+      "spearman": 0.9829
+    },
+    {
+      "band_changed": 494,
+      "h_index": 0.1,
+      "kendall_tau_b": 0.87825,
+      "max_abs": 29,
+      "mean_abs": 4.196,
+      "median_abs": 3.0,
+      "n": 2535,
+      "publications": 0.2,
+      "recent_citations": 0.7,
+      "spearman": 0.97513
+    },
+    {
+      "band_changed": 633,
+      "h_index": 0.1,
+      "kendall_tau_b": 0.84506,
+      "max_abs": 38,
+      "mean_abs": 5.329,
+      "median_abs": 4.0,
+      "n": 2535,
+      "publications": 0.1,
+      "recent_citations": 0.8,
+      "spearman": 0.96226
+    },
+    {
+      "band_changed": 713,
+      "h_index": 0.2,
+      "kendall_tau_b": 0.82305,
+      "max_abs": 36,
+      "mean_abs": 5.86,
+      "median_abs": 4.0,
+      "n": 2535,
+      "publications": 0.7,
+      "recent_citations": 0.1,
+      "spearman": 0.95257
+    },
+    {
+      "band_changed": 554,
+      "h_index": 0.2,
+      "kendall_tau_b": 0.86776,
+      "max_abs": 29,
+      "mean_abs": 4.34,
+      "median_abs": 3.0,
+      "n": 2535,
+      "publications": 0.6,
+      "recent_citations": 0.2,
+      "spearman": 0.97205
+    },
+    {
+      "band_changed": 405,
+      "h_index": 0.2,
+      "kendall_tau_b": 0.90787,
+      "max_abs": 26,
+      "mean_abs": 3.14,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.5,
+      "recent_citations": 0.3,
+      "spearman": 0.98544
+    },
+    {
+      "band_changed": 307,
+      "h_index": 0.2,
+      "kendall_tau_b": 0.93796,
+      "max_abs": 22,
+      "mean_abs": 2.228,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.4,
+      "recent_citations": 0.4,
+      "spearman": 0.9927
+    },
+    {
+      "band_changed": 274,
+      "h_index": 0.2,
+      "kendall_tau_b": 0.9409,
+      "max_abs": 17,
+      "mean_abs": 2.18,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.3,
+      "recent_citations": 0.5,
+      "spearman": 0.9931
+    },
+    {
+      "band_changed": 343,
+      "h_index": 0.2,
+      "kendall_tau_b": 0.91672,
+      "max_abs": 21,
+      "mean_abs": 2.944,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.2,
+      "recent_citations": 0.6,
+      "spearman": 0.98744
+    },
+    {
+      "band_changed": 503,
+      "h_index": 0.2,
+      "kendall_tau_b": 0.87765,
+      "max_abs": 29,
+      "mean_abs": 4.263,
+      "median_abs": 3.0,
+      "n": 2535,
+      "publications": 0.1,
+      "recent_citations": 0.7,
+      "spearman": 0.97564
+    },
+    {
+      "band_changed": 611,
+      "h_index": 0.3,
+      "kendall_tau_b": 0.85386,
+      "max_abs": 34,
+      "mean_abs": 4.942,
+      "median_abs": 4.0,
+      "n": 2535,
+      "publications": 0.6,
+      "recent_citations": 0.1,
+      "spearman": 0.96704
+    },
+    {
+      "band_changed": 411,
+      "h_index": 0.3,
+      "kendall_tau_b": 0.9024,
+      "max_abs": 23,
+      "mean_abs": 3.306,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.5,
+      "recent_citations": 0.2,
+      "spearman": 0.98417
+    },
+    {
+      "band_changed": 221,
+      "h_index": 0.3,
+      "kendall_tau_b": 0.94802,
+      "max_abs": 15,
+      "mean_abs": 1.862,
+      "median_abs": 1.0,
+      "n": 2535,
+      "publications": 0.4,
+      "recent_citations": 0.3,
+      "spearman": 0.99469
+    },
+    {
+      "band_changed": 131,
+      "h_index": 0.3,
+      "kendall_tau_b": 0.97536,
+      "max_abs": 9,
+      "mean_abs": 1.011,
+      "median_abs": 1.0,
+      "n": 2535,
+      "publications": 0.3,
+      "recent_citations": 0.4,
+      "spearman": 0.99841
+    },
+    {
+      "band_changed": 217,
+      "h_index": 0.3,
+      "kendall_tau_b": 0.95221,
+      "max_abs": 13,
+      "mean_abs": 1.787,
+      "median_abs": 1.0,
+      "n": 2535,
+      "publications": 0.2,
+      "recent_citations": 0.5,
+      "spearman": 0.99528
+    },
+    {
+      "band_changed": 400,
+      "h_index": 0.3,
+      "kendall_tau_b": 0.90779,
+      "max_abs": 21,
+      "mean_abs": 3.292,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.1,
+      "recent_citations": 0.6,
+      "spearman": 0.98559
+    },
+    {
+      "band_changed": 493,
+      "h_index": 0.4,
+      "kendall_tau_b": 0.88148,
+      "max_abs": 32,
+      "mean_abs": 4.099,
+      "median_abs": 3.0,
+      "n": 2535,
+      "publications": 0.5,
+      "recent_citations": 0.1,
+      "spearman": 0.97763
+    },
+    {
+      "band_changed": 301,
+      "h_index": 0.4,
+      "kendall_tau_b": 0.93284,
+      "max_abs": 20,
+      "mean_abs": 2.429,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.4,
+      "recent_citations": 0.2,
+      "spearman": 0.99189
+    },
+    {
+      "band_changed": 103,
+      "h_index": 0.4,
+      "kendall_tau_b": 0.98129,
+      "max_abs": 7,
+      "mean_abs": 0.814,
+      "median_abs": 1.0,
+      "n": 2535,
+      "publications": 0.3,
+      "recent_citations": 0.3,
+      "spearman": 0.99899
+    },
+    {
+      "band_changed": 133,
+      "h_index": 0.4,
+      "kendall_tau_b": 0.98146,
+      "max_abs": 6,
+      "mean_abs": 0.806,
+      "median_abs": 1.0,
+      "n": 2535,
+      "publications": 0.2,
+      "recent_citations": 0.4,
+      "spearman": 0.999
+    },
+    {
+      "band_changed": 292,
+      "h_index": 0.4,
+      "kendall_tau_b": 0.93266,
+      "max_abs": 19,
+      "mean_abs": 2.423,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.1,
+      "recent_citations": 0.5,
+      "spearman": 0.99192
+    },
+    {
+      "band_changed": 427,
+      "h_index": 0.5,
+      "kendall_tau_b": 0.9046,
+      "max_abs": 30,
+      "mean_abs": 3.398,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.4,
+      "recent_citations": 0.1,
+      "spearman": 0.98454
+    },
+    {
+      "band_changed": 227,
+      "h_index": 0.5,
+      "kendall_tau_b": 0.95146,
+      "max_abs": 14,
+      "mean_abs": 1.813,
+      "median_abs": 1.0,
+      "n": 2535,
+      "publications": 0.3,
+      "recent_citations": 0.2,
+      "spearman": 0.99514
+    },
+    {
+      "band_changed": 141,
+      "h_index": 0.5,
+      "kendall_tau_b": 0.97653,
+      "max_abs": 8,
+      "mean_abs": 1.01,
+      "median_abs": 1.0,
+      "n": 2535,
+      "publications": 0.2,
+      "recent_citations": 0.3,
+      "spearman": 0.99857
+    },
+    {
+      "band_changed": 261,
+      "h_index": 0.5,
+      "kendall_tau_b": 0.94778,
+      "max_abs": 18,
+      "mean_abs": 1.881,
+      "median_abs": 1.0,
+      "n": 2535,
+      "publications": 0.1,
+      "recent_citations": 0.4,
+      "spearman": 0.99462
+    },
+    {
+      "band_changed": 379,
+      "h_index": 0.6,
+      "kendall_tau_b": 0.91629,
+      "max_abs": 26,
+      "mean_abs": 2.995,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.3,
+      "recent_citations": 0.1,
+      "spearman": 0.98735
+    },
+    {
+      "band_changed": 285,
+      "h_index": 0.6,
+      "kendall_tau_b": 0.94504,
+      "max_abs": 15,
+      "mean_abs": 2.113,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.2,
+      "recent_citations": 0.2,
+      "spearman": 0.99406
+    },
+    {
+      "band_changed": 273,
+      "h_index": 0.6,
+      "kendall_tau_b": 0.94194,
+      "max_abs": 19,
+      "mean_abs": 2.143,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.1,
+      "recent_citations": 0.3,
+      "spearman": 0.99368
+    },
+    {
+      "band_changed": 421,
+      "h_index": 0.7,
+      "kendall_tau_b": 0.91122,
+      "max_abs": 23,
+      "mean_abs": 3.29,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.2,
+      "recent_citations": 0.1,
+      "spearman": 0.98602
+    },
+    {
+      "band_changed": 398,
+      "h_index": 0.7,
+      "kendall_tau_b": 0.91999,
+      "max_abs": 21,
+      "mean_abs": 2.985,
+      "median_abs": 2.0,
+      "n": 2535,
+      "publications": 0.1,
+      "recent_citations": 0.2,
+      "spearman": 0.98899
+    },
+    {
+      "band_changed": 524,
+      "h_index": 0.8,
+      "kendall_tau_b": 0.89326,
+      "max_abs": 24,
+      "mean_abs": 3.971,
+      "median_abs": 3.0,
+      "n": 2535,
+      "publications": 0.1,
+      "recent_citations": 0.1,
+      "spearman": 0.98122
+    }
+  ],
+  "weights": {
+    "baseline": {
+      "band_changed": 0,
+      "discordant_pairs": 0,
+      "kendall_tau_b": 1.0,
+      "max_abs": 0,
+      "mean_abs": 0.0,
+      "mean_score": 47.76,
+      "median_abs": 0.0,
+      "n": 2535,
+      "spearman": 1.0
+    },
+    "citation_emphasis": {
+      "band_changed": 152,
+      "discordant_pairs": 35664,
+      "kendall_tau_b": 0.96929,
+      "max_abs": 9,
+      "mean_abs": 1.194,
+      "mean_score": 47.76,
+      "median_abs": 1.0,
+      "n": 2535,
+      "spearman": 0.99769
+    },
+    "equal": {
+      "band_changed": 134,
+      "discordant_pairs": 28986,
+      "kendall_tau_b": 0.97368,
+      "max_abs": 9,
+      "mean_abs": 1.044,
+      "mean_score": 47.87,
+      "median_abs": 1.0,
+      "n": 2535,
+      "spearman": 0.99826
+    },
+    "h_index_emphasis": {
+      "band_changed": 141,
+      "discordant_pairs": 24602,
+      "kendall_tau_b": 0.97653,
+      "max_abs": 8,
+      "mean_abs": 1.01,
+      "mean_score": 47.66,
+      "median_abs": 1.0,
+      "n": 2535,
+      "spearman": 0.99857
+    },
+    "publication_emphasis": {
+      "band_changed": 221,
+      "discordant_pairs": 68055,
+      "kendall_tau_b": 0.94802,
+      "max_abs": 15,
+      "mean_abs": 1.862,
+      "mean_score": 47.95,
+      "median_abs": 1.0,
+      "n": 2535,
+      "spearman": 0.99469
+    }
+  }
+}

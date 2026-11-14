@@ -1,0 +1,19 @@
+{
+  "duplicate_id_keys": 0,
+  "repeated_provider_profile_keys": 10,
+  "repeated_normalized_name_and_institution_keys": 2,
+  "base_commit": "ab0ad8ac72d7d668b66331c938e166a528048fd4",
+  "dataset_version": "partial-e191f13547",
+  "collection_date": "2026-11-14",
+  "input_sha256": {
+    "public/data/academics.csv": "dbbc74b521310805fe5fc0d310690a57515fee5850e436fdc83ba1baae93d29e",
+    "public/data/universities.csv": "9b0c1bd726431a516b899f064b950a7bb395189f6c9f49783c8cbde8720c105d",
+    "public/data/field-mapping.json": "0f1bb419626ea24ef4fd6a294e3d39bbcae4bc250468cadaa16d6e654af288ff",
+    "public/data/metadata.json": "8dd228bf325f8c8b6d7e6ccbff8a5aea937b1979ff2574ab730e42003789de0c"
+  },
+  "pseudonymised_snapshot_sha256": "a5ef95f5ed58bad95df4d6c94ae654a8cee44f42276a06265bf561a0034a6ea7",
+  "input_dirty": true,
+  "rows_after_application_exclusions": 3651,
+  "excluded_university_count": 2,
+  "note": "Input public files may have uncommitted changes. Snapshot contains no names, IDs, profile URLs or individual metrics evidence; row numbers are shuffled; combinations of public attributes may still permit re-identification."
+}

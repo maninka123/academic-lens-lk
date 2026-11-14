@@ -1,0 +1,27 @@
+dimension,group,n,complete,verified,scored
+stage,Early-career,1062,517,240,605
+stage,Mid-career,1529,946,475,1106
+stage,Professor,780,592,313,694
+stage,Teaching / other,142,59,26,66
+stage,Unknown,138,58,11,64
+field,Computing / IT,232,135,87,168
+field,Engineering,645,369,247,480
+field,Humanities,60,26,24,30
+field,Management / Business,115,46,58,89
+field,Medicine / Health,390,263,183,297
+field,Natural Sciences,440,312,192,370
+field,Social Sciences,20,13,15,16
+field,Unmapped,1748,1007,258,1084
+institution,cinec,88,29,13,29
+institution,colombo,672,453,359,516
+institution,horizon,54,9,3,15
+institution,jaffna,237,133,64,145
+institution,jayewardenepura,14,7,3,8
+institution,kdu,332,194,46,208
+institution,kelaniya,85,46,60,63
+institution,moratuwa,471,220,213,332
+institution,nsbm,136,59,104,122
+institution,peradeniya,599,386,27,395
+institution,ruhuna,493,338,47,355
+institution,sliit,266,176,44,195
+institution,uwu,204,122,82,152
