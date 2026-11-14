@@ -84,3 +84,22 @@ design-system/source/
 
 # Study record-level input (pseudonymised, not published)
 research/scoring-validation/data/snapshot.csv
+
+# Internal review, evidence and log files: kept locally, removed from the public repository and its history
+Data files/change_log.csv
+Data files/employment_review.csv
+Data files/field_evidence.csv
+Data files/identity_review.csv
+Data files/profile_cautions.csv
+Data files/publication_verification.csv
+Data files/qualification_followup.csv
+Data files/research_identity_evidence.csv
+Data files/research_identity_matches.csv
+Data files/research_metric_observations.csv
+Data files/research_unresolved.csv
+Data files/unit_review.csv
+Data files/universities/uwu/COLLECTION_REVIEW.md
+Data files/universities/uwu/additional_animal_science_identity_review.json
+Data files/universities/uwu/current_profile_orcid_review.json
+Data files/universities/uwu/openalex_identity_review_2026-10-13.json
+public/data/field_evidence.csv

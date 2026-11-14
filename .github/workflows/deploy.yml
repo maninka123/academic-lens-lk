@@ -22,8 +22,6 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Import current editable dataset
-        run: npm run data:import
       - name: Check public data allowlist
         run: node scripts/check-public-assets.mjs
       - run: npm run typecheck
