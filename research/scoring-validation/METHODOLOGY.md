@@ -1,45 +1,115 @@
 # Methodology
 
-## Purpose and construct
+A public working paper by the project maintainer, separate from the scoring code. It is not an externally independent audit or a peer-reviewed study. Back to the [study README](README.md) · [results](RESULTS.md) · [limitations](LIMITATIONS.md) · [references](REFERENCES.md).
 
-This is a public working paper: a methodological evaluation by the project maintainer, separate from the scoring code, not an externally independent audit or peer-reviewed study. The proposed construct is **relative position in a selected collection of provider-specific publication and citation records**, partially reflecting output, recent citation activity and accumulated citation-linked influence. It is not research quality, originality, reputation, teaching, professional contribution, impact on society or overall academic merit. No external criterion in this dataset can validate those broader constructs.
+## 1. What is being measured
 
-The h-index counts publications with at least that many citations and combines output with sustained citation activity ([Hirsch, 2005](REFERENCES.md)); it is cumulative, insensitive to citations above the threshold, affected by career length and field, and does not establish individual contribution or quality. Citations in 2021–2025 approximate recent citation activity but may cite old work, be affected by negative citations, self-citation and provider or language coverage, and reflect a fixed historical window. Publication counts approximate indexed output volume, not rigor, contribution or significance; document types, coauthorship and database coverage matter. All three can be correlated. Their selection is a project design choice; the 40/35/25 weights are assumptions, not literature-derived or externally endorsed coefficients.
+The score is meant to show **relative position in a selected collection of provider-specific publication and citation records**. It partly reflects output, recent citation activity and accumulated citation-linked influence.
 
-## What the application actually does
+| It is | It is not |
+|---|---|
+| A position within collected bibliometric records | Research quality, originality or reputation |
+| A weighted blend of metric percentiles | A percentile of a composite score |
+| A descriptive statistic | Teaching, service, societal impact or overall academic merit |
 
-The audit covers `src/analytics/standing-score.ts`, `quality.ts`, `engine.ts`, the data loader, `StandingScore.tsx`, `SideBySide.tsx`, `person-pdf.ts`, the methodology page and current tests. The peer universe for these score panels is `useData().academics`, the Sri Lankan collection after excluded institutions are removed, not the separately loaded international benchmark. Loader field mapping follows academic → department → faculty → `Unmapped` precedence. Titles, not actual career duration, determine stage: professors/senior professors; senior lecturers/associate professors; lecturers/assistant lecturers/assistant professors; all other titles are unknown/other. Broad field assignments are proxies.
+No external criterion in this dataset can validate the broader constructs.
 
-For each recorded metric, same-provider peers with that metric in the selected group receive midrank percentiles `100 × (number below + 0.5 × number tied) / n`; ties include the person if present. Provider is the first metric-level evidence source, otherwise the record-level source, mapped into Scholar/OpenAlex/ResearchGate/Mixed/Other/Not recorded; equality of broad provider labels does not establish matching coverage or dates. `Not recorded` may match another unknown provider. The raw score is the weighted mean of usable metric percentiles, renormalised over included indicators, rounded to an integer. It is **not** the percentile rank of a composite-score distribution. The 0–100 display and band labels must not be read as such. A score of 50 is not necessarily the observed composite median, particularly with missingness, ties and different metric-specific peer sets.
+## 2. The three indicators
 
-The scorer tries standard groups in order field × stage, then stage only, requiring at least 10 same-provider observations for each used metric, two usable measures and at least one of h-index or recent citations. Stage-only standard scores are not necessarily prominently caveated by the score result. Next it tries the same staged groups with at least five observations and one metric. Next it tries field across stages, then everyone at minimum 10 with one metric. Finally it repeats all group levels with mixed providers at minimum 10. This means across-stage fallback can occur even when stage is known but earlier tests failed; the current caveat says stage was not recognised, which can be inaccurate. Unknown-field stage-only comparisons also lack a dedicated standard-score caveat. One-metric publication-only scores are possible as indicative. People with no metrics or no viable peer pool receive no score.
+| Indicator | Weight | Meaning | Main limits |
+|---|---:|---|---|
+| h-index ([Hirsch, 2005](REFERENCES.md)) | 40% | Output plus sustained citation activity | Cumulative; ignores citations above the threshold; depends on career length and field |
+| Citations 2021–2025 | 35% | Recent citation activity | Can cite old work; self- and negative citations; provider and language coverage; fixed window |
+| Publications | 25% | Indexed output volume | Ignores rigour and significance; depends on document types, coauthorship, coverage |
 
-Confidence awards one point each for field × stage, all three metrics, minimum component peer count ≥25, and the presence of *any* verified Scholar or ResearchGate link or a published OpenAlex URL. High requires four points, medium two or three, otherwise low; stage-only is capped at medium and all indicative scores are low. This is a heuristic, not a confidence interval, a validated error estimate, nor assurance that the identity corresponds to each metric. Provider provenance may be unknown or incorrectly linked despite an unrelated verified identity.
+All three can be correlated. Choosing them is a project design decision, and the 40/35/25 weights are assumptions, not literature-derived or endorsed coefficients.
 
-## Data, eligibility, provenance
+## 3. What the application actually does
 
-The exact public input file hashes, dataset label, original commit, tree-dirty flag and excluded-institution count are in [manifest.json](data/manifest.json). Since the input CSV and metadata were already modified relative to the commit, the commit alone is **not** the dataset snapshot. The pseudonymised analysis input (`data/snapshot.csv`, not published; its hash is in the manifest) preserves the public numeric and grouping data needed for exact reproduction; it omits names, source links, contact information and original IDs and uses a fixed-seed row shuffle. It is not fully anonymous, which is why it is withheld from the repository. It is derived only from public app assets, not private evidence or review logs. We do not publish individual experimental scores.
+Audited code: `src/analytics/standing-score.ts`, `quality.ts`, `engine.ts`, the data loader, `StandingScore.tsx`, `SideBySide.tsx`, `person-pdf.ts`, the methodology page and the current tests. Peers are the Sri Lankan collection after excluded institutions are removed, not the international benchmark.
 
-For duplicate screening, the snapshot builder computes counts of repeated ID, preferred provider profile key (Scholar before OpenAlex), and normalized name + institution in the public source, without exporting the values. These checks cannot resolve aliases, simultaneous appointments, same names or absent links. Identity verification is the app's broad proxy, not an independent validation. Dates are the source date for the first per-metric evidence or collection date if no evidence. Interpret dates and provider classifications as recorded, not independently verified.
+```mermaid
+flowchart LR
+  A["Person's records<br/>h-index, citations, publications"] --> B["Pick a peer group<br/>(fallback ladder below)"]
+  B --> C["Per measure: midrank percentile<br/>among same-provider peers"]
+  C --> D["Weighted mean<br/>40 / 35 / 25, rescaled<br/>over available measures"]
+  D --> E["Round to 0–100<br/>+ band label"]
+```
 
-## Experiments and calculation
+**Percentile:** `100 × (number below + 0.5 × number tied) / n`. Ties include the person. The score is the weighted mean of these percentiles, so a score of 50 is not necessarily the median composite.
 
-`analyze.py` independently reconstructs the application logic, then `live-check.ts` runs the original TypeScript on the same minimal inputs; `crosscheck.py` compares score, basis and peer level for every profile. The reconstruction groups before computing percentiles, includes the target in its group, treats real zeros as values, and uses JavaScript-compatible positive rounding. The cross-check covers the current snapshot, not every possible edge case or the separate confidence output. Tests cover ties, zero, missingness, fallback and bands.
+**Provider** is the first metric-level source, else the record-level source, mapped to Scholar, OpenAlex, ResearchGate, Mixed, Other or Not recorded. Matching labels do not prove matching coverage or dates, and "Not recorded" can match another unknown.
 
-Weight sensitivity holds the app's selected group and component percentiles fixed, applies the five stated weight vectors and a 0.1-spaced simplex with all three weights strictly positive (36 combinations), rescales over available components, rounds and compares matched individuals. Pearson is not used; Spearman and Kendall τ-b accommodate non-normal distributions and tied scores. Correlations are computed across heterogeneous peer groups for descriptive stability, not as a valid global rank. Band transitions are counted after rounding. Stage and field summaries with n < 5 are suppressed.
+**Stage** comes from the title, not real career length: Professor and Senior Professor; Senior Lecturer and Associate Professor; Lecturer, Assistant Lecturer and Assistant Professor (Mid and Early career); all other titles unknown. **Field** follows academic → department → faculty → `Unmapped`. Both are rough proxies.
 
-Sensitivity scenarios recompute target eligibility, comparison pools and percentiles as described in [results](RESULTS.md). Strict field × stage uses standard conditions only. Stage-only forces a broader field comparison. Complete-case and broad app-verified identity restrictions remove both targets and peers. Single-provider restrictions discard all other-provider measures, without imputation. The minimum 20/30 scenarios change the standard and later minimum but retain the application's five-person relaxed pass, so they assess its consequences, not a hard minimum policy. Upper empirical CDF replaces midranks; 95th-percentile winsorisation ties upper-tail values. These are model-choice scenarios, not sampling confidence intervals. Some scenarios change multiple conditions, and common-case changes cannot represent excluded cases.
+### Peer-group fallback ladder
 
-Indicators are correlated on pairwise complete observations only if their recorded provider is the same named provider, using Spearman and Kendall τ-b. No adjustment for multiple testing or causal inference is attempted. Descriptive correlations are pooled across fields, stages and providers; within-group and longitudinal relationships may differ. Profiles and metrics can share sources or individuals. The grid is deterministic; only snapshot row shuffle uses seed `20261114`. No missing values are imputed.
+```mermaid
+flowchart LR
+  A["1. Field × stage<br/>10+ peers"] -->|too few| B["2. Stage only<br/>10+ peers"]
+  B -->|too few| C["3. Field × stage or stage<br/>5+ peers, 1 measure"]
+  C -->|none| D["4. Field across stages,<br/>then everyone, 10+, 1 measure"]
+  D -->|none| E["5. Same, mixed providers<br/>10+"]
+  E -->|none| F["No score"]
+  S["Steps 1–2 = standard score:<br/>2+ measures incl. h-index<br/>or recent citations"] -.-> A
+```
 
-The sample is nonprobability data, with no valid design-based generalization or statistically justified individual error intervals. We have not estimated publication attribution error, provider-specific false matches, career-duration bias, field-specific benchmark validity, or independent evidence of scholarly quality. We do not simulate fake precision or infer fairness from stability.
+Steps 3–5 give **indicative**, low-confidence scores. Publication-only scores are possible there. Across-stage fallback can occur even when the stage is known, yet the current caveat says it was not recognised; stage-only standard scores carry no dedicated mixed-discipline caveat.
 
-## Recommendations and expected consequences
+**Confidence** (a heuristic, not an interval): one point each for field × stage, all three measures, smallest pool ≥ 25, and any verified Scholar or ResearchGate link or published OpenAlex URL. 4 = high, 2–3 = medium, else low. Stage-only is capped at medium; indicative is always low. A verified link does not prove each metric belongs to that identity.
 
-1. **Do not claim a composite percentile or overall research quality**; call it a weighted blend of within-provider metric percentiles. Review the application text and PDF separately before implementing any display change. This clarifies interpretation without proving validity.
-2. **Withhold named scores in high-stakes or evaluative contexts**, especially unknown identity/provider, missing metrics, small peers, unclassified field/stage, mixed-source or cross-field/stage fallback. Replace with individual contextual metrics or “insufficient comparable evidence”. This can greatly reduce coverage: the strict group experiment retains 1,267 profiles, before stricter identity safeguards.
-3. **Require verified identity for the actual source of each component**, explicitly dated comparable windows, documented institutional membership and all three components for any proposed composite. This is a methodological recommendation, not an empirically calibrated guarantee. Verify disputed duplicate keys and match provenance before applying it.
-4. **Reassess discipline granularity, stage proxy and minimum sizes** with domain experts and longer career histories. Raising a nominal threshold while leaving fallback unchanged is insufficient. Report peer composition and uncertainty; do not convert scenario ranges into confidence intervals.
-5. **Retain 40/35/25 only as a transparent, provisional baseline for research comparison**. The tested alternatives show aggregate stability but individual changes and redundancy; there is insufficient independent evidence to choose an optimal set or endorse retention in production. Do not automatically change weights or indicators.
-6. **Review the fallback caveat bug and the “50% typical”/percentile language**, and consider removing mixed-provider or cross-stage/cross-discipline fallback. Such changes require a separate consequence and user-impact review; this study changes no live scoring code or scores.
-7. **Collect independent, context-sensitive evidence** and involve those assessed in verification before making any validity or fairness claims. No causal or independent quality validation was possible here.
+## 4. Study design
+
+```mermaid
+flowchart TD
+  P["Public app data<br/>(hashes in manifest.json)"] --> S["snapshot.py<br/>pseudonymised extract (restricted, not published)"]
+  S --> R["analyze.py<br/>independent reconstruction of the scorer"]
+  S --> L["live-check.ts<br/>runs the real TypeScript scorer"]
+  R --> X["crosscheck.py<br/>score, basis and peer level per profile"]
+  L --> X
+  R --> E["Experiments (section 5)"]
+  E --> O["Aggregate tables in results/<br/>figures in figures/"]
+  X --> O
+```
+
+The cross-check confirms the reconstruction matches the app on this snapshot (3,651 profiles, 0 mismatches). It does not test every edge case, the confidence output, or whether source identities are correct. Tests cover ties, zero, missingness, fallback and bands. The reconstruction groups before computing percentiles, includes the target, keeps real zeros and uses JavaScript-compatible rounding.
+
+## 5. Experiments
+
+Every run uses the same scored people unless stated. No values are imputed; missing is never zero.
+
+| Experiment | What changes | How it is compared |
+|---|---|---|
+| Named weights | Equal, citation, publication, h-index emphasis | Same peer groups and component percentiles, reweighted |
+| Weight grid | 0.1-step simplex, all weights positive (36 combinations) | Same as above |
+| Complete case | Only people with all three measures | Targets and peers both restricted |
+| Verified identity | Only the app's broad identity proxy | Targets and peers both restricted |
+| Single provider | Google Scholar or OpenAlex only | Other providers discarded |
+| Strict field × stage | No fallbacks, 2+ measures | Standard conditions only |
+| Stage only | Force the broader group | Field ignored |
+| Minimum 20 / 30 | Raise the standard threshold | The 5-person relaxed pass stays, so this is not a hard minimum |
+| Tie rule | Upper empirical CDF instead of midrank | Ties get their upper rank |
+| Outliers | Winsorise each pool at its 95th percentile | A sensitivity test, not evidence extremes are wrong |
+
+**Statistics:** mean, median and maximum absolute score change; band changes after rounding; reversed pairs; Spearman ρ and Kendall τ-b (suited to skewed, tied scores). Differences use people scored in both scenarios. Correlations are pooled across fields, stages and providers, so they describe stability, not a valid global ranking. Indicator correlations use same-provider pairs only. Subgroups under 5 are suppressed. The only seed is `20261114`, used for the snapshot row shuffle; everything else is deterministic.
+
+**These ranges are scenario ranges, not confidence intervals.** The sample is a non-probability collection, so no design-based error interval is claimed. Peer-sampling bootstrap and measurement-error models were not attempted because the error mechanisms are not established.
+
+## 6. Data and provenance
+
+- Input hashes, dataset label (`partial-e191f13547`), base commit, dirty-tree flag and excluded-institution count are in [manifest.json](data/manifest.json). The public data already had uncommitted changes, so the commit alone is not the snapshot.
+- The record-level snapshot omits names, links, contact details and original IDs and has shuffled rows. It is **not published** because it is pseudonymised, not anonymous. Only aggregates are public.
+- Duplicate screening counts repeated IDs, provider profile keys and normalised name + institution without exporting values. These are candidates, not confirmed duplicates.
+- Dates are the source date of the first evidence per metric, or the collection date. Provider labels and dates are as recorded, not independently verified.
+
+## 7. Recommendations
+
+| # | Recommendation | Basis and consequence |
+|---|---|---|
+| 1 | Do not call it a composite percentile or overall quality; describe it as a blend of within-provider metric percentiles | Clarifies meaning without proving validity. Review app text and PDF before changing. |
+| 2 | Withhold named scores in evaluative contexts and when identity, provider, metrics, peers, field or stage are weak | Coverage falls sharply: strict field × stage keeps 1,267 profiles, before identity safeguards. |
+| 3 | Require verified identity for each component's source, comparable dated windows and all three components | Judgement, not empirically calibrated. Check duplicate keys first. |
+| 4 | Revisit discipline granularity, the stage proxy and minimum sizes with domain experts | Raising a threshold while keeping fallback is not enough. Report peer composition. |
+| 5 | Keep 40/35/25 only as a provisional research baseline | Ranks are stable overall but individuals move and indicators overlap. No evidence supports an optimum. |
+| 6 | Fix the fallback caveat and the "50% typical" wording; consider removing mixed-provider and cross-stage/discipline fallback | Needs its own impact review. This study changes no live code or score. |
+| 7 | Gather independent, context-sensitive evidence and involve assessed people before any validity or fairness claim | No independent quality validation was possible here. |

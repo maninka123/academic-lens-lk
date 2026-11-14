@@ -40,7 +40,7 @@ npm run preview
 npm run test:e2e          # Isolated Chrome browser checks and screenshot capture
 ```
 
-Browser tests use installed Chrome. To use Playwright's bundled Chromium instead, remove `channel: 'chrome'` from `playwright.config.ts` and run `npx playwright install chromium`.
+Browser tests use installed Chrome. To use Playwright's bundled Chromium instead, remove `channel: 'chrome'` from `tests/playwright.config.ts` and run `npx playwright install chromium`.
 
 ## Update the data
 
@@ -77,51 +77,54 @@ OpenAlex responses are cached in `scripts/baselines/_cache/`. Set `OPENALEX_API_
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/deploy.yml` imports the current editable data, checks the public-asset allowlist, validates TypeScript, runs tests, builds, checks the built site for internal files or credentials, and uploads it as the `public-site` artifact on every push and pull request. **Successful pushes to `main` deploy automatically** after these checks pass. Pull requests never publish. Manual republishing is also available from the Actions tab ("Run workflow") on `main`. Set repository **Settings → Pages → Source → GitHub Actions**.
-
-The site and the repository are both public. Only allowlisted files and columns are published; internal evidence and review files stay in `Data files/`. See [docs/DATA_POLICY.md](DATA_POLICY.md) for what is published, attribution, reuse conditions and the correction/removal process, and [docs/ARCHITECTURE.md](ARCHITECTURE.md) for the data flow and how to add country datasets.
-
-Vite uses `/academic-lens-lk/` as its base; HashRouter keeps deep links working on Pages. If you rename the repository, update `vite.config.ts`. Commit source/data changes and let the workflow rebuild; `dist/`, dependencies, local test traces and original collection backups are excluded from Git.
+- On every push and pull request, `.github/workflows/deploy.yml` imports the data, checks the public-asset allowlist, type-checks, tests, builds, scans the built site for internal files or credentials, and uploads it as an artifact.
+- Pushes to `main` deploy automatically once those checks pass. Pull requests never publish. You can also republish from the Actions tab ("Run workflow").
+- Set Settings → Pages → Source → GitHub Actions.
+- The site and repository are public. Only allowlisted files and columns are published; see [DATA_POLICY.md](DATA_POLICY.md) for what is published, reuse and corrections, and [ARCHITECTURE.md](ARCHITECTURE.md) for the data flow and adding country datasets.
+- Vite's base is `/academic-lens-lk/` (update `vite.config.ts` if you rename the repo); a hash router keeps deep links working. `dist/` and dependencies are not committed.
 
 ## Interpreting comparisons
 
-Missing values are excluded from metric denominators and never treated as zero. Primary comparisons use a single bibliometric provider (Google Scholar, ResearchGate or OpenAlex); mixed providers are an explicitly labelled exploratory mode. Groups with fewer than 10 valid values are flagged and never ranked, and logarithmic charts leave zero values out (reported beside the chart) instead of shifting them. Every comparison shows eligible records, valid values, completeness, provider and measurement date, and statistics export as CSV with the selection, metric definition, provider, counts and dataset version. Percentiles use midrank ties and are suppressed below five valid peers. Quartiles use linear interpolation; box whiskers show observed min/max. Equal university weight means the arithmetic mean of available university statistics. PhD percentages use documented qualifications; unknowns remain visible in composition charts.
-
-Combined career publication/citation totals are **not** a university's historical output and may repeat coauthored work. h-index values are never summed. Five-year citations refer to citations received in 2021–2025; five-year Q1 refers to qualifying papers published in that period. Citation position does not measure overall academic or teaching quality. Full definitions and completeness tables are on **Data & Methodology**.
-
-World boundaries: Natural Earth via [world-atlas](https://github.com/topojson/world-atlas), bundled locally. Figures describe the real collected dataset.
+- Missing values are excluded, never treated as zero. Log charts leave zeros out and report how many.
+- Primary comparisons use one provider (Google Scholar, ResearchGate or OpenAlex); mixed providers are a labelled exploratory mode.
+- Groups under 10 valid values are flagged and not ranked; percentiles need at least 5 valid peers. Percentiles use midrank ties; quartiles use linear interpolation; whiskers show observed min/max.
+- Every comparison shows eligible records, valid values, completeness, provider and date, and exports to CSV with its settings and dataset version.
+- Equal university weight = the mean of available university statistics. h-index values are never summed, and combined career totals are not a university's historical output.
+- "Five-year" citations means received in 2021–2025; five-year Q1 means qualifying papers published then.
+- Citation position does not measure academic or teaching quality. Definitions are on Data & Methodology.
 
 ## Display names and verification
 
-The app uses **Prof** when the source name or documented position states a professorial role (including senior, associate and assistant professors). Other documented completed research doctorate holders use **Dr**. The asterisk identifies completed research doctorate evidence; medical qualifications alone, ongoing doctorates and a source title do not establish that evidence. Other profiles retain an explicitly published Mr/Mrs/Ms/Miss or use the plain name. Published source names, qualifications and positions remain unchanged in the editable CSVs.
-
-Research links show their recorded verification status. Metric evidence lists the platform and retrieval date for each populated field. Old profile URLs and pinned identities resolve through documented aliases. The collection evidence and review logs live in `Data files/` (see its README).
-
-Comparison presets provide starting points; chart values use one decimal place while calculations retain full precision. Academic Explorer supports column text filters and numeric ranges, and CSV export respects those filters.
-
-Profile placeholders show initials only; they never depict appearance or imply gender. Each profile shows compact evidence badges (verified, recorded but unverified, needs review, not documented) beside identity, employment, doctorate and metric values, with the last checked date.
+- **Prof** for any documented professorial role; **Dr** for a documented completed research doctorate; otherwise a published Mr/Mrs/Ms/Miss or the plain name.
+- An asterisk marks completed-doctorate evidence. Medical qualifications alone, ongoing doctorates and a source title do not count.
+- Source names, qualifications and positions are never changed in the CSVs.
+- Research links show their verification status, and metric evidence lists platform and retrieval date. Old URLs and pins resolve through documented aliases.
+- Profile placeholders show initials only, never appearance or gender. Evidence badges (verified, recorded but unverified, needs review, not documented) carry a last-checked date.
+- Chart values show one decimal; calculations keep full precision. Academic Explorer supports text and numeric filters, and CSV export respects them.
 
 ### Individual peer comparisons
 
-The selected cohort (position, qualification, both, PhD holders or all) applies to every context card. "All selected peers" spans collected Sri Lankan institutions within that cohort; "All collected profiles" appears only when all positions and qualifications are selected. Groups include the person when eligible. Only values from the same bibliometric provider enter the distribution; missing values are excluded and zero is retained. Median, mean, quartiles and midrank percentile require at least 10 valid values. The percentile is `100 × (below + 0.5 × tied) / valid`.
-
-The distribution view plots each available profile value with a vertical spread used only to separate overlapping dots. The two-measurement scatter includes only profiles with both values from that provider. A green diamond highlights the person when their required values are available. Profile counts, contributing records and hover/focus definitions explain each result.
-
-The 13 October 2026 peer review reproduced the example for Nalin De Silva from the saved Google Scholar values: university median 878, percentile `(9 + 0.5 × 1) / 11 × 100 = 86.4%`; faculty median 1,116.5 and percentile 85%. Identical 606.5 medians across several contexts result from the same 16 available values, despite different eligible profile counts. Missing exact Chemistry department mappings at Colombo and Jaffna were added to Natural Sciences; clinical biochemistry remains in its medical grouping. The resulting Natural Sciences / Senior Professor context has five profiles and three citation values, so summary statistics remain suppressed below the ten-value minimum.
+- The chosen cohort (position, qualification, both, PhD holders, all) applies to every card. "All selected peers" spans Sri Lankan institutions in that cohort.
+- Only same-provider values count; zero is kept. Median, mean, quartiles and percentile need at least 10 valid values, with percentile = 100 × (below + 0.5 × tied) / valid.
+- Distribution plots jitter vertically only to separate dots. The scatter uses profiles with both values from that provider.
+- Worked check (13 Oct 2026, saved Google Scholar values): university percentile (9 + 0.5 × 1) / 11 × 100 = 86.4%. Groups under 10 values show no statistics.
 
 ## Position grouping
 
-The site shows the Sri Lankan title **Senior Lecturer** everywhere. Internally, analyses treat *Senior Lecturer* and *Associate Professor* as the same seniority, because the two titles describe equivalent grades in different systems (international benchmark data uses Associate Professor). Position charts, standards by position, percentile peer groups and the international comparison therefore pool both titles into the single "Senior Lecturer" group. The original title for each person is kept unchanged in the data and shown on profiles and in tables.
+The site shows "Senior Lecturer" everywhere. Internally, Senior Lecturer and Associate Professor are pooled as equivalent grades (international data uses Associate Professor). The original title is kept in the data and shown on profiles and tables.
 
 ## PhD-awarding universities and QS 2027 ranks
 
-`Data files/qs_rankings_phd_institutions_2027.csv` holds, for each awarding institution (spelling variants merged through `Data files/phd_institution_aliases.csv`) and for every Sri Lankan university, its QS World University Rankings 2027 position as published ("=22", "1001-1200", "1401+"), a status (`ranked`, `not_ranked` or `not_located`), the source and how it was read. A `not_located` row means the rank was not found, never that the university is unranked. The importer adds `phdInstitution`, `phdQsRank` and `phdQsStatus` to each profile and publishes `qs_rankings_2027.csv`. When adding academics, check their awarding university here and add the institution, any alias, and its QS 2027 rank. topuniversities.com blocks automated page fetches; ranks were read from QS profile summaries returned by search, Wikipedia infoboxes showing the 2027 value, and university announcements. Never record another year's figure as 2027.
+- `Data files/qs_rankings_phd_institutions_2027.csv` holds each awarding institution's QS 2027 rank as published ("=22", "1001-1200", "1401+"), a status (ranked, not_ranked, not_located), source and method. Spelling variants merge via `phd_institution_aliases.csv`.
+- **not_located means not found, never unranked.** Never record another year's rank as 2027.
+- The importer adds `phdInstitution`, `phdQsRank` and `phdQsStatus` to profiles and publishes `qs_rankings_2027.csv`.
+- When adding academics, add their awarding university, any alias and its rank.
+- topuniversities.com blocks automated fetches, so ranks come from QS summaries in search, Wikipedia infoboxes and university announcements.
 
 ## Institution notices and comparison exclusions
 
-`Data files/institution_notices.csv` lists institutions whose public staff data is too thin to trust. Columns: `university_id`, `severity` (`warning`), `exclude_from_comparison` (`yes` or blank), `title`, `message`, `source`, `status`.
+`Data files/institution_notices.csv` flags institutions with too little public staff data. Columns: `university_id`, `severity`, `exclude_from_comparison` (yes or blank), `title`, `message`, `source`, `status`. Add a row and run `npm run data:import`.
 
-- The importer copies them into `public/data/universities.csv` (`notice_*` and `exclude_from_comparison` columns), so adding a row and running `npm run data:import` is all that is needed.
-- A notice is shown as a red warning on the institution page, on its card in Universities and in Methodology.
-- With `exclude_from_comparison = yes` the institution keeps its page, directory entries and profiles, but its people are left out of every comparison, ranking, national statistic and filter list (`Dataset.academics`); `Dataset.allAcademics` still holds them for the directory.
-- Current entry: ICBT Campus (no public academic staff directory could be located).
+- A notice shows as a red warning on the institution page, its card and Methodology.
+- With `exclude_from_comparison = yes` the institution keeps its page and profiles but is left out of comparisons, rankings, national statistics and filters (`Dataset.academics`); `Dataset.allAcademics` still holds them.
+- Current entry: ICBT Campus (no public staff directory found).

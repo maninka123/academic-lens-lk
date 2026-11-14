@@ -29,46 +29,22 @@ The aim is to enable criticism and responsible interpretation, not to confirm a 
 
 **Informed by** the [Leiden Manifesto](REFERENCES.md), [DORA's quantitative-indicator guidance](REFERENCES.md), the [OECD/JRC handbook](REFERENCES.md) and bibliometric literature. None of them approves this implementation or its weights.
 
-## Findings
+## Key findings
 
-- **Coverage:** 3,651 eligible profiles, 2,535 scored. 1,748 profiles have no mapped field.
-- **Weights:** swapping in the four alternative weightings keeps overall ranks very similar, but changes 134–221 score bands and moves individual scores by up to 8–15 points. A wider weight grid moves some scores more.
-- **Overlap:** the three indicators are strongly correlated, so they partly count the same thing.
-- **Other choices matter too:** broader peer groups, identity restrictions and the tie rule all change scores and coverage.
-- **Conclusion:** the 40/35/25 weights remain an unvalidated assumption, and no optimal weighting can be identified from this data. The results hold for this collected sample and do not show the score is a fair or valid assessment of an individual.
+Full tables, all six figures and caveats are in [RESULTS.md](RESULTS.md).
 
-### Key figures
+- **Coverage:** 3,651 eligible profiles, 2,535 scored; 1,748 have no mapped field ([coverage and quality](RESULTS.md#coverage-and-quality)).
+- **Weights:** the four alternative weightings keep overall ranks very similar (Spearman ρ 0.995–0.999) but change 134–221 score bands and move individual scores by up to 8–15 points. A wider weight grid moves some scores more ([weight sensitivity](RESULTS.md#weight-sensitivity)).
+- **Overlap:** the three indicators are strongly correlated (Spearman 0.75–0.87), so they partly count the same thing ([indicator relationships](RESULTS.md#indicator-relationships)).
+- **Other choices matter:** broader peer groups, identity restrictions and the tie rule all change scores and coverage ([other sensitivity experiments](RESULTS.md#other-sensitivity-experiments)).
 
-![Data availability and scored distribution](figures/availability-and-scores.png)
-*Figure 1. Number of available input indicators (all eligible profiles) and distribution of rounded scores among scored profiles. Zero is a recorded value, not missing.*
+**Main conclusion:** the 40/35/25 weights remain an unvalidated assumption, and no optimal weighting can be identified from this data. The results hold for this collected sample and do not show the score is a fair or valid assessment of an individual.
 
-![Indicator distributions](figures/indicator-distributions.png)
-*Figure 2. Observed input values on a log10(1 + x) display scale; sample sizes exclude missing values.*
+No live algorithm or published score is changed by this study.
 
-![Peer pool sizes](figures/peer-pool-sizes.png)
-*Figure 3. The smallest scored component peer pool per profile. Group size alone does not establish comparability.*
+## Supporting documents
 
-![Indicator correlations](figures/indicator-correlations.png)
-*Figure 4. Spearman correlations across eligible same-provider pairs (h-index/recent citations 0.86, h-index/publications 0.87, recent citations/publications 0.75). The indicators overlap strongly.*
-
-![Weight sensitivity](figures/weight-sensitivity.png)
-*Figure 5. Mean absolute score difference from the 40/35/25 baseline for the four named alternative weightings, on the same scored population.*
-
-![Scenario coverage](figures/scenario-coverage.png)
-*Figure 6. Counts of scores under selected eligibility and peer-group scenarios. Scenarios differ in their selected populations, so counts are not directly comparable as a quality ranking.*
-
-### Weight alternatives at a glance
-
-| Scheme | h / recent / publications | Mean abs. change | Max abs. change | Band changes | Spearman ρ |
-| --- | --- | ---: | ---: | ---: | ---: |
-| Equal | 33.33 / 33.33 / 33.34 | 1.04 | 9 | 134 | 0.998 |
-| Citation emphasis | 30 / 45 / 25 | 1.19 | 9 | 152 | 0.998 |
-| h-index emphasis | 50 / 30 / 20 | 1.01 | 8 | 141 | 0.999 |
-| Publication emphasis | 30 / 30 / 40 | 1.86 | 15 | 221 | 0.995 |
-
-All 2,535 scored profiles, same peer pools, rounded scores. Aggregate rank correlation is high, but individual scores and bands still move. These are sensitivity ranges, not confidence intervals. Every number is produced by `scripts/analyze.py` (see [RESULTS.md](RESULTS.md) for the full tables).
-
-Detailed tables, scenario definitions, captions and qualifications: [RESULTS.md](RESULTS.md), [METHODOLOGY.md](METHODOLOGY.md), [LIMITATIONS.md](LIMITATIONS.md), [REFERENCES.md](REFERENCES.md). No live algorithm or published score is changed by this study. See also the [application score documentation](../../docs/STANDING_SCORE.md).
+[RESULTS.md](RESULTS.md) (figures, tables, interpretation) · [METHODOLOGY.md](METHODOLOGY.md) · [LIMITATIONS.md](LIMITATIONS.md) · [REFERENCES.md](REFERENCES.md) · [application score documentation](../../docs/STANDING_SCORE.md)
 
 ## Reproduce
 
