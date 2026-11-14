@@ -15,7 +15,7 @@ export default defineConfig({
       origins: [
         {
           origin: "http://127.0.0.1:5173",
-          localStorage: [{ name: "lanka-academia-ack-v1", value: "1" }],
+          localStorage: [{ name: "lanka-academia-last-visit-v2", value: String(Date.now()) }],
         },
       ],
     },

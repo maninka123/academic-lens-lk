@@ -1,25 +1,35 @@
 import { useEffect, useRef, useState } from "react";
 import { PreviewBadge } from "./PreviewBadge";
 import { BrandMark } from "./BrandMark";
+import { ackRequired, needsNoticeOnArrival, recordVisit } from "./ackPolicy";
 
-const KEY = "lanka-academia-ack-v1";
-const read = () => {
-  try {
-    return localStorage.getItem(KEY) === "1";
-  } catch {
-    return false;
-  }
-};
-
-/** First-visit notice: the data are partial and descriptive; the visitor must accept to continue. */
+/** Data-use notice: shown on the first visit and again after 24 hours away; the visitor must accept to continue. */
 export function AckGate() {
-  const [ok, setOk] = useState(read);
+  const [ok, setOk] = useState(() => !needsNoticeOnArrival());
   const [checked, setChecked] = useState(false);
   const enter = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     document.body.style.overflow = ok ? "" : "hidden";
     return () => {
       document.body.style.overflow = "";
+    };
+  }, [ok]);
+  useEffect(() => {
+    // Resuming a tab: refresh the timestamp, or ask again after 24 hours away. Leaving records the moment.
+    const onVisibility = () => {
+      if (!ok) return;
+      if (document.visibilityState === "hidden") recordVisit();
+      else if (ackRequired()) setOk(false);
+      else recordVisit();
+    };
+    const onLeave = () => {
+      if (ok) recordVisit();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pagehide", onLeave);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pagehide", onLeave);
     };
   }, [ok]);
   if (ok) return null;
@@ -61,11 +71,7 @@ export function AckGate() {
             className="button primary"
             disabled={!checked}
             onClick={() => {
-              try {
-                localStorage.setItem(KEY, "1");
-              } catch {
-                /* the notice simply shows again next visit */
-              }
+              recordVisit();
               setOk(true);
             }}
           >
