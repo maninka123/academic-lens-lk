@@ -144,3 +144,7 @@ Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-
 | **Ethics and data statement** | [ETHICS_AND_DATA.md](docs/legal/ETHICS_AND_DATA.md) |
 
 Copyright (c) 2026 Pasindu Ranasinghe.
+
+## Research score methodology
+
+The [research standing score](docs/STANDING_SCORE.md) is a descriptive weighted blend of bibliometric percentiles, not an assessment of overall academic quality. Its methodology is informed by the Leiden Manifesto, DORA's guidance on quantitative indicators, and the OECD/JRC handbook on composite indicators; none endorses the project or its weights. An ongoing [methodological evaluation](research/scoring-validation/README.md) and its [results](research/scoring-validation/RESULTS.md) examine coverage, sensitivity and limitations.

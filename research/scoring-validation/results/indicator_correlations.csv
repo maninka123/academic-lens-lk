@@ -1,0 +1,4 @@
+a,b,n,spearman,kendall_tau_b
+hIndex,recentCitations,2425,0.8571,0.7289
+hIndex,publications,2174,0.8703,0.7208
+recentCitations,publications,2124,0.7504,0.5774

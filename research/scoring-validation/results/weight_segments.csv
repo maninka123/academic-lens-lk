@@ -1,0 +1,53 @@
+dimension,group,scheme,n,mean_abs,median_abs,max_abs,band_changed,spearman,kendall_tau_b
+stage,Early-career,equal,605,1.231,1.0,9,46,0.99738,0.96769
+stage,Early-career,citation_emphasis,605,1.069,1.0,7,31,0.99801,0.97315
+stage,Early-career,publication_emphasis,605,2.207,2.0,15,65,0.99266,0.93882
+stage,Early-career,h_index_emphasis,605,0.975,1.0,8,41,0.99846,0.97776
+stage,Mid-career,equal,1106,1.104,1.0,7,55,0.99811,0.97248
+stage,Mid-career,citation_emphasis,1106,1.176,1.0,9,63,0.99765,0.96991
+stage,Mid-career,publication_emphasis,1106,1.932,1.0,12,90,0.99413,0.94538
+stage,Mid-career,h_index_emphasis,1106,1.039,1.0,6,70,0.99854,0.97652
+stage,Professor,equal,694,0.821,1.0,6,26,0.99878,0.97997
+stage,Professor,citation_emphasis,694,1.259,1.0,9,47,0.99752,0.96861
+stage,Professor,publication_emphasis,694,1.512,1.0,10,53,0.99658,0.96038
+stage,Professor,h_index_emphasis,694,0.984,1.0,5,21,0.99879,0.97931
+stage,Teaching / other,equal,66,0.97,1.0,6,2,0.99725,0.97509
+stage,Teaching / other,citation_emphasis,66,1.545,1.0,8,5,0.99346,0.95178
+stage,Teaching / other,publication_emphasis,66,1.712,1.0,10,6,0.99333,0.95562
+stage,Teaching / other,h_index_emphasis,66,1.061,1.0,5,6,0.9975,0.97581
+stage,Unknown,equal,64,0.734,1.0,3,5,0.9979,0.97887
+stage,Unknown,citation_emphasis,64,1.594,1.0,6,6,0.99365,0.95768
+stage,Unknown,publication_emphasis,64,1.359,1.0,4,7,0.99586,0.96432
+stage,Unknown,h_index_emphasis,64,1.062,1.0,5,3,0.99669,0.97384
+field,Computing / IT,equal,168,1.012,1.0,5,9,0.99806,0.97549
+field,Computing / IT,citation_emphasis,168,1.22,1.0,9,11,0.99713,0.96825
+field,Computing / IT,publication_emphasis,168,1.696,1.0,8,14,0.99465,0.95152
+field,Computing / IT,h_index_emphasis,168,1.101,1.0,6,12,0.99786,0.9731
+field,Engineering,equal,480,0.902,1.0,6,18,0.9986,0.97817
+field,Engineering,citation_emphasis,480,1.319,1.0,8,28,0.99723,0.96644
+field,Engineering,publication_emphasis,480,1.569,1.0,10,31,0.99595,0.95735
+field,Engineering,h_index_emphasis,480,0.981,1.0,5,17,0.99864,0.97798
+field,Humanities,equal,30,0.933,1.0,4,1,0.99822,0.98832
+field,Humanities,citation_emphasis,30,0.5,0.0,4,0,0.99922,0.99179
+field,Humanities,publication_emphasis,30,1.533,1.0,7,1,0.99376,0.96835
+field,Humanities,h_index_emphasis,30,0.567,0.0,2,3,0.99911,0.99179
+field,Management / Business,equal,89,1.36,1.0,9,5,0.99235,0.94987
+field,Management / Business,citation_emphasis,89,1.461,1.0,9,7,0.99564,0.96047
+field,Management / Business,publication_emphasis,89,2.247,1.0,15,6,0.98345,0.91429
+field,Management / Business,h_index_emphasis,89,1.337,1.0,8,9,0.99539,0.96211
+field,Medicine / Health,equal,297,1.03,1.0,7,13,0.99821,0.97531
+field,Medicine / Health,citation_emphasis,297,0.98,1.0,6,14,0.99846,0.97816
+field,Medicine / Health,publication_emphasis,297,1.862,1.0,12,30,0.99437,0.94883
+field,Medicine / Health,h_index_emphasis,297,0.923,1.0,4,13,0.99873,0.97977
+field,Natural Sciences,equal,370,0.932,1.0,5,15,0.99853,0.97797
+field,Natural Sciences,citation_emphasis,370,1.262,1.0,9,22,0.99733,0.96827
+field,Natural Sciences,publication_emphasis,370,1.708,1.0,8,27,0.99542,0.95361
+field,Natural Sciences,h_index_emphasis,370,1.049,1.0,5,14,0.99857,0.977
+field,Social Sciences,equal,16,1.625,1.0,5,1,0.99632,0.97891
+field,Social Sciences,citation_emphasis,16,1.25,0.5,6,1,0.99705,0.98319
+field,Social Sciences,publication_emphasis,16,2.75,2.5,8,2,0.98747,0.94516
+field,Social Sciences,h_index_emphasis,16,1.625,1.0,5,1,0.97788,0.92376
+field,Unmapped,equal,1084,1.123,1.0,6,72,0.99795,0.97189
+field,Unmapped,citation_emphasis,1084,1.167,1.0,8,69,0.99777,0.97048
+field,Unmapped,publication_emphasis,1084,2.035,1.0,10,110,0.99353,0.94329
+field,Unmapped,h_index_emphasis,1084,0.995,1.0,5,72,0.99857,0.97779
