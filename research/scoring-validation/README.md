@@ -14,6 +14,37 @@ The study is informed by the [Leiden Manifesto](REFERENCES.md), [DORA's quantita
 
 The snapshot contains 3,651 app-eligible profiles, of which 2,535 received a score. Field classification is missing for 1,748 profiles. The tested named weight alternatives have high overall rank correlation with the baseline but change 134–221 score bands and can shift individual scores by 8–15 points; wider grid changes can be larger. The indicators are strongly correlated. Broader peer grouping, identity restrictions and tie treatment also change scores and coverage. These findings are conditional on the collected sample and do not establish fair or valid individual assessment. The 40/35/25 weights remain an unvalidated assumption, and no optimal weights can be identified here.
 
+### Key figures
+
+![Data availability and scored distribution](figures/availability-and-scores.png)
+*Figure 1. Number of available input indicators (all eligible profiles) and distribution of rounded scores among scored profiles. Zero is a recorded value, not missing.*
+
+![Indicator distributions](figures/indicator-distributions.png)
+*Figure 2. Observed input values on a log10(1 + x) display scale; sample sizes exclude missing values.*
+
+![Peer pool sizes](figures/peer-pool-sizes.png)
+*Figure 3. The smallest scored component peer pool per profile. Group size alone does not establish comparability.*
+
+![Indicator correlations](figures/indicator-correlations.png)
+*Figure 4. Spearman correlations across eligible same-provider pairs (h-index/recent citations 0.86, h-index/publications 0.87, recent citations/publications 0.75). The indicators overlap strongly.*
+
+![Weight sensitivity](figures/weight-sensitivity.png)
+*Figure 5. Mean absolute score difference from the 40/35/25 baseline for the four named alternative weightings, on the same scored population.*
+
+![Scenario coverage](figures/scenario-coverage.png)
+*Figure 6. Counts of scores under selected eligibility and peer-group scenarios. Scenarios differ in their selected populations, so counts are not directly comparable as a quality ranking.*
+
+### Weight alternatives at a glance
+
+| Scheme | h / recent / publications | Mean abs. change | Max abs. change | Band changes | Spearman ρ |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Equal | 33.33 / 33.33 / 33.34 | 1.04 | 9 | 134 | 0.998 |
+| Citation emphasis | 30 / 45 / 25 | 1.19 | 9 | 152 | 0.998 |
+| h-index emphasis | 50 / 30 / 20 | 1.01 | 8 | 141 | 0.999 |
+| Publication emphasis | 30 / 30 / 40 | 1.86 | 15 | 221 | 0.995 |
+
+All 2,535 scored profiles, same peer pools, rounded scores. Aggregate rank correlation is high, but individual scores and bands still move. These are sensitivity ranges, not confidence intervals. Every number is produced by `scripts/analyze.py` (see [RESULTS.md](RESULTS.md) for the full tables).
+
 Detailed tables, scenario definitions, captions and qualifications: [RESULTS.md](RESULTS.md), [METHODOLOGY.md](METHODOLOGY.md), [LIMITATIONS.md](LIMITATIONS.md), [REFERENCES.md](REFERENCES.md). No live algorithm or published score is changed by this study. See also the [application score documentation](../../docs/STANDING_SCORE.md).
 
 ## Reproduce
