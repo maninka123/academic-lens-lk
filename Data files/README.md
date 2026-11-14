@@ -1,21 +1,39 @@
-# Editable Sri Lanka Academic Atlas dataset
+# Editable Sri Lanka academic dataset
 
-Authoritative academic rows live only in universities/<university-id>/faculties/<faculty-slug>/academics.csv or its departments/<department-slug>/academics.csv leaves. Faculty-level rows have no published department; unknown parent faculties use unassigned-faculty, including a department below it when published. Each authoritative ID occurs once. Empty CSVs are placeholders, not no-staff assertions. Faculty/department spellings are published evidence, not inferred broad-field mappings.
+## Where the data lives
 
-Current population: **3,656 academic records** across 15 institutions (collection date 2026-11-14). The authoritative, always-current figures are in [../reports/validation-report.md](../reports/validation-report.md) and [../public/data/dataset_summary.json](../public/data/dataset_summary.json); this README does not repeat per-run counts. Saegis is excluded. The collection is still incomplete and has not reached 5,000 distinct academics. Older planning notes ([collection_report.md](collection_report.md), [APPLICATION_HANDOFF.md](APPLICATION_HANDOFF.md)) describe an earlier 1,601-record snapshot and are kept as history only.
+- Authoritative rows exist only in `universities/<university-id>/faculties/<faculty-slug>/academics.csv` or its `departments/<department-slug>/academics.csv` leaves. Each ID occurs once.
+- Faculty-level rows have no department. Unknown faculties use `unassigned-faculty`.
+- Empty CSVs are placeholders, not statements that nobody works there.
+- Faculty and department spellings are published evidence, not inferred broad-field mappings.
 
-Preserve the exact 32-column academic header, UTF-8 CSV quoting and stable IDs. Numbers are unformatted and nonnegative; blanks mean unknown, not zero. Published qualifications/position titles remain source text. PhD Reading/candidate qualifications are ongoing and have no completion year. Source-reported experience is not extrapolated. SLIIT's accepted academic spelling differs from the unchanged manifest name; institution_aliases.csv maps both to the single sliit ID.
+## Current population
 
-Supporting files:
+**3,656 academic records** across 15 institutions (collection date 2026-11-14). Live figures: [validation report](../reports/validation-report.md) and [dataset_summary.json](../public/data/dataset_summary.json); this file does not repeat per-run counts. Saegis is excluded. The collection is incomplete and has not reached 5,000 distinct academics. Older local planning notes describe an earlier 1,601-record snapshot and are historical only.
 
-- universities.csv, each faculties.csv, faculty_department_inventory.csv, coverage.csv and coverage_dimensions.csv reconcile the authoritative population and distinguish retrieval, employment, identity and field completeness. Inventory-only units may be provisional. inventory_excluded_rows.csv preserves rejected news/history/navigation labels. A visited page is not proof of complete staff coverage.
-- baseline_records.csv, change_log.csv, collection_checkpoints.csv, field_evidence.csv, field_quality_review.csv, web_source_checks.csv, supporting_data_dictionary.csv and profile_verification.csv preserve row identity, old/new corrections, source dates and affiliation moves. identity_duplicate_records.csv, identity_aliases.csv and academic_affiliations.csv preserve confirmed duplicates and overlapping affiliations. identity_review.csv, unit_review.csv and employment_review.csv retain unresolved cases.
-- research_metrics_snapshots.csv keeps the original platform snapshot header; research_metric_observations.csv stores additional live h-index/annual values. research_identity_evidence.csv distinguishes official links and observed conflicts. Legacy research_search_log.csv retains its header; research_search_attempts.csv adds academic IDs, exact submitted queries, source URLs and index-freshness limitations. research_unresolved.csv records remaining gaps.
-- publication_details.csv preserves one link per academic/publication, including legitimate coauthorship. publication_verification.csv holds conservative Crossref matches; publication_extraction_review.csv retains rejected empty template rows. publication_duplicate_records.csv preserves removed per-person duplicates; publication_identity_review.csv records unresolved DOI/date conflicts. publication_coverage.csv and q1_partial_counts.csv mark partial coverage. q1_methodology.md defines publication-year SJR/best-category policy; historical evidence is required before complete Q1 fields are populated.
-- source_pages.csv preserves legacy read observations; source_observations.csv records HTTP retrievals separately. access_issues.csv retains failures. data_dictionary.csv documents field semantics. field-mapping.json remains a manual, evidence-based mapping; unknown units stay Unmapped.
+## Editing rules
 
-Save CSV replacements atomically and checkpoint each unit. Do not create editable aggregate academic copies. Optional generated/read-only delivery archives are under _exports/. _archive/ is preserved unchanged and excluded from the active ZIP. Import and publication are done with `npm run data:import`, which regenerates `public/data/` and the reports.
+- Keep the exact 32-column header, UTF-8 CSV quoting and stable IDs.
+- Numbers are unformatted and nonnegative. **Blank means unknown, not zero.**
+- Positions and qualifications stay as published. PhD "Reading" or candidate entries are ongoing and have no completion year.
+- Source-reported experience is not extrapolated.
+- SLIIT's accepted spelling differs from the manifest name; `institution_aliases.csv` maps both to one `sliit` ID.
+- Save CSV replacements atomically and checkpoint each unit. Do not create editable aggregate copies.
+- Import and publish with `npm run data:import`, which regenerates `public/data/` and the reports.
 
-Uva Wellassa University added 13 October 2026: 204 published academic records across five faculties; 29 departments in the inventory, with 20 represented by main academic records. 67 explicitly temporary/visiting appointments remain outside the main population. Read [UWU collection review](universities/uwu/COLLECTION_REVIEW.md) for source and identity caveats.
+## Supporting files
 
-Enriched export merged 14 October 2026: 659 existing profiles improved; qualifications now cover 1,210 records and Scholar links 767. Record count at that time was 1,601 (historical). See [merge review](../reports/enriched-merge-2026-10-14/REVIEW.md).
+- **Coverage:** `universities.csv`, each `faculties.csv`, `faculty_department_inventory.csv`, `coverage.csv`, `coverage_dimensions.csv`. A visited page is not proof of complete staff coverage. `inventory_excluded_rows.csv` keeps rejected news, history and navigation labels.
+- **Change history:** `baseline_records.csv`, `change_log.csv`, `collection_checkpoints.csv`, `field_evidence.csv`, `field_quality_review.csv`, `web_source_checks.csv`, `profile_verification.csv`.
+- **Identity and employment:** `identity_duplicate_records.csv`, `identity_aliases.csv`, `academic_affiliations.csv` (confirmed duplicates, overlapping affiliations); `identity_review.csv`, `unit_review.csv`, `employment_review.csv` (unresolved cases).
+- **Research metrics:** `research_metrics_snapshots.csv` (original snapshot header), `research_metric_observations.csv` (extra live h-index and yearly values), `research_identity_evidence.csv` (official links, observed conflicts), `research_search_log.csv` and `research_search_attempts.csv` (queries, URLs, freshness limits), `research_unresolved.csv` (remaining gaps).
+- **Publications:** `publication_details.csv` (one link per academic and publication, including coauthorship), `publication_verification.csv` (conservative Crossref matches), `publication_extraction_review.csv`, `publication_duplicate_records.csv`, `publication_identity_review.csv`, `publication_coverage.csv`, `q1_partial_counts.csv`. `q1_methodology.md` defines the publication-year SJR rule; complete Q1 fields need historical evidence.
+- **Sources and definitions:** `source_pages.csv` (legacy reads), `source_observations.csv` (HTTP retrievals), `access_issues.csv`, `data_dictionary.csv`. `field-mapping.json` is a manual, evidence-based mapping; unknown units stay `Unmapped`.
+- `_exports/` holds optional read-only delivery archives; `_archive/` is preserved unchanged and excluded from the active ZIP.
+
+Several of these evidence and review files are not published on the website; see [DATA_POLICY.md](../docs/DATA_POLICY.md) for the current public/private status.
+
+## Collection notes
+
+- **Uva Wellassa University (13 Oct 2026):** 204 published records across five faculties; 29 departments in the inventory, 20 with main academic records. 67 explicitly temporary or visiting appointments are outside the main population. See [UWU collection review](universities/uwu/COLLECTION_REVIEW.md).
+- **Enriched export (14 Oct 2026):** 659 existing profiles improved; qualifications cover 1,210 records and Scholar links 767 (record count then: 1,601, historical).

@@ -52,12 +52,13 @@ Light theme shown. Every page and popup also has a dark theme (Appearance switch
 | Path | What is in it |
 |---|---|
 | `src/` | The web app (React, TypeScript, ECharts) and its styles |
-| `design-system/`, `DESIGN.md` | Design tokens and the written design reference |
+| `design-system/` | Design tokens and the written reference (`DESIGN.md`) |
 | `Data files/` | The editable dataset: one CSV per department, plus rankings and review files |
 | `public/` | Files served by the site (generated data, images, map) |
 | `scripts/` | Data import, metric collection (OpenAlex, Google Scholar) and checks |
-| `tests/` | Browser tests |
+| `tests/` | Browser tests and their Playwright config |
 | `docs/` | Guides and policies; legal notices are in `docs/legal/` |
+| `.github/` | CI workflow, issue forms and `SECURITY.md` (private-request guide) |
 | `reports/` | Generated coverage and validation reports |
 | `private/` | Local only, never committed (API keys, ethics documents) |
 
@@ -89,12 +90,6 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 
 More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md)
 
-## Research score methodology
-
-The [research standing score](docs/STANDING_SCORE.md) is a descriptive weighted blend of bibliometric percentiles, not a combined percentile or an assessment of academic quality. Its methodology is informed by the Leiden Manifesto, DORA's guidance on quantitative indicators, and the OECD/JRC handbook on composite indicators; none endorses the project or its weights. An ongoing [methodological evaluation](research/scoring-validation/README.md) and its [results](research/scoring-validation/RESULTS.md) examine coverage, sensitivity and limitations.
-
-**3,656 vs 3,651:** 3,656 is every Sri Lankan profile in the dataset; the study's fixed snapshot counted 3,651 eligible for comparison, of which 2,535 were scored.
-
 ## Global benchmark method
 
 Research comparisons use matched OpenAlex profiles on both sides, with Computer Science and Physics selected by default. Selected Medicine, Engineering, Law, Management and Business profiles are also included; their unverified metrics stay blank. [Dataset details](Data%20files/international/README.md).
@@ -110,19 +105,23 @@ Research comparisons use matched OpenAlex profiles on both sides, with Computer 
 
 ### Substitutions
 
-- **ANU** (Australia, elite): University of Melbourne (QS 22) directories return HTTP 403 to automated access; next-ranked ANU used
-- **Murdoch** (Australia, middle): University of Canberra (QS 477) staff profiles return HTTP 403; Murdoch (same band) used. Murdoch 'our people' pages list ranked senior academics only
-- **UniSC** (Australia, lower): Charles Sturt University (QS 951-1000) blocks automated access (HTTP 403); UniSC used. UniSC has no physics department: engineering academics used as nearest physical-science unit
-- **IIT BHU** (India, middle): Anna University (QS 470) department sites unreachable (DNS/TLS failures); IIT BHU (same band, public) used
-- **Bordeaux** (France, middle): Université de Montpellier (QS 473) has no static staff list (LIRMM directory is JavaScript-only); Bordeaux (same band) used
-- **TU Chemnitz** (Germany, lower): Bielefeld University (QS 1001-1200) publishes no consolidated professor list (research-group pages only); TU Chemnitz (same band) used
-- **CDU** (Australia, middle): Second middle-tier slot: University of Canberra, JCU, CQU and ECU block automated access; CDU (QS 551) used. CDU has no physics department, so only IT is sampled
-- **IIT Indore** (India, middle): IIT Indore physics site returns HTTP 403; only CSE sampled
-- **IIT Bhubaneswar** (India, lower): Aligarh Muslim University (same band) faculty pages are JavaScript-only; IIT Bhubaneswar used
-- **Windsor** (Canada, middle): University of Guelph (QS 546) people directory is JavaScript-only; Windsor (QS 537) used
-- **CY Cergy** (France, lower): Nantes Université (901-950) LS2N directory is AJAX-protected; CY Cergy (same band) used. LPTM physics lab publishes no member list; only computing (ETIS) sampled
-- **Würzburg** (Germany, middle): Leipzig University (QS 540) physics institutes publish no professor lists; Würzburg (QS 430) used
-- **Wuppertal** (Germany, lower): University of Oldenburg (same band) publishes no consolidated professor list; Wuppertal used
+Where a first-choice directory was unreachable, the next university in the same band was used:
+
+| Used | Instead of | Reason |
+|---|---|---|
+| ANU (AU, elite) | Melbourne (QS 22) | directories return HTTP 403 |
+| Murdoch (AU, middle) | Canberra (QS 477) | HTTP 403; Murdoch lists senior academics only |
+| UniSC (AU, lower) | Charles Sturt (951-1000) | HTTP 403; no physics, so engineering used |
+| CDU (AU, middle) | Canberra, JCU, CQU, ECU | all block automated access; no physics, only IT sampled |
+| IIT BHU (IN, middle) | Anna University (470) | sites unreachable |
+| IIT Indore (IN, middle) | none | physics site returns 403; only CSE sampled |
+| IIT Bhubaneswar (IN, lower) | Aligarh Muslim | JavaScript-only pages |
+| Bordeaux (FR, middle) | Montpellier (473) | JavaScript-only directory |
+| CY Cergy (FR, lower) | Nantes (901-950) | AJAX-protected; only computing sampled |
+| Windsor (CA, middle) | Guelph (546) | JavaScript-only directory |
+| Würzburg (DE, middle) | Leipzig (540) | no professor lists |
+| TU Chemnitz (DE, lower) | Bielefeld (1001-1200) | no consolidated professor list |
+| Wuppertal (DE, lower) | Oldenburg | no consolidated professor list |
 
 </details>
 

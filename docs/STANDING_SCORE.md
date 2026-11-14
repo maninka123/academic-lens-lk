@@ -32,17 +32,12 @@ Labels are fixed bands, not validated performance categories. Career stage (Prof
 Missing values are skipped, never treated as zero; a recorded zero counts. The app picks the first peer group that qualifies:
 
 ```mermaid
-flowchart TD
-  A[Same field and stage] -->|too few| B[Same stage only]
-  B -->|too few| C[Indicative: 5+ peers, 1 measure]
-  C -->|none| D[Field across stages, then everyone]
-  D -->|none| E[Pool provider labels]
-  E -->|none| F[No score]
-  A -.->|standard score| S[Needs 10+ peers, 2+ measures incl. h-index or citations]
-  B -.-> S
+flowchart LR
+  A["1. Same field<br/>and stage"] --> B["2. Same<br/>stage only"] --> C["3. Indicative<br/>5+ peers, 1 measure"] --> D["4. Field across stages,<br/>then everyone"] --> E["5. Pool<br/>provider labels"] --> F["No score"]
+  N["Steps 1–2 give a standard score:<br/>10+ peers, 2+ measures incl.<br/>h-index or citations"] -.-> A
 ```
 
-Fallback scores are labelled **indicative** with low confidence.
+Each arrow means "if too few peers, try the next". Steps 3–5 give an **indicative** score, always low confidence.
 
 **Known presentation issues** (documented, not changed): the across-stage fallback can say the stage was "not recognised" when it was known; stage-only scores may not say disciplines were mixed; matching provider labels does not prove comparable sources.
 

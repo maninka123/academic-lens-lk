@@ -1,6 +1,7 @@
 import { defineConfig } from "@playwright/test";
 export default defineConfig({
-  testDir: "./tests",
+  testDir: ".",
+  outputDir: "../test-results",
   timeout: 30000,
   fullyParallel: false,
   workers: 1,
@@ -22,6 +23,7 @@ export default defineConfig({
   },
   webServer: {
     command: "npm run dev -- --port 5173",
+    cwd: "..",
     url: "http://127.0.0.1:5173/academic-lens-lk/",
     reuseExistingServer: true,
     timeout: 30000,
