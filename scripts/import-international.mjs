@@ -157,9 +157,14 @@ csvWrite(out + "/publications.csv", bibliography.map((r) => ({
   citation: r.citation,
   collectionDate: r.collected_at,
 })));
-const slOpenAlex = fs.existsSync(source + "/sri_lanka_openalex_metrics.csv")
+// Only people who are in the published Sri Lankan records: lookups for excluded (non-academic) posts stay private.
+const publishedIds = new Set(
+  fs.existsSync("public/data/academics.csv") ? csvRead("public/data/academics.csv").map((r) => r.id) : [],
+);
+const slOpenAlex = (fs.existsSync(source + "/sri_lanka_openalex_metrics.csv")
   ? csvRead(source + "/sri_lanka_openalex_metrics.csv")
-  : [];
+  : []
+).filter((r) => !publishedIds.size || publishedIds.has(r.academic_id));
 csvWrite(
   out + "/sri_lanka_openalex.csv",
   slOpenAlex.map((r) => ({

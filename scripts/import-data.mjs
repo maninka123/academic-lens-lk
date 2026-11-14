@@ -4,6 +4,7 @@
 // Data files/. Also regenerates the dataset summary, the validation report
 // (reports/) and the README snapshot block so every count describes one import.
 import { publicNote } from "./public-notes.mjs";
+import { isNonAcademicPosition } from "./non-academic.mjs";
 import fs from "node:fs";
 import { createHash } from "node:crypto";
 import { csvRead, universities, slug, hierarchy, csvWrite } from "./shared.mjs";
@@ -42,10 +43,24 @@ const walk = (p) =>
 const inputs = fs.existsSync(source + "/universities")
   ? walk(source + "/universities")
   : [source + "/academics_all.csv"];
-// Librarian appointments are outside the academic teaching/research scope.
-const sourceRows = inputs
-  .flatMap(csvRead)
-  .filter((r) => !/librarian/i.test(r.academic_position || ""));
+// Non-academic and ancillary posts (demonstrators, laboratory assistants, technical officers, instructors,
+// librarians and similar) stay in the private source files but are never published or compared.
+const allSourceRows = inputs.flatMap(csvRead);
+const sourceRows = allSourceRows.filter((r) => !isNonAcademicPosition(r.academic_position));
+const excludedNonAcademic = allSourceRows.filter((r) => isNonAcademicPosition(r.academic_position));
+fs.writeFileSync(
+  source + "/excluded_non_academic.csv",
+  "\uFEFF" + ["academic_id,university,faculty,department,position"]
+    .concat(
+      excludedNonAcademic.map((r) =>
+        [r.academic_id, r.university, r.faculty, r.department, r.academic_position]
+          .map((v) => '"' + String(v ?? "").replace(/"/g, '""') + '"')
+          .join(","),
+      ),
+    )
+    .join("\n") + "\n",
+);
+console.log(`Excluded ${excludedNonAcademic.length} non-academic or ancillary posts (kept privately in ${source}/excluded_non_academic.csv).`);
 const optionalCsv = (name) =>
   fs.existsSync(source + "/" + name) ? csvRead(source + "/" + name) : [];
 const snapshots = optionalCsv("research_metrics_snapshots.csv");

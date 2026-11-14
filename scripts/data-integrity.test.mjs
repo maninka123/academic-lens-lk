@@ -82,3 +82,46 @@ test("OpenAlex lookups and international bibliographies join to unique academic 
     for (const metric of ["publications", "citations", "recentCitations", "hIndex"])
       assert.equal(r[metric], "", `unverified ${metric} for ${r.id}`);
 });
+
+test("an OpenAlex author link is published only for an approved identity match", opts, () => {
+  for (const r of csvRead("public/data/academics.csv")) {
+    if (r.openAlexUrl)
+      assert.ok(
+        !["possible", "unresolved", ""].includes(r.openAlexMatchLevel),
+        `${r.id} publishes an OpenAlex link with match level "${r.openAlexMatchLevel}"`,
+      );
+  }
+});
+
+test("metrics read from an unverified profile never count as a verified identity", opts, () => {
+  // Department of Community Medicine, University of Ruhuna: metrics come from recorded OpenAlex/Scholar
+  // author links with no approved match or official link, so the verified-identity count must be zero.
+  const verified = (r) =>
+    Boolean(r.openAlexUrl) ||
+    [r.scholarStatus, r.researchgateStatus].some((s) =>
+      ["verified_official_link", "matched_user_supplied_platform_evidence"].includes(s),
+    );
+  const dept = csvRead("public/data/academics.csv").filter(
+    (r) => r.universityId === "ruhuna" && r.department === "Department of Community Medicine",
+  );
+  assert.ok(dept.length > 0);
+  assert.equal(dept.filter(verified).length, 0);
+  assert.ok(dept.filter((r) => r.citations !== "" || r.hIndex !== "").length > 0);
+});
+
+test("Medicine is mapped to faculties of medicine only; allied health and nursing are separate", () => {
+  const m = JSON.parse(fs.readFileSync("Data files/field-mapping.json", "utf8")).faculties;
+  for (const [id, field] of Object.entries(m)) {
+    if (field === "Medicine") assert.match(id, /faculty-of-medicine$|faculty-of-medical-sciences$/, id);
+    if (/allied-health|nursing|health-sciences/.test(id)) assert.equal(field, "Allied Health & Nursing", id);
+  }
+  for (const id of ["ruhuna", "kelaniya", "kdu", "jayewardenepura"]) {
+    assert.ok(Object.entries(m).some(([k, v]) => k.startsWith(id + "--") && v === "Medicine"), `${id} medicine missing`);
+  }
+});
+
+test("non-academic and ancillary posts are never published", opts, async () => {
+  const { isNonAcademicPosition } = await import("./non-academic.mjs");
+  for (const r of csvRead("public/data/academics.csv"))
+    assert.equal(isNonAcademicPosition(r.position), false, `${r.id}: ${r.position}`);
+});

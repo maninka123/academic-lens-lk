@@ -11,12 +11,10 @@ cinec--faculty-of-humanities-and-education--department-of-marine-simulation,cine
 cinec--faculty-of-humanities-and-education--department-of-safety-and-survival-training,cinec--faculty-of-humanities-and-education,cinec,Department of Safety and Survival Training
 cinec--faculty-of-management-and-social-sciences--department-of-logistics-and-transport,cinec--faculty-of-management-and-social-sciences,cinec,Department of Logistics and Transport
 cinec--faculty-of-management-and-social-sciences--department-of-management-and-business-studies,cinec--faculty-of-management-and-social-sciences,cinec,Department of Management and Business Studies
-cinec--faculty-of-marine-engineering--department-of-industrial-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Industrial Engineering
 cinec--faculty-of-marine-engineering--department-of-marine-electrical-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Marine Electrical Engineering
 cinec--faculty-of-marine-engineering--department-of-marine-engineering,cinec--faculty-of-marine-engineering,cinec,Department of Marine Engineering
 cinec--faculty-of-maritime-sciences--department-of-marine-electronic-and-radio-communication,cinec--faculty-of-maritime-sciences,cinec,Department of Marine Electronic and Radio Communication
 cinec--faculty-of-maritime-sciences--department-of-navigation,cinec--faculty-of-maritime-sciences,cinec,Department of Navigation
-cinec--department-of-examinations,,cinec,Department of Examinations
 colombo--faculty-of-arts--department-of-communication-and-creative-arts,colombo--faculty-of-arts,colombo,Department of Communication and Creative Arts
 colombo--faculty-of-arts--department-of-demography,colombo--faculty-of-arts,colombo,Department of Demography
 colombo--faculty-of-arts--department-of-economics,colombo--faculty-of-arts,colombo,Department of Economics
@@ -322,10 +320,8 @@ nsbm--faculty-of-science--department-of-life-sciences,nsbm--faculty-of-science,n
 peradeniya--faculty-of-agriculture--department-of-agriculture-biology,peradeniya--faculty-of-agriculture,peradeniya,Department of Agriculture Biology
 peradeniya--faculty-of-agriculture--department-of-animal-science,peradeniya--faculty-of-agriculture,peradeniya,Department of Animal Science
 peradeniya--faculty-of-agriculture--department-of-crop-science,peradeniya--faculty-of-agriculture,peradeniya,Department of Crop Science
-peradeniya--faculty-of-agriculture--department-of-english-language-teaching,peradeniya--faculty-of-agriculture,peradeniya,Department of English Language Teaching
 peradeniya--faculty-of-agriculture--department-of-food-science-and-technology,peradeniya--faculty-of-agriculture,peradeniya,Department of Food Science and Technology
 peradeniya--faculty-of-agriculture--department-of-soil-science,peradeniya--faculty-of-agriculture,peradeniya,Department of Soil Science
-peradeniya--faculty-of-allied-health-sciences--department-of-english-language-teaching,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of English Language Teaching
 peradeniya--faculty-of-arts--department-of-arabic-islamic-civilization,peradeniya--faculty-of-arts,peradeniya,Department of Arabic & Islamic Civilization
 peradeniya--faculty-of-arts--department-of-archaeology,peradeniya--faculty-of-arts,peradeniya,Department of Archaeology
 peradeniya--faculty-of-arts--department-of-classical-languages,peradeniya--faculty-of-arts,peradeniya,Department of Classical Languages
@@ -347,7 +343,6 @@ peradeniya--faculty-of-arts--department-of-tamil,peradeniya--faculty-of-arts,per
 peradeniya--faculty-of-engineering--department-of-civil-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Civil Engineering
 peradeniya--faculty-of-engineering--department-of-chemical-and-process-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Chemical and Process Engineering
 peradeniya--faculty-of-engineering--department-of-computer-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Computer Engineering
-peradeniya--faculty-of-engineering--department-of-english-language-teaching,peradeniya--faculty-of-engineering,peradeniya,Department of English Language Teaching
 peradeniya--faculty-of-engineering--department-of-electrical-and-electronic-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Electrical and Electronic Engineering
 peradeniya--faculty-of-engineering--department-of-engineering-mathematics,peradeniya--faculty-of-engineering,peradeniya,Department of Engineering Mathematics
 peradeniya--faculty-of-engineering--department-of-manufacturing-and-industrial-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Manufacturing and Industrial Engineering
@@ -356,7 +351,6 @@ peradeniya--faculty-of-medicine--department-of-anaesthesiology-critical-care,per
 peradeniya--faculty-of-medicine--department-of-anatomy,peradeniya--faculty-of-medicine,peradeniya,Department of Anatomy
 peradeniya--faculty-of-medicine--department-of-biochemistry,peradeniya--faculty-of-medicine,peradeniya,Department of Biochemistry
 peradeniya--faculty-of-medicine--community-medicine,peradeniya--faculty-of-medicine,peradeniya,Community Medicine
-peradeniya--faculty-of-medicine--department-of-english-language-teaching,peradeniya--faculty-of-medicine,peradeniya,Department of English Language Teaching
 peradeniya--faculty-of-medicine--department-of-family-medicine,peradeniya--faculty-of-medicine,peradeniya,Department of Family Medicine
 peradeniya--faculty-of-medicine--department-of-forensic-medicine,peradeniya--faculty-of-medicine,peradeniya,Department of Forensic Medicine
 peradeniya--faculty-of-medicine--department-of-medical-education,peradeniya--faculty-of-medicine,peradeniya,Department of Medical Education
@@ -374,9 +368,7 @@ peradeniya--faculty-of-medicine--department-of-radiology,peradeniya--faculty-of-
 peradeniya--faculty-of-medicine--department-of-surgery,peradeniya--faculty-of-medicine,peradeniya,Department of Surgery
 peradeniya--faculty-of-science--department-of-botany,peradeniya--faculty-of-science,peradeniya,Department of Botany
 peradeniya--faculty-of-science--department-of-chemistry,peradeniya--faculty-of-science,peradeniya,Department of Chemistry
-peradeniya--faculty-of-science--department-of-english-language-teaching,peradeniya--faculty-of-science,peradeniya,Department of English Language Teaching
 peradeniya--faculty-of-science--department-of-zoology,peradeniya--faculty-of-science,peradeniya,Department of Zoology
-peradeniya--faculty-of-science--english-language-teaching-unit,peradeniya--faculty-of-science,peradeniya,English Language Teaching Unit
 peradeniya--faculty-of-science--department-of-mathematics,peradeniya--faculty-of-science,peradeniya,Department of Mathematics
 peradeniya--faculty-of-science--department-of-physics,peradeniya--faculty-of-science,peradeniya,Department of Physics
 peradeniya--faculty-of-science--department-of-statistics-and-computer-science,peradeniya--faculty-of-science,peradeniya,Department of Statistics and Computer Science

@@ -87,4 +87,4 @@ Do not run the original baseline builder (`scripts/baselines/build_international
 
 Evidence is in `_metric_verification_2026-10-12.json` (summary: `_metric_verification_summary_2026-10-12.json`); the quality-check notebook is `../../scripts/baselines/international_verification_audit.ipynb`. The importer regenerates the app CSVs at their existing paths.
 
-On 13 October 2026, a wider missing-link review added 92 source-backed Google Scholar links from university pages, official-linked researcher sites and an official CV. Direct Scholar requests were rate-limited, so no live Scholar metrics were added. Association checks and searches are in `research_identity_evidence.csv` and `research_search_attempts.csv`.
+On 13 October 2026, a wider missing-link review added 92 source-backed Google Scholar links from university pages, official-linked researcher sites and an official CV. Direct Scholar requests were rate-limited, so no live Scholar metrics were added. The association checks and search logs behind these links are kept privately, not in this repository.

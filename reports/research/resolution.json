@@ -1,18 +1,18 @@
 {
-  "date": "2026-10-13",
-  "profiles": 1397,
-  "processed": 1397,
+  "date": "2026-11-15",
+  "profiles": 4812,
+  "processed": 65,
   "levels": {
-    "corroborated": 399,
-    "confirmed": 30,
-    "possible": 668,
-    "unresolved": 300
+    "corroborated": 459,
+    "confirmed": 63,
+    "possible": 792,
+    "unresolved": 363
   },
   "approved": {
-    "corroborated": 399,
-    "confirmed": 21
+    "corroborated": 459,
+    "confirmed": 61
   },
-  "new_staged_matches": 9,
-  "identity_conflicts": 3,
-  "cache_authors": 18355
+  "new_staged_matches": 2,
+  "identity_conflicts": 0,
+  "cache_authors": 18545
 }

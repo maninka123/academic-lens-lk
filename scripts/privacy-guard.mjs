@@ -25,7 +25,7 @@ export const FORBIDDEN_PATHS = [
   [/^Data files\/(APPLICATION_HANDOFF|MISSING_INSTITUTIONS_RESEARCH|PROFILE_COMPLETION_REPORT)\b/i, "internal collection report"],
   // Internal evidence data: reviews, investigations, logs, unresolved searches, rejected matches.
   [
-    /^Data files\/.*(review|evidence|verification|change_log|observation|unresolved|followup|follow_up|worklist|rejected|overlapping|search_log|search_attempts|checkpoint|handoff|candidates)[^/]*\.(csv|tsv|json|jsonl|md|txt|xlsx|ipynb)$/i,
+    /^Data files\/.*(review|evidence|verification|change_log|observation|unresolved|followup|follow_up|worklist|rejected|overlapping|search_log|search_attempts|checkpoint|handoff|candidates|excluded)[^/]*\.(csv|tsv|json|jsonl|md|txt|xlsx|ipynb)$/i,
     "internal verification, review, log or evidence file",
   ],
   [/^reports\/enriched-merge[^/]*\//i, "internal merge audit"],

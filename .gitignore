@@ -127,6 +127,7 @@ Data files/**/*search_log*
 Data files/**/*search_attempts*
 Data files/**/*checkpoint*
 Data files/**/*candidates*
+Data files/**/*excluded*
 Data files/_research_reviews/
 Data files/_archive/
 Data files/_exports/

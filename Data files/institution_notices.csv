@@ -1,3 +1,3 @@
 university_id,severity,exclude_from_comparison,title,message,source,status
-icbt,warning,yes,Academic Staff Data Unavailable,"No public staff directory was found, so the few profiles shown may be incomplete and are left out of comparisons.",icbt.lk,Public directory not located
-kiu,warning,yes,Academic Staff Coverage Unverified,"No complete staff directory could be verified, so the few profiles shown may be incomplete and are left out of comparisons.",kiu.ac.lk (reviewed October 2026),Staff directory not verified
+icbt,warning,yes,Academic Staff Data Unavailable,,icbt.lk,Public directory not located
+kiu,warning,yes,Academic Staff Coverage Unverified,,kiu.ac.lk (reviewed October 2026),Staff directory not verified
