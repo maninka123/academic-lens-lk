@@ -52,7 +52,7 @@ function UniversityRow({ s, rank, min }: { s: UniversityStats; rank: number | nu
         </span>
         <span className="uni-name">
           <strong>{short(s.name)}</strong>
-          <small>{units}<span className={"uni-type " + (s.type === "Non-state" ? "nonstate" : "public")}>{s.type}</span></small>
+          <small>{units}<span className={"uni-type " + (s.type === "Non-state" ? "nonstate" : "public")}>{s.type === "Public" ? "State" : s.type}</span></small>
         </span>
       </span>
       <span className="uni-cell uni-profiles"><span className="uni-label">Profiles</span><strong>{fmt(s.profiles)}</strong></span>
@@ -162,7 +162,7 @@ export function Universities() {
         <div className="chip-group" role="group" aria-label="Institution type">
           {(["All", "Public", "Non-state"] as const).map((t) => (
             <button key={t} type="button" aria-pressed={type === t} onClick={() => setType(t)}>
-              {t}
+              {t === "Public" ? "State" : t}
             </button>
           ))}
         </div>

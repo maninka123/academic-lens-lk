@@ -49,7 +49,7 @@ export function StandardsOverview() {
     tooltip: {
       confine: true,
       formatter: (p: any) =>
-        `${p.data.full} (${p.data.type})\nMedian ${label}: ${fmt(p.value, 1)}\nBased on ${p.data.n} profiles${p.data.n < MIN ? "\nFewer than 10: indicative" : ""}`,
+        `${p.data.full} (${p.data.type === "Public" ? "State" : p.data.type})\nMedian ${label}: ${fmt(p.value, 1)}\nBased on ${p.data.n} profiles${p.data.n < MIN ? "\nFewer than 10: indicative" : ""}`,
     },
     grid: { left: 10, right: 40, top: 8, bottom: 8, containLabel: true },
     xAxis: { type: "value", axisLabel: { formatter: (v: number) => fmt(v) } },
@@ -95,7 +95,7 @@ export function StandardsOverview() {
         </div>
       </div>
       <div className="std-sectors">
-        <div className="std-sector public"><small>Public universities</small>
+        <div className="std-sector public"><small>State universities</small>
           <strong>{pub.median === null ? "—" : fmt(pub.median, 1)}</strong><span>median {label} | {pub.n} profiles</span></div>
         <div className="std-sector private"><small>Non-state institutions</small>
           <strong>{pri.median === null ? "—" : fmt(pri.median, 1)}</strong><span>median {label} | {pri.n} profiles{pri.median === null ? " (fewer than 10)" : ""}</span></div>
@@ -106,13 +106,13 @@ export function StandardsOverview() {
         <p className="caption">Not enough Google Scholar values for this position yet.</p>
       )}
       <div className="benchmark-key">
-        <span><i style={{ background: PUBLIC }} />Public</span>
+        <span><i style={{ background: PUBLIC }} />State</span>
         <span><i style={{ background: PRIVATE }} />Non-state</span>
         <span className="caption">Hatched bars rest on 5–9 profiles and are indicative only; fewer than 5 are not shown.</span>
       </div>
       <h3 className="std-sub">Across all universities</h3>
       <div className="table-scroll">
-        <table>
+        <table className="std-table">
           <thead><tr><th>Position</th><th>People</th><th>Median {label}</th><th>Average</th></tr></thead>
           <tbody>
             {all.map((r) => (

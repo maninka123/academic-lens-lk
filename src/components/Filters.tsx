@@ -145,7 +145,7 @@ export function Filters({ compact = false }: { compact?: boolean }) {
             label="Institution type"
             options={["Public", "Non-state"].map((value) => ({
               value,
-              label: value,
+              label: value === "Public" ? "State" : value,
             }))}
             selected={f.types}
             onChange={(v) => change("types", v)}

@@ -8,6 +8,7 @@ import {
   Plus,
   Trash2,
   Stethoscope,
+  HeartPulse,
   Cog,
   FlaskConical,
   Cpu,
@@ -90,7 +91,8 @@ const charts: Record<ChartType, string> = {
   treemap: "Treemap",
 };
 const fieldPresets = [
-  { field: "Medicine / Health", icon: Stethoscope, hue: "346" },
+  { field: "Medicine", icon: Stethoscope, hue: "346" },
+  { field: "Allied Health & Nursing", icon: HeartPulse, hue: "168" },
   { field: "Engineering", icon: Cog, hue: "28" },
   { field: "Natural Sciences", icon: FlaskConical, hue: "142" },
   { field: "Computing / IT", icon: Cpu, hue: "262" },
@@ -107,7 +109,7 @@ const questionPresets: {
 }[] = [
   { label: "How big is each institution?", hint: "Academic records per university", icon: Building2, hue: "232", settings: { metric: "count", aggregation: "total", chart: "bar" } },
   { label: "Who has typical citations?", hint: "Median citations per university", icon: TrendingUp, hue: "262", settings: { metric: "citations", aggregation: "median", chart: "bar" } },
-  { label: "Public vs Non-state", hint: "Median citations by sector", icon: Landmark, hue: "232", settings: { level: "type", metric: "citations", aggregation: "median", chart: "bar" } },
+  { label: "State vs Non-state", hint: "Median citations by sector", icon: Landmark, hue: "232", settings: { level: "type", metric: "citations", aggregation: "median", chart: "bar" } },
   { label: "What is the mix of positions?", hint: "Share of each academic position", icon: Layers, hue: "38", settings: { metric: "count", aggregation: "total", chart: "percentStacked" } },
   { label: "Who holds a PhD?", hint: "Recorded PhD percentage", icon: GraduationCap, hue: "168", settings: { metric: "phd", aggregation: "percentage", chart: "bar" } },
   { label: "Who trained overseas?", hint: "Recorded overseas PhD percentage", icon: Plane, hue: "200", settings: { metric: "overseas", aggregation: "percentage", chart: "bar" } },
@@ -508,7 +510,7 @@ export function Compare() {
           {c.benchmarks && !benchOn && (
             <small>
               {" "}
-              (available at the Public vs Non-state or Universities level)
+              (available at the State vs Non-state or Universities level)
             </small>
           )}
         </span>
@@ -860,7 +862,7 @@ export function Compare() {
           {c.level === "university" && has && ["bar", "grouped"].includes(c.chart) && (
             <span className="legend-inline institution-key compare-sector-key">
               <i className="blue" />
-              Public <i className="teal" />
+              State <i className="teal" />
               Non-state
             </span>
           )}
@@ -935,7 +937,7 @@ export function Compare() {
             </div>
           </div>
           <div className="table-scroll">
-            <table>
+            <table className="compare-table">
               <thead>
                 <tr>
                   <th>Comparison group</th>

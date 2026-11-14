@@ -236,3 +236,34 @@ describe("coverage indicators", () => {
     });
   });
 });
+
+describe("research identity coverage (Ruhuna Community Medicine regression)", () => {
+  // OpenAlex metrics were entered from a recorded author link with no lookup or identity check on file.
+  const unverifiedWithMetrics = (id: string) =>
+    mk(id, {
+      citations: 117,
+      hIndex: 3,
+      metricsSource: "OpenAlex",
+      metricsUrl: "https://openalex.org/A5002387222",
+      openAlexStatus: "not_attempted",
+      openAlexUrl: "",
+      scholarStatus: "recorded_unverified",
+      researchgateStatus: "recorded_unverified",
+    });
+  it("does not count metrics or recorded links as a verified identity", () => {
+    const c = coverageOf([unverifiedWithMetrics("a"), unverifiedWithMetrics("b")] as Academic[]);
+    expect(c.verifiedIdentity).toBe(0);
+    expect(c.withMetric).toBe(2);
+    expect(c.linkedUnverified).toBe(2);
+  });
+  it("keeps verified, linked-unverified and metric-less records apart", () => {
+    const c = coverageOf([
+      unverifiedWithMetrics("linked"),
+      mk("verified", { scholarStatus: "verified_official_link", scholarUrl: "https://scholar.google.com/citations?user=x", citations: 5 }),
+      mk("approved", { openAlexUrl: "https://openalex.org/A1", openAlexStatus: "openalex_matched_confirmed", citations: 2 }),
+      mk("bare"),
+    ] as Academic[]);
+    expect(c).toMatchObject({ records: 4, verifiedIdentity: 2, linkedUnverified: 1, withMetric: 3 });
+  });
+});
+

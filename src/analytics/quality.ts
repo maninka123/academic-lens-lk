@@ -140,6 +140,15 @@ export function coverageOf(rows: Academic[]) {
       ].includes(s || ""),
     ),
   ).length;
+  const isVerified = (a: Academic) =>
+    Boolean(a.openAlexUrl) || [a.scholarStatus, a.researchgateStatus].some((s) =>
+      ["verified_official_link", "matched_user_supplied_platform_evidence"].includes(s || ""),
+    );
+  // A research profile link is recorded (the metrics were read from it) but no identity check is on file.
+  // Metric availability is never taken as proof of identity, so these are counted separately.
+  const linkedUnverified = rows.filter(
+    (a) => !isVerified(a) && Boolean(a.metricsUrl || a.scholarUrl || a.researchgateUrl),
+  ).length;
   const verifiedEmployment = rows.filter((a) =>
     ["permanent_officially_listed", "emeritus_officially_listed"].includes(
       a.employmentStatus,
@@ -162,6 +171,7 @@ export function coverageOf(rows: Academic[]) {
   return {
     records: rows.length,
     verifiedIdentity,
+    linkedUnverified,
     verifiedEmployment,
     withMetric,
     withQualifications: rows.filter((a) => a.qualifications).length,

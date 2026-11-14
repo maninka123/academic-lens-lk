@@ -171,7 +171,7 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
           {hover && hoverInfo && (
             <div className="ls-card" role="status" style={{ left: Math.min(Math.max(offset + hover.x + hover.w / 2, 120), Math.max(120, width - 120)), top: 6 }}>
               <strong>{hover.g.name}</strong>
-              <span className="ls-card-sector">{hover.g.type === "Public" ? "Public university" : "Non-state institution"}</span>
+              <span className="ls-card-sector">{hover.g.type === "Public" ? "State university" : "Non-state institution"}</span>
               <dl>
                 <div><dt>Collected profiles</dt><dd>{fmt(hoverInfo.n)}</dd></div>
                 <div><dt>Documented PhD</dt><dd>{fmt(hoverInfo.phd)} · {Math.round((100 * hoverInfo.phd) / hoverInfo.n)}%</dd></div>

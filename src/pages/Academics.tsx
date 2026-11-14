@@ -699,7 +699,7 @@ export function Institution() {
         )}
         <Header
           eyebrow={
-            u.type +
+            (u.type === "Public" ? "State" : u.type) +
             " | " +
             (department
               ? "Department"
@@ -746,17 +746,6 @@ export function Institution() {
         >
           <PositionStandards rows={rows} minN={d.metadata.minimumSample || MIN_SAMPLE} scope={{ universities: [u.id], faculties: faculty ? [faculty] : [], departments: department ? [department] : [] }} />
         </Card>
-      )}
-      {faculty && !u.excludeFromComparison && rows.some((a) => a.field && a.field !== "Unmapped") && (
-        <div className="compare-banner">
-          <span>
-            <strong>See how this faculty compares</strong>
-            <small>Match equivalent fields across institutions in the Comparison Studio.</small>
-          </span>
-          <Button variant="outline" onClick={() => openCompare(true)}>
-            Compare equivalent fields
-          </Button>
-        </div>
       )}
       {!rows.length && (
         <Empty title="No collected profiles">

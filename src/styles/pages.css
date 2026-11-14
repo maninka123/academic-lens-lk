@@ -582,3 +582,50 @@ td .qs-rank, dd .qs-rank { margin-left: 8px; }
 .peer-scope-body { display: grid; gap: 6px; margin-top: var(--space-2); padding: var(--space-3) var(--space-4); border-left: 2px solid var(--color-border); color: var(--color-text-muted); }
 .peer-scope-body strong { color: var(--color-heading); font-weight: 510; }
 .peer-scope-notes p { max-width: 85ch; margin: var(--space-2) 0 0; line-height: 1.55; }
+
+/* Filter rows on Global Benchmarks and PhD Origins: even spacing between fields. */
+.global-controls { gap: var(--space-4) var(--space-6); }
+.global-controls .field select { min-width: 11.5rem; }
+.bench-table td:first-child { display: flex; align-items: center; flex-wrap: wrap; gap: 2px var(--space-4); }
+.bench-table .bench-country { color: var(--color-text-muted); font-size: 12.5px; margin-left: var(--space-1); }
+
+/* Numeric columns are centred under their headings. */
+.metric-summary-table th:nth-child(2), .metric-summary-table td:nth-child(2),
+.compare-table th:nth-child(n+2):nth-child(-n+4), .compare-table td:nth-child(n+2):nth-child(-n+4),
+.pos-std-table th:nth-child(n+2), .pos-std-table td:nth-child(n+2),
+.std-table th:nth-child(n+2), .std-table td:nth-child(n+2) { text-align: center; }
+.compare-table td .table-number { margin-inline: auto; justify-items: center; }
+@media (min-width: 1101px) {
+  .uni-head > span:nth-child(n+3):nth-child(-n+7) { text-align: center; }
+  .uni-row .uni-cell { align-items: center; text-align: center; }
+}
+
+/* Doctorate origins: doughnut, connector, ranked country list. */
+.origins-link { display: grid; grid-template-columns: 200px 32px minmax(0, 1fr); align-items: center; min-width: 0; }
+.origins-donut { position: relative; min-width: 0; }
+.origins-centre { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; pointer-events: none; }
+.origins-centre strong { font-size: 30px; line-height: 1; font-weight: 500; color: var(--color-heading); letter-spacing: -0.02em; }
+.origins-centre small { margin-top: 4px; font-size: 12px; color: var(--color-text-muted); }
+.origins-connector { position: relative; height: 1px; background: var(--color-border-strong); }
+.origins-connector::before, .origins-connector::after { content: ""; position: absolute; top: -2px; width: 5px; height: 5px; border-radius: 50%; background: var(--color-border-strong); }
+.origins-connector::before { left: -2px; }
+.origins-connector::after { right: -2px; }
+.origins-list { min-width: 0; padding-left: var(--space-3); }
+.origins-list ol { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.origins-list li { margin: 0; display: grid; grid-template-columns: minmax(150px, 1.3fr) minmax(40px, 1fr) 56px; align-items: center; gap: var(--space-3); font-size: 13px; }
+.origins-name { white-space: nowrap; display: inline-flex; align-items: center; gap: var(--space-2); min-width: 0; color: var(--color-text); }
+.origins-name > i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.origins-bar { height: 8px; border-radius: 4px; background: var(--color-fill); overflow: hidden; }
+.origins-bar > span { display: block; height: 100%; border-radius: 4px; }
+.origins-count { text-align: right; font-variant-numeric: tabular-nums; color: var(--color-text-muted); }
+.origins-count b { color: var(--color-heading); font-weight: 590; }
+.origins-foot { margin: var(--space-3) 0 0; font-size: 12px; line-height: 1.45; color: var(--color-text-muted); }
+.unit-controls-row { margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+.unit-controls-row .unit-controls { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .origins-link { grid-template-columns: 1fr; }
+  .origins-connector { width: 1px; height: 24px; margin-inline: auto; }
+  .origins-list { padding-left: 0; }
+}
+.unit-controls-row + .pos-grid-even { border-top: 0; margin-top: var(--space-4); padding-top: 0; }
+.benchmark-method-lines { display: grid; gap: 2px; }

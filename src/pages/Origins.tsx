@@ -566,10 +566,10 @@ export function Origins() {
             <div>
               <i />
               <div className="map-scale-ticks">
-                <span>1</span>
-                <span>5</span>
-                <span>20</span>
-                <span>50+</span>
+                <span>1–5</span>
+                <span>6–20</span>
+                <span>21–50</span>
+                <span>51+</span>
               </div>
             </div>
             <span className="map-no-records">
@@ -655,7 +655,7 @@ export function Origins() {
               />
             </Card>
             <Card
-              title="Public and non-state institutions"
+              title="State and non-state institutions"
               subtitle="Documented doctorates in each sector."
             >
               {compositionControls("sector", "Institution type")}

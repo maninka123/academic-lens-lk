@@ -10,7 +10,7 @@ export function InstitutionNotice({ university }: { university: University }) {
       <TriangleAlert size={22} aria-hidden="true" />
       <div>
         <strong>{n.title}</strong>
-        <p>{n.text}</p>
+        {n.text && <p>{n.text}</p>}
         {(n.source || n.status) && (
           <small>
             {n.source && <>Source: {n.source}</>}

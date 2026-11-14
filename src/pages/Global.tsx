@@ -2,11 +2,12 @@ import { NumericValue } from "../components/common";
 import { Select } from "../components/ui/select";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { AlertTriangle, Download } from "lucide-react";
+import { AlertTriangle, ArrowDown, ArrowUp, Download, Equal } from "lucide-react";
 import { useData } from "../data/context";
 import { useAtlas } from "../store";
 import {
   benchmarkFields,
+  tierDifference,
   defaultBenchmarkFields,
   type BenchmarkField,
   loadBenchmarks,
@@ -390,17 +391,28 @@ export function Global() {
         const vals = rows
           .map((a) => a[metric])
           .filter((v): v is number => v !== null);
+        const enoughData = vals.length >= minN;
+        const indicative = !enoughData && vals.length > 0;
         return {
-          value: vals.length >= minN ? median(vals) : null,
+          // Under the minimum sample the median is still drawn, hatched, and labelled with its sample size.
+          value: vals.length ? median(vals) : 0,
+          none: vals.length === 0,
+          indicative,
           n: vals.length,
           eligible: rows.length,
+          ...(indicative
+            ? { itemStyle: { color: col[t], opacity: 0.6, borderRadius: [4, 4, 0, 0], decal: { symbol: "rect", dashArrayX: [1, 0], dashArrayY: [3, 3], rotation: -Math.PI / 4, color: "rgba(255,255,255,.6)" } } }
+            : {}),
         };
       }),
+      label: { show: false },
       tooltip: {
         formatter: (p: any) =>
           p.data.n >= minN
             ? `${p.name} | ${tierShort[t]}<br/>Median ${fmt(p.value, 1)} (${p.data.n} valid of ${p.data.eligible})`
-            : `${p.name} | ${tierShort[t]}<br/>Insufficient sample (${p.data.n} valid; minimum ${minN})`,
+            : p.data.indicative
+              ? `${p.name} | ${tierShort[t]}<br/>Median ${fmt(p.value, 1)}: indicative only (${p.data.n} valid of ${p.data.eligible}; minimum ${minN})`
+              : `${p.name} | ${tierShort[t]}<br/>No valid values (${p.data.eligible ? `${p.data.eligible} sampled` : "no sampled profiles"})`,
       },
       ...(i === 0 && slMedian !== null
         ? {
@@ -615,20 +627,15 @@ export function Global() {
     lower: "QS rank about 800-1200",
   };
   const tierRows = [
-    ...(["elite", "middle", "lower"] as Tier[]).map((t) => {
+    { key: "sl" as Tier | "sl", name: "Sri Lanka", note: "Collected profiles with a matched OpenAlex profile", median: slMedian, n: sl.values.length },
+    ...(["lower", "middle", "elite"] as Tier[]).map((t) => {
       const g = view.tierGroups.find((x) => x.key === t)!;
       return { key: t as Tier | "sl", name: tierShort[t], note: tierNotes[t], median: medianOf(g), n: g.values.length };
     }),
-    { key: "sl" as Tier | "sl", name: "Sri Lanka", note: `${fmt(sl.eligible)} collected profiles in this selection`, median: slMedian, n: sl.values.length },
   ];
   const tierMax = Math.max(1, ...tierRows.map((r) => r.median ?? 0));
-  const tierRatios =
-    slMedian === null
-      ? []
-      : tierRows
-          .filter((r) => r.key !== "sl" && r.median !== null && r.median > 0)
-          .reverse()
-          .map((r) => ({ name: r.name.toLowerCase(), pct: Math.round((100 * slMedian) / r.median!) }));
+  const tierDiffs = tierRows.filter((r) => r.key !== "sl").map((r) => ({ r, d: tierDifference(slMedian, r.median) }));
+  const maxRatio = Math.max(1, ...tierDiffs.map(({ d }) => d.ratio));
   const posColors = ["#c5ccfa", "#6f7df0", "#2b3aa8"];
   const countryColors: Record<string, string> = {
     "United States": "#2b3aa8",
@@ -785,9 +792,12 @@ export function Global() {
       />
       {mode === "likeForLike" ? (
         <div className="benchmark-method-note" role="note">
-          <span>
-            OpenAlex on both sides | {view.slMatched.length} Sri Lankan matches
-            | Minimum {minN} valid profiles per group
+          <span className="benchmark-method-lines">
+            <span>{field}: like-for-like comparison &rarr; OpenAlex used across all groups.</span>
+            <span>
+              Sri Lanka: {fmt(sl.values.length)} of {fmt(sl.eligible)} profiles matched
+              {sl.eligible > 0 ? ` (${Math.round((100 * sl.values.length) / sl.eligible)}%)` : ""} · Minimum n = {minN} per median
+            </span>
           </span>
           <a
             href="https://github.com/maninka123/academic-lens-lk#global-benchmark-method"
@@ -896,29 +906,37 @@ export function Global() {
           <h2>
             {slMedian === null
               ? `Sri Lanka has too few valid profiles for this selection (${sl.values.length}, minimum ${minN}).`
-              : `Sri Lanka's median ${metricNames[metric].toLowerCase()} is ${fmt(slMedian, 1)}.`}
+              : `Sri Lanka's median ${metricNames[metric].toLowerCase()} is ${fmt(slMedian, 1)}`}
           </h2>
-          <ul className="point-list">
-            <li>
-              {slMedian === null
-                ? "Try another measure, discipline or career stage. Missing values are never treated as zero."
-                : tierRatios.length
-                  ? "That is " +
-                    tierRatios.map((r) => `${r.pct}% of the ${r.name}`).join(", ") +
-                    ` median for ${field}${stage === "all" ? "" : ", " + stage.toLowerCase()}.`
-                  : "The international tiers have too few valid profiles to compare."}
-            </li>
-            {slMedian !== null && mode === "likeForLike" && sl.eligible > 0 && (
-              <>
-                <li>
-                  Based on {fmt(sl.values.length)} of {fmt(sl.eligible)} Sri Lankan profiles ({Math.round((100 * sl.values.length) / sl.eligible)}%) with a verified OpenAlex match; the rest are not matched yet.
-                </li>
-                <li>
-                  OpenAlex h-indices usually run lower than Google Scholar&rsquo;s, so compare Sri Lanka with the tiers here, not with the Scholar figures elsewhere.
-                </li>
-              </>
-            )}
-          </ul>
+          {slMedian !== null && (
+            <ul className="tier-diffs" aria-label="Difference between the Sri Lankan median and each tier median">
+              {tierDiffs.map(({ r, d }) => {
+                const Icon = d.kind === "lower" ? ArrowDown : d.kind === "higher" ? ArrowUp : d.kind === "same" ? Equal : null;
+                const headline = d.kind === "lower" || d.kind === "higher" ? `${d.value} ${d.word}` : d.kind === "same" ? "Equal" : "n/a";
+                const sub =
+                  d.kind === "lower" || d.kind === "higher"
+                    ? `than ${r.name} median`
+                    : d.kind === "same"
+                      ? `to ${r.name} median`
+                      : d.reason === "zero"
+                        ? `${r.name} median is zero: ratio undefined`
+                        : d.reason === "sri-zero"
+                          ? "Sri Lankan median is zero: ratio undefined"
+                          : `not enough data for ${r.name} median`;
+                return (
+                  <li key={r.key} className={d.kind} style={{ "--tier": colorOf(r.key) } as React.CSSProperties}>
+                    <i className="tier-mark" aria-hidden="true" />
+                    <span className="tier-diff-main">
+                      {Icon && <Icon size={20} strokeWidth={3} aria-hidden="true" />}
+                      <strong>{headline}</strong>
+                    </span>
+                    <span className="tier-diff-sub">{sub}</span>
+                    <span className="tier-diff-bar" aria-hidden="true"><span style={{ width: `${d.ratio > 0 ? Math.max(3, (100 * d.ratio) / maxRatio) : 0}%` }} /></span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
         <ul className="tier-ladder">
           {tierRows.map((r) => (
@@ -962,7 +980,7 @@ export function Global() {
           subtitle={
             slMedian === null
               ? `Sri Lankan median not shown: only ${sl.values.length} valid values (minimum ${minN}).`
-              : `Dashed line: Sri Lankan median (${fmt(slMedian, 1)}) for the same selection.`
+              : `Dashed line: Sri Lankan median (${fmt(slMedian, 1)}) for the same selection. Hatched bars: under ${minN} valid profiles, indicative only.`
           }
         >
           <Chart
@@ -1134,7 +1152,7 @@ export function Global() {
                 <tr key={u.country + u.id}>
                   <td>
                     <strong>{u.label}</strong>
-                    <small><CountryName country={u.country} /></small>
+                    <small className="bench-country"><CountryName country={u.country} /></small>
                   </td>
                   <td>
                     <span className={"tier-badge " + u.key}>{u.key === "sl" ? "Sri Lanka" : tierShort[u.key as Tier].replace(" tier", "")}</span>

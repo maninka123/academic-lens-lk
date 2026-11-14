@@ -211,7 +211,7 @@ export type Level =
   | "experience"
   | "custom";
 export const levelLabels: Record<Level, string> = {
-  type: "Public vs Non-state",
+  type: "State vs Non-state",
   university: "Universities",
   faculty: "Faculties (each university’s own)",
   department: "Departments (each university’s own)",

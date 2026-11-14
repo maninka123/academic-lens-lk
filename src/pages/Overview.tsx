@@ -94,7 +94,7 @@ export function Overview() {
         <div className="fact">
           <dt>Documented PhD</dt>
           <dd>{pct(phdCount)}</dd>
-          <small>{`${fmt(cov.needsReview)} profiles need review`}</small>
+          <small>{`${fmt(phdCount)} of ${fmt(rows.length)} profiles`}</small>
         </div>
         <div className="fact">
           <dt>With research data</dt>

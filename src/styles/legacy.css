@@ -273,9 +273,9 @@ footer {
 /* A restrained type hierarchy: readable content, proportionate headings. */
 .origins-map-surface { position: relative; padding-bottom: 6px; }
 .origins-map-scale { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: .9rem; padding: .6rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); font-size: .875rem; color: var(--muted); white-space: nowrap; box-shadow: var(--shadow-sm); pointer-events: none; }
-.origins-map-scale > div { width: 150px; }
-.origins-map-scale > div > i { height: 7px; display: block; border-radius: var(--radius-md); background: linear-gradient(to right, #a9d5dc 0% 25%, #55a8b8 25% 50%, #237e96 50% 75%, #13516f 75%); }
-.map-scale-ticks { display: flex; justify-content: space-between; margin-top: .2rem; font-variant-numeric: tabular-nums; }
+.origins-map-scale > div { width: 200px; }
+.origins-map-scale > div > i { height: 7px; display: block; border-radius: var(--radius-md); background: linear-gradient(to right, #cfd5fb 0 25%, #9aa6f6 25% 50%, #5d6cf0 50% 75%, #2b3aa8 75%); }
+.map-scale-ticks { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; margin-top: .2rem; font-variant-numeric: tabular-nums; }
 .map-no-records { display: inline-flex; align-items: center; gap: .4rem; }
 .map-no-records i { width: 10px; height: 10px; border-radius: var(--radius-xs); background: var(--color-primary-soft); }
 .origin-composition-key { display: flex; flex-wrap: wrap; gap: .45rem 1rem; font-size: .875rem; color: var(--muted); margin: .25rem 0 .5rem; }
@@ -596,3 +596,23 @@ footer {
 /* Three aligned unit charts: fixed header height so the rows line up, plus faint guides across all three. */
 
 }
+
+/* One colour family for both halves of the Sri Lanka vs overseas bar, with readable white text. */
+.origin-split-card .os-bar .lk, .origin-split-card .os-bar .ov { background: var(--color-primary); color: var(--color-primary-foreground); }
+.origin-split-card .os-bar u b, .origin-split-card .os-bar u small { color: var(--color-primary-foreground); }
+.origin-split-card .os-bar { gap: 4px; }
+
+.tier-notes { margin-top: var(--space-4); }
+
+.tier-diffs { list-style: none; margin: var(--space-4) 0 var(--space-3); padding: 0; display: grid; gap: var(--space-4); }
+.tier-diffs li { margin: 0; display: grid; grid-template-columns: 10px minmax(0, 1fr); row-gap: 2px; column-gap: var(--space-3); align-items: center; }
+.tier-diffs .tier-mark { grid-row: 1 / span 2; width: 10px; height: 10px; border-radius: 3px; background: var(--tier, var(--color-border-strong)); align-self: start; margin-top: 12px; }
+.tier-diff-main { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-heading); }
+.tier-diff-main svg { flex: none; color: var(--color-text-muted); }
+.tier-diffs li.lower .tier-diff-main svg { color: var(--color-danger); }
+.tier-diffs li.higher .tier-diff-main svg { color: var(--color-success); }
+.tier-diffs strong { font-size: 1.6rem; line-height: 1.1; letter-spacing: -0.025em; font-weight: 510; font-variant-numeric: tabular-nums; color: var(--color-heading); }
+.tier-diff-sub { font-size: 0.875rem; color: var(--color-text-muted); }
+.tier-diff-bar { grid-column: 2; margin-top: 4px; height: 4px; border-radius: 2px; background: var(--color-fill); overflow: hidden; }
+.tier-diff-bar > span { display: block; height: 100%; border-radius: 2px; background: var(--tier, var(--color-border-strong)); }
+.tier-foot { margin: 0; display: grid; gap: 2px; font-size: 12.5px; line-height: 1.5; }

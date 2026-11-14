@@ -107,29 +107,24 @@ export function CoveragePanel({
       "Published profiles collected — not the total academic population",
     ],
     [
-      "Matched research identity",
+      "Verified research identity",
       c.verifiedIdentity,
-      "Official-linked Scholar/ResearchGate profile or successful OpenAlex author match",
+      "The person's own Scholar or ResearchGate profile is linked from an official page, or an OpenAlex author match was approved. A metric on its own is not proof of identity.",
     ],
     [
       "Verified employment",
       c.verifiedEmployment,
-      "Permanent or emeritus appointment stated by an official source",
+      "An official source states a permanent or emeritus appointment. Appearing on a staff list is not enough.",
     ],
     [
       "Any research metric",
       c.withMetric,
-      "At least one bibliometric value from any provider",
+      "At least one publication, citation or h-index value from any provider. Includes values read from a recorded profile whose identity is not yet verified.",
     ],
     [
       "Published qualifications",
       c.withQualifications,
       "Qualification text available from the source",
-    ],
-    [
-      "Needs manual review",
-      c.needsReview,
-      "Identity, employment or qualification evidence conflicts or is unresolved",
     ],
   ];
   return (
@@ -139,7 +134,10 @@ export function CoveragePanel({
           <div key={label} title={help}>
             <span>{label}</span>
             <strong>{fmt(n)}</strong>
-            <small>{i === 0 ? help : pct(n) + " of collected"}</small>
+            <small>
+              {i === 0 ? help : pct(n) + " of collected"}
+              {label === "Verified research identity" && c.linkedUnverified > 0 ? ` | ${fmt(c.linkedUnverified)} more linked, not verified` : ""}
+            </small>
           </div>
         ))}
       </div>

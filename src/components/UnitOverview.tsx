@@ -3,7 +3,7 @@ import type { Academic, NumericMetric } from "../types";
 import { Chart } from "./Chart";
 import { LayoutGrid } from "lucide-react";
 import { facultyIcon } from "./unit-icons";
-import { Card, fmt } from "./common";
+import { Card, CountryName, fmt } from "./common";
 import { Select } from "./ui/select";
 import { useAtlas } from "../store";
 import { groupRows, summary } from "../analytics/engine";
@@ -19,11 +19,6 @@ const MEASURES: [NumericMetric, string][] = [
 const POSITIONS = [...SENIORITY, "Other roles"] as const;
 type PositionName = (typeof POSITIONS)[number];
 const POSITION_COLORS = ["#c5ccfa", "#6f7df0", "#2b3aa8", "#aab1c2"];
-const DOCTORATE: [string, string, string][] = [
-  ["completed_documented", "Documented", "#1ea896"],
-  ["in_progress", "In progress", "#d99a2b"],
-  ["none", "Not documented", "#aab1c2"],
-];
 const hatch = { symbol: "rect", dashArrayX: [1, 0], dashArrayY: [3, 3], rotation: -Math.PI / 4, color: "rgba(255,255,255,.6)" };
 
 const positionOf = (a: Academic): PositionName => seniorityBand(a.rank) ?? "Other roles";
@@ -35,6 +30,88 @@ const pct = (n: number, d: number) => (d ? (100 * n) / d : 0);
  * Plots shown above a unit's table. With several sub-units (faculties of a university, departments of a
  * faculty) it compares them; with a single department it summarises that department.
  */
+const ORIGIN_COLORS = ["#4658d8", "#14937f", "#7a5ad9", "#d08a1a", "#c4344d", "#5b7aa8"];
+const ORIGIN_OTHER = "#9aa6f6";
+const ORIGIN_UNKNOWN = "#aab1c2";
+const TOP_ORIGINS = 5;
+
+/** Doughnut of documented doctorates by awarding country, linked to a ranked country list. */
+function DoctorateOrigins({ rows, dark }: { rows: Academic[]; dark: boolean }) {
+  const documented = rows.filter((a) => doctorateOf(a) === "completed_documented");
+  const inProgress = rows.filter((a) => doctorateOf(a) === "in_progress").length;
+  const none = rows.length - documented.length - inProgress;
+  const counts = new Map<string, number>();
+  let unknown = 0;
+  for (const a of documented) {
+    const c = (a.phdCountry || "").trim();
+    if (!c) unknown += 1;
+    else counts.set(c, (counts.get(c) || 0) + 1);
+  }
+  const ranked = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const top = ranked.slice(0, TOP_ORIGINS);
+  const rest = ranked.slice(TOP_ORIGINS);
+  const restN = rest.reduce((t, [, n]) => t + n, 0);
+  type Slice = { key: string; label: string; n: number; color: string; country?: string };
+  const slices: Slice[] = [
+    ...top.map(([c, n], i) => ({ key: c, label: c, n, color: ORIGIN_COLORS[i % ORIGIN_COLORS.length], country: c })),
+    ...(restN ? [{ key: "other", label: `${rest.length} other ${rest.length === 1 ? "country" : "countries"}`, n: restN, color: ORIGIN_OTHER }] : []),
+    ...(unknown ? [{ key: "unknown", label: "Country not recorded", n: unknown, color: ORIGIN_UNKNOWN }] : []),
+  ];
+  const total = documented.length;
+  const share = (n: number) => (total ? Math.round((100 * n) / total) : 0);
+  const option = {
+    tooltip: { trigger: "item", confine: true, formatter: (p: any) => `${p.name}<br/><b>${p.value}</b> of ${total} documented doctorates (${share(p.value)}%)` },
+    legend: { show: false },
+    series: [
+      {
+        type: "pie",
+        radius: ["62%", "86%"],
+        center: ["50%", "50%"],
+        label: { show: false },
+        labelLine: { show: false },
+        itemStyle: { borderColor: dark ? "#0e1220" : "#fff", borderWidth: 2 },
+        data: slices.map((x) => ({ name: x.label, value: x.n, itemStyle: { color: x.color } })),
+      },
+    ],
+  };
+  const top1 = Math.max(1, ...slices.map((x) => x.n));
+  return (
+    <div className="origins-link">
+      <div className="origins-donut">
+        <Chart option={option} height={220} label={`Documented doctorates by awarding country: ${total} in total`} />
+        <div className="origins-centre" aria-hidden="true">
+          <strong>{total}</strong>
+          <small>{total === 1 ? "documented PhD" : "documented PhDs"}</small>
+        </div>
+      </div>
+      <span className="origins-connector" aria-hidden="true" />
+      <div className="origins-list">
+        {total === 0 ? (
+          <p className="caption">No documented doctorate in this selection.</p>
+        ) : (
+          <ol aria-label="Awarding countries, most doctorates first">
+            {slices.map((x) => (
+              <li key={x.key}>
+                <span className="origins-name">
+                  <i style={{ background: x.color }} aria-hidden="true" />
+                  {x.country ? <CountryName country={x.country} /> : x.label}
+                </span>
+                <span className="origins-bar" aria-hidden="true"><span style={{ width: `${(100 * x.n) / top1}%`, background: x.color }} /></span>
+                <span className="origins-count"><b>{x.n}</b> <small>{share(x.n)}%</small></span>
+              </li>
+            ))}
+          </ol>
+        )}
+        <p className="origins-foot">
+          {documented.length} of {rows.length} ({Math.round(pct(documented.length, rows.length))}%) have a documented PhD
+          {inProgress > 0 ? `; ${inProgress} in progress` : ""}
+          {none > 0 ? `; ${none} not documented` : ""}. Shares are of documented doctorates.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function facultyOptions(rows: Academic[]) {
   const m = new Map<string, string>();
   for (const a of rows) if (a.facultyId && !m.has(a.facultyId)) m.set(a.facultyId, a.faculty);
@@ -234,21 +311,6 @@ export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[];
       },
     ],
   };
-  const docCounts = DOCTORATE.map(([k]) => all.filter((a) => doctorateOf(a) === k).length);
-  const doctorateOption = {
-    tooltip: { trigger: "item", confine: true, formatter: (p: any) => `${p.name}: <b>${p.value}</b> (${Math.round(pct(p.value, all.length))}%)` },
-    legend: { show: false },
-    series: [
-      {
-        type: "pie",
-        radius: ["52%", "78%"],
-        center: ["50%", "52%"],
-        label: { formatter: (p: any) => `${p.name}\n${p.value} (${Math.round(pct(p.value, all.length))}%)`, fontSize: 12 },
-        itemStyle: { borderColor: theme === "dark" ? "#0e1220" : "#fff", borderWidth: 2 },
-        data: DOCTORATE.map(([, name, color], i) => ({ name, value: docCounts[i], itemStyle: { color } })),
-      },
-    ],
-  };
   const vals = valuesOf(all).sort((a, b) => a - b);
   const histogram = useMemo(() => {
     if (!vals.length) return { bins: [] as string[], counts: [] as number[], medianBin: -1 };
@@ -360,17 +422,17 @@ export function UnitOverview({ rows, level, minN, overall }: { rows: Academic[];
     );
   return (
     <>
-      {controls}
-      <div className="pos-grid unit-grid">
+      <div className="pos-grid unit-grid origins-row">
         <div className="pos-col">
           <div className="pos-head"><h3 className="pos-sub">Positions</h3></div>
           <Chart option={positionBarOption} height={250} label="Number of people at each position" />
         </div>
         <div className="pos-col">
-          <div className="pos-head"><h3 className="pos-sub">Doctorates</h3></div>
-          <Chart option={doctorateOption} height={250} label="Share of people with a documented doctorate" />
+          <div className="pos-head"><h3 className="pos-sub">Doctorate origins</h3></div>
+          <DoctorateOrigins rows={all} dark={theme === "dark"} />
         </div>
       </div>
+      <div className="unit-controls-row">{controls}</div>
       <div className="pos-grid pos-grid-even unit-grid">
         <div className="pos-col">
           <div className="pos-head"><h3 className="pos-sub">Spread of {measure}</h3></div>

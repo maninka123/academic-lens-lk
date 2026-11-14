@@ -162,9 +162,11 @@ export function ScoreDialog({
         <div className="score-ring-static">
           <Ring score={result.score} size={96} />
           <span className="score-ring-value" style={{ color: scored ? standingColor(result.score!) : undefined }}>
-            {scored && result.basis === "indicative" && <em>~</em>}
-            {scored ? result.score : "—"}
-            {scored && <small>%</small>}
+            <span className="score-num">
+              {scored && result.basis === "indicative" && <em>~</em>}
+              {scored ? result.score : "—"}
+              {scored && <small>%</small>}
+            </span>
           </span>
         </div>
         <div>

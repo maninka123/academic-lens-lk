@@ -167,6 +167,8 @@ export function matchedField(a: Pick<Academic, "department" | "faculty">) {
     )
   )
     return "Computer Science";
+  // Medicine means a faculty of medicine; allied health, nursing, health-science and indigenous-medicine faculties are not benchmarked as Medicine.
+  if (/allied health|nursing|health sciences|indigenous|siddha|ayurved/i.test(a.faculty || "")) return "";
   if (/medicine|medical|clinical|surgery|paediatric|pediatric|pathology|anatomy|physiology|pharmacology|public health/i.test(unit)) return "Medicine";
   if (/\blaw\b|legal|jurisprudence/i.test(unit)) return "Law";
   if (/engineering/i.test(unit)) return "Engineering";
@@ -181,4 +183,21 @@ export async function loadBenchmarkPublications(academicId: string) {
   const response = await fetch(import.meta.env.BASE_URL + "data/international/publications.csv?v=" + import.meta.env.VITE_DATA_REVISION);
   if (!response.ok) throw Error(`Cannot load international bibliography (${response.status}).`);
   return Papa.parse<Record<string, string>>(await response.text(), { header: true, skipEmptyLines: true }).data.filter((publication) => publication.academicId === academicId);
+}
+
+/**
+ * How many times lower or higher the Sri Lankan median is than a tier median.
+ * Lower: tier median / Sri Lankan median. Higher: Sri Lankan median / tier median.
+ * `reason` explains an unavailable ratio (a missing value, or a zero that cannot be a divisor).
+ */
+export function tierDifference(sri: number | null, tier: number | null) {
+  const none = (reason: string) => ({ kind: "none", value: "n/a", word: "", reason, ratio: 0 });
+  if (sri === null || tier === null) return none("missing");
+  if (sri === tier) return { kind: "same", value: "1×", word: "equal", reason: "", ratio: 1 };
+  if (sri === 0) return none("sri-zero");
+  if (tier === 0) return none("zero");
+  const lower = tier > sri;
+  const ratio = lower ? tier / sri : sri / tier;
+  const text = ratio < 1.005 ? "<1.01" : String(Number(ratio.toFixed(2)));
+  return { kind: lower ? "lower" : "higher", value: `${text}×`, word: lower ? "lower" : "higher", reason: "", ratio };
 }
