@@ -1,8 +1,8 @@
 university_id,university,type,academic_records,verified_identity,verified_employment,with_any_metric,with_qualifications,doctorate_documented,doctorate_in_progress,doctorate_contradictory,needs_review,faculties_represented,departments_represented,units_discovered,units_visited,roster_status
 colombo,University of Colombo,Public,672,359,149,516,545,277,6,10,15,10,63,178,139,incomplete — collected profiles are not a staff census
 peradeniya,University of Peradeniya,Public,599,27,49,395,224,95,9,0,0,6,61,106,84,incomplete — collected profiles are not a staff census
-jayewardenepura,University of Sri Jayewardenepura,Public,14,3,0,8,10,9,0,0,1,2,0,5,5,incomplete — collected profiles are not a staff census
-kelaniya,University of Kelaniya,Public,85,60,15,63,66,32,1,0,0,3,6,18,15,incomplete — collected profiles are not a staff census
+jayewardenepura,University of Sri Jayewardenepura,Public,721,3,5,399,346,207,12,0,1,7,66,5,5,incomplete — collected profiles are not a staff census
+kelaniya,University of Kelaniya,Public,452,60,15,63,175,76,8,0,0,6,37,18,15,incomplete — collected profiles are not a staff census
 moratuwa,University of Moratuwa,Public,471,213,5,332,303,217,1,0,0,5,36,91,82,incomplete — collected profiles are not a staff census
 jaffna,University of Jaffna,Public,237,64,12,145,114,37,2,0,0,9,40,118,109,incomplete — collected profiles are not a staff census
 ruhuna,University of Ruhuna,Public,493,47,4,355,483,202,23,0,0,7,46,4,4,incomplete — collected profiles are not a staff census
@@ -13,4 +13,4 @@ cinec,CINEC Campus,Non-state,88,13,0,29,69,10,1,0,0,6,18,55,35,incomplete — co
 horizon,Horizon Campus,Non-state,54,3,0,15,50,7,2,0,0,6,2,15,15,incomplete — collected profiles are not a staff census
 kiu,KIU,Non-state,1,0,0,1,0,0,0,0,0,1,0,24,24,incomplete — collected profiles are not a staff census
 icbt,ICBT Campus,Non-state,4,2,0,2,3,1,1,0,0,1,0,8,7,incomplete — collected profiles are not a staff census
-uwu,Uva Wellassa University of Sri Lanka,Public,204,82,0,152,176,80,1,0,6,5,20,29,29,incomplete — collected profiles are not a staff census
+uwu,Uva Wellassa University of Sri Lanka,Public,209,82,0,154,182,81,1,0,6,5,20,29,29,incomplete — collected profiles are not a staff census

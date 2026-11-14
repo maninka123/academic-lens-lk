@@ -6,7 +6,13 @@
       "ClaudeInChromeDomain(sci.jfn.ac.lk)",
       "ClaudeInChromeDomain(www.che.jfn.ac.lk)",
       "ClaudeInChromeDomain(che.jfn.ac.lk)",
-      "ClaudeInChromeDomain(www.csc.jfn.ac.lk)"
+      "ClaudeInChromeDomain(www.csc.jfn.ac.lk)",
+      "ClaudeInChromeDomain(medical.sjp.ac.lk)",
+      "ClaudeInChromeDomain(fin.kln.ac.lk)",
+      "ClaudeInChromeDomain(doa.kln.ac.lk)",
+      "mcp__claude-in-chrome__browser_batch",
+      "ClaudeInChromeDomain(fct.kln.ac.lk)",
+      "ClaudeInChromeDomain(fom.kln.ac.lk)"
     ]
   }
 }
