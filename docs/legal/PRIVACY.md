@@ -1,6 +1,6 @@
 # Privacy and data-use notice
 
-*Lanka Academia | Ongoing Research | Public Preview | Last updated 16 October 2026*
+*Lanka Academia | Ongoing Research | Public Preview | Last updated 15 November 2026*
 
 This notice explains what information Lanka Academia publishes, where it comes from, why it is used, how long it is kept, and how to contact us.
 
@@ -29,7 +29,7 @@ Our basis for this processing is the public-interest and research purpose of the
 ## 5. Who sees it, and where it is stored
 - The profile information is **published openly** on the website and in this repository, so anyone can read it.
 - The project is hosted on GitHub (repository and GitHub Pages). GitHub processes technical data about visitors under its own privacy statement.
-- Internal verification notes are not shown on the website, but some are still in the public repository (move to private storage planned).
+- Internal verification notes are not shown on the website and are kept out of the current repository, in private local storage. Copies may remain in older Git history, in clones, forks and caches, and behind GitHub's own references (see [DATA_POLICY.md](../DATA_POLICY.md)); we cannot guarantee they are erased.
 - We do not sell data and do not share it with anyone beyond this public publication.
 
 ## 6. What the website stores about visitors
@@ -47,7 +47,7 @@ Our target is to respond to requests within 14 days. Where a removal is accepted
 
 ## 8. How long we keep information
 - **Published profiles:** for as long as the project is active, or until you ask for removal.
-- **Private audit trail** (sources, retrieval dates, matching notes): for as long as needed to check accuracy, and removed or reduced on request.
+- **Private audit trail** (sources, retrieval dates, matching notes): kept privately, off the public repository, for as long as needed to check accuracy, and removed or reduced on request.
 - **Old versions:** the repository keeps history, and copies may exist in caches, forks or archives we do not control. Where a request is accepted, we aim to remove the live data and, where practical, to clear earlier versions.
 - If the project ends, the dataset will be archived without individual profiles or deleted.
 

@@ -1,0 +1,4 @@
+#!/bin/sh
+# Blocks commits that add internal evidence files, credentials or sensitive fields.
+# Installed by `npm install` (core.hooksPath). Do not bypass with --no-verify.
+exec node "$(git rev-parse --show-toplevel)/scripts/privacy-guard.mjs" --staged

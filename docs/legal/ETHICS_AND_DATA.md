@@ -3,7 +3,7 @@
 ## Status
 Lanka Academia is an independent research project. It uses only publicly available professional and research information, and involves no surveys, interviews, or confidential records.
 
-In October 2026, the Research Ethics Committee for Social Sciences and Humanities (RECSSH), Faculty of Arts, University of Colombo, confirmed in writing that it does not review work based on publicly available data intended for public use. The project has therefore had no formal ethics review, and no approval or institutional endorsement is claimed.
+In October 2026, the Research Ethics Committee for Social Sciences and Humanities (RECSSH), Faculty of Arts, University of Colombo, was consulted regarding the ethical review requirements of this project. The committee confirmed in writing that it does not review research based on publicly available data intended for public use. This written correspondence has been retained as evidence of the consultation. No formal ethics approval or institutional endorsement is claimed.
 
 If the scope changes (for example, new data types, surveys, or contact with individuals), institutional advice will be sought first.
 
@@ -17,7 +17,7 @@ A descriptive, public-interest overview of academic capacity in Sri Lanka: who w
 
 ## What is published, and what is not
 - **Published:** an allowlist of professional fields (name as published, institution and unit, position, qualifications as published, research metrics with source and date, public profile links).
-- **Not published on the website:** contact details, personal identifiers, family or private life, internal evidence logs, identity-matching notes and review files. Some internal files are still in the public repository ([DATA_POLICY.md](../DATA_POLICY.md)); move to private storage planned.
+- **Not published:** contact details, personal identifiers, family or private life, personal social-media links, internal evidence logs, identity-matching notes and review files. These are kept in private local storage and blocked from the repository by automated checks. Some copies may remain in older Git history and third-party copies ([DATA_POLICY.md](../DATA_POLICY.md)); no complete erasure is claimed.
 - Source links keep only the parameters needed to identify a public profile.
 
 ## Safeguards

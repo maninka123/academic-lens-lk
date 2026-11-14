@@ -31,7 +31,7 @@
 - **Sources and definitions:** `source_pages.csv` (legacy reads), `source_observations.csv` (HTTP retrievals), `access_issues.csv`, `data_dictionary.csv`. `field-mapping.json` is a manual, evidence-based mapping; unknown units stay `Unmapped`.
 - `_exports/` holds optional read-only delivery archives; `_archive/` is preserved unchanged and excluded from the active ZIP.
 
-Several of these evidence and review files are not published on the website; see [DATA_POLICY.md](../docs/DATA_POLICY.md) for the current public/private status.
+The evidence, review and log files listed above are **private**: git-ignored, kept only on the maintainer's machine and in a private backup, and blocked from the repository by `scripts/privacy-guard.mjs`. Do not commit them. See [DATA_POLICY.md](../docs/DATA_POLICY.md) and [PRIVACY_SAFEGUARDS.md](../docs/PRIVACY_SAFEGUARDS.md).
 
 ## Collection notes
 

@@ -6,6 +6,7 @@
 // logs, collection notes, correction logs) stays in `Data files/`.
 import fs from "node:fs";
 import path from "node:path";
+import { publicFieldProblems } from "./public-notes.mjs";
 
 /** Files allowed under public/data (relative paths, "/" separators). */
 export const PUBLIC_FILES = [
@@ -98,7 +99,7 @@ const INTERNAL_HEADERS = [
   "employment_evidence",
 ];
 
-const SECRET_PATTERNS = [
+export const SECRET_PATTERNS = [
   [/gh[pousr]_[A-Za-z0-9]{20,}/, "GitHub token"],
   [/github_pat_[A-Za-z0-9_]{20,}/, "GitHub fine-grained token"],
   [/AKIA[0-9A-Z]{16}/, "AWS access key"],
@@ -157,6 +158,7 @@ export function checkPublicData(dataDir, { scanOnly = [] } = {}) {
       }
       for (const [re, label] of SECRET_PATTERNS)
         if (re.test(text)) problems.push(`${rel}: possible ${label}`);
+      if (rel === "academics.csv") problems.push(...sensitiveFieldProblems(text, rel));
     }
   }
   for (const file of scanOnly.flatMap(walk)) {
@@ -166,4 +168,43 @@ export function checkPublicData(dataDir, { scanOnly = [] } = {}) {
       if (re.test(text)) problems.push(`${file}: possible ${label}`);
   }
   return problems;
+}
+
+/** Free-text columns of the published records are scanned for personal links, contact details and internal wording. */
+const FREE_TEXT_COLUMNS = ["notes", "caution", "qualificationReview", "experience"];
+export function sensitiveFieldProblems(csvText, rel = "academics.csv") {
+  const lines = csvText.replace(/^\uFEFF/, "");
+  const rows = parseCsv(lines);
+  const header = rows.shift() || [];
+  const idx = FREE_TEXT_COLUMNS.map((c) => [c, header.indexOf(c)]).filter(([, i]) => i >= 0);
+  const found = new Map();
+  for (const r of rows)
+    for (const [col, i] of idx)
+      for (const what of publicFieldProblems(r[i])) {
+        const key = `${col}: ${what}`;
+        found.set(key, (found.get(key) || 0) + 1);
+      }
+  return [...found].map(([k, n]) => `${rel}: ${k} (${n} record${n === 1 ? "" : "s"})`);
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [], cell = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+      else if (c === '"') q = false;
+      else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && text[i + 1] === "\n") i++;
+      row.push(cell); cell = "";
+      if (row.length > 1 || row[0] !== "") rows.push(row);
+      row = [];
+    } else cell += c;
+  }
+  if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
+  return rows;
 }

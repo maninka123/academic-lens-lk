@@ -14,13 +14,20 @@ The website is static. The repository is public, and the deployed site and every
 | `international/*` | International benchmark samples, benchmark universities and departments, and matched OpenAlex values for Sri Lankan academics |
 | `world.geo.json` | Natural Earth boundaries (world-atlas) |
 
-**Internal evidence and review files** (identity and employment reviews, unresolved searches, correction logs such as `change_log.csv`, collection notes) are not published on the website. Several are still tracked in the public repository and its history; moving them to private storage is planned. Until then, treat them as publicly readable.
+**Internal evidence and review files** (identity and employment reviews, unresolved searches, correction logs such as `change_log.csv`, collection notes, rejected matches) are not published. They stay in the local, git-ignored `Data files/` folder (or `private/`) and in the maintainer's private backup. They are not in the current repository.
+
+**Remaining exposure.** On 15 November 2026, 78 internal files were removed from the history of every branch. Some copies cannot be reached by us: GitHub keeps the old commits behind pull request #1 and may still serve old commit hashes and cached views, and anyone who cloned, forked or scraped the repository earlier keeps what they copied. Four further internal files were untracked on 15 November 2026 and remain in older history until it is cleaned again. Treat anything that was ever committed as potentially public. Removal from GitHub's own caches needs a request to GitHub Support.
+
+**Published free text.** The `notes` column is a short provenance statement ("Listed on the official staff page"), produced at import by `scripts/public-notes.mjs`. Internal review wording, remarks about an individual's leave or employment, and links to personal social profiles (LinkedIn, Facebook, X and similar) are removed before publication; the full note stays private. `caution` and `qualificationReview` are published deliberately as reader-facing context and contain no investigation detail.
 
 ### Automated safeguards
 
+Details and how to extend them: [PRIVACY_SAFEGUARDS.md](PRIVACY_SAFEGUARDS.md).
+
 - `npm run data:import` publishes only allowlisted files and columns, removes stale files from `public/data`, strips signed tokens, session and tracking parameters from every published URL (Google Scholar links keep only `user`), and fails if the public check finds a problem.
-- `node scripts/check-public-assets.mjs` (and `… dist` after a build) fails on any file outside the allowlist, internal evidence columns, or credential-like strings (GitHub, AWS, Slack and API keys, private keys, `token=`/`key=`/`sig=` parameters).
-- The GitHub workflow runs both checks and uploads the built site as an artifact for inspection. Successful pushes to `main` automatically deploy to GitHub Pages after all build, test, and public-output checks pass. Pull requests only build and check. Manual republishing remains available (`workflow_dispatch`) on `main`.
+- `node scripts/check-public-assets.mjs` (and `… dist` after a build) fails on any file outside the allowlist, internal evidence columns, credential-like strings, and personal links, contact details or internal wording in published free text.
+- `node scripts/privacy-guard.mjs` checks the whole tracked repository (not only `public/data`) for internal evidence file names and folders, tracked-but-git-ignored files and credentials. It runs as a pre-commit hook, a pre-push hook (which also inspects the commits being pushed) and as a required step in the GitHub workflow.
+- The GitHub workflow runs these checks, then builds and uploads the site as an artifact for inspection. Successful pushes to `main` deploy to GitHub Pages after all checks pass. Pull requests only build and check. The workflow does not run the data import: `public/data` is generated locally with `npm run data:import` and committed.
 
 ## Source attribution
 

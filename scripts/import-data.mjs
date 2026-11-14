@@ -3,6 +3,7 @@
 // columns are published (scripts/public-assets.mjs); internal evidence stays in
 // Data files/. Also regenerates the dataset summary, the validation report
 // (reports/) and the README snapshot block so every count describes one import.
+import { publicNote } from "./public-notes.mjs";
 import fs from "node:fs";
 import { createHash } from "node:crypto";
 import { csvRead, universities, slug, hierarchy, csvWrite } from "./shared.mjs";
@@ -181,7 +182,7 @@ const rows = sourceRows.map((original) => {
     status: r.record_status,
     employmentStatus: r.employment_status,
     field: "Unmapped",
-    notes: sanitizeText(r.notes),
+    notes: publicNote(sanitizeText(r.notes)),
     caution: sanitizeText(cautionById[r.academic_id] || ""),
   };
 });
