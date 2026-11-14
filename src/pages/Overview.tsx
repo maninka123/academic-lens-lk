@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, Users, Globe2, Scale, Database } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useData, comparableUniversities } from "../data/context";
@@ -48,11 +48,11 @@ export function Overview() {
     nav("/compare");
   };
   const pathways = [
-    { to: "/universities", title: "Universities", text: `${universities.length} institutions: profiles, PhD shares and research output side by side.` },
-    { to: "/academics", title: "Academics", text: "Search the directory, inspect the evidence behind a profile, compare people." },
-    { to: "/origins", title: "PhD origins", text: "Where documented doctorates were awarded, by country, university and discipline." },
-    { to: "/global", title: "Global benchmarks", text: "Sri Lankan research output beside equivalent fields at overseas universities." },
-    { to: "/methodology", title: "Data and methodology", text: "Sources, collection, coverage and how to request a correction." },
+    { to: "/universities", title: "Universities", icon: Building2, text: `${universities.length} institutions: profiles, PhD shares and research output side by side.` },
+    { to: "/academics", title: "Academics", icon: Users, text: "Search the directory, inspect the evidence behind a profile, compare people." },
+    { to: "/origins", title: "PhD origins", icon: Globe2, text: "Where documented doctorates were awarded, by country, university and discipline." },
+    { to: "/global", title: "Global benchmarks", icon: Scale, text: "Sri Lankan research output beside equivalent fields at overseas universities." },
+    { to: "/methodology", title: "Data and methodology", icon: Database, text: "Sources, collection, coverage and how to request a correction." },
   ];
   return (
     <>
@@ -207,7 +207,8 @@ export function Overview() {
           {pathways.map((p) => (
             <li key={p.to}>
               <Link to={p.to}>
-                <span><strong>{p.title}</strong><small>{p.text}</small></span>
+                <span className="pathway-icon" aria-hidden="true"><p.icon size={20} /></span>
+                <span className="pathway-text"><strong>{p.title}</strong><small>{p.text}</small></span>
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </li>

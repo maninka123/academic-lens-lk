@@ -17,7 +17,7 @@ import { Button } from "../components/ui/button";
 import { AcademicPortrait } from "../components/AcademicPortrait";
 import { ProfileStanding } from "../components/ProfileStanding";
 import { PositionStandards } from "../components/PositionStandards";
-import { UnitOverview } from "../components/UnitOverview";
+import { UnitOverview, UnitOverviewCard, FacultySelect } from "../components/UnitOverview";
 import { InstitutionNotice } from "../components/InstitutionNotice";
 import { StandingScorePanel } from "../components/StandingScore";
 import { ResearchProfiles } from "../components/ResearchProfiles";
@@ -603,6 +603,7 @@ export function Institution() {
   const u = d.universities.find((u) => u.id === id);
   const { configure, setFilters } = useAtlas();
   const nav = useNavigate();
+  const [focus, setFocus] = useState("all");
   if (!u) return <Empty title="Institution not found" />;
   // The explorer shows the collected institution/unit, independently of saved comparison filters.
   const everyone = directoryAcademics(d);
@@ -629,6 +630,7 @@ export function Institution() {
         This unit is not recorded in the selected institution.
       </Empty>
     );
+  const tableRows = !department && !faculty && focus !== "all" ? rows.filter((a) => a.facultyId === focus) : rows;
   const campus = campusImages[u.id as keyof typeof campusImages];
   const label = department
     ? raw.find((a) => a.departmentId === department)?.department
@@ -727,13 +729,6 @@ export function Institution() {
       <InstitutionNotice university={u} />
       <CoveragePanel
         rows={rows}
-        rosterNote={
-          (() => {
-            const status = d.coverage.find((c) => c.university_id === u.id)?.roster_status;
-            return status ? "Directory coverage: " + status : "Directory coverage not assessed.";
-          })() +
-          ` | ${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties and ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments represented in the collected profiles.`
-        }
       />
       <Card
         title="Research metrics"
@@ -768,18 +763,6 @@ export function Institution() {
           This institution or unit has no collected records in this dataset.
           This does not imply it has no academic staff.
         </Empty>
-      )}
-      {rows.length > 0 && (
-        <Card
-          title={department ? "Department overview" : faculty ? "Overview of departments" : "Overview of faculties and schools"}
-          subtitle={
-            department
-              ? "Who works in this department and how their research output is spread."
-              : "How the units compare: research output, the mix of positions and the share with a documented doctorate."
-          }
-        >
-          <UnitOverview rows={rows} level={faculty ? "department" : "faculty"} minN={d.metadata.minimumSample || MIN_SAMPLE} />
-        </Card>
       )}
       {!department && units.length > 0 && (
         <Card
@@ -822,7 +805,30 @@ export function Institution() {
           </div>
         </Card>
       )}
+      {rows.length > 0 && !department && !faculty && (
+        <UnitOverviewCard
+          rows={rows}
+          title="Overview of faculties and schools"
+          subtitle="Compare research output, staff positions and doctorates."
+          minN={d.metadata.minimumSample || MIN_SAMPLE}
+          focus={focus}
+          onFocus={setFocus}
+        />
+      )}
+      {rows.length > 0 && (department || faculty) && (
+        <Card
+          title={department ? "Department overview" : "Overview of departments"}
+          subtitle={
+            department
+              ? "Who works in this department and how their research output is spread."
+              : "Compare research output, staff positions and doctorates."
+          }
+        >
+          <UnitOverview rows={rows} level={faculty ? "department" : "faculty"} minN={d.metadata.minimumSample || MIN_SAMPLE} />
+        </Card>
+      )}
       <Card
+        action={!department && !faculty ? <FacultySelect rows={rows} value={focus} onChange={setFocus} /> : undefined}
         title={
           department
             ? "Department academics"
@@ -831,7 +837,7 @@ export function Institution() {
               : "All academics in this institution"
         }
       >
-        <AcademicTable rows={rows} />
+        <AcademicTable rows={tableRows} />
       </Card>
     </>
   );

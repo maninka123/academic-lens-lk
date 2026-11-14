@@ -94,10 +94,8 @@ export function MeasurementNote({
 /** Coverage indicators for a university, faculty or department view. */
 export function CoveragePanel({
   rows,
-  rosterNote,
 }: {
   rows: Academic[];
-  rosterNote?: string;
 }) {
   const c = coverageOf(rows);
   const pct = (n: number) =>
@@ -145,11 +143,6 @@ export function CoveragePanel({
           </div>
         ))}
       </div>
-      <p className="caption">
-        {rosterNote ||
-          "Directory coverage is incomplete: collected profiles are a subset of staff, not a census."}{" "}
-        Missing values are unknown, never zero.
-      </p>
     </section>
   );
 }

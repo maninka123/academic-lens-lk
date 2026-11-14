@@ -18,7 +18,7 @@ export function InstitutionNotice({ university }: { university: University }) {
             {n.status && <>Status: {n.status}</>}
           </small>
         )}
-        {university.excludeFromComparison && <small className="notice-flag">Not used in comparisons, rankings or national statistics.</small>}
+        {university.excludeFromComparison && <small className="notice-flag">Excluded from comparisons and statistics.</small>}
       </div>
     </aside>
   );

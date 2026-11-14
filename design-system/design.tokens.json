@@ -37,7 +37,7 @@
         ],
         "hex": "#0b1020"
       },
-      "$description": "headings (h1–h6)"
+      "$description": "headings (h1\u2013h6)"
     },
     "text-muted": {
       "$value": {
@@ -261,33 +261,33 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.0431,
-          0.0627,
-          0.1255
+          0.1098,
+          0.1412,
+          0.2706
         ],
-        "hex": "#0b1020"
+        "hex": "#1c2445"
       }
     },
     "sidebar-border": {
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.1059,
-          0.1294,
-          0.2118
+          0.1686,
+          0.2039,
+          0.349
         ],
-        "hex": "#1b2136"
+        "hex": "#2b3459"
       }
     },
     "sidebar-text": {
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.5961,
-          0.6314,
-          0.7216
+          0.702,
+          0.7333,
+          0.8196
         ],
-        "hex": "#98a1b8"
+        "hex": "#b3bbd1"
       }
     },
     "sidebar-heading": {
@@ -305,11 +305,11 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.102,
-          0.1255,
-          0.251
+          0.1686,
+          0.2118,
+          0.4078
         ],
-        "hex": "#1a2040"
+        "hex": "#2b3668"
       }
     },
     "chart": {

@@ -30,11 +30,11 @@
   --color-success: #23844d;
   --color-warning: #b9770e;
   --color-danger: #c4344d;
-  --color-sidebar: #0b1020;
-  --color-sidebar-border: #1b2136;
-  --color-sidebar-text: #98a1b8;
+  --color-sidebar: #1c2445;
+  --color-sidebar-border: #2b3459;
+  --color-sidebar-text: #b3bbd1;
   --color-sidebar-heading: #f3f5fa;
-  --color-sidebar-active: #1a2040;
+  --color-sidebar-active: #2b3668;
 
   /* Chart series, in order: the first is the highlight */
   --color-chart-1: #4658d8;
