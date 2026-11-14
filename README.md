@@ -58,6 +58,7 @@ Light theme shown. Every page and popup also has a dark theme (Appearance switch
 | `scripts/` | Data import, metric collection (OpenAlex, Google Scholar) and checks |
 | `tests/` | Browser tests |
 | `docs/` | Guides and policies; legal notices are in `docs/legal/` |
+| `research/scoring-validation/` | Methodological evaluation of the research score: [study](research/scoring-validation/README.md) |
 | `reports/` | Generated coverage and validation reports |
 | `private/` | Local only, never committed (API keys, ethics documents) |
 
