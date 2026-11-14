@@ -1,22 +1,23 @@
 # Research standing score
 
-The application displays a 0–100 **weighted blend of component percentiles** relative to collected Sri Lankan profiles. It is not a percentile rank of the composite score and does not measure overall research quality, teaching, service or professional merit. [Main README](../README.md) · implementation: `src/analytics/standing-score.ts` · [independent methodological evaluation](../research/scoring-validation/README.md).
+A 0–100 **weighted blend of percentiles** that shows where a profile sits among collected Sri Lankan profiles. It is **not** a percentile of a combined score, and it does not measure research quality, teaching, service or merit.
 
-## Implemented calculation
+[Main README](../README.md) · code: `src/analytics/standing-score.ts` · [validation study](../research/scoring-validation/README.md) · [methods](../research/scoring-validation/METHODOLOGY.md) · [results](../research/scoring-validation/RESULTS.md)
 
-The app ranks each available measure in a selected peer pool using `100 × (number below + ½ number tied) / n`. For each measure, peers normally need values labelled with the same provider. The target is included if present in the dataset. The score is the weighted mean of available component percentiles, rescaled over the weights used and rounded to an integer:
+## How it is calculated
 
-| Measure | Weight | Limited meaning |
+1. For each available measure, rank the person within a peer group: `percentile = 100 × (below + ½ tied) / n`. Peers must share the same data provider.
+2. Take the weighted mean of those percentiles, rescaled over the measures present, and round.
+
+| Measure | Weight | What it reflects |
 |---|---:|---|
 | h-index | 40% | accumulated citation-linked output |
-| Citations 2021–2025 | 35% | citation activity in that recorded window |
+| Citations 2021–2025 | 35% | recent citation activity |
 | Publications | 25% | indexed output volume |
 
-The weights are project assumptions, not established scientific constants. Different measures can have different peer pools. A score of 50 is not necessarily the median of composite scores. The app groups broad academic titles into Professor, Mid-career and Early-career, and uses a broad discipline where mapped. These are imperfect proxies for field and career stage.
+The weights are project assumptions, not scientific constants. A score of 50 is not necessarily the median score.
 
-## Bands
-
-| Rounded score | Display label |
+| Score | Label |
 |---|---|
 | 80–100 | Upper |
 | 60–79 | High-Mid |
@@ -24,22 +25,45 @@ The weights are project assumptions, not established scientific constants. Diffe
 | 20–39 | Low-Mid |
 | 0–19 | Lower |
 
-These are fixed bands on the blended score, not evidence of research quality or validated performance categories.
+Labels are fixed bands, not validated performance categories. Career stage (Professor, Mid-career, Early-career) comes from job title and discipline from a broad mapping; both are rough proxies.
 
-## Missing data and fallback behavior
+## Missing data and fallbacks
 
-Missing values are skipped, not zero; recorded zero is a value. Standard scoring tries same field × stage, then stage alone, with at least ten same-provider observations per usable measure, at least two usable measures and at least one h-index or recent-citation measure. Stage-only scores remain standard. If no standard score is possible, the implementation tries, in order: staged groups with a five-person minimum and one usable measure; field across stages then everyone with minimum ten and one usable measure; and finally those levels pooling provider labels at minimum ten. Such fallback scores are labelled indicative and low confidence. When no viable pool exists the person is not scored.
+Missing values are skipped, never treated as zero; a recorded zero counts. The app picks the first peer group that qualifies:
 
-The across-stage fallback can occur even when the stage is known; its current caveat nevertheless says the stage was not recognised. Standard stage-only results may not explicitly say that disciplines were mixed. Provider equality can also match missing or generic provider labels; it is not proof of source comparability. These are implementation and presentation limitations, not changes made by the study.
+```mermaid
+flowchart TD
+  A[Same field and stage] -->|too few| B[Same stage only]
+  B -->|too few| C[Indicative: 5+ peers, 1 measure]
+  C -->|none| D[Field across stages, then everyone]
+  D -->|none| E[Pool provider labels]
+  E -->|none| F[No score]
+  A -.->|standard score| S[Needs 10+ peers, 2+ measures incl. h-index or citations]
+  B -.-> S
+```
 
-Standard-score confidence awards one point each for field × stage, all three measures, smallest component pool ≥25, and *any* recognised verified research identity. High requires four points; medium requires two or three; otherwise low. Indicative scores are low and stage-only scores are capped at medium. This is a heuristic checklist, not a statistical confidence interval or proof that every input is correctly attributed.
+Fallback scores are labelled **indicative** with low confidence.
 
-## Scientific basis and validation status
+**Known presentation issues** (documented, not changed): the across-stage fallback can say the stage was "not recognised" when it was known; stage-only scores may not say disciplines were mixed; matching provider labels does not prove comparable sources.
 
-Publication counts, recent citations and h-index can describe aspects of indexed output and citation activity, subject to provider coverage, career length, discipline, document type and attribution. They cannot reliably establish research quality, originality, reputation or total academic performance. H-index and citations are related and the weighted inputs may overlap. The [Leiden Manifesto](https://doi.org/10.1038/520429a), [DORA guidance](https://sfdora.org/resource/guidance-on-the-responsible-use-of-quantitative-indicators-in-research-assessment/) and [OECD/JRC handbook](https://doi.org/10.1787/9789264043466-en) inform transparency, contextual interpretation and sensitivity testing; none endorses this application's indicators or weights.
+**Confidence** is a checklist, not a statistical interval. One point each for: field × stage group, all three measures, smallest pool ≥ 25, and a verified research identity. 4 = high, 2–3 = medium, else low. Stage-only is capped at medium; indicative is always low.
 
-The [study](../research/scoring-validation/README.md), [methods](../research/scoring-validation/METHODOLOGY.md) and [results](../research/scoring-validation/RESULTS.md) evaluate implementation at commit `ab0ad8ac72d7d668b66331c938e166a528048fd4` using the captured `partial-e191f13547` public dataset snapshot, including pre-existing uncommitted changes. In 3,651 eligible records, 2,535 received scores; 1,748 had unmapped disciplines. Named weight alternatives gave high overall rank correlations but changed 134–221 bands and moved individual scores by up to 8–15 points. This does not establish validity, fairness or an optimal weighting. Identity, provider and peer selection changed both coverage and results.
+## Scientific basis
 
-## Responsible interpretation and proposed safeguards
+Publications, recent citations and h-index describe indexed output and citation activity, with limits from provider coverage, career length, field, document type and attribution. They cannot establish quality, originality, reputation or overall performance. The [Leiden Manifesto](https://doi.org/10.1038/520429a), [DORA guidance](https://sfdora.org/resource/guidance-on-the-responsible-use-of-quantitative-indicators-in-research-assessment/) and [OECD/JRC handbook](https://doi.org/10.1787/9789264043466-en) informed the design. None endorses this application or its weights.
 
-Do not use the score as a standalone assessment of a person, for high-stakes decisions or as an international or national ranking. Before any future publication of named composite scores, the study recommends verifying each metric's actual identity and provider, dates and comparability; requiring sufficient comparable peers and complete inputs; and withholding scores when field, stage or provenance is inadequate. These are recommendations for review, **not rules implemented in the current application**. The effects of restricting eligibility and removing fallback require a separate impact review. The existing algorithm, weights, score labels and published values remain unchanged.
+## What the validation study found
+
+Snapshot `partial-e191f13547`, code at commit `ab0ad8a`: 3,651 eligible records, 2,535 scored, 1,748 with no mapped discipline.
+
+![Indicator correlations](../research/scoring-validation/figures/indicator-correlations.png)
+*The three measures overlap strongly (Spearman 0.75 to 0.87), so the weights double-count related information.*
+
+![Weight sensitivity](../research/scoring-validation/figures/weight-sensitivity.png)
+*Alternative weightings keep overall ranks similar but move individual scores by up to 8–15 points and change 134–221 bands.*
+
+Identity, provider and peer-group choices also changed coverage and results. None of this shows the score is valid, fair or optimally weighted.
+
+## Use responsibly
+
+Do not use the score alone to judge a person, for high-stakes decisions, or as a national or international ranking. The study recommends that any future named score verify each metric's identity, provider and dates, require enough comparable peers and complete inputs, and be withheld when field, stage or provenance is weak. These are proposals, **not implemented**. The algorithm, weights, labels and published scores are unchanged.

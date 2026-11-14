@@ -17,7 +17,7 @@ A descriptive, public-interest overview of academic capacity in Sri Lanka: who w
 
 ## What is published, and what is not
 - **Published:** an allowlist of professional fields (name as published, institution and unit, position, qualifications as published, research metrics with source and date, public profile links).
-- **Not published:** contact details, personal identifiers, family or private life, internal evidence logs, identity-matching notes and review files.
+- **Not published on the website:** contact details, personal identifiers, family or private life, internal evidence logs, identity-matching notes and review files. Some internal files are still in the public repository ([DATA_POLICY.md](../DATA_POLICY.md)); move to private storage planned.
 - Source links keep only the parameters needed to identify a public profile.
 
 ## Safeguards

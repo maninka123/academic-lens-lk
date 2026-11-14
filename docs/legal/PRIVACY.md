@@ -16,7 +16,7 @@ About academics at Sri Lankan universities and higher-education campuses, **prof
 - links to the person's own public pages and research profiles;
 - evidence status (for example "identity verified" or "unverified").
 
-We do **not** collect or publish: contact details (email, phone), home address, date of birth, national identity numbers, family or private life, health, religion, ethnicity, political views, or any other sensitive personal data. A few derived indicators (for example a percentile "research standing") are computed from the figures above and are descriptive only.
+We do **not** collect or publish: contact details (email, phone), home address, date of birth, national identity numbers, family or private life, health, religion, ethnicity, political views, or any other sensitive personal data. A few derived indicators (for example the "research standing" score, a weighted blend of metric percentiles; see [STANDING_SCORE.md](../STANDING_SCORE.md)) are computed from the figures above and are descriptive only.
 
 ## 3. Where it comes from
 Only public sources: official university staff directories and profile pages, public research indexes (OpenAlex) and public Google Scholar or ResearchGate profile pages that the person or their university links to. We do not use logins, private systems or purchased data, and we do not bypass access limits. Some figures are read from public pages by hand. Each value keeps its source and retrieval date in a private audit trail.
@@ -29,7 +29,7 @@ Our basis for this processing is the public-interest and research purpose of the
 ## 5. Who sees it, and where it is stored
 - The profile information is **published openly** on the website and in this repository, so anyone can read it.
 - The project is hosted on GitHub (repository and GitHub Pages). GitHub processes technical data about visitors under its own privacy statement.
-- Internal verification and investigation notes are kept privately by the maintainer and are not published.
+- Internal verification notes are not shown on the website, but some are still in the public repository (move to private storage planned).
 - We do not sell data and do not share it with anyone beyond this public publication.
 
 ## 6. What the website stores about visitors
