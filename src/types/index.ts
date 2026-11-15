@@ -188,6 +188,8 @@ export type Metadata = {
   correctionContact?: string;
   country?: string;
 };
+/** A faculty-level unit listed on its university page; `campus_school` units appear under "Campuses & Schools". */
+export type OrgUnit = { id: string; universityId: string; name: string; category: "campus_school" };
 export type Dataset = {
   /** Profiles used in comparisons and statistics (institutions flagged `excludeFromComparison` are left out). */
   academics: Academic[];
@@ -197,6 +199,8 @@ export type Dataset = {
   metadata: Metadata;
   coverage: Coverage[];
   summary: DatasetSummary | null;
+  /** Registered faculty-level units (may have no collected staff yet). */
+  orgUnits?: OrgUnit[];
 };
 export type Level =
   | "type"

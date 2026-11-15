@@ -7,7 +7,7 @@ export type BenchmarkField = (typeof benchmarkFields)[number];
 
 export type Tier = "elite" | "middle" | "lower";
 export const tierLabels: Record<Tier, string> = {
-  elite: "Elite (top 2 in country)",
+  elite: "Elite (QS top 150)",
   middle: "Middle (QS ~420–560)",
   lower: "Lower (QS ~800–1200)",
 };
@@ -160,6 +160,10 @@ export function qsNumeric(rank: string | undefined) {
 /** Sri Lankan academics in the same disciplines as the sampled baseline departments. */
 export function matchedField(a: Pick<Academic, "department" | "faculty">) {
   const unit = `${a.department || ""} ${a.faculty || ""}`;
+  // Units that are not the discipline itself: language teaching and IT service centres stay out of every benchmark field.
+  if (/english|language|linguist|services? cent(re|er)|centre for information technology|computer unit/i.test(a.department || "")) return "";
+  // Every unit of a faculty of medicine is Medicine (for example Anatomy, Genetics and Biomedical Informatics), never Computer Science.
+  if (/faculty of medicine|medical sciences/i.test(a.faculty || "") && !/allied health|nursing|health sciences|dental|indigenous|siddha|ayurved/i.test(a.faculty || "")) return "Medicine";
   if (/physics/i.test(a.department || "")) return "Physics";
   if (
     /comput|information technology|software|data science|\bIT\b|informatics/i.test(
@@ -168,7 +172,7 @@ export function matchedField(a: Pick<Academic, "department" | "faculty">) {
   )
     return "Computer Science";
   // Medicine means a faculty of medicine; allied health, nursing, health-science and indigenous-medicine faculties are not benchmarked as Medicine.
-  if (/allied health|nursing|health sciences|indigenous|siddha|ayurved/i.test(a.faculty || "")) return "";
+  if (/allied health|nursing|health sciences|dental|indigenous|siddha|ayurved/i.test(a.faculty || "")) return "";
   if (/medicine|medical|clinical|surgery|paediatric|pediatric|pathology|anatomy|physiology|pharmacology|public health/i.test(unit)) return "Medicine";
   if (/\blaw\b|legal|jurisprudence/i.test(unit)) return "Law";
   if (/engineering/i.test(unit)) return "Engineering";

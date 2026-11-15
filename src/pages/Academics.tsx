@@ -17,6 +17,7 @@ import { Button } from "../components/ui/button";
 import { AcademicPortrait } from "../components/AcademicPortrait";
 import { ProfileStanding } from "../components/ProfileStanding";
 import { PositionStandards } from "../components/PositionStandards";
+import { splitFacultyUnits } from "../analytics/org-units";
 import { UnitOverview, UnitOverviewCard, FacultySelect } from "../components/UnitOverview";
 import { InstitutionNotice } from "../components/InstitutionNotice";
 import { StandingScorePanel } from "../components/StandingScore";
@@ -615,11 +616,12 @@ export function Institution() {
   );
   const raw = everyone.filter((a) => a.universityId === id);
   const units = groupRows(rows, faculty ? "department" : "faculty");
+  const registered = faculty ? d.orgUnits?.find((x) => x.universityId === id && x.id === faculty) : undefined;
   const directRows = rows.filter((a) =>
     faculty ? !a.departmentId : !a.facultyId,
   );
   if (
-    (faculty && !raw.some((a) => a.facultyId === faculty)) ||
+    (faculty && !raw.some((a) => a.facultyId === faculty) && !registered) ||
     (department &&
       !raw.some(
         (a) => a.facultyId === faculty && a.departmentId === department,
@@ -635,7 +637,7 @@ export function Institution() {
   const label = department
     ? raw.find((a) => a.departmentId === department)?.department
     : faculty
-      ? raw.find((a) => a.facultyId === faculty)?.faculty
+      ? raw.find((a) => a.facultyId === faculty)?.faculty || registered?.name
       : u.name;
   const openCompare = (equivalent = false) => {
     const fields = [
@@ -670,6 +672,31 @@ export function Institution() {
       log: false,
     });
     nav("/compare");
+  };
+  const split = faculty
+    ? { faculties: units, campuses: [] as typeof units }
+    : splitFacultyUnits(units, d.orgUnits, u.id);
+  const unitCard = (g: { id: string; label: string; rows: Academic[] }) => {
+    const name = faculty ? g.rows[0]?.department : g.rows[0]?.faculty || g.label;
+    return (
+      <Link
+        className="institution-card"
+        key={g.id}
+        to={
+          faculty
+            ? "/university/" + id + "/faculty/" + faculty + "/department/" + g.id
+            : "/university/" + id + "/faculty/" + g.id
+        }
+      >
+        <div>
+          <strong>{name || (faculty ? "Department unavailable" : "Faculty unavailable")}</strong>
+          <small>
+            {g.rows.length ? `${g.rows.length} collected ${g.rows.length === 1 ? "profile" : "profiles"}` : "No collected profiles yet"}
+          </small>
+        </div>
+        <UnitIcon kind={faculty ? "department" : "faculty"} name={name || ""} />
+      </Link>
+    );
   };
   return (
     <>
@@ -753,45 +780,20 @@ export function Institution() {
           This does not imply it has no academic staff.
         </Empty>
       )}
-      {!department && units.length > 0 && (
+      {!department && split.faculties.length > 0 && (
         <Card
           title={faculty ? "Departments" : "Faculties / schools"}
           subtitle="Only recorded organisational units are shown. Profiles without a named department stay at faculty level."
         >
-          <div className="institution-grid">
-            {units.map((g) => (
-              <Link
-                className="institution-card"
-                key={g.id}
-                to={
-                  faculty
-                    ? "/university/" +
-                      id +
-                      "/faculty/" +
-                      faculty +
-                      "/department/" +
-                      g.id
-                    : "/university/" + id + "/faculty/" + g.id
-                }
-              >
-                <div>
-                  <strong>
-                    {faculty
-                      ? g.rows[0]?.department || "Department unavailable"
-                      : g.rows[0]?.faculty || "Faculty unavailable"}
-                  </strong>
-                  <small>
-                    {g.rows.length} collected{" "}
-                    {g.rows.length === 1 ? "profile" : "profiles"}
-                  </small>
-                </div>
-                <UnitIcon
-                  kind={faculty ? "department" : "faculty"}
-                  name={(faculty ? g.rows[0]?.department : g.rows[0]?.faculty) || ""}
-                />
-              </Link>
-            ))}
-          </div>
+          <div className="institution-grid">{split.faculties.map((g) => unitCard(g))}</div>
+        </Card>
+      )}
+      {!department && !faculty && split.campuses.length > 0 && (
+        <Card
+          title="Campuses & Schools"
+          subtitle="Campuses and schools of the university. Each works like a faculty."
+        >
+          <div className="institution-grid">{split.campuses.map((g) => unitCard(g))}</div>
         </Card>
       )}
       {rows.length > 0 && !department && !faculty && (

@@ -37,7 +37,7 @@
         ],
         "hex": "#0b1020"
       },
-      "$description": "headings (h1\u2013h6)"
+      "$description": "headings (h1–h6)"
     },
     "text-muted": {
       "$value": {
@@ -310,6 +310,50 @@
           0.4078
         ],
         "hex": "#2b3668"
+      }
+    },
+    "sri-lanka": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3647,
+          0.4235,
+          0.9412
+        ],
+        "hex": "#5d6cf0"
+      }
+    },
+    "sri-lanka-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "hex": "#ffffff"
+      }
+    },
+    "overseas": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8784,
+          0.6275,
+          0.1804
+        ],
+        "hex": "#e0a02e"
+      }
+    },
+    "overseas-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1059,
+          0.0784,
+          0.0196
+        ],
+        "hex": "#1b1405"
       }
     },
     "chart": {

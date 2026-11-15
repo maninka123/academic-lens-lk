@@ -10,7 +10,7 @@ export function Dialog({
 }: {
   open: boolean;
   onOpenChange: (v: boolean) => void;
-  title: string;
+  title: ReactNode;
   children: ReactNode;
   className?: string;
 }) {

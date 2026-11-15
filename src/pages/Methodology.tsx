@@ -14,6 +14,7 @@ const PUBLIC_DOWNLOADS = [
   ["academics.csv", "Academic records (public fields)"],
   ["universities.csv", "Institutions in scope"],
   ["faculties.csv", "Faculties"],
+  ["organisational_units.csv", "Campuses and schools shown beside the faculties"],
   ["departments.csv", "Departments"],
   ["coverage_summary.csv", "Coverage indicators by institution"],
   ["dataset_summary.json", "Snapshot summary"],

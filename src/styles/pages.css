@@ -586,8 +586,13 @@ td .qs-rank, dd .qs-rank { margin-left: 8px; }
 /* Filter rows on Global Benchmarks and PhD Origins: even spacing between fields. */
 .global-controls { gap: var(--space-4) var(--space-6); }
 .global-controls .field select { min-width: 11.5rem; }
-.bench-table td:first-child { display: flex; align-items: center; flex-wrap: wrap; gap: 2px var(--space-4); }
+/* The cell stays a table cell so row borders line up across columns; the flex layout lives in an inner wrapper. */
+.bench-table .bench-name { display: flex; align-items: center; flex-wrap: wrap; gap: 2px var(--space-4); }
 .bench-table .bench-country { color: var(--color-text-muted); font-size: 12.5px; margin-left: var(--space-1); }
+
+/* Sri Lankan universities: a barely-there Sri Lanka-blue tint and a thin accent on the leading edge; international rows are unchanged. */
+.bench-table tr.bench-row-sl td { background: color-mix(in srgb, var(--color-sri-lanka) 5%, transparent); }
+.bench-table tr.bench-row-sl td:first-child { box-shadow: inset 2px 0 0 color-mix(in srgb, var(--color-sri-lanka) 75%, transparent); }
 
 /* Numeric columns are centred under their headings. */
 .metric-summary-table th:nth-child(2), .metric-summary-table td:nth-child(2),

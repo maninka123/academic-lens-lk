@@ -26,12 +26,13 @@ export async function loadDataset(): Promise<Dataset> {
     if (!r.ok) throw Error(`Cannot load ${name} (${r.status}).`);
     return r.text();
   };
-  const [a, u, m, cov, sum] = await Promise.all([
+  const [a, u, m, cov, sum, orgText] = await Promise.all([
     fetchText("academics.csv"),
     fetchText("universities.csv"),
     fetchText("metadata.json"),
     fetchText("coverage_summary.csv").catch(() => ""),
     fetchText("dataset_summary.json").catch(() => ""),
+    fetchText("organisational_units.csv").catch(() => ""),
   ]);
   const parse = (s: string) => {
     const result = Papa.parse<Record<string, string>>(s, {
@@ -166,5 +167,10 @@ export async function loadDataset(): Promise<Dataset> {
     metadata,
     coverage,
     summary,
+    orgUnits: orgText
+      ? (parse(orgText) as Record<string, string>[])
+          .filter((r) => r.id && r.universityId && r.name && r.category === "campus_school")
+          .map((r) => ({ id: r.id, universityId: r.universityId, name: r.name, category: "campus_school" as const }))
+      : [],
   };
 }

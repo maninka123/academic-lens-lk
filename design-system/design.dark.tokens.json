@@ -299,6 +299,50 @@
         ],
         "hex": "#161d3c"
       }
+    },
+    "sri-lanka": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.5569,
+          0.6118,
+          1
+        ],
+        "hex": "#8e9cff"
+      }
+    },
+    "sri-lanka-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.0392,
+          0.051,
+          0.0941
+        ],
+        "hex": "#0a0d18"
+      }
+    },
+    "overseas": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8941,
+          0.6549,
+          0.2471
+        ],
+        "hex": "#e4a73f"
+      }
+    },
+    "overseas-foreground": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1059,
+          0.0784,
+          0.0196
+        ],
+        "hex": "#1b1405"
+      }
     }
   }
 }

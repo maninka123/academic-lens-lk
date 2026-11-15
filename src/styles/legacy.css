@@ -597,9 +597,11 @@ footer {
 
 }
 
-/* One colour family for both halves of the Sri Lanka vs overseas bar, with readable white text. */
-.origin-split-card .os-bar .lk, .origin-split-card .os-bar .ov { background: var(--color-primary); color: var(--color-primary-foreground); }
-.origin-split-card .os-bar u b, .origin-split-card .os-bar u small { color: var(--color-primary-foreground); }
+/* Sri Lanka and overseas use the same two hues as the rest of the PhD Origins page (indigo and amber), with readable text on each. */
+.origin-split-card .os-bar .lk { background: var(--color-sri-lanka); color: var(--color-sri-lanka-foreground); }
+.origin-split-card .os-bar .ov { background: var(--color-overseas); color: var(--color-overseas-foreground); }
+.origin-split-card .os-bar .lk b, .origin-split-card .os-bar .lk small { color: var(--color-sri-lanka-foreground); }
+.origin-split-card .os-bar .ov b, .origin-split-card .os-bar .ov small { color: var(--color-overseas-foreground); }
 .origin-split-card .os-bar { gap: 4px; }
 
 .tier-notes { margin-top: var(--space-4); }
@@ -613,6 +615,7 @@ footer {
 .tier-diffs li.higher .tier-diff-main svg { color: var(--color-success); }
 .tier-diffs strong { font-size: 1.6rem; line-height: 1.1; letter-spacing: -0.025em; font-weight: 510; font-variant-numeric: tabular-nums; color: var(--color-heading); }
 .tier-diff-sub { font-size: 0.875rem; color: var(--color-text-muted); }
+.tier-diff-name { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .tier-diff-bar { grid-column: 2; margin-top: 4px; height: 4px; border-radius: 2px; background: var(--color-fill); overflow: hidden; }
 .tier-diff-bar > span { display: block; height: 100%; border-radius: 2px; background: var(--tier, var(--color-border-strong)); }
 .tier-foot { margin: 0; display: grid; gap: 2px; font-size: 12.5px; line-height: 1.5; }

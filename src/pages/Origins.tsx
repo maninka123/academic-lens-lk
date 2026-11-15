@@ -13,6 +13,7 @@ import { heatDatum, HEAT_RAMP } from "../analytics/heatmap";
 import { AcademicTable } from "../components/AcademicTable";
 import { MetricSummaryTable } from "../components/Quality";
 import { Button } from "../components/ui/button";
+import { Dialog } from "../components/ui/dialog";
 import { broadDiscipline } from "../data/disciplines";
 import { MIN_SAMPLE } from "../analytics/quality";
 import type { Academic } from "../types";
@@ -65,6 +66,11 @@ export function Origins() {
   const col = ORIGIN[theme];
   const minN = d.metadata.minimumSample || MIN_SAMPLE;
   const [country, setCountry] = useState(""),
+    [breakdownOpen, setBreakdownOpen] = useState(false),
+    [showAllAwarded, setShowAllAwarded] = useState(false),
+    [awardedSort, setAwardedSort] = useState<"count" | "rank">("count"),
+    [heatScale, setHeatScale] = useState<Record<"country" | "rank", CompositionScale>>({ country: "count", rank: "count" }),
+    [showAllWorking, setShowAllWorking] = useState(false),
     [ready, setReady] = useState(false),
     [error, setError] = useState(""),
     [mode, setMode] = useState("simple"),
@@ -124,6 +130,69 @@ export function Origins() {
   const lk = known.filter((a) => a.phdCountry === "Sri Lanka").length;
   const pct = (n: number, of: number) =>
     of ? fmt((100 * n) / of, 1) + "%" : "—";
+
+  // Selecting a country opens its breakdown; closing the window clears the selection.
+  const openCountry = (id: string) => {
+    setCountry(id);
+    setBreakdownOpen(true);
+    setShowAllAwarded(false);
+    setShowAllWorking(false);
+    setAwardedSort("count");
+  };
+  const closeBreakdown = (open: boolean) => {
+    setBreakdownOpen(open);
+    if (!open) setCountry("");
+  };
+
+  // Shorter labels for the narrow bars; the full label stays in the tooltip.
+  const shortDiscipline = (label: string) =>
+    ({ "Engineering & technology": "Engineering", "Management & commerce": "Management", "Social sciences, law & education": "Social sciences & law" } as Record<string, string>)[label] ?? label;
+  // Where a country's doctorates sit: discipline, awarding institution and the Sri Lankan university now employing them.
+  const breakdown = useMemo(() => {
+    if (!country) return null;
+    const rowsFor = known.filter((a) => a.phdCountry === country);
+    const tally = (key: (a: Academic) => string, drop?: RegExp) => {
+      const m = new Map<string, number>();
+      for (const a of rowsFor) {
+        const k = key(a);
+        if (!k || (drop && drop.test(k))) continue;
+        m.set(k, (m.get(k) || 0) + 1);
+      }
+      return [...m.entries()].map(([label, n]) => ({ label, n })).sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+    };
+    return {
+      total: rowsFor.length,
+      disciplines: tally((a) => (/^(unclassified|unmapped|unknown)$/i.test(broadDiscipline(a)) ? "Not classified" : broadDiscipline(a))),
+      // Only named institutions are listed; doctorates with no recorded institution are left out.
+      awardedBy: tally((a) => a.phdUniversity)
+        .map((u) => {
+          const withRank = rowsFor.find((a) => a.phdUniversity === u.label && qsMain(a));
+          const main = withRank ? qsMain(withRank) : null;
+          return { ...u, rank: main ? main.replace(/^QS /, "").replace("Not in QS", "Unranked") : "" };
+        })
+        .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label)),
+      workingAt: tally((a) => a.university),
+    };
+  }, [country, known]);
+
+  // Best QS rank first (a band sorts by its upper edge); unranked and unrecorded institutions go last.
+  const rankValue = (r: string) => {
+    const m = r.match(/\d+/);
+    return m ? Number(m[0]) : Number.POSITIVE_INFINITY;
+  };
+  const awardedSorted = breakdown
+    ? awardedSort === "rank"
+      ? [...breakdown.awardedBy].sort((a, b) => rankValue(a.rank) - rankValue(b.rank) || b.n - a.n || a.label.localeCompare(b.label))
+      : breakdown.awardedBy
+    : [];
+
+  /** One tooltip layout for every country: name, prominent count, then compact labels. */
+  const countryTip = (name: string, n: number) => {
+    const safe = name.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+    return n > 0
+      ? `<div class="tip tip-stat"><div class="tip-title">${safe}</div><div class="tip-big">${fmt(n)}</div><div class="tip-unit">PhD graduates</div><div class="tip-sub">${pct(n, known.length)} of known PhDs</div></div>`
+      : `<div class="tip tip-stat"><div class="tip-title">${safe}</div><div class="tip-sub">No PhD graduates in this selection</div></div>`;
+  };
 
   const mapName = (s: string) =>
     s === "United States" ? "United States of America" : s;
@@ -289,15 +358,65 @@ export function Origins() {
     .slice(0, 15);
   const heatCountries = groups.slice(0, 12).map((g) => g.id);
   const heatUnis = [...new Set(known.map((a) => short(a.university)))];
-  const heat = heatCountries.flatMap((c, x) =>
-    heatUnis.flatMap((u, y) => {
-      const n = known.filter(
-        (a) => a.phdCountry === c && short(a.university) === u,
-      ).length;
-      return n ? [[x, y, n]] : [];
-    }),
+  const RANK_COLS = [...QS_BANDS, "Not located"] as string[];
+  /** Counts of doctorates for every (column, institution) pair, plus each institution's total in the same base. */
+  const heatGrid = (base: Academic[], cols: string[], colOf: (a: Academic) => string) => {
+    const totals = new Map<string, number>();
+    const counts = new Map<string, number>();
+    for (const a of base) {
+      const u = short(a.university);
+      totals.set(u, (totals.get(u) || 0) + 1);
+      const c = colOf(a);
+      if (cols.includes(c)) counts.set(c + "\u0000" + u, (counts.get(c + "\u0000" + u) || 0) + 1);
+    }
+    const cells = cols.flatMap((c, x) =>
+      heatUnis.flatMap((u, y) => {
+        const n = counts.get(c + "\u0000" + u) || 0;
+        return n ? [{ x, y, n, total: totals.get(u) || 0 }] : [];
+      }),
+    );
+    return cells;
+  };
+  const countryCells = heatGrid(known, heatCountries, (a) => a.phdCountry);
+  const rankCells = heatGrid(documented, RANK_COLS, (a) => qsBandOf(a) ?? "Not located");
+  const heatPct = (n: number, total: number) => (total ? (100 * n) / total : 0);
+  /** One heatmap option: counts, or each institution's share (%) across the columns. */
+  const heatOption = (cols: string[], cells: { x: number; y: number; n: number; total: number }[], scale: CompositionScale, what: string) => {
+    const value = (c: { n: number; total: number }) => (scale === "count" ? c.n : heatPct(c.n, c.total));
+    const max = Math.max(1, ...cells.map(value));
+    return {
+      tooltip: {
+        confine: true,
+        formatter: (p: any) => `${cols[p.value[0]]} -> ${heatUnis[p.value[1]]}\nDoctorates: ${p.data.n}\nShare of ${heatUnis[p.value[1]]}: ${pct(p.data.n, p.data.total)}`,
+      },
+      grid: { left: 10, right: 20, top: 10, bottom: 46, containLabel: true },
+      xAxis: { type: "category", data: cols, axisLabel: { rotate: 35, fontSize: 12, interval: 0 }, splitArea: { show: false } },
+      yAxis: { type: "category", data: heatUnis, axisLabel: { fontSize: 13 } },
+      visualMap: {
+        min: 0, max: 100, show: true, calculable: false, orient: "horizontal", left: "center", bottom: 4, itemWidth: 14, itemHeight: 200,
+        inRange: { color: HEAT_RAMP }, text: [scale === "count" ? "Most doctorates" : "Highest share", "Fewest"], textStyle: { fontSize: 12 },
+      },
+      aria: { enabled: true, description: `${what}. ${scale === "count" ? "Number" : "Share of each institution's"} doctorates.` },
+      series: [
+        {
+          type: "heatmap",
+          data: cells.map((c) => heatDatum(c.x, c.y, (100 * value(c)) / max, { n: c.n, total: c.total })),
+          label: { show: true, fontSize: 12, formatter: (p: any) => (scale === "count" ? String(p.data.n) : String(Math.round(heatPct(p.data.n, p.data.total)))) },
+        },
+      ],
+    };
+  };
+  const heatControls = (view: "country" | "rank", label: string) => (
+    <div className="origin-composition-toolbar heat-toolbar">
+      <div className="chart-scale-toggle" role="group" aria-label={`${label} scale`}>
+        {(["count", "share"] as const).map((scale) => (
+          <button key={scale} type="button" aria-pressed={heatScale[view] === scale} onClick={() => setHeatScale((cur) => ({ ...cur, [view]: scale }))}>
+            {scale === "share" ? "Share (%)" : "Count"}
+          </button>
+        ))}
+      </div>
+    </div>
   );
-  const heatMax = Math.max(1, ...heat.map((h) => h[2] as number));
   const compHeight = (n: number) => Math.max(200, n * 30 + 70);
   const sel = [
     uni && d.universities.find((u) => u.id === uni)?.short,
@@ -445,13 +564,6 @@ export function Origins() {
       <Card
         title="A world of academic pathways"
         subtitle={`${fmt(known.length)} documented doctorates across ${groups.length} countries. Select a highlighted country or a country below to explore its academics.`}
-        action={
-          country && (
-            <Button variant="outline" onClick={() => setCountry("")}>
-              Clear <CountryName country={country} />
-            </Button>
-          )
-        }
       >
         <div className="origins-map-surface">
           {ready ? (
@@ -467,7 +579,7 @@ export function Origins() {
                       typeof p.value === "number" && Number.isFinite(p.value)
                         ? p.value
                         : 0;
-                    return `${mapCountry(p.name)}\n${n > 0 ? `${fmt(n)} recorded doctorates | ${pct(n, known.length)} of mapped profiles` : "No recorded profiles in this selection"}`;
+                    return countryTip(mapCountry(p.name), n);
                   },
                 },
                 visualMap: {
@@ -515,7 +627,7 @@ export function Origins() {
                         fontWeight: 600,
                       },
                       tooltip: {
-                        formatter: `Sri Lanka\n${groups.find((g) => g.id === "Sri Lanka")?.rows.length || 0} recorded doctorates`,
+                        formatter: countryTip("Sri Lanka", groups.find((g) => g.id === "Sri Lanka")?.rows.length || 0),
                       },
                       data: [{ name: "Sri Lanka", coord: [80.77, 7.87] }],
                     },
@@ -549,8 +661,7 @@ export function Origins() {
               }}
               onClick={(p) => {
                 const next = mapCountry(p.name);
-                if (groups.some((g) => g.id === next))
-                  setCountry(country === next ? "" : next);
+                if (groups.some((g) => g.id === next)) openCountry(next);
               }}
             />
           ) : error ? (
@@ -589,7 +700,7 @@ export function Origins() {
             <Button
               variant={country === g.id ? "default" : "outline"}
               key={g.id}
-              onClick={() => setCountry(country === g.id ? "" : g.id)}
+              onClick={() => openCountry(g.id)}
             >
               <CountryName country={g.id} />
               <span>{g.rows.length}</span>
@@ -604,7 +715,7 @@ export function Origins() {
                 <Button
                   key={g.id}
                   variant={country === g.id ? "default" : "outline"}
-                  onClick={() => setCountry(country === g.id ? "" : g.id)}
+                  onClick={() => openCountry(g.id)}
                 >
                   <CountryName country={g.id} />
                   <span>{g.rows.length}</span>
@@ -614,6 +725,72 @@ export function Origins() {
           </details>
         )}
       </Card>
+      {breakdown && (
+        <Dialog
+          open={breakdownOpen}
+          onOpenChange={closeBreakdown}
+          title={<CountryName country={country} />}
+          className="country-dialog"
+        >
+          <div className="country-hero">
+            <strong>{fmt(breakdown.total)}</strong>
+            <div>
+              <span>PhD graduates</span>
+              <small>{pct(breakdown.total, known.length)} of known PhDs</small>
+            </div>
+          </div>
+          <h3 className="country-section">By discipline</h3>
+          <ul className="country-bars" aria-label={`PhD graduates from ${country} by discipline`}>
+            {breakdown.disciplines.map((d) => (
+              <li key={d.label}>
+                <span className="cb-label" title={d.label}>{shortDiscipline(d.label)}</span>
+                <span className="cb-track"><i style={{ width: `${Math.max(2, (100 * d.n) / breakdown.total)}%`, background: country === "Sri Lanka" ? col.lk : col.overseas }} /></span>
+                <span className="cb-count">{fmt(d.n)}<small>{pct(d.n, breakdown.total)}</small></span>
+              </li>
+            ))}
+          </ul>
+          <div className="country-lists">
+            <section>
+              <div className="cl-head">
+                <h3 className="country-section">Awarded by</h3>
+                <div className="cl-sort" role="group" aria-label="Sort awarding institutions">
+                  <button type="button" aria-pressed={awardedSort === "count"} onClick={() => setAwardedSort("count")}>Graduates</button>
+                  <button type="button" aria-pressed={awardedSort === "rank"} onClick={() => setAwardedSort("rank")}>Rank</button>
+                </div>
+              </div>
+              <ol className={showAllAwarded ? "cl-scroll" : undefined}>
+                {(showAllAwarded ? awardedSorted : awardedSorted.slice(0, 5)).map((d) => (
+                  <li key={d.label}>
+                    <span>{d.label}{d.rank && <em className="cl-rank">{d.rank}</em>}</span>
+                    <b>{fmt(d.n)}</b>
+                  </li>
+                ))}
+              </ol>
+              {breakdown.awardedBy.length > 5 && (
+                <button type="button" className="cl-toggle" aria-expanded={showAllAwarded} onClick={() => setShowAllAwarded((v) => !v)}>
+                  {showAllAwarded ? "Show fewer" : `Show all ${breakdown.awardedBy.length} institutions`}
+                </button>
+              )}
+            </section>
+            <section>
+              <h3 className="country-section">Now working at</h3>
+              <ol className={showAllWorking ? "cl-scroll" : undefined}>
+                {(showAllWorking ? breakdown.workingAt : breakdown.workingAt.slice(0, 5)).map((d) => (
+                  <li key={d.label}><span>{d.label}</span><b>{fmt(d.n)}</b></li>
+                ))}
+              </ol>
+              {breakdown.workingAt.length > 5 && (
+                <button type="button" className="cl-toggle" aria-expanded={showAllWorking} onClick={() => setShowAllWorking((v) => !v)}>
+                  {showAllWorking ? "Show fewer" : `Show all ${breakdown.workingAt.length} universities`}
+                </button>
+              )}
+            </section>
+          </div>
+          <p className="muted country-note">
+            Known-country doctorates under the current filters.
+          </p>
+        </Dialog>
+      )}
       {documented.length === 0 ? (
         <Empty title="No documented doctorates in this selection" />
       ) : (
@@ -626,151 +803,120 @@ export function Origins() {
               {compositionControls("institution", "Institution")}
               <Chart
                 option={composition(byUniversity, "PhD origin by institution", scales.institution)}
-                height={compHeight(byUniversity.length)}
+                // Tall enough to line up with the two stacked cards beside it, so neither column leaves empty space.
+                height={Math.max(compHeight(byUniversity.length), compHeight(byPosition.length) + compHeight(bySector.length) + 162)}
                 label={`${scales.institution === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates by institution`}
               />
             </Card>
-            <Card
-              title="By academic position"
-              subtitle="Highest positions first"
-            >
-              {compositionControls("position", "Academic position")}
-              <Chart
-                option={composition(byPosition, "PhD origin by position", scales.position)}
-                height={compHeight(byPosition.length)}
-                label={`${scales.position === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates by academic position`}
-              />
-            </Card>
+            <div className="stack">
+              <Card
+                title="By academic position"
+                subtitle="Highest positions first"
+              >
+                {compositionControls("position", "Academic position")}
+                <Chart
+                  option={composition(byPosition, "PhD origin by position", scales.position)}
+                  height={compHeight(byPosition.length)}
+                  label={`${scales.position === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates by academic position`}
+                />
+              </Card>
+              <Card
+                title="State and non-state institutions"
+                subtitle="Documented doctorates in each sector."
+              >
+                {compositionControls("sector", "Institution type")}
+                <Chart
+                  option={composition(bySector, "PhD origin by sector", scales.sector)}
+                  height={compHeight(bySector.length)}
+                  label={`${scales.sector === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates in public and non-state institutions`}
+                />
+              </Card>
+            </div>
           </div>
-          <div className="two-columns align-start">
-            <Card
-              title="By discipline"
-              subtitle="Discipline inferred from faculty/department names — a descriptive grouping, not a verified classification."
-            >
-              {compositionControls("discipline", "Discipline")}
-              <Chart
-                option={composition(byDiscipline, "PhD origin by discipline", scales.discipline)}
-                height={compHeight(byDiscipline.length)}
-                label={`${scales.discipline === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates by discipline`}
-              />
-            </Card>
-            <Card
-              title="State and non-state institutions"
-              subtitle="Documented doctorates in each sector."
-            >
-              {compositionControls("sector", "Institution type")}
-              <Chart
-                option={composition(bySector, "PhD origin by sector", scales.sector)}
-                height={compHeight(bySector.length)}
-                label={`${scales.sector === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates in public and non-state institutions`}
-              />
-            </Card>
-          </div>
-          <div className="two-columns align-start">
-            <Card
-              title="Most frequently recorded awarding institutions"
-              subtitle={`Top ${topInstitutions.length} of ${new Set(documented.map((a) => a.phdUniversity).filter(Boolean)).size} recorded institutions, as published (spelling variants are not merged).`}
-            >
-              <Chart
-                height={Math.max(260, topInstitutions.length * 26 + 50)}
-                label="Most frequent PhD awarding institutions"
-                option={{
-                  tooltip: { trigger: "item", confine: true },
-                  grid: {
-                    left: 10,
-                    right: 40,
-                    top: 10,
-                    bottom: 20,
-                    containLabel: true,
-                  },
-                  xAxis: {
-                    type: "value",
-                    minInterval: 1,
-                    axisLabel: { formatter: (v: number) => String(v) },
-                  },
-                  yAxis: {
-                    type: "category",
-                    inverse: true,
-                    data: topInstitutions.map(([n]) => n),
-                    axisLabel: {
-                      fontSize: 12,
-                      width: 230,
-                      overflow: "truncate",
-                    },
-                  },
-                  series: [
-                    {
-                      type: "bar",
-                      barMaxWidth: 16,
-                      data: topInstitutions.map(([, n]) => n),
-                      itemStyle: { color: col.lk, borderRadius: [0, 4, 4, 0] },
-                      label: {
-                        show: true,
-                        position: "right",
-                        formatter: (p: any) => String(p.value),
-                      },
-                    },
-                  ],
-                }}
-              />
-            </Card>
+          <Card
+            title="By discipline"
+            subtitle="Discipline inferred from faculty/department names — a descriptive grouping, not a verified classification."
+          >
+            {compositionControls("discipline", "Discipline")}
+            <Chart
+              option={composition(byDiscipline, "PhD origin by discipline", scales.discipline)}
+              height={compHeight(byDiscipline.length)}
+              label={`${scales.discipline === "share" ? "Share (%)" : "Count"} of Sri Lankan and overseas doctorates by discipline`}
+            />
+          </Card>
+          <div className="heat-pair">
             <Card
               title="Awarding country → current institution"
-              subtitle="Number of documented doctorates connecting each awarding country (top 12) with current institutions."
+              subtitle={heatScale.country === "share" ? "Share of each institution's doctorates by awarding country (top 12)." : "Doctorates by awarding country (top 12) and current institution."}
             >
+              {heatControls("country", "Awarding country map")}
               <Chart
-                height={Math.max(320, heatUnis.length * 38 + 150)}
+                height={Math.max(300, heatUnis.length * 38 + 118)}
                 minWidth={560}
                 label="Heatmap of awarding countries and current institutions"
-                option={{
-                  tooltip: {
-                    confine: true,
-                    formatter: (p: any) =>
-                      `${heatCountries[p.value[0]]} -> ${heatUnis[p.value[1]]}\nDoctorates: ${p.data.count}`,
-                  },
-                  grid: { left: 10, right: 20, top: 10, bottom: 100, containLabel: true },
-                  xAxis: {
-                    type: "category",
-                    data: heatCountries,
-                    axisLabel: { rotate: 35, fontSize: 12, interval: 0 },
-                    splitArea: { show: false },
-                  },
-                  yAxis: {
-                    type: "category",
-                    data: heatUnis,
-                    axisLabel: { fontSize: 13 },
-                  },
-                  visualMap: {
-                    min: 0,
-                    max: 100,
-                    show: true,
-                    calculable: false,
-                    orient: "horizontal",
-                    left: "center",
-                    bottom: 4,
-                    itemWidth: 14,
-                    itemHeight: 200,
-                    inRange: { color: HEAT_RAMP },
-                    text: ["Most doctorates", "Fewest"],
-                    textStyle: { fontSize: 12 },
-                  },
-                  series: [
-                    {
-                      type: "heatmap",
-                      data: heat.map((h) =>
-                        heatDatum(h[0] as number, h[1] as number, (100 * (h[2] as number)) / heatMax, { count: h[2] }),
-                      ),
-                      label: {
-                        show: true,
-                        fontSize: 12,
-                        formatter: (p: any) => String(p.data.count),
-                      },
-                    },
-                  ],
-                }}
+                option={heatOption(heatCountries, countryCells, heatScale.country, "Awarding country and current institution")}
+              />
+            </Card>
+            <Card
+              title="Awarding university ranking → current institution"
+              subtitle={heatScale.rank === "share" ? "Share of each institution's doctorates by QS 2027 band." : "Doctorates by QS 2027 band of the awarding university."}
+            >
+              {heatControls("rank", "University ranking map")}
+              <Chart
+                height={Math.max(300, heatUnis.length * 38 + 118)}
+                minWidth={360}
+                label="Heatmap of awarding university ranking band and current institutions"
+                option={heatOption(RANK_COLS, rankCells, heatScale.rank, "Awarding university ranking band and current institution")}
               />
             </Card>
           </div>
+          <Card
+            title="Most frequently recorded awarding institutions"
+            subtitle={`Top ${topInstitutions.length} of ${new Set(documented.map((a) => a.phdUniversity).filter(Boolean)).size} recorded institutions, as published (spelling variants are not merged).`}
+          >
+            <Chart
+              height={Math.max(260, topInstitutions.length * 26 + 50)}
+              label="Most frequent PhD awarding institutions"
+              option={{
+                tooltip: { trigger: "item", confine: true },
+                grid: {
+                  left: 10,
+                  right: 40,
+                  top: 10,
+                  bottom: 20,
+                  containLabel: true,
+                },
+                xAxis: {
+                  type: "value",
+                  minInterval: 1,
+                  axisLabel: { formatter: (v: number) => String(v) },
+                },
+                yAxis: {
+                  type: "category",
+                  inverse: true,
+                  data: topInstitutions.map(([n]) => n),
+                  axisLabel: {
+                    fontSize: 12,
+                    width: 230,
+                    overflow: "truncate",
+                  },
+                },
+                series: [
+                  {
+                    type: "bar",
+                    barMaxWidth: 16,
+                    data: topInstitutions.map(([, n]) => n),
+                    itemStyle: { color: col.lk, borderRadius: [0, 4, 4, 0] },
+                    label: {
+                      show: true,
+                      position: "right",
+                      formatter: (p: any) => String(p.value),
+                    },
+                  },
+                ],
+              }}
+            />
+          </Card>
         </>
       )}
       <Card

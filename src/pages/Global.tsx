@@ -28,7 +28,7 @@ import {
   WEAK_COVERAGE,
 } from "../analytics/quality";
 import { exportStatistics, metricDefinitions } from "../analytics/exports";
-import { Header, Card, Stat, Empty, fmt, short, CountryName } from "../components/common";
+import { Header, Card, Stat, Empty, fmt, short, CountryName, flagUrl } from "../components/common";
 import { Chart } from "../components/Chart";
 import { Button } from "../components/ui/button";
 import type { Academic } from "../types";
@@ -71,6 +71,12 @@ const palette = {
     sl: "#8e9cff",
   },
 };
+/** Text colour that stays readable on a tier colour (the chart colours range from dark brown to pale gold). */
+function readableOn(hex: string) {
+  const n = parseInt(hex.slice(1), 16);
+  const lum = (0.299 * ((n >> 16) & 255) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255;
+  return lum > 0.6 ? "#1b1405" : "#ffffff";
+}
 type Group = {
   key: Tier | "sl";
   label: string;
@@ -439,6 +445,9 @@ export function Global() {
   const hiddenSl = view.units.filter(
     (u) => u.key === "sl" && u.eligible > 0 && !enough(u),
   );
+  const ladderFlagKeys = new Map<string, number>(
+    [...new Set(ladderUnits.filter((u) => u.key !== "sl").map((u) => u.country))].filter((c) => flagUrl(c)).map((c, i) => [c, i] as [string, number]),
+  );
   const ladder = {
     tooltip: { trigger: "item", confine: true },
     grid: { left: 10, right: 50, top: 10, bottom: 30, containLabel: true },
@@ -455,7 +464,27 @@ export function Global() {
       type: "category",
       inverse: true,
       data: ladderUnits.map((u) => u.label),
-      axisLabel: { fontSize: 14, width: 230, overflow: "break", lineHeight: 18 },
+      // Flag, university name and QS position in one label so each bar is easy to place.
+      axisLabel: {
+        fontSize: 14,
+        lineHeight: 20,
+        formatter: (name: string) => {
+          const u = ladderUnits.find((x) => x.label === name);
+          if (!u) return name;
+          const flag = u.key !== "sl" && flagUrl(u.country) ? `{f${ladderFlagKeys.get(u.country)}|}` : "";
+          const rank = /\d/.test(String(u.qs)) ? `\n{rank|#${String(u.qs).replace(/^=/, "")}}` : "";
+          return `${flag}${name}${rank}`;
+        },
+        rich: {
+          rank: { fontSize: 12, fontWeight: 600, lineHeight: 16, align: "right" },
+          ...Object.fromEntries(
+            [...ladderFlagKeys].map(([c, k]) => [
+              `f${k}`,
+              { width: 20, height: 14, padding: [0, 6, 0, 0], backgroundColor: { image: flagUrl(c) } },
+            ]),
+          ),
+        },
+      },
     },
     series: [
       {
@@ -622,7 +651,7 @@ export function Global() {
   );
   const shownRows = tableAll || tableQuery || tableTier !== "all" ? filteredRows : filteredRows.slice(0, 12);
   const tierNotes: Record<Tier, string> = {
-    elite: "Top 2 universities per country",
+    elite: "QS rank 1–150",
     middle: "QS rank about 420-560",
     lower: "QS rank about 800-1200",
   };
@@ -913,9 +942,10 @@ export function Global() {
               {tierDiffs.map(({ r, d }) => {
                 const Icon = d.kind === "lower" ? ArrowDown : d.kind === "higher" ? ArrowUp : d.kind === "same" ? Equal : null;
                 const headline = d.kind === "lower" || d.kind === "higher" ? `${d.value} ${d.word}` : d.kind === "same" ? "Equal" : "n/a";
+                const tierName = { lower: "Lower-tier universities", middle: "Mid-tier universities", elite: "Elite-tier universities" }[r.key as Tier] ?? r.name;
                 const sub =
                   d.kind === "lower" || d.kind === "higher"
-                    ? `than ${r.name} median`
+                    ? <>than <span className="tier-diff-name">{tierName}</span> median</>
                     : d.kind === "same"
                       ? `to ${r.name} median`
                       : d.reason === "zero"
@@ -1149,13 +1179,19 @@ export function Global() {
             </thead>
             <tbody>
               {shownRows.map((u) => (
-                <tr key={u.country + u.id}>
+                <tr key={u.country + u.id} className={u.key === "sl" ? "bench-row-sl" : undefined}>
                   <td>
-                    <strong>{u.label}</strong>
-                    <small className="bench-country"><CountryName country={u.country} /></small>
+                    <div className="bench-name">
+                      <strong>{u.label}</strong>
+                      <small className="bench-country"><CountryName country={u.country} /></small>
+                    </div>
                   </td>
                   <td>
-                    <span className={"tier-badge " + u.key}>{u.key === "sl" ? "Sri Lanka" : tierShort[u.key as Tier].replace(" tier", "")}</span>
+                    {u.key === "sl" ? (
+                      <span className="sr-only">Sri Lankan university, no QS tier</span>
+                    ) : (
+                      <span className="tier-badge" style={{ background: col[u.key as Tier], color: readableOn(col[u.key as Tier]) }}>{tierShort[u.key as Tier].replace(" tier", "")}</span>
+                    )}
                   </td>
                   <td>{u.qs}</td>
                   <td>{u.values.length} <small>of {u.eligible}</small></td>
@@ -1219,7 +1255,7 @@ export function GlobalTeaser() {
       label: tierShort[t],
       hint:
         t === "elite"
-          ? "Top 2 per country"
+          ? "QS top 150"
           : t === "middle"
             ? "QS ~420–560"
             : "QS ~800–1200",

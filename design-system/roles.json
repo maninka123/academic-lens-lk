@@ -29,7 +29,11 @@
     "sidebar-border": "#2b3459",
     "sidebar-text": "#b3bbd1",
     "sidebar-heading": "#f3f5fa",
-    "sidebar-active": "#2b3668"
+    "sidebar-active": "#2b3668",
+    "sri-lanka": "#5d6cf0",
+    "sri-lanka-foreground": "#ffffff",
+    "overseas": "#e0a02e",
+    "overseas-foreground": "#1b1405"
   },
   "chart": [
     "#4658d8",
@@ -66,7 +70,11 @@
     "sidebar-border": "#161b2b",
     "sidebar-text": "#8b93a9",
     "sidebar-heading": "#f3f5fa",
-    "sidebar-active": "#161d3c"
+    "sidebar-active": "#161d3c",
+    "sri-lanka": "#8e9cff",
+    "sri-lanka-foreground": "#0a0d18",
+    "overseas": "#e4a73f",
+    "overseas-foreground": "#1b1405"
   },
   "palette": {},
   "fonts": {

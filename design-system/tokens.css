@@ -30,6 +30,10 @@
   --color-sidebar-text: #b3bbd1;
   --color-sidebar-heading: #f3f5fa;
   --color-sidebar-active: #2b3668;
+  --color-sri-lanka: #5d6cf0;
+  --color-sri-lanka-foreground: #ffffff;
+  --color-overseas: #e0a02e;
+  --color-overseas-foreground: #1b1405;
 
   /* Chart series, in order: the first is the highlight */
   --color-chart-1: #4658d8;
@@ -169,6 +173,10 @@
     --color-sidebar-text: #8b93a9;
     --color-sidebar-heading: #f3f5fa;
     --color-sidebar-active: #161d3c;
+    --color-sri-lanka: #8e9cff;
+    --color-sri-lanka-foreground: #0a0d18;
+    --color-overseas: #e4a73f;
+    --color-overseas-foreground: #1b1405;
   }
 }
 :root[data-theme="dark"] {
@@ -199,4 +207,8 @@
   --color-sidebar-text: #8b93a9;
   --color-sidebar-heading: #f3f5fa;
   --color-sidebar-active: #161d3c;
+  --color-sri-lanka: #8e9cff;
+  --color-sri-lanka-foreground: #0a0d18;
+  --color-overseas: #e4a73f;
+  --color-overseas-foreground: #1b1405;
 }

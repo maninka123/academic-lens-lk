@@ -67,6 +67,10 @@ td a { color: var(--color-link); }
 .tip-title { font-size: 13px; font-weight: 590; color: var(--color-heading); }
 .tip-row { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-5); font-size: 12.5px; color: var(--color-text-muted); }
 .tip-row b { font-weight: 510; color: var(--color-heading); font-variant-numeric: tabular-nums; }
+.tip-stat { gap: 0; min-width: 0; }
+.tip-stat .tip-big { margin-top: 4px; font-size: 1.75rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--color-heading); }
+.tip-stat .tip-unit { font-size: 12.5px; color: var(--color-text-muted); }
+.tip-stat .tip-sub { margin-top: 6px; font-size: 12px; color: var(--color-text-muted); }
 .tip-note { font-size: 12px; line-height: 1.45; color: var(--color-text-muted); max-width: 260px; }
 
 /* Dialogs */
@@ -98,3 +102,53 @@ td a { color: var(--color-link); }
 @media (max-width: 1100px) { .two-columns { grid-template-columns: 1fr; } .stats-grid.snapshot { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .card { padding: var(--space-4); } .dialog-content { padding: var(--space-4); } .stat strong { font-size: 24px; } }
 .two-columns > .card + .card, .two-columns > .card, .profile-layout > div > .card { margin-top: 0; }
+
+/* PhD Origins: country breakdown dialog (opened from the map). Compact, tokens only. */
+.country-dialog { width: min(560px, calc(100vw - 32px)); padding: var(--space-5); }
+.country-dialog .section-heading { margin-bottom: var(--space-3); align-items: center; }
+.country-dialog h2 .country-name { display: inline-flex; align-items: center; gap: var(--space-3); }
+.country-dialog h2 .flag-icon { width: 28px; height: auto; border-radius: 3px; box-shadow: 0 0 0 1px var(--color-border); }
+.country-hero { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-4); margin-bottom: var(--space-4); background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.country-hero strong { font-size: 34px; line-height: 1; font-weight: 600; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; color: var(--color-heading); }
+.country-hero div { display: grid; gap: 1px; }
+.country-hero span { font-size: var(--text-label); color: var(--color-heading); font-weight: 510; }
+.country-hero small { font-size: var(--text-caption); color: var(--color-text-muted); }
+.country-section { margin: 0 0 var(--space-2); font-size: var(--text-h4); font-weight: 590; letter-spacing: var(--text-h4--letter-spacing); color: var(--color-heading); text-transform: none; }
+.country-bars { list-style: none; margin: 0 0 var(--space-4); padding: 0; display: grid; gap: var(--space-1); }
+.country-bars li { display: grid; grid-template-columns: 150px minmax(0, 1fr) 84px; align-items: center; gap: var(--space-3); font-size: var(--text-body-sm); line-height: 1.3; }
+.country-bars .cb-label { color: var(--color-text); }
+.country-bars .cb-track { height: 6px; border-radius: 3px; background: var(--color-border); overflow: hidden; }
+.country-bars .cb-track i { display: block; height: 100%; border-radius: 3px; }
+.country-bars .cb-count { display: flex; justify-content: flex-end; align-items: baseline; gap: var(--space-2); font-variant-numeric: tabular-nums; color: var(--color-heading); font-weight: 510; }
+.country-bars .cb-count small { min-width: 38px; text-align: right; font-size: var(--text-caption); font-weight: 400; color: var(--color-text-muted); }
+.country-lists { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+.country-lists ol { list-style: none; margin: 0; padding: 0; }
+.country-lists li { display: flex; justify-content: space-between; gap: var(--space-3); padding: 5px 0; border-top: 1px solid var(--color-border); font-size: var(--text-body-sm); line-height: 1.3; color: var(--color-text); }
+.country-lists li:first-child { border-top: 0; }
+.country-lists li span { min-width: 0; overflow-wrap: anywhere; }
+.country-lists .cl-rank { margin-left: var(--space-2); padding: 0 6px; border-radius: 999px; background: var(--color-primary-soft); color: var(--color-primary); font-style: normal; font-size: var(--text-caption); font-weight: 510; white-space: nowrap; }
+.country-lists li b { font-weight: 510; font-variant-numeric: tabular-nums; color: var(--color-heading); }
+.country-lists .cl-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-2); }
+.country-lists .cl-head .country-section { margin: 0; }
+.country-lists .cl-sort { display: inline-flex; padding: 2px; gap: 2px; border: 1px solid var(--color-border); border-radius: 999px; background: var(--color-surface-raised); }
+.country-lists .cl-sort button { padding: 1px 9px; border: 0; border-radius: 999px; background: none; color: var(--color-text-muted); font-size: var(--text-caption); font-weight: 510; cursor: pointer; }
+.country-lists .cl-sort button[aria-pressed="true"] { background: var(--color-primary-soft); color: var(--color-primary); }
+.country-lists .cl-sort button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 1px; }
+.country-lists .cl-scroll { max-height: 220px; overflow-y: auto; padding-right: var(--space-2); scrollbar-width: thin; }
+.country-lists .cl-toggle { margin-top: var(--space-1); padding: 0; border: 0; background: none; color: var(--color-link); font-size: var(--text-caption); font-weight: 510; cursor: pointer; }
+.country-lists .cl-toggle:hover { text-decoration: underline; text-underline-offset: 3px; }
+.country-lists .cl-toggle:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; border-radius: 3px; }
+.country-note { margin: var(--space-4) 0 0; font-size: var(--text-caption); line-height: 1.45; }
+@media (max-width: 560px) { .country-bars li { grid-template-columns: minmax(0, 1fr) 84px; } .country-bars .cb-track { grid-column: 1 / -1; } .country-lists { grid-template-columns: 1fr; } }
+
+/* PhD Origins: the two heatmaps sit side by side; the ranking map has fewer columns, so it gets less width. */
+.heat-pair { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: var(--space-3); align-items: start; }
+/* Same vertical rhythm as every other row of cards. */
+.card + .heat-pair, .two-columns + .heat-pair, .heat-pair + .card { margin-top: var(--space-3); }
+.heat-pair > .card { margin-top: 0; }
+.heat-toolbar { justify-content: flex-end; }
+@media (max-width: 1100px) { .heat-pair { grid-template-columns: 1fr; } }
+
+/* Stacked cards in one grid column (keeps a tall card and its neighbours the same height). */
+.stack { display: grid; gap: var(--space-3); min-width: 0; align-content: start; }
+.stack > .card { margin-top: 0; }

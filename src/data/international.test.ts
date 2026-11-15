@@ -30,4 +30,10 @@ describe("matchedField medicine", () => {
     expect(matchedField({ faculty: "Faculty of Allied Health Sciences", department: "Department of Medical Laboratory Sciences" })).toBe("");
     expect(matchedField({ faculty: "Faculty of Health Sciences", department: "Department of Nursing" })).toBe("");
   });
+  it("keeps medical units, language units and IT service centres out of Computer Science", () => {
+    expect(matchedField({ faculty: "Faculty of Medicine", department: "Department of Anatomy, Genetics & Biomedical Informatics" })).toBe("Medicine");
+    expect(matchedField({ faculty: "Faculty of Computing", department: "Department of English and Modern Languages" })).toBe("");
+    expect(matchedField({ faculty: "Faculty of Science", department: "IT Services Centre" })).toBe("");
+    expect(matchedField({ faculty: "Faculty of Computing", department: "Department of Software Engineering" })).toBe("Computer Science");
+  });
 });
