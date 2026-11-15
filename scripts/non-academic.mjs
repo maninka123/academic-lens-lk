@@ -1,6 +1,6 @@
 // Non-academic and ancillary posts are kept in the private source CSVs but never published or used.
 //
-// Excluded from public data, the app, counts and every comparison: demonstrators, laboratory
+// Excluded from public data, the app, counts and every comparison: demonstrators, scientific and research assistants, laboratory
 // assistants and technicians, technical officers, research assistants, instructors, workshop
 // supervisors, wardens, registrars, managers, chief executives and librarians. A post that also
 // states an academic grade (lecturer, professor) is kept, for example "Assistant Lecturer /
@@ -14,6 +14,8 @@ const NON_ACADEMIC = [
   /\btechnician\b/i,
   /\btechnical\s+(officer|assistant|instructor)\b/i,
   /\bresearch\s+assistant\b/i,
+  /\bscientific\s+assistant\b/i,
+  /\bsystems?\s+(analyst|administrator|engineer)\b/i,
   /\binstructor\b/i,
   /\bworkshop\s+(supervisor|instructor|assistant)\b/i,
   /\b(assistant\s+)?warden\b/i,

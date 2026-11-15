@@ -1,9 +1,30 @@
-# source: https://www.murdoch.edu.au/schools/information-technology/about/our-people (page lists only Professors/Associate Professors with rank; 'Dr' entries without rank excluded)
-Hamid Laga | Professor | https://researchportal.murdoch.edu.au/esploro/profile/hamid_laga
-David Parry | Professor | https://researchportal.murdoch.edu.au/esploro/profile/david_parry
-Ferdous Sohel | Professor | https://researchportal.murdoch.edu.au/esploro/profile/ferdous_sohel
-Kevin Wong | Professor | https://researchportal.murdoch.edu.au/esploro/profile/kevin_wong
-Polychronis Koutsakis | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/polychronis_koutsakis
-David Murray | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/david_murray/overview
-Mohd. Fairuz Shiratuddin | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/mohd_fairuz_shiratuddin
-Guanjin (Brenda) Wang | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/guanjin_wang/overview
+# source: https://www.murdoch.edu.au/schools/information-technology/about/our-people (people titled Professor, Associate Professor or Dr; adjunct, honorary, emeritus and untitled staff excluded; systematic sample in page order, at most 25)
+Shikha Anirban | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Keyvan Ansari | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Samantha Bax | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Thao Duong | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+A S M Hasan | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Robert Herne | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Umera Imtinan | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Mohammed Kaosar | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Polychronis Koutsakis | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/polychronis_koutsakis |  |  |  | 
+Hamid Laga | Professor | https://researchportal.murdoch.edu.au/esploro/profile/hamid_laga |  |  |  | 
+Sirui Li | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Hongen Lu | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Florence Mwagwabi | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+David Murray | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/david_murray/overview |  |  |  | 
+Fatuma Namisango | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Brianna O'Shea | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Joo Yeon Park | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+David Parry | Professor | https://researchportal.murdoch.edu.au/esploro/profile/david_parry |  |  |  | 
+Megan Pusey | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Fatemeh Rezaeibagha | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Sayma Shammi | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Mohd. Fairuz Shiratuddin | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/mohd_fairuz_shiratuddin |  |  |  | 
+Joe Stevens | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Ferdous Sohel | Professor | https://researchportal.murdoch.edu.au/esploro/profile/ferdous_sohel |  |  |  | 
+Guanjin (Brenda) Wang | Associate Professor | https://researchportal.murdoch.edu.au/esploro/profile/guanjin_wang/overview |  |  |  | 
+Kevin Wong | Professor | https://researchportal.murdoch.edu.au/esploro/profile/kevin_wong |  |  |  | 
+Hong Xie | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Xiaofei Xu | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 
+Sebastian Zander | Dr | https://www.murdoch.edu.au/schools/information-technology/about/our-people |  |  |  | 

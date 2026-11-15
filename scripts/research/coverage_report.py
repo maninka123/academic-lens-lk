@@ -12,14 +12,20 @@ MIN = 10
 
 def field(a):
     unit = f"{a['department']} {a['faculty']}"
-    if re.search(r"allied health|nursing|health sciences|indigenous|siddha|ayurved", a["faculty"], re.I):
+    if re.search(r"allied health|nursing|health sciences|dental|indigenous|siddha|ayurved", a["faculty"], re.I):
         return ""
+    if re.search(r"english|language|linguist|services? cent(re|er)|centre for information technology|computer unit", a["department"], re.I):
+        return ""
+    if re.search(r"faculty of medicine|medical sciences", a["faculty"], re.I):
+        return "Medicine"
     if re.search("physics", a["department"], re.I):
         return "Physics"
     if re.search(r"comput|information technology|software|data science|\bIT\b|informatics", unit, re.I):
         return "Computer Science"
     if re.search(r"medicine|medical|clinical|surgery|paediatric|pediatric|pathology|anatomy|physiology|pharmacology|public health", unit, re.I):
         return "Medicine"
+    if re.search(r"engineering", unit, re.I):
+        return "Engineering"
     return ""
 
 

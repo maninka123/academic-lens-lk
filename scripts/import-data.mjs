@@ -241,12 +241,22 @@ const inScope = universities
       notice_status: n?.status ?? "",
     };
   });
+// Faculty-level units that are listed on a university page before any staff are collected, and the section they
+// appear under ("Campuses & Schools" for UCSC and Sri Palee Campus). They behave like faculties internally.
+const orgUnits = optionalCsv("organisational_units.csv").map((r) => {
+  const u = universities.find((x) => x.id === r.university_id);
+  if (!u) throw Error("Unknown university in organisational_units.csv: " + r.university_id);
+  if (!["campus_school"].includes(r.unit_category)) throw Error("Unknown unit category: " + r.unit_category);
+  return { id: u.id + "--" + slug(r.faculty_name), universityId: u.id, name: r.faculty_name, category: r.unit_category };
+});
+csvWrite(out + "/organisational_units.csv", orgUnits);
 hierarchy(
   rows.map((r) =>
     Object.fromEntries(PUBLIC_ACADEMIC_COLUMNS.map((c) => [c, r[c] ?? ""])),
   ),
   out,
   inScope,
+  orgUnits,
 );
 if (fs.existsSync(source + "/field-mapping.json"))
   fs.copyFileSync(source + "/field-mapping.json", out + "/field-mapping.json");

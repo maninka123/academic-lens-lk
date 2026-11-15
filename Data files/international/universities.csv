@@ -5,16 +5,16 @@ iastate,Iowa State University,Iowa State,United States,Public,=540,middle,50,I17
 kstate,Kansas State University,K-State,United States,Public,1001-1200,lower,46,I189590672,
 unsw,UNSW Sydney,UNSW,Australia,Public,19,elite,50,I31746571,
 anu,Australian National University,ANU,Australia,Public,29,elite,49,I118347636,University of Melbourne (QS 22) directories return HTTP 403 to automated access; next-ranked ANU used
-murdoch,Murdoch University,Murdoch,Australia,Public,422,middle,11,I176790772,University of Canberra (QS 477) staff profiles return HTTP 403; Murdoch (same band) used. Murdoch 'our people' pages list ranked senior academics only
+murdoch,Murdoch University,Murdoch,Australia,Public,422,middle,28,I176790772,University of Canberra (QS 477) staff profiles return HTTP 403; Murdoch (same band) used. Murdoch 'our people' pages list ranked senior academics only
 unisc,University of the Sunshine Coast,UniSC,Australia,Public,851-900,lower,30,I174025329,Charles Sturt University (QS 951-1000) blocks automated access (HTTP 403); UniSC used. UniSC has no physics department: engineering academics used as nearest physical-science unit
 pku,Peking University,PKU,China,Public,13,elite,50,I20231570,
 tsinghua,Tsinghua University,Tsinghua,China,Public,14,elite,50,I99065089,
 jilin,Jilin University,Jilin,China,Public,=488,middle,45,I194450716,
-ningbo,Ningbo University,Ningbo,China,Public,1001-1200,lower,39,I109935558,
+ningbo,Ningbo University,Ningbo,China,Public,1001-1200,lower,50,I109935558,
 iitd,Indian Institute of Technology Delhi,IIT Delhi,India,Public,118,elite,44,I68891433,
 iitb,Indian Institute of Technology Bombay,IIT Bombay,India,Public,134,elite,49,I162827531,
 iitbhu,Indian Institute of Technology (BHU) Varanasi,IIT BHU,India,Public,=510,middle,28,I56404289,"Anna University (QS 470) department sites unreachable (DNS/TLS failures); IIT BHU (same band, public) used"
-panjab,Panjab University,Panjab,India,Public,1001-1200,lower,32,I51452335,
+panjab,Panjab University,Panjab,India,Public,1001-1200,lower,38,I51452335,
 mcgill,McGill University,McGill,Canada,Public,30,elite,66,I5023651,
 toronto,University of Toronto,Toronto,Canada,Public,32,elite,45,I185261750,
 concordia,Concordia University,Concordia,Canada,Public,=497,middle,45,I60158472,

@@ -8,7 +8,7 @@ QS World University Rankings 2027 (published 18 June 2026). For each country (Un
 
 | Tier | Rule |
 |---|---|
-| elite | Top 2 in the country with an accessible official staff directory |
+| elite | QS 2027 top 150: the two highest-ranked universities per country with an accessible official staff directory (ranks 1 to 134 in this sample) |
 | middle | Two universities ranked ~QS 420–560 |
 | lower | Two universities in the QS ~800–1200 bands (Colombo is 1001–1200) |
 
@@ -18,11 +18,11 @@ QS World University Rankings 2027 (published 18 June 2026). For each country (Un
 
 ## Departments and sampling
 
-- **1,740 academics across 41 universities.** Original departments: Computer Science and Physics. On 12 October 2026, 110 academics in Medicine, Engineering, Law, Management and Business were added (table below).
+- **1,774 academics across 41 universities.** Original departments: Computer Science and Physics. On 12 October 2026, 110 academics in Medicine, Engineering, Law, Management and Business were added (table below).
 - Where a university has no Physics department, the nearest physical-science or engineering unit is used and marked in `departments.csv`.
 - Rosters come only from official directories and are kept in `_source_rosters/`. Visiting, adjunct, courtesy, emeritus, honorary and postdoctoral entries are excluded.
 - Departments with more than 25 eligible staff are sampled systematically in directory order, so the sample is not chosen by fame.
-- Some directories list only professors (Germany, French labs, Murdoch), so rank mix differs from Sri Lankan lists, which include lecturers.
+- Some directories list only professors (Germany, French labs), so rank mix differs from Sri Lankan lists, which include lecturers.
 
 | Discipline | University and unit | Added |
 |---|---|---:|
@@ -88,3 +88,5 @@ Do not run the original baseline builder (`scripts/baselines/build_international
 Evidence is in `_metric_verification_2026-10-12.json` (summary: `_metric_verification_summary_2026-10-12.json`); the quality-check notebook is `../../scripts/baselines/international_verification_audit.ipynb`. The importer regenerates the app CSVs at their existing paths.
 
 On 13 October 2026, a wider missing-link review added 92 source-backed Google Scholar links from university pages, official-linked researcher sites and an official CV. Direct Scholar requests were rate-limited, so no live Scholar metrics were added. The association checks and search logs behind these links are kept privately, not in this repository.
+
+On 15 November 2026 the Murdoch School of Information Technology sample was extended with staff titled "Dr" from the school's people page (the earlier roster kept only ranked professors). Eligible staff: 29; the systematic sample (at most 25) now has 25. Adjunct, honorary, emeritus and untitled staff are excluded. Dr-titled staff have no stated rank, so their career stage is unknown.

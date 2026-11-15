@@ -13,8 +13,8 @@
 </div>
 
 <!-- dataset-summary:start -->
-<!-- Snapshot partial-cbc6371a86 -->
-**4,758 Sri Lankan profiles | 15 institutions | 1,740 international benchmark profiles.** Partial collection, updated 2026-11-14. [Coverage report](reports/validation-report.md).
+<!-- Snapshot partial-8fbed6ca9d -->
+**5,410 Sri Lankan profiles | 15 institutions | 1,774 international benchmark profiles.** Partial collection, updated 2026-11-15. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
 ## Screenshots
@@ -97,7 +97,7 @@ Research comparisons use matched OpenAlex profiles on both sides, with Computer 
 <details>
 <summary>Method, sampling and substitutions</summary>
 
-- QS World University Rankings 2027, published 18 June 2026. Each country contributes two elite universities (top two with accessible directories), two middle-tier universities (~420-560) and two lower-tier universities (~800-1200). Australia has one lower-tier sample because other directories blocked access.
+- QS World University Rankings 2027, published 18 June 2026. Each country contributes two elite universities (QS 2027 top 150, the two highest-ranked with accessible directories), two middle-tier universities (~420-560) and two lower-tier universities (~800-1200). Australia has one lower-tier sample because other directories blocked access.
 - Official staff directories exclude visiting, adjunct, courtesy and emeritus roles. Departments larger than 25 are sampled systematically in directory order. These are samples, not national censuses.
 - OpenAlex matches require name and institution agreement. Ambiguous or implausibly merged profiles remain blank; lookup attempts are not matches. Groups need at least 10 valid values to report a median.
 - Use the career-stage control to compare similar positions. Elite samples often contain more professors than Sri Lankan directories.
@@ -110,7 +110,7 @@ Where a first-choice directory was unreachable, the next university in the same 
 | Used | Instead of | Reason |
 |---|---|---|
 | ANU (AU, elite) | Melbourne (QS 22) | directories return HTTP 403 |
-| Murdoch (AU, middle) | Canberra (QS 477) | HTTP 403; Murdoch lists senior academics only |
+| Murdoch (AU, middle) | Canberra (QS 477) | HTTP 403 |
 | UniSC (AU, lower) | Charles Sturt (951-1000) | HTTP 403; no physics, so engineering used |
 | CDU (AU, middle) | Canberra, JCU, CQU, ECU | all block automated access; no physics, only IT sampled |
 | IIT BHU (IN, middle) | Anna University (470) | sites unreachable |

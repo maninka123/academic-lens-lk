@@ -14,6 +14,7 @@ export const PUBLIC_FILES = [
   "universities.csv",
   "qs_rankings_2027.csv",
   "faculties.csv",
+  "organisational_units.csv",
   "departments.csv",
   "metadata.json",
   "field-mapping.json",

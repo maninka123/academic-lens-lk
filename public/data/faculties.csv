@@ -1,4 +1,6 @@
 id,universityId,name
+colombo--university-of-colombo-school-of-computing-ucsc,colombo,University of Colombo School of Computing (UCSC)
+colombo--sri-palee-campus-spc,colombo,Sri Palee Campus (SPC)
 cinec--faculty-of-engineering,cinec,Faculty of Engineering
 cinec--faculty-of-health-sciences,cinec,Faculty of Health Sciences
 cinec--faculty-of-humanities-and-education,cinec,Faculty of Humanities and Education
@@ -22,6 +24,7 @@ horizon--faculty-of-management,horizon,Faculty of Management
 horizon--faculty-of-science,horizon,Faculty of Science
 horizon--faculty-of-technology,horizon,Faculty of Technology
 icbt--faculty-of-information-technology-and-sciences,icbt,Faculty of Information Technology and Sciences
+jaffna--faculty-of-agriculture,jaffna,Faculty of Agriculture
 jaffna--faculty-of-allied-health-sciences,jaffna,Faculty of Allied Health Sciences
 jaffna--faculty-of-arts,jaffna,Faculty of Arts
 jaffna--faculty-of-engineering,jaffna,Faculty of Engineering
@@ -30,6 +33,7 @@ jaffna--faculty-of-management-studies-and-commerce,jaffna,Faculty of Management 
 jaffna--faculty-of-medicine,jaffna,Faculty of Medicine
 jaffna--faculty-of-science,jaffna,Faculty of Science
 jaffna--faculty-of-siddha-medicine,jaffna,Faculty of Siddha Medicine
+jaffna--faculty-of-technology,jaffna,Faculty of Technology
 jaffna--sir-ponnambalam-ramanathan-faculty-of-performing-and-visual-arts,jaffna,Sir Ponnambalam Ramanathan Faculty of Performing and Visual Arts
 jayewardenepura--faculty-of-allied-health-sciences,jayewardenepura,Faculty of Allied Health Sciences
 jayewardenepura--faculty-of-applied-sciences,jayewardenepura,Faculty of Applied Sciences
@@ -68,15 +72,18 @@ nsbm--faculty-of-postgraduate-studies-professional-advancement,nsbm,Faculty of P
 nsbm--faculty-of-science,nsbm,Faculty of Science
 peradeniya--faculty-of-agriculture,peradeniya,Faculty of Agriculture
 peradeniya--faculty-of-arts,peradeniya,Faculty of Arts
+peradeniya--faculty-of-dental-sciences,peradeniya,Faculty of Dental Sciences
 peradeniya--faculty-of-engineering,peradeniya,Faculty of Engineering
 peradeniya--faculty-of-medicine,peradeniya,Faculty of Medicine
 peradeniya--faculty-of-science,peradeniya,Faculty of Science
+ruhuna--faculty-of-agriculture,ruhuna,Faculty of Agriculture
 ruhuna--faculty-of-allied-health-sciences,ruhuna,Faculty of Allied Health Sciences
 ruhuna--faculty-of-engineering,ruhuna,Faculty of Engineering
 ruhuna--faculty-of-fisheries-and-marine-sciences-technology,ruhuna,Faculty of Fisheries and Marine Sciences & Technology
 ruhuna--faculty-of-humanities-and-social-sciences,ruhuna,Faculty of Humanities and Social Sciences
 ruhuna--faculty-of-management-and-finance,ruhuna,Faculty of Management and Finance
 ruhuna--faculty-of-medicine,ruhuna,Faculty of Medicine
+ruhuna--faculty-of-science,ruhuna,Faculty of Science
 ruhuna--faculty-of-technology,ruhuna,Faculty of Technology
 sliit--faculty-of-computing,sliit,Faculty of Computing
 sliit--faculty-of-engineering,sliit,Faculty of Engineering

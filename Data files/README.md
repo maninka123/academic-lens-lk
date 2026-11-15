@@ -37,3 +37,9 @@ The evidence, review and log files listed above are **private**: git-ignored, ke
 
 - **Uva Wellassa University (13 Oct 2026):** 204 published records across five faculties; 29 departments in the inventory, 20 with main academic records. 67 explicitly temporary or visiting appointments are outside the main population. See [UWU collection review](universities/uwu/COLLECTION_REVIEW.md).
 - **Enriched export (14 Oct 2026):** 659 existing profiles improved; qualifications cover 1,210 records and Scholar links 767 (record count then: 1,601, historical).
+
+## Campuses & Schools (faculty-level units shown separately)
+
+`organisational_units.csv` lists faculty-level units that appear under **Campuses & Schools** on their university page instead of under the regular faculties. Internally they are ordinary faculties (University > Faculty > Department), so department navigation, profiles, statistics, filters and comparisons work unchanged. Currently: *University of Colombo School of Computing (UCSC)* and *Sri Palee Campus (SPC)*, both University of Colombo.
+
+To add their staff, put the usual department files in `Data files/universities/colombo/faculties/<faculty-id>/departments/<department>/academics.csv`, where the faculty folder is `university-of-colombo-school-of-computing-ucsc` or `sri-palee-campus-spc`, and write the **`faculty` column exactly** as `University of Colombo School of Computing (UCSC)` or `Sri Palee Campus (SPC)` so the ids match. Then run `npm run data:import`. Until staff are added, the units are listed with "No collected profiles yet"; no records or counts are invented.

@@ -125,3 +125,40 @@ test("non-academic and ancillary posts are never published", opts, async () => {
   for (const r of csvRead("public/data/academics.csv"))
     assert.equal(isNonAcademicPosition(r.position), false, `${r.id}: ${r.position}`);
 });
+
+test("registered campuses and schools are faculty-level units with consistent ids and official names", opts, () => {
+  const units = csvRead("public/data/organisational_units.csv");
+  const unis = new Set(csvRead("public/data/universities.csv").map((u) => u.id));
+  const faculties = new Map(csvRead("public/data/faculties.csv").map((f) => [f.id, f]));
+  const colombo = units.filter((u) => u.universityId === "colombo").map((u) => u.name);
+  assert.ok(colombo.includes("University of Colombo School of Computing (UCSC)"));
+  assert.ok(colombo.includes("Sri Palee Campus (SPC)"));
+  for (const u of units) {
+    assert.ok(unis.has(u.universityId), `unknown university for ${u.id}`);
+    assert.ok(u.id.startsWith(u.universityId + "--"), `id outside its university: ${u.id}`);
+    assert.equal(u.category, "campus_school");
+    assert.equal(faculties.get(u.id)?.name, u.name, `${u.id} missing from faculties.csv`);
+  }
+});
+
+test("no faculty exists twice as singular/plural folders or variant rows (KDU Allied Health regression)", () => {
+  const root = "Data files/universities";
+  for (const uni of fs.readdirSync(root)) {
+    const base = `${root}/${uni}/faculties`;
+    if (!fs.existsSync(base)) continue;
+    const stems = new Map();
+    for (const folder of fs.readdirSync(base)) {
+      const stem = folder.replace(/-\(?fahs\)?$/, "").replace(/s$/, "");
+      assert.ok(!stems.has(stem), `${uni}: faculty folders "${stems.get(stem)}" and "${folder}" are duplicates`);
+      stems.set(stem, folder);
+    }
+    const rows = csvRead(`${root}/${uni}/faculties.csv`);
+    const seen = new Map();
+    for (const r of rows) {
+      if (!r.faculty_id || r.faculty_id === "unassigned-faculty") continue;
+      const stem = r.faculty_id.replace(/-\(?fahs\)?$/, "").replace(/s$/, "");
+      assert.ok(!seen.has(stem), `${uni}: faculties.csv lists "${seen.get(stem)}" and "${r.faculty_id}" as separate faculties`);
+      seen.set(stem, r.faculty_id);
+    }
+  }
+});

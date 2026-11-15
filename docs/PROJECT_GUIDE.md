@@ -12,7 +12,7 @@ Explore Sri Lankan academic profiles, compare peer groups, and keep research dat
 - Switch between appropriate totals, means, medians and distributions; compare pooled academics with equal university weighting.
 - Explore scatter/bubble plots, boxes, histograms, composition charts, heatmaps and treemaps.
 - Search every person by name, open their full profile, and follow their university → faculty → department hierarchy. Profile charts compare the same position, qualification, both, or PhD holders at every level.
-- Benchmark Sri Lanka internationally on **Global Benchmarks**: 1,740 sampled academics from 41 universities in seven countries (USA, Australia, China, India, Canada, France, Germany), grouped into QS 2027 elite, middle and lower tiers. Compare Sri Lanka against each tier, by country and university, and against QS position; the Comparison Studio can add the tiers or the benchmark universities as extra groups.
+- Benchmark Sri Lanka internationally on **Global Benchmarks**: 1,774 sampled academics from 41 universities in seven countries (USA, Australia, China, India, Canada, France, Germany), grouped into QS 2027 elite, middle and lower tiers. Compare Sri Lanka against each tier, by country and university, and against QS position; the Comparison Studio can add the tiers or the benchmark universities as extra groups.
 - Explore a locally bundled world map and PhD Sankey. Profile placeholders use initials, with no gender inference.
 - Save custom groups in your browser, share configurations by URL, and export charts as PNG or records as CSV.
 - Keep people without a documented department at faculty level, with no invented department groups.

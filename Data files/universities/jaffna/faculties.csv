@@ -1,13 +1,15 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
-unassigned-faculty,,73,31
-faculty-of-allied-health-sciences,Faculty of Allied Health Sciences,3,12
-faculty-of-arts,Faculty of Arts,6,30
-faculty-of-engineering,Faculty of Engineering,5,5
+unassigned-faculty,,0,3
+faculty-of-allied-health-sciences,Faculty of Allied Health Sciences,4,34
+faculty-of-arts,Faculty of Arts,17,116
+faculty-of-engineering,Faculty of Engineering,5,41
 faculty-of-engineering-university-of-jaffna,"Faculty of Engineering, University of Jaffna",0,0
 faculty-of-graduate-studies,Faculty of Graduate Studies,0,0
-faculty-of-medicine,Faculty of Medicine,11,33
+faculty-of-medicine,Faculty of Medicine,14,68
 faculty-of-science,Faculty of Science,7,86
-faculty-of-siddha-medicine,Faculty of Siddha Medicine,0,13
-faculty-of-management-studies-and-commerce,Faculty of Management Studies and Commerce,1,8
+faculty-of-siddha-medicine,Faculty of Siddha Medicine,1,13
+faculty-of-management-studies-and-commerce,Faculty of Management Studies and Commerce,5,57
 faculty-of-hindu-studies,Faculty of Hindu Studies,3,13
-sir-ponnambalam-ramanathan-faculty-of-performing-and-visual-arts,Sir Ponnambalam Ramanathan Faculty of Performing and Visual Arts,0,10
+sir-ponnambalam-ramanathan-faculty-of-performing-and-visual-arts,Sir Ponnambalam Ramanathan Faculty of Performing and Visual Arts,6,39
+faculty-of-agriculture,Faculty of Agriculture,6,33
+faculty-of-technology,Faculty of Technology,3,42

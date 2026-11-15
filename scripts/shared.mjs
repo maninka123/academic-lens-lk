@@ -59,17 +59,15 @@ export const slug = (s) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-export function hierarchy(rows, dir, us) {
+export function hierarchy(rows, dir, us, extraFaculties = []) {
   csvWrite(dir + "/universities.csv", us);
   csvWrite(dir + "/faculties.csv", [
-    ...new Map(
-      rows
+    ...new Map([
+      ...extraFaculties.map((f) => [f.id, { id: f.id, universityId: f.universityId, name: f.name }]),
+      ...rows
         .filter((a) => a.facultyId)
-        .map((a) => [
-          a.facultyId,
-          { id: a.facultyId, universityId: a.universityId, name: a.faculty },
-        ]),
-    ).values(),
+        .map((a) => [a.facultyId, { id: a.facultyId, universityId: a.universityId, name: a.faculty }]),
+    ]).values(),
   ]);
   csvWrite(dir + "/departments.csv", [
     ...new Map(
