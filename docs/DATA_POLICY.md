@@ -54,7 +54,7 @@ Requests for a factual correction or for removal of a record can be made through
 
 1. Send the profile link (or the academic ID), the field concerned and, for corrections, an official source supporting the change. Use the project repository (GitHub issue form or private advisory), as linked on the Methodology page.
 2. The maintainer checks the evidence against official sources. Corrections are applied to the authoritative CSV in `Data files/universities/…`; the previous value, source and date are logged privately in `change_log.csv`/`field_evidence.csv`. Academic IDs never change.
-3. Removal requests: the record is removed from the published files at the next import and recorded privately (ID, date, reason) so it is not re-collected. Evidence needed for research integrity is retained privately.
+3. Removal requests: run `node scripts/removals.mjs add <ID> --reason "…"`. The record is removed from the source file and the published files at once, archived privately, and entered in a private list (ID, date, reason) that every import and the privacy guard enforce, so it is not re-collected or re-published. Evidence needed for research integrity is retained privately.
 4. Re-run `npm run data:import`, check the public output, and deploy manually.
 
 Our target is to respond to requests within 14 days.

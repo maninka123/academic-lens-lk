@@ -5,12 +5,14 @@
 // (reports/) and the README snapshot block so every count describes one import.
 import { publicNote } from "./public-notes.mjs";
 import { isNonAcademicPosition } from "./non-academic.mjs";
+import { loadRemovals, isRemoved } from "./removals-lib.mjs";
 import fs from "node:fs";
 import { createHash } from "node:crypto";
 import { csvRead, universities, slug, hierarchy, csvWrite } from "./shared.mjs";
 import {
   resolveAlias,
   linkStatus,
+  profileKey,
   metricEvidence,
   openAlexFallback,
   doctorateStatus,
@@ -20,7 +22,8 @@ import {
 } from "./evidence.mjs";
 import { rankFor, careerStage, COUNTRY_PROFILES } from "./countries.mjs";
 import { lowerQualification } from "./qualifications.mjs";
-import { researchInputs, publicMatch, publicResearch } from "./research-data.mjs";
+import { researchInputs, publicMatch, publicResearch, rejectedProfileKeys } from "./research-data.mjs";
+import { stripContactDetails, stripLeaveRemark, publicEvidenceNote, publicLinkStatus, publicOpenAlexStatus, publicRecordStatus } from "./public-notes.mjs";
 import {
   PUBLIC_FILES,
   PUBLIC_ACADEMIC_COLUMNS,
@@ -45,7 +48,11 @@ const inputs = fs.existsSync(source + "/universities")
   : [source + "/academics_all.csv"];
 // Non-academic and ancillary posts (demonstrators, laboratory assistants, technical officers, instructors,
 // librarians and similar) stay in the private source files but are never published or compared.
-const allSourceRows = inputs.flatMap(csvRead);
+// Accepted removal requests (private list) are applied first, so a removed person cannot be re-published by any import.
+const removals = loadRemovals(source);
+const removedRows = inputs.flatMap(csvRead).filter((r) => isRemoved(r, removals));
+const allSourceRows = inputs.flatMap(csvRead).filter((r) => !isRemoved(r, removals));
+if (removals.exists) console.log(`Removal requests: ${removals.rows.length} on the private list; ${removedRows.length} matching source record(s) withheld from this import.`);
 const sourceRows = allSourceRows.filter((r) => !isNonAcademicPosition(r.academic_position));
 const excludedNonAcademic = allSourceRows.filter((r) => isNonAcademicPosition(r.academic_position));
 fs.writeFileSync(
@@ -112,9 +119,13 @@ const rows = sourceRows.map((original) => {
       : "";
   const q = r.qualifications || "";
   const doctorate = doctorateStatus(r);
-  const evidence = [...metricEvidence(original, snapshots, observations, aliases), ...fallback.evidence].map(
-    (e) => ({ ...e, url: sanitizeUrl(e.url), note: sanitizeText(e.note) }),
-  );
+  // Profiles recorded as belonging to a different person are not published as this person's links or evidence.
+  const rejected = rejectedProfileKeys(original, research, aliases);
+  const isRejected = (u) => Boolean(u) && rejected.has(profileKey(u));
+  const fromRejected = isRejected(r.metrics_source_url) || (!r.metrics_source_url && rejected.size > 0 && /scholar|researchgate/i.test(r.research_metrics_source || ""));
+  const evidence = [...metricEvidence(original, snapshots, observations, aliases), ...fallback.evidence]
+    .filter((e) => !isRejected(e.url))
+    .map((e) => ({ ...e, url: sanitizeUrl(e.url), note: publicEvidenceNote(sanitizeText(e.note)) }));
   const reviews = [
     doctorate === "contradictory" ? doctorateReview.contradictory : "",
     r.phd_university && doctorate === "unknown"
@@ -123,7 +134,7 @@ const rows = sourceRows.map((original) => {
   ].filter(Boolean);
   return {
     id: r.academic_id,
-    name: r.full_name,
+    name: stripLeaveRemark(r.full_name),
     country: COUNTRY,
     universityId: u.id,
     facultyId,
@@ -132,9 +143,9 @@ const rows = sourceRows.map((original) => {
     faculty: r.faculty,
     department: r.department,
     type: u.type,
-    position: r.academic_position,
+    position: stripLeaveRemark(r.academic_position),
     rank: rankFor(r.academic_position, COUNTRY),
-    qualifications: q,
+    qualifications: stripContactDetails(q),
     qualification:
       doctorate === "completed_documented" ? "PhD" : lowerQualification(q),
     doctorateStatus: doctorate,
@@ -159,42 +170,43 @@ const rows = sourceRows.map((original) => {
       doctorate === "completed_documented" ? n(r.phd_completion_year) : null,
     phdStatus: r.phd_status,
     experience: n(r.teaching_academic_experience_years),
-    interests: r.research_interests,
-    publications: n(r.total_publications),
-    citations: n(r.total_citations),
-    recentCitations: n(r.citations_2021_2025),
-    hIndex: n(r.h_index),
-    q1: n(r.total_q1_journal_publications),
-    recentQ1: n(r.q1_publications_2021_2025),
+    interests: stripContactDetails(r.research_interests),
+    // Numbers that came from a profile recorded as belonging to a different person are not published.
+    publications: fromRejected ? null : n(r.total_publications),
+    citations: fromRejected ? null : n(r.total_citations),
+    recentCitations: fromRejected ? null : n(r.citations_2021_2025),
+    hIndex: fromRejected ? null : n(r.h_index),
+    q1: fromRejected ? null : n(r.total_q1_journal_publications),
+    recentQ1: fromRejected ? null : n(r.q1_publications_2021_2025),
     sourceUrl: sanitizeUrl(r.staff_profile_url),
-    scholarUrl: sanitizeUrl(r.google_scholar_url),
-    researchgateUrl: sanitizeUrl(
+    scholarUrl: isRejected(r.google_scholar_url) ? "" : sanitizeUrl(r.google_scholar_url),
+    researchgateUrl: isRejected(r.researchgate_url || r.research_gate_url) ? "" : sanitizeUrl(
       r.researchgate_url || r.research_gate_url || "",
     ),
-    scholarStatus: linkStatus(
+    scholarStatus: publicLinkStatus(linkStatus(
       r.academic_id,
       r.google_scholar_url,
       identities,
       aliases,
-    ),
-    researchgateStatus: linkStatus(
+    )),
+    researchgateStatus: publicLinkStatus(linkStatus(
       r.academic_id,
       r.researchgate_url || r.research_gate_url || "",
       identities,
       aliases,
-    ),
-    openAlexStatus: openAlexById.get(r.academic_id)?.status || "not_attempted",
+    )),
+    openAlexStatus: publicOpenAlexStatus(openAlexById.get(r.academic_id)?.status || "not_attempted"),
     openAlexUrl: match.url,
     ...publicResearch(original, lookup, research, aliases, evidence),
     qualificationReview: reviews.join(" "),
     metricEvidence: JSON.stringify(evidence),
-    metricsUrl: sanitizeUrl(r.metrics_source_url || fallback.evidence[0]?.url || ""),
-    metricsSource: r.research_metrics_source || (fallback.evidence.length ? "OpenAlex" : ""),
+    metricsUrl: isRejected(r.metrics_source_url) ? "" : sanitizeUrl(r.metrics_source_url || fallback.evidence[0]?.url || ""),
+    metricsSource: fromRejected ? "" : r.research_metrics_source || (fallback.evidence.length ? "OpenAlex" : ""),
     collectionDate: r.collected_at,
     snapshotDate: [...new Set(evidence.map((e) => e.date).filter(Boolean))]
       .sort()
       .join("; "),
-    status: r.record_status,
+    status: publicRecordStatus(r.record_status),
     employmentStatus: r.employment_status,
     field: "Unmapped",
     notes: publicNote(sanitizeText(r.notes)),

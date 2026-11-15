@@ -33,6 +33,8 @@ test("internal evidence files are recognised by name and folder", () => {
     "Data files/universities/uwu/COLLECTION_REVIEW.md",
     "Data files/research_unresolved.csv",
     "Data files/research_search_log.csv",
+    "Data files/removal_requests.csv",
+    "Data files/_research_reviews/removed_records.csv",
     "Data files/User updates/new.csv",
     "private/notes.txt",
     "Ethics Approval/form.pdf",

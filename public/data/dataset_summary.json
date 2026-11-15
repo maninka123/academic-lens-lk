@@ -1,5 +1,5 @@
 {
-  "version": "partial-cdc4ad0dfe",
+  "version": "partial-d5e20709d1",
   "collectionDate": "2026-11-15",
   "country": "Sri Lanka",
   "institutionsInScope": 15,
@@ -9,17 +9,17 @@
   "academicRecords": 5410,
   "verifiedIdentity": 1152,
   "verifiedEmployment": 223,
-  "withAnyMetric": 2959,
+  "withAnyMetric": 2958,
   "withQualifications": 3678,
   "doctorateDocumented": 1717,
   "doctorateInProgress": 140,
   "doctorateContradictory": 17,
   "needsReview": 31,
   "metricAvailability": {
-    "publications": 2681,
-    "citations": 2945,
-    "recentCitations": 2853,
-    "hIndex": 2941
+    "publications": 2680,
+    "citations": 2944,
+    "recentCitations": 2852,
+    "hIndex": 2940
   },
   "careerStages": {
     "Teaching / other": 103,

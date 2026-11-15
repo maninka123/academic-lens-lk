@@ -72,20 +72,18 @@ Do not run the original baseline builder (`scripts/baselines/build_international
 
 - 102 of 110 OpenAlex author identities were accepted, through official-linked ORCID or matching publications from official biographies, bibliographies, linked researcher sites or primary publishers. Subject clusters were reviewed to reject merged namesakes. This verifies identity and the provider snapshot, not an exhaustive lifetime record.
 - Imported values (OpenAlex snapshots of 12 October 2026): indexed works, total citations, h-index, and citations received in 2021–2025. A measured zero is kept; unresolved values stay blank. Q1 metrics remain unknown. Use the app's OpenAlex view for these.
-- Where a corroborated profile has small split fragments, only the main profile's totals are used. Large unresolved splits are not summed. Jesse Engreitz's profile has only eight indexed works, so coverage is likely incomplete.
+- Where a corroborated profile has small split fragments, only the main profile's totals are used. Large unresolved splits are not summed. A verified profile with very few indexed works is likely to understate the person's output, because provider coverage is incomplete.
 
-| Unresolved profile | Why metrics stay blank |
+The eight unresolved cases keep blank OpenAlex metrics. They reflect limits of the OpenAlex records, not of the individuals, and fall into four general groups:
+
+| Reason metrics stay blank | Cases |
 |---|---|
-| Adam Nayak | Future appointment; not corroborated by publication or official ORCID |
-| Barbara G Simpson | Candidate mixes structural engineering and unrelated archaeology |
-| Haoqi (Nina) Zhao | ORCID-linked record also has unrelated photonics papers |
-| Hanno Lustig | Several substantial corroborated profiles; no safe aggregation |
-| Michael Blank | Finance paper mixed into unrelated subject clusters |
-| Aaron Mills | Law publication found, but OpenAlex authorship has no author ID |
-| Catherine Walsh | Law publications merged with a mostly astrophysics profile |
-| Jonathan Chan | Several corroborated profiles; no safe aggregation |
+| Several substantial corroborated profiles with no safe way to aggregate them | 2 |
+| Candidate profile mixes works from unrelated subject areas (including merged records of different people), so it cannot be attributed with confidence | 4 |
+| A publication was found, but the OpenAlex authorship carries no author identifier | 1 |
+| Recently announced appointment, not yet corroborated by publications or an official ORCID | 1 |
 
-Evidence is in `_metric_verification_2026-10-12.json` (summary: `_metric_verification_summary_2026-10-12.json`); the quality-check notebook is `../../scripts/baselines/international_verification_audit.ipynb`. The importer regenerates the app CSVs at their existing paths.
+Detailed verification evidence is kept privately and is not part of this repository. The importer regenerates the app CSVs at their existing paths.
 
 On 13 October 2026, a wider missing-link review added 92 source-backed Google Scholar links from university pages, official-linked researcher sites and an official CV. Direct Scholar requests were rate-limited, so no live Scholar metrics were added. The association checks and search logs behind these links are kept privately, not in this repository.
 

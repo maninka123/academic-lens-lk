@@ -1,0 +1,47 @@
+name: Privacy guard
+# Runs on every push to every branch and on every pull request, not only on main, so a branch that
+# carries internal evidence or credentials is flagged before it is merged. The weekly run audits the full
+# content and history of every branch.
+#
+# Recommended: make the job "Privacy guard" a required status check on main (Settings > Branches).
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: privacy-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  privacy:
+    name: Privacy guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Every tracked file, in full (paths, credentials, contact details, internal wording)
+        run: node scripts/privacy-guard.mjs --all
+      - name: Published data allowlist and fields
+        run: node scripts/check-public-assets.mjs
+      - name: Commits in this push or pull request (paths, credentials in added lines and messages)
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            node scripts/privacy-guard.mjs --range "origin/${{ github.base_ref }}..HEAD"
+          elif echo "${{ github.event.before }}" | grep -qE '^0+$'; then
+            node scripts/privacy-guard.mjs --history
+          else
+            node scripts/privacy-guard.mjs --range "${{ github.event.before }}..${{ github.sha }}"
+          fi
+      - name: Full audit of every branch and all history
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: node scripts/privacy-guard.mjs --full

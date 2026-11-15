@@ -6,7 +6,7 @@
 // logs, collection notes, correction logs) stays in `Data files/`.
 import fs from "node:fs";
 import path from "node:path";
-import { publicFieldProblems } from "./public-notes.mjs";
+import { publicFieldProblems, contactProblems, leaveRemarkProblems, INTERNAL_TOKENS } from "./public-notes.mjs";
 
 /** Files allowed under public/data (relative paths, "/" separators). */
 export const PUBLIC_FILES = [
@@ -173,22 +173,46 @@ export function checkPublicData(dataDir, { scanOnly = [] } = {}) {
 
 /** Free-text columns of the published records are scanned for personal links, contact details and internal wording. */
 const FREE_TEXT_COLUMNS = ["notes", "caution", "qualificationReview", "experience"];
+/** Columns that must never carry contact details (scraped text can hide them anywhere). */
+const CONTACT_COLUMNS = ["interests", "qualifications", "qualification", "name", "position", "faculty", "department", "phdUniversity"];
+/** Structured and status columns: internal workflow vocabulary must not appear, only neutral public wording. */
+const STRUCTURED_COLUMNS = ["researchIdentities", "researchObservations", "metricEvidence", "scholarStatus", "researchgateStatus", "openAlexStatus", "openAlexMatchLevel", "status", "employmentStatus", "snapshotDate", "metricsSource"];
 export function sensitiveFieldProblems(csvText, rel = "academics.csv") {
-  const lines = csvText.replace(/^\uFEFF/, "");
-  const rows = parseCsv(lines);
+  const rows = parseCsv(csvText.replace(/^\uFEFF/, ""));
   const header = rows.shift() || [];
-  const idx = FREE_TEXT_COLUMNS.map((c) => [c, header.indexOf(c)]).filter(([, i]) => i >= 0);
+  const col = (names) => names.map((c) => [c, header.indexOf(c)]).filter(([, i]) => i >= 0);
   const found = new Map();
-  for (const r of rows)
-    for (const [col, i] of idx)
-      for (const what of publicFieldProblems(r[i])) {
-        const key = `${col}: ${what}`;
-        found.set(key, (found.get(key) || 0) + 1);
-      }
+  const add = (c, what) => {
+    const key = `${c}: ${what}`;
+    found.set(key, (found.get(key) || 0) + 1);
+  };
+  for (const r of rows) {
+    for (const [c, i] of col(FREE_TEXT_COLUMNS)) for (const what of publicFieldProblems(r[i])) add(c, what);
+    for (const [c, i] of col(CONTACT_COLUMNS)) for (const what of contactProblems(r[i])) add(c, what);
+    for (const [c, i] of col(["name", "position"])) for (const what of leaveRemarkProblems(r[i])) add(c, what);
+    for (const [c, i] of col(STRUCTURED_COLUMNS)) if (INTERNAL_TOKENS.test(r[i] || "")) add(c, "internal workflow wording");
+  }
   return [...found].map(([k, n]) => `${rel}: ${k} (${n} record${n === 1 ? "" : "s"})`);
 }
 
-function parseCsv(text) {
+/** The tracked source CSVs are as public as public/data: the same contact and leave rules apply to them. */
+export function sourceFieldProblems(csvText, rel) {
+  const rows = parseCsv(csvText.replace(/^\uFEFF/, ""));
+  const header = rows.shift() || [];
+  const idx = (c) => header.indexOf(c);
+  const found = new Map();
+  for (const r of rows) {
+    for (const c of ["qualifications", "research_interests", "full_name", "academic_position"]) {
+      if (idx(c) < 0) continue;
+      for (const what of contactProblems(r[idx(c)])) found.set(`${c}: ${what}`, (found.get(`${c}: ${what}`) || 0) + 1);
+    }
+    for (const c of ["full_name", "academic_position"])
+      if (idx(c) >= 0) for (const what of leaveRemarkProblems(r[idx(c)])) found.set(`${c}: ${what}`, (found.get(`${c}: ${what}`) || 0) + 1);
+  }
+  return [...found].map(([k, n]) => `${rel}: ${k} (${n} record${n === 1 ? "" : "s"})`);
+}
+
+export function parseCsv(text) {
   const rows = [];
   let row = [], cell = "", q = false;
   for (let i = 0; i < text.length; i++) {

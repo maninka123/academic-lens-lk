@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import { csvRead } from "./shared.mjs";
 import { resolveAlias, profileKey, linkStatus, metricFields, sanitizeUrl } from "./evidence.mjs";
+import { isRejectedIdentity, publicMethod } from "./public-notes.mjs";
 const accepted = new Set(["confirmed", "corroborated"]);
 export function researchInputs(source, aliases = {}) {
   const read = name => fs.existsSync(`${source}/${name}`) ? csvRead(`${source}/${name}`) : [];
@@ -12,23 +13,33 @@ export function researchInputs(source, aliases = {}) {
 }
 export function publicMatch(row, lookup, inputs) {
   const m = inputs.byId.get(row.academic_id);
+  // A match recorded with a conflict, a rejection or an open review is never published as an identity, whatever its level.
+  if (m && /requires_review|conflict|rejected/i.test(m.match_method || "")) return { level: "possible", approved: false, url: "", method: "recorded_unverified", date: m.matched_at || "" };
   if (m) return { level: m.match_status, approved: m.publication_status === "approved" && accepted.has(m.match_status), url: m.publication_status === "approved" && accepted.has(m.match_status) ? sanitizeUrl(m.candidate_author_id) : "", method: m.publication_status === "approved" ? m.match_method : "awaiting_publication_review", date: m.matched_at || "" };
   const previous = Boolean(lookup?.openalex_id && /(^|_)matched(_|$)/.test(lookup.status || ""));
   return { level: previous ? "corroborated" : /candidate|multiple/.test(lookup?.status || "") ? "possible" : "unresolved", approved: previous, url: previous ? sanitizeUrl(lookup.openalex_id) : "", method: previous ? "legacy_accepted_name_and_institution" : "not_accepted", date: lookup?.checked_at || "" };
 }
+/** Profile keys (provider profile identifiers) that the maintainer rejected as belonging to a different person. */
+export function rejectedProfileKeys(row, inputs, aliases = {}) {
+  const keys = new Set();
+  for (const url of [row.google_scholar_url, row.researchgate_url])
+    if (url && isRejectedIdentity(linkStatus(row.academic_id, url, inputs.identities, aliases))) keys.add(profileKey(url));
+  return keys;
+}
 export function publicResearch(row, lookup, inputs, aliases = {}, fallbackEvidence = []) {
   const match = publicMatch(row, lookup, inputs);
+  const rejected = rejectedProfileKeys(row, inputs, aliases);
   const identities = [];
   for (const [provider, url] of [["Google Scholar", row.google_scholar_url], ["ResearchGate", row.researchgate_url]]) {
-    if (!url) continue;
+    if (!url || rejected.has(profileKey(url))) continue;
     const status = linkStatus(row.academic_id, url, inputs.identities, aliases);
-    identities.push({ provider, status: ["verified_official_link", "matched_user_supplied_platform_evidence"].includes(status) ? "confirmed" : "possible", url: sanitizeUrl(url), method: status, date: "" });
+    identities.push({ provider, status: ["verified_official_link", "matched_user_supplied_platform_evidence"].includes(status) ? "confirmed" : "possible", url: sanitizeUrl(url), method: publicMethod(status), date: "" });
   }
-  if (match.approved) identities.push({ provider: "OpenAlex", status: match.level, url: match.url, method: match.method, date: match.date });
+  if (match.approved) identities.push({ provider: "OpenAlex", status: match.level, url: match.url, method: publicMethod(match.method), date: match.date });
   const observations = [];
   const push = (metric, value, provider, url, date, explicitLevel) => {
     const n = Number(value);
-    if (value == null || value === "" || !Number.isFinite(n) || n < 0 || !/^https?:/.test(url || "")) return;
+    if (value == null || value === "" || !Number.isFinite(n) || n < 0 || !/^https?:/.test(url || "") || rejected.has(profileKey(url))) return;
     const identity = identities.find(i => i.provider === provider && profileKey(i.url) === profileKey(url));
     if (provider === "OpenAlex" && (!match.approved || profileKey(match.url) !== profileKey(url))) return;
     observations.push({ metric, value: n, provider, url: sanitizeUrl(url), date: date || "", identityStatus: explicitLevel || identity?.status || "possible" });
