@@ -175,6 +175,8 @@ export function coverageOf(rows: Academic[]) {
     verifiedEmployment,
     withMetric,
     withQualifications: rows.filter((a) => a.qualifications).length,
+    // A completed research doctorate is documented. Recorded-but-undocumented or contradictory doctorates are not counted.
+    withDoctorate: rows.filter((a) => a.doctorateStatus === "completed_documented").length,
     needsReview,
     missingCore,
   };

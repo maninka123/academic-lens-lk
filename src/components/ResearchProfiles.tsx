@@ -54,14 +54,14 @@ const statusNote = (status?: string) =>
       ? "Official link"
       : status === "matched_user_supplied_platform_evidence"
         ? "Identity matched"
-        : status?.includes("requires_review")
+        : status?.includes("review")
           ? "Identity needs review"
           : "Unverified link";
 const statusTone = (status?: string) =>
   status === "verified_official_link" ||
   status === "matched_user_supplied_platform_evidence"
     ? "verified"
-    : status?.includes("requires_review")
+    : status?.includes("review")
       ? "review"
       : "recorded";
 
@@ -98,7 +98,7 @@ export function ResearchProfiles({ academic, snapshot }: { academic: Academic; s
               <i className="source-dot" aria-hidden="true" />
               {label}{" "}
               <span className="source-note">
-                {status === "rejected_different_person" ? "Rejected identity match" : "Not recorded"}
+                Not recorded
               </span>
             </span>
           ),

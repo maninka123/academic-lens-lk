@@ -237,6 +237,18 @@ describe("coverage indicators", () => {
   });
 });
 
+describe("coverage cards", () => {
+  it("counts documented doctorates only and never treats missing values as zero", () => {
+    const c = coverageOf([
+      mk("a", { doctorateStatus: "completed_documented", qualifications: "PhD", hIndex: 0 }),
+      mk("b", { doctorateStatus: "in_progress", qualifications: "BSc" }),
+      mk("c", { doctorateStatus: "contradictory" }),
+      mk("d", {}),
+    ] as Academic[]);
+    expect(c).toMatchObject({ records: 4, withDoctorate: 1, withQualifications: 2, withMetric: 1 });
+  });
+});
+
 describe("research identity coverage (Ruhuna Community Medicine regression)", () => {
   // OpenAlex metrics were entered from a recorded author link with no lookup or identity check on file.
   const unverifiedWithMetrics = (id: string) =>

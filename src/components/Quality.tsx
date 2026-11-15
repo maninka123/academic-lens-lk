@@ -100,6 +100,8 @@ export function CoveragePanel({
   const c = coverageOf(rows);
   const pct = (n: number) =>
     c.records ? fmt((100 * n) / c.records, 1) + "%" : "—";
+  // Four independent coverage measures, each a count of collected records. A missing value is never counted as zero:
+  // a record without the information is simply not in the count.
   const items: [string, number, string][] = [
     [
       "Collected records",
@@ -107,24 +109,19 @@ export function CoveragePanel({
       "Published profiles collected — not the total academic population",
     ],
     [
-      "Verified research identity",
-      c.verifiedIdentity,
-      "The person's own Scholar or ResearchGate profile is linked from an official page, or an OpenAlex author match was approved. A metric on its own is not proof of identity.",
-    ],
-    [
-      "Verified employment",
-      c.verifiedEmployment,
-      "An official source states a permanent or emeritus appointment. Appearing on a staff list is not enough.",
-    ],
-    [
-      "Any research metric",
-      c.withMetric,
-      "At least one publication, citation or h-index value from any provider. Includes values read from a recorded profile whose identity is not yet verified.",
-    ],
-    [
       "Published qualifications",
       c.withQualifications,
-      "Qualification text available from the source",
+      "Profiles whose source states at least one qualification.",
+    ],
+    [
+      "PhD information available",
+      c.withDoctorate,
+      "Profiles with a documented, completed doctorate. A doctorate that is only mentioned, in progress or contradictory is not counted.",
+    ],
+    [
+      "Research metrics available",
+      c.withMetric,
+      "Profiles with at least one publication, citation or h-index value from any provider.",
     ],
   ];
   return (
@@ -135,8 +132,7 @@ export function CoveragePanel({
             <span>{label}</span>
             <strong>{fmt(n)}</strong>
             <small>
-              {i === 0 ? help : pct(n) + " of collected"}
-              {label === "Verified research identity" && c.linkedUnverified > 0 ? ` | ${fmt(c.linkedUnverified)} more linked, not verified` : ""}
+              {i === 0 ? help : `${pct(n)} of collected`}
             </small>
           </div>
         ))}

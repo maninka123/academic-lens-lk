@@ -257,12 +257,13 @@ details[open] > summary::after { content: "–" !important; }
 .institution-hero .button.primary:hover { background: #e9ecfd; }
 
 .coverage-panel { margin: 0 0 var(--space-5); }
-.coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); background: transparent; border-radius: 0; overflow: visible; }
+.coverage-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); background: transparent; border-radius: 0; overflow: visible; }
 .coverage-grid > div { display: flex; flex-direction: column; gap: 4px; padding: var(--space-4) var(--space-4) var(--space-4) 0; margin-right: var(--space-4); border: 0; border-right: 1px solid var(--color-border); }
 .coverage-grid > div:last-child { border-right: 0; margin-right: 0; }
 .coverage-grid span { font-size: 12.5px; font-weight: 510; color: var(--color-text-muted); }
 .coverage-grid strong { font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 510; font-variant-numeric: tabular-nums; }
 .coverage-grid small { font-size: 12px; }
+@media (max-width: 900px) { .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .coverage-grid > div { margin-right: 0; padding-right: var(--space-4); border-bottom: 1px solid var(--color-border); } .coverage-grid > div:nth-child(2n) { border-right: 0; padding-left: var(--space-4); } .coverage-grid > div:nth-last-child(-n+2) { border-bottom: 0; } }
 .measurement-note { display: flex; flex-direction: column; gap: 4px; margin: var(--space-2) 0 var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--color-fill); color: var(--color-text-muted); font-size: 12.5px; line-height: 1.5; }
 .measurement-note.warn { box-shadow: inset 3px 0 0 var(--color-warning); }
 
@@ -330,7 +331,7 @@ details[open] > summary::after { content: "–" !important; }
   .institution-hero { padding: var(--space-6); min-height: 190px; }
   .institution-hero h1 { font-size: 30px; }
 }
-@media (max-width: 640px) { .institution-grid, .std-sectors { grid-template-columns: 1fr; } .coverage-grid > div { border-right: 0; margin-right: 0; border-bottom: 1px solid var(--color-border); } }
+@media (max-width: 640px) { .institution-grid, .std-sectors { grid-template-columns: 1fr; } }
 .pos-toolbar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-3) var(--space-4); margin: 0 0 var(--space-4); }
 .pos-toolbar .field { min-width: 150px; }
 
