@@ -16,7 +16,7 @@ The website is static. The repository is public, and the deployed site and every
 
 **Internal evidence and review files** (identity and employment reviews, unresolved searches, correction logs such as `change_log.csv`, collection notes, rejected matches) are not published. They stay in the local, git-ignored `Data files/` folder (or `private/`) and in the maintainer's private backup. They are not in the current repository.
 
-**Remaining exposure.** On 15 November 2026, 78 internal files were removed from the history of every branch. Some copies cannot be reached by us: GitHub keeps the old commits behind pull request #1 and may still serve old commit hashes and cached views, and anyone who cloned, forked or scraped the repository earlier keeps what they copied. Four further internal files were untracked on 15 November 2026 and remain in older history until it is cleaned again. Treat anything that was ever committed as potentially public. Removal from GitHub's own caches needs a request to GitHub Support.
+Internal verification and review files are excluded from the current published dataset. Earlier versions may remain accessible through Git history or third-party copies.
 
 **Published free text.** The `notes` column is a short provenance statement ("Listed on the official staff page"), produced at import by `scripts/public-notes.mjs`. Internal review wording, remarks about an individual's leave or employment, and links to personal social profiles (LinkedIn, Facebook, X and similar) are removed before publication; the full note stays private. `caution` and `qualificationReview` are published deliberately as reader-facing context and contain no investigation detail.
 
@@ -46,7 +46,9 @@ Cite the dataset with its snapshot version (shown on the site and in `dataset_su
 
 ## Reuse conditions
 
-Aggregate statistics and original research reports are licensed under CC BY 4.0: reuse them with attribution and the dataset version (see [DATA_LICENSE.md](legal/DATA_LICENSE.md)). Individual-level records are not covered by that licence. Individual-level records describe identifiable people: reuse them only for research or educational purposes consistent with the limitations above, do not use them to rank or evaluate named individuals, and do not republish them outside their source context. Respect the terms of the original sources.
+Aggregate statistics and original research reports are licensed under CC BY 4.0. Individual academic records are excluded from this licence and may be subject to other applicable rights.
+
+We recommend using these data for research and educational purposes, avoiding evaluations of named individuals, and retaining appropriate source context. This guidance is advisory.
 
 ## Corrections and removal requests
 

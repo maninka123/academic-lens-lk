@@ -6,7 +6,7 @@
 - It is a **partial collection** of public profiles. It is **not** a census of academic staff and not an official record.
 - Values can be missing, out of date, mis-matched to the wrong person, or wrongly classified. "Unknown" means unknown, never zero.
 - Research metrics come from different providers (Google Scholar, ResearchGate, OpenAlex) that count differently and are not interchangeable.
-- Nothing here is an assessment of any individual's quality, teaching, service or suitability. Do not use it for hiring, promotion, funding or disciplinary decisions.
+- Nothing here is an assessment of any individual's quality, teaching, service or suitability. These data and derived indicators have not been validated for individual employment, promotion, funding or disciplinary assessments and should not be relied upon for such decisions.
 - The "research standing" figure is a descriptive position among collected profiles only.
 
 ## No warranty
