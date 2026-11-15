@@ -61,7 +61,7 @@ export function Overview() {
           <div className="eyebrow">Sri Lanka | Academic research</div>
           <h1>Sri Lanka’s academic landscape.</h1>
           <p>
-            Explore Sri Lanka’s academic landscape through qualifications, research output and institutional insights, drawn from publicly available sources.
+            Explore Sri Lankan universities and academics through qualifications, publications, citations and research trends.
           </p>
           <div className="hero-actions">
             <Button onClick={() => nav("/universities")}>

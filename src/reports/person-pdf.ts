@@ -217,25 +217,35 @@ export async function buildPersonReport(
   // measure table
   ensure(52);
   y += 1;
-  const cols = [0, 46, 66, 98, 114, 160];
+  // Columns: Measure | Your value | Peer median | Ahead of | Weight (values centred under their headings).
+  const colX = { measure: 3, value: 70, median: 100, ahead: 123, weight: 168 };
   doc.setFillColor(SOFT);
   doc.roundedRect(M, y, CW, 7, 2, 2, "F");
-  ["MEASURE", "VALUE", "SOURCE", "PEERS", "AHEAD OF", "WEIGHT"].forEach((h, i) => text(h, M + 3 + cols[i], y + 4.7, 7, "bold", MUTED));
+  text("MEASURE", M + colX.measure, y + 4.7, 7, "bold", MUTED);
+  text("YOUR VALUE", M + colX.value, y + 4.7, 7, "bold", MUTED, { align: "center" });
+  text("PEER MEDIAN", M + colX.median, y + 4.7, 7, "bold", MUTED, { align: "center" });
+  text("AHEAD OF", M + colX.ahead, y + 4.7, 7, "bold", MUTED);
+  text("WEIGHT", M + colX.weight, y + 4.7, 7, "bold", MUTED, { align: "center" });
   y += 7;
   score.components.forEach((c) => {
-    ensure(10);
-    const yy = y + 6.5;
+    ensure(12);
+    const yy = y + 5.6;
     const dim = c.status !== "scored" ? MUTED : INK;
-    text(c.label, M + 3, yy, 9, "bold", dim);
-    text(c.value === null ? "-" : num(c.value), M + 3 + cols[1], yy, 9, "normal", dim);
-    text(c.provider, M + 3 + cols[2], yy, 8.5, "normal", MUTED);
-    text(c.status === "missing" ? "-" : num(c.peers), M + 3 + cols[3], yy, 9, "normal", dim);
+    text(c.label, M + colX.measure, yy, 9, "bold", dim);
+    text(c.provider, M + colX.measure, yy + 3.6, 7, "normal", MUTED);
+    text(c.value === null ? "-" : num(c.value), M + colX.value, yy, 9, "normal", dim, { align: "center" });
+    if (c.status === "missing") {
+      text("-", M + colX.median, yy, 9, "normal", dim, { align: "center" });
+    } else {
+      text(c.status === "scored" && c.peerMedian !== null ? num(c.peerMedian, c.peerMedian % 1 ? 1 : 0) : "-", M + colX.median, yy, 9, "normal", dim, { align: "center" });
+      text(`n = ${num(c.peers)}`, M + colX.median, yy + 3.6, 7, "normal", MUTED, { align: "center" });
+    }
     if (c.percentile !== null) {
-      bar(M + 3 + cols[4], yy - 3, 28, 3.6, c.percentile);
-      text(`${Math.round(c.percentile)}%`, M + 3 + cols[4] + 31, yy, 9, "bold", standingColor(c.percentile));
-    } else text(c.status === "missing" ? "Not recorded" : "Too few peers", M + 3 + cols[4], yy, 8.5, "normal", MUTED);
-    text(`${Math.round(c.weight * 100)}%`, M + 3 + cols[5], yy, 9, "normal", dim);
-    y += 9;
+      bar(M + colX.ahead, yy - 3, 28, 3.6, c.percentile);
+      text(`${Math.round(c.percentile)}%`, M + colX.ahead + 31, yy, 9, "bold", standingColor(c.percentile));
+    } else text(c.status === "missing" ? "Not recorded" : "Too few peers", M + colX.ahead, yy, 8.5, "normal", MUTED);
+    text(`${Math.round(c.weight * 100)}%`, M + colX.weight, yy, 9, "normal", dim, { align: "center" });
+    y += 11;
     doc.setDrawColor(LINE);
     doc.setLineWidth(0.2);
     doc.line(M, y - 1.2, W - M, y - 1.2);
@@ -394,14 +404,30 @@ export async function buildPersonReport(
     ["Doctorate status", (person.doctorateStatus || "").replace(/_/g, " ")],
     ["Record collected", person.collectionDate],
     ["Caution", person.caution || ""],
-    ["Notes", person.notes],
   ]);
 
   // ---------- method & limits ----------
   heading("About this report");
   para("Figures describe the collected profiles in Lanka Academia, not all academics, and not a measure of teaching, service or overall academic quality. Citation counts differ by source and field. Missing values are unknown, never zero, and are skipped. Percentiles need at least " + MIN_SAMPLE + " peers with a value from the same source unless the score is marked indicative.", M, CW, 9, MUTED);
   y += 2;
-  para("Method: docs/STANDING_SCORE.md  |  Data dictionary and policy: Data files/README.md  |  Source: https://maninka123.github.io/academic-lens-lk/", M, CW, 8.5, MUTED);
+  // Each reference is a clickable link in the PDF.
+  const REPO = "https://github.com/maninka123/academic-lens-lk/blob/main/";
+  ([
+    ["Method", "docs/STANDING_SCORE.md", REPO + "docs/STANDING_SCORE.md"],
+    ["Data dictionary and policy", "Data files/README.md", REPO + "Data%20files/README.md"],
+    ["Source", "https://maninka123.github.io/academic-lens-lk/", "https://maninka123.github.io/academic-lens-lk/"],
+  ] as const).forEach(([label, shown, url]) => {
+    ensure(6);
+    text(`${label}: `, M, y, 8.5, "normal", MUTED);
+    const x = M + doc.getTextWidth(`${label}: `);
+    text(shown, x, y, 8.5, "normal", BRAND);
+    const w = doc.getTextWidth(shown);
+    doc.setDrawColor(BRAND);
+    doc.setLineWidth(0.15);
+    doc.line(x, y + 0.7, x + w, y + 0.7);
+    doc.link(x, y - 3, w, 4.2, { url });
+    y += 4.6;
+  });
 
   // ---------- footer on every page ----------
   const pages = doc.getNumberOfPages();
@@ -410,6 +436,8 @@ export async function buildPersonReport(
     doc.setDrawColor(LINE);
     doc.setLineWidth(0.3);
     doc.line(M, H - 12, W - M, H - 12);
+    // Disclaimer on every page, just above the footer line (content stops at H - 18).
+    text("For informational purposes only. Not an official assessment of academic performance or research quality.", M, H - 14.2, 7, "normal", "#8a93ad");
     text(`Lanka Academia  |  ${person.name}`, M, H - 7, 7.5, "normal", MUTED);
     text(`Page ${p} of ${pages}`, W - M, H - 7, 7.5, "normal", MUTED, { align: "right" });
   }

@@ -37,6 +37,8 @@ export type ScoreComponent = {
   status: ComponentStatus;
   /** Peers (including the person) with a value from the same provider. */
   peers: number;
+  /** Median of those same peer values (zeros kept, missing values excluded); null when no peer has a value. */
+  peerMedian: number | null;
   percentile: number | null;
   note: string;
 };
@@ -74,19 +76,27 @@ const midrank = (pool: number[], x: number) =>
   (100 * (pool.filter((v) => v < x).length + 0.5 * pool.filter((v) => v === x).length)) /
   pool.length;
 
+/** Median of a list of numbers (the average of the two middle values for an even count). */
+const medianOf = (xs: number[]) => {
+  if (!xs.length) return null;
+  const s = [...xs].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+
 function evaluate(person: Academic, members: Academic[], min: number, sameProvider: boolean) {
   return SCORE_MEASURES.map((m): ScoreComponent => {
     const value = person[m.metric];
     const base = { metric: m.metric, label: m.label, short: m.short, weight: m.weight };
     if (value === null || value === undefined || !Number.isFinite(value))
-      return { ...base, value: null, provider: "Not recorded", status: "missing", peers: 0, percentile: null, note: "No value recorded; skipped, not counted as zero." };
+      return { ...base, value: null, provider: "Not recorded", status: "missing", peers: 0, peerMedian: null, percentile: null, note: "No value recorded; skipped, not counted as zero." };
     const provider = providerOf(person, m.metric);
     const pool = members
       .filter((p) => p[m.metric] !== null && (!sameProvider || providerOf(p, m.metric) === provider))
       .map((p) => p[m.metric] as number);
     if (pool.length < min)
-      return { ...base, value, provider, status: "few-peers", peers: pool.length, percentile: null, note: `Only ${pool.length} ${pool.length === 1 ? "person has" : "people have"} a${sameProvider ? " " + provider : ""} value (needs ${min}); skipped.` };
-    return { ...base, value, provider, status: "scored", peers: pool.length, percentile: midrank(pool, value), note: "" };
+      return { ...base, value, provider, status: "few-peers", peers: pool.length, peerMedian: medianOf(pool), percentile: null, note: `Only ${pool.length} ${pool.length === 1 ? "person has" : "people have"} a${sameProvider ? " " + provider : ""} value (needs ${min}); skipped.` };
+    return { ...base, value, provider, status: "scored", peers: pool.length, peerMedian: medianOf(pool), percentile: midrank(pool, value), note: "" };
   });
 }
 

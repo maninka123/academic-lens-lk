@@ -55,7 +55,8 @@ export function ProfileStanding({
 }) {
   const narrow = useNarrow();
   const [metric, setMetric] = useState<NumericMetric>("citations");
-  const [context, setContext] = useState<string>("university");
+  // Default peer context: the same position across all universities (falls back to the same university when no usable position is recorded).
+  const [context, setContext] = useState<string>("rank");
   const [log, setLog] = useState(false);
   const [cohort, setCohort] = useState<PeerCohort>("position");
   const [view, setView] = useState<PeerChartView>("benchmarks");

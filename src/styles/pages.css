@@ -395,6 +395,10 @@ details[open] > summary::after { content: "–" !important; }
 .score-step h4 span { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--color-primary); color: var(--color-primary-foreground); font-size: 11.5px; }
 .score-step > p { font-size: 13.5px; line-height: 1.55; }
 .score-table { font-size: 13px; }
+.score-table .score-source { display: block; margin-top: 1px; font-size: 11.5px; font-weight: 400; color: var(--color-text-muted); }
+.score-table thead th:not(:first-child), .score-table td { text-align: center; }
+.score-table .peer-cell { display: inline-grid; justify-items: center; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.score-table .peer-cell small { font-size: 11.5px; color: var(--color-text-muted); }
 .score-skip { margin: 6px 0 0; }
 .score-formula { font-size: 14.5px; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--color-fill); font-variant-numeric: tabular-nums; }
 .score-scale { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; margin-top: var(--space-3); }

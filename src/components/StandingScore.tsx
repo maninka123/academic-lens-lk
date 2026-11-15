@@ -215,17 +215,25 @@ export function ScoreDialog({
             <table className="score-table">
               <thead>
                 <tr>
-                  <th>Measure</th><th>Value</th><th>Source</th><th>Peers</th>
+                  <th>Measure</th><th>Your value</th><th>Peer median</th>
                   <th>Ahead of</th><th>Weight</th>
                 </tr>
               </thead>
               <tbody>
                 {result.components.map((c) => (
                   <tr key={c.metric} className={c.status !== "scored" ? "skipped" : ""}>
-                    <th scope="row">{c.label}</th>
+                    <th scope="row">{c.label}<small className="score-source">{c.provider}</small></th>
                     <td>{c.value === null ? "—" : fmt(c.value)}</td>
-                    <td>{c.provider}</td>
-                    <td>{c.status === "missing" ? "—" : fmt(c.peers)}</td>
+                    <td>
+                      {c.status === "missing" ? (
+                        "—"
+                      ) : (
+                        <span className="peer-cell">
+                          {c.status === "scored" && c.peerMedian !== null ? fmt(c.peerMedian, c.peerMedian % 1 ? 1 : 0) : "—"}
+                          <small>n = {fmt(c.peers)}</small>
+                        </span>
+                      )}
+                    </td>
                     <td>
                       {c.percentile === null ? (
                         <span className="muted">{c.status === "missing" ? "Not recorded" : "Too few peers"}</span>
