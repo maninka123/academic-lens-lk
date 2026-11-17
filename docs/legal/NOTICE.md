@@ -16,7 +16,7 @@ Provided "as is". The authors accept no liability for errors, omissions or any u
 - **OpenAlex** data: CC0.
 - **Campus photographs**: property of their credited owners, used with credit and removed on request.
 - **QS World University Rankings**: figures belong to QS.
-- **Google Scholar / ResearchGate profiles**: belong to their owners; only links and a small number of recorded figures are kept.
+- **Academic profiles and metrics**: Links and research indicators from OpenAlex, Google Scholar and ResearchGate. Coverage and reuse terms vary by source.
 - **Map boundaries**: Natural Earth. Flag icons: country-flag-icons (MIT).
 
 ## Corrections and removal

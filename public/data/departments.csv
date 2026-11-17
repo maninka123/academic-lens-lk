@@ -356,11 +356,19 @@ nsbm--faculty-of-science--department-of-biomedical-science,nsbm--faculty-of-scie
 nsbm--faculty-of-science--department-of-health-sciences,nsbm--faculty-of-science,nsbm,Department of Health Sciences
 nsbm--faculty-of-science--department-of-legal-studies,nsbm--faculty-of-science,nsbm,Department of Legal Studies
 nsbm--faculty-of-science--department-of-life-sciences,nsbm--faculty-of-science,nsbm,Department of Life Sciences
+peradeniya--faculty-of-agriculture--department-of-agricultural-economics-and-business-management,peradeniya--faculty-of-agriculture,peradeniya,Department of Agricultural Economics and Business Management
+peradeniya--faculty-of-agriculture--department-of-agricultural-engineering,peradeniya--faculty-of-agriculture,peradeniya,Department of Agricultural Engineering
 peradeniya--faculty-of-agriculture--department-of-agriculture-biology,peradeniya--faculty-of-agriculture,peradeniya,Department of Agriculture Biology
 peradeniya--faculty-of-agriculture--department-of-animal-science,peradeniya--faculty-of-agriculture,peradeniya,Department of Animal Science
 peradeniya--faculty-of-agriculture--department-of-crop-science,peradeniya--faculty-of-agriculture,peradeniya,Department of Crop Science
 peradeniya--faculty-of-agriculture--department-of-food-science-and-technology,peradeniya--faculty-of-agriculture,peradeniya,Department of Food Science and Technology
 peradeniya--faculty-of-agriculture--department-of-soil-science,peradeniya--faculty-of-agriculture,peradeniya,Department of Soil Science
+peradeniya--faculty-of-allied-health-sciences--department-of-basic-sciences,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of Basic Sciences
+peradeniya--faculty-of-allied-health-sciences--department-of-medical-laboratory-science,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of Medical Laboratory Science
+peradeniya--faculty-of-allied-health-sciences--department-of-nursing,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of Nursing
+peradeniya--faculty-of-allied-health-sciences--department-of-pharmacy,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of Pharmacy
+peradeniya--faculty-of-allied-health-sciences--department-of-physiotherapy,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of Physiotherapy
+peradeniya--faculty-of-allied-health-sciences--department-of-radiography-radiotherapy,peradeniya--faculty-of-allied-health-sciences,peradeniya,Department of Radiography/Radiotherapy
 peradeniya--faculty-of-arts--department-of-arabic-islamic-civilization,peradeniya--faculty-of-arts,peradeniya,Department of Arabic & Islamic Civilization
 peradeniya--faculty-of-arts--department-of-archaeology,peradeniya--faculty-of-arts,peradeniya,Department of Archaeology
 peradeniya--faculty-of-arts--department-of-classical-languages,peradeniya--faculty-of-arts,peradeniya,Department of Classical Languages
@@ -372,6 +380,7 @@ peradeniya--faculty-of-arts--department-of-english,peradeniya--faculty-of-arts,p
 peradeniya--faculty-of-arts--department-of-fine-arts,peradeniya--faculty-of-arts,peradeniya,Department of Fine Arts
 peradeniya--faculty-of-arts--department-of-geography,peradeniya--faculty-of-arts,peradeniya,Department of Geography
 peradeniya--faculty-of-arts--department-of-history,peradeniya--faculty-of-arts,peradeniya,Department of History
+peradeniya--faculty-of-arts--department-of-information-technology,peradeniya--faculty-of-arts,peradeniya,Department of Information Technology
 peradeniya--faculty-of-arts--department-of-pali-buddhist-studies,peradeniya--faculty-of-arts,peradeniya,Department of Pali & Buddhist Studies
 peradeniya--faculty-of-arts--department-of-philosophy,peradeniya--faculty-of-arts,peradeniya,Department of Philosophy
 peradeniya--faculty-of-arts--department-of-political-science,peradeniya--faculty-of-arts,peradeniya,Department of Political Science
@@ -391,9 +400,15 @@ peradeniya--faculty-of-engineering--department-of-civil-engineering,peradeniya--
 peradeniya--faculty-of-engineering--department-of-chemical-and-process-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Chemical and Process Engineering
 peradeniya--faculty-of-engineering--department-of-computer-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Computer Engineering
 peradeniya--faculty-of-engineering--department-of-electrical-and-electronic-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Electrical and Electronic Engineering
+peradeniya--faculty-of-engineering--department-of-engineering-management,peradeniya--faculty-of-engineering,peradeniya,Department of Engineering Management
 peradeniya--faculty-of-engineering--department-of-engineering-mathematics,peradeniya--faculty-of-engineering,peradeniya,Department of Engineering Mathematics
 peradeniya--faculty-of-engineering--department-of-manufacturing-and-industrial-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Manufacturing and Industrial Engineering
 peradeniya--faculty-of-engineering--department-of-mechanical-engineering,peradeniya--faculty-of-engineering,peradeniya,Department of Mechanical Engineering
+peradeniya--faculty-of-management--department-of-business-finance,peradeniya--faculty-of-management,peradeniya,Department of Business Finance
+peradeniya--faculty-of-management--department-of-human-resource-management,peradeniya--faculty-of-management,peradeniya,Department of Human Resource Management
+peradeniya--faculty-of-management--department-of-management-studies,peradeniya--faculty-of-management,peradeniya,Department of Management Studies
+peradeniya--faculty-of-management--department-of-marketing-management,peradeniya--faculty-of-management,peradeniya,Department of Marketing Management
+peradeniya--faculty-of-management--department-of-operations-management,peradeniya--faculty-of-management,peradeniya,Department of Operations Management
 peradeniya--faculty-of-medicine--department-of-anaesthesiology-critical-care,peradeniya--faculty-of-medicine,peradeniya,Department of Anaesthesiology & Critical Care
 peradeniya--faculty-of-medicine--department-of-anatomy,peradeniya--faculty-of-medicine,peradeniya,Department of Anatomy
 peradeniya--faculty-of-medicine--department-of-biochemistry,peradeniya--faculty-of-medicine,peradeniya,Department of Biochemistry
@@ -416,9 +431,16 @@ peradeniya--faculty-of-medicine--department-of-surgery,peradeniya--faculty-of-me
 peradeniya--faculty-of-science--department-of-botany,peradeniya--faculty-of-science,peradeniya,Department of Botany
 peradeniya--faculty-of-science--department-of-chemistry,peradeniya--faculty-of-science,peradeniya,Department of Chemistry
 peradeniya--faculty-of-science--department-of-zoology,peradeniya--faculty-of-science,peradeniya,Department of Zoology
+peradeniya--faculty-of-science--department-of-geology,peradeniya--faculty-of-science,peradeniya,Department of Geology
 peradeniya--faculty-of-science--department-of-mathematics,peradeniya--faculty-of-science,peradeniya,Department of Mathematics
+peradeniya--faculty-of-science--department-of-molecular-biology-and-biotechnology,peradeniya--faculty-of-science,peradeniya,Department of Molecular Biology and Biotechnology
 peradeniya--faculty-of-science--department-of-physics,peradeniya--faculty-of-science,peradeniya,Department of Physics
 peradeniya--faculty-of-science--department-of-statistics-and-computer-science,peradeniya--faculty-of-science,peradeniya,Department of Statistics and Computer Science
+peradeniya--faculty-of-veterinary-medicine-and-animal-science--department-of-basic-veterinary-sciences,peradeniya--faculty-of-veterinary-medicine-and-animal-science,peradeniya,Department of Basic Veterinary Sciences
+peradeniya--faculty-of-veterinary-medicine-and-animal-science--department-of-farm-animal-production-and-health,peradeniya--faculty-of-veterinary-medicine-and-animal-science,peradeniya,Department of Farm Animal Production and Health
+peradeniya--faculty-of-veterinary-medicine-and-animal-science--department-of-veterinary-clinical-sciences,peradeniya--faculty-of-veterinary-medicine-and-animal-science,peradeniya,Department of Veterinary Clinical Sciences
+peradeniya--faculty-of-veterinary-medicine-and-animal-science--department-of-veterinary-pathobiology,peradeniya--faculty-of-veterinary-medicine-and-animal-science,peradeniya,Department of Veterinary Pathobiology
+peradeniya--faculty-of-veterinary-medicine-and-animal-science--department-of-veterinary-public-health-and-pharmacology,peradeniya--faculty-of-veterinary-medicine-and-animal-science,peradeniya,Department of Veterinary Public Health and Pharmacology
 ruhuna--faculty-of-agriculture--computer-unit,ruhuna--faculty-of-agriculture,ruhuna,Computer Unit
 ruhuna--faculty-of-agriculture--department-of-agricultural-biology,ruhuna--faculty-of-agriculture,ruhuna,Department of Agricultural Biology
 ruhuna--faculty-of-agriculture--department-of-agricultural-economics-and-agribusiness,ruhuna--faculty-of-agriculture,ruhuna,Department of Agricultural Economics and Agribusiness
