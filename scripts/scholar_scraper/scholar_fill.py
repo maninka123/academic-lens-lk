@@ -12,6 +12,13 @@ ROOT = HERE.parents[1]
 OUT = ROOT / "scripts/New updates/scholar_fill_results.csv"
 DONE = ROOT / "scripts/New updates/scholar_fill_done.txt"
 todo = {r["academic_id"] for r in csv.DictReader(open(sys.argv[1], encoding="utf-8-sig"))}
+# Skip profile ids that the free pre-check (scholar_precheck.py) found to be dead: no API search is spent on them.
+PRE = ROOT / "scripts/New updates/scholar_precheck.csv"
+dead = set()
+if PRE.exists():
+    dead = {r["academic_id"] for r in csv.DictReader(open(PRE, encoding="utf-8-sig")) if r["result"] == "404"}
+    todo -= dead
+    if dead: print(len(dead), "known dead profile links skipped", flush=True)
 done = set(DONE.read_text().split()) if DONE.exists() else set()
 rows = []
 for f in sorted(glob.glob(str(ROOT / "Data files/universities/**/academics.csv"), recursive=True)):
