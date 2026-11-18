@@ -85,7 +85,7 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 - **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
 - **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
 
-More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md) | [Two workflows](docs/WORKFLOWS.md)
+More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md) | [Two workflows](docs/WORKFLOWS.md) | [Record counts](docs/DATA_COUNTS.md)
 
 ## Global benchmark method
 
