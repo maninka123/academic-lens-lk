@@ -1,5 +1,5 @@
 {
-  "version": "partial-d77658ec40",
+  "version": "partial-1a738456ce",
   "collectionDate": "2026-11-18",
   "country": "Sri Lanka",
   "institutionsInScope": 15,
@@ -18,7 +18,7 @@
   "metricAvailability": {
     "publications": 3008,
     "citations": 3270,
-    "recentCitations": 3093,
+    "recentCitations": 3101,
     "hIndex": 3272
   },
   "careerStages": {
