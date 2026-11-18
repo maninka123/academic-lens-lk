@@ -4,11 +4,11 @@ dist/
 playwright-report/
 test-results/
 
-Data files/_archive/
+Data/_archive/
 output/playwright/
-scripts/baselines/_cache/
+App/scripts/baselines/_cache/
 __pycache__/
-Data files/_exports/*.zip
+Data/_exports/*.zip
 
 # Local secrets (never commit)
 openalex-api-key.txt
@@ -17,123 +17,123 @@ openalex-api-key.txt
 private/
 
 # Private research candidate evidence and curator decisions
-Data files/_research_reviews/
+Data/_research_reviews/
 
 # Internal verification, investigation and review files (kept locally, not published)
-Data files/APPLICATION_HANDOFF.md
-Data files/MISSING_INSTITUTIONS_RESEARCH.md
-Data files/PROFILE_COMPLETION_REPORT.md
-Data files/_exports/
-Data files/_scholar_link_completion_*.json
-Data files/academic_affiliations.csv
-Data files/access_issues.csv
-Data files/baseline_records.csv
-Data files/collection_checkpoints.csv
-Data files/collection_report.md
-Data files/coverage_dimensions.csv
-Data files/employment_review_main_overlap_history.csv
-Data files/field_completeness.csv
-Data files/field_quality_review.csv
-Data files/identity_duplicate_records.csv
-Data files/institution_aliases.csv
-Data files/international/_*.json
-Data files/international/research_search_attempts.csv
-Data files/inventory_excluded_rows.csv
-Data files/journal_quartile_evidence.csv
-Data files/missing_field_resolutions.csv
-Data files/profile_completion_review.csv
-Data files/profile_verification.csv
-Data files/publication_coverage.csv
-Data files/publication_duplicate_records.csv
-Data files/publication_extraction_review.csv
-Data files/publication_identity_review.csv
-Data files/q1_partial_counts.csv
-Data files/qualification_review_*.csv
-Data files/research_search_attempts.csv
-Data files/research_search_log.csv
-Data files/scholar_link_review_*.csv
-Data files/scholar_review_*.csv
-Data files/scholar_yearly_worklist.csv
-Data files/source_observations.csv
-Data files/source_pages.csv
-Data files/supporting_data_dictionary.csv
-Data files/validation_report.json
-Data files/web_source_checks.csv
+Data/APPLICATION_HANDOFF.md
+Data/MISSING_INSTITUTIONS_RESEARCH.md
+Data/PROFILE_COMPLETION_REPORT.md
+Data/_exports/
+Data/_scholar_link_completion_*.json
+Data/academic_affiliations.csv
+Data/access_issues.csv
+Data/baseline_records.csv
+Data/collection_checkpoints.csv
+Data/collection_report.md
+Data/coverage_dimensions.csv
+Data/employment_review_main_overlap_history.csv
+Data/field_completeness.csv
+Data/field_quality_review.csv
+Data/identity_duplicate_records.csv
+Data/institution_aliases.csv
+Data/international/_*.json
+Data/international/research_search_attempts.csv
+Data/inventory_excluded_rows.csv
+Data/journal_quartile_evidence.csv
+Data/missing_field_resolutions.csv
+Data/profile_completion_review.csv
+Data/profile_verification.csv
+Data/publication_coverage.csv
+Data/publication_duplicate_records.csv
+Data/publication_extraction_review.csv
+Data/publication_identity_review.csv
+Data/q1_partial_counts.csv
+Data/qualification_review_*.csv
+Data/research_search_attempts.csv
+Data/research_search_log.csv
+Data/scholar_link_review_*.csv
+Data/scholar_review_*.csv
+Data/scholar_yearly_worklist.csv
+Data/source_observations.csv
+Data/source_pages.csv
+Data/supporting_data_dictionary.csv
+Data/validation_report.json
+Data/web_source_checks.csv
 docs/AUDIT.md
 docs/KIU_ICBT_VERIFICATION.md
 reports/enriched-merge-*/
-scripts/baselines/international_verification_audit.ipynb
+App/scripts/baselines/international_verification_audit.ipynb
 
 # Ethics application documents (private)
 Ethics Approval/
 
 # Raw metrics exports supplied for review (provenance is in change_log.csv and research_metric_observations.csv)
-Data files/User updates/
+Data/User updates/
 
 # Local secrets and scraper caches
-scripts/scholar_scraper/.env
-scripts/scholar_scraper/__pycache__/
-scripts/scholar_scraper/New updates/
+App/scripts/scholar_scraper/.env
+App/scripts/scholar_scraper/__pycache__/
+App/scripts/scholar_scraper/New updates/
 .env
-scripts/New updates/
-scripts/scholar_scraper/scholar_output/
+App/scripts/New updates/
+App/scripts/scholar_scraper/scholar_output/
 .vscode/
 
 # Third-party reference screenshots from design extraction (local only)
-design-system/source/
+App/design-system/source/
 
 # Study record-level input (pseudonymised, not published)
 research/scoring-validation/data/snapshot.csv
 
 # Internal review, evidence and log files: kept locally, removed from the public repository and its history
-Data files/change_log.csv
-Data files/employment_review.csv
-Data files/field_evidence.csv
-Data files/identity_review.csv
-Data files/profile_cautions.csv
-Data files/publication_verification.csv
-Data files/qualification_followup.csv
-Data files/research_identity_evidence.csv
-Data files/research_identity_matches.csv
-Data files/research_metric_observations.csv
-Data files/research_unresolved.csv
-Data files/unit_review.csv
-Data files/universities/uwu/COLLECTION_REVIEW.md
-Data files/universities/uwu/additional_animal_science_identity_review.json
-Data files/universities/uwu/current_profile_orcid_review.json
-Data files/universities/uwu/openalex_identity_review_2026-10-13.json
-public/data/field_evidence.csv
+Data/change_log.csv
+Data/employment_review.csv
+Data/field_evidence.csv
+Data/identity_review.csv
+Data/profile_cautions.csv
+Data/publication_verification.csv
+Data/qualification_followup.csv
+Data/research_identity_evidence.csv
+Data/research_identity_matches.csv
+Data/research_metric_observations.csv
+Data/research_unresolved.csv
+Data/unit_review.csv
+Data/universities/uwu/COLLECTION_REVIEW.md
+Data/universities/uwu/additional_animal_science_identity_review.json
+Data/universities/uwu/current_profile_orcid_review.json
+Data/universities/uwu/openalex_identity_review_2026-10-13.json
+App/public/data/field_evidence.csv
 
 # ---- Privacy rules (see AGENTS.md > Privacy rules and docs/PRIVACY_SAFEGUARDS.md) ----
 # Internal verification, review, log and evidence data never enters the public repository.
 # Patterns, so new files of these kinds are excluded without editing this list.
 # If you introduce a new kind of internal file, add a pattern here AND to FORBIDDEN_PATHS in scripts/privacy-guard.mjs.
-Data files/**/*review*.csv
-Data files/**/*review*.json
-Data files/**/*review*.md
-Data files/**/*evidence*.csv
-Data files/**/*evidence*.json
-Data files/**/*verification*.csv
-Data files/**/*verification*.json
-Data files/**/*verification*.md
-Data files/**/*change_log*
-Data files/**/*observation*.csv
-Data files/**/*unresolved*
-Data files/**/*followup*
-Data files/**/*worklist*
-Data files/**/*rejected*
-Data files/**/*overlapping*
-Data files/**/*search_log*
-Data files/**/*search_attempts*
-Data files/**/*checkpoint*
-Data files/**/*candidates*
-Data files/**/*excluded*
-Data files/**/*removal*
-Data files/**/*removed*
-Data files/_research_reviews/
-Data files/_archive/
-Data files/_exports/
-Data files/User updates/
+Data/**/*review*.csv
+Data/**/*review*.json
+Data/**/*review*.md
+Data/**/*evidence*.csv
+Data/**/*evidence*.json
+Data/**/*verification*.csv
+Data/**/*verification*.json
+Data/**/*verification*.md
+Data/**/*change_log*
+Data/**/*observation*.csv
+Data/**/*unresolved*
+Data/**/*followup*
+Data/**/*worklist*
+Data/**/*rejected*
+Data/**/*overlapping*
+Data/**/*search_log*
+Data/**/*search_attempts*
+Data/**/*checkpoint*
+Data/**/*candidates*
+Data/**/*excluded*
+Data/**/*removal*
+Data/**/*removed*
+Data/_research_reviews/
+Data/_archive/
+Data/_exports/
+Data/User updates/
 **/private/
 .env*
 !.env.example
@@ -144,3 +144,7 @@ Data files/User updates/
 *.bundle
 *.sqlite
 *.sqlite3
+
+# ---- International Doctoral Training Study: local and private, never published ----
+# The whole folder is excluded. scripts/privacy-guard.mjs also blocks it if anything is force-added.
+International-Doctoral-Training-Study/

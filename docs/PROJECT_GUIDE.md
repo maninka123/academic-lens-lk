@@ -2,7 +2,7 @@
 
 Explore Sri Lankan academic profiles, compare peer groups, and keep research data coverage visible.
 
-**[Open the website](https://maninka123.github.io/academic-lens-lk/)** · [Editable dataset guide](../Data%20files/README.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
+**[Open the website](https://maninka123.github.io/academic-lens-lk/)** · [Editable dataset guide](../Data/README.md) · [Collection prompt](DATA_COLLECTION_PROMPT.md)
 
 
 ## What you can do
@@ -44,7 +44,7 @@ Browser tests use installed Chrome. To use Playwright's bundled Chromium instead
 
 ## Update the data
 
-Edit the authoritative CSVs in `Data files/universities/<institution>/faculties/…`. Each academic appears once, in either a faculty CSV without a named department or a department CSV. Keep IDs and the existing header. Blank numeric cells mean unknown; zero requires evidence.
+Edit the authoritative CSVs in `Data/universities/<institution>/faculties/…`. Each academic appears once, in either a faculty CSV without a named department or a department CSV. Keep IDs and the existing header. Blank numeric cells mean unknown; zero requires evidence.
 
 ```sh
 npm run data:import
@@ -52,9 +52,9 @@ npm test
 npm run build
 ```
 
-Optional `Data files/metadata.json` can configure collection dates and the metric window.
+Optional `Data/metadata.json` can configure collection dates and the metric window.
 
-The importer discovers new academic CSVs recursively and regenerates `public/data/{academics,universities,faculties,departments}.csv` and metadata. Duplicate IDs, malformed CSVs and invalid numeric values stop import. Update `Data files/field-mapping.json` for manual field classifications; ambiguous units stay Unmapped. See the [dataset guide](../Data%20files/README.md) for folder rules and the [collection prompt](DATA_COLLECTION_PROMPT.md) for independent research work.
+The importer discovers new academic CSVs recursively and regenerates `public/data/{academics,universities,faculties,departments}.csv` and metadata. Duplicate IDs, malformed CSVs and invalid numeric values stop import. Update `Data/field-mapping.json` for manual field classifications; ambiguous units stay Unmapped. See the [dataset guide](../Data/README.md) for folder rules and the [collection prompt](DATA_COLLECTION_PROMPT.md) for independent research work.
 
 <!-- dataset-summary:start -->
 **Current snapshot:** the counts of profiles, institutions, faculties, departments and research coverage are regenerated at every import; see [reports/validation-report.md](../reports/validation-report.md) and the Overview page. Collected profiles are not the total academic population.
@@ -64,7 +64,7 @@ The website always uses the collected dataset. Visitors cannot switch datasets, 
 
 ## International baselines
 
-`Data files/international/` holds the benchmark samples in the same 32-column layout, nested by country, with the QS 2027 rank and tier of each university, the source rosters and the OpenAlex match evidence. See its [README](../Data%20files/international/README.md) for selection, sampling and limitations. To rebuild them:
+`Data/international/` holds the benchmark samples in the same 32-column layout, nested by country, with the QS 2027 rank and tier of each university, the source rosters and the OpenAlex match evidence. See its [README](../Data/international/README.md) for selection, sampling and limitations. To rebuild them:
 
 ```sh
 pip install requests beautifulsoup4 pypinyin
@@ -115,7 +115,7 @@ The site shows "Senior Lecturer" everywhere. Internally, Senior Lecturer and Ass
 
 ## PhD-awarding universities and QS 2027 ranks
 
-- `Data files/qs_rankings_phd_institutions_2027.csv` holds each awarding institution's QS 2027 rank as published ("=22", "1001-1200", "1401+"), a status (ranked, not_ranked, not_located), source and method. Spelling variants merge via `phd_institution_aliases.csv`.
+- `Data/qs_rankings_phd_institutions_2027.csv` holds each awarding institution's QS 2027 rank as published ("=22", "1001-1200", "1401+"), a status (ranked, not_ranked, not_located), source and method. Spelling variants merge via `phd_institution_aliases.csv`.
 - **not_located means not found, never unranked.** Never record another year's rank as 2027.
 - The importer adds `phdInstitution`, `phdQsRank` and `phdQsStatus` to profiles and publishes `qs_rankings_2027.csv`.
 - When adding academics, add their awarding university, any alias and its rank.
@@ -123,7 +123,7 @@ The site shows "Senior Lecturer" everywhere. Internally, Senior Lecturer and Ass
 
 ## Institution notices and comparison exclusions
 
-`Data files/institution_notices.csv` flags institutions with too little public staff data. Columns: `university_id`, `severity`, `exclude_from_comparison` (yes or blank), `title`, `message`, `source`, `status`. Add a row and run `npm run data:import`.
+`Data/institution_notices.csv` flags institutions with too little public staff data. Columns: `university_id`, `severity`, `exclude_from_comparison` (yes or blank), `title`, `message`, `source`, `status`. Add a row and run `npm run data:import`.
 
 - A notice shows as a red warning on the institution page, its card and Methodology.
 - With `exclude_from_comparison = yes` the institution keeps its page and profiles but is left out of comparisons, rankings, national statistics and filters (`Dataset.academics`); `Dataset.allAcademics` still holds them.

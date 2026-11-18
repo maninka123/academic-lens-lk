@@ -6,16 +6,16 @@ The repository is public. Internal research evidence (identity and employment re
 
 | Kind | Location | Tracked? |
 |---|---|---|
-| Public academic data (one `academics.csv` per department, rankings, aliases) | `Data files/universities/…`, `Data files/international/…` | Yes |
+| Public academic data (one `academics.csv` per department, rankings, aliases) | `Data/universities/…`, `Data/international/…` | Yes |
 | Published output | `public/data/` (allowlist) | Yes |
-| Internal evidence, reviews, logs | `Data files/` (matching `.gitignore` patterns) or `private/` | **No** |
+| Internal evidence, reviews, logs | `Data/` (matching `.gitignore` patterns) or `private/` | **No** |
 | Private backups | outside the repository | No |
 
 Internal files stay on disk and in the backup. Nothing deletes them, and no script copies them anywhere public.
 
 ## The layers
 
-1. **`.gitignore` patterns** exclude evidence, review, verification, log, worklist, rejected-match, candidate and removal-request files under `Data files/`, plus `private/`, `.env*`, keys and bundles. Patterns, not file lists, so new files of these kinds are covered automatically.
+1. **`.gitignore` patterns** exclude evidence, review, verification, log, worklist, rejected-match, candidate and removal-request files under `Data/`, plus `private/`, `.env*`, keys and bundles. Patterns, not file lists, so new files of these kinds are covered automatically.
 2. **`scripts/privacy-guard.mjs`** is the enforcement point. Every file is scanned in full whatever its size; a file that cannot be read, is binary where text is expected, or is too large to inspect is reported, never skipped. Modes:
    - `--staged` (pre-commit) and `--all` (every tracked file; CI and `npm run check:privacy`)
    - `--push` (pre-push): every commit being pushed, including a new branch compared with the remotes, for forbidden paths, credentials in added lines and credentials in commit messages. A file committed and then deleted is still caught. If the commits cannot be inspected the push is blocked, not assumed safe.
@@ -29,7 +29,7 @@ Internal files stay on disk and in the backup. Nothing deletes them, and no scri
    - Remarks about leave are removed from names and positions.
    - `researchIdentities`, `researchObservations`, `metricEvidence` and the status columns use a neutral public vocabulary: review and conflict wording is replaced, a profile recorded as belonging to a different person is not published (link, identity, evidence or numbers), and a match recorded with a conflict is not published as an identity.
    The full original stays in the private files.
-7. **Tracked source CSVs are as public as `public/data`.** `node scripts/redact-public-sources.mjs --apply` brings them to the same rules and first copies every original value to the git-ignored `Data files/_research_reviews/source_redactions.csv`. The guard fails if contact details or leave remarks reappear in a source CSV.
+7. **Tracked source CSVs are as public as `public/data`.** `node scripts/redact-public-sources.mjs --apply` brings them to the same rules and first copies every original value to the git-ignored `Data/_research_reviews/source_redactions.csv`. The guard fails if contact details or leave remarks reappear in a source CSV.
 8. **Accepted removals are permanent** (`scripts/removals.mjs`, `scripts/removals-lib.mjs`, see below).
 9. **Tests** (`scripts/privacy-guard.test.mjs`, `scripts/privacy-hardening.test.mjs`) create throwaway repositories and prove that internal files, secrets, large files, contact details, history, new-branch pushes and other branches are checked, and that the hooks block the commit.
 
@@ -37,7 +37,7 @@ Internal files stay on disk and in the backup. Nothing deletes them, and no scri
 
 An accepted removal should reach the live site in one commit, and must not be undone by a later import.
 
-1. `node scripts/removals.mjs add SL-xxxxxxxxxxxx --reason "<short reason>" --ref "<request reference>"` copies the full source row to `Data files/_research_reviews/removed_records.csv`, records the person in the private list `Data files/removal_requests.csv`, and deletes the row from the tracked source CSV.
+1. `node scripts/removals.mjs add SL-xxxxxxxxxxxx --reason "<short reason>" --ref "<request reference>"` copies the full source row to `Data/_research_reviews/removed_records.csv`, records the person in the private list `Data/removal_requests.csv`, and deletes the row from the tracked source CSV.
 2. `npm run data:import`, `npm run check:privacy`, `npm test`, then commit and push. The push deploys the site.
 3. From then on `data:import` withholds that ID and that name at that university, `node scripts/removals.mjs check` verifies it, and the privacy guard fails if the person reappears in `public/data` or in a source CSV. The list is private, so the guard enforces it on the maintainer's machine; CI cannot see it.
 4. Old copies: the person remains in earlier commits. Removing them needs a history rewrite, which needs the owner's explicit approval and a backup (see below), plus a GitHub Support request for cached views and pull-request references. Evidence needed for research integrity stays in the private archive.
@@ -75,3 +75,6 @@ Branch protection stops unreviewed changes reaching `main`. It does not remove a
 - The guard matches names and patterns. A sensitive file with an innocuous name, or sensitive wording that is not in the phrase list, is not detected. Review new data columns by hand.
 - Detection is not erasure. Anything ever pushed may exist in GitHub's cache or references (for example pull-request refs), forks, clones and archives.
 - The free-text scan finds listed patterns (social links, emails, phone numbers, internal phrases), not every possible subjective remark.
+
+## Doctoral-training study folder
+`International-Doctoral-Training-Study/` is local and private. It is listed in `.gitignore`, and `FORBIDDEN_PATHS` in `App/scripts/privacy-guard.mjs` blocks any file from it that is force-added (test: `privacy-guard.test.mjs`). The website never reads it. Study snapshots are read-only extractions of `Data/`; research variables are never written back.

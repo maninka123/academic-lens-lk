@@ -6,7 +6,7 @@
 
 `Ongoing Research | Public Preview`
 
-[**Open the app**](https://maninka123.github.io/academic-lens-lk/) | [Documentation](docs/PROJECT_GUIDE.md) | [Dataset guide](Data%20files/README.md) | [Report a correction](https://github.com/maninka123/academic-lens-lk/issues/new/choose)
+[**Open the app**](https://maninka123.github.io/academic-lens-lk/) | [Documentation](docs/PROJECT_GUIDE.md) | [Dataset guide](Data/README.md) | [Report a correction](https://github.com/maninka123/academic-lens-lk/issues/new/choose)
 
 ![License: MIT](https://img.shields.io/badge/code-MIT-blue) ![Stats: CC BY 4.0](https://img.shields.io/badge/stats-CC%20BY%204.0-blue) ![Status: partial collection](https://img.shields.io/badge/data-partial%20collection-orange)
 
@@ -51,12 +51,8 @@ Light theme shown. Every page and popup also has a dark theme (Appearance switch
 
 | Path | What is in it |
 |---|---|
-| `src/` | The web app (React, TypeScript, ECharts) and its styles |
-| `design-system/` | Design tokens and the written reference (`DESIGN.md`) |
-| `Data files/` | The editable dataset: one CSV per department, plus rankings and review files |
-| `public/` | Files served by the site (generated data, images, map) |
-| `scripts/` | Data import, metric collection (OpenAlex, Google Scholar) and checks |
-| `tests/` | Browser tests and their Playwright config |
+| `App/` | The web app: `src/`, `public/` (generated site data), `scripts/` (import, metrics, checks), `tests/`, `design-system/`, `package.json` |
+| `Data/` | The single authoritative dataset: one CSV per department, plus rankings and review files (evidence stays git-ignored) |
 | `docs/` | Guides and policies; legal notices are in `docs/legal/` |
 | `.github/` | CI workflow, issue forms and `SECURITY.md` (private-request guide) |
 | `reports/` | Generated coverage and validation reports |
@@ -67,13 +63,14 @@ Light theme shown. Every page and popup also has a dark theme (Appearance switch
 Node.js 22.12 or newer. No backend is needed.
 
 ```sh
+cd App
 npm ci
 npm run dev        # http://localhost:5173/academic-lens-lk/
 ```
 
 | Task | Command |
 |---|---|
-| Re-import data after editing the CSVs in `Data files/` | `npm run data:import` |
+| Re-import data after editing the CSVs in `Data/` | `npm run data:import` |
 | Type-check, unit and script tests | `npm test` |
 | Production build | `npm run build` |
 | End-to-end tests | `npm run test:e2e` |
@@ -88,11 +85,11 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 - **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
 - **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
 
-More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md)
+More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md) | [Two workflows](docs/WORKFLOWS.md)
 
 ## Global benchmark method
 
-Research comparisons use matched OpenAlex profiles on both sides, with Computer Science and Physics selected by default. Selected Medicine, Engineering, Law, Management and Business profiles are also included; their unverified metrics stay blank. [Dataset details](Data%20files/international/README.md).
+Research comparisons use matched OpenAlex profiles on both sides, with Computer Science and Physics selected by default. Selected Medicine, Engineering, Law, Management and Business profiles are also included; their unverified metrics stay blank. [Dataset details](Data/international/README.md).
 
 <details>
 <summary>Method, sampling and substitutions</summary>
@@ -101,7 +98,7 @@ Research comparisons use matched OpenAlex profiles on both sides, with Computer 
 - Official staff directories exclude visiting, adjunct, courtesy and emeritus roles. Departments larger than 25 are sampled systematically in directory order. These are samples, not national censuses.
 - OpenAlex matches require name and institution agreement. Ambiguous or implausibly merged profiles remain blank; lookup attempts are not matches. Groups need at least 10 valid values to report a median.
 - Use the career-stage control to compare similar positions. Elite samples often contain more professors than Sri Lankan directories.
-- Data and source rosters: [international dataset](Data%20files/international/). Build scripts: [scripts/baselines](scripts/baselines/).
+- Data and source rosters: [international dataset](Data/international/). Build scripts: [App/scripts/baselines](App/scripts/baselines/).
 
 ### Substitutions
 

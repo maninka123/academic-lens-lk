@@ -15,12 +15,16 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: App
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: App/package-lock.json
       - run: npm ci
       - name: Privacy validation (every tracked file, not only public/data)
         run: node scripts/privacy-guard.mjs --all
@@ -35,12 +39,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: public-site
-          path: dist
+          path: App/dist
           retention-days: 14
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         with:
-          path: dist
+          path: App/dist
   deploy:
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     needs: build

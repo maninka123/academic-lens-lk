@@ -1,52 +1,64 @@
 # Continue collecting Lanka Academia data
 
-Continue from the existing **Data files/** directory. Preserve all existing IDs and evidence; do not restart. Inspect the actual files and report their current count instead of assuming the outdated claim of 3,468 records. The initial imported snapshot had 1,173 unique academics.
+Continue from the existing `Data/` folder. Keep every existing ID and piece of evidence; do not restart. Count the real records instead of trusting any older figure.
 
-## Work boundary
+```mermaid
+flowchart LR
+  A[Inspect files<br/>and report real counts] --> B[Check each unit's<br/>staff page and profiles]
+  B --> C[Add or move rows in<br/>the right leaf CSV]
+  C --> D[Fill fields and<br/>research profiles]
+  D --> E[Validate]
+  E --> F[Log, save, next unit]
+  F --> B
+```
 
-Work only in `Data files/` and a separate export location for a deliverable ZIP. The application is being developed in parallel. Do not edit `src/`, `public/`, `scripts/`, application configuration, screenshots, or deployment files. Do not deploy or push the project. Do not replace the directory with an older flat ZIP. Save incremental progress directly in the authoritative hierarchy.
+## Boundaries
+
+- Work only in `Data/` (and a separate export for the ZIP). Do not edit `src/`, `public/`, `scripts/`, config, screenshots or deployment files, and do not push or deploy.
+- Internal evidence and review files stay private (git-ignored). See [PRIVACY_SAFEGUARDS.md](PRIVACY_SAFEGUARDS.md).
+- Save after each faculty or department. Keep checkpoint, source, access-issue, review, unresolved-field, coverage and change logs.
 
 ## Scope
 
-Cover Colombo, Peradeniya, Sri Jayewardenepura, Kelaniya, Moratuwa, Jaffna, Ruhuna, General Sir John Kotelawala Defence University, SLIIT, NSBM, CINEC, Horizon, KIU, ICBT, and Uva Wellassa University of Sri Lanka (uwu). Exclude Saegis. Use the exact institution names and IDs in `universities.csv`.
+Colombo, Peradeniya, Sri Jayewardenepura, Kelaniya, Moratuwa, Jaffna, Ruhuna, KDU, SLIIT, NSBM, CINEC, Horizon, KIU, ICBT and Uva Wellassa. Not Saegis. Use the exact names and IDs in `universities.csv`. Do not call an institution complete until every unit has been checked.
 
-## Inspect first
+## Where a person goes
 
-Read `README.md`, `data_dictionary.csv`, `COLLECTION_NOTES.txt`, all active academic CSVs, faculty inventories, coverage reports, unresolved fields, research lookup and source/access logs. The `_archive/` folder is a historical backup, not an input. Summarise actual unique academics, institutions and units covered, verified identities, populated metrics, missing fields, and pending directories. Distinguish staff-directory coverage from individual-field completeness.
+| Rule | Detail |
+|---|---|
+| Path | `universities/<id>/faculties/<faculty>/[departments/<department>/]academics.csv` |
+| One row per person | One active CSV only. Faculty CSVs hold people with no documented department. |
+| Names and slugs | Keep published names in the CSV; slugs are lowercase-hyphenated; reuse existing folders. |
+| Headers and IDs | Copy the header from an existing file. Keep existing IDs. New IDs are stable and collision-free. |
+| Moves | Move the row, never duplicate it; log the change. Do not merge ambiguous names. |
 
-## Authoritative structure
+## Who to add
 
-Every institution follows:
+- Current permanent or full-time staff. Put visiting, honorary, adjunct, retired, temporary or uncertain staff in `employment_review.csv`.
+- Do not infer employment, gender, age, qualifications or experience from a name, photo or title.
+- Priority: KIU and ICBT.
 
-```text
-Data files/universities/<university-id>/faculties/<faculty-slug>/academics.csv
-Data files/universities/<university-id>/faculties/<faculty-slug>/departments/<department-slug>/academics.csv
-```
+## What to collect
 
-Each person appears in exactly **one** active academic CSV. Faculty-level CSVs contain only people without a documented department. People with a documented department go in that department's CSV. Unknown faculty uses `unassigned-faculty`; a documented department may sit under it. Do not infer organisational membership. Preserve actual published faculty and department names in the CSV, independently of folder slugs. Use lowercase hyphenated slugs consistently, reusing existing folders before creating new ones. Header-only placeholder CSVs are valid.
+| Field | Rule |
+|---|---|
+| Identity and position | Name, institution, faculty, department, position as published |
+| Qualifications and PhD | PhD institution, country and year only when completed. "Dr" and ongoing PhDs are not evidence. Never substitute a master's university. |
+| Experience | Only from a dated employment history, with the calculation recorded |
+| Research profiles | Scholar first (official link, else verify affiliation and field), ResearchGate as a labelled backup, OpenAlex when the identity is verified |
+| Metrics | Citations, citations received in calendar years 2021–2025, h-index, publications. Never mix providers; keep each source's date. |
+| Unknown vs zero | Unreachable or unknown stays blank. Zero needs evidence. |
+| Publications | `publication_details.csv`: title, authors, year, venue, DOI, type, source URL, citations, quartile evidence. De-duplicate by DOI, then title and year. |
+| Q1 | Journal articles only, one documented quartile source, classified by publication year. Partial counts are stored separately and never presented as totals (see `q1_methodology.md`). |
 
-Keep every existing academic CSV header, column, and ID. Obtain the header from an existing authoritative file. Do not add a second master CSV or duplicate institution-level academic copies. `universities.csv` and each institution's `faculties.csv` are inventories. Supporting logs and evidence CSVs live at the root of `Data files/`, linked by `academic_id`.
+## Corrections and access
 
-For corrections to a person's documented unit, move the existing row to the right authoritative CSV without duplicating it. Maintain a change log. Do not merge ambiguous names. New IDs must be stable, collision-free, and documented; preserve existing IDs unchanged.
+Change a value only with stronger evidence, and log the old value, new value, source, date and reason. Respect access limits, CAPTCHAs and rate limits. Never fabricate a field.
 
-## Complete coverage and person-level evidence
+## Validate before handoff
 
-Check every official faculty, school, department and equivalent unit's staff directory and personal profiles. Add missing academics, prioritising KIU and ICBT. Prefer current permanent/full-time staff. Record visiting, honorary, adjunct, retired, temporary, or uncertain staff in `employment_review.csv`; do not infer employment from titles. Preserve uncertain existing records with status and evidence rather than silently deleting them.
+Headers identical, IDs unique, institution names and IDs valid, numbers numeric, links well formed, publications de-duplicated, units match the inventories. Count only active leaf records, not archives or evidence rows.
 
-Collect full name, institution, faculty, department, published position, qualifications, completed PhD institution/country/year, documented academic experience, research interests, publications, citations, citations received during 2021–2025, h-index, total Q1 journal publications, and Q1 journal publications published during 2021–2025. Keep profile URLs, Scholar/ResearchGate URLs, retrieval dates, snapshot dates, identity checks, verification status and notes in the existing schema. Record ORCID and field-level provenance in supporting evidence tables when the existing academic schema has no corresponding column. Do not infer gender, age, qualification, or experience from a person's name, photo or title.
+## Deliver
 
-Search Scholar for every person. Prefer official-profile links; otherwise verify affiliation, field and publication history. ResearchGate is a labelled backup; verified OpenAlex identities can supplement it. Do not combine platform counts or present them as interchangeable. Preserve source-specific snapshots and timestamps. An inaccessible profile means unknown, not zero.
-
-For five-year citations, count citations **received in calendar years 2021–2025**, not citations to papers published in those years and not a rolling “since” value. Blank unknown numeric fields remain blank; explicit zero requires evidence. Do not infer a doctorate from “Dr”, substitute a master's university, or treat an ongoing doctorate as completed. Calculate experience only from a sufficiently complete dated academic employment history, documenting the calculation.
-
-Keep publication evidence in `publication_details.csv`, linked by academic_id: title, authors, year, journal/venue, DOI, publication type, source URL, citation source/count, and quartile evidence. Deduplicate by DOI, then normalised title/year conservatively; retain authorship verification.
-
-Use a consistent documented quartile source and **publication-year** journal classification; record category, classification year and evidence URL. Q1 counts include journal articles only. Partial bibliographies or incomplete historical quartiles must not become complete Q1 totals; store verified partial counts separately. Describe the policy in `q1_methodology.md`. Optional `metadata.json` may set `collectionDate`, `window`, `scopeNote`, `description`, `limitations`, or `q1Methodology`; read the existing values before changing the measurement window.
-
-## Incremental handoff
-
-Save after each completed faculty/department and maintain checkpoint, source, access-issue, identity/employment review, unresolved-field, coverage and change logs. Respect access restrictions, CAPTCHAs and rate limits. Correct existing values only with stronger evidence, recording the old value, new value, source, date and reason. Never fabricate unavailable fields.
-
-Validate CSV parsing, identical academic headers, stable unique IDs across all active leaf files, valid institution names/IDs, numeric fields, source links, publication deduplication, organisational membership, and inventory consistency. Count only authoritative leaf records, excluding archives and supporting evidence rows.
-
-Deliver the updated hierarchical **Data files/** folder and a ZIP preserving the same relative structure, updated inventory/data dictionary/README, supporting evidence and logs, and a concise handoff reporting actual records added/corrected, verified research profiles, metric completeness, units checked and still pending. Do not claim an institution complete until every identified unit has been checked. Deliver available evidence even when some fields remain unknown. The app developer will run `npm run data:import` and deployment after handoff.
+The updated `Data/` folder and a ZIP with the same structure, plus a short handoff: records added or corrected, verified research profiles, metric completeness, units checked and units pending. The app developer runs `npm run data:import` and deploys.

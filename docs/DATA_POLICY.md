@@ -14,7 +14,7 @@ The website is static. The repository is public, and the deployed site and every
 | `international/*` | International benchmark samples, benchmark universities and departments, and matched OpenAlex values for Sri Lankan academics |
 | `world.geo.json` | Natural Earth boundaries (world-atlas) |
 
-**Internal evidence and review files** (identity and employment reviews, unresolved searches, correction logs such as `change_log.csv`, collection notes, rejected matches) are not published. They stay in the local, git-ignored `Data files/` folder (or `private/`) and in the maintainer's private backup. They are not in the current repository.
+**Internal evidence and review files** (identity and employment reviews, unresolved searches, correction logs such as `change_log.csv`, collection notes, rejected matches) are not published. They stay in the local, git-ignored `Data/` folder (or `private/`) and in the maintainer's private backup. They are not in the current repository.
 
 Internal verification and review files are excluded from the current published dataset. Earlier versions may remain accessible through Git history or third-party copies.
 
@@ -55,7 +55,7 @@ We recommend using these data for research and educational purposes, avoiding ev
 Requests for a factual correction or for removal of a record can be made through the project repository.
 
 1. Send the profile link (or the academic ID), the field concerned and, for corrections, an official source supporting the change. Use the project repository (GitHub issue form or private advisory), as linked on the Methodology page.
-2. The maintainer checks the evidence against official sources. Corrections are applied to the authoritative CSV in `Data files/universities/…`; the previous value, source and date are logged privately in `change_log.csv`/`field_evidence.csv`. Academic IDs never change.
+2. The maintainer checks the evidence against official sources. Corrections are applied to the authoritative CSV in `Data/universities/…`; the previous value, source and date are logged privately in `change_log.csv`/`field_evidence.csv`. Academic IDs never change.
 3. Removal requests: run `node scripts/removals.mjs add <ID> --reason "…"`. The record is removed from the source file and the published files at once, archived privately, and entered in a private list (ID, date, reason) that every import and the privacy guard enforce, so it is not re-collected or re-published. Evidence needed for research integrity is retained privately.
 4. Re-run `npm run data:import`, check the public output, and deploy manually.
 

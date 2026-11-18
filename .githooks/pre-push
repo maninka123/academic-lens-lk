@@ -1,4 +1,4 @@
 #!/bin/sh
 # Blocks pushes whose new commits add internal evidence files (stdin: refs being pushed).
 # Do not bypass with --no-verify.
-exec node "$(git rev-parse --show-toplevel)/scripts/privacy-guard.mjs" --push
+exec node "$(git rev-parse --show-toplevel)/App/scripts/privacy-guard.mjs" --push
