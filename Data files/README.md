@@ -37,6 +37,8 @@ The evidence, review and log files listed above are **private**: git-ignored, ke
 
 - **Uva Wellassa University (13 Oct 2026):** 204 published records across five faculties; 29 departments in the inventory, 20 with main academic records. 67 explicitly temporary or visiting appointments are outside the main population. See [UWU collection review](universities/uwu/COLLECTION_REVIEW.md).
 - **Enriched export (14 Oct 2026):** 659 existing profiles improved; qualifications cover 1,210 records and Scholar links 767 (record count then: 1,601, historical).
+- **Peradeniya (18 Nov 2026):** all 9 faculties compared with their official staff pages; new departments and the Management and Veterinary faculties added; qualifications and research links filled from profile pages; 28 dead Scholar links removed. Counts: see `dataset_summary.json`.
+- **Validation:** a doctorate described as in progress (Reading, Candidate, Thesis Submitted, study leave) is no longer flagged as a contradiction.
 
 ## Campuses & Schools (faculty-level units shown separately)
 

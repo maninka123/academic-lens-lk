@@ -83,7 +83,7 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 
 - **Missing stays missing.** An unknown value is never treated as zero.
 - **Every comparison shows its source, sample size and coverage.** Citation counts are not a measure of academic quality.
-- **Adding people:** list pages give names and positions; each person's own profile page gives their Google Scholar and ResearchGate links, which are then used for metrics before any name search.
+- **Adding people:** list pages give names and positions; each person's own profile page gives their Google Scholar and ResearchGate links, which are then used for metrics before any name search. Metrics come from OpenAlex and, for linked profiles, Google Scholar via a quota-first [pipeline](scripts/scholar_scraper/README.md).
 - **Titles:** **Prof** for documented professorial positions, otherwise **Dr** for a completed research doctorate.
 - **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
 - **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)

@@ -70,20 +70,17 @@ python openalex_scraper.py academics.csv --limit 50 --out scholar_output/openale
 
 Disambiguation strips titles (Prof, Dr…), matches surname and initial sequences (e.g. `H.L. De Silva`), maps 20+ Sri Lankan universities to OpenAlex institution IDs, checks topic overlap with the department, and avoids high-volume homonyms.
 
-## Scholar pipeline (the decided workflow)
-
-`scholar_pipeline.py` reads Google Scholar metrics for people who have a Scholar link but no figures. Always use it instead of the older loops.
+## Scholar pipeline
 
 ```bash
-python3 scholar_pipeline.py --dry-run                 # quota left and the size of the job
+python3 scholar_pipeline.py --dry-run             # quota left and job size
 python3 scholar_pipeline.py --uni peradeniya --limit 40 --apply
 ```
 
-1. **API only.** SerpApi reads each profile (free plan: 250 searches per month). The key lives only in this folder's git-ignored `.env` as `SERPAPI_API_KEY`.
-2. **Quota first.** The first step asks SerpApi how many searches are left (a free call). With no key, or at or below `--reserve` (default 5), the run stops immediately: no scraping and no waiting. Try again after the monthly reset.
-3. **Verify once.** Each profile id gets one final outcome in `scripts/New updates/scholar_ledger.csv` (`read_ok`, `read_zero`, `dead_404`, `name_mismatch`) and is not checked again unless `--recheck-days` (default 180) has passed.
-4. **Free checks before a search is spent.** `scholar_precheck.py` makes one plain request per profile (robots.txt allows `/citations?user=`). Dead ids and wrong-name profiles cost no search. If Google blocks that request the check is skipped; nothing here tries to get past a block or a CAPTCHA.
-5. **Apply.** `--apply` runs `scripts/apply_metric_updates.py` on the run file. A `name_mismatch` or `dead_404` needs a person to decide; never overwrite a record by hand without keeping the old value in the private review folder.
+- **API only:** SerpApi reads each profile (free plan: 250 searches a month). Key: `SERPAPI_API_KEY` in the git-ignored `.env`.
+- **Quota first:** no key, or quota at or below `--reserve` (default 5), stops the run at once.
+- **Verify once:** each profile id gets one outcome in `scripts/New updates/scholar_ledger.csv` (`read_ok`, `read_zero`, `dead_404`, `name_mismatch`) and is skipped for `--recheck-days` (default 180).
+- **Free pre-check:** dead or wrong-name profiles cost no search (`scholar_precheck.py`). Blocks and CAPTCHAs are never bypassed.
 
 ## 4. Tracking file
 
