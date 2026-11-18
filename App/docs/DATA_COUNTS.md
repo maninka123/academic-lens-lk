@@ -20,5 +20,5 @@ The website's "documented doctorates" (1,827) uses `doctorateStatus` in `App/scr
 All 69 excluded posts have no completed doctorate, so the figures are the same with or without the exclusion. Records that contradict (status says completed but the text says ongoing) are not counted as completed; there are none at present.
 
 ## Other counts you may see
-- Doctorates with a known country (1,541) and a known completion year (386) are subsets of the 1,827.
+- Doctorates with a known country (1,539) and a known completion year (398) are subsets of the 1,827.
 - A research-only analysis may apply further filters (current post, completion year); those are documented with that analysis, not here.
