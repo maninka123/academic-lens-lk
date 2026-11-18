@@ -147,12 +147,23 @@ const ONGOING = new RegExp(
   String.raw`(?:ph\.?\s?d|d\.?\s?phil|doctora\w*)[^;,]{0,40}?\b(?:reading|candidate|candidature|pursuing|ongoing|registered|in progress|submitted|undergoing|following|student|scholar)\b` +
     String.raw`|\b(?:reading|candidate|pursuing|ongoing|registered|following|reading for|studying for)\b[^;,]{0,30}?(?:ph\.?\s?d|d\.?\s?phil|doctora\w*)` +
     // Sri Lankan conventions: "Ph.D (R)" and "PhD (FGS, UOC)- Reading" both mean reading for the degree.
-    String.raw`|(?:ph\.?\s?d|d\.?\s?phil)\.?\s*\(\s*r\s*\)|(?:ph\.?\s?d|d\.?\s?phil)\.?\s*\([^)]{0,40}\)\s*-\s*reading\b`,
+    String.raw`|(?:ph\.?\s?d|d\.?\s?phil)\.?\s*\(\s*r\s*\)|(?:ph\.?\s?d|d\.?\s?phil)\.?\s*\([^)]{0,40}\)\s*-\s*reading\b` +
+    // Status words that close the entry even when the entry contains commas: "PhD (JCU, Australia) (in progress)",
+    // "Doctor of Philosophy in X, University of Y- Reading", "PhD in X (USJ, Sri Lanka) (Thesis Submitted)".
+    String.raw`|(?:ph\.?\s?d|d\.?\s?phil|doctor of philosophy)[^;]*\(\s*(?:in progress|reading|ongoing|candidate|pursuing|thesis submitted|submitted)\s*\)` +
+    String.raw`|(?:ph\.?\s?d|d\.?\s?phil|doctor of philosophy)[^;]*[-\u2013]\s*reading\b` +
+    String.raw`|study leave\s+for\s+(?:a\s+)?(?:ph\.?\s?d|d\.?\s?phil|doctora\w*)`,
   "i",
 );
 // "University of Reading" / "Reading, UK" is an awarding institution, not "reading for".
 const READING_UNIVERSITY =
   /university\s+of\s+reading|\breading\s*,?\s*(?:u\.?\s?k\b|united kingdom|england)/gi;
+// Enrolment periods such as "PhD in Accounting, University X (2025-2029)" describe a doctorate still under way.
+const FUTURE_RANGE = /\(\s*20\d{2}\s*[-\u2013]\s*20(?:2[6-9]|3\d)\s*\)/;
+const FUTURE_RANGE_ENTRY = new RegExp(
+  String.raw`(?:ph\.?\s?d|d\.?\s?phil|doctor of philosophy)[^;\n]*\(\s*20\d{2}\s*[-\u2013]\s*20(?:2[6-9]|3\d)\s*\)`,
+  "i",
+);
 const HONORARY = /\bhonor(?:ary|is causa)\b|\bh\.?\s?c\.?\b/i;
 /**
  * @returns {"completed_documented"|"in_progress"|"contradictory"|"unknown"}
@@ -168,11 +179,14 @@ export function doctorateStatus({ phd_status = "", qualifications = "" }) {
     .split(/[;\n]/)
     .map((s) => s.trim())
     .filter((s) => /\(\s*reading\s*\)\s*$/i.test(s) && DOCTORATE.test(s));
-  const ongoing = ONGOING.test(q) || readingEntries.length > 0;
-  // A doctorate named outside the ongoing phrase (e.g. "PhD (Colombo); reading DSc").
-  let withoutOngoing = q.replace(new RegExp(ONGOING.source, "gi"), " ");
-  for (const entry of readingEntries) withoutOngoing = withoutOngoing.replace(entry, " ");
-  const completedText = DOCTORATE.test(withoutOngoing) && !HONORARY.test(q);
+  const ongoing = ONGOING.test(q) || readingEntries.length > 0 || FUTURE_RANGE_ENTRY.test(q);
+  // A doctorate named outside the ongoing phrase (e.g. "PhD (Colombo); reading DSc"). An entry that is itself
+  // described as ongoing is removed whole, so "PhD: Reading for Doctor of Philosophy in X" is not also read as completed.
+  const entries = q.split(/[;\n]/).map((s) => s.trim()).filter(Boolean);
+  const isOngoingEntry = (entry) =>
+    ONGOING.test(entry) || /\(\s*reading\s*\)\s*$/i.test(entry) || FUTURE_RANGE.test(entry);
+  const completedText =
+    entries.some((entry) => DOCTORATE.test(entry) && !isOngoingEntry(entry)) && !HONORARY.test(q);
   const status = String(phd_status || "");
   if (status === "in_progress")
     return completedText ? "contradictory" : "in_progress";

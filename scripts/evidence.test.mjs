@@ -129,6 +129,18 @@ test("a completed doctorate needs explicit evidence", () => {
   assert.equal(s("listed_completed", "Ph.D. Genetics | University of Reading, U.K. | 1990"), "completed_documented");
   assert.equal(s("listed_completed", "B.Sc. (Jaffna); Ph.D. (Reading, UK)"), "completed_documented");
 });
+test("a doctorate described as ongoing is not read as completed", () => {
+  const inProgress = (q) => doctorateStatus({ phd_status: "in_progress", qualifications: q });
+  assert.equal(inProgress("MBA (Col); PhD (JCU, Australia) (in progress); B.Sc (SJP)"), "in_progress");
+  assert.equal(inProgress("PhD: Reading for Doctor of Philosophy in Management, ANU (2024-2028); Master's: MSc"), "in_progress");
+  assert.equal(inProgress("PhD: PhD in Accounting, Murdoch University, Australia (2025-2029)"), "in_progress");
+  assert.equal(inProgress("PhD: Doctor of Philosophy in Operations Management, Swinburne University, Australia- Reading."), "in_progress");
+  assert.equal(inProgress("Ph.D. in Mathematics (USJ, Sri Lanka) (Thesis Submitted); B.Sc."), "in_progress");
+  assert.equal(inProgress("B.Sc.Eng (Jaffna). On study leave for a PhD at Asian Institute of Technology, Thailand."), "in_progress");
+  // A completed doctorate next to the ongoing entry is still a genuine contradiction.
+  assert.equal(inProgress("PhD (Colombo); MSc"), "contradictory");
+  assert.equal(inProgress("PhD (Colombo); PhD (Leeds) (in progress)"), "contradictory");
+});
 test("contradictory doctorate records are flagged, not counted", () => {
   assert.equal(
     doctorateStatus({ phd_status: "listed_completed", qualifications: "PhD (Reading), MSc" }),
