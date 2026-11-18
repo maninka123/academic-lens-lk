@@ -44,11 +44,11 @@ No live algorithm or published score is changed by this study.
 
 ## Supporting documents
 
-[RESULTS.md](RESULTS.md) (figures, tables, interpretation) · [METHODOLOGY.md](METHODOLOGY.md) · [LIMITATIONS.md](LIMITATIONS.md) · [REFERENCES.md](REFERENCES.md) · [application score documentation](../../App/docs/STANDING_SCORE.md)
+[RESULTS.md](RESULTS.md) (figures, tables, interpretation) · [METHODOLOGY.md](METHODOLOGY.md) · [LIMITATIONS.md](LIMITATIONS.md) · [REFERENCES.md](REFERENCES.md) · [application score documentation](../../docs/STANDING_SCORE.md)
 
 ## Reproduce
 
-From repository root, using Python 3.9.6 and Node 22.23.2 (the run recorded here):
+From the `App/` folder (the application root), using Python 3.9.6 and Node 22.23.2 (the run recorded here):
 
 ```sh
 python3 -m venv /tmp/lanka-score-venv

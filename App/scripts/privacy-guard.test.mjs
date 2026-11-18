@@ -41,7 +41,7 @@ test("internal evidence files are recognised by name and folder", () => {
     ".env",
     "scripts/scholar_scraper/.env",
     "backup.bundle",
-    "research/scoring-validation/data/snapshot.csv",
+    "App/research/scoring-validation/data/snapshot.csv",
   ];
   const problems = checkPaths(bad);
   assert.equal(problems.length, bad.length, problems.join("\n"));

@@ -83,7 +83,7 @@ App/scripts/scholar_scraper/scholar_output/
 App/design-system/source/
 
 # Study record-level input (pseudonymised, not published)
-research/scoring-validation/data/snapshot.csv
+App/research/scoring-validation/data/snapshot.csv
 
 # Internal review, evidence and log files: kept locally, removed from the public repository and its history
 Data/Lanka-Academia/change_log.csv

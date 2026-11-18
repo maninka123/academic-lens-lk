@@ -35,7 +35,7 @@ export const FORBIDDEN_PATHS = [
   [/^Data\/Doctoral-Training-Study\//i, "research-paper data is local and private; it is never committed"],
   [/^International-Doctoral-Training-Study\//i, "the doctoral-training study is local and private; it is never committed"],
   [/^App\/reports\/enriched-merge[^/]*\//i, "internal merge audit"],
-  [/^research\/.*\/data\/snapshot\.csv$/i, "record-level research snapshot (pseudonymised, not anonymous)"],
+  [/^App\/research\/.*\/data\/snapshot\.csv$/i, "record-level research snapshot (pseudonymised, not anonymous)"],
 ];
 
 /** Exceptions: files whose names look internal but are public by design. */
