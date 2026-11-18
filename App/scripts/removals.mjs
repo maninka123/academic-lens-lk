@@ -13,13 +13,13 @@
 // From then on the importer withholds that ID and that name at that university, and the privacy guard fails
 // if the person reappears in public/data or in the tracked source CSVs.
 // Both private files are git-ignored. Public removal from GitHub's own caches and old history is a separate
-// step (see docs/PRIVACY_SAFEGUARDS.md, "Applying a removal request").
+// step (see App/docs/PRIVACY_SAFEGUARDS.md, "Applying a removal request").
 import fs from "node:fs";
 import path from "node:path";
 import Papa from "papaparse";
 import { loadRemovals, isRemoved, removalsPath, removedArchivePath } from "./removals-lib.mjs";
 
-const SOURCE = process.env.DATA_SOURCE || "../Data";
+const SOURCE = process.env.DATA_SOURCE || "../Data/Lanka-Academia";
 const [, , cmd = "list", ...rest] = process.argv;
 const flag = (name) => {
   const i = rest.indexOf(`--${name}`);

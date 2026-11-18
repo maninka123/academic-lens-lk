@@ -4,11 +4,11 @@ dist/
 playwright-report/
 test-results/
 
-Data/_archive/
+Data/Lanka-Academia/_archive/
 output/playwright/
 App/scripts/baselines/_cache/
 __pycache__/
-Data/_exports/*.zip
+Data/Lanka-Academia/_exports/*.zip
 
 # Local secrets (never commit)
 openalex-api-key.txt
@@ -17,58 +17,58 @@ openalex-api-key.txt
 private/
 
 # Private research candidate evidence and curator decisions
-Data/_research_reviews/
+Data/Lanka-Academia/_research_reviews/
 
 # Internal verification, investigation and review files (kept locally, not published)
-Data/APPLICATION_HANDOFF.md
-Data/MISSING_INSTITUTIONS_RESEARCH.md
-Data/PROFILE_COMPLETION_REPORT.md
-Data/_exports/
-Data/_scholar_link_completion_*.json
-Data/academic_affiliations.csv
-Data/access_issues.csv
-Data/baseline_records.csv
-Data/collection_checkpoints.csv
-Data/collection_report.md
-Data/coverage_dimensions.csv
-Data/employment_review_main_overlap_history.csv
-Data/field_completeness.csv
-Data/field_quality_review.csv
-Data/identity_duplicate_records.csv
-Data/institution_aliases.csv
-Data/international/_*.json
-Data/international/research_search_attempts.csv
-Data/inventory_excluded_rows.csv
-Data/journal_quartile_evidence.csv
-Data/missing_field_resolutions.csv
-Data/profile_completion_review.csv
-Data/profile_verification.csv
-Data/publication_coverage.csv
-Data/publication_duplicate_records.csv
-Data/publication_extraction_review.csv
-Data/publication_identity_review.csv
-Data/q1_partial_counts.csv
-Data/qualification_review_*.csv
-Data/research_search_attempts.csv
-Data/research_search_log.csv
-Data/scholar_link_review_*.csv
-Data/scholar_review_*.csv
-Data/scholar_yearly_worklist.csv
-Data/source_observations.csv
-Data/source_pages.csv
-Data/supporting_data_dictionary.csv
-Data/validation_report.json
-Data/web_source_checks.csv
-docs/AUDIT.md
-docs/KIU_ICBT_VERIFICATION.md
-reports/enriched-merge-*/
+Data/Lanka-Academia/APPLICATION_HANDOFF.md
+Data/Lanka-Academia/MISSING_INSTITUTIONS_RESEARCH.md
+Data/Lanka-Academia/PROFILE_COMPLETION_REPORT.md
+Data/Lanka-Academia/_exports/
+Data/Lanka-Academia/_scholar_link_completion_*.json
+Data/Lanka-Academia/academic_affiliations.csv
+Data/Lanka-Academia/access_issues.csv
+Data/Lanka-Academia/baseline_records.csv
+Data/Lanka-Academia/collection_checkpoints.csv
+Data/Lanka-Academia/collection_report.md
+Data/Lanka-Academia/coverage_dimensions.csv
+Data/Lanka-Academia/employment_review_main_overlap_history.csv
+Data/Lanka-Academia/field_completeness.csv
+Data/Lanka-Academia/field_quality_review.csv
+Data/Lanka-Academia/identity_duplicate_records.csv
+Data/Lanka-Academia/institution_aliases.csv
+Data/Lanka-Academia/international/_*.json
+Data/Lanka-Academia/international/research_search_attempts.csv
+Data/Lanka-Academia/inventory_excluded_rows.csv
+Data/Lanka-Academia/journal_quartile_evidence.csv
+Data/Lanka-Academia/missing_field_resolutions.csv
+Data/Lanka-Academia/profile_completion_review.csv
+Data/Lanka-Academia/profile_verification.csv
+Data/Lanka-Academia/publication_coverage.csv
+Data/Lanka-Academia/publication_duplicate_records.csv
+Data/Lanka-Academia/publication_extraction_review.csv
+Data/Lanka-Academia/publication_identity_review.csv
+Data/Lanka-Academia/q1_partial_counts.csv
+Data/Lanka-Academia/qualification_review_*.csv
+Data/Lanka-Academia/research_search_attempts.csv
+Data/Lanka-Academia/research_search_log.csv
+Data/Lanka-Academia/scholar_link_review_*.csv
+Data/Lanka-Academia/scholar_review_*.csv
+Data/Lanka-Academia/scholar_yearly_worklist.csv
+Data/Lanka-Academia/source_observations.csv
+Data/Lanka-Academia/source_pages.csv
+Data/Lanka-Academia/supporting_data_dictionary.csv
+Data/Lanka-Academia/validation_report.json
+Data/Lanka-Academia/web_source_checks.csv
+App/docs/AUDIT.md
+App/docs/KIU_ICBT_VERIFICATION.md
+App/reports/enriched-merge-*/
 App/scripts/baselines/international_verification_audit.ipynb
 
 # Ethics application documents (private)
 Ethics Approval/
 
 # Raw metrics exports supplied for review (provenance is in change_log.csv and research_metric_observations.csv)
-Data/User updates/
+Data/Lanka-Academia/User updates/
 
 # Local secrets and scraper caches
 App/scripts/scholar_scraper/.env
@@ -86,22 +86,22 @@ App/design-system/source/
 research/scoring-validation/data/snapshot.csv
 
 # Internal review, evidence and log files: kept locally, removed from the public repository and its history
-Data/change_log.csv
-Data/employment_review.csv
-Data/field_evidence.csv
-Data/identity_review.csv
-Data/profile_cautions.csv
-Data/publication_verification.csv
-Data/qualification_followup.csv
-Data/research_identity_evidence.csv
-Data/research_identity_matches.csv
-Data/research_metric_observations.csv
-Data/research_unresolved.csv
-Data/unit_review.csv
-Data/universities/uwu/COLLECTION_REVIEW.md
-Data/universities/uwu/additional_animal_science_identity_review.json
-Data/universities/uwu/current_profile_orcid_review.json
-Data/universities/uwu/openalex_identity_review_2026-10-13.json
+Data/Lanka-Academia/change_log.csv
+Data/Lanka-Academia/employment_review.csv
+Data/Lanka-Academia/field_evidence.csv
+Data/Lanka-Academia/identity_review.csv
+Data/Lanka-Academia/profile_cautions.csv
+Data/Lanka-Academia/publication_verification.csv
+Data/Lanka-Academia/qualification_followup.csv
+Data/Lanka-Academia/research_identity_evidence.csv
+Data/Lanka-Academia/research_identity_matches.csv
+Data/Lanka-Academia/research_metric_observations.csv
+Data/Lanka-Academia/research_unresolved.csv
+Data/Lanka-Academia/unit_review.csv
+Data/Lanka-Academia/universities/uwu/COLLECTION_REVIEW.md
+Data/Lanka-Academia/universities/uwu/additional_animal_science_identity_review.json
+Data/Lanka-Academia/universities/uwu/current_profile_orcid_review.json
+Data/Lanka-Academia/universities/uwu/openalex_identity_review_2026-10-13.json
 App/public/data/field_evidence.csv
 
 # ---- Privacy rules (see AGENTS.md > Privacy rules and docs/PRIVACY_SAFEGUARDS.md) ----
@@ -130,10 +130,10 @@ Data/**/*candidates*
 Data/**/*excluded*
 Data/**/*removal*
 Data/**/*removed*
-Data/_research_reviews/
-Data/_archive/
-Data/_exports/
-Data/User updates/
+Data/Lanka-Academia/_research_reviews/
+Data/Lanka-Academia/_archive/
+Data/Lanka-Academia/_exports/
+Data/Lanka-Academia/User updates/
 **/private/
 .env*
 !.env.example
@@ -148,3 +148,4 @@ Data/User updates/
 # ---- International Doctoral Training Study: local and private, never published ----
 # The whole folder is excluded. scripts/privacy-guard.mjs also blocks it if anything is force-added.
 International-Doctoral-Training-Study/
+Data/Doctoral-Training-Study/

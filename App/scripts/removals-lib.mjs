@@ -8,8 +8,8 @@
 import fs from "node:fs";
 import Papa from "papaparse";
 
-export const removalsPath = (source = "../Data") => `${source}/removal_requests.csv`;
-export const removedArchivePath = (source = "../Data") => `${source}/_research_reviews/removed_records.csv`;
+export const removalsPath = (source = "../Data/Lanka-Academia") => `${source}/removal_requests.csv`;
+export const removedArchivePath = (source = "../Data/Lanka-Academia") => `${source}/_research_reviews/removed_records.csv`;
 
 const TITLES = /\b(prof(essor)?|dr|mr|mrs|ms|miss|rev|ven|snr|sr|eng|ir|ch|hon)\b\.?/gi;
 /** Name without titles, punctuation, spacing or case: "Prof. A.B. Perera" and "a b perera" agree. */
@@ -17,7 +17,7 @@ export const normaliseName = (name) =>
   String(name ?? "").normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/\([^)]*\)/g, " ").replace(TITLES, " ").replace(/[^a-z]/gi, "").toLowerCase();
 const nameKey = (name, university) => `${normaliseName(university)}|${normaliseName(name)}`;
 
-export function loadRemovals(source = "../Data") {
+export function loadRemovals(source = "../Data/Lanka-Academia") {
   const file = removalsPath(source);
   const empty = { ids: new Set(), keys: new Set(), rows: [], file, exists: false };
   if (!fs.existsSync(file)) return empty;

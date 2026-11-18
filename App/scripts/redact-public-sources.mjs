@@ -19,7 +19,7 @@ import { stripContactDetails, stripLeaveRemark } from "./public-notes.mjs";
 import { researchInputs, rejectedProfileKeys } from "./research-data.mjs";
 import { profileKey } from "./evidence.mjs";
 
-const SOURCE = process.env.DATA_SOURCE || "../Data";
+const SOURCE = process.env.DATA_SOURCE || "../Data/Lanka-Academia";
 const apply = process.argv.includes("--apply");
 const ARCHIVE = `${SOURCE}/_research_reviews/source_redactions.csv`;
 

@@ -14,7 +14,7 @@ import openalex as oa
 import build_international as bi
 
 ROOT = Path(__file__).resolve().parents[3]
-INTL = ROOT / "Data" / "international"
+INTL = ROOT / "Data" / "Lanka-Academia" / "international"
 ap = argparse.ArgumentParser(); ap.add_argument("--elig", required=True); a = ap.parse_args()
 elig = json.load(open(a.elig))
 sample = bi.systematic(elig)
@@ -24,7 +24,7 @@ old = list(csv.DictReader(open(path, encoding="utf-8-sig", newline="")))
 old_by = {r["full_name"]: r for r in old}
 keep = {p["name"] for p in sample}
 dropped = [r for r in old if r["full_name"] not in keep]
-priv = ROOT / "Data/_research_reviews/ningbo_cs_previous_sample.csv"
+priv = ROOT / "Data/Lanka-Academia/_research_reviews/ningbo_cs_previous_sample.csv"
 priv.parent.mkdir(parents=True, exist_ok=True)
 with open(priv, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.DictWriter(f, fieldnames=bi.HEADER, lineterminator="\n"); w.writeheader(); w.writerows(old)

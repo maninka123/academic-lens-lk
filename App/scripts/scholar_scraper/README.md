@@ -47,7 +47,7 @@ python enrich_academics.py --scan-repo --limit 50              # fill up to 50 p
 python enrich_academics.py --scan-repo --limit 50 --sync-app   # and sync the web dataset
 ```
 
-Finds academics in `Data/universities/**/academics.csv` with missing metrics, retrieves and validates them, saves the departmental CSVs (UTF-8 BOM kept), logs to `research_metric_observations.csv` and `change_log.csv`, and appends to the new-updates file.
+Finds academics in `Data/Lanka-Academia/universities/**/academics.csv` with missing metrics, retrieves and validates them, saves the departmental CSVs (UTF-8 BOM kept), logs to `research_metric_observations.csv` and `change_log.csv`, and appends to the new-updates file.
 
 ## 3. Dedicated tools
 

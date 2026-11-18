@@ -14,7 +14,7 @@ import openalex as oa
 import build_international as bi
 
 ROOT = Path(__file__).resolve().parents[3]
-INTL = ROOT / "Data" / "international"
+INTL = ROOT / "Data" / "Lanka-Academia" / "international"
 SOURCE = "https://www.murdoch.edu.au/schools/information-technology/about/our-people"
 # Page order. (name, position, profile url or "")
 PAGE = [

@@ -40,7 +40,7 @@ import openalex_scraper as oa
 # Paths
 ROOT_DIR = CURRENT_DIR.parent
 REPO_DIR = ROOT_DIR / "repo_temp"
-DATA_DIR = REPO_DIR / "Data"
+DATA_DIR = REPO_DIR / "Data" / "Lanka-Academia"
 NEW_UPDATES_CSV = ROOT_DIR / "New updates" / "newly_updated_academics.csv"
 
 TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")

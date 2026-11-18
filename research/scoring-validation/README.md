@@ -44,7 +44,7 @@ No live algorithm or published score is changed by this study.
 
 ## Supporting documents
 
-[RESULTS.md](RESULTS.md) (figures, tables, interpretation) · [METHODOLOGY.md](METHODOLOGY.md) · [LIMITATIONS.md](LIMITATIONS.md) · [REFERENCES.md](REFERENCES.md) · [application score documentation](../../docs/STANDING_SCORE.md)
+[RESULTS.md](RESULTS.md) (figures, tables, interpretation) · [METHODOLOGY.md](METHODOLOGY.md) · [LIMITATIONS.md](LIMITATIONS.md) · [REFERENCES.md](REFERENCES.md) · [application score documentation](../../App/docs/STANDING_SCORE.md)
 
 ## Reproduce
 

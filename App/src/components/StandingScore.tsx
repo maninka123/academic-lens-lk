@@ -13,7 +13,7 @@ import {
 import type { Academic } from "../types";
 
 const DOCS =
-  "https://github.com/maninka123/academic-lens-lk/blob/main/docs/STANDING_SCORE.md";
+  "https://github.com/maninka123/academic-lens-lk/blob/main/App/docs/STANDING_SCORE.md";
 const CONFIDENCE_TEXT = {
   high: "High confidence",
   medium: "Medium confidence",

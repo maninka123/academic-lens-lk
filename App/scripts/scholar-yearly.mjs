@@ -11,7 +11,7 @@ import Papa from "papaparse";
 import { csvRead } from "./shared.mjs";
 
 export const YEARS = [2021, 2022, 2023, 2024, 2025];
-const SOURCE = process.env.ATLAS_DATA_DIR || "../Data";
+const SOURCE = process.env.ATLAS_DATA_DIR || "../Data/Lanka-Academia";
 
 export function scholarId(url = "") {
   try {

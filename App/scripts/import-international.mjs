@@ -7,7 +7,7 @@ import { sanitizeUrl, doctorateStatus } from "./evidence.mjs";
 import { rankFor, careerStage } from "./countries.mjs";
 import { checkPublicData } from "./public-assets.mjs";
 
-const source = (process.argv[2] || "../Data") + "/international";
+const source = (process.argv[2] || "../Data/Lanka-Academia") + "/international";
 const out = "public/data/international";
 if (!fs.existsSync(source + "/universities.csv")) {
   console.log("No international baseline data found; skipping.");

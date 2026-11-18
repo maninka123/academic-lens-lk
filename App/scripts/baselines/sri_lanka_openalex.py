@@ -14,7 +14,7 @@ import openalex as oa
 from build_international import metrics
 
 ROOT = Path(__file__).resolve().parents[3]
-DATA = ROOT / "Data"
+DATA = ROOT / "Data" / "Lanka-Academia"
 TITLES = r"^(prof(essor)?|dr|mr|mrs|ms|miss|eng|rev|ven|snr|senior|emeritus|ch\.?eng|capt|cdr|lt|col|brig)\.?\s+"
 SL_INST = {
     "colombo": ["I90678064", "I4405259008"], "peradeniya": ["I111199411"], "jayewardenepura": ["I172828483"],

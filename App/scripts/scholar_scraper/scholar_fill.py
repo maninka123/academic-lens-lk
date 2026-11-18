@@ -21,7 +21,7 @@ if PRE.exists():
     if dead: print(len(dead), "known dead profile links skipped", flush=True)
 done = set(DONE.read_text().split()) if DONE.exists() else set()
 rows = []
-for f in sorted(glob.glob(str(ROOT / "Data/universities/**/academics.csv"), recursive=True)):
+for f in sorted(glob.glob(str(ROOT / "Data/Lanka-Academia/universities/**/academics.csv"), recursive=True)):
     for r in csv.DictReader(open(f, encoding="utf-8-sig")):
         if r["academic_id"] in todo and r["academic_id"] not in done:
             r["source_file_path"] = f; rows.append(r)

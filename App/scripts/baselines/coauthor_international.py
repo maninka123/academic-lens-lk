@@ -14,7 +14,7 @@ import openalex as oa
 import build_international as bi
 
 ROOT = Path(__file__).resolve().parents[3]
-BASE = ROOT / "Data" / "international"
+BASE = ROOT / "Data" / "Lanka-Academia" / "international"
 MIN_SHARED = 3
 TODAY = datetime.date.today().isoformat()
 

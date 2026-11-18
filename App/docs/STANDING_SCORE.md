@@ -2,7 +2,7 @@
 
 A 0–100 **weighted blend of percentiles** that shows where a profile sits among collected Sri Lankan profiles. It is **not** a percentile of a combined score, and it does not measure research quality, teaching, service or merit.
 
-[Main README](../README.md) · code: `src/analytics/standing-score.ts` · [validation study](../research/scoring-validation/README.md) · [methods](../research/scoring-validation/METHODOLOGY.md) · [results](../research/scoring-validation/RESULTS.md)
+[Main README](../README.md) · code: `src/analytics/standing-score.ts` · [validation study](../../research/scoring-validation/README.md) · [methods](../../research/scoring-validation/METHODOLOGY.md) · [results](../../research/scoring-validation/RESULTS.md)
 
 ## How it is calculated
 
@@ -51,10 +51,10 @@ Publications, recent citations and h-index describe indexed output and citation 
 
 Snapshot `partial-e191f13547`, code at commit `ab0ad8a`: 3,651 eligible records, 2,535 scored, 1,748 with no mapped discipline.
 
-![Indicator correlations](../research/scoring-validation/figures/indicator-correlations.png)
+![Indicator correlations](../../research/scoring-validation/figures/indicator-correlations.png)
 *The three measures overlap strongly (Spearman 0.75 to 0.87), so the weights double-count related information.*
 
-![Weight sensitivity](../research/scoring-validation/figures/weight-sensitivity.png)
+![Weight sensitivity](../../research/scoring-validation/figures/weight-sensitivity.png)
 *Alternative weightings keep overall ranks similar but move individual scores by up to 8–15 points and change 134–221 bands.*
 
 Identity, provider and peer-group choices also changed coverage and results. None of this shows the score is valid, fair or optimally weighted.

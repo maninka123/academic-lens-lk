@@ -30,7 +30,7 @@ import {
   checkPublicData,
 } from "./public-assets.mjs";
 
-const source = process.argv[2] || "../Data";
+const source = process.argv[2] || "../Data/Lanka-Academia";
 const out = "public/data";
 const COUNTRY = "Sri Lanka";
 const walk = (p) =>
@@ -473,7 +473,7 @@ fs.writeFileSync(
 );
 
 // --- Snapshot summary shared by the app, README and validation report.
-const intlPath = "../Data/international/universities.csv";
+const intlPath = "../Data/Lanka-Academia/international/universities.csv";
 const intl = fs.existsSync(source + "/international/universities.csv")
   ? csvRead(source + "/international/universities.csv")
   : fs.existsSync(intlPath)
@@ -525,15 +525,15 @@ fs.writeFileSync(
 
 // --- Internal validation report (not published).
 const reviewFile = (f) => optionalCsv(f).length;
-fs.mkdirSync("../reports", { recursive: true });
+fs.mkdirSync("reports", { recursive: true });
 fs.writeFileSync(
-  "../reports/dataset-summary.json",
+  "reports/dataset-summary.json",
   JSON.stringify(summary, null, 2),
 );
 const line = (label, v, of = totals.academic_records) =>
   `| ${label} | ${v} | ${of ? pct(v, of) + "%" : "—"} |`;
 fs.writeFileSync(
-  "../reports/validation-report.md",
+  "reports/validation-report.md",
   [
     `# Dataset validation report`,
     ``,
@@ -584,7 +584,7 @@ fs.writeFileSync(
 );
 
 // --- Keep the README snapshot in step with this import.
-const readme = "../README.md";
+const readme = "README.md";
 if (fs.existsSync(readme)) {
   const block = [
     "<!-- dataset-summary:start -->",

@@ -12,13 +12,13 @@ Rules (never invent, never zero-fill):
 Every change is logged in change_log.csv and per-field provenance (and the yearly Scholar counts) goes to
 research_metric_observations.csv.
 
-Usage: python3 App/scripts/apply_metric_updates.py "Data/User updates/newly_updated_academics.csv"
+Usage: python3 App/scripts/apply_metric_updates.py "Data/Lanka-Academia/User updates/newly_updated_academics.csv"
 """
 import csv, glob, io, json, re, sys
 from collections import Counter, defaultdict
 
 import pathlib
-ROOT = str(pathlib.Path(__file__).resolve().parents[2] / "Data") + "/"
+ROOT = str(pathlib.Path(__file__).resolve().parents[2] / "Data" / "Lanka-Academia") + "/"
 FIELDS = ["total_citations", "citations_2021_2025", "h_index", "total_publications"]
 YEARS = ["y2021", "y2022", "y2023", "y2024", "y2025"]
 

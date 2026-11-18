@@ -413,8 +413,8 @@ export async function buildPersonReport(
   // Each reference is a clickable link in the PDF.
   const REPO = "https://github.com/maninka123/academic-lens-lk/blob/main/";
   ([
-    ["Method", "docs/STANDING_SCORE.md", REPO + "docs/STANDING_SCORE.md"],
-    ["Data dictionary and policy", "Data/README.md", REPO + "Data/README.md"],
+    ["Method", "App/docs/STANDING_SCORE.md", REPO + "App/docs/STANDING_SCORE.md"],
+    ["Data dictionary and policy", "Data/Lanka-Academia/README.md", REPO + "Data/Lanka-Academia/README.md"],
     ["Source", "https://maninka123.github.io/academic-lens-lk/", "https://maninka123.github.io/academic-lens-lk/"],
   ] as const).forEach(([label, shown, url]) => {
     ensure(6);

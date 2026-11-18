@@ -24,16 +24,17 @@ export const FORBIDDEN_PATHS = [
   [/(^|\/)Ethics Approval\//i, "ethics application documents are private"],
   [/(^|\/)\.env(\.(?!example$)[^/]*)?$/i, "environment file with secrets (only .env.example may be committed)"],
   [/\.(pem|key|p12|pfx|bundle|sqlite3?|db)$/i, "key, bundle or database file"],
-  [/^Data\/(_research_reviews|_archive|_exports|User updates)\//i, "internal research folder"],
+  [/^Data\/Lanka-Academia\/(_research_reviews|_archive|_exports|User updates)\//i, "internal research folder"],
   [/(^|\/)(New updates|scholar_output)\//i, "scraper working output"],
-  [/^Data\/(APPLICATION_HANDOFF|MISSING_INSTITUTIONS_RESEARCH|PROFILE_COMPLETION_REPORT)\b/i, "internal collection report"],
+  [/^Data\/Lanka-Academia\/(APPLICATION_HANDOFF|MISSING_INSTITUTIONS_RESEARCH|PROFILE_COMPLETION_REPORT)\b/i, "internal collection report"],
   // Internal evidence data: reviews, investigations, logs, unresolved searches, rejected matches.
   [
     /^Data\/.*(review|evidence|verification|change_log|observation|unresolved|followup|follow_up|worklist|rejected|overlapping|search_log|search_attempts|checkpoint|handoff|candidates|excluded|removal|removed)[^/]*\.(csv|tsv|json|jsonl|md|txt|xlsx|ipynb)$/i,
     "internal verification, review, log or evidence file",
   ],
+  [/^Data\/Doctoral-Training-Study\//i, "research-paper data is local and private; it is never committed"],
   [/^International-Doctoral-Training-Study\//i, "the doctoral-training study is local and private; it is never committed"],
-  [/^reports\/enriched-merge[^/]*\//i, "internal merge audit"],
+  [/^App\/reports\/enriched-merge[^/]*\//i, "internal merge audit"],
   [/^research\/.*\/data\/snapshot\.csv$/i, "record-level research snapshot (pseudonymised, not anonymous)"],
 ];
 
@@ -73,17 +74,17 @@ export function checkContent(rel, text, { removedIds = null } = {}) {
   if (!TEXT_EXT.test(rel)) return problems;
   for (const [re, label] of SECRET_PATTERNS) {
     // Source data and tests legitimately contain tracking-style URL parameters (the importer strips them from published data).
-    if (label === "credential-like URL parameter" && !/^public\//.test(rel)) continue;
+    if (label === "credential-like URL parameter" && !/^App\/public\//.test(rel)) continue;
     if (re.test(text)) problems.push(`${rel}: possible ${label}`);
   }
-  if (/^public\/data\/academics\.csv$/.test(rel) || /^public\/data\/international\/academics\.csv$/.test(rel)) {
+  if (/^App\/public\/data\/academics\.csv$/.test(rel) || /^App\/public\/data\/international\/academics\.csv$/.test(rel)) {
     const [headerLine] = text.replace(/^\uFEFF/, "").split(/\r?\n/, 1);
     const header = headerLine.split(",");
     if (header.length > 60) problems.push(`${rel}: unexpectedly many columns`);
   }
-  if (/^public\/data\/academics\.csv$/.test(rel)) problems.push(...sensitiveFieldProblems(text, rel));
-  if (/^Data\/universities\/.*\/academics\.csv$/.test(rel)) problems.push(...sourceFieldProblems(text, rel));
-  if (removedIds && removedIds.size && /(^public\/data\/academics\.csv$|^Data\/universities\/.*\/academics\.csv$)/.test(rel)) {
+  if (/^App\/public\/data\/academics\.csv$/.test(rel)) problems.push(...sensitiveFieldProblems(text, rel));
+  if (/^Data\/Lanka-Academia\/universities\/.*\/academics\.csv$/.test(rel)) problems.push(...sourceFieldProblems(text, rel));
+  if (removedIds && removedIds.size && /(^App\/public\/data\/academics\.csv$|^Data\/Lanka-Academia\/universities\/.*\/academics\.csv$)/.test(rel)) {
     const ids = text.match(/SL-[0-9a-f]{12}/g) || [];
     const hit = new Set(ids.filter((i) => removedIds.has(i)));
     if (hit.size) problems.push(`${rel}: ${hit.size} record(s) from an accepted removal request are present again`);
@@ -101,7 +102,7 @@ function inspect(rel, buf, opts) {
 }
 
 const removedIdsHere = (cwd) => {
-  try { return loadRemovals(`${cwd}/Data`).ids; } catch { return new Set(); }
+  try { return loadRemovals(`${cwd}/Data/Lanka-Academia`).ids; } catch { return new Set(); }
 };
 
 /** Tracked files that .gitignore says must not be tracked. */
@@ -242,7 +243,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     console.error(
       "Privacy guard blocked this:\n- " + problems.join("\n- ") +
         "\n\nInternal research evidence belongs in Data/ (git-ignored) or private/, never in the public repository." +
-        "\nSee AGENTS.md > Privacy rules, and docs/PRIVACY_SAFEGUARDS.md. Do not bypass this check.",
+        "\nSee AGENTS.md > Privacy rules, and App/docs/PRIVACY_SAFEGUARDS.md. Do not bypass this check.",
     );
     process.exit(1);
   }

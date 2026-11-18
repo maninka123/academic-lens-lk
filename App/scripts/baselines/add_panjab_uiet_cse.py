@@ -14,7 +14,7 @@ import openalex as oa
 import build_international as bi
 
 ROOT = Path(__file__).resolve().parents[3]
-INTL = ROOT / "Data" / "international"
+INTL = ROOT / "Data" / "Lanka-Academia" / "international"
 SOURCE = "https://uiet.puchd.ac.in/?page_id=57"
 FACULTY = "University Institute of Engineering and Technology (UIET)"
 DEPT = "Department of Computer Science and Engineering (UIET)"

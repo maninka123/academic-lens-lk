@@ -19,7 +19,7 @@ ap = argparse.ArgumentParser(); ap.add_argument("--limit", type=int, default=100
 a = ap.parse_args()
 done = set(DONE.read_text().split()) if DONE.exists() else set()
 todo = []
-for f in sorted(glob.glob(str(ROOT / "Data/universities/**/academics.csv"), recursive=True)):
+for f in sorted(glob.glob(str(ROOT / "Data/Lanka-Academia/universities/**/academics.csv"), recursive=True)):
     if a.uni and f"/{a.uni}/" not in f: continue
     for r in csv.DictReader(open(f, encoding="utf-8-sig")):
         if not r["h_index"].strip() and not r["total_citations"].strip() and r["academic_id"] not in done and r["full_name"].strip():

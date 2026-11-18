@@ -20,7 +20,7 @@ sys.path.insert(0, str(CURRENT_DIR))
 import scholar_scraper as ss
 
 REPO_DIR = CURRENT_DIR.parent / "repo_temp"
-DATA_DIR = REPO_DIR / "Data"
+DATA_DIR = REPO_DIR / "Data" / "Lanka-Academia"
 CACHE_DIR = CURRENT_DIR / "scholar_output" / "cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 NEW_UPDATES_CSV = CURRENT_DIR.parent / "New updates" / "newly_updated_academics.csv"

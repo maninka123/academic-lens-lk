@@ -1,5 +1,5 @@
 // Research standing score: a transparent 0–100 blend of percentile ranks.
-// Rules (see docs/STANDING_SCORE.md): compare like with like, never treat
+// Rules (see App/docs/STANDING_SCORE.md): compare like with like, never treat
 // missing as zero, one provider per measure, and say how sure we are.
 import type { Academic, NumericMetric } from "../types";
 import { MIN_SAMPLE, careerStageOf, providerOf } from "./quality";

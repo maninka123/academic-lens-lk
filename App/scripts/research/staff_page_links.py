@@ -11,7 +11,7 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parents[3]
-DATA = ROOT / "Data"
+DATA = ROOT / "Data" / "Lanka-Academia"
 OUT = DATA / "_research_reviews" / "staff_page_links.csv"
 UA = "LankaAcademia-research-bot/1.0 (public-data academic research; reads one public staff page per person)"
 ORCID = re.compile(r"orcid\.org/(\d{4}-\d{4}-\d{4}-\d{3}[\dX])", re.I)

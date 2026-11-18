@@ -9,7 +9,7 @@ sys.path.insert(0,str(ROOT/'App/scripts/baselines'))
 import openalex as oa
 from matching import tokens,canonical_orcid,canonical_doi,resolve,ACCEPTED,author_metrics,should_retry
 from sri_lanka_openalex import SL_INST
-DATA=ROOT/'Data';PRIVATE=DATA/'_research_reviews';MATCHES=DATA/'research_identity_matches.csv'
+DATA=ROOT/'Data'/'Lanka-Academia';PRIVATE=DATA/'_research_reviews';MATCHES=DATA/'research_identity_matches.csv'
 TODAY=datetime.date.today().isoformat()
 FIELDS=['academic_id','provider','candidate_author_id','match_status','match_method','evidence','review_status','reviewed_at','matched_at','publication_status']
 
@@ -132,5 +132,5 @@ def main(argv=None):
  with (PRIVATE/'attempts.jsonl').open('a') as f:
   for item in logs:f.write(json.dumps(item)+'\n')
  summary=dict(date=TODAY,profiles=len(people),processed=processed,levels=dict(collections.Counter(r['match_status'] for r in existing.values())),approved=dict(collections.Counter(r['match_status'] for r in existing.values() if r['publication_status']=='approved')),new_staged_matches=sum(r['match_status'] in ACCEPTED and r['publication_status']=='pending' for r in existing.values()),identity_conflicts=sum(x['status']=='established_identity_conflict' for x in logs),cache_authors=len(authors))
- (ROOT/'reports/research/resolution.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary))
+ (ROOT/'App/reports/research/resolution.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary))
 if __name__=='__main__':main()

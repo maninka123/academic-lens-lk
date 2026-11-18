@@ -5,9 +5,9 @@ Lanka Academia stays a static React + TypeScript + Vite + ECharts site that read
 ## Data flow
 
 ```
-Data/universities/<inst>/faculties/…/academics.csv   (authoritative, editable, private)
-Data/*.csv                                           (evidence and reviews, private)
-Data/international/…                                  (benchmark samples)
+Data/Lanka-Academia/universities/<inst>/faculties/…/academics.csv   (authoritative, editable, private)
+Data/Lanka-Academia/*.csv                                           (evidence and reviews, private)
+Data/Lanka-Academia/international/…                                  (benchmark samples)
         │  npm run data:import
         ▼
 scripts/import-data.mjs + import-international.mjs
@@ -29,7 +29,7 @@ src/analytics/exports.ts  reproducible statistics exports
 
 ### Adding a country
 
-1. Collect the hierarchy in the same 32-column layout under a new folder, e.g. `Data/countries/<country>/universities/<inst>/faculties/…/academics.csv`, with an institution manifest (`universities.csv`: id, name, short, type).
+1. Collect the hierarchy in the same 32-column layout under a new folder, e.g. `Data/Lanka-Academia/countries/<country>/universities/<inst>/faculties/…/academics.csv`, with an institution manifest (`universities.csv`: id, name, short, type).
 2. Add a profile in `scripts/countries.mjs` (code, role, source, identifier systems) and, if needed, rank rules for that country's titles (original titles always stay in `position`).
 3. Add an importer branch modelled on `import-international.mjs`: reuse `doctorateStatus`, `sanitizeUrl`, `rankFor`, `careerStage` and `checkPublicData`, write to `public/data/<code>/`, and add the new files to `PUBLIC_FILES`.
 4. Register any new public columns in `PUBLIC_ACADEMIC_COLUMNS` (only fields the site needs).

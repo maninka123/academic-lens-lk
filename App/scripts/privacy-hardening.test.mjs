@@ -85,11 +85,11 @@ test("guard scans large files in full instead of skipping them", () => {
 });
 
 test("guard blocks contact details in tracked source CSVs and removed people reappearing", () => {
-  const rel = "Data/universities/x/faculties/f/departments/d/academics.csv";
+  const rel = "Data/Lanka-Academia/universities/x/faculties/f/departments/d/academics.csv";
   assert.match(checkContent(rel, "academic_id,full_name,academic_position,qualifications,research_interests\nSL-aaaaaaaaaaaa,A B,Lecturer,BSc Email: a@b.lk,\n").join("\n"), /email/);
   assert.match(checkContent(rel, "academic_id,full_name,academic_position,qualifications,research_interests\nSL-aaaaaaaaaaaa,A B,Lecturer (On study leave),BSc,\n").join("\n"), /leave/);
   const removed = new Set(["SL-aaaaaaaaaaaa"]);
-  assert.match(checkContent("public/data/academics.csv", "id,name\nSL-aaaaaaaaaaaa,A B\n", { removedIds: removed }).join("\n"), /removal request/);
+  assert.match(checkContent("App/public/data/academics.csv", "id,name\nSL-aaaaaaaaaaaa,A B\n", { removedIds: removed }).join("\n"), /removal request/);
   assert.match(sensitiveFieldProblems("id,scholarStatus\nSL-1,rejected_different_person\n").join("\n"), /internal workflow/);
 });
 
@@ -113,7 +113,7 @@ test("a new branch push is checked against what the remotes already have", () =>
   put(d, "a.txt", "ok\n");
   commit(d, "first");
   git(d, "checkout", "-q", "-b", "feature");
-  put(d, "Data/identity_review.csv", "x\n");
+  put(d, "Data/Lanka-Academia/identity_review.csv", "x\n");
   commit(d, "oops");
   const sha = git(d, "rev-parse", "HEAD").trim();
   const out = run("--push", { stdin: `refs/heads/feature ${sha} refs/heads/feature ${"0".repeat(40)}\n`, cwd: d });

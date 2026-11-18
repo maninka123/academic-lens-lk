@@ -7,7 +7,7 @@ for pass in $(seq 1 24); do
   $PY - <<'PYE'
 import csv, glob
 rows = []
-for f in glob.glob("Data/universities/**/academics.csv", recursive=True):
+for f in glob.glob("Data/Lanka-Academia/universities/**/academics.csv", recursive=True):
     for r in csv.DictReader(open(f, encoding="utf-8-sig")):
         if r["google_scholar_url"] and not (r["h_index"] or r["total_citations"]):
             rows.append((r["academic_id"], r["full_name"], r["google_scholar_url"]))

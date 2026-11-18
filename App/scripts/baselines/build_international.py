@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 import openalex as oa
 
 ROOT = Path(__file__).resolve().parents[3]
-DATA = ROOT / "Data"
+DATA = ROOT / "Data" / "Lanka-Academia"
 OUT = DATA / "international"
 ROSTERS = OUT / "_source_rosters"
 CFG = json.loads((Path(__file__).parent / "baselines_config.json").read_text())

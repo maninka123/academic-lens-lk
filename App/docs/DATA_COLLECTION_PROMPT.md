@@ -1,6 +1,6 @@
 # Continue collecting Lanka Academia data
 
-Continue from the existing `Data/` folder. Keep every existing ID and piece of evidence; do not restart. Count the real records instead of trusting any older figure.
+Continue from the existing `Data/Lanka-Academia/` folder. Keep every existing ID and piece of evidence; do not restart. Count the real records instead of trusting any older figure.
 
 ```mermaid
 flowchart LR
@@ -14,7 +14,7 @@ flowchart LR
 
 ## Boundaries
 
-- Work only in `Data/` (and a separate export for the ZIP). Do not edit `src/`, `public/`, `scripts/`, config, screenshots or deployment files, and do not push or deploy.
+- Work only in `Data/Lanka-Academia/` (and a separate export for the ZIP). Do not edit `src/`, `public/`, `scripts/`, config, screenshots or deployment files, and do not push or deploy.
 - Internal evidence and review files stay private (git-ignored). See [PRIVACY_SAFEGUARDS.md](PRIVACY_SAFEGUARDS.md).
 - Save after each faculty or department. Keep checkpoint, source, access-issue, review, unresolved-field, coverage and change logs.
 
@@ -61,4 +61,4 @@ Headers identical, IDs unique, institution names and IDs valid, numbers numeric,
 
 ## Deliver
 
-The updated `Data/` folder and a ZIP with the same structure, plus a short handoff: records added or corrected, verified research profiles, metric completeness, units checked and units pending. The app developer runs `npm run data:import` and deploys.
+The updated `Data/Lanka-Academia/` folder and a ZIP with the same structure, plus a short handoff: records added or corrected, verified research profiles, metric completeness, units checked and units pending. The app developer runs `npm run data:import` and deploys.

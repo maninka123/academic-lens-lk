@@ -51,7 +51,7 @@ export const COUNTRY_PROFILES = {
   "Sri Lanka": {
     code: "LK",
     role: "primary",
-    source: "../Data/universities",
+    source: "../Data/Lanka-Academia/universities",
     description:
       "National collection of published academic profiles (partial, not a census).",
     researcherIds: ["Google Scholar", "ResearchGate", "OpenAlex"],
@@ -59,7 +59,7 @@ export const COUNTRY_PROFILES = {
   International: {
     code: "INT",
     role: "benchmark-sample",
-    source: "../Data/international",
+    source: "../Data/Lanka-Academia/international",
     description:
       "QS 2027 tier samples from seven countries (Computer Science and Physics). Samples, not national censuses.",
     researcherIds: ["OpenAlex"],

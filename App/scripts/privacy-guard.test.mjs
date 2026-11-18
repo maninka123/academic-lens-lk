@@ -25,17 +25,17 @@ const put = (d, rel, text = "x\n") => {
 
 test("internal evidence files are recognised by name and folder", () => {
   const bad = [
-    "Data/identity_review.csv",
-    "Data/employment_review.csv",
-    "Data/field_evidence.csv",
-    "Data/change_log.csv",
-    "Data/universities/uwu/rejected_profile_links.csv",
-    "Data/universities/uwu/COLLECTION_REVIEW.md",
-    "Data/research_unresolved.csv",
-    "Data/research_search_log.csv",
-    "Data/removal_requests.csv",
-    "Data/_research_reviews/removed_records.csv",
-    "Data/User updates/new.csv",
+    "Data/Lanka-Academia/identity_review.csv",
+    "Data/Lanka-Academia/employment_review.csv",
+    "Data/Lanka-Academia/field_evidence.csv",
+    "Data/Lanka-Academia/change_log.csv",
+    "Data/Lanka-Academia/universities/uwu/rejected_profile_links.csv",
+    "Data/Lanka-Academia/universities/uwu/COLLECTION_REVIEW.md",
+    "Data/Lanka-Academia/research_unresolved.csv",
+    "Data/Lanka-Academia/research_search_log.csv",
+    "Data/Lanka-Academia/removal_requests.csv",
+    "Data/Lanka-Academia/_research_reviews/removed_records.csv",
+    "Data/Lanka-Academia/User updates/new.csv",
     "private/notes.txt",
     "Ethics Approval/form.pdf",
     ".env",
@@ -49,14 +49,14 @@ test("internal evidence files are recognised by name and folder", () => {
 
 test("legitimate public data and code are not blocked", () => {
   const ok = [
-    "Data/universities/colombo/faculties/faculty-of-arts/departments/department-of-history/academics.csv",
-    "Data/qs_rankings_phd_institutions_2027.csv",
-    "Data/international/openalex_matches.csv",
-    "public/data/academics.csv",
+    "Data/Lanka-Academia/universities/colombo/faculties/faculty-of-arts/departments/department-of-history/academics.csv",
+    "Data/Lanka-Academia/qs_rankings_phd_institutions_2027.csv",
+    "Data/Lanka-Academia/international/openalex_matches.csv",
+    "App/public/data/academics.csv",
     "scripts/evidence.mjs",
     "scripts/privacy-guard.mjs",
     "src/pages/Academics.tsx",
-    "docs/PRIVACY_SAFEGUARDS.md",
+    "App/docs/PRIVACY_SAFEGUARDS.md",
     ".env.example",
     "scripts/scholar_scraper/.env.example",
   ];
@@ -65,16 +65,16 @@ test("legitimate public data and code are not blocked", () => {
 
 test("credentials are found in tracked text", () => {
   assert.match(checkContent("scripts/x.mjs", 'const t = "ghp_' + "a".repeat(36) + '"').join(), /GitHub token/);
-  assert.match(checkContent("public/data/m.json", '{"u":"https://x.org/?api_key=abc"}').join(), /credential-like URL/);
-  assert.deepEqual(checkContent("Data/a.csv", "https://scholar.google.com/x?user=1&gmla=abc"), []);
+  assert.match(checkContent("App/public/data/m.json", '{"u":"https://x.org/?api_key=abc"}').join(), /credential-like URL/);
+  assert.deepEqual(checkContent("Data/Lanka-Academia/a.csv", "https://scholar.google.com/x?user=1&gmla=abc"), []);
 });
 
 test("a staged internal file is rejected and a public file is accepted", () => {
   const d = repo();
-  put(d, "Data/identity_review.csv", "academic_id,notes\n");
-  git(d, "add", "-f", "Data/identity_review.csv");
+  put(d, "Data/Lanka-Academia/identity_review.csv", "academic_id,notes\n");
+  git(d, "add", "-f", "Data/Lanka-Academia/identity_review.csv");
   assert.match(checkStaged(d).join(), /identity_review\.csv/);
-  git(d, "rm", "-q", "--cached", "Data/identity_review.csv");
+  git(d, "rm", "-q", "--cached", "Data/Lanka-Academia/identity_review.csv");
   put(d, "src/app.ts", "export {}\n");
   git(d, "add", "src/app.ts");
   assert.deepEqual(checkStaged(d), []);
@@ -85,12 +85,12 @@ test("the pre-commit hook blocks a commit with an internal file and a secret", (
   fs.mkdirSync(path.join(d, ".githooks"));
   fs.writeFileSync(path.join(d, ".githooks/pre-commit"), `#!/bin/sh\nexec node "${GUARD}" --staged\n`, { mode: 0o755 });
   git(d, "config", "core.hooksPath", ".githooks");
-  put(d, "Data/change_log.csv", "timestamp\n");
-  git(d, "add", "-f", "Data/change_log.csv");
+  put(d, "Data/Lanka-Academia/change_log.csv", "timestamp\n");
+  git(d, "add", "-f", "Data/Lanka-Academia/change_log.csv");
   const blocked = spawnSync("git", ["commit", "-m", "x"], { cwd: d, encoding: "utf8" });
   assert.notEqual(blocked.status, 0);
   assert.match(blocked.stderr, /Privacy guard blocked/);
-  git(d, "rm", "-q", "--cached", "Data/change_log.csv");
+  git(d, "rm", "-q", "--cached", "Data/Lanka-Academia/change_log.csv");
   put(d, "src/leak.ts", 'const k = "ghp_' + "b".repeat(36) + '";\n');
   git(d, "add", "src/leak.ts");
   const secret = spawnSync("git", ["commit", "-m", "x"], { cwd: d, encoding: "utf8" });
@@ -100,8 +100,8 @@ test("the pre-commit hook blocks a commit with an internal file and a secret", (
 
 test("tracked files that .gitignore excludes are reported", () => {
   const d = repo();
-  put(d, "Data/a_evidence.csv", "a\n");
-  git(d, "add", "-f", "Data/a_evidence.csv");
+  put(d, "Data/Lanka-Academia/a_evidence.csv", "a\n");
+  git(d, "add", "-f", "Data/Lanka-Academia/a_evidence.csv");
   git(d, "commit", "-q", "--no-verify", "-m", "x");
   assert.match(checkTracked(d).join(), /a_evidence\.csv/);
 });
@@ -111,7 +111,7 @@ test("the pre-push check finds an internal file inside the pushed commits and in
   put(d, "README.md", "hi\n");
   git(d, "add", "."), git(d, "commit", "-q", "-m", "base");
   const base = git(d, "rev-parse", "HEAD").trim();
-  put(d, "Data/employment_review.csv", "a\n");
+  put(d, "Data/Lanka-Academia/employment_review.csv", "a\n");
   git(d, "add", "-f", "."), git(d, "commit", "-q", "--no-verify", "-m", "leak");
   const head = git(d, "rev-parse", "HEAD").trim();
   assert.match(run("--push", { stdin: `refs/heads/main ${head} refs/heads/main ${base}\n`, cwd: d }).join(), /employment_review\.csv/);
@@ -156,5 +156,5 @@ test("nothing inside the doctoral-training study folder can be tracked", () => {
     "International-Doctoral-Training-Study/Data/candidates/x.csv",
   ]);
   assert.equal(problems.length, 2);
-  assert.deepEqual(checkPaths(["docs/DATA_POLICY.md", "Data/universities.csv"]), []);
+  assert.deepEqual(checkPaths(["docs/DATA_POLICY.md", "Data/Lanka-Academia/universities.csv"]), []);
 });

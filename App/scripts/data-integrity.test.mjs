@@ -51,7 +51,7 @@ test("summary, coverage and README describe the same snapshot", opts, () => {
     s.doctorateDocumented,
     a.filter((r) => r.doctorateStatus === "completed_documented").length,
   );
-  const readme = fs.readFileSync("../README.md", "utf8");
+  const readme = fs.readFileSync("README.md", "utf8");
   assert.match(readme, new RegExp(`Snapshot ${s.version}`));
   assert.match(readme, new RegExp(s.academicRecords.toLocaleString("en")));
 });
@@ -110,7 +110,7 @@ test("metrics read from an unverified profile never count as a verified identity
 });
 
 test("Medicine is mapped to faculties of medicine only; allied health and nursing are separate", () => {
-  const m = JSON.parse(fs.readFileSync("../Data/field-mapping.json", "utf8")).faculties;
+  const m = JSON.parse(fs.readFileSync("../Data/Lanka-Academia/field-mapping.json", "utf8")).faculties;
   for (const [id, field] of Object.entries(m)) {
     if (field === "Medicine") assert.match(id, /faculty-of-medicine$|faculty-of-medical-sciences$/, id);
     if (/allied-health|nursing|health-sciences/.test(id)) assert.equal(field, "Allied Health & Nursing", id);
@@ -142,7 +142,7 @@ test("registered campuses and schools are faculty-level units with consistent id
 });
 
 test("no faculty exists twice as singular/plural folders or variant rows (KDU Allied Health regression)", () => {
-  const root = "../Data/universities";
+  const root = "../Data/Lanka-Academia/universities";
   for (const uni of fs.readdirSync(root)) {
     const base = `${root}/${uni}/faculties`;
     if (!fs.existsSync(base)) continue;

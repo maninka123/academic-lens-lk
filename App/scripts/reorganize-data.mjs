@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { csvRead, csvWrite, universities, slug } from "./shared.mjs";
-const root = "../Data";
+const root = "../Data/Lanka-Academia";
 const source = path.join(root, "Sri_Lanka_Academic_Atlas_Partial_2026-10-11");
 if (fs.existsSync(root + "/universities"))
   throw Error(

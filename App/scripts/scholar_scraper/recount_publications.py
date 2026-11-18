@@ -28,7 +28,7 @@ def load_targets():
     reverted_file = REPO / "App" / "scripts" / "New updates" / "recount_ids.txt"
     reverted = set(reverted_file.read_text().split()) if reverted_file.exists() else set()
     rows, header = [], None
-    for f in glob.glob(str(REPO / "Data" / "universities" / "**" / "academics.csv"), recursive=True):
+    for f in glob.glob(str(REPO / "Data" / "Lanka-Academia" / "universities" / "**" / "academics.csv"), recursive=True):
         text = open(f, encoding="utf-8-sig").read()
         reader = list(csv.DictReader(io.StringIO(text)))
         header = header or list(csv.DictReader(io.StringIO(text)).fieldnames)

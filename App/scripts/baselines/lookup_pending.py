@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import openalex as oa
 from build_international import INST, match, metrics
 
-DATA = Path(__file__).resolve().parents[3] / "Data" / "international"
+DATA = Path(__file__).resolve().parents[3] / "Data" / "Lanka-Academia" / "international"
 PENDING = {"not_yet_verified", "openalex_pending"}
 
 

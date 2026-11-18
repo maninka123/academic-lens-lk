@@ -63,7 +63,7 @@ def main():
     if OUT.exists():
         done = {r["scholar_id"] for r in csv.DictReader(open(OUT, encoding="utf-8-sig")) if r["result"] in ("ok", "404")}
     todo = []
-    for f in sorted(glob.glob(str(ROOT / "Data/universities/**/academics.csv"), recursive=True)):
+    for f in sorted(glob.glob(str(ROOT / "Data/Lanka-Academia/universities/**/academics.csv"), recursive=True)):
         uni = f.split("universities/")[1].split("/")[0]
         if a.uni and uni != a.uni:
             continue
