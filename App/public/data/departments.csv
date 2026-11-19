@@ -361,6 +361,54 @@ nsbm--faculty-of-science--department-of-biomedical-science,nsbm--faculty-of-scie
 nsbm--faculty-of-science--department-of-health-sciences,nsbm--faculty-of-science,nsbm,Department of Health Sciences
 nsbm--faculty-of-science--department-of-legal-studies,nsbm--faculty-of-science,nsbm,Department of Legal Studies
 nsbm--faculty-of-science--department-of-life-sciences,nsbm--faculty-of-science,nsbm,Department of Life Sciences
+ousl--faculty-of-education--centre-for-it-education-services-cites,ousl--faculty-of-education,ousl,Centre for IT Education Services (CITES)
+ousl--faculty-of-education--centre-for-it-educational-services-cites,ousl--faculty-of-education,ousl,Centre for IT Educational Services (CITES)
+ousl--faculty-of-education--department-of-early-childhood-and-primary-education,ousl--faculty-of-education,ousl,Department of Early Childhood and Primary Education
+ousl--faculty-of-education--department-of-educational-leadership-and-management,ousl--faculty-of-education,ousl,Department of Educational Leadership and Management
+ousl--faculty-of-education--department-of-health-education-and-research,ousl--faculty-of-education,ousl,Department of Health Education and Research
+ousl--faculty-of-education--department-of-secondary-and-tertiary-education,ousl--faculty-of-education,ousl,Department of Secondary and Tertiary Education
+ousl--faculty-of-education--department-of-secondary-tertiary-education,ousl--faculty-of-education,ousl,Department of Secondary & Tertiary Education
+ousl--faculty-of-education--department-of-special-needs-education,ousl--faculty-of-education,ousl,Department of Special Needs Education
+ousl--faculty-of-engineering-technology--civil-engineering-faculty-of-engineering-technology,ousl--faculty-of-engineering-technology,ousl,Civil Engineering - Faculty of Engineering Technology
+ousl--faculty-of-engineering-technology--department-of-agricultural-and-plantation-engineering,ousl--faculty-of-engineering-technology,ousl,Department of Agricultural and Plantation Engineering
+ousl--faculty-of-engineering-technology--department-of-civil-engineering-faculty-of-engineering-technology,ousl--faculty-of-engineering-technology,ousl,Department of Civil Engineering Faculty of Engineering Technology
+ousl--faculty-of-engineering-technology--department-of-electrical-and-computer-engineering,ousl--faculty-of-engineering-technology,ousl,Department of Electrical and Computer Engineering
+ousl--faculty-of-engineering-technology--department-of-mechanical-engineering,ousl--faculty-of-engineering-technology,ousl,Department of Mechanical Engineering
+ousl--faculty-of-engineering-technology--department-of-textile-and-apparel-technology,ousl--faculty-of-engineering-technology,ousl,Department of Textile and Apparel Technology
+ousl--faculty-of-engineering-technology--textile-and-apparel-technology-faculty-of-engineering-technology,ousl--faculty-of-engineering-technology,ousl,"Textile and Apparel Technology, Faculty of Engineering Technology"
+ousl--faculty-of-health-sciences--department-of-medical-laboratory-sciences,ousl--faculty-of-health-sciences,ousl,Department of Medical Laboratory Sciences
+ousl--faculty-of-health-sciences--department-of-nursing,ousl--faculty-of-health-sciences,ousl,Department of Nursing
+ousl--faculty-of-health-sciences--medical-laboratory-sciences,ousl--faculty-of-health-sciences,ousl,Medical Laboratory Sciences
+ousl--faculty-of-humanities-and-social-sciences--department-of-english-language-teaching,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of English Language Teaching
+ousl--faculty-of-humanities-and-social-sciences--department-of-english-language-teaching-delt,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of English Language Teaching (DELT)
+ousl--faculty-of-humanities-and-social-sciences--department-of-language-studies,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of Language Studies
+ousl--faculty-of-humanities-and-social-sciences--department-of-social-studies,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of Social Studies
+ousl--faculty-of-humanities-and-social-sciences--legal-studies,ousl--faculty-of-humanities-and-social-sciences,ousl,Legal Studies
+ousl--faculty-of-management-studies--accounting-and-finance,ousl--faculty-of-management-studies,ousl,Accounting and Finance
+ousl--faculty-of-management-studies--accounting-finance,ousl--faculty-of-management-studies,ousl,Accounting & Finance
+ousl--faculty-of-management-studies--department-of-accounting-and-finance,ousl--faculty-of-management-studies,ousl,Department of Accounting and Finance
+ousl--faculty-of-management-studies--department-of-human-resource-management,ousl--faculty-of-management-studies,ousl,Department of Human Resource Management
+ousl--faculty-of-management-studies--department-of-marketing-management,ousl--faculty-of-management-studies,ousl,Department of Marketing Management
+ousl--faculty-of-management-studies--department-of-organizational-studies,ousl--faculty-of-management-studies,ousl,Department of Organizational Studies
+ousl--faculty-of-management-studies--faculty-of-management-studies,ousl--faculty-of-management-studies,ousl,Faculty of Management Studies
+ousl--faculty-of-management-studies--human-resource-management,ousl--faculty-of-management-studies,ousl,Human Resource Management
+ousl--faculty-of-natural-sciences--department-of-chemistry,ousl--faculty-of-natural-sciences,ousl,Department of Chemistry
+ousl--faculty-of-natural-sciences--department-of-computer-science,ousl--faculty-of-natural-sciences,ousl,Department of Computer Science
+ousl--faculty-of-natural-sciences--department-of-mathematics,ousl--faculty-of-natural-sciences,ousl,Department of Mathematics
+ousl--faculty-of-natural-sciences--department-of-mathematics-and-philosophy-of-engineering,ousl--faculty-of-natural-sciences,ousl,Department of Mathematics and Philosophy of Engineering
+ousl--faculty-of-natural-sciences--department-of-physics,ousl--faculty-of-natural-sciences,ousl,Department of Physics
+ousl--faculty-of-natural-sciences--department-of-zoology,ousl--faculty-of-natural-sciences,ousl,Department of Zoology
+ousl--faculty-of-natural-sciences--mathematics-and-philosophy-of-engineering-engineering-technology,ousl--faculty-of-natural-sciences,ousl,"Mathematics and Philosophy of Engineering, Engineering Technology"
+ousl--unassigned-faculty--centre-for-environmental-studies-sustainable-development,ousl--unassigned-faculty,ousl,Centre for Environmental Studies & Sustainable Development
+ousl--unassigned-faculty--department-of-basic-sciences,ousl--unassigned-faculty,ousl,Department of Basic Sciences
+ousl--unassigned-faculty--department-of-botany,ousl--unassigned-faculty,ousl,Department of Botany
+ousl--unassigned-faculty--department-of-ccounting-finance,ousl--unassigned-faculty,ousl,Department of ccounting & Finance
+ousl--unassigned-faculty--department-of-pharmacy,ousl--unassigned-faculty,ousl,Department of Pharmacy
+ousl--unassigned-faculty--department-of-psychology-and-counselling,ousl--unassigned-faculty,ousl,Department of Psychology and Counselling
+ousl--unassigned-faculty--first,ousl--unassigned-faculty,ousl,First
+ousl--unassigned-faculty--information-studies-unit,ousl--unassigned-faculty,ousl,Information Studies Unit
+ousl--unassigned-faculty--m-a-d-s-priyakumari,ousl--unassigned-faculty,ousl,M.A.D.S. Priyakumari
+ousl--unassigned-faculty--post-graduate-institute-of-english,ousl--unassigned-faculty,ousl,Post Graduate Institute of English
 peradeniya--faculty-of-agriculture--department-of-agricultural-economics-and-business-management,peradeniya--faculty-of-agriculture,peradeniya,Department of Agricultural Economics and Business Management
 peradeniya--faculty-of-agriculture--department-of-agricultural-engineering,peradeniya--faculty-of-agriculture,peradeniya,Department of Agricultural Engineering
 peradeniya--faculty-of-agriculture--department-of-agriculture-biology,peradeniya--faculty-of-agriculture,peradeniya,Department of Agriculture Biology

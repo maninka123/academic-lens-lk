@@ -37,7 +37,7 @@ norm = lambda s: re.sub(r"[^a-z]", "", re.sub(r"\b(prof(essor)?|dr|mr|mrs|ms|mis
 EMAIL = re.compile(r"\S+@\S+|\+?\d[\d\s\-()]{7,}\d")
 ONGOING = re.compile(r"reading|pursuing|registered|ongoing|on-going|candidate|enrol|expected|\(R\)|read(ing)? for|studying|following", re.I)
 PHD = re.compile(r"\b(?:Ph\.?\s?D\.?|D\.?\s?Phil\.?|Doctor of Philosophy)\b", re.I)
-LEAVE = re.compile(r"\(?\s*on\s+(?:study\s+)?leave[^)]*\)?|\(?\s*study\s+leave[^)]*\)?|\(?\s*sabbatical[^)]*\)?|\(?\s*on\s+lien[^)]*\)?", re.I)
+LEAVE = re.compile(r"[–-]?\s*\(?\s*on\s+(?:study\s+)?leave[^)]*\)?|\(?\s*study\s+leave[^)]*\)?|\(?\s*sabbatical[^)]*\)?|\(?\s*on\s+lien[^)]*\)?", re.I)
 EXCLUDE_POS = re.compile(r"visiting|temporary|contract|demonstrator|instructor|honorary|part[- ]?time|casual", re.I)
 
 
@@ -74,6 +74,9 @@ def tidy_unit(s, kind):
 SECTION_FACULTY = {("www.seu.ac.lk", "fac"): "Faculty of Arts and Culture", ("www.seu.ac.lk", "fas"): "Faculty of Applied Sciences", ("www.seu.ac.lk", "fia"): "Faculty of Islamic Studies and Arabic Language",
                    ("www.seu.ac.lk", "fmc"): "Faculty of Management and Commerce", ("www.seu.ac.lk", "ft"): "Faculty of Technology", ("www.seu.ac.lk", "pgufac"): "Faculty of Arts and Culture", ("www.seu.ac.lk", "pgufmc"): "Faculty of Management and Commerce", ("www.seu.ac.lk", "pguft"): "Faculty of Technology"}
 HOST_FACULTY = {"fms.rjt.ac.lk": "Faculty of Management Studies", "foa.rjt.ac.lk": "Faculty of Agriculture", "fssh.rjt.ac.lk": "Faculty of Social Sciences and Humanities", "fot.wyb.ac.lk": "Faculty of Technology", "fbsf.wyb.ac.lk": "Faculty of Business Studies and Finance"}
+OUSL_FACULTY = [(r"english language|language studies|legal studies|social stud", "Faculty of Humanities and Social Sciences"), (r"chemistry|computer science|mathematics|plant sciences|physics|zoology|natural sci", "Faculty of Natural Sciences"),
+                (r"accounting|human resource|marketing|organi[sz]ational|management studies|business", "Faculty of Management Studies"),
+                (r"engineering|textile|apparel|technology", "Faculty of Engineering Technology"), (r"secondary|tertiary|primary|pre-?school|education", "Faculty of Education"), (r"nursing|medical|health", "Faculty of Health Sciences")]
 UVPA_FACULTY = [(r"music", "Faculty of Music"), (r"dance|drama|theat|ballet", "Faculty of Dance and Drama"), (r"paint|sculpt|design|textile|visual|photograph|ceramic|craft|graphic|art history", "Faculty of Visual Arts")]
 
 
@@ -95,6 +98,8 @@ def infer_faculty(rows):
             if (h, seg) in SECTION_FACULTY: r["faculty"] = SECTION_FACULTY[(h, seg)]
             elif h in HOST_FACULTY: r["faculty"] = HOST_FACULTY[h]
             elif c and len(c) == 1: r["faculty"] = next(iter(c))
+            elif h.endswith("ou.ac.lk") and r["department"]:
+                r["faculty"] = next((f for rx, f in OUSL_FACULTY if re.search(rx, r["department"], re.I)), "")
             elif h.endswith("vpa.ac.lk") and r["department"]:
                 r["faculty"] = next((f for rx, f in UVPA_FACULTY if re.search(rx, r["department"], re.I)), "")
     spell = defaultdict(Counter)

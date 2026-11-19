@@ -28,7 +28,7 @@ SEEDS = {
     "uvpa": ["https://vpa.ac.lk/", "https://vpa.ac.lk/faculties/", "https://vpa.ac.lk/departments/", "https://vpa.ac.lk/faculty-of-music-2/", "https://vpa.ac.lk/faculty-of-visual-arts/", "https://vpa.ac.lk/faculty-of-dance-and-drama-2/"],
 }
 GOOD = re.compile(r"staff|academic|people|faculty|faculties|department|profile|lecturer|member|team|school|division|unit|centre|center|about", re.I)
-EXTRA = {"rajarata": ["https://foa.rjt.ac.lk/", "https://fot.rjt.ac.lk/", "https://fms.rjt.ac.lk/", "https://fssh.rjt.ac.lk/", "https://fmas.rjt.ac.lk/", "https://aps.rjt.ac.lk/"]}
+EXTRA = {"ousl": [f"https://www.ou.ac.lk/find-an-academic/?wpv-staff-member=academic&wpv_view_count=806&wpv_paged={n}" for n in range(2, 39)], "rajarata": ["https://foa.rjt.ac.lk/", "https://fot.rjt.ac.lk/", "https://fms.rjt.ac.lk/", "https://fssh.rjt.ac.lk/", "https://fmas.rjt.ac.lk/", "https://aps.rjt.ac.lk/"]}
 NONFAC_HOST = re.compile(r"^(email|e-learn|elearn|payment|repository|lib|library|mail|webmail|sdg|cdce|cits|ictk|ictm|cgee|cgu|sitharana)\.", re.I)
 SKIP = re.compile(r"\.(pdf|jpe?g|png|gif|zip|docx?|xlsx?|pptx?|mp4)(\?|$)|/(news|events?|gallery|tender|vacanc|notice|download|login|wp-login|wp-json|feed|tag|category|author|calendar|publications?|research-?papers|alumni|admission|careers?)(/|$)|\?(?!wpv|page|p=|id=)", re.I)
 BLOCK = re.compile(r"anubis|access denied|captcha|unusual traffic|are you a robot", re.I)
@@ -99,7 +99,11 @@ def parse(rec):
             if m and not NOTACAD.search(l2): pos = m.group(1)
         if not pos: continue
         quals = " ; ".join(w for w in window if DEGREE.search(w) and len(w) < 300)[:400]
-        out.append({"name": re.sub(r"\s+", " ", l2), "position": pos, "qualifications": quals, "faculty": fac, "department": dep, "page_url": rec["url"], "page_title": rec["title"][:120]})
+        dep_here = dep
+        if "find-an-academic" in rec["url"]:     # OUSL directory card: name, position, [Head of the Department], unit
+            cand = [w.strip() for w in window[1:] if 2 < len(w.strip()) < 70 and not POS.search(w) and not DEGREE.search(w) and not re.match(r"(?i)head of|\(on ", w.strip())]
+            dep_here = cand[0] if cand else ""
+        out.append({"name": re.sub(r"\s+", " ", l2), "position": pos, "qualifications": quals, "faculty": fac, "department": dep_here, "page_url": rec["url"], "page_title": rec["title"][:120]})
     return out
 
 

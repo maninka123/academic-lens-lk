@@ -1,2 +1,8 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
-unassigned-faculty,Unassigned faculty,0,38
+faculty-of-education,Faculty of Education,8,40
+faculty-of-engineering-technology,Faculty of Engineering Technology,9,73
+faculty-of-health-sciences,Faculty of Health Sciences,3,23
+faculty-of-humanities-and-social-sciences,Faculty of Humanities and Social Sciences,5,64
+faculty-of-management-studies,Faculty of Management Studies,8,40
+faculty-of-natural-sciences,Faculty of Natural Sciences,7,77
+unassigned-faculty,Unassigned faculty,10,74
