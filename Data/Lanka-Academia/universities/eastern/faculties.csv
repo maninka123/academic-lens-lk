@@ -1,0 +1,9 @@
+﻿faculty_id,faculty_name,department_count,academic_records
+faculty-of-agriculture,Faculty of Agriculture,1,30
+faculty-of-arts-and-culture,Faculty of Arts and Culture,0,65
+faculty-of-commerce-and-management,Faculty of Commerce and Management,1,33
+faculty-of-graduate-studies,Faculty of Graduate Studies,1,28
+faculty-of-health-care-sciences,Faculty of Health Care Sciences,0,54
+faculty-of-science,Faculty of Science,1,37
+faculty-of-technology,Faculty of Technology,1,14
+unassigned-faculty,Unassigned faculty,0,17

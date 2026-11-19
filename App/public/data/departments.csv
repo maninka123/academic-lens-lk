@@ -85,6 +85,11 @@ colombo--sri-palee-campus-spc--department-of-performing-arts,colombo--sri-palee-
 colombo--university-of-colombo-school-of-computing-ucsc--department-of-communication-and-media-technologies,colombo--university-of-colombo-school-of-computing-ucsc,colombo,Department of Communication and Media Technologies
 colombo--university-of-colombo-school-of-computing-ucsc--department-of-computation-and-intelligent-systems,colombo--university-of-colombo-school-of-computing-ucsc,colombo,Department of Computation and Intelligent Systems
 colombo--university-of-colombo-school-of-computing-ucsc--department-of-information-systems-engineering,colombo--university-of-colombo-school-of-computing-ucsc,colombo,Department of Information Systems Engineering
+eastern--faculty-of-agriculture--department-of-agricultural-biology,eastern--faculty-of-agriculture,eastern,Department of Agricultural Biology
+eastern--faculty-of-commerce-and-management--department-of-accounting-and-finance,eastern--faculty-of-commerce-and-management,eastern,Department of Accounting and Finance
+eastern--faculty-of-graduate-studies--department-of-animal-science,eastern--faculty-of-graduate-studies,eastern,Department of Animal Science
+eastern--faculty-of-science--department-of-botany,eastern--faculty-of-science,eastern,Department of Botany
+eastern--faculty-of-technology--department-of-biosystems-technology,eastern--faculty-of-technology,eastern,Department of Biosystems Technology
 horizon--department-of-nursing,,horizon,Department of Nursing
 horizon--english-language-teaching-unit,,horizon,English Language Teaching Unit
 jaffna--faculty-of-agriculture--department-of-agricultural-biology,jaffna--faculty-of-agriculture,jaffna,Department of Agricultural Biology
@@ -502,6 +507,20 @@ ruhuna--faculty-of-technology--department-of-biosystems-technology,ruhuna--facul
 ruhuna--faculty-of-technology--department-of-engineering-technology,ruhuna--faculty-of-technology,ruhuna,Department of Engineering Technology
 ruhuna--faculty-of-technology--department-of-information-and-communication-technology,ruhuna--faculty-of-technology,ruhuna,Department of Information and Communication Technology
 ruhuna--faculty-of-technology--department-of-multidisciplinary-studies,ruhuna--faculty-of-technology,ruhuna,Department of Multidisciplinary Studies
+sabaragamuwa--faculty-of-agricultural-sciences--department-of-export-agriculture,sabaragamuwa--faculty-of-agricultural-sciences,sabaragamuwa,Department of Export Agriculture
+sabaragamuwa--faculty-of-agriculture--school-of-biosphere-sciences-hiroshima,sabaragamuwa--faculty-of-agriculture,sabaragamuwa,"School of Biosphere Sciences, Hiroshima"
+sabaragamuwa--faculty-of-bio-science-engineering--department-of-livestock-production,sabaragamuwa--faculty-of-bio-science-engineering,sabaragamuwa,Department of Livestock Production
+sabaragamuwa--faculty-of-computing--department-of-computing-information-systems,sabaragamuwa--faculty-of-computing,sabaragamuwa,Department of Computing & Information Systems
+sabaragamuwa--faculty-of-medicine--department-of-medicine,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Medicine
+sabaragamuwa--faculty-of-medicine--department-of-paediatrics,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Paediatrics
+sabaragamuwa--faculty-of-social-sciences-and-languages--department-of-geography-environmental-management,sabaragamuwa--faculty-of-social-sciences-and-languages,sabaragamuwa,Department of Geography & Environmental Management
+sabaragamuwa--unassigned-faculty--department-of-animal-science-institute-of-agriculture-and-natural-resources,sabaragamuwa--unassigned-faculty,sabaragamuwa,Department of Animal Science- Institute of Agriculture and Natural Resources
+seusl--faculty-of-applied-sciences--department-of-biological-sciences,seusl--faculty-of-applied-sciences,seusl,Department of Biological Sciences
+seusl--faculty-of-arts-and-culture--department-of-languages,seusl--faculty-of-arts-and-culture,seusl,Department of Languages
+seusl--faculty-of-arts-and-culture--department-of-social-sciences,seusl--faculty-of-arts-and-culture,seusl,Department of Social Sciences
+seusl--faculty-of-islamic-studies-and-arabic-language--department-of-islamic-studies,seusl--faculty-of-islamic-studies-and-arabic-language,seusl,Department of Islamic Studies
+seusl--faculty-of-management-and-commerce--department-of-management,seusl--faculty-of-management-and-commerce,seusl,Department of Management
+seusl--faculty-of-technology--department-of-biosystems-technology,seusl--faculty-of-technology,seusl,Department of Biosystems Technology
 sliit--faculty-of-computing--department-of-computer-science,sliit--faculty-of-computing,sliit,Department of Computer Science
 sliit--faculty-of-computing--department-of-computer-systems-engineering,sliit--faculty-of-computing,sliit,Department of Computer Systems Engineering
 sliit--faculty-of-computing--department-of-information-technology,sliit--faculty-of-computing,sliit,Department of Information Technology
@@ -517,6 +536,29 @@ sliit--faculty-of-humanities-sciences--department-of-mathematics-and-statistics,
 sliit--school-of-architecture--department-of-architecture,sliit--school-of-architecture,sliit,Department of Architecture
 sliit--sliit-business-school--department-of-business-management,sliit--sliit-business-school,sliit,Department of Business Management
 sliit--sliit-business-school--department-of-information-management,sliit--sliit-business-school,sliit,Department of Information Management
+uvpa--faculty-of-dance-and-drama--department-of-history-and-theory-of-dance-and-drama,uvpa--faculty-of-dance-and-drama,uvpa,Department of History and Theory of Dance and Drama
+uvpa--faculty-of-dance-and-drama--department-of-indian-and-asian-dance,uvpa--faculty-of-dance-and-drama,uvpa,Department of Indian and Asian Dance
+uvpa--faculty-of-dance-and-drama--department-of-kandyan-dance,uvpa--faculty-of-dance-and-drama,uvpa,Department of Kandyan Dance
+uvpa--faculty-of-dance-and-drama--department-of-low-country-dance,uvpa--faculty-of-dance-and-drama,uvpa,Department of Low Country Dance
+uvpa--faculty-of-dance-and-drama--department-of-sabaragamu-dance,uvpa--faculty-of-dance-and-drama,uvpa,Department of Sabaragamu Dance
+uvpa--faculty-of-graduate-studies--department-of-ceramics-archives,uvpa--faculty-of-graduate-studies,uvpa,Department of Ceramics Archives
+uvpa--faculty-of-graduate-studies--department-of-history-and-theory-of-arts-archives,uvpa--faculty-of-graduate-studies,uvpa,Department of History and Theory of Arts Archives
+uvpa--faculty-of-graduate-studies--department-of-multimedia-arts-archives,uvpa--faculty-of-graduate-studies,uvpa,Department of Multimedia Arts Archives
+uvpa--faculty-of-graduate-studies--department-of-north-indian-music-archives,uvpa--faculty-of-graduate-studies,uvpa,Department of North Indian Music Archives
+uvpa--faculty-of-graduate-studies--department-of-painting-archives,uvpa--faculty-of-graduate-studies,uvpa,Department of Painting Archives
+uvpa--faculty-of-graduate-studies--department-of-print-making-archives,uvpa--faculty-of-graduate-studies,uvpa,Department of Print Making Archives
+uvpa--faculty-of-graduate-studies--department-of-sculpture-archives,uvpa--faculty-of-graduate-studies,uvpa,Department of Sculpture Archives
+uvpa--faculty-of-graduate-studies--department-of-visual-communication-design-archives,uvpa--faculty-of-graduate-studies,uvpa,Department of Visual Communication design Archives
+uvpa--faculty-of-music--department-of-applied-music-mass-communication,uvpa--faculty-of-music,uvpa,Department of Applied Music & Mass Communication
+uvpa--faculty-of-music--department-of-ethnomusicology,uvpa--faculty-of-music,uvpa,Department of Ethnomusicology
+uvpa--faculty-of-music--department-of-musicology,uvpa--faculty-of-music,uvpa,Department of Musicology
+uvpa--faculty-of-music--department-of-north-indian-music,uvpa--faculty-of-music,uvpa,Department of North Indian Music
+uvpa--faculty-of-music--department-of-south-indian-music,uvpa--faculty-of-music,uvpa,Department of South Indian Music
+uvpa--faculty-of-music--department-of-western-music,uvpa--faculty-of-music,uvpa,Department of Western Music
+uvpa--faculty-of-visual-arts--department-of-multi-disciplinary-design,uvpa--faculty-of-visual-arts,uvpa,Department of Multi Disciplinary Design
+uvpa--faculty-of-visual-arts--department-of-textile-and-wearable-arts,uvpa--faculty-of-visual-arts,uvpa,Department of Textile and Wearable Arts
+uvpa--unassigned-faculty--department-of-english-language-teaching,uvpa--unassigned-faculty,uvpa,Department of English Language Teaching
+uvpa--unassigned-faculty--department-of-information-technology,uvpa--unassigned-faculty,uvpa,Department of Information Technology
 uwu--faculty-of-animal-science-and-export-agriculture--department-of-animal-science,uwu--faculty-of-animal-science-and-export-agriculture,uwu,Department of Animal Science
 uwu--faculty-of-animal-science-and-export-agriculture--department-of-export-agriculture,uwu--faculty-of-animal-science-and-export-agriculture,uwu,Department of Export Agriculture
 uwu--faculty-of-animal-science-and-export-agriculture--department-of-food-science-and-technology,uwu--faculty-of-animal-science-and-export-agriculture,uwu,Department of Food Science and Technology
@@ -537,3 +579,6 @@ uwu--faculty-of-medicine--department-of-surgery,uwu--faculty-of-medicine,uwu,Dep
 uwu--faculty-of-technological-studies--department-of-biosystems-technology,uwu--faculty-of-technological-studies,uwu,Department of Biosystems Technology
 uwu--faculty-of-technological-studies--department-of-engineering-technology,uwu--faculty-of-technological-studies,uwu,Department of Engineering Technology
 uwu--faculty-of-technological-studies--department-of-information-and-communication-technology,uwu--faculty-of-technological-studies,uwu,Department of Information and Communication Technology
+wayamba--faculty-of-livestock-fisheries-and-nutrition--department-of-nutrition-and-dietetics,wayamba--faculty-of-livestock-fisheries-and-nutrition,wayamba,Department of Nutrition and Dietetics
+wayamba--faculty-of-technology--department-of-electrotechnology,wayamba--faculty-of-technology,wayamba,Department of Electrotechnology
+wayamba--faculty-of-technology--department-of-mechanical-and-manufacturing-technology,wayamba--faculty-of-technology,wayamba,Department of Mechanical and Manufacturing Technology

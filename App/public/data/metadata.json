@@ -1,6 +1,6 @@
 {
   "correctionContact": "pmranasinghe97@gmail.com",
-  "version": "partial-22e2df4633",
+  "version": "partial-a90465f138",
   "mode": "real",
   "country": "Sri Lanka",
   "identityAliases": {
@@ -28,14 +28,14 @@
     "SL-37854c13adee": "SL-05c63d84714e",
     "SL-bfafd0abee77": "SL-8b37bf3db3ae"
   },
-  "collectionDate": "2026-11-18",
+  "collectionDate": "2026-11-20",
   "updatedAt": "2026-11-18",
   "window": [
     2021,
     2025
   ],
   "description": "Partial collection with documented corrections and source-specific research evidence. Counts are calculated from authoritative academic records; archives, aliases and evidence rows are excluded.",
-  "scopeNote": "15 institutions are in scope (Saegis excluded); 15 have collected profiles. An institution or unit without collected profiles is not an institution without academic staff, and collected profiles are not the total academic population.",
+  "scopeNote": "22 institutions are in scope (Saegis excluded); 22 have collected profiles. An institution or unit without collected profiles is not an institution without academic staff, and collected profiles are not the total academic population.",
   "minimumSample": 10,
   "limitations": [
     "Not an exhaustive national census: collected profiles are a subset of the academic population, and directory coverage is incomplete for every institution.",

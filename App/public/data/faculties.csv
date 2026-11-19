@@ -17,6 +17,14 @@ colombo--faculty-of-nursing,colombo,Faculty of Nursing
 colombo--faculty-of-science,colombo,Faculty of Science
 colombo--faculty-of-technology,colombo,Faculty of Technology
 colombo--national-institute-of-library-and-information-sciences-nilis,colombo,National Institute of Library and Information Sciences (NILIS)
+eastern--faculty-of-agriculture,eastern,Faculty of Agriculture
+eastern--faculty-of-arts-and-culture,eastern,Faculty of Arts and Culture
+eastern--faculty-of-commerce-and-management,eastern,Faculty of Commerce and Management
+eastern--faculty-of-graduate-studies,eastern,Faculty of Graduate Studies
+eastern--faculty-of-health-care-sciences,eastern,Faculty of Health Care Sciences
+eastern--faculty-of-science,eastern,Faculty of Science
+eastern--faculty-of-technology,eastern,Faculty of Technology
+eastern--unassigned-faculty,eastern,Unassigned faculty
 horizon--faculty-of-education,horizon,Faculty of Education
 horizon--faculty-of-information-technology,horizon,Faculty of Information Technology
 horizon--faculty-of-law,horizon,Faculty of Law
@@ -70,6 +78,7 @@ nsbm--faculty-of-computing,nsbm,Faculty of Computing
 nsbm--faculty-of-engineering,nsbm,Faculty of Engineering
 nsbm--faculty-of-postgraduate-studies-professional-advancement,nsbm,Faculty of Postgraduate Studies & Professional Advancement
 nsbm--faculty-of-science,nsbm,Faculty of Science
+ousl--unassigned-faculty,ousl,Unassigned faculty
 peradeniya--faculty-of-agriculture,peradeniya,Faculty of Agriculture
 peradeniya--faculty-of-allied-health-sciences,peradeniya,Faculty of Allied Health Sciences
 peradeniya--faculty-of-arts,peradeniya,Faculty of Arts
@@ -79,6 +88,13 @@ peradeniya--faculty-of-management,peradeniya,Faculty of Management
 peradeniya--faculty-of-medicine,peradeniya,Faculty of Medicine
 peradeniya--faculty-of-science,peradeniya,Faculty of Science
 peradeniya--faculty-of-veterinary-medicine-and-animal-science,peradeniya,Faculty of Veterinary Medicine and Animal Science
+rajarata--faculty-of-agriculture,rajarata,Faculty of Agriculture
+rajarata--faculty-of-applied-sciences,rajarata,Faculty of Applied Sciences
+rajarata--faculty-of-management-studies,rajarata,Faculty of Management Studies
+rajarata--faculty-of-medicine-allied-sciences,rajarata,Faculty of Medicine & Allied Sciences
+rajarata--faculty-of-social-sciences-and-humanities,rajarata,Faculty of Social Sciences and Humanities
+rajarata--faculty-of-technology,rajarata,Faculty of Technology
+rajarata--unassigned-faculty,rajarata,Unassigned faculty
 ruhuna--faculty-of-agriculture,ruhuna,Faculty of Agriculture
 ruhuna--faculty-of-allied-health-sciences,ruhuna,Faculty of Allied Health Sciences
 ruhuna--faculty-of-engineering,ruhuna,Faculty of Engineering
@@ -88,6 +104,18 @@ ruhuna--faculty-of-management-and-finance,ruhuna,Faculty of Management and Finan
 ruhuna--faculty-of-medicine,ruhuna,Faculty of Medicine
 ruhuna--faculty-of-science,ruhuna,Faculty of Science
 ruhuna--faculty-of-technology,ruhuna,Faculty of Technology
+sabaragamuwa--faculty-of-agricultural-sciences,sabaragamuwa,Faculty of Agricultural Sciences
+sabaragamuwa--faculty-of-agriculture,sabaragamuwa,Faculty of Agriculture
+sabaragamuwa--faculty-of-bio-science-engineering,sabaragamuwa,Faculty of Bio Science Engineering
+sabaragamuwa--faculty-of-computing,sabaragamuwa,Faculty of Computing
+sabaragamuwa--faculty-of-medicine,sabaragamuwa,Faculty of Medicine
+sabaragamuwa--faculty-of-social-sciences-and-languages,sabaragamuwa,Faculty of Social Sciences and Languages
+sabaragamuwa--unassigned-faculty,sabaragamuwa,Unassigned faculty
+seusl--faculty-of-applied-sciences,seusl,Faculty of Applied Sciences
+seusl--faculty-of-arts-and-culture,seusl,Faculty of Arts and Culture
+seusl--faculty-of-islamic-studies-and-arabic-language,seusl,Faculty of Islamic Studies and Arabic Language
+seusl--faculty-of-management-and-commerce,seusl,Faculty of Management and Commerce
+seusl--faculty-of-technology,seusl,Faculty of Technology
 sliit--faculty-of-computing,sliit,Faculty of Computing
 sliit--faculty-of-engineering,sliit,Faculty of Engineering
 sliit--faculty-of-graduate-studies,sliit,Faculty of Graduate Studies
@@ -98,8 +126,18 @@ sliit--school-of-law,sliit,School of Law
 sliit--school-of-nursing,sliit,School of Nursing
 sliit--school-of-psychology,sliit,School of Psychology
 sliit--sliit-business-school,sliit,SLIIT Business School
+uvpa--faculty-of-dance-and-drama,uvpa,Faculty of Dance and Drama
+uvpa--faculty-of-graduate-studies,uvpa,Faculty of Graduate Studies
+uvpa--faculty-of-music,uvpa,Faculty of Music
+uvpa--faculty-of-visual-arts,uvpa,Faculty of Visual Arts
+uvpa--unassigned-faculty,uvpa,Unassigned faculty
 uwu--faculty-of-animal-science-and-export-agriculture,uwu,Faculty of Animal Science and Export Agriculture
 uwu--faculty-of-applied-sciences,uwu,Faculty of Applied Sciences
 uwu--faculty-of-management,uwu,Faculty of Management
 uwu--faculty-of-medicine,uwu,Faculty of Medicine
 uwu--faculty-of-technological-studies,uwu,Faculty of Technological Studies
+wayamba--faculty-of-agriculture-and-plantation-management,wayamba,Faculty of Agriculture and Plantation Management
+wayamba--faculty-of-applied-sciences,wayamba,Faculty of Applied Sciences
+wayamba--faculty-of-livestock-fisheries-and-nutrition,wayamba,Faculty of Livestock Fisheries and Nutrition
+wayamba--faculty-of-medicine,wayamba,Faculty of Medicine
+wayamba--faculty-of-technology,wayamba,Faculty of Technology

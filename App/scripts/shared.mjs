@@ -29,6 +29,13 @@ export const names = [
   "Saegis Campus",
   "ICBT Campus",
   "Uva Wellassa University of Sri Lanka",
+  "Sabaragamuwa University of Sri Lanka",
+  "Wayamba University of Sri Lanka",
+  "Rajarata University of Sri Lanka",
+  "Eastern University, Sri Lanka",
+  "South Eastern University of Sri Lanka",
+  "The Open University of Sri Lanka",
+  "University of the Visual and Performing Arts",
 ];
 export const shorts = [
   "Colombo",
@@ -47,12 +54,19 @@ export const shorts = [
   "Saegis",
   "ICBT",
   "UWU",
+  "Sabaragamuwa",
+  "Wayamba",
+  "Rajarata",
+  "Eastern",
+  "SEUSL",
+  "OUSL",
+  "UVPA",
 ];
 export const universities = names.map((name, i) => ({
   id: shorts[i].toLowerCase(),
   name,
   short: shorts[i],
-  type: i < 8 || shorts[i] === "UWU" ? "Public" : "Non-state",
+  type: i < 8 || shorts[i] === "UWU" || i >= 16 ? "Public" : "Non-state",
 }));
 export const slug = (s) =>
   s
