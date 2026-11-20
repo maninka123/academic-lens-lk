@@ -9,6 +9,7 @@ import { loadRemovals, isRemoved } from "./removals-lib.mjs";
 import fs from "node:fs";
 import { createHash } from "node:crypto";
 import { csvRead, universities, slug, hierarchy, csvWrite } from "./shared.mjs";
+import { phdAttribution, WITHHELD } from "./phd-attribution.mjs";
 import {
   resolveAlias,
   linkStatus,
@@ -104,6 +105,7 @@ const n = (v) => {
 };
 const openAlexById = new Map(openAlex.map((r) => [resolveAlias(r.academic_id, aliases), r]));
 const research = researchInputs(source, aliases);
+const attributionReview = [];
 const rows = sourceRows.map((original) => {
   const lookup = openAlexById.get(original.academic_id);
   const match = publicMatch(original, lookup, research);
@@ -126,6 +128,11 @@ const rows = sourceRows.map((original) => {
   const evidence = [...metricEvidence(original, snapshots, observations, aliases), ...fallback.evidence]
     .filter((e) => !isRejected(e.url))
     .map((e) => ({ ...e, url: sanitizeUrl(e.url), note: publicEvidenceNote(sanitizeText(e.note)) }));
+  // The doctoral institution and country are published only when the doctoral entry supports them (never taken from an adjacent
+  // degree, never assumed for a bare or joint doctorate). Source CSVs are not changed; withheld rows are listed privately.
+  const attribution = phdAttribution(r);
+  const withheld = WITHHELD.has(attribution.status);
+  if (withheld) attributionReview.push({ academic_id: r.academic_id, status: attribution.status, recorded_university: r.phd_university, recorded_country: r.phd_country, doctoral_entry: attribution.entry });
   const reviews = [
     doctorate === "contradictory" ? doctorateReview.contradictory : "",
     r.phd_university && doctorate === "unknown"
@@ -149,9 +156,9 @@ const rows = sourceRows.map((original) => {
     qualification:
       doctorate === "completed_documented" ? "PhD" : lowerQualification(q),
     doctorateStatus: doctorate,
-    phdUniversity: r.phd_university,
+    phdUniversity: withheld ? "" : r.phd_university,
     ...(() => {
-      const recorded = (r.phd_university || "").trim();
+      const recorded = withheld ? "" : (r.phd_university || "").trim();
       if (!recorded) return { phdInstitution: "", phdQsRank: "", phdQsStatus: "" };
       const phdInstitution = phdAlias[recorded] || recorded;
       const qs = qsByInstitution[phdInstitution];
@@ -161,9 +168,9 @@ const rows = sourceRows.map((original) => {
         phdQsStatus: qs ? qs.qs_status : "not_located",
       };
     })(),
-    phdCountry: r.phd_country,
+    phdCountry: withheld ? "" : r.phd_country,
     // Labels countries inferred from the awarding institution's name.
-    phdCountryInferred: /^inferred/.test(r.phd_country_basis || "")
+    phdCountryInferred: !withheld && /^inferred/.test(r.phd_country_basis || "")
       ? "yes"
       : "",
     phdYear:
@@ -238,6 +245,7 @@ for (const f of fs.readdirSync(out, { withFileTypes: true }))
 // Per-institution notices (for example "public staff directory not located") and the rule that such an
 // institution is shown but never used in comparisons.
 const notices = optionalCsv("institution_notices.csv");
+csvWrite(source + "/phd_attribution_review.csv", attributionReview);
 const inScope = universities
   .filter((u) => u.id !== "saegis")
   .map((u) => {
