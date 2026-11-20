@@ -1,6 +1,6 @@
 {
   "correctionContact": "pmranasinghe97@gmail.com",
-  "version": "partial-2b3ed4b09b",
+  "version": "partial-6d1f490bce",
   "mode": "real",
   "country": "Sri Lanka",
   "identityAliases": {
@@ -26,7 +26,9 @@
     "SL-aad827a4babb": "SL-785681e2a343",
     "SL-e7bec1009ea7": "SL-1fa78683f6a5",
     "SL-37854c13adee": "SL-05c63d84714e",
-    "SL-bfafd0abee77": "SL-8b37bf3db3ae"
+    "SL-bfafd0abee77": "SL-8b37bf3db3ae",
+    "SL-619de3093ff3": "SL-40534ec6e5b6",
+    "SL-f003d1421440": "SL-2338706c5268"
   },
   "collectionDate": "2026-11-20",
   "updatedAt": "2026-11-19",
