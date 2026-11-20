@@ -41,7 +41,7 @@ def problem(u, where, overwrite):
         val = ""
     elif not val: return "new_value empty (use __BLANK__ to clear)"
     if field == "phd_completion_year" and val and (not re.fullmatch(r"(19[5-9]\d|20[0-2]\d)", val) or int(val) > 2026): return "year not 1950-2026"
-    if field == "phd_status" and val not in ("listed_completed", "in_progress"): return "phd_status must be listed_completed or in_progress"
+    if field == "phd_status" and val not in ("listed_completed", "in_progress", "not_listed_on_profile"): return "phd_status must be listed_completed, in_progress or not_listed_on_profile"
     old = where[rid][1][field].strip()
     if old == val: return "already recorded"
     if old and not overwrite: return f"existing value {old!r} differs (use --overwrite after review)"

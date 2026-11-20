@@ -169,7 +169,11 @@ const HONORARY = /\bhonor(?:ary|is causa)\b|\bh\.?\s?c\.?\b/i;
  * @returns {"completed_documented"|"in_progress"|"contradictory"|"unknown"}
  */
 export function doctorateStatus({ phd_status = "", qualifications = "" }) {
-  const q = String(qualifications || "").replace(
+  // "(MPhil/PhD Track)" is a registration, and "prepare for your PhD journey" is a training course: neither is a doctorate.
+  const q = String(qualifications || "")
+    .replace(/\(?\s*m\.?\s?phil\s*\/\s*ph\.?\s?d\.?\s*track\s*\)?/gi, " Reading for PhD ")
+    .replace(/(?:to\s+)?prepare\s+for\s+(?:your\s+)?ph\.?\s?d\.?\s+journey[^;\n]*/gi, " ")
+    .replace(
     READING_UNIVERSITY,
     "University of R.",
   );

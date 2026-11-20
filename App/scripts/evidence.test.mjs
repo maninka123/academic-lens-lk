@@ -189,3 +189,9 @@ test("country rules map titles without discarding the original", () => {
   assert.equal(careerStage("Senior Lecturer"), "Mid-career");
   assert.equal(careerStage("Unknown"), "Unknown");
 });
+
+test("a PhD track registration or a PhD-journey course is not a completed doctorate", () => {
+  assert.notEqual(doctorateStatus({ phd_status: "", qualifications: "MPhil (Political Science); Public Policy (MPhil/PhD Track)" }), "completed_documented");
+  assert.notEqual(doctorateStatus({ phd_status: "", qualifications: "B.Sc. (Hons.) (Kelaniya), M.Sc. (Moratuwa); to prepare for your PhD journey, SDC University of Colombo" }), "completed_documented");
+  assert.equal(doctorateStatus({ phd_status: "", qualifications: "PhD (Colombo), MSc (Col)" }), "completed_documented");
+});
