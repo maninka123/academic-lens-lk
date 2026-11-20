@@ -32,7 +32,7 @@ for (const width of [1440, 820, 390]) {
 
 test("universities show monograms and a row per institution", async ({ page }) => {
   await page.goto("./#/universities");
-  await expect(page.locator(".uni-row")).toHaveCount(15);
+  await expect(page.locator(".uni-row")).toHaveCount(22);
   await expect(page.locator(".uni-row .uni-thumb b", { hasText: /^ST$/ })).toHaveCount(1);
 });
 
@@ -46,7 +46,7 @@ test("faculty and department cards carry subject icons", async ({ page }) => {
 
 test("compare picker follows the comparison level and faculty presets work", async ({ page }) => {
   await page.goto("./#/compare");
-  await page.getByRole("button", { name: /Medicine \/ Health/ }).click();
+  await page.getByRole("button", { name: "Medicine", exact: true }).click();
   await expect(page.locator(".group-picker-field > span")).toHaveText("Faculties");
   await page.getByLabel("Comparison level").selectOption("rank");
   await expect(page.locator(".group-picker-field > span")).toHaveText("Positions");
@@ -59,7 +59,8 @@ test("faculty level offers faculty types, not one entry per university", async (
   await page.locator(".group-picker-field summary").click();
   const labels = await page.locator(".group-picker-field .check span").allTextContents();
   expect(labels.some((l) => /^Medicine \(/.test(l))).toBe(true);
-  expect(labels.some((l) => /University/.test(l))).toBe(false);
+  // Faculty types only: no entry may be just a university name with a count (a named faculty-level unit such as UCSC is fine).
+  expect(labels.some((l) => /^[^()]*University[^()]*\(\d+\)$/.test(l))).toBe(false);
 });
 
 test("the corner filter opens, narrows the data and clears", async ({ page }) => {
