@@ -16,7 +16,7 @@ import csv, glob, io, re, sys, pathlib, datetime
 ROOT = pathlib.Path(__file__).resolve().parents[2] / "Data" / "Lanka-Academia"
 TYPES = {"official_profile", "official_cv", "thesis_repository", "graduation_record", "other_official"}
 FIELDS = {"phd_completion_year", "phd_university", "phd_country", "phd_status", "phd_country_basis", "qualifications"}
-CLEARABLE = {"phd_university", "phd_country", "phd_country_basis", "phd_completion_year"}
+CLEARABLE = {"phd_university", "phd_country", "phd_country_basis", "phd_completion_year", "qualifications"}
 
 
 def read(p):
@@ -41,7 +41,7 @@ def problem(u, where, overwrite):
         val = ""
     elif not val: return "new_value empty (use __BLANK__ to clear)"
     if field == "phd_completion_year" and val and (not re.fullmatch(r"(19[5-9]\d|20[0-2]\d)", val) or int(val) > 2026): return "year not 1950-2026"
-    if field == "phd_status" and val not in ("listed_completed", "in_progress", "not_listed_on_profile"): return "phd_status must be listed_completed, in_progress or not_listed_on_profile"
+    if field == "phd_status" and val not in ("listed_completed", "in_progress", "not_listed_on_profile", "not_published_or_not_extracted"): return "phd_status must be listed_completed, in_progress or not_listed_on_profile"
     old = where[rid][1][field].strip()
     if old == val: return "already recorded"
     if old and not overwrite: return f"existing value {old!r} differs (use --overwrite after review)"
