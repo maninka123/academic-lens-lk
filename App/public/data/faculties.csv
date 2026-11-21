@@ -1,6 +1,15 @@
 id,universityId,name
 colombo--university-of-colombo-school-of-computing-ucsc,colombo,University of Colombo School of Computing (UCSC)
 colombo--sri-palee-campus-spc,colombo,Sri Palee Campus (SPC)
+apiit--foundation-programmes,apiit,Foundation Programmes
+apiit--kandy-campus,apiit,Kandy Campus
+apiit--postgraduate-school,apiit,Postgraduate School
+apiit--school-of-biomedical-science,apiit,School of Biomedical Science
+apiit--school-of-business,apiit,School of Business
+apiit--school-of-computing,apiit,School of Computing
+apiit--school-of-engineering,apiit,School of Engineering
+apiit--school-of-hospitality-and-tourism,apiit,School of Hospitality and Tourism
+apiit--school-of-law,apiit,School of Law
 cinec--faculty-of-engineering,cinec,Faculty of Engineering
 cinec--faculty-of-health-sciences,cinec,Faculty of Health Sciences
 cinec--faculty-of-humanities-and-education,cinec,Faculty of Humanities and Education
@@ -17,6 +26,7 @@ colombo--faculty-of-nursing,colombo,Faculty of Nursing
 colombo--faculty-of-science,colombo,Faculty of Science
 colombo--faculty-of-technology,colombo,Faculty of Technology
 colombo--national-institute-of-library-and-information-sciences-nilis,colombo,National Institute of Library and Information Sciences (NILIS)
+eastern--centres-and-units,eastern,Centres and units
 eastern--faculty-of-agriculture,eastern,Faculty of Agriculture
 eastern--faculty-of-arts-and-culture,eastern,Faculty of Arts and Culture
 eastern--faculty-of-commerce-and-management,eastern,Faculty of Commerce and Management
@@ -24,7 +34,6 @@ eastern--faculty-of-graduate-studies,eastern,Faculty of Graduate Studies
 eastern--faculty-of-health-care-sciences,eastern,Faculty of Health Care Sciences
 eastern--faculty-of-science,eastern,Faculty of Science
 eastern--faculty-of-technology,eastern,Faculty of Technology
-eastern--unassigned-faculty,eastern,Unassigned faculty
 horizon--faculty-of-education,horizon,Faculty of Education
 horizon--faculty-of-information-technology,horizon,Faculty of Information Technology
 horizon--faculty-of-law,horizon,Faculty of Law
@@ -100,7 +109,6 @@ rajarata--faculty-of-management-studies,rajarata,Faculty of Management Studies
 rajarata--faculty-of-medicine-allied-sciences,rajarata,Faculty of Medicine & Allied Sciences
 rajarata--faculty-of-social-sciences-and-humanities,rajarata,Faculty of Social Sciences and Humanities
 rajarata--faculty-of-technology,rajarata,Faculty of Technology
-rajarata--unassigned-faculty,rajarata,Unassigned faculty
 ruhuna--faculty-of-agriculture,ruhuna,Faculty of Agriculture
 ruhuna--faculty-of-allied-health-sciences,ruhuna,Faculty of Allied Health Sciences
 ruhuna--faculty-of-engineering,ruhuna,Faculty of Engineering
@@ -136,7 +144,6 @@ uvpa--faculty-of-dance-and-drama,uvpa,Faculty of Dance and Drama
 uvpa--faculty-of-graduate-studies,uvpa,Faculty of Graduate Studies
 uvpa--faculty-of-music,uvpa,Faculty of Music
 uvpa--faculty-of-visual-arts,uvpa,Faculty of Visual Arts
-uvpa--unassigned-faculty,uvpa,Unassigned faculty
 uwu--faculty-of-animal-science-and-export-agriculture,uwu,Faculty of Animal Science and Export Agriculture
 uwu--faculty-of-applied-sciences,uwu,Faculty of Applied Sciences
 uwu--faculty-of-management,uwu,Faculty of Management

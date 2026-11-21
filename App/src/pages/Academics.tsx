@@ -677,7 +677,11 @@ export function Institution() {
     ? { faculties: units, campuses: [] as typeof units }
     : splitFacultyUnits(units, d.orgUnits, u.id);
   const unitCard = (g: { id: string; label: string; rows: Academic[] }) => {
+    // Profiles whose faculty could not be established are not shown as a faculty card; they stay in the totals and the list.
+    if (!faculty && g.id === "unassigned-faculty") return null;
     const name = faculty ? g.rows[0]?.department : g.rows[0]?.faculty || g.label;
+    // People listed at faculty level (no department on the official page) are not shown as an empty department card.
+    if (faculty && !name) return null;
     return (
       <Link
         className="institution-card"

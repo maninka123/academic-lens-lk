@@ -183,6 +183,7 @@ export function ScoreDialog({
 
       {result.caveats.length > 0 && (
         <div className="score-fallback" role="note">
+          <span className="score-fallback-icon" aria-hidden="true">!</span>
           <strong>Indicative score: a fallback was used</strong>
           <ul>
             {result.caveats.map((c) => (

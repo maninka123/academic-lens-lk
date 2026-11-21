@@ -30,7 +30,9 @@ UNI = {
     "seusl": ("South Eastern University of Sri Lanka", "South Eastern", "https://www.seu.ac.lk/", "Oluvil"),
     "ousl": ("The Open University of Sri Lanka", "Open University", "https://www.ou.ac.lk/", "Nawala, Nugegoda"),
     "uvpa": ("University of the Visual and Performing Arts", "Visual & Performing Arts", "https://vpa.ac.lk/", "Colombo"),
+    "apiit": ("Asia Pacific Institute of Information Technology (APIIT)", "APIIT", "https://apiit.lk/", "Colombo"),
 }
+NON_STATE = {"apiit"}
 TODAY = time.strftime("%Y-%m-%d")
 slug = lambda s: re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 norm = lambda s: re.sub(r"[^a-z]", "", re.sub(r"\b(prof(essor)?|dr|mr|mrs|ms|miss|ven|rev|eng|snr|senior|emeritus|emer)\b\.?", "", s.lower()))
@@ -153,11 +155,11 @@ def main():
         for fn_, (deps, n) in sorted(facs.items()): w.writerow([slug(fn_), fn_, len({d for d in deps if d}), n])
         open(base / "faculties.csv", "w", encoding="utf-8-sig", newline="").write(out.getvalue())
         out = io.StringIO(); w = csv.writer(out, lineterminator="\n"); w.writerow(["university_id", "name", "type", "homepage_url", "address", "telephone", "faculty_inventory_url", "checked_at", "coverage_note"])
-        w.writerow([uid, name, "Public", home, city + ", Sri Lanka", "", home, TODAY, "Collected from official staff pages; coverage is partial and listed per faculty. Visiting, temporary and ancillary posts are not included. Qualifications are as listed on the pages."])
+        w.writerow([uid, name, ("Non-state" if uid in NON_STATE else "Public"), home, city + ", Sri Lanka", "", home, TODAY, "Collected from official staff pages; coverage is partial and listed per faculty. Visiting, temporary and ancillary posts are not included. Qualifications are as listed on the pages."])
         open(base / "institution_details.csv", "w", encoding="utf-8-sig", newline="").write(out.getvalue())
         up = DATA / "universities.csv"; rows = list(csv.DictReader(open(up, encoding="utf-8-sig")))
         if uid not in {r["id"] for r in rows}:
-            rows.append({"id": uid, "name": name, "short": short, "type": "Public", "academic_records": "0"}); out = io.StringIO()
+            rows.append({"id": uid, "name": name, "short": short, "type": ("Non-state" if uid in NON_STATE else "Public"), "academic_records": "0"}); out = io.StringIO()
             w = csv.DictWriter(out, fieldnames=["id", "name", "short", "type", "academic_records"], lineterminator="\n"); w.writeheader(); w.writerows(rows); open(up, "w", encoding="utf-8-sig", newline="").write(out.getvalue())
         with open(RAW / f"{uid}_not_added.csv", "w", encoding="utf-8", newline="") as fh:
             w = csv.writer(fh); w.writerow(["name", "position", "faculty", "department", "page_url", "reason"]); w.writerows(not_added)

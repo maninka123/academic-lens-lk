@@ -32,7 +32,7 @@ for (const width of [1440, 820, 390]) {
 
 test("universities show monograms and a row per institution", async ({ page }) => {
   await page.goto("./#/universities");
-  await expect(page.locator(".uni-row")).toHaveCount(22);
+  await expect(page.locator(".uni-row")).toHaveCount(23);
   await expect(page.locator(".uni-row .uni-thumb b", { hasText: /^ST$/ })).toHaveCount(1);
 });
 

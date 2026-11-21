@@ -88,5 +88,67 @@
     "source": "https://www.uwu.ac.lk/",
     "credit": "Uva Wellassa University of Sri Lanka",
     "original": "https://www.uwu.ac.lk/wp-content/uploads/1.jpg"
+  },
+  "ousl": {
+    "image": "images/campuses/ousl.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Open_University_of_Sri_Lanka.jpg",
+    "credit": "Gihan Jayaweera | CC BY-SA 3.0, Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "Gihan Jayaweera"
+  },
+  "eastern": {
+    "image": "images/campuses/eastern.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Faculty_of_Health-Care_Sciences%2C_Eastern_University%2C_Batticaloa..JPG",
+    "credit": "Camera007 | CC BY-SA 3.0, Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "Camera007"
+  },
+  "rajarata": {
+    "image": "images/campuses/rajarata.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:FASc_in_RUSL.jpg",
+    "credit": "Gihan Jayaweera | CC BY-SA 3.0, Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "Gihan Jayaweera"
+  },
+  "seusl": {
+    "image": "images/campuses/seusl.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Library_of_South_Eastern_University_of_Sri_Lanka%2C_Oluvil.jpg",
+    "credit": "L Manju | CC BY-SA 4.0, Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "author": "L Manju"
+  },
+  "wayamba": {
+    "image": "images/campuses/wayamba.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:WUSL005.jpg",
+    "credit": "Isuru.nuwan001 | CC BY-SA 3.0, Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "Isuru.nuwan001"
+  },
+  "sabaragamuwa": {
+    "image": "images/campuses/sabaragamuwa.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Open_theater_of_Sabaragamuwa_University_of_Sri_Lanka.jpg",
+    "credit": "Sabnas Mahdoom | CC BY-SA 4.0, Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "author": "Sabnas Mahdoom"
+  },
+  "uvpa": {
+    "image": "images/campuses/uvpa.jpg",
+    "source": "https://vpa.ac.lk/",
+    "credit": "Image supplied by the project maintainer | University of the Visual and Performing Arts",
+    "license": "Supplied by the project maintainer; licence not independently verified",
+    "author": "Not stated"
+  },
+  "apiit": {
+    "image": "images/campuses/apiit.jpg",
+    "source": "https://apiit.lk/",
+    "credit": "Image supplied by the project maintainer | APIIT building",
+    "license": "Supplied by the project maintainer; appears to be an institutional promotional image, licence not verified",
+    "author": "Not stated"
   }
 }

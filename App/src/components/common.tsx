@@ -9,11 +9,15 @@ export const fmt = (v: number | null | undefined, digits = 0) =>
     : new Intl.NumberFormat("en", { maximumFractionDigits: digits }).format(v);
 export const short = (name: string) =>
   name
+    .replace("University of the Visual and Performing Arts", "Visual and Performing Arts")
+    .replace(/^The Open University of Sri Lanka$/, "Open University")
+    .replace(/^Asia Pacific Institute of Information Technology \(APIIT\)$/, "APIIT")
+    // "X University of Sri Lanka" and "X University, Sri Lanka" are shown as "X", like Peradeniya or Uva Wellassa.
+    .replace(/ University,? (?:of )?Sri Lanka$/, "")
     .replace(/^University of /, "")
     .replace("General Sir John Kotelawala Defence University", "KDU")
     .replace("Sri Lanka Institute of Information Technology", "SLIIT")
-    .replace("NSBM Green University", "NSBM")
-    .replace("Uva Wellassa University of Sri Lanka", "Uva Wellassa");
+    .replace("NSBM Green University", "NSBM");
 export function Header({
   eyebrow,
   title,

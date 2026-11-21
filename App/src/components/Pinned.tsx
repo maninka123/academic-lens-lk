@@ -51,9 +51,7 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
         </h2>
         <span className="pill">{pinned.length}</span>
       </div>}
-      <p className="muted">
-        Keep individuals in view as your comparison changes.
-      </p>
+      <p className="pinned-lede">Pin people to keep them in view as the comparison changes.</p>
       <label className="search-box">
         <Search size={18} />
         <input
@@ -90,20 +88,14 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
           <Plus size={16} /> Add all {matches.length} shown
         </Button>
       )}
-      <p className="caption" role="status">
-        {pinned.length ? `${pinned.length} ${pinned.length === 1 ? "person" : "people"} pinned. Keep searching to add more.` : "Search by name, university or department to add people."}
+      <p className="pinned-status" role="status">
+        {pinned.length ? `${pinned.length} ${pinned.length === 1 ? "person" : "people"} pinned` : "Search by name, university or department."}
+        {search && !matches.length ? " · No matching unpinned profiles." : ""}
       </p>
-      {search && !matches.length && (
-        <p className="muted">No matching unpinned profiles.</p>
-      )}
       {!pinned.length && (
-        <div className="pin-empty">
-          <Pin size={25} />
-          <h3>Your reference points</h3>
-          <p>
-            Add academics to see their metric values and position within a peer
-            group.
-          </p>
+        <div className="pinned-empty">
+          <Pin size={16} aria-hidden="true" />
+          <p>Pinned people show their metric value and where they sit within the peer group.</p>
         </div>
       )}
       <div className="pinned-list">
@@ -125,12 +117,9 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
           v,
         );
         return (
-          <div
-            className="pinned-card"
-            key={id}
-            style={{ borderLeftColor: personColors[i % personColors.length] }}
-          >
-            <div className="section-heading">
+          <div className="pinned-card" key={id}>
+            <div className="pinned-head">
+              <span className="pinned-dot" style={{ background: personColors[i % personColors.length] }} aria-hidden="true" />
               <Link to={"/academics/" + id}>{a.name}</Link>
               <Button
                 variant="ghost"
@@ -138,39 +127,35 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
                 aria-label={"Remove " + a.name}
                 onClick={() => unpin(id)}
               >
-                <X size={17} />
+                <X size={16} />
               </Button>
             </div>
-            <p>
-              {short(a.university)} | {a.rank}
-            </p>
-            <span
-              className={
-                "reference " + (peer.some((r) => r.id === id) ? "included" : "")
-              }
-            >
-              {peer.some((r) => r.id === id)
-                ? "Included in peer group"
-                : "External reference"}
-            </span>
+            <div className="pinned-meta">
+              <span>{short(a.university)} · {a.rank}</span>
+              <span className={"pinned-tag" + (peer.some((r) => r.id === id) ? " in" : "")}>
+                {peer.some((r) => r.id === id)
+                  ? "Included in peer group"
+                  : "External reference"}
+              </span>
+            </div>
             {numeric ? (
               <>
                 <div
                   className={
-                    "person-value" + (v === null && recorded === null ? " unavailable" : "")
+                    "pinned-value" + (v === null && recorded === null ? " unavailable" : "")
                   }
                 >
                   <strong>{fmt(v ?? recorded, 1)}</strong>
                   <span>{metricLabels[metric]}</span>
                 </div>
                 {recorded !== null ? (
-                  <p className="caption">
+                  <p className="pinned-note">
                     {recordedFrom} value, not {providerLabel || "the selected provider"}: not ranked against these peers.
                   </p>
                 ) : providerLabel && (
-                  <p className="caption">{v === null ? `No recorded ${providerLabel} ${metricLabels[metric]} for this person.` : `${providerLabel} | individual value`}</p>
+                  <p className="pinned-note">{v === null ? `No recorded ${providerLabel} ${metricLabels[metric]} for this person.` : `${providerLabel} | individual value`}</p>
                 )}
-                {recorded === null && <dl className="peer-stats">
+                {recorded === null && <dl className="pinned-stats">
                   <div>
                     <dt>Peer median</dt>
                     <dd>{fmt(stats.median, 1)}</dd>
@@ -209,13 +194,13 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
                   </div>
                 </dl>}
                 {recorded === null && stats.n < 5 && (
-                  <p className="caption">
+                  <p className="pinned-note">
                     Fewer than five valid peers; a position is not shown.
                   </p>
                 )}
               </>
             ) : (
-              <p>
+              <p className="pinned-note">
                 Individual positioning is available for numeric metrics.
                 Qualification percentages describe groups.
               </p>
@@ -224,7 +209,7 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
         );
       })}
       </div>
-      <details className="method-note">
+      <details className="pinned-method">
         <summary>How percentiles work</summary>
         <p>
           100 × (values below + half of tied values) ÷ valid peers. At least 5
