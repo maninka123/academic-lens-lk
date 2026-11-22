@@ -28,6 +28,7 @@ for (const [name, path, width, height, scheme, , full] of shots) {
   await ctx.addInitScript(() => localStorage.setItem("lanka-academia-last-visit-v2", String(Date.now())));
   const page = await ctx.newPage();
   await page.goto(BASE + "/#" + path, { waitUntil: "networkidle" });
+  if (scheme === "dark") await page.getByRole("button", { name: "Dark appearance" }).click();
   await page.waitForTimeout(2200);
   await page.screenshot({ path: `${OUT}/${name}.png`, fullPage: false });
   console.log("saved", name);
