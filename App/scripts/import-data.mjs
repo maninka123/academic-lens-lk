@@ -430,18 +430,14 @@ const metadata = {
   minimumSample: settings.minimumSample || 10,
   correctionContact: settings.correctionContact || "",
   limitations: settings.limitations || [
-    "Not an exhaustive national census: collected profiles are a subset of the academic population, and directory coverage is incomplete for every institution.",
-    "Name variants and cross-institution appointments may be duplicated; unresolved identity cases are reviewed privately.",
-    "Google Scholar, ResearchGate and OpenAlex report different counts. Values from different providers are not interchangeable.",
-    "Qualification and teaching evidence can be incomplete. A title such as Dr, a recorded doctoral institution or ambiguous text is not evidence of a completed PhD.",
+    "Coverage: Lanka Academia is an ongoing research project, not a complete census of Sri Lankan academics. Institutional coverage varies and continues to evolve.",
+    "Identity: Name variations, multiple affiliations and researcher-profile matching may introduce duplicate or incorrectly attributed records.",
+    "Research metrics: Google Scholar, ResearchGate and OpenAlex use different coverage and counting methods. Their metrics are not directly interchangeable.",
+    "Qualifications: Information may be incomplete or outdated. Academic titles alone do not confirm completed qualifications, and missing information does not imply an absence of qualifications.",
+    "PhD origins: The recorded country refers to the identified awarding institution, not necessarily where the individual studied.",
     ...(missing.length
-      ? [
-          "No collected values for: " +
-            missing.map((k) => names[k]).join(", ") +
-            ".",
-        ]
+      ? ["Missing values: No collected values for " + missing.map((k) => names[k]).join(", ") + "."]
       : []),
-    "Country identifies the awarding institution, not necessarily the physical location of study.",
   ],
 };
 if (

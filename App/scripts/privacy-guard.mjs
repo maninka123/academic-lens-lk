@@ -35,6 +35,8 @@ export const FORBIDDEN_PATHS = [
   [/^Data\/Doctoral-Training-Study\//i, "research-paper data is local and private; it is never committed"],
   [/^International-Doctoral-Training-Study\//i, "the doctoral-training study is local and private; it is never committed"],
   [/^App\/reports\/enriched-merge[^/]*\//i, "internal merge audit"],
+  [/(^|\/)analytics[^/]*(private|export|raw)[^/]*\.(csv|tsv|json|jsonl)$/i, "private website analytics export (countries, referrers, raw traffic)"],
+  [/(^|\/)cloudflare[^/]*(token|credential|secret)[^/]*$/i, "Cloudflare credential file"],
   [/^App\/research\/.*\/data\/snapshot\.csv$/i, "record-level research snapshot (pseudonymised, not anonymous)"],
 ];
 

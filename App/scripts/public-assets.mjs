@@ -6,6 +6,7 @@
 // logs, collection notes, correction logs) stays in `Data/`.
 import fs from "node:fs";
 import path from "node:path";
+import { validateUsage, USAGE_FILE } from "./usage-schema.mjs";
 import { publicFieldProblems, contactProblems, leaveRemarkProblems, INTERNAL_TOKENS } from "./public-notes.mjs";
 
 /** Files allowed under public/data (relative paths, "/" separators). */
@@ -29,6 +30,8 @@ export const PUBLIC_FILES = [
   "international/departments.csv",
   "international/metadata.json",
   "international/sri_lanka_openalex.csv",
+  // Approved aggregate website usage (site-wide totals and daily page views only); strictly validated by usage-schema.mjs.
+  "platform_usage.json",
 ];
 
 /** Columns published in public/data/academics.csv (everything the UI reads). */
@@ -160,6 +163,10 @@ export function checkPublicData(dataDir, { scanOnly = [] } = {}) {
       for (const [re, label] of SECRET_PATTERNS)
         if (re.test(text)) problems.push(`${rel}: possible ${label}`);
       if (rel === "academics.csv") problems.push(...sensitiveFieldProblems(text, rel));
+      if (rel === USAGE_FILE) {
+        try { problems.push(...validateUsage(JSON.parse(text)).map((x) => `${rel}: ${x}`)); }
+        catch { problems.push(`${rel}: not valid JSON`); }
+      }
     }
   }
   for (const file of scanOnly.flatMap(walk)) {

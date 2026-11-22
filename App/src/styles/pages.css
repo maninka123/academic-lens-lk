@@ -185,7 +185,7 @@
 .comparison-options > summary, .rail-block > summary, .custom-builder > summary, .data-notes > summary { cursor: pointer; list-style: none; font-size: 13.5px; font-weight: 510; color: var(--color-heading); display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: 28px; }
 .comparison-options > summary::-webkit-details-marker, .rail-block > summary::-webkit-details-marker, .custom-builder > summary::-webkit-details-marker, .data-notes > summary::-webkit-details-marker { display: none; }
 .comparison-options > summary::after, .rail-block > summary::after, .custom-builder > summary::after, .data-notes > summary::after { content: "+"; color: var(--color-text-muted); font-weight: 400; font-size: 16px; }
-details[open] > summary::after { content: "–" !important; }
+.comparison-options[open] > summary::after, .rail-block[open] > summary::after, .custom-builder[open] > summary::after, .data-notes[open] > summary::after { content: "–" !important; }
 .comparison-options-grid { display: grid; gap: var(--space-5); padding-top: var(--space-4); }
 .comparison-options-grid h3 { font-size: 13px; margin-bottom: var(--space-3); color: var(--color-text-muted); font-weight: 510; }
 .comparison-options-grid section { display: grid; gap: var(--space-3); }
@@ -324,6 +324,9 @@ details[open] > summary::after { content: "–" !important; }
 .institution-card .unit-icon, .institution-card:hover .unit-icon { background: var(--color-fill); color: var(--color-text-muted); }
 .institution-card:hover .unit-icon { color: var(--color-primary); background: var(--color-surface); }
 .institution-notice { display: flex; gap: var(--space-3); align-items: flex-start; margin: 0 0 var(--space-5); padding: var(--space-4); border: 1px solid color-mix(in srgb, var(--color-danger) 30%, var(--color-border)); border-radius: var(--radius-lg); background: color-mix(in srgb, var(--color-danger) 6%, var(--color-surface)); }
+/* Several notices sit side by side and stack on narrow screens. */
+.notice-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--space-3); margin: 0 0 var(--space-5); }
+.notice-row .institution-notice { margin: 0; }
 .institution-notice strong { display: block; margin-bottom: 4px; color: var(--color-danger); font-size: 14px; }
 .institution-notice p { margin: 0 0 var(--space-2); font-size: 13px; line-height: 1.5; }
 .institution-notice small { display: block; color: var(--color-danger); font-size: 12px; }
@@ -579,9 +582,19 @@ details[open] > summary::after { content: "–" !important; }
 .methods-table { width: 100%; min-width: 0; table-layout: auto; }
 .methods-table tbody th { text-align: left; font-weight: 510; width: 150px; }
 .method-details { margin-top: var(--space-4); border-top: 1px solid var(--color-hairline); }
-.method-details summary { cursor: pointer; padding: var(--space-3) 0; font-weight: 510; }
-.method-corrections { margin-top: var(--space-4); }
-.method-corrections p { margin: 4px 0 0; color: var(--color-text-muted); }
+.method-details > summary { display: flex; align-items: center; gap: var(--space-2); list-style: none; cursor: pointer; padding: var(--space-3) 0; font-weight: 510; }
+.method-details > summary::-webkit-details-marker { display: none; }
+.method-details > summary::before { content: ""; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); transition: transform var(--duration-fast); color: var(--color-text-muted); }
+.method-details[open] > summary::before { transform: rotate(45deg); }
+.method-details > summary { color: var(--color-heading); }
+.method-details ul { display: grid; gap: var(--space-2); margin: 0 0 var(--space-3); padding: 0 0 0 var(--space-5); }
+.method-details li { max-width: 78ch; color: var(--color-text); font-size: var(--text-body); line-height: 1.55; }
+.method-details li::marker { color: var(--color-text-muted); }
+.method-details li strong { color: var(--color-heading); font-weight: 510; }
+.method-corrections { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-hairline); }
+.method-corrections .text-link { font-size: inherit; }
+.method-corrections strong { color: var(--color-heading); font-weight: 510; }
+.method-corrections p { max-width: 78ch; margin: var(--space-1) 0 0; color: var(--color-text-muted); font-size: var(--text-body); line-height: 1.55; }
 @media (max-width: 1000px) { .method-glance { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ---------- Academic directory controls ---------- */
@@ -706,3 +719,23 @@ td .qs-rank, dd .qs-rank { margin-left: 8px; }
 }
 
 :root[data-theme="dark"] .ls-card { --ls-ink: #f3f5fa; --ls-mute: #8b93a9; --ls-card-bg: rgba(14, 18, 32, 0.96); }
+
+/* ---------- Interpretation guide ---------- */
+.guide-prose h2 { margin: var(--space-6) 0 var(--space-2); }
+.guide-prose h3 { margin: var(--space-5) 0 var(--space-2); }
+.guide-prose p, .guide-prose li { max-width: 72ch; }
+.guide-figure { margin: var(--space-3) 0 var(--space-4); }
+.guide-figure img { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+.guide-prose li.guide-means strong { color: var(--color-primary); }
+.guide-prose li.guide-not strong { color: var(--color-danger); }
+.guide-prose li.guide-do strong { color: var(--color-text); }
+
+/* ---------- Website analytics (Data & Methodology) ---------- */
+.usage-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); margin: 0 0 var(--space-3); }
+.usage-tiles > div { display: flex; flex-direction: column-reverse; gap: 2px; padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface); border: 1px solid var(--color-border); }
+.usage-tiles dt { color: var(--color-text-muted); font-size: var(--text-caption); }
+.usage-tiles dd { margin: 0; font-size: 24px; line-height: 1.2; font-weight: 510; letter-spacing: -0.02em; color: var(--color-heading); font-variant-numeric: tabular-nums; }
+.usage-meta { margin: var(--space-2) 0 0; }
+.usage-empty { margin: 0; color: var(--color-text-muted); }
+.usage-foot { margin: var(--space-3) 0 0; color: var(--color-text-muted); }
+@media (max-width: 760px) { .usage-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

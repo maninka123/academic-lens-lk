@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { Info } from "lucide-react";
+import { Link } from "react-router-dom";
+import { GUIDE_PATH, SCORE_DISCLAIMER } from "./guideLinks";
 import { Dialog } from "./ui/dialog";
 import { useData } from "../data/context";
 import { standingColor, fmt } from "./common";
@@ -303,6 +305,9 @@ export function StandingScorePanel({ person, size = "lg", bars = true }: { perso
     <div className="score-panel">
       <ScoreStamp result={result} size={size} onOpen={() => setOpen(true)} />
       {bars && <ScoreBars result={result} onOpen={() => setOpen(true)} />}
+      <p className="score-disclaimer">
+        {SCORE_DISCLAIMER} <Link to={GUIDE_PATH}>How to interpret the data</Link>
+      </p>
       <ScoreDialog result={result} name={person.name} open={open} onOpenChange={setOpen} />
     </div>
   );

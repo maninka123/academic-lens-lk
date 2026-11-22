@@ -116,6 +116,10 @@
 .ack-card h2 { font-size: 26px; margin-top: var(--space-2); }
 .ack-card p { font-size: 14px; line-height: 1.55; }
 .ack-lead { font-weight: 590; color: var(--color-heading) !important; }
+.ack-card li strong { color: var(--color-heading); font-weight: 590; }
+.ack-links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-3); margin: 0; font-size: 13.5px; }
+.ack-links a { color: var(--color-link); font-weight: 510; text-decoration: underline; text-underline-offset: 3px; }
+.ack-links span { color: var(--color-border-strong); }
 .ack-card ul { display: grid; gap: var(--space-2); margin: 0; padding-left: 1.2rem; list-style: disc outside; }
 .ack-card li { margin: 0; font-size: 13.5px; line-height: 1.5; display: list-item; list-style: disc outside; color: var(--color-text); }
 .ack-card li::marker { color: var(--color-primary); }

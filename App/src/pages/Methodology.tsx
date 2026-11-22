@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { GUIDE_PATH } from "../components/guideLinks";
 import { Database, ShieldCheck, Globe2, Gauge, TriangleAlert, type LucideIcon } from "lucide-react";
 import { useData, comparableUniversities } from "../data/context";
 import { InstitutionNotice } from "../components/InstitutionNotice";
@@ -7,6 +9,7 @@ import { MIN_SAMPLE, WEAK_COVERAGE } from "../analytics/quality";
 import { useAtlas } from "../store";
 import { Header, Card, fmt, short } from "../components/common";
 import { Chart } from "../components/Chart";
+import { PlatformUsage } from "../components/PlatformUsage";
 import { heatDatum, heatVisualMap } from "../analytics/heatmap";
 import type { Academic } from "../types";
 
@@ -88,9 +91,13 @@ export function Methodology() {
         <div><strong>{pct(rows.filter((a) => a.citations !== null || a.hIndex !== null).length, rows.length)}</strong><span>with citation data</span></div>
         <div><strong>{d.metadata.collectionDate}</strong><span>collected</span></div>
       </section>
-      {d.universities.filter((u) => u.notice).map((u) => (
-        <InstitutionNotice key={u.id} university={u} />
-      ))}
+      {d.universities.some((u) => u.notice) && (
+        <div className="notice-row">
+          {d.universities.filter((u) => u.notice).map((u) => (
+            <InstitutionNotice key={u.id} university={u} />
+          ))}
+        </div>
+      )}
       <p className="method-lede">A partial collection of public profiles, not a staff census. Missing values are unknown, never zero.</p>
       <Card
         title="Coverage by institution"
@@ -233,6 +240,7 @@ export function Methodology() {
               <li>Missing is never zero; coverage below {WEAK_COVERAGE}% is flagged</li>
               <li>Public profiles may over-represent research-active staff</li>
               <li>Scores do not measure teaching or overall quality</li>
+              <li><Link className="text-link" to={GUIDE_PATH}>How to interpret the data</Link></li>
             </ul>
           </Section>
         </div>
@@ -254,16 +262,31 @@ export function Methodology() {
             </table>
           </div>
         </section>
-        <details className="method-details">
+        <details className="method-details" open>
           <summary>Collection limitations</summary>
-          <ul>{d.metadata.limitations.map((l) => <li key={l}>{l}</li>)}</ul>
-          <p>Awarding country identifies the institution, not necessarily where the person studied.</p>
+          <ul>
+            {d.metadata.limitations.map((l) => {
+              const [label, ...rest] = l.split(": ");
+              return rest.length ? (
+                <li key={l}><strong>{label}:</strong> {rest.join(": ")}</li>
+              ) : (
+                <li key={l}>{l}</li>
+              );
+            })}
+          </ul>
         </details>
         <div className="method-corrections">
           <strong>Corrections or removal</strong>
-          <p>Contact {d.metadata.correctionContact ? <a href={`mailto:${d.metadata.correctionContact}`}>{d.metadata.correctionContact}</a> : "the project maintainer through the repository"}. Changes retain their source and history privately. <a href="https://github.com/maninka123/academic-lens-lk/blob/main/App/docs/DATA_POLICY.md" target="_blank" rel="noreferrer">Data policy</a></p>
+          <p>
+            We welcome corrections to improve data accuracy. Academics may also request removal of their profiles without providing a reason.
+          </p>
+          <p>
+            Contact {d.metadata.correctionContact ? <a className="text-link" href={`mailto:${d.metadata.correctionContact}`}>{d.metadata.correctionContact}</a> : "the project maintainer through the repository"}.
+            See our <a className="text-link" href="https://github.com/maninka123/academic-lens-lk/blob/main/App/docs/DATA_POLICY.md" target="_blank" rel="noopener noreferrer">Data Policy</a> for details.
+          </p>
         </div>
       </Card>
+      <PlatformUsage />
       <Card title="Published files">
         <p>
           The website publishes only the files below (a documented allowlist).

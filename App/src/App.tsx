@@ -33,6 +33,7 @@ import { Academics, Profile, Institution } from "./pages/Academics";
 import { Universities } from "./pages/Universities";
 import { Origins } from "./pages/Origins";
 import { Methodology } from "./pages/Methodology";
+import { Guide } from "./pages/Guide";
 import { Global } from "./pages/Global";
 import { GlobalFilterButton } from "./components/GlobalFilterButton";
 import { Button } from "./components/ui/button";
@@ -259,7 +260,9 @@ function Shell() {
                   ? "Universities"
                   : location.pathname === "/"
                     ? "Overview"
-                    : "Page not found")}
+                    : location.pathname === "/guide"
+                      ? "How to interpret the data"
+                      : "Page not found")}
             </span>
           </div>
           <PreviewBadge className="preview-pill" />
@@ -327,6 +330,7 @@ function Shell() {
                 <Route path="/origins" element={<Origins />} />
                 <Route path="/global" element={<Global />} />
                 <Route path="/methodology" element={<Methodology />} />
+                <Route path="/guide" element={<Guide />} />
                 <Route path="/university/:id" element={<Institution />} />
                 <Route
                   path="/university/:id/faculty/:faculty"

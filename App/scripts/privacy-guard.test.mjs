@@ -158,3 +158,14 @@ test("nothing inside the doctoral-training study folder can be tracked", () => {
   assert.equal(problems.length, 2);
   assert.deepEqual(checkPaths(["docs/DATA_POLICY.md", "Data/Lanka-Academia/universities.csv"]), []);
 });
+
+test("private website analytics exports and credentials can never be tracked", () => {
+  const problems = checkPaths([
+    "private/analytics/exports/2026-12-01_2026-12-31.json",
+    "App/analytics_private_traffic.csv",
+    "docs/analytics-export-2026-12.json",
+    "cloudflare_api_token.txt",
+  ]);
+  assert.equal(problems.length, 4, problems.join("\n"));
+  assert.deepEqual(checkPaths(["App/public/data/platform_usage.json", "App/docs/ANALYTICS.md", "App/scripts/usage-export.mjs"]), []);
+});

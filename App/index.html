@@ -13,6 +13,21 @@
       content="Explore Sri Lanka's academic landscape through research metrics, institutional comparisons, and interactive insights."
     />
     <title>Lanka Academia</title>
+    <script>
+      /* Cloudflare Web Analytics (cookie-free, no persistent visitor identifier). The site token is public by design.
+         Loaded once, never on localhost, and not for visitors who send Do Not Track or Global Privacy Control. */
+      (function () {
+        var n = navigator, h = location.hostname;
+        if (h === "localhost" || h === "127.0.0.1") return;
+        if (n.doNotTrack === "1" || window.doNotTrack === "1" || n.globalPrivacyControl) return;
+        if (document.querySelector("script[data-cf-beacon]")) return;
+        var s = document.createElement("script");
+        s.defer = true;
+        s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+        s.setAttribute("data-cf-beacon", '{"token":"64b3254549944e9085a182137f95ba45","spa":true}');
+        document.head.appendChild(s);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
