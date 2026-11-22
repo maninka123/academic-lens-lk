@@ -1,6 +1,6 @@
 {
   "correctionContact": "pmranasinghe97@gmail.com",
-  "version": "partial-c2bf0f507c",
+  "version": "partial-70abffb41a",
   "mode": "real",
   "country": "Sri Lanka",
   "identityAliases": {
@@ -70,10 +70,32 @@
     "SL-5bdf99bfac75": "SL-94087d59b666",
     "SL-e5fdd4515f3f": "SL-2ad00aa02d71",
     "SL-c8b2855fdede": "SL-40912d82d303",
-    "SL-e7246b069db5": "SL-bb2ccd6261e8"
+    "SL-e7246b069db5": "SL-bb2ccd6261e8",
+    "SL-12286e55515e": "SL-3cc5b10f8f68",
+    "SL-50979848d936": "SL-11dfafc53287",
+    "SL-03fbd92246c5": "SL-89ec0ce263fd",
+    "SL-8fd32f00839d": "SL-cd9bb55f0c76",
+    "SL-7c7c56c07baf": "SL-8f618b97aef7",
+    "SL-e9205247d5ad": "SL-01d4dfb0ae5c",
+    "SL-836d6d1de8bc": "SL-1981c92c20c1",
+    "SL-7b76fd8ead57": "SL-78b15c07ad15",
+    "SL-01e68df215a3": "SL-f3b5c7bb185e",
+    "SL-16b2da634dc1": "SL-46c17db9709e",
+    "SL-6af3f326122b": "SL-e05a2e6f5f17",
+    "SL-83ee89d9cd89": "SL-8bdb4f1766f4",
+    "SL-401d303b3d88": "SL-6dfa3f230182",
+    "SL-7a4203d85291": "SL-f03c377572df",
+    "SL-4b5f095fdbff": "SL-067c89f347ae",
+    "SL-853d61411f89": "SL-562c793fa902",
+    "SL-1fcf35641027": "SL-32a148d66941",
+    "SL-ddcc0500a44b": "SL-ec242ee1b72d",
+    "SL-c9ab4bd7c44e": "SL-b9b440aab6c3",
+    "SL-724d41d4185f": "SL-9e5d08756109",
+    "SL-f1365a35acb6": "SL-1dc0c69618a9",
+    "SL-bb53e0804db5": "SL-2c9a50a09719"
   },
-  "collectionDate": "2026-11-21",
-  "updatedAt": "2026-11-21",
+  "collectionDate": "2026-11-22",
+  "updatedAt": "2026-11-22",
   "window": [
     2021,
     2025

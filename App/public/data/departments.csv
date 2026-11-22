@@ -400,54 +400,40 @@ nsbm--faculty-of-science--department-of-biomedical-science,nsbm--faculty-of-scie
 nsbm--faculty-of-science--department-of-health-sciences,nsbm--faculty-of-science,nsbm,Department of Health Sciences
 nsbm--faculty-of-science--department-of-legal-studies,nsbm--faculty-of-science,nsbm,Department of Legal Studies
 nsbm--faculty-of-science--department-of-life-sciences,nsbm--faculty-of-science,nsbm,Department of Life Sciences
-ousl--faculty-of-education--centre-for-it-education-services-cites,ousl--faculty-of-education,ousl,Centre for IT Education Services (CITES)
-ousl--faculty-of-education--centre-for-it-educational-services-cites,ousl--faculty-of-education,ousl,Centre for IT Educational Services (CITES)
 ousl--faculty-of-education--department-of-early-childhood-and-primary-education,ousl--faculty-of-education,ousl,Department of Early Childhood and Primary Education
 ousl--faculty-of-education--department-of-educational-leadership-and-management,ousl--faculty-of-education,ousl,Department of Educational Leadership and Management
-ousl--faculty-of-education--department-of-health-education-and-research,ousl--faculty-of-education,ousl,Department of Health Education and Research
 ousl--faculty-of-education--department-of-secondary-and-tertiary-education,ousl--faculty-of-education,ousl,Department of Secondary and Tertiary Education
-ousl--faculty-of-education--department-of-secondary-tertiary-education,ousl--faculty-of-education,ousl,Department of Secondary & Tertiary Education
 ousl--faculty-of-education--department-of-special-needs-education,ousl--faculty-of-education,ousl,Department of Special Needs Education
-ousl--faculty-of-engineering-technology--civil-engineering-faculty-of-engineering-technology,ousl--faculty-of-engineering-technology,ousl,Civil Engineering - Faculty of Engineering Technology
+ousl--faculty-of-engineering-technology--centre-for-it-educational-services,ousl--faculty-of-engineering-technology,ousl,Centre for IT Educational Services
 ousl--faculty-of-engineering-technology--department-of-agricultural-and-plantation-engineering,ousl--faculty-of-engineering-technology,ousl,Department of Agricultural and Plantation Engineering
-ousl--faculty-of-engineering-technology--department-of-civil-engineering-faculty-of-engineering-technology,ousl--faculty-of-engineering-technology,ousl,Department of Civil Engineering Faculty of Engineering Technology
+ousl--faculty-of-engineering-technology--department-of-civil-engineering,ousl--faculty-of-engineering-technology,ousl,Department of Civil Engineering
 ousl--faculty-of-engineering-technology--department-of-electrical-and-computer-engineering,ousl--faculty-of-engineering-technology,ousl,Department of Electrical and Computer Engineering
+ousl--faculty-of-engineering-technology--department-of-mathematics-and-philosophy-of-engineering,ousl--faculty-of-engineering-technology,ousl,Department of Mathematics and Philosophy of Engineering
 ousl--faculty-of-engineering-technology--department-of-mechanical-engineering,ousl--faculty-of-engineering-technology,ousl,Department of Mechanical Engineering
 ousl--faculty-of-engineering-technology--department-of-textile-and-apparel-technology,ousl--faculty-of-engineering-technology,ousl,Department of Textile and Apparel Technology
-ousl--faculty-of-engineering-technology--textile-and-apparel-technology-faculty-of-engineering-technology,ousl--faculty-of-engineering-technology,ousl,"Textile and Apparel Technology, Faculty of Engineering Technology"
+ousl--faculty-of-health-sciences--department-of-basic-sciences,ousl--faculty-of-health-sciences,ousl,Department of Basic Sciences
+ousl--faculty-of-health-sciences--department-of-health-education-and-research,ousl--faculty-of-health-sciences,ousl,Department of Health Education and Research
 ousl--faculty-of-health-sciences--department-of-medical-laboratory-sciences,ousl--faculty-of-health-sciences,ousl,Department of Medical Laboratory Sciences
 ousl--faculty-of-health-sciences--department-of-nursing,ousl--faculty-of-health-sciences,ousl,Department of Nursing
+ousl--faculty-of-health-sciences--department-of-pharmacy,ousl--faculty-of-health-sciences,ousl,Department of Pharmacy
+ousl--faculty-of-health-sciences--department-of-psychology-and-counselling,ousl--faculty-of-health-sciences,ousl,Department of Psychology and Counselling
 ousl--faculty-of-health-sciences--medical-laboratory-sciences,ousl--faculty-of-health-sciences,ousl,Medical Laboratory Sciences
 ousl--faculty-of-humanities-and-social-sciences--department-of-english-language-teaching,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of English Language Teaching
-ousl--faculty-of-humanities-and-social-sciences--department-of-english-language-teaching-delt,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of English Language Teaching (DELT)
 ousl--faculty-of-humanities-and-social-sciences--department-of-language-studies,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of Language Studies
+ousl--faculty-of-humanities-and-social-sciences--department-of-legal-studies,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of Legal Studies
 ousl--faculty-of-humanities-and-social-sciences--department-of-social-studies,ousl--faculty-of-humanities-and-social-sciences,ousl,Department of Social Studies
-ousl--faculty-of-humanities-and-social-sciences--legal-studies,ousl--faculty-of-humanities-and-social-sciences,ousl,Legal Studies
-ousl--faculty-of-management-studies--accounting-and-finance,ousl--faculty-of-management-studies,ousl,Accounting and Finance
-ousl--faculty-of-management-studies--accounting-finance,ousl--faculty-of-management-studies,ousl,Accounting & Finance
-ousl--faculty-of-management-studies--department-of-accounting-and-finance,ousl--faculty-of-management-studies,ousl,Department of Accounting and Finance
+ousl--faculty-of-humanities-and-social-sciences--information-studies-unit,ousl--faculty-of-humanities-and-social-sciences,ousl,Information Studies Unit
+ousl--faculty-of-management-studies--department-of-accountancy-and-finance,ousl--faculty-of-management-studies,ousl,Department of Accountancy and Finance
 ousl--faculty-of-management-studies--department-of-human-resource-management,ousl--faculty-of-management-studies,ousl,Department of Human Resource Management
 ousl--faculty-of-management-studies--department-of-marketing-management,ousl--faculty-of-management-studies,ousl,Department of Marketing Management
 ousl--faculty-of-management-studies--department-of-organizational-studies,ousl--faculty-of-management-studies,ousl,Department of Organizational Studies
-ousl--faculty-of-management-studies--faculty-of-management-studies,ousl--faculty-of-management-studies,ousl,Faculty of Management Studies
-ousl--faculty-of-management-studies--human-resource-management,ousl--faculty-of-management-studies,ousl,Human Resource Management
+ousl--faculty-of-natural-sciences--department-of-botany,ousl--faculty-of-natural-sciences,ousl,Department of Botany
 ousl--faculty-of-natural-sciences--department-of-chemistry,ousl--faculty-of-natural-sciences,ousl,Department of Chemistry
 ousl--faculty-of-natural-sciences--department-of-computer-science,ousl--faculty-of-natural-sciences,ousl,Department of Computer Science
 ousl--faculty-of-natural-sciences--department-of-mathematics,ousl--faculty-of-natural-sciences,ousl,Department of Mathematics
-ousl--faculty-of-natural-sciences--department-of-mathematics-and-philosophy-of-engineering,ousl--faculty-of-natural-sciences,ousl,Department of Mathematics and Philosophy of Engineering
 ousl--faculty-of-natural-sciences--department-of-physics,ousl--faculty-of-natural-sciences,ousl,Department of Physics
+ousl--faculty-of-natural-sciences--department-of-plant-sciences,ousl--faculty-of-natural-sciences,ousl,Department of Plant Sciences
 ousl--faculty-of-natural-sciences--department-of-zoology,ousl--faculty-of-natural-sciences,ousl,Department of Zoology
-ousl--faculty-of-natural-sciences--mathematics-and-philosophy-of-engineering-engineering-technology,ousl--faculty-of-natural-sciences,ousl,"Mathematics and Philosophy of Engineering, Engineering Technology"
-ousl--unassigned-faculty--centre-for-environmental-studies-sustainable-development,ousl--unassigned-faculty,ousl,Centre for Environmental Studies & Sustainable Development
-ousl--unassigned-faculty--department-of-basic-sciences,ousl--unassigned-faculty,ousl,Department of Basic Sciences
-ousl--unassigned-faculty--department-of-botany,ousl--unassigned-faculty,ousl,Department of Botany
-ousl--unassigned-faculty--department-of-ccounting-finance,ousl--unassigned-faculty,ousl,Department of ccounting & Finance
-ousl--unassigned-faculty--department-of-pharmacy,ousl--unassigned-faculty,ousl,Department of Pharmacy
-ousl--unassigned-faculty--department-of-psychology-and-counselling,ousl--unassigned-faculty,ousl,Department of Psychology and Counselling
-ousl--unassigned-faculty--first,ousl--unassigned-faculty,ousl,First
-ousl--unassigned-faculty--information-studies-unit,ousl--unassigned-faculty,ousl,Information Studies Unit
-ousl--unassigned-faculty--m-a-d-s-priyakumari,ousl--unassigned-faculty,ousl,M.A.D.S. Priyakumari
-ousl--unassigned-faculty--post-graduate-institute-of-english,ousl--unassigned-faculty,ousl,Post Graduate Institute of English
 peradeniya--faculty-of-agriculture--department-of-agricultural-economics-and-business-management,peradeniya--faculty-of-agriculture,peradeniya,Department of Agricultural Economics and Business Management
 peradeniya--faculty-of-agriculture--department-of-agricultural-engineering,peradeniya--faculty-of-agriculture,peradeniya,Department of Agricultural Engineering
 peradeniya--faculty-of-agriculture--department-of-agriculture-biology,peradeniya--faculty-of-agriculture,peradeniya,Department of Agriculture Biology
@@ -638,20 +624,65 @@ ruhuna--faculty-of-technology--department-of-biosystems-technology,ruhuna--facul
 ruhuna--faculty-of-technology--department-of-engineering-technology,ruhuna--faculty-of-technology,ruhuna,Department of Engineering Technology
 ruhuna--faculty-of-technology--department-of-information-and-communication-technology,ruhuna--faculty-of-technology,ruhuna,Department of Information and Communication Technology
 ruhuna--faculty-of-technology--department-of-multidisciplinary-studies,ruhuna--faculty-of-technology,ruhuna,Department of Multidisciplinary Studies
+sabaragamuwa--faculty-of-agricultural-sciences--department-of-agribusiness-management,sabaragamuwa--faculty-of-agricultural-sciences,sabaragamuwa,Department of Agribusiness Management
 sabaragamuwa--faculty-of-agricultural-sciences--department-of-export-agriculture,sabaragamuwa--faculty-of-agricultural-sciences,sabaragamuwa,Department of Export Agriculture
-sabaragamuwa--faculty-of-agriculture--school-of-biosphere-sciences-hiroshima,sabaragamuwa--faculty-of-agriculture,sabaragamuwa,"School of Biosphere Sciences, Hiroshima"
-sabaragamuwa--faculty-of-bio-science-engineering--department-of-livestock-production,sabaragamuwa--faculty-of-bio-science-engineering,sabaragamuwa,Department of Livestock Production
-sabaragamuwa--faculty-of-computing--department-of-computing-information-systems,sabaragamuwa--faculty-of-computing,sabaragamuwa,Department of Computing & Information Systems
+sabaragamuwa--faculty-of-agricultural-sciences--department-of-livestock-production,sabaragamuwa--faculty-of-agricultural-sciences,sabaragamuwa,Department of Livestock Production
+sabaragamuwa--faculty-of-applied-sciences--department-of-food-science-and-technology,sabaragamuwa--faculty-of-applied-sciences,sabaragamuwa,Department of Food Science and Technology
+sabaragamuwa--faculty-of-applied-sciences--department-of-natural-resources,sabaragamuwa--faculty-of-applied-sciences,sabaragamuwa,Department of Natural Resources
+sabaragamuwa--faculty-of-applied-sciences--department-of-physical-sciences-and-technologies,sabaragamuwa--faculty-of-applied-sciences,sabaragamuwa,Department of Physical Sciences and Technologies
+sabaragamuwa--faculty-of-applied-sciences--department-of-sports-sciences-and-physical-education,sabaragamuwa--faculty-of-applied-sciences,sabaragamuwa,Department of Sports Sciences and Physical Education
+sabaragamuwa--faculty-of-computing--department-of-computing-and-information-systems,sabaragamuwa--faculty-of-computing,sabaragamuwa,Department of Computing and Information Systems
+sabaragamuwa--faculty-of-computing--department-of-data-science,sabaragamuwa--faculty-of-computing,sabaragamuwa,Department of Data Science
+sabaragamuwa--faculty-of-computing--department-of-software-engineering,sabaragamuwa--faculty-of-computing,sabaragamuwa,Department of Software Engineering
+sabaragamuwa--faculty-of-geomatics--department-of-remote-sensing-and-gis,sabaragamuwa--faculty-of-geomatics,sabaragamuwa,Department of Remote Sensing and GIS
+sabaragamuwa--faculty-of-geomatics--department-of-surveying-and-geodesy,sabaragamuwa--faculty-of-geomatics,sabaragamuwa,Department of Surveying and Geodesy
+sabaragamuwa--faculty-of-management-studies--department-of-accountancy-and-finance,sabaragamuwa--faculty-of-management-studies,sabaragamuwa,Department of Accountancy and Finance
+sabaragamuwa--faculty-of-management-studies--department-of-business-management,sabaragamuwa--faculty-of-management-studies,sabaragamuwa,Department of Business Management
+sabaragamuwa--faculty-of-management-studies--department-of-marketing-management,sabaragamuwa--faculty-of-management-studies,sabaragamuwa,Department of Marketing Management
+sabaragamuwa--faculty-of-management-studies--department-of-tourism-management,sabaragamuwa--faculty-of-management-studies,sabaragamuwa,Department of Tourism Management
+sabaragamuwa--faculty-of-medicine--department-of-community-medicine,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Community Medicine
+sabaragamuwa--faculty-of-medicine--department-of-forensic-medicine-and-toxicology,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Forensic Medicine and Toxicology
 sabaragamuwa--faculty-of-medicine--department-of-medicine,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Medicine
+sabaragamuwa--faculty-of-medicine--department-of-microbiology,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Microbiology
+sabaragamuwa--faculty-of-medicine--department-of-obstetrics-and-gynaecology,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Obstetrics and Gynaecology
 sabaragamuwa--faculty-of-medicine--department-of-paediatrics,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Paediatrics
-sabaragamuwa--faculty-of-social-sciences-and-languages--department-of-geography-environmental-management,sabaragamuwa--faculty-of-social-sciences-and-languages,sabaragamuwa,Department of Geography & Environmental Management
-sabaragamuwa--unassigned-faculty--department-of-animal-science-institute-of-agriculture-and-natural-resources,sabaragamuwa--unassigned-faculty,sabaragamuwa,Department of Animal Science- Institute of Agriculture and Natural Resources
+sabaragamuwa--faculty-of-medicine--department-of-parasitology,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Parasitology
+sabaragamuwa--faculty-of-medicine--department-of-pathology,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Pathology
+sabaragamuwa--faculty-of-medicine--department-of-physiology,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Physiology
+sabaragamuwa--faculty-of-medicine--department-of-psychiatry,sabaragamuwa--faculty-of-medicine,sabaragamuwa,Department of Psychiatry
+sabaragamuwa--faculty-of-social-sciences-and-languages--department-of-economics-and-statistics,sabaragamuwa--faculty-of-social-sciences-and-languages,sabaragamuwa,Department of Economics and Statistics
+sabaragamuwa--faculty-of-social-sciences-and-languages--department-of-english-language-teaching,sabaragamuwa--faculty-of-social-sciences-and-languages,sabaragamuwa,Department of English Language Teaching
+sabaragamuwa--faculty-of-social-sciences-and-languages--department-of-geography-and-environmental-management,sabaragamuwa--faculty-of-social-sciences-and-languages,sabaragamuwa,Department of Geography and Environmental Management
+sabaragamuwa--faculty-of-social-sciences-and-languages--department-of-information-technology,sabaragamuwa--faculty-of-social-sciences-and-languages,sabaragamuwa,Department of Information Technology
+sabaragamuwa--faculty-of-social-sciences-and-languages--department-of-social-sciences,sabaragamuwa--faculty-of-social-sciences-and-languages,sabaragamuwa,Department of Social Sciences
+sabaragamuwa--faculty-of-technology--department-of-biosystems-technology,sabaragamuwa--faculty-of-technology,sabaragamuwa,Department of Biosystems Technology
+sabaragamuwa--faculty-of-technology--department-of-engineering-technology,sabaragamuwa--faculty-of-technology,sabaragamuwa,Department of Engineering Technology
 seusl--faculty-of-applied-sciences--department-of-biological-sciences,seusl--faculty-of-applied-sciences,seusl,Department of Biological Sciences
+seusl--faculty-of-applied-sciences--department-of-chemical-sciences,seusl--faculty-of-applied-sciences,seusl,Department of Chemical Sciences
+seusl--faculty-of-applied-sciences--department-of-computer-science,seusl--faculty-of-applied-sciences,seusl,Department of Computer Science
+seusl--faculty-of-applied-sciences--department-of-mathematical-sciences,seusl--faculty-of-applied-sciences,seusl,Department of Mathematical Sciences
+seusl--faculty-of-applied-sciences--department-of-physical-sciences,seusl--faculty-of-applied-sciences,seusl,Department of Physical Sciences
+seusl--faculty-of-arts-and-culture--department-of-economics-and-statistics,seusl--faculty-of-arts-and-culture,seusl,Department of Economics and Statistics
+seusl--faculty-of-arts-and-culture--department-of-english-language-teaching,seusl--faculty-of-arts-and-culture,seusl,Department of English Language Teaching
+seusl--faculty-of-arts-and-culture--department-of-geography,seusl--faculty-of-arts-and-culture,seusl,Department of Geography
+seusl--faculty-of-arts-and-culture--department-of-information-technology,seusl--faculty-of-arts-and-culture,seusl,Department of Information Technology
 seusl--faculty-of-arts-and-culture--department-of-languages,seusl--faculty-of-arts-and-culture,seusl,Department of Languages
+seusl--faculty-of-arts-and-culture--department-of-political-science,seusl--faculty-of-arts-and-culture,seusl,Department of Political Science
 seusl--faculty-of-arts-and-culture--department-of-social-sciences,seusl--faculty-of-arts-and-culture,seusl,Department of Social Sciences
+seusl--faculty-of-arts-and-culture--department-of-sociology,seusl--faculty-of-arts-and-culture,seusl,Department of Sociology
+seusl--faculty-of-engineering--department-of-civil-engineering,seusl--faculty-of-engineering,seusl,Department of Civil Engineering
+seusl--faculty-of-engineering--department-of-computer-science-and-engineering,seusl--faculty-of-engineering,seusl,Department of Computer Science and Engineering
+seusl--faculty-of-engineering--department-of-electrical-and-telecommunication-engineering,seusl--faculty-of-engineering,seusl,Department of Electrical and Telecommunication Engineering
+seusl--faculty-of-engineering--department-of-inter-disciplinary-studies,seusl--faculty-of-engineering,seusl,Department of Inter Disciplinary Studies
+seusl--faculty-of-engineering--department-of-mechanical-engineering,seusl--faculty-of-engineering,seusl,Department of Mechanical Engineering
+seusl--faculty-of-islamic-studies-and-arabic-language--department-of-arabic-language,seusl--faculty-of-islamic-studies-and-arabic-language,seusl,Department of Arabic Language
 seusl--faculty-of-islamic-studies-and-arabic-language--department-of-islamic-studies,seusl--faculty-of-islamic-studies-and-arabic-language,seusl,Department of Islamic Studies
+seusl--faculty-of-management-and-commerce--department-of-accountancy-and-finance,seusl--faculty-of-management-and-commerce,seusl,Department of Accountancy and Finance
 seusl--faculty-of-management-and-commerce--department-of-management,seusl--faculty-of-management-and-commerce,seusl,Department of Management
+seusl--faculty-of-management-and-commerce--department-of-management-and-it,seusl--faculty-of-management-and-commerce,seusl,Department of Management and IT
+seusl--faculty-of-management-and-commerce--department-of-marketing-management,seusl--faculty-of-management-and-commerce,seusl,Department of Marketing Management
 seusl--faculty-of-technology--department-of-biosystems-technology,seusl--faculty-of-technology,seusl,Department of Biosystems Technology
+seusl--faculty-of-technology--department-of-information-and-communication-technology,seusl--faculty-of-technology,seusl,Department of Information and Communication Technology
 sliit--faculty-of-computing--department-of-computer-science,sliit--faculty-of-computing,sliit,Department of Computer Science
 sliit--faculty-of-computing--department-of-computer-systems-engineering,sliit--faculty-of-computing,sliit,Department of Computer Systems Engineering
 sliit--faculty-of-computing--department-of-information-technology,sliit--faculty-of-computing,sliit,Department of Information Technology

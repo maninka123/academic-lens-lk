@@ -1,8 +1,9 @@
 ﻿faculty_id,faculty_name,department_count,academic_records
-faculty-of-agricultural-sciences,Faculty of Agricultural Sciences,1,10
-faculty-of-agriculture,Faculty of Agriculture,1,1
-faculty-of-bio-science-engineering,Faculty of Bio Science Engineering,1,1
-faculty-of-computing,Faculty of Computing,1,9
-faculty-of-medicine,Faculty of Medicine,2,46
-faculty-of-social-sciences-and-languages,Faculty of Social Sciences and Languages,1,3
-unassigned-faculty,Unassigned faculty,1,4
+faculty-of-agricultural-sciences,Faculty of Agricultural Sciences,3,47
+faculty-of-applied-sciences,Faculty of Applied Sciences,4,61
+faculty-of-computing,Faculty of Computing,3,33
+faculty-of-geomatics,Faculty of Geomatics,2,17
+faculty-of-management-studies,Faculty of Management Studies,4,58
+faculty-of-medicine,Faculty of Medicine,10,45
+faculty-of-social-sciences-and-languages,Faculty of Social Sciences and Languages,5,42
+faculty-of-technology,Faculty of Technology,2,23
