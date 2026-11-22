@@ -14,26 +14,34 @@
 
 <!-- dataset-summary:start -->
 <!-- Snapshot partial-aad29575e2 -->
-**7,615 Sri Lankan profiles | 23 institutions | 1,774 international benchmark profiles.** Partial collection, updated 2026-11-22. [Coverage report](reports/validation-report.md).
+<p align="center"><strong>7,615 Sri Lankan profiles | 23 institutions | 1,774 international benchmark profiles.</strong><br><sub>Partial collection, updated 2026-11-22. <a href="reports/validation-report.md">Coverage report</a>.</sub></p>
 <!-- dataset-summary:end -->
 
 ## Screenshots
 
-Light theme shown. Every page and popup also has a dark theme (Appearance switch in the sidebar), and works from phone to wide desktop.
+Light theme shown unless marked. Every page and popup also has a dark theme (Appearance switch in the sidebar), and works from phone to wide desktop. Regenerate with `node scripts/take-screenshots.mjs`.
 
 ![Overview](docs/screenshots/overview.png)
 
-| Universities | Academic profile and research standing |
+| Universities | Institution page |
 |---|---|
-| ![Universities](docs/screenshots/universities.png) | ![Academic profile](docs/screenshots/profile.png) |
+| ![Universities](docs/screenshots/universities.png) | ![Institution](docs/screenshots/institution.png) |
+
+| Academics | Academic profile and research standing |
+|---|---|
+| ![Academics](docs/screenshots/academics.png) | ![Academic profile](docs/screenshots/profile.png) |
 
 | Compare | PhD origins |
 |---|---|
 | ![Comparison Studio](docs/screenshots/compare.png) | ![PhD origins](docs/screenshots/origins.png) |
 
-| Global benchmarks | Mobile |
+| Global benchmarks | Data and methodology |
 |---|---|
-| ![Global benchmarks](docs/screenshots/global.png) | <img src="docs/screenshots/mobile.png" alt="Mobile view" width="220" /> |
+| ![Global benchmarks](docs/screenshots/global.png) | ![Data and methodology](docs/screenshots/methodology.png) |
+
+| Dark theme | Mobile |
+|---|---|
+| ![Dark theme](docs/screenshots/dark.png) | <img src="docs/screenshots/mobile.png" alt="Mobile view" width="220" /> |
 
 ## What you can do
 

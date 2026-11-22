@@ -592,12 +592,12 @@ fs.writeFileSync(
 );
 
 // --- Keep the README snapshot in step with this import.
-for (const readme of ["README.md", "../README.md"]) {
+for (const readme of ["README.md"]) {
   if (!fs.existsSync(readme)) continue;
   const block = [
     "<!-- dataset-summary:start -->",
     `<!-- Snapshot ${version} -->`,
-    `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles | ${summary.institutionsWithProfiles} institutions | ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${metadata.updatedAt}. [Coverage report](${readme.startsWith("..") ? "App/" : ""}reports/validation-report.md).`,
+    `<p align="center"><strong>${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles | ${summary.institutionsWithProfiles} institutions | ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.</strong><br><sub>Partial collection, updated ${metadata.updatedAt}. <a href="reports/validation-report.md">Coverage report</a>.</sub></p>`,
     "<!-- dataset-summary:end -->",
   ].join("\n");
   const text = fs.readFileSync(readme, "utf8");
@@ -611,6 +611,21 @@ for (const readme of ["README.md", "../README.md"]) {
           block,
         )
       : text,
+  );
+}
+
+// The repository root README is generated from App/README.md (links re-based to the root), so the GitHub front page
+// always carries the same content and the same snapshot line. Edit App/README.md, never the root copy.
+if (fs.existsSync("README.md") && fs.existsSync("..")) {
+  const rebased = fs
+    .readFileSync("README.md", "utf8")
+    .replace(/\]\(\.\.\/LICENSE\)/g, "](LICENSE)")
+    .replace(/\]\(\.\.\/Data\//g, "](Data/")
+    .replace(/\]\((docs|reports|scripts|design-system|tests)\//g, "](App/$1/")
+    .replace(/(src|href)="(docs|reports|scripts)\//g, '$1="App/$2/');
+  fs.writeFileSync(
+    "../README.md",
+    "<!-- Generated from App/README.md by `npm run data:import`. Edit App/README.md, not this file. -->\n" + rebased,
   );
 }
 
