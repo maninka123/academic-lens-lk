@@ -592,12 +592,12 @@ fs.writeFileSync(
 );
 
 // --- Keep the README snapshot in step with this import.
-const readme = "README.md";
-if (fs.existsSync(readme)) {
+for (const readme of ["README.md", "../README.md"]) {
+  if (!fs.existsSync(readme)) continue;
   const block = [
     "<!-- dataset-summary:start -->",
     `<!-- Snapshot ${version} -->`,
-    `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles | ${summary.institutionsWithProfiles} institutions | ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${metadata.updatedAt}. [Coverage report](reports/validation-report.md).`,
+    `**${summary.academicRecords.toLocaleString("en")} Sri Lankan profiles | ${summary.institutionsWithProfiles} institutions | ${summary.internationalBenchmarks.academics.toLocaleString("en")} international benchmark profiles.** Partial collection, updated ${metadata.updatedAt}. [Coverage report](${readme.startsWith("..") ? "App/" : ""}reports/validation-report.md).`,
     "<!-- dataset-summary:end -->",
   ].join("\n");
   const text = fs.readFileSync(readme, "utf8");
