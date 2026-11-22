@@ -15,7 +15,8 @@ import { StandardsOverview } from "../components/StandardsOverview";
 
 export function Overview() {
   const [qualificationScale, setQualificationScale] = useState<"share" | "count">("share");
-  const { academics, universities: allUniversities, summary } = useData();
+  const { academics, allAcademics, universities: allUniversities, summary } = useData();
+  const collectedRows = allAcademics ?? academics;
   const universities = comparableUniversities(allUniversities);
   const { configure, setFilters } = useAtlas();
   const nav = useNavigate(),
@@ -83,18 +84,18 @@ export function Overview() {
       <dl className="fact-strip" aria-label="Collection at a glance">
         <div className="fact">
           <dt>Academics collected</dt>
-          <dd>{fmt(rows.length)}</dd>
-          <small>Published profiles, not the total academic population</small>
+          <dd>{fmt(collectedRows.length)}</dd>
+          <small>{collectedRows.length > rows.length ? `${fmt(rows.length)} used in comparisons | Not the total academic population` : "Published profiles, not the total academic population"}</small>
         </div>
         <div className="fact">
           <dt>Institutions covered</dt>
-          <dd>{`${groups.filter((g) => g.rows.length).length} of ${universities.length}`}</dd>
-          <small>{`${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties | ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments`}</small>
+          <dd>{new Set(collectedRows.map((a) => a.universityId)).size}</dd>
+          <small>{`${groups.filter((g) => g.rows.length).length} in comparisons | ${new Set(rows.map((a) => a.facultyId).filter(Boolean)).size} faculties | ${new Set(rows.map((a) => a.departmentId).filter(Boolean)).size} departments`}</small>
         </div>
         <div className="fact">
           <dt>Documented PhD</dt>
           <dd>{pct(phdCount)}</dd>
-          <small>{`${fmt(phdCount)} of ${fmt(rows.length)} profiles`}</small>
+          <small>{`${fmt(phdCount)} of ${fmt(rows.length)} compared profiles`}</small>
         </div>
         <div className="fact">
           <dt>With research data</dt>

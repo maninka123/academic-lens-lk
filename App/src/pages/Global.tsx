@@ -825,7 +825,7 @@ export function Global() {
             <span>{field}: like-for-like comparison &rarr; OpenAlex used across all groups.</span>
             <span>
               Sri Lanka: {fmt(sl.values.length)} of {fmt(sl.eligible)} profiles matched
-              {sl.eligible > 0 ? ` (${Math.round((100 * sl.values.length) / sl.eligible)}%)` : ""} · Minimum n = {minN} per median
+              {sl.eligible > 0 ? ` (${Math.round((100 * sl.values.length) / sl.eligible)}%)` : ""} | Minimum n = {minN} per median
             </span>
           </span>
           <a

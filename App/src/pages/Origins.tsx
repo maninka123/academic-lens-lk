@@ -26,7 +26,7 @@ const ORIGIN = {
 const statusLabel: Record<string, string> = {
   completed_documented: "Completed (documented)",
   in_progress: "In progress",
-  contradictory: "Contradictory — needs review",
+  contradictory: "Contradictory | needs review",
   unknown: "No doctorate documented",
 };
 type Split = {
@@ -509,7 +509,7 @@ export function Origins() {
         <Stat
           label="Documented doctorates"
           value={fmt(documented.length)}
-          detail={`${pct(documented.length, selection.length)} of ${fmt(selection.length)} profiles${sel ? " | " + sel : ""}`}
+          detail={`${pct(documented.length, selection.length)} of ${fmt(selection.length)} compared profiles${sel ? " | " + sel : ""}`}
         />
         <Stat
           label="Awarding country known"
@@ -835,7 +835,7 @@ export function Origins() {
           </div>
           <Card
             title="By discipline"
-            subtitle="Discipline inferred from faculty/department names — a descriptive grouping, not a verified classification."
+            subtitle="Discipline inferred from faculty/department names. A descriptive grouping, not a verified classification."
           >
             {compositionControls("discipline", "Discipline")}
             <Chart

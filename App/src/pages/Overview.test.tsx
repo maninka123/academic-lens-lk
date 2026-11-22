@@ -23,7 +23,7 @@ it("shows the complete overview while preserving a saved comparison institution 
     universities: academics.map(a => ({ id: a.universityId, name: a.university, short: a.university, type: "Public" })),
   } as unknown as Dataset;
   render(<MemoryRouter><DataContext.Provider value={data}><Overview /></DataContext.Provider></MemoryRouter>);
-  expect(screen.getByText("2 of 2")).toBeInTheDocument();
+  expect(screen.getByText("Institutions covered").parentElement).toHaveTextContent("2");
   expect(screen.getByText("Academics collected").parentElement).toHaveTextContent("2");
   expect(useAtlas.getState().filters.universities).toEqual(["sliit"]);
 });

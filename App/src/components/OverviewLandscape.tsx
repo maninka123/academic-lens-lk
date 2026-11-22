@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import type { Academic } from "../types";
 import { fmt } from "./common";
@@ -6,7 +7,8 @@ import { fmt } from "./common";
 type Mode = "qualification" | "position" | "research";
 type Group = { id: string; name: string; short: string; type: "Public" | "Non-state"; rows: Academic[] };
 
-const ROWS = 32; // dots per column: every institution is a block of whole columns this tall
+const MIN_ROWS = 32; // fewest dots per column; taller columns are used when the panel is too narrow for them
+const MAX_ROWS = 64;
 const GAP = 14; // space between institutions
 const MIN_PITCH = 5.5;
 const MAX_PITCH = 11;
@@ -46,6 +48,12 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
   const [active, setActive] = useState<string | null>(null);
   const [width, setWidth] = useState(1100);
   const box = useRef<HTMLDivElement>(null);
+  const scroller = useRef<HTMLDivElement>(null);
+  const [more, setMore] = useState(false);
+  const checkMore = () => {
+    const el = scroller.current;
+    if (el) setMore(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+  };
   useEffect(() => {
     const el = box.current;
     if (!el) return;
@@ -56,9 +64,19 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
     return () => ro.disconnect();
   }, []);
 
+  useEffect(() => { checkMore(); });
+
   const sorted = useMemo(() => [...groups].filter((g) => g.rows.length).sort((a, b) => b.rows.length - a.rows.length), [groups]);
-  const totalCols = sorted.reduce((s, g) => s + Math.ceil(g.rows.length / ROWS), 0);
   const gaps = Math.max(0, sorted.length - 1) * GAP;
+  // Every institution is a block of whole columns. Use the shortest columns that still fit the panel at the smallest dot size.
+  const ROWS = useMemo(() => {
+    for (let r = MIN_ROWS; r <= MAX_ROWS; r += 2) {
+      const cols = sorted.reduce((sum, g) => sum + Math.ceil(g.rows.length / r), 0);
+      if (cols * MIN_PITCH + gaps <= width) return r;
+    }
+    return MAX_ROWS;
+  }, [sorted, gaps, width]);
+  const totalCols = sorted.reduce((s, g) => s + Math.ceil(g.rows.length / ROWS), 0);
   const fit = (width - gaps) / Math.max(1, totalCols);
   const pitch = Math.min(MAX_PITCH, Math.max(MIN_PITCH, fit));
   const radius = pitch * 0.36;
@@ -75,7 +93,7 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
       x += col.w + GAP;
       return col;
     });
-  }, [sorted, mode, pitch]);
+  }, [sorted, mode, pitch, ROWS]);
 
   const totals = useMemo(() => {
     const t = new Array(labels.length).fill(0) as number[];
@@ -92,6 +110,20 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
   };
   const hover = columns.find((c) => c.g.id === active);
   const hoverInfo = hover ? detail(hover.g) : null;
+  // The card floats above the dots (never over them), inside the viewport on every side; it drops below only when there is no room above.
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState<{ left: number; top: number } | null>(null);
+  useLayoutEffect(() => {
+    if (!hover || !box.current || !cardRef.current) { setPos(null); return; }
+    const r = box.current.getBoundingClientRect();
+    const cw = cardRef.current.offsetWidth, ch = cardRef.current.offsetHeight, m = 8;
+    const cx = r.left + offset + hover.x + hover.w / 2;
+    const left = Math.min(Math.max(cx - cw / 2, m), Math.max(m, window.innerWidth - cw - m));
+    let top = r.top - ch - 10;
+    if (top < m) top = r.bottom + 10;
+    top = Math.max(m, Math.min(top, window.innerHeight - ch - m));
+    setPos({ left, top });
+  }, [active, offset, width, mode, hover?.x, hover?.w]);
   // Each name is centred under its column, or right-aligned when that would run off the panel.
   // Names take the first free row, so thin neighbouring columns never collide.
   const LANE = 26;
@@ -128,7 +160,7 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
           ))}
         </div>
       </header>
-      <div className="landscape-scroll">
+      <div className={"landscape-scroll" + (more ? " has-more" : "")} ref={scroller} onScroll={checkMore}>
         <div className="landscape-stage" ref={box} style={{ minWidth: Math.ceil(totalCols * MIN_PITCH + gaps) }}>
           <svg width="100%" height={height} viewBox={`0 0 ${width} ${height}`} role="group" aria-label="Dots grouped by institution" onMouseLeave={() => setActive(null)}>
             {columns.map((c, ci) => {
@@ -168,20 +200,22 @@ export function OverviewLandscape({ groups }: { groups: Group[] }) {
               );
             })}
           </svg>
-          {hover && hoverInfo && (
-            <div className="ls-card" role="status" style={{ left: Math.min(Math.max(offset + hover.x + hover.w / 2, 120), Math.max(120, width - 120)), top: 6 }}>
+          {hover && hoverInfo && createPortal(
+            <div ref={cardRef} className="ls-card" role="status" style={pos ? { left: pos.left, top: pos.top } : { left: -9999, top: 0 }}>
               <strong>{hover.g.name}</strong>
               <span className="ls-card-sector">{hover.g.type === "Public" ? "State university" : "Non-state institution"}</span>
               <dl>
                 <div><dt>Collected profiles</dt><dd>{fmt(hoverInfo.n)}</dd></div>
-                <div><dt>Documented PhD</dt><dd>{fmt(hoverInfo.phd)} · {Math.round((100 * hoverInfo.phd) / hoverInfo.n)}%</dd></div>
-                <div><dt>With research data</dt><dd>{fmt(hoverInfo.res)} · {Math.round((100 * hoverInfo.res) / hoverInfo.n)}%</dd></div>
+                <div><dt>Documented PhD</dt><dd>{fmt(hoverInfo.phd)} | {Math.round((100 * hoverInfo.phd) / hoverInfo.n)}%</dd></div>
+                <div><dt>With research data</dt><dd>{fmt(hoverInfo.res)} | {Math.round((100 * hoverInfo.res) / hoverInfo.n)}%</dd></div>
               </dl>
               <span className="ls-card-hint">Select to open this institution</span>
-            </div>
+            </div>,
+            document.body,
           )}
         </div>
       </div>
+      {more && <p className="landscape-scroll-hint">Scroll sideways to see more institutions.</p>}
       <footer className="landscape-foot">
         <ul className="ls-legend" aria-label="Key">
           {labels.map((l, i) => (

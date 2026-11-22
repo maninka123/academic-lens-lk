@@ -90,7 +90,7 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
       )}
       <p className="pinned-status" role="status">
         {pinned.length ? `${pinned.length} ${pinned.length === 1 ? "person" : "people"} pinned` : "Search by name, university or department."}
-        {search && !matches.length ? " · No matching unpinned profiles." : ""}
+        {search && !matches.length ? " | No matching unpinned profiles." : ""}
       </p>
       {!pinned.length && (
         <div className="pinned-empty">
@@ -131,7 +131,7 @@ export function Pinned({ comparisonRows, referenceAcademics, otherProvider, prov
               </Button>
             </div>
             <div className="pinned-meta">
-              <span>{short(a.university)} · {a.rank}</span>
+              <span>{short(a.university)} | {a.rank}</span>
               <span className={"pinned-tag" + (peer.some((r) => r.id === id) ? " in" : "")}>
                 {peer.some((r) => r.id === id)
                   ? "Included in peer group"

@@ -89,12 +89,12 @@ select[multiple] { background-image: none; padding: var(--space-2); }
 /* Segmented control: .chip-group, .chart-scale-toggle */
 .chip-group, .chart-scale-toggle { display: inline-flex; flex-wrap: nowrap; padding: 2px; gap: 2px; background: var(--color-fill); border: 1px solid var(--color-hairline); border-radius: var(--radius-md); width: fit-content; max-width: 100%; }
 .chip-group button, .chart-scale-toggle button {
-  min-height: calc(var(--control-h) - 8px); padding: 0 var(--space-3); border: 0; border-radius: 6px; background: transparent; color: var(--color-text-muted);
+  min-height: calc(var(--control-h) - 8px); padding: 0 var(--space-3); border: 0; border-radius: calc(var(--radius-md) - 2px); background: transparent; color: var(--color-text-muted);
   font-size: 12.5px; font-weight: 510; white-space: nowrap; transition: background-color var(--duration-fast), color var(--duration-fast), box-shadow var(--duration-fast);
 }
 .chip-group button:hover, .chart-scale-toggle button:hover { color: var(--color-heading); }
 .chip-group button[aria-pressed="true"], .chart-scale-toggle button[aria-pressed="true"] { background: var(--color-surface); color: var(--color-heading); box-shadow: var(--shadow-sm); }
-.chip-group button:focus-visible, .chart-scale-toggle button:focus-visible { border-radius: 6px; }
+.chip-group button:focus-visible, .chart-scale-toggle button:focus-visible { border-radius: calc(var(--radius-md) - 2px); }
 
 /* Pills and counters */
 .pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: var(--radius-full); background: var(--color-fill); color: var(--color-text-muted); font-size: 12px; font-weight: 510; white-space: nowrap; }

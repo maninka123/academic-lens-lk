@@ -14,7 +14,7 @@ export function InstitutionNotice({ university }: { university: University }) {
         {(n.source || n.status) && (
           <small>
             {n.source && <>Source: {n.source}</>}
-            {n.source && n.status && " · "}
+            {n.source && n.status && " | "}
             {n.status && <>Status: {n.status}</>}
           </small>
         )}

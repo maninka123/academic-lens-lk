@@ -261,7 +261,7 @@ footer {
 
 /* Academics: directory summary, tidy controls, profile key facts. */
 .directory-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 18px; }
-.directory-facts div { display: flex; align-items: baseline; gap: 10px; padding: 14px 18px; border-radius: var(--radius-xl); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.directory-facts div { display: flex; align-items: baseline; gap: 10px; padding: 14px 18px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
 .directory-facts strong { font-size: 1.7rem; letter-spacing: -0.03em; color: var(--heading); font-variant-numeric: tabular-nums; }
 .directory-facts span { color: var(--muted); font-size: 0.875rem; }
 @media (max-width: 1100px) { .directory-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -286,15 +286,15 @@ footer {
 
 /* ---- Research standing: stamp, bars, calculation panel ---- */
 .pct-cell { display: inline-flex; align-items: center; gap: 8px; font-weight: 590; font-variant-numeric: tabular-nums; }
-.pct-cell i { display: block; width: 64px; height: 8px; border-radius: 99px; background: var(--soft); overflow: hidden; }
-.pct-cell b { display: block; height: 100%; border-radius: 99px; }
+.pct-cell i { display: block; width: 64px; height: 8px; border-radius: var(--radius-full); background: var(--soft); overflow: hidden; }
+.pct-cell b { display: block; height: 100%; border-radius: var(--radius-full); }
 
 /* ---- Side by side (up to 3 people) ---- */
 .sbs { margin-bottom: 20px; }
 .sbs-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .sbs-grid.cols-1 { grid-template-columns: minmax(0, 420px); }
 .sbs-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.sbs-col { display: flex; flex-direction: column; gap: 14px; padding: 16px; border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: var(--radius-xl); background: var(--surface); min-width: 0; }
+.sbs-col { display: flex; flex-direction: column; gap: 14px; padding: 16px; border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: var(--radius-lg); background: var(--surface); min-width: 0; }
 .sbs-col header { display: flex; justify-content: space-between; gap: 8px; }
 .sbs-name { font-size: 1.05rem; font-weight: 590; line-height: 1.25; overflow-wrap: anywhere; }
 .sbs-col header p { margin: 2px 0 0; font-size: 0.875rem; }
@@ -343,7 +343,7 @@ footer {
 .peer-result-scope { display: block; margin-top: 2px; font-size: 0.8125rem; line-height: 1.3; color: var(--muted); }
 
 /* ---- Global benchmarks v2 ---- */
-.tier-summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 28px; align-items: center; margin: 4px 0 20px; padding: 24px 26px; border-radius: var(--radius-xl); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.tier-summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 28px; align-items: center; margin: 4px 0 20px; padding: 24px 26px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
 .tier-summary-text h2 { font-size: 1.45rem; line-height: 1.25; letter-spacing: -0.02em; margin: 6px 0 8px; }
 .tier-summary-text p { font-size: 1rem; line-height: 1.5; }
 .tier-ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
@@ -352,8 +352,8 @@ footer {
 .tier-name i { width: 12px; height: 12px; border-radius: var(--radius-xs); grid-row: 1 / span 2; }
 .tier-name b { font-size: 0.95rem; }
 .tier-name small { font-size: 0.75rem; color: var(--muted); }
-.tier-bar { height: 14px; border-radius: 99px; background: var(--soft); overflow: hidden; }
-.tier-bar span { display: block; height: 100%; border-radius: 99px; }
+.tier-bar { height: 14px; border-radius: var(--radius-full); background: var(--soft); overflow: hidden; }
+.tier-bar span { display: block; height: 100%; border-radius: var(--radius-full); }
 .tier-value { text-align: right; font-size: 1.25rem; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .tier-n { grid-column: 2 / span 2; font-size: 0.75rem; color: var(--muted); }
 .tier-ladder li.sl .tier-name b { color: #eb6834; }
@@ -361,7 +361,7 @@ footer {
 .global-options > summary { cursor: pointer; font-weight: 590; color: var(--muted); width: fit-content; }
 .global-options > div { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 24px; margin-top: 10px; padding: 12px 14px; border-radius: var(--radius-lg); background: var(--soft); }
 .bench-toolbar { margin-bottom: 12px; }
-.tier-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 590; color: #fff; background: var(--muted); }
+.tier-badge { display: inline-block; padding: 2px 10px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 590; color: #fff; background: var(--muted); }
 .tier-badge.elite { background: #104281; }
 .tier-badge.middle { background: #3987e5; }
 .tier-badge.lower { background: #5f8fcf; }
@@ -396,7 +396,7 @@ footer {
 
 /* PhD origins: four filters in one row, equal stat cards, compact status strip. */
 .status-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 6px 0 16px; }
-.status-strip > span { padding: 5px 12px; border-radius: 999px; background: var(--soft); border: 1px solid var(--border); font-size: 0.875rem; color: var(--muted); }
+.status-strip > span { padding: 5px 12px; border-radius: var(--radius-full); background: var(--soft); border: 1px solid var(--border); font-size: 0.875rem; color: var(--muted); }
 .status-strip b { color: var(--heading); font-variant-numeric: tabular-nums; margin-right: 2px; }
 .status-strip details { flex-basis: 100%; font-size: 0.875rem; color: var(--muted); }
 .status-strip summary { cursor: pointer; font-weight: 590; width: fit-content; }
@@ -463,10 +463,10 @@ footer {
 /* PhD Origins: Sri Lanka / overseas split card */
 .origin-split-card { display: flex; flex-direction: column; gap: 10px; }
 .origin-split-card .os-label { display: inline-flex; align-items: center; gap: 7px; }
-.origin-split-card .os-bar { display: flex; height: 12px; border-radius: 999px; overflow: hidden; background: var(--soft); gap: 2px; }
+.origin-split-card .os-bar { display: flex; height: 12px; border-radius: var(--radius-full); overflow: hidden; background: var(--soft); gap: 2px; }
 .origin-split-card .os-bar u { display: block; height: 100%; text-decoration: none; }
-.origin-split-card .os-bar .lk { background: var(--lk); border-radius: 999px 0 0 999px; }
-.origin-split-card .os-bar .ov { background: var(--ov); border-radius: 0 999px 999px 0; }
+.origin-split-card .os-bar .lk { background: var(--lk); border-radius: var(--radius-full) 0 0 var(--radius-full); }
+.origin-split-card .os-bar .ov { background: var(--ov); border-radius: 0 var(--radius-full) var(--radius-full) 0; }
 .origin-split-card .os-foot { color: var(--muted); font-size: .8125rem; }
 .origin-split-card .os-label { display: flex; align-items: flex-start; gap: 8px; }
 .origin-split-card .os-label svg { flex: none; margin-top: 1px; }
@@ -487,7 +487,7 @@ footer {
 
 /* PhD impact controls: tabs and filters on one line */
 .phd-impact .impact-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
-.phd-impact .impact-tabs button { display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; height: 42px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); color: var(--text); font: inherit; font-size: .9375rem; font-weight: 590; white-space: nowrap; cursor: pointer; }
+.phd-impact .impact-tabs button { display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; height: 42px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); color: var(--text); font: inherit; font-size: .9375rem; font-weight: 590; white-space: nowrap; cursor: pointer; }
 .phd-impact .impact-tabs button.active { background: var(--soft); color: var(--accent); border-color: var(--accent); }
 .origin-split-card .os-bar { height: auto; gap: 3px; background: transparent; overflow: visible; margin-top: 4px; }
 .origin-split-card .os-bar u { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 7px; align-items: center; padding: 8px 12px; min-width: 0; color: #fff; overflow: hidden; }
@@ -527,7 +527,7 @@ footer {
 
 .tier-diffs { list-style: none; margin: var(--space-4) 0 var(--space-3); padding: 0; display: grid; gap: var(--space-4); }
 .tier-diffs li { margin: 0; display: grid; grid-template-columns: 10px minmax(0, 1fr); row-gap: 2px; column-gap: var(--space-3); align-items: center; }
-.tier-diffs .tier-mark { grid-row: 1 / span 2; width: 10px; height: 10px; border-radius: 3px; background: var(--tier, var(--color-border-strong)); align-self: start; margin-top: 12px; }
+.tier-diffs .tier-mark { grid-row: 1 / span 2; width: 10px; height: 10px; border-radius: var(--radius-xs); background: var(--tier, var(--color-border-strong)); align-self: start; margin-top: 12px; }
 .tier-diff-main { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-heading); }
 .tier-diff-main svg { flex: none; color: var(--color-text-muted); }
 .tier-diffs li.lower .tier-diff-main svg { color: var(--color-danger); }
@@ -535,6 +535,6 @@ footer {
 .tier-diffs strong { font-size: 1.6rem; line-height: 1.1; letter-spacing: -0.025em; font-weight: 510; font-variant-numeric: tabular-nums; color: var(--color-heading); }
 .tier-diff-sub { font-size: 0.875rem; color: var(--color-text-muted); }
 .tier-diff-name { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-.tier-diff-bar { grid-column: 2; margin-top: 4px; height: 4px; border-radius: 2px; background: var(--color-fill); overflow: hidden; }
-.tier-diff-bar > span { display: block; height: 100%; border-radius: 2px; background: var(--tier, var(--color-border-strong)); }
+.tier-diff-bar { grid-column: 2; margin-top: 4px; height: 4px; border-radius: var(--radius-xs); background: var(--color-fill); overflow: hidden; }
+.tier-diff-bar > span { display: block; height: 100%; border-radius: var(--radius-xs); background: var(--tier, var(--color-border-strong)); }
 .tier-foot { margin: 0; display: grid; gap: 2px; font-size: 12.5px; line-height: 1.5; }

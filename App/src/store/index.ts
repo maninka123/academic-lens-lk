@@ -55,8 +55,12 @@ type State = {
 export const useAtlas = create<State>()(
   persist(
     (set) => ({
-      theme: "light",
-      themeMode: "light",
+      // First visit follows the device; a saved choice (light, dark or system) is restored by the merge below.
+      theme:
+        typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light",
+      themeMode: "system",
       filters: emptyFilters(),
       config: defaultConfig,
       pinned: [],

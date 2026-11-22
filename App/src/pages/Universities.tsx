@@ -56,8 +56,8 @@ function UniversityRow({ s, rank, min }: { s: UniversityStats; rank: number | nu
         </span>
       </span>
       <span className="uni-cell uni-profiles"><span className="uni-label">Profiles</span><strong>{fmt(s.profiles)}</strong></span>
-      <span className="uni-cell"><span className="uni-label">PhD share</span><strong>{thin || s.phdKnown < 5 ? "—" : pct(s.phd)}</strong><Meter value={thin ? null : s.phd} tone="blue" /></span>
-      <span className="uni-cell"><span className="uni-label">PhD from abroad</span><strong>{s.overseasKnown < 5 ? "—" : pct(s.overseas)}</strong><Meter value={s.overseasKnown < 5 ? null : s.overseas} tone="teal" /></span>
+      <span className="uni-cell"><span className="uni-label">PhD share</span><strong title={s.phdKnown < 5 && !thin ? "Qualifications are documented for too few profiles to show a share" : undefined}>{thin || s.phdKnown < 5 ? "—" : pct(s.phd)}</strong><Meter value={thin || s.phdKnown < 5 ? null : s.phd} tone="blue" /></span>
+      <span className="uni-cell"><span className="uni-label">PhD from abroad</span><strong title={s.overseasKnown < MIN_SAMPLE ? "Fewer than 10 PhD holders with a known country: too few to show a share" : undefined}>{s.overseasKnown < MIN_SAMPLE ? "—" : pct(s.overseas)}</strong><Meter value={s.overseasKnown < MIN_SAMPLE ? null : s.overseas} tone="teal" /></span>
       <span className="uni-cell"><span className="uni-label">Median citations</span><strong>{s.citationsN < 5 ? "—" : num(s.medianCitations)}</strong></span>
       <span className="uni-cell"><span className="uni-label">Median h-index</span><strong>{s.hN < 5 ? "—" : num(s.medianH)}</strong></span>
       <ArrowUpRight className="uni-go" size={16} aria-hidden="true" />
@@ -108,10 +108,11 @@ export function Universities() {
 
   const key: Record<Exclude<Sort, "name">, (s: UniversityStats) => number | null> = {
     profiles: (s) => s.profiles,
-    phd: (s) => (s.profiles < min ? null : s.phd),
-    overseas: (s) => s.overseas,
-    citations: (s) => s.medianCitations,
-    h: (s) => s.medianH,
+    // A figure shown as a dash is never ranked: the sort follows exactly what the table displays.
+    phd: (s) => (s.profiles < min || s.phdKnown < 5 ? null : s.phd),
+    overseas: (s) => (s.overseasKnown < MIN_SAMPLE ? null : s.overseas),
+    citations: (s) => (s.citationsN < 5 ? null : s.medianCitations),
+    h: (s) => (s.hN < 5 ? null : s.medianH),
   };
   const visible = stats
     .filter(
@@ -137,7 +138,7 @@ export function Universities() {
       <Header
         eyebrow="Universities"
         title="Every institution, at a glance."
-        description={`${covered} institutions with collected profiles. Open one to follow its faculties, departments and academics.`}
+        description={`${covered} institutions compared.${stats.some((x) => x.excludeFromComparison) ? ` ${stats.filter((x) => x.excludeFromComparison).length} more are listed with a warning and not compared.` : ""} Open one to follow its faculties, departments and academics.`}
       />
       <dl className="fact-strip spotlight" aria-label="Highlights">
         {spotlight.map(({ label, s, value }) => (
@@ -202,11 +203,15 @@ export function Universities() {
           {stats.filter((x) => x.excludeFromComparison).length > 1 ? "are" : "is"} listed with a warning and not used in any comparison: a complete public staff directory could not be found.
         </p>
       )}
-      <p className="caption uni-note">
-        <Building2 size={14} aria-hidden="true" /> Figures describe collected profiles, not whole
-        staff. Medians use profiles with a value; institutions with fewer than {min} profiles
-        or valid values are flagged and not ranked in highlights.
-      </p>
+      <div className="caption uni-note">
+        <Building2 size={14} aria-hidden="true" />
+        <ul className="uni-note-list">
+          <li>Figures cover the profiles we collected, not all staff.</li>
+          <li>Medians use only profiles that have a value.</li>
+          <li>Universities with fewer than {min} profiles or valid values are flagged and left out of the highlights.</li>
+          <li><strong>*</strong> A dash (—) means there is too little data to show a figure.</li>
+        </ul>
+      </div>
     </>
   );
 }

@@ -106,7 +106,7 @@ export function CoveragePanel({
     [
       "Collected records",
       c.records,
-      "Published profiles collected — not the total academic population",
+      "Published profiles collected | not the total academic population",
     ],
     [
       "Published qualifications",

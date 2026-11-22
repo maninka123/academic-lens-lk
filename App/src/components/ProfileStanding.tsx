@@ -211,7 +211,7 @@ export function ProfileStanding({
         </div>
         </div>
       </details>
-      <div className="profile-chart-grid">
+      <div className={"profile-chart-grid" + (a[metric] === null ? " single" : "")}>
         <div>
           <h3>
             {view === "benchmarks"
@@ -289,6 +289,7 @@ export function ProfileStanding({
             </>
           )}
         </div>
+        {a[metric] !== null && (
         <div>
           <h3>Standing in each peer group</h3>
           <p className="peer-plot-caption">
@@ -376,6 +377,7 @@ export function ProfileStanding({
             />
           )}
         </div>
+        )}
       </div>
       {a[metric] === null && (
         <p className="profile-notice">

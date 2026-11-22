@@ -37,7 +37,7 @@ import { Global } from "./pages/Global";
 import { GlobalFilterButton } from "./components/GlobalFilterButton";
 import { Button } from "./components/ui/button";
 import { BrandMark } from "./components/BrandMark";
-import { Empty } from "./components/common";
+import { Empty, Header } from "./components/common";
 import { AckGate } from "./components/AckGate";
 useAtlas.getState().configure({});
 restoreFromUrl();
@@ -257,7 +257,9 @@ function Shell() {
               )?.[1] ||
                 (location.pathname.startsWith("/university/")
                   ? "Universities"
-                  : "Overview")}
+                  : location.pathname === "/"
+                    ? "Overview"
+                    : "Page not found")}
             </span>
           </div>
           <PreviewBadge className="preview-pill" />
@@ -337,9 +339,14 @@ function Shell() {
                 <Route
                   path="*"
                   element={
-                    <Empty title="Page not found">
-                      <Link to="/">Return to overview</Link>
-                    </Empty>
+                    <>
+                      <Header
+                        eyebrow="Page not found"
+                        title="This page does not exist."
+                        description="Check the address, or go back to the overview."
+                      />
+                      <Button asChild><Link to="/">Return to overview</Link></Button>
+                    </>
                   }
                 />
               </Routes>

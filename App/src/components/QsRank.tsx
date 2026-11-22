@@ -14,10 +14,10 @@ export function qsMain(a: Qs): string | null {
 /** Plain-text version, for tables and exports. */
 export function qsText(a: Qs): string | null {
   const m = qsMain(a);
-  return m ? `${m} · 2027` : null;
+  return m ? `${m} | 2027` : null;
 }
 
-/** Ranking of the PhD-awarding university: "QS #4 · 2027". */
+/** Ranking of the PhD-awarding university: "QS #4 | 2027". */
 export function QsRank({ academic }: { academic: Qs }) {
   const main = qsMain(academic);
   if (!main) return null;
@@ -28,7 +28,7 @@ export function QsRank({ academic }: { academic: Qs }) {
       title={`QS World University Rankings 2027${academic.phdQsStatus === "ranked" ? `: ${tied ? "joint " : ""}${academic.phdQsRank!.replace("=", "")}` : ": not ranked"}`}
     >
       <b>{main}</b>
-      <i>· 2027</i>
+      <i>| 2027</i>
     </span>
   );
 }

@@ -22,6 +22,9 @@ export type UniversityStats = University & {
   withMetric: number | null;
 };
 
+/** Minimum share of an institution's profiles with documented qualifications before its PhD share is shown. */
+export const MIN_QUALIFICATION_COVERAGE = 0.3;
+
 /** One row of headline facts per institution; thin samples are kept but flagged by callers. */
 export function universityStats(
   academics: Academic[],
@@ -47,7 +50,8 @@ export function universityStats(
       faculties: new Set(rows.map((a) => a.facultyId).filter(Boolean)).size,
       departments: new Set(rows.map((a) => a.departmentId).filter(Boolean)).size,
       phd: phd.value,
-      phdKnown: phd.n,
+      // A share is only meaningful when qualifications are documented for most profiles; otherwise the documented ones are mostly the PhD holders.
+      phdKnown: rows.length && phd.n / rows.length < MIN_QUALIFICATION_COVERAGE ? 0 : phd.n,
       overseas: overseas.value,
       overseasKnown: overseas.n,
       seniorShare: rows.length ? (100 * senior) / rows.length : null,

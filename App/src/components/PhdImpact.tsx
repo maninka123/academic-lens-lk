@@ -85,7 +85,7 @@ export function PhdImpact({ documented, minN, col }: { documented: Academic[]; m
       : BAND_COLORS[g.label] ?? col.unknown;
 
   const tip = (g: GroupStat) =>
-    `${g.label}<br/>${statName} ${measure}: <b>${g.value === null ? "—" : fmt(g.value, 1)}</b><br/>Median ${g.median === null ? "—" : fmt(g.median, 1)} · Mean ${g.mean === null ? "—" : fmt(g.mean, 1)}<br/>Middle 50%: ${g.q1 === null ? "—" : fmt(g.q1, 1)} to ${g.q3 === null ? "—" : fmt(g.q3, 1)}<br/>${g.n} with a value of ${g.people} people${g.lowN ? `<br/><i>Fewer than ${minN} values: indicative only</i>` : ""}`;
+    `${g.label}<br/>${statName} ${measure}: <b>${g.value === null ? "—" : fmt(g.value, 1)}</b><br/>Median ${g.median === null ? "—" : fmt(g.median, 1)} | Mean ${g.mean === null ? "—" : fmt(g.mean, 1)}<br/>Middle 50%: ${g.q1 === null ? "—" : fmt(g.q1, 1)} to ${g.q3 === null ? "—" : fmt(g.q3, 1)}<br/>${g.n} with a value of ${g.people} people${g.lowN ? `<br/><i>Fewer than ${minN} values: indicative only</i>` : ""}`;
 
   const barOption = (groups: GroupStat[]) => ({
     tooltip: { trigger: "item", confine: true, formatter: (p: any) => tip(groups[p.dataIndex]) },

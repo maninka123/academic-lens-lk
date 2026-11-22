@@ -91,7 +91,7 @@ export function Academics() {
             <input
               type="search"
               aria-label="Search people by name"
-              placeholder="Name, university, department or research interest"
+              placeholder="Name, university, department or topic"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -139,17 +139,17 @@ const evidenceLabel = (value: string | number | null) => {
   if (value === null || value === "" || value === "Unknown")
     return "Not yet documented";
   const labels: Record<string, string> = {
-    listed_completed: "Completed — listed in qualifications",
+    listed_completed: "Completed | listed in qualifications",
     completed: "Completed",
     in_progress: "In progress",
     not_published_or_not_extracted: "Not yet documented",
     not_explicitly_verified: "Appointment type not confirmed",
-    permanent_officially_listed: "Permanent — officially listed",
-    emeritus_officially_listed: "Emeritus — officially listed",
+    permanent_officially_listed: "Permanent | officially listed",
+    emeritus_officially_listed: "Emeritus | officially listed",
     former_institution_appointment_current_other_institution:
-      "Former appointment — now at another institution",
+      "Former appointment | now at another institution",
     overlapping_institution_appointments_review_required:
-      "Multiple affiliations — review needed",
+      "Multiple affiliations | review needed",
     Unmapped: "Not yet classified",
   };
   return typeof value === "string" ? labels[value] || value : value;
@@ -224,9 +224,9 @@ export function profileEvidence(a: Academic) {
   return { identity, employment, doctorate };
 }
 const doctorateText: Record<string, string> = {
-  completed_documented: "Completed — documented in the source",
-  in_progress: "In progress — not counted as a completed PhD",
-  contradictory: "Contradictory evidence — not counted until reviewed",
+  completed_documented: "Completed | documented in the source",
+  in_progress: "In progress | not counted as a completed PhD",
+  contradictory: "Contradictory evidence | not counted until reviewed",
   unknown: "Not documented",
 };
 export function Profile() {

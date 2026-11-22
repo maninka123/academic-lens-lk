@@ -65,10 +65,13 @@ export function Methodology() {
     ["recentCitations", "5-year citations"],
     ["hIndex", "h-index"],
   ];
-  const groups = d.universities.map((u) => ({
-    ...u,
-    rows: rows.filter((a) => a.universityId === u.id),
-  }));
+  // Institutions are listed from the most to the fewest collected profiles; those with none come last.
+  const groups = d.universities
+    .map((u) => ({
+      ...u,
+      rows: rows.filter((a) => a.universityId === u.id),
+    }))
+    .sort((a, b) => b.rows.length - a.rows.length || a.name.localeCompare(b.name));
   const pct = (n: number, of: number) =>
     of ? fmt((100 * n) / of, 1) + "%" : "—";
   return (
@@ -79,8 +82,8 @@ export function Methodology() {
         description="How the collection was built, how statistics are calculated, and where evidence is missing."
       />
       <section className="method-glance" aria-label="Collection at a glance">
-        <div><strong>{fmt(rows.length)}</strong><span>profiles in view</span></div>
-        <div><strong>{comparableUniversities(d.universities).filter((u) => d.academics.some((a) => a.universityId === u.id)).length} / {comparableUniversities(d.universities).length}</strong><span>institutions covered</span></div>
+        <div><strong>{fmt(rows.length)}</strong><span>profiles compared</span></div>
+        <div><strong>{comparableUniversities(d.universities).filter((u) => d.academics.some((a) => a.universityId === u.id)).length} / {comparableUniversities(d.universities).length}</strong><span>institutions compared</span></div>
         <div><strong>{pct(rows.filter((a) => a.researchObservations?.length || a.scholarStatus === "verified_official_link" || a.scholarStatus === "matched_user_supplied_platform_evidence" || a.openAlexUrl).length, rows.length)}</strong><span>research identity linked</span></div>
         <div><strong>{pct(rows.filter((a) => a.citations !== null || a.hIndex !== null).length, rows.length)}</strong><span>with citation data</span></div>
         <div><strong>{d.metadata.collectionDate}</strong><span>collected</span></div>
@@ -197,7 +200,7 @@ export function Methodology() {
         <div className="method-sections concise-methods">
           <Section title="Scope & collection" icon={Database}>
             <ul>
-              <li><b>14</b> Sri Lankan institutions; public and non-state shown separately</li>
+              <li><b>{new Set((d.allAcademics ?? d.academics).map((a) => a.universityId)).size}</b> Sri Lankan institutions; public and non-state shown separately</li>
               <li><b>Official</b> staff pages only, with source links and dates</li>
               <li><b>Partial</b> coverage; confirmed duplicates share one ID</li>
             </ul>

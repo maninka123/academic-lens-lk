@@ -13,8 +13,8 @@
 </div>
 
 <!-- dataset-summary:start -->
-<!-- Snapshot partial-70abffb41a -->
-**7,626 Sri Lankan profiles | 23 institutions | 1,774 international benchmark profiles.** Partial collection, updated 2026-11-22. [Coverage report](reports/validation-report.md).
+<!-- Snapshot partial-aad29575e2 -->
+**7,615 Sri Lankan profiles | 23 institutions | 1,774 international benchmark profiles.** Partial collection, updated 2026-11-22. [Coverage report](reports/validation-report.md).
 <!-- dataset-summary:end -->
 
 ## Screenshots
