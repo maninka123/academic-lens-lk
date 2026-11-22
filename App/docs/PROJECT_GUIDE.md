@@ -75,6 +75,16 @@ npm run data:import
 
 OpenAlex responses are cached in `scripts/baselines/_cache/`. Set `OPENALEX_API_KEY` to go beyond the small anonymous daily budget.
 
+## Website Analytics
+
+Lanka Academia uses Cloudflare Web Analytics to understand website activity and improve the platform.
+
+Analytics include visits, page views and general traffic trends. Data is collected without cookies or persistent visitor tracking, and individual visitors are not identified.
+
+Statistics are indicative and may not represent all website activity.
+
+For more information, see our [Privacy Notice](legal/PRIVACY.md). Technical details are in [ANALYTICS.md](ANALYTICS.md).
+
 ## GitHub Pages
 
 - On every push and pull request, `.github/workflows/deploy.yml` imports the data, checks the public-asset allowlist, type-checks, tests, builds, scans the built site for internal files or credentials, and uploads it as an artifact.
@@ -85,13 +95,13 @@ OpenAlex responses are cached in `scripts/baselines/_cache/`. Set `OPENALEX_API_
 
 ## Interpreting comparisons
 
-- Missing values are excluded, never treated as zero. Log charts leave zeros out and report how many.
-- Primary comparisons use one provider (Google Scholar, ResearchGate or OpenAlex); mixed providers are a labelled exploratory mode.
+What the numbers mean, their limits, missing values and responsible use are explained once, in [HOW_TO_INTERPRET_DATA.md](HOW_TO_INTERPRET_DATA.md) (also in the app at **How to interpret the data**). Implementation rules:
+
+- Log charts leave zeros out and report how many. Mixed providers are a labelled exploratory mode.
 - Groups under 10 valid values are flagged and not ranked; percentiles need at least 5 valid peers. Percentiles use midrank ties; quartiles use linear interpolation; whiskers show observed min/max.
 - Every comparison shows eligible records, valid values, completeness, provider and date, and exports to CSV with its settings and dataset version.
 - Equal university weight = the mean of available university statistics. h-index values are never summed, and combined career totals are not a university's historical output.
 - "Five-year" citations means received in 2021–2025; five-year Q1 means qualifying papers published then.
-- Citation position does not measure academic or teaching quality. Definitions are on Data & Methodology.
 
 ## Display names and verification
 

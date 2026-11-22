@@ -31,9 +31,21 @@ Our basis for this processing is the public-interest and research purpose of the
 - The project is hosted on GitHub (repository and GitHub Pages). GitHub processes technical data about visitors under its own privacy statement.
 - Internal verification notes are not shown on the website and are kept out of the current repository, in private local storage. Copies may remain in older Git history, in clones, forks and caches, and behind GitHub's own references (see [DATA_POLICY.md](../DATA_POLICY.md)); we cannot guarantee they are erased.
 - We do not sell data and do not share it with anyone beyond this public publication.
+- Cloudflare processes website analytics data for us under its own privacy terms (section 6). We do not receive visitor-level data.
 
 ## 6. What the website stores about visitors
-Lanka Academia has **no accounts, no analytics and no advertising**. Your browser stores a few settings locally on your own device (pinned academics, theme and that you accepted the first-visit notice). They never leave your browser and you can clear them at any time. A comparison "share link" contains only the selections you chose.
+Lanka Academia has **no accounts or advertising**. Browser preferences (theme, pinned academics and acknowledgement status) are stored locally on your device and never leave it. A comparison "share link" contains only the selections you chose.
+
+### Website Usage Analytics
+
+We use [Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/) to understand website traffic and improve the platform.
+
+- **Privacy:** No tracking cookies, visitor identification or individual browsing histories. Do Not Track and Global Privacy Control signals are respected.
+- **Data:** Cloudflare processes page addresses, referrers, approximate countries, device and browser information, and page-load performance. We access aggregate statistics only.
+- **Visibility:** Only site-wide usage statistics may be published. Geographic and referral breakdowns remain private.
+- **Limitations:** Analytics may miss some activity, do not measure unique visitors and cannot reliably distinguish navigation between pages.
+
+These statistics describe website activity, not whether visitors read or believed particular information.
 
 ## 7. Contact and requests
 Requests to correct or remove a profile can be sent through the routes below.
@@ -49,6 +61,7 @@ Our target is to respond to requests within 14 days. Where a removal is accepted
 - **Published profiles:** for as long as the project is active, or until you ask for removal.
 - **Private audit trail** (sources, retrieval dates, matching notes): kept privately, off the public repository, for as long as needed to check accuracy, and removed or reduced on request.
 - **Old versions:** the repository keeps history, and copies may exist in caches, forks or archives we do not control. Where a request is accepted, we aim to remove the live data and, where practical, to clear earlier versions.
+- **Website analytics:** Cloudflare keeps the data for the period in its documentation. We keep dated, private, aggregate exports (counts by day, by country and by referring site, with no visitor identifiers) for as long as needed for research and to resolve disputes.
 - If the project ends, the dataset will be archived without individual profiles or deleted.
 
 ## 9. Accuracy and safeguards

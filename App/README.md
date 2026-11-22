@@ -6,7 +6,7 @@
 
 `Ongoing Research | Public Preview`
 
-[**Open the app**](https://maninka123.github.io/academic-lens-lk/) | [Documentation](docs/PROJECT_GUIDE.md) | [Dataset guide](../Data/Lanka-Academia/README.md) | [Report a correction](https://github.com/maninka123/academic-lens-lk/issues/new/choose)
+[**Open the app**](https://maninka123.github.io/academic-lens-lk/) | [Documentation](docs/PROJECT_GUIDE.md) | [How to interpret the data](docs/HOW_TO_INTERPRET_DATA.md) | [Dataset guide](../Data/Lanka-Academia/README.md) | [Report a correction](https://github.com/maninka123/academic-lens-lk/issues/new/choose)
 
 ![License: MIT](https://img.shields.io/badge/code-MIT-blue) ![Stats: CC BY 4.0](https://img.shields.io/badge/stats-CC%20BY%204.0-blue) ![Status: partial collection](https://img.shields.io/badge/data-partial%20collection-orange)
 
@@ -19,7 +19,7 @@
 
 ## Screenshots
 
-Light theme shown unless marked. All pages also have a dark theme (sidebar switch) and work on phone and desktop. Regenerate: `node scripts/take-screenshots.mjs`.
+Light theme shown unless marked. All pages also have a dark theme (sidebar switch) and work on phone and desktop.
 
 ![Overview](docs/screenshots/overview.png)
 
@@ -91,9 +91,9 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 - **Adding people:** list pages give names and positions; each person's own profile page gives their Google Scholar and ResearchGate links, which are then used for metrics before any name search. Metrics come from OpenAlex and, for linked profiles, Google Scholar via a quota-first [pipeline](scripts/scholar_scraper/README.md).
 - **Titles:** **Prof** for documented professorial positions, otherwise **Dr** for a completed research doctorate.
 - **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
-- **Research standing:** [how the score is calculated](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
+- **Research standing:** [methodology](docs/STANDING_SCORE.md) | **Yearly citations:** [how to add them](docs/SCHOLAR_YEARLY.md)
 
-More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md) | [Two workflows](docs/WORKFLOWS.md) | [Record counts](docs/DATA_COUNTS.md)
+More: [Methodology & setup](docs/PROJECT_GUIDE.md) | [How to interpret the data](docs/HOW_TO_INTERPRET_DATA.md) | [Data policy](docs/DATA_POLICY.md) | [Collection prompt](docs/DATA_COLLECTION_PROMPT.md) | [Two workflows](docs/WORKFLOWS.md) | [Record counts](docs/DATA_COUNTS.md)
 
 ## Global benchmark method
 
@@ -146,7 +146,7 @@ Map boundaries: [Natural Earth / world-atlas](https://github.com/topojson/world-
 | **Code** | [MIT](../LICENSE) |
 | **Aggregate statistics and reports** | [CC BY 4.0](docs/legal/DATA_LICENSE.md): free to use with credit. Individual records are excluded from this licence. |
 | **Notice** | [Data may be wrong, no warranty, third-party material](docs/legal/NOTICE.md) |
-| **Privacy and data use** | [PRIVACY.md](docs/legal/PRIVACY.md): what is collected, why and how long it is kept |
+| **Privacy and data use** | [Privacy Notice](docs/legal/PRIVACY.md): what is collected, why and how long it is kept |
 | **Ethics and data statement** | [ETHICS_AND_DATA.md](docs/legal/ETHICS_AND_DATA.md) |
 
 Copyright (c) 2026 Pasindu Ranasinghe.

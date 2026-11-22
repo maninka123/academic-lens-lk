@@ -149,3 +149,9 @@ Data/Lanka-Academia/User updates/
 # The whole folder is excluded. scripts/privacy-guard.mjs also blocks it if anything is force-added.
 International-Doctoral-Training-Study/
 Data/Doctoral-Training-Study/
+
+# Private website analytics exports and credentials (never committed)
+private/analytics/
+**/analytics*private*
+**/analytics*export*
+**/analytics*raw*
