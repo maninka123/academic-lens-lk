@@ -3,7 +3,7 @@
 
 # Lanka Academia
 
-**Explore who teaches and researches at Sri Lankan universities, how they compare, and where their PhDs were awarded.**
+**Explore Sri Lanka's academic landscape through research metrics, institutional comparisons, and interactive insights.**
 
 `Ongoing Research | Public Preview`
 
@@ -20,7 +20,7 @@
 
 ## Screenshots
 
-Light theme shown unless marked. Every page and popup also has a dark theme (Appearance switch in the sidebar), and works from phone to wide desktop. Regenerate with `node scripts/take-screenshots.mjs`.
+Light theme shown unless marked. All pages also have a dark theme (sidebar switch) and work on phone and desktop. Regenerate: `node scripts/take-screenshots.mjs`.
 
 ![Overview](App/docs/screenshots/overview.png)
 
