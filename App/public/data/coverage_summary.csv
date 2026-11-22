@@ -1,11 +1,11 @@
 university_id,university,type,academic_records,verified_identity,verified_employment,with_any_metric,with_qualifications,doctorate_documented,doctorate_in_progress,doctorate_contradictory,needs_review,faculties_represented,departments_represented,units_discovered,units_visited,roster_status
-colombo,University of Colombo,Public,750,375,149,603,617,318,19,0,1,12,70,178,139,incomplete — collected profiles are not a staff census
-peradeniya,University of Peradeniya,Public,848,26,44,646,613,353,25,0,0,9,85,106,84,incomplete — collected profiles are not a staff census
-jayewardenepura,University of Sri Jayewardenepura,Public,720,3,5,503,509,301,12,0,0,7,66,5,5,incomplete — collected profiles are not a staff census
+colombo,University of Colombo,Public,740,375,140,594,665,323,18,1,2,12,70,178,139,incomplete — collected profiles are not a staff census
+peradeniya,University of Peradeniya,Public,829,26,25,632,611,351,25,0,0,9,85,106,84,incomplete — collected profiles are not a staff census
+jayewardenepura,University of Sri Jayewardenepura,Public,715,3,0,499,504,296,12,0,0,7,66,5,5,incomplete — collected profiles are not a staff census
 kelaniya,University of Kelaniya,Public,529,67,15,330,262,150,8,0,0,6,41,18,15,incomplete — collected profiles are not a staff census
-moratuwa,University of Moratuwa,Public,464,220,3,373,411,270,1,1,1,5,36,91,82,incomplete — collected profiles are not a staff census
-jaffna,University of Jaffna,Public,545,71,12,329,382,140,21,0,0,11,72,118,109,incomplete — collected profiles are not a staff census
-ruhuna,University of Ruhuna,Public,701,67,1,552,682,332,30,0,0,9,61,4,4,incomplete — collected profiles are not a staff census
+moratuwa,University of Moratuwa,Public,463,220,3,373,411,272,1,0,0,5,36,91,82,incomplete — collected profiles are not a staff census
+jaffna,University of Jaffna,Public,543,71,12,328,382,140,21,0,0,11,72,118,109,incomplete — collected profiles are not a staff census
+ruhuna,University of Ruhuna,Public,683,67,1,543,669,322,30,0,0,9,61,4,4,incomplete — collected profiles are not a staff census
 kdu,General Sir John Kotelawala Defence University,Public,326,45,0,233,281,82,17,0,0,11,35,32,9,incomplete — collected profiles are not a staff census
 sliit,Sri Lanka Institute of Information Technology,Non-state,260,74,0,225,220,89,19,0,0,10,15,0,0,incomplete — collected profiles are not a staff census
 nsbm,NSBM Green University,Non-state,136,104,0,128,136,27,20,0,0,5,19,37,37,incomplete — collected profiles are not a staff census
@@ -15,10 +15,10 @@ kiu,KIU,Non-state,1,0,0,1,0,0,0,0,0,1,0,24,24,incomplete — collected profiles 
 icbt,ICBT Campus,Non-state,4,2,0,2,3,1,1,0,0,1,0,8,7,incomplete — collected profiles are not a staff census
 uwu,Uva Wellassa University of Sri Lanka,Public,208,82,0,158,185,82,1,0,6,5,20,29,29,incomplete — collected profiles are not a staff census
 sabaragamuwa,Sabaragamuwa University of Sri Lanka,Public,324,0,0,240,100,56,0,0,0,8,33,0,0,not_assessed
-wayamba,Wayamba University of Sri Lanka,Public,196,0,2,136,196,114,11,0,0,5,27,0,0,not_assessed
+wayamba,Wayamba University of Sri Lanka,Public,193,0,0,135,193,112,11,0,0,5,27,0,0,not_assessed
 rajarata,Rajarata University of Sri Lanka,Public,345,0,0,209,106,59,0,0,0,6,44,0,0,not_assessed
-eastern,"Eastern University, Sri Lanka",Public,251,0,1,164,222,86,8,0,0,8,44,0,0,not_assessed
+eastern,"Eastern University, Sri Lanka",Public,250,0,0,163,221,85,8,0,0,8,44,0,0,not_assessed
 seusl,South Eastern University of Sri Lanka,Public,248,0,0,160,184,66,4,0,0,6,26,0,0,not_assessed
-ousl,The Open University of Sri Lanka,Public,421,0,9,274,394,172,11,0,0,7,34,0,0,not_assessed
+ousl,The Open University of Sri Lanka,Public,412,0,0,270,390,168,11,0,0,7,34,0,0,not_assessed
 uvpa,University of the Visual and Performing Arts,Public,149,0,0,14,106,31,2,0,0,4,25,0,0,not_assessed
 apiit,Asia Pacific Institute of Information Technology (APIIT),Non-state,66,0,0,11,66,7,4,0,0,9,0,0,0,not_assessed

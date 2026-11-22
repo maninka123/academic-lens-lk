@@ -433,7 +433,6 @@ SL-43d756c7bcd8,,,,,,openalex_multiple_candidates_requires_review
 SL-e0928f9dbbea,,,,,,openalex_no_name_match_at_institution
 SL-045b94c1bd48,,,,,,openalex_multiple_candidates_requires_review
 SL-832468760b7e,,,,,,openalex_no_name_match_at_institution
-SL-ba75213d2bf0,,,,,,openalex_no_name_match_at_institution
 SL-88465ea92fe3,,,,,,openalex_multiple_candidates_requires_review
 SL-b8ff8c44414b,62,328,104,10,https://openalex.org/A5000118406,openalex_matched_surname_initials_and_institution
 SL-acf4c2b5e351,17,93,85,5,https://openalex.org/A5014148706,openalex_matched_surname_initials_and_institution
@@ -575,7 +574,6 @@ SL-2c6c4190a5be,,,,,,openalex_no_name_match_at_institution
 SL-8aa3d69f1126,,,,,,openalex_no_name_match_at_institution
 SL-27bd3c7ac231,,,,,,openalex_no_name_match_at_institution
 SL-19529489c0f4,,,,,,openalex_no_name_match_at_institution
-SL-edc42c298d8b,,,,,,openalex_no_name_match_at_institution
 SL-24cc00b90be8,,,,,,openalex_no_name_match_at_institution
 SL-33c3fe6890c9,,,,,,openalex_no_name_match_at_institution
 SL-115e7690fb71,,,,,,openalex_no_name_match_at_institution
@@ -606,7 +604,6 @@ SL-bec528abc541,,,,,,openalex_no_name_match_at_institution
 SL-1103f1429fb6,,,,,,openalex_no_name_match_at_institution
 SL-56c0a2782a5c,,,,,,openalex_no_name_match_at_institution
 SL-87014acf951d,,,,,,openalex_no_name_match_at_institution
-SL-83dde8134071,,,,,,openalex_no_name_match_at_institution
 SL-51a15f8c4c7c,,,,,,openalex_no_name_match_at_institution
 SL-358553910a1e,,,,,,openalex_no_name_match_at_institution
 SL-c9da4033ad15,,,,,,openalex_no_name_match_at_institution
@@ -648,8 +645,6 @@ SL-87c3038b95ed,7,5,1,1,https://openalex.org/A5041850801,openalex_matched_surnam
 SL-4a1ee64df47b,4,8,3,2,https://openalex.org/A5058408725,openalex_matched_surname_initials_and_institution
 SL-d05ff8a34907,,,,,,openalex_no_name_match_at_institution
 SL-36f396e5ac34,,,,,,openalex_no_name_match_at_institution
-SL-75ef1003784b,,,,,,openalex_no_name_match_at_institution
-SL-9aec7becf8b5,,,,,,openalex_no_name_match_at_institution
 SL-db5f62990baf,,,,,,openalex_no_name_match_at_institution
 SL-dcf3f507a9f5,,,,,,openalex_no_name_match_at_institution
 SL-c8773f4c726a,,,,,,openalex_no_name_match_at_institution
