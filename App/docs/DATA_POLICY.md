@@ -59,4 +59,4 @@ Requests for a factual correction or for removal of a record can be made through
 3. Removal requests: run `node scripts/removals.mjs add <ID> --reason "…"`. The record is removed from the source file and the published files at once, archived privately, and entered in a private list (ID, date, reason) that every import and the privacy guard enforce, so it is not re-collected or re-published. Evidence needed for research integrity is retained privately.
 4. Re-run `npm run data:import`, check the public output, and deploy manually.
 
-Our target is to respond to requests within 14 days.
+The contact routes, response target and removal wording are in the [privacy notice](legal/PRIVACY.md) (section 7).

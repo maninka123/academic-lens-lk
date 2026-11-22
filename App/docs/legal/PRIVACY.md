@@ -1,6 +1,6 @@
 # Privacy and data-use notice
 
-*Lanka Academia | Ongoing Research | Public Preview | Last updated 15 November 2026*
+*Lanka Academia | Ongoing Research | Public Preview | Last updated 22 November 2026*
 
 This notice explains what information Lanka Academia publishes, where it comes from, why it is used, how long it is kept, and how to contact us.
 
@@ -24,7 +24,7 @@ Only public sources: official university staff directories and profile pages, pu
 ## 4. Why we process it
 To provide a descriptive, public-interest overview of academic capacity in Sri Lanka: who works where, how qualifications are distributed, and how research output compares between groups and with international benchmarks. It is **not** used to assess, rank, hire, promote, fund or discipline any individual, and no decision about a person is made automatically.
 
-Our basis for this processing is the public-interest and research purpose of the project, using information already made public by the person or their institution, kept to the minimum needed. Requests to correct or remove a profile are considered as described in section 7.
+We process publicly available professional and research information to support an independent research project examining Sri Lanka's academic landscape. We limit the information published to what is relevant to this purpose and provide procedures for correction and removal (section 7).
 
 ## 5. Who sees it, and where it is stored
 - The profile information is **published openly** on the website and in this repository, so anyone can read it.
@@ -51,11 +51,11 @@ These statistics describe website activity, not whether visitors read or believe
 Requests to correct or remove a profile can be sent through the routes below.
 
 How to reach us:
-- **Email:** pmranasinghe97@gmail.com
+- **Email (preferred, and private):** pmranasinghe97@gmail.com
 - **Public request:** https://github.com/maninka123/academic-lens-lk/issues/new/choose (use the "Correction or removal request" form; do not post private details)
-- **Private request:** https://github.com/maninka123/academic-lens-lk/security/advisories/new (the form looks technical: [box-by-box guide with text to copy](https://github.com/maninka123/academic-lens-lk/blob/main/.github/SECURITY.md))
+- **Alternative private route:** https://github.com/maninka123/academic-lens-lk/security/advisories/new, only if you cannot email (the form looks technical: [box-by-box guide with text to copy](https://github.com/maninka123/academic-lens-lk/blob/main/.github/SECURITY.md))
 
-Our target is to respond to requests within 14 days. Where a removal is accepted, we aim to apply it in a later data release. Where a profile is removed, we keep only a minimal record that a request was made, so it is not re-added.
+Academics may request correction or removal of their profiles, and no reason is needed for removal. Requests are acknowledged with a target response time of 14 days. After verifying that a removal request concerns the relevant person, we remove the profile from the actively maintained dataset and website and take steps to prevent republication. Earlier copies may remain outside our control. We keep only a minimal record that a request was made, so the profile is not re-added.
 
 ## 8. How long we keep information
 - **Published profiles:** for as long as the project is active, or until you ask for removal.
@@ -65,7 +65,7 @@ Our target is to respond to requests within 14 days. Where a removal is accepted
 - If the project ends, the dataset will be archived without individual profiles or deleted.
 
 ## 9. Accuracy and safeguards
-The data is partial and may be wrong, outdated or mis-matched, and it is not an assessment of anyone (see [NOTICE.md](NOTICE.md)). We use unverified labels, keep unknown values blank rather than guessing, apply minimum sample sizes, and show individual figures only on a person's own profile, never as ranked lists of people.
+The data is partial and may be wrong, outdated or mis-matched, and it is not an assessment of anyone (see [NOTICE.md](NOTICE.md)). We use unverified labels, keep unknown values blank rather than guessing, apply minimum sample sizes, and show each figure with its source where available. Individual research metrics may appear in searchable and sortable academic directories and profiles. These figures describe recorded research activity and do not constitute rankings of academic quality, competence or professional suitability.
 
 ## 10. Changes
 We will update this notice if how we collect or use information changes, and will change the date above. Questions about this notice can be raised through the contact routes in section 7.

@@ -4,6 +4,8 @@ A 0–100 **weighted blend of percentiles** that shows where a profile sits amon
 
 [Main README](../README.md) · code: `src/analytics/standing-score.ts` · [validation study](../research/scoring-validation/README.md) · [methods](../research/scoring-validation/METHODOLOGY.md) · [results](../research/scoring-validation/RESULTS.md)
 
+> Validation findings refer to an earlier dataset snapshot and may not reflect current coverage or score distributions.
+
 ## How it is calculated
 
 1. For each available measure, rank the person within a peer group: `percentile = 100 × (below + ½ tied) / n`. Peers must share the same data provider.

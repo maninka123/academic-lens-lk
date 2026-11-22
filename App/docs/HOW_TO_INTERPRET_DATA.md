@@ -90,7 +90,7 @@ If you still need to rely on a figure, first:
 
 ## 11. Corrections and removal
 
-Academics can request a correction or removal. Removal needs no reason. Corrections need the profile link, the field and an official source. Contact routes are in [legal/NOTICE.md](legal/NOTICE.md) and [legal/PRIVACY.md](legal/PRIVACY.md); the target response is 14 days, and accepted changes are applied in a later data release.
+Academics can request a correction or removal. Removal needs no reason. Corrections need the profile link, the field and an official source. Contact routes and the 14-day target for acknowledging requests are in [legal/PRIVACY.md](legal/PRIVACY.md) (section 7).
 
 ## 12. Our position on accuracy
 
@@ -98,5 +98,5 @@ Academics can request a correction or removal. Removal needs no reason. Correcti
 - It is provided in good faith and "as is", without warranty (see [legal/NOTICE.md](legal/NOTICE.md)). Values can be missing, outdated or wrongly matched.
 - Values are never invented or filled by guesswork. Unknown stays unknown, and each figure shows its source, sample size and coverage so it can be checked.
 - It does not assess any person's quality, competence or suitability, and it is not endorsed by any institution. The research standing figure is a descriptive position among collected profiles only.
-- If you believe a record is wrong or affects you unfairly, use the correction or removal route above. We respond within the target time and apply accepted changes.
+- If you believe a record is wrong or affects you unfairly, use the correction or removal route above. We acknowledge requests within the target time and act on verified ones.
 - Ethics and data practice: [legal/ETHICS_AND_DATA.md](legal/ETHICS_AND_DATA.md).

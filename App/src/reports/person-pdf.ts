@@ -190,7 +190,7 @@ export async function buildPersonReport(
   y += 30;
 
   // ---------- how the score is calculated ----------
-  heading("How the score is calculated", "A 0-100% blend of percentile ranks. 50% is typical for the peer group; higher is further ahead. It describes position among collected profiles, not quality, teaching or service.");
+  heading("How the score is calculated", "An indicative 0–100 indicator calculated from a weighted blend of research-metric percentiles. 50 is typical for the peer group; higher is further ahead. It describes position among collected profiles, not quality, teaching or service.");
   const steps: [string, string][] = [
     ["1", `Peer group: ${scored || score.groupLabel ? score.groupLabel : "no fair peer group"}${score.groupSize ? ` (${num(score.groupSize)} profiles)` : ""}. People are compared by career stage and broad discipline, using values from the same source only.`],
     ["2", "Each measure becomes a percentile within that group: (people below + half of ties) / people with a value x 100."],

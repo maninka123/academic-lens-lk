@@ -10,7 +10,7 @@
 - The "research standing" figure is a descriptive position among collected profiles only.
 
 ## No warranty
-Provided "as is". The authors accept no liability for errors, omissions or any use of the data or software.
+Provided "as is", without warranties of any kind. To the extent permitted by applicable law, the authors accept no liability for errors, omissions or any use of the data or software.
 
 ## Third-party material
 - **OpenAlex** data: CC0.
@@ -20,11 +20,6 @@ Provided "as is". The authors accept no liability for errors, omissions or any u
 - **Map boundaries**: Natural Earth. Flag icons: country-flag-icons (MIT).
 
 ## Corrections and removal
-Requests for a correction or removal can be made through the routes below.
-1. **Email:** pmranasinghe97@gmail.com
-2. **Public request:** open a *Correction or removal request* issue: https://github.com/maninka123/academic-lens-lk/issues/new/choose
-3. **Private request:** use **Security → Report a vulnerability** on the repository (https://github.com/maninka123/academic-lens-lk/security/advisories/new) if you do not want your request to be public. The form looks technical, so there is a [box-by-box guide with text to copy](https://github.com/maninka123/academic-lens-lk/blob/main/.github/SECURITY.md).
-
-Our target is to respond within 14 days. Where a request is accepted, we aim to apply it in a later data release.
+Academics may request correction or removal of their profiles, and no reason is needed for removal. The process, contact routes and timings are in the [privacy and data-use notice](PRIVACY.md) (section 7).
 
 Licences: code [MIT](../../../LICENSE) | aggregate statistics and reports [CC BY 4.0](DATA_LICENSE.md) | individual records are not covered by a Creative Commons licence. Ethics statement: [ETHICS_AND_DATA.md](ETHICS_AND_DATA.md). Privacy and data use: [PRIVACY.md](PRIVACY.md).

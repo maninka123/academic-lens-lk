@@ -50,7 +50,7 @@ Light theme shown unless marked. All pages also have a dark theme (sidebar switc
 |---|---|
 | **Universities** | A card per institution: profiles, PhD share, PhD from abroad, median citations and h-index. |
 | **Academics** | Search profiles, view up to three people side by side, and download a profile report (PDF) or its data (CSV). |
-| **Research standing** | A transparent 0-100% score showing where a person sits among comparable academics. Click it to see the calculation. |
+| **Research standing** | An indicative 0-100 research-metric indicator based on weighted percentiles within available peer groups. See [the calculation and its limitations](App/docs/STANDING_SCORE.md). |
 | **Compare** | Build your own comparisons across universities, faculties, departments, positions and PhD countries. |
 | **PhD origins** | Where doctorates were awarded and how that differs by institution, position and discipline. |
 | **Global benchmarks** | Sri Lanka against elite, middle and lower QS-ranked universities in seven countries, by discipline and seniority. |
@@ -62,9 +62,9 @@ Light theme shown unless marked. All pages also have a dark theme (sidebar switc
 |---|---|
 | `App/` | The web app: `src/`, `public/` (generated site data), `scripts/` (import, metrics, checks), `tests/`, `design-system/`, `package.json` |
 | `Data/Lanka-Academia/` | The single authoritative dataset: one CSV per department, plus rankings and review files (evidence stays git-ignored) |
-| `docs/` | Guides, policies and legal notices (`docs/legal/`), workflows and screenshots |
+| `App/docs/` | Guides, policies and legal notices (`App/docs/legal/`), workflows and screenshots |
 | `.github/` | CI workflow, issue forms and `SECURITY.md` (private-request guide) |
-| `reports/` | Generated coverage and validation reports |
+| `App/reports/` | Generated coverage and validation reports |
 | `private/` | Local only, never committed (API keys, ethics documents) |
 
 ## Run locally
@@ -88,7 +88,7 @@ npm run dev        # http://localhost:5173/academic-lens-lk/
 ## How the data works
 
 - **Missing stays missing.** An unknown value is never treated as zero.
-- **Every comparison shows its source, sample size and coverage.** Citation counts are not a measure of academic quality.
+- **Comparisons show their source, sample size and coverage where available.** Citation counts are not a measure of academic quality.
 - **Adding people:** list pages give names and positions; each person's own profile page gives their Google Scholar and ResearchGate links, which are then used for metrics before any name search. Metrics come from OpenAlex and, for linked profiles, Google Scholar via a quota-first [pipeline](App/scripts/scholar_scraper/README.md).
 - **Titles:** **Prof** for documented professorial positions, otherwise **Dr** for a completed research doctorate.
 - **Asterisk (\*)** marks a documented completed research doctorate. A medical qualification alone does not count.
@@ -111,23 +111,7 @@ Research comparisons use matched OpenAlex profiles on both sides, with Computer 
 
 ### Substitutions
 
-Where a first-choice directory was unreachable, the next university in the same band was used:
-
-| Used | Instead of | Reason |
-|---|---|---|
-| ANU (AU, elite) | Melbourne (QS 22) | directories return HTTP 403 |
-| Murdoch (AU, middle) | Canberra (QS 477) | HTTP 403 |
-| UniSC (AU, lower) | Charles Sturt (951-1000) | HTTP 403; no physics, so engineering used |
-| CDU (AU, middle) | Canberra, JCU, CQU, ECU | all block automated access; no physics, only IT sampled |
-| IIT BHU (IN, middle) | Anna University (470) | sites unreachable |
-| IIT Indore (IN, middle) | none | physics site returns 403; only CSE sampled |
-| IIT Bhubaneswar (IN, lower) | Aligarh Muslim | JavaScript-only pages |
-| Bordeaux (FR, middle) | Montpellier (473) | JavaScript-only directory |
-| CY Cergy (FR, lower) | Nantes (901-950) | AJAX-protected; only computing sampled |
-| Windsor (CA, middle) | Guelph (546) | JavaScript-only directory |
-| Würzburg (DE, middle) | Leipzig (540) | no professor lists |
-| TU Chemnitz (DE, lower) | Bielefeld (1001-1200) | no consolidated professor list |
-| Wuppertal (DE, lower) | Oldenburg | no consolidated professor list |
+Where a first-choice university's directory was unreachable, the next university in the same band was used. Each substitution and its reason is recorded in the international `universities.csv` (`substitution_note`).
 
 </details>
 
