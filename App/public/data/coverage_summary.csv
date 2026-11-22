@@ -2,7 +2,7 @@ university_id,university,type,academic_records,verified_identity,verified_employ
 colombo,University of Colombo,Public,740,375,140,595,665,323,18,1,2,12,70,178,139,incomplete — collected profiles are not a staff census
 peradeniya,University of Peradeniya,Public,829,26,25,632,611,351,25,0,0,9,85,106,84,incomplete — collected profiles are not a staff census
 jayewardenepura,University of Sri Jayewardenepura,Public,715,3,0,499,504,296,12,0,0,7,66,5,5,incomplete — collected profiles are not a staff census
-kelaniya,University of Kelaniya,Public,529,67,15,330,262,150,8,0,0,6,41,18,15,incomplete — collected profiles are not a staff census
+kelaniya,University of Kelaniya,Public,529,67,15,331,262,150,8,0,0,6,41,18,15,incomplete — collected profiles are not a staff census
 moratuwa,University of Moratuwa,Public,463,220,3,373,411,272,1,0,0,5,36,91,82,incomplete — collected profiles are not a staff census
 jaffna,University of Jaffna,Public,543,71,12,328,382,140,21,0,0,11,72,118,109,incomplete — collected profiles are not a staff census
 ruhuna,University of Ruhuna,Public,683,67,1,543,669,322,30,0,0,9,61,4,4,incomplete — collected profiles are not a staff census
@@ -18,7 +18,7 @@ sabaragamuwa,Sabaragamuwa University of Sri Lanka,Public,324,0,0,240,100,56,0,0,
 wayamba,Wayamba University of Sri Lanka,Public,193,0,0,135,193,112,11,0,0,5,27,0,0,not_assessed
 rajarata,Rajarata University of Sri Lanka,Public,345,0,0,209,106,59,0,0,0,6,44,0,0,not_assessed
 eastern,"Eastern University, Sri Lanka",Public,250,0,0,163,221,85,8,0,0,8,44,0,0,not_assessed
-seusl,South Eastern University of Sri Lanka,Public,248,0,0,160,184,66,4,0,0,6,26,0,0,not_assessed
+seusl,South Eastern University of Sri Lanka,Public,248,0,0,161,184,66,4,0,0,6,26,0,0,not_assessed
 ousl,The Open University of Sri Lanka,Public,412,0,0,270,390,168,11,0,0,7,34,0,0,not_assessed
 uvpa,University of the Visual and Performing Arts,Public,149,0,0,14,106,31,2,0,0,4,25,0,0,not_assessed
 apiit,Asia Pacific Institute of Information Technology (APIIT),Non-state,66,0,0,11,66,7,4,0,0,9,0,0,0,not_assessed
